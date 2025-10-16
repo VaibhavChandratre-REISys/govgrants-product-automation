@@ -1,4 +1,4 @@
-@organizationalDeskReviewWB @grantor-regression @grantor-parallel-regression @siteVisit @regression @siteAndDeskReview
+@organizationalDeskReviewWB @grantor-regression @grantor-parallel-regression @siteVisit @regression @siteAndDeskReview @deskExecution
 Feature: Validate all scenarios in Organizational Desk Review Without Background
 
   @235434 @ValidateDeskReviewPOusercanbletoreassigndeskreviewownershipfromPOtootherPOuserCreatedstateofdeskreview @sprint-14-US-234219  @reassignment @FieldHistoryExclude
@@ -40,7 +40,7 @@ Feature: Validate all scenarios in Organizational Desk Review Without Background
     And I pause execution for "2" seconds
     And I logout
     And I pause execution for "2" seconds
-    And I checkout to yopmail with mailid "automationpo@yopmail.com"
+    And I checkout to yopmail with mailid "automation.po.qa2@yopmail.com"
     Then I refresh the page
     And I see the mail subject is as follows :
       """
@@ -65,7 +65,7 @@ Feature: Validate all scenarios in Organizational Desk Review Without Background
       The EGMS Team
       """
     Given I am on "INTERNAL" portal
-    And I checkout to yopmail with mailid "automationpo1@yopmail.com"
+    And I checkout to yopmail with mailid "automation.po1.qa2@yopmail.com"
     And I pause execution for "10" seconds
     Then I refresh the page
     And I see the mail subject is as follows :
@@ -158,7 +158,7 @@ Feature: Validate all scenarios in Organizational Desk Review Without Background
     And I pause execution for "2" seconds
     And I logout
     And I pause execution for "2" seconds
-    And I checkout to yopmail with mailid "exe.automation@yopmail.com"
+    And I checkout to yopmail with mailid "exe.automation.qa2@yopmail.com"
     Then I refresh the page
     And I see the mail subject is as follows :
       """
@@ -183,7 +183,7 @@ Feature: Validate all scenarios in Organizational Desk Review Without Background
       The EGMS Team
       """
     Given I am on "INTERNAL" portal
-    And I checkout to yopmail with mailid "exe1.automation@yopmail.com"
+    And I checkout to yopmail with mailid "exe1.automation.qa2@yopmail.com"
     And I pause execution for "10" seconds
     Then I refresh the page
     And I see the mail subject is as follows :
@@ -347,7 +347,7 @@ Feature: Validate all scenarios in Organizational Desk Review Without Background
     And I pause execution for "2" seconds
     And I logout
     And I pause execution for "2" seconds
-    And I checkout to yopmail with mailid "pm.automation@yopmail.com"
+    And I checkout to yopmail with mailid "pm.automation.qa2@yopmail.com"
     Then I refresh the page
     And I see the mail subject is as follows :
       """
@@ -372,7 +372,7 @@ Feature: Validate all scenarios in Organizational Desk Review Without Background
       The EGMS Team
       """
     Given I am on "INTERNAL" portal
-    And I checkout to yopmail with mailid "pm1.automation@yopmail.com"
+    And I checkout to yopmail with mailid "pm1.automation.qa2@yopmail.com"
     And I pause execution for "10" seconds
     Then I refresh the page
     And I see the mail subject is as follows :
@@ -488,7 +488,7 @@ Feature: Validate all scenarios in Organizational Desk Review Without Background
     And I pause execution for "2" seconds
     And I logout
     And I pause execution for "2" seconds
-    And I checkout to yopmail with mailid "exe.automation@yopmail.com"
+    And I checkout to yopmail with mailid "exe.automation.qa2@yopmail.com"
     Then I refresh the page
     And I see the mail subject is as follows :
       """
@@ -513,7 +513,7 @@ Feature: Validate all scenarios in Organizational Desk Review Without Background
       The EGMS Team
       """
     Given I am on "INTERNAL" portal
-    And I checkout to yopmail with mailid "exe1.automation@yopmail.com"
+    And I checkout to yopmail with mailid "exe1.automation.qa2@yopmail.com"
     And I pause execution for "10" seconds
     Then I refresh the page
     And I see the mail subject is as follows :
@@ -850,7 +850,8 @@ Feature: Validate all scenarios in Organizational Desk Review Without Background
     Then I softly see value "{SavedValue:DeskReviewID}" for title "Site Visit ID" inside table "---sitevisits:-:siteVisitTargetTableId---"
     And I pause execution for "2" seconds
     And I logout
-    And I checkout to yopmail with mailid "pm.automation@yopmail.com"
+    And I pause execution for "2" seconds
+    And I checkout to yopmail with mailid "pm.automation.qa2@yopmail.com"
     Then I refresh the page
     And I see the mail subject is as follows :
       """
@@ -875,7 +876,7 @@ Feature: Validate all scenarios in Organizational Desk Review Without Background
       The EGMS Team
       """
     Given I am on "INTERNAL" portal
-    And I checkout to yopmail with mailid "pm1.automation@yopmail.com"
+    And I checkout to yopmail with mailid "pm1.automation.qa2@yopmail.com"
     And I pause execution for "10" seconds
     Then I refresh the page
     And I see the mail subject is as follows :
@@ -1013,7 +1014,9 @@ Feature: Validate all scenarios in Organizational Desk Review Without Background
       | Passed | ReviewComments__c |
     When I click modal button "Save"
     And I click on submit review
-    And I checkout to yopmail with mailid "automationpo1@yopmail.com"
+    And I wait for "3" seconds
+    Then I softly see value "Submitted" for title "Status" against the value "{SavedValue:PM Username}" inside table "---orgLevelDeskReview:-:orgDeskReviewPeerReviewTableId---"
+    And I checkout to yopmail with mailid "automation.po1.qa2@yopmail.com"
     And I pause execution for "10" seconds
     Then I refresh the page
     And I see the mail subject is as follows :
@@ -1113,7 +1116,7 @@ Feature: Validate all scenarios in Organizational Desk Review Without Background
     And I pause execution for "2" seconds
     And I logout
     And I pause execution for "2" seconds
-    And I checkout to yopmail with mailid "fo.automation@yopmail.com"
+    And I checkout to yopmail with mailid "fo.automation.qa2@yopmail.com"
     Then I refresh the page
     And I see the mail subject is as follows :
       """
@@ -1138,7 +1141,7 @@ Feature: Validate all scenarios in Organizational Desk Review Without Background
       The EGMS Team
       """
     Given I am on "INTERNAL" portal
-    And I checkout to yopmail with mailid "fo1.automation@yopmail.com"
+    And I checkout to yopmail with mailid "fo1.automation.qa2@yopmail.com"
     And I pause execution for "10" seconds
     Then I refresh the page
     And I see the mail subject is as follows :
@@ -1390,7 +1393,7 @@ Feature: Validate all scenarios in Organizational Desk Review Without Background
     And I pause execution for "2" seconds
     And I logout
     And I pause execution for "2" seconds
-    And I checkout to yopmail with mailid "exe.automation@yopmail.com"
+    And I checkout to yopmail with mailid "exe.automation.qa2@yopmail.com"
     Then I refresh the page
     And I see the mail subject is as follows :
       """
@@ -1415,7 +1418,7 @@ Feature: Validate all scenarios in Organizational Desk Review Without Background
       The EGMS Team
       """
     Given I am on "INTERNAL" portal
-    And I checkout to yopmail with mailid "exe1.automation@yopmail.com"
+    And I checkout to yopmail with mailid "exe1.automation.qa2@yopmail.com"
     And I pause execution for "10" seconds
     Then I refresh the page
     And I see the mail subject is as follows :
@@ -1464,7 +1467,7 @@ Feature: Validate all scenarios in Organizational Desk Review Without Background
     And I collapse nested table containing column value "Automation Finding"
     When I click on "Submit to Grantor" in the page details
     Then I softly see field "Status" as "Submitted to Grantor"
-    And I checkout to yopmail with mailid "exe1.automation@yopmail.com"
+    And I checkout to yopmail with mailid "exe1.automation.qa2@yopmail.com"
     And I pause execution for "10" seconds
     Then I refresh the page
     And I see the mail subject is as follows :
@@ -1545,7 +1548,7 @@ Feature: Validate all scenarios in Organizational Desk Review Without Background
     And I pause execution for "2" seconds
     And I logout
     And I pause execution for "2" seconds
-    And I checkout to yopmail with mailid "pm.automation@yopmail.com"
+    And I checkout to yopmail with mailid "pm.automation.qa2@yopmail.com"
     Then I refresh the page
     And I see the mail subject is as follows :
       """
@@ -1570,7 +1573,7 @@ Feature: Validate all scenarios in Organizational Desk Review Without Background
       The EGMS Team
       """
     Given I am on "INTERNAL" portal
-    And I checkout to yopmail with mailid "pm1.automation@yopmail.com"
+    And I checkout to yopmail with mailid "pm1.automation.qa2@yopmail.com"
     And I pause execution for "10" seconds
     Then I refresh the page
     And I see the mail subject is as follows :
@@ -1603,7 +1606,7 @@ Feature: Validate all scenarios in Organizational Desk Review Without Background
     And I click on "Start" icon for "{SavedValue:DeskReviewID}" inside flex table with id "---sitevisits:-:monitoringTabPhasePendingTasks---"
     And I "Send Back" in the approval decision
     Then I softly see field "Status" as "In Progress"
-    And I checkout to yopmail with mailid "pm1.automation@yopmail.com"
+    And I checkout to yopmail with mailid "pm1.automation.qa2@yopmail.com"
     And I pause execution for "20" seconds
     Then I refresh the page
     And I see the mail subject is as follows :
@@ -1679,7 +1682,7 @@ Feature: Validate all scenarios in Organizational Desk Review Without Background
     Then I softly see value "{SavedValue:DeskReviewID}" for title "Site Visit ID" inside table "---sitevisits:-:siteVisitTargetTableId---"
     And I pause execution for "2" seconds
     And I logout
-#    And I checkout to yopmail with mailid "automationfd@yopmail.com"
+#    And I checkout to yopmail with mailid "automation.fd.qa2@yopmail.com"
 #    Then I refresh the page
 #    And I see the mail subject is as follows :
 #      """
@@ -1704,7 +1707,7 @@ Feature: Validate all scenarios in Organizational Desk Review Without Background
 #      The EGMS Team
 #      """
 #    Given I am on "INTERNAL" portal
-#    And I checkout to yopmail with mailid "automationfd1@yopmail.com"
+#    And I checkout to yopmail with mailid "automation.fd1.qa2@yopmail.com"
 #    And I pause execution for "10" seconds
 #    Then I refresh the page
 #    And I see the mail subject is as follows :
@@ -1873,7 +1876,7 @@ Feature: Validate all scenarios in Organizational Desk Review Without Background
     Then I softly see value "{SavedValue:DeskReviewID}" for title "Site Visit ID" inside table "---sitevisits:-:siteVisitTargetTableId---"
     And I pause execution for "2" seconds
     And I logout
-#    And I checkout to yopmail with mailid "automationfd@yopmail.com"
+#    And I checkout to yopmail with mailid "automation.fd.qa2@yopmail.com"
 #    Then I refresh the page
 #    And I see the mail subject is as follows :
 #      """
@@ -1898,7 +1901,7 @@ Feature: Validate all scenarios in Organizational Desk Review Without Background
 #      The EGMS Team
 #      """
 #    Given I am on "INTERNAL" portal
-#    And I checkout to yopmail with mailid "automationfd1@yopmail.com"
+#    And I checkout to yopmail with mailid "automation.fd1.qa2@yopmail.com"
 #    And I pause execution for "10" seconds
 #    Then I refresh the page
 #    And I see the mail subject is as follows :

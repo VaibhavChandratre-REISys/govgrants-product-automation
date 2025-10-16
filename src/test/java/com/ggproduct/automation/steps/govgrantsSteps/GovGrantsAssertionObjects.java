@@ -513,7 +513,7 @@ public final class GovGrantsAssertionObjects {
      * @modifier aashish.pardeshi
      */
     public void assertPageMessageValue(boolean contains, List<String> unsanitizedDesiredMessages, String isSoftly) {
-        By pageMessagesSelector = By.xpath("//c-flex-layout-page-messages//span[text()] | //span[contains(@class,'toastMessage')] | //div[@class='errorMsg']//span[@part='formatted-rich-text'] | //div[@class='successMsg']//span[@part='formatted-rich-text'] | //gnt-flex-layout-page-messages//span//lightning-formatted-text | //c-flex-layout-page-messages//span//lightning-formatted-text | //span[@class='toastMessage forceActionsText'] | //span[contains(@class,'changeOwnerErrorMessage')] | //flowruntime-error-content//lightning-formatted-rich-text//span | //div[@data-id='modalcontent1']//lightning-formatted-rich-text//span | //c-flex-layout-page-messages//lightning-formatted-rich-text//span | //div[@class='page-message-error']//span[@part='formatted-rich-text'] | //div[@id='WorkspaceFiles']//div[@data-aura-class='GNTPageMessage']//div[@class='uiOutputRichText'] | //flowruntime-lwc-field//lightning-formatted-rich-text//p//b");
+        By pageMessagesSelector = By.xpath("//c-flex-layout-page-messages//span[text()] | //span[contains(@class,'toastMessage')] | //div[@class='errorMsg']//span[@part='formatted-rich-text'] | //div[contains(@class,'errorMsg')]//span[@part='formatted-rich-text'] | //div[@class='successMsg']//span[@part='formatted-rich-text'] | //gnt-flex-layout-page-messages//span//lightning-formatted-text | //c-flex-layout-page-messages//span//lightning-formatted-text | //span[@class='toastMessage forceActionsText'] | //span[contains(@class,'changeOwnerErrorMessage')] | //flowruntime-error-content//lightning-formatted-rich-text//span | //div[@data-id='modalcontent1']//lightning-formatted-rich-text//span | //c-flex-layout-page-messages//lightning-formatted-rich-text//span | //div[@class='page-message-error']//span[@part='formatted-rich-text'] | //div[@id='WorkspaceFiles']//div[@data-aura-class='GNTPageMessage']//div[@class='uiOutputRichText'] | //flowruntime-lwc-field//lightning-formatted-rich-text//p//b");
 
         List<String> desiredMessages = unsanitizedDesiredMessages
                 .stream().map(str -> str.replaceAll("\uFFFD\\?", "\"")
@@ -908,7 +908,7 @@ public final class GovGrantsAssertionObjects {
         if (uniqueColumnValue.equalsIgnoreCase("Record Id")) {
             columnValueUpdated = govgrants.perform().pageDetails().idOfRecord;
         }
-        WebElement ClickSelector = I.amPerforming().getElementReference().of(By.xpath("//div[contains(@aria-label,'" + tableId + "')]//table//th//*[text()='" + columnValueUpdated + "']//ancestor::tr//td//a[@role='button']"));
+        WebElement ClickSelector = I.amPerforming().getElementReference().of(By.xpath("//h2//*[text()='" + tableId + "']/../parent::div/ancestor::div[contains(@class,'results')]//table//th//*[text()='" + columnValueUpdated + "']//ancestor::tr//td//a[@role='button']"));
 
         I.amPerforming().click().withJavaScript(ClickSelector);
         List<Elements> elements = I.amPerforming().getElementReference().forListOfElements().of(By.xpath("//div[@role='menu']//ul//li//*[text()='" + buttonName + "']"));
@@ -943,8 +943,8 @@ public final class GovGrantsAssertionObjects {
      * @modifier pooja.gundle -- added xpath
      */
     public void getSubTabsInsideMainDetailPage(String desiredSubTab, boolean assertCan, boolean isSoftly) {
-        By allSubTabsLocator = By.xpath("//div[@class='layout']//ul//li//a[@data-label] | //div[@class='slds-tabs_default']//ul//li//a[@data-label]");
-
+        By allSubTabsLocator = By.xpath("//div[@class='layout']//ul//li//a[@data-label] | //div[@class='slds-tabs_default']//ul//li//a[@data-label] | //div[contains(@class,'slds-tabs_default')]//ul//li//a[@data-label]");
+        I.amPerforming().waitFor().ElementToBePresent(By.xpath("//div[@class='layout']//ul//li//a[@data-label]"));
         List<String> allSubTabNames;
         try {
             allSubTabNames = I.amPerforming().getElementReference().forListOfElements().of(allSubTabsLocator)
@@ -2098,21 +2098,19 @@ public final class GovGrantsAssertionObjects {
      */
     public void assertMailSubjectTexMatches(String mailportal, String subjectText) {
         if (mailportal.equals("maildrop")) {
-            By actualmMailSubjectLine = By.xpath("//div[@class='messagelist-container']/div[1]/a");
+            By actualmMailSubjectLine = By.xpath("//div[contains(@class,'message')]//div[text()='" + subjectText + "']");
             try {
                 for (int i = 0; i < 60; i++) {
-                    I.amPerforming().click().on(By.xpath("//button/span[text()='Reload']"));
+                    I.amPerforming().click().on(By.xpath("//button/span[text()='Refresh']"));
                     if (I.amPerforming().checkToSee().IsElementPresentQuick(actualmMailSubjectLine)) {
                         I.amPerforming().click().on(actualmMailSubjectLine);
                         I.amPerforming().waitFor().makeThreadSleep(5000);
-                        I.amPerforming().assertionsTo().assertThat(I.amPerforming().actionToGet().text(By.xpath("//div[1]/a//div[@class='messagelist-subject']//span")))
+                        I.amPerforming().assertionsTo().assertThat(I.amPerforming().actionToGet().text(By.xpath("//div[contains(@class,'ml-16')]//div[contains(@class,'lg')]//div[3]")))
                                 .isEqualToIgnoringWhitespace(subjectText);
-                        I.amPerforming().waitFor().makeThreadSleep(2000);
-                        I.amPerforming().click().on(ByUsing.xpath("//button//span[contains(text(),'Close')]"));
                         break;
                     }
                     I.amPerforming().waitFor().makeThreadSleep(4000);
-                    I.amPerforming().click().on(By.xpath("//button/span[text()='Reload']"));
+                    I.amPerforming().click().on(By.xpath("//button/span[text()='Refresh']"));
                 }
             } catch (Exception e) {
                 //unhandled exception
@@ -3701,6 +3699,7 @@ public final class GovGrantsAssertionObjects {
     public boolean AssertTextinModal(String text) {
         boolean flag = false;
         try {
+            I.amPerforming().waitFor().ElementToBePresent(By.xpath("//div[contains(@class,'slds-modal__container')]//*[contains(text(),'" + text + "')]"));
             if (I.amPerforming().checkToSee().isDisplayed(I.amPerforming().getElementReference().of(ByUsing.xpath("//div[contains(@class,'slds-modal__container')]//*[contains(text(),'" + text + "')]")))) {
                 flag = true;
             }
@@ -4287,5 +4286,48 @@ public final class GovGrantsAssertionObjects {
         } catch (Exception e) {
         }
         return flag;
+    }
+
+    public void assertalueForTheEditModeField(String usage, String fieldName, String fieldAPIName) {
+        if (usage.equalsIgnoreCase("see")) {
+            Assert.assertTrue(isValueForTheEditModeField(fieldName, fieldAPIName));
+        } else if (usage.equalsIgnoreCase("softly see")) {
+            I.amPerforming().assertionsTo().assertThat(isValueForTheEditModeField(fieldName, fieldAPIName)).isTrue();
+        } else if (usage.equalsIgnoreCase("do not see")) {
+            Assert.assertFalse(isValueForTheEditModeField(fieldName, fieldAPIName));
+        } else {
+            I.amPerforming().assertionsTo().assertThat(isValueForTheEditModeField(fieldName, fieldAPIName)).isFalse();
+        }
+    }
+
+    private Boolean isValueForTheEditModeField(String fieldName, String fieldAPIName) {
+        boolean flag = false;
+        try {
+            String value = I.amPerforming().actionToGet().attribute(By.xpath("//div[@data-field_api_name='" + fieldAPIName + "']//input[@type='text'] | //div[contains(@class,'modal__container')]//div[@data-field_api_name='" + fieldAPIName + "']//input[@type='text']"),"value");
+            if (value.equalsIgnoreCase(fieldName)) {
+                flag = true;
+            }
+        } catch (Exception e) {
+        }
+        return flag;
+    }
+	
+    public void assertValuesAreInFlexTableWithColumnTitleForGlobalSearch(String columnValue, String columnTitle, String flexTableDivId,
+                                                                         Boolean checkifpresent, boolean isSoftly) {
+        String columnValueUpdated = columnValue;
+        if (columnValue.equalsIgnoreCase("Record Id")) {
+            columnValueUpdated = govgrants.perform().pageDetails().idOfRecord;
+        }
+        if (checkifpresent != govgrants.perform().flexTable().assertCoulmnValueAgainstColumnTitleForGlobalSearch(columnValueUpdated, columnTitle,
+                flexTableDivId)) {
+        }
+
+        if (isSoftly) {
+            I.amPerforming().assertionsTo().assertThat(govgrants.perform().flexTable().assertCoulmnValueAgainstColumnTitleForGlobalSearch(columnValueUpdated, columnTitle,
+                    flexTableDivId)).isEqualTo(checkifpresent);
+        } else {
+            Assert.assertEquals(checkifpresent, govgrants.perform().flexTable().assertCoulmnValueAgainstColumnTitleForGlobalSearch(columnValueUpdated, columnTitle,
+                    flexTableDivId));
+        }
     }
 }

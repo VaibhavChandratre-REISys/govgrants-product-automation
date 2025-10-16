@@ -368,7 +368,7 @@ Feature: Validate all scenarios of every modules flow
     When I enter the following values into flex table with id "---paymentRequest:-:paymentLineItemsTableId---" by clicking "New" :
       | Title        | Narrative     | Unit Price | Quantity | Measurement |
       | Extra Salary | The narrative | 30         | 1        | Feet        |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Payment Line Items" modal by clicking the top right x button
     And I click on "Submit to Grantor" in the page details
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -1401,7 +1401,7 @@ Feature: Validate all scenarios of every modules flow
     When I enter the following values into flex table with id "---paymentRequest:-:paymentLineItemsTableId---" by clicking "New" :
       | Title        | Narrative     | Unit Price | Quantity | Measurement | Advance Applied |
       | Extra Salary | The narrative | 30         | 1        | Feet        | 10              |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Payment Line Items" modal by clicking the top right x button
     And I click on "Submit to Grantor" in the page details
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -1593,7 +1593,7 @@ Feature: Validate all scenarios of every modules flow
     And I click on top right button "Send Email" in flex table with id "CommunicationHistory"
     And I send the email under collab tab with following details:
       | To                        | Cc                         | Subject | Body            |
-      | pm.automation@yopmail.com | exe.automation@yopmail.com | test    | Automation Test |
+      | pm.automation.qa2@yopmail.com | exe.automation.qa2@yopmail.com | test    | Automation Test |
     Then I see the text "Email Sent Successfully." in modal
 
   @granteeExecution1 @443 @ValidatePMusershouldabletoCreateActivatetheKPI
@@ -1720,21 +1720,11 @@ Feature: Validate all scenarios of every modules flow
     And I create Application "{SavedValue:Automation Runtime Opportunity}" with state "Submitted to Grantor" for opportunity number "CAS-HHS0000660610" with properties "default"
     And I halt execution
 
-  @debug
-  Scenario:
-    Given I am on "SUBPORTAL" portal
-    When I login to "Grants Portal" app as "SPI3" user
-    And I wait for "10" seconds
-    And I navigate to url "https://test8-internal--ggdev2.sandbox.my.site.com/recipient/s/award/a1oDk000000nDNJIA2/adga2651"
-    And I halt execution
-    When I click on "Accept" in the page details
-    And I halt execution
-
   @testCheck
   Scenario:
-    And I login to "Grantor" app as "PM" user
-    When I re-login to "Grantor" app as "dynamicUser" user on "INTERNAL" portal
-#    And I published "Directed" type announcement having name "Directed Permanent Archived Annoucement" and properties "default"
+#    And I login to "Grantor" app as "PM" user
+#    When I re-login to "Grantor" app as "dynamicUser" user on "INTERNAL" portal
+    And I published "Formula" type announcement having name "Automation Permanent Archived Formula Ann-By Applicant and Focus Area" and properties "BY_APPLICANT_FOCUS_AREA"
 #    And I initiated an application review for application "{SavedValue:Automation Permanent FDM Approved Closed Formula Ann-By App and Focus Area}" on announcement "{SavedValue:Automation Permanent FDM Approved Closed Formula Ann-By App and Focus Area}" with properties "default"
 #    And I created approved FDM on application "{SavedValue:Automation Permanent FDM Approved Closed Formula Ann-By App and Focus Area}"
 
@@ -1746,13 +1736,13 @@ Feature: Validate all scenarios of every modules flow
     Examples:
       | InternalUser    |
       | GRANTEE ADMIN   |
-      | GRANTEE ADMIN1  |
-      | GRANTEE EXE     |
-      | GRANTEE PM      |
-      | GRANTEE FO      |
-      | GRANTEE PO      |
-      | GRANTEE FD      |
-      | GRANTEE AUDITOR |
+#      | GRANTEE ADMIN1  |
+#      | GRANTEE EXE     |
+#      | GRANTEE PM      |
+#      | GRANTEE FO      |
+#      | GRANTEE PO      |
+#      | GRANTEE FD      |
+#      | GRANTEE AUDITOR |
 
   @InternalUserPwdCheckGrantor
   Scenario Outline: test
@@ -1787,73 +1777,159 @@ Feature: Validate all scenarios of every modules flow
       | SPA              |
       | SPI4             |
       | SA               |
+      | IND              |
+      | SME              |
+
+  @ReloginTest
+  Scenario Outline: test
+    Given I am on "SUBPORTAL" portal
+    When I login to "Grants Portal" app as "<SubrecipientUser>" user
+    When I navigate to "Home" tab
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
+    When I navigate to "Home" tab
+
+    Examples:
+      | SubrecipientUser |
+      | SPI3             |
+
+    @TestIssue
+      Scenario:
+      When I login to "Grantor" app as "GRANTEE PM" user
+      When I navigate to "Home" tab
+      When I re-login to "Grantor" app as "GRANTEE EXE" user on "INTERNAL" portal
+      When I navigate to "Home" tab
+
+    @APITest
+      Scenario:
+      And I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "default"
+      And I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
+      And I created approved FDM on application "{SavedValue:Automation Runtime FDM Announcement}"
+      Given I created award from approved FDM with announcement "{SavedValue:Automation Runtime FDM Announcement}"
+      And I activate award from FDM having application name "{SavedValue:Automation Runtime FDM Announcement}"
+     # Direct Grant
+       Given I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
+     # Progress Report
+      Given I delete the record "{SavedValue:Automation Runtime Award}" from the object "Progress Report"
+      When I create a post award record "ProgressReport" for the Award "{SavedValue:Automation Runtime Award}" having object api name as "ProgressReports__c"
+     # Payment Request
+      Given I delete the record "{SavedValue:Automation Runtime Award}" from the object "Payment Request"
+      When I create a post award record "PaymentRequest" for the Award "{SavedValue:Automation Runtime Award}" having object api name as "PaymentRequest__c"
+     # Closeout
+      When I create a post award record "Closeout" for the Award "{SavedValue:Automation Runtime Award}" having object api name as "Closeout"
 
   @testchckAwards
   Scenario:
-    When I login to "Grantor" app as "EXe" user
+    Given I activated standalone subaward "Automation Runtime Award for closeout" with properties "ADVANCE_PERMISSIBLE_YES_FOCUS_AREA_NO-Automation PM1 user" of type "Competitive"
+     #Progress Report
+    Given I am on "SUBPORTAL" portal
+    When I login to "Grants Portal" app as "SPI3" user
+    Given I delete the record "{SavedValue:Automation Runtime Award for closeout}" from the object "Progress Report"
+    When I create a post award record "ProgressReport" for the Award "{SavedValue:Automation Runtime Award for closeout}" having object api name as "ProgressReports__c"
+    And I navigate to "Monitoring" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    When I perform quick search for "{SavedValue:Record Id}" in "---progressReport:-:pendingTaskTableId---" panel
+    When I click on "Start" icon for "{SavedValue:Record Id}" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
+    When I navigate to "Forms and Files" sub tab
+    And I click on "Attach" icon for "Active" inside flex table with id "---progressReport:-:progressReportChecklistsTableId---" without waiting for record
+    And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
+    And I pause execution for "5" seconds
+    And I click modal button "Close"
+    When I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "progID"
+    And I click on "Edit" in the page details
+    When I enter "Edition" values from "ProgressReport_Field_Values.xlsx"
+    And I click on "Save" in the page details
+    And I navigate to "Performance" sub tab
+    When I edit the following rows inline in flex table with id "---progressReport:-:kpiTableId---" by clicking "Edit" :
+      | Title                    | Reported Date | Actual |
+      | Automation Permanent KPI | 7             | 7      |
+    When I navigate to "Forms and Files" sub tab
+    And I click on "Edit" icon for "Community Initiative Progress Report" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
+    And I switch to tab number "1"
+    And I enter "Form Fields" values from "ProgressReport_Field_Values.xlsx"
+    And I click on "Save" in the page details
+    And I close the tab
+    When I click on "Submit to Grantor" in the page details
+    Then I softly see field "Status" as "Submitted to Grantor"
+    When I re-login to "Grantor" app as "PM1" user on "INTERNAL" portal
+    And I navigate to "Monitoring" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "{SavedValue:progID}" in "---progressReport:-:pendingTaskTableId---" panel
+    When I click on "Start" icon for "{SavedValue:progID}" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
+    When I navigate to "Responsibilities" sub tab
+    When I enter the following values into flex table with id "---progressReport:-:approversTableId---" by clicking "New" :
+      | Name           | Progress Report |
+      | Automation PM1 | Step 1          |
+    And I click on "Submit for Approval" in the page details
+    Then I softly see field "Status" as "Submitted for Approval"
+    #Closeout
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
-    And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:activeGrantsTableId---"
-    And I wait for "2" seconds
-    And I enter "GrantFields1" values from "Award_Field_Values.xlsx"
-    And I click modal button "Continue"
-    And I enter "Grant_Edition1" values from "Award_Field_Values.xlsx"
-    When I click modal button "Save and Continue"
-    And I save the field labeled "EGMS ID" as "GrantEGMSID"
-    And I navigate to "Subawards" sub tab
-    And I click on "View" icon for "Created" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
+    And I click toggle button to select "Grants - Active"
+    When I perform quick search for "{SavedValue:Automation Runtime Award for closeout}" in "---closeout:-:grantsTableId---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Award for closeout}" inside flex table with id "---closeout:-:grantsTableId---"
+    When I navigate to "Requests" sub tab
+    And I click on top right button "New" in flex table with id "---closeout:-:closeoutTableId---"
+    When I enter in modal "Creation" values from "Closeout_Field_Values.xlsx"
+    And I click modal button "Save and Continue"
+    And I enter "Edition" values from "Closeout_Field_Values.xlsx"
     And I get the "EGMS ID"
-    And I save the field labeled "EGMS ID" as "AwardEGMSID"
-    And I navigate to "Overview" sub tab
-    And I save the field labeled "Subaward Title" as "Automation Runtime award"
+    And I save the field labeled "EGMS ID" as "closeoutID"
+    When I click on "Save" in the page details
     And I click on "Edit" in the page details
-    When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
-    And I click on "Save" in the page details
-    And I navigate to "Budget" sub tab
-    When I click on top right button "Associate" in flex table with id "---subAwardStandAlone:-:fundingAccountsTableId---"
-    When I click "Associate" after selection of "Automation Permanent Funding Account" in the table "---subAwardStandAlone:-:awardFundingAccountsTableId---"
-    And I wait for "3" seconds
-    And I click modal button "Close"
-    And I navigate to "Budget" sub tab
-    And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:focusAreaTableId---" by clicking "Edit" :
-      | Title                           | Start Date | End Date |
-      | Automation Permanent Focus Area | 0          | 3650     |
-    When I edit the following rows inline in flex table with id "---subAwardStandAlone:-:fundingAccountsTableId---" by clicking "Edit" :
-      | Funding Account             | Encumbrance |
-      | {SavedValue:fundingAccount} | 1000        |
-    And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:subAwardBudgetTableId---" by clicking "Edit" :
-      | Budget Category | Award Amount | Cash Match | Non-Cash Match |
-      | Construction    | 1000         | 100        | 100            |
-    When I navigate to "Performance" sub tab
-    And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:kpiTableId---" by clicking "Edit" :
-      | EGMS ID                  | Target |
-      | Automation Permanent KPI | 10     |
-    And I navigate to "Terms" sub tab
-    And I click on "Edit" icon for "Payment Request" inside flex table with id "---subAwardStandAlone:-:paymentRequestSchedulesTableId---" without waiting for record
-    When I enter in modal "Payment Request Schedule" values from "Award_Field_Values.xlsx"
-    And I wait for "3" seconds
-    And I click modal button "Save"
-    And I wait for "3" seconds
-    And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardStandAlone:-:progressReportScheduleTableId---" without waiting for record
-    When I enter in modal "Progress Report Schedule" values from "Award_Field_Values.xlsx"
-    And I wait for "3" seconds
-    And I click modal button "Save"
-    Then I refresh the page
-    When I navigate to "Overview" sub tab
-    And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:associatedContactsTableId---" by clicking "Edit" :
-      | Name                       | Project Role             | Is Key Personnel |
-      | {SavedValue:SPI3 Username} | Project Director/Manager | Checked          |
+    And I enter value "Automation Test justification" into field "Justification__c"
+    When I click on "Save" in the page details
     When I navigate to "Responsibilities" sub tab
-    When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
-      | Name                      | Award  |
-      | {SavedValue:EXE Username} | Step 1 |
-    And I wait for "3" seconds
-    And I click on "Send to Subrecipient" in the page details
-    And I wait for "3" seconds
-    And I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
-    When I navigate to "Grants" tab
-    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    And I perform quick search for "Record Id" in "---subAwardStandAlone:-:subrecipientPendingtaskTableId---" panel
-    When I click on "Start" icon for "Record Id" inside flex table with id "---subAwardStandAlone:-:subrecipientPendingtaskTableId---" without waiting for record
-    When I click on "Accept" in the page details
-    Then I softly see field "Status" as "Accepted"
+    When I enter the following values into flex table with id "---closeout:-:closeoutApproverTableId---" by clicking "New" :
+      | Name                      | Closeout |
+      | {SavedValue:EXE Username} | Step 1   |
+    And I click on "Send To Subrecipient" in the page details
+    When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
+    When I navigate to "Closeout" tab
+    And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    When I perform quick search for "{SavedValue:closeoutID}" in "---closeout:-:pendingTaskTableId---" panel
+    And I click on "Start" icon for "{SavedValue:closeoutID}" inside flex table with id "---closeout:-:pendingTaskTableId---"
+    When I click on "Edit" in the page details
+    And I enter "Subrecipient fields" values from "Closeout_Field_Values.xlsx"
+    When I click on "Save" in the page details
+    And I click on "Acknowledge" in the page details
+    When I re-login to "Grantor" app as "Admin" user on "INTERNAL" portal
+    And I navigate to "Home" tab
+    Then I see "Ownership" inside "Reassign" is displayed
+    When I navigate to "Ownership" content inside "Reassign" subheader on left panel
+    And I select value "Automation PM" into field "input-1"
+    And I select value "Automation PM1" into field "input-2"
+    And I select module "Closeout" from reassign ownership dropdown
+    When I perform quick search for "{SavedValue:closeoutID}" in "---closeout:-:closeoutSourceTableId---" panel
+    Then I see value "{SavedValue:closeoutID}" for title "Closeout ID" inside table "---closeout:-:closeoutSourceTableId---"
+    When I perform quick search for "{SavedValue:closeoutID}" in "---closeout:-:closeoutSourceTableId---" panel
+    When I check "{SavedValue:closeoutID}" boxes in flex table with id "---closeout:-:closeoutSourceTableId---"
+    When I click table top right button "Transfer Ownership" in flex table with id "---closeout:-:closeoutSourceTableId---"
+    Then I softly see confirmation box with body "When the ownership of the record is changed, all pending tasks assigned to the owner of the record will be reassigned automatically as well. Do you wish to proceed?" is displayed
+    And I click "OK" on modal confirmation box
+    And I pause execution for "30" seconds
+    And I reset the table
+    When I navigate to "Records of Target User" sub tab
+    When I perform quick search for "{SavedValue:closeoutID}" in "---closeout:-:closeoutTargetTableId---" panel
+    Then I see value "{SavedValue:closeoutID}" for title "Closeout ID" inside table "---closeout:-:closeoutTargetTableId---"
+    And I pause execution for "2" seconds
+    When I re-login to "Grantor" app as "PM1" user on "INTERNAL" portal
+    When I navigate to "Closeout" tab
+    And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "{SavedValue:closeoutID}" in "---closeout:-:pendingTaskTableId---" panel
+    When I click on "Start" icon for "{SavedValue:closeoutID}" inside flex table with id "---closeout:-:pendingTaskTableId---"
+    And I refresh the page
+    When I navigate to "Open Items" sub tab
+    Then I softly see value "Submitted for Approval" for title "Status" against the value "{SavedValue:progID}" inside table "---closeout:-:closeoutPendingProgressReportCloseoutTableId---"
+    When I click on "Override" in the page details
+    Then I softly see field "Status" as "Overridden"
+    When I navigate to "Open Items" sub tab
+    Then I softly see value "Force Closed" for title "Status" against the value "{SavedValue:progID}" inside table "---closeout:-:closeoutPendingProgressReportCloseoutTableId---"
+
+  @testChecking @debug
+  Scenario:
+    When I login to "Grantor" app as "PM" user
+    When I navigate to "Planning" tab
+    And I navigate to "Funding Sources" content inside "Setup" subheader on left panel
+    And I click toggle button to select "External Funding Sources - All"

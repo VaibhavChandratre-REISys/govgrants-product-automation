@@ -1,4 +1,4 @@
-@competitiveAnnouncements @grantor-regression @grantor-parallel-regression @announcement @regression
+@competitiveAnnouncements @grantor-regression @grantor-parallel-regression @announcement @regression @annExecution
 Feature: Validate all scenarios in the Competitive Announcement tab
 
   Background: Create Announcement
@@ -39,6 +39,8 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---announcement:-:relatedAnnouncementTableId---"
     And I click "Associate" after selection of "Wildlife Services" in the table "---announcement:-:associateForRelated---"
+    When I click modal button "Close"
+    And I wait for "2" seconds
     And I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Announcements" tab
     When I navigate to "Competitive" content inside "Announcements" subheader on left panel
@@ -161,6 +163,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
   @70551 @70552 @73405 @73389 @73406 @73387 @70800 @70885 @71595 @72646 @72641 @73537 @userCanViewAddAndDeleteFocusArea  @FieldHistoryExclude
   Scenario: To Verify that user is able to remove associated focus areas While creating the Announcement | To verify PM can remove non relevant Budget categories from specific Budget Type in Announcement based on the need.
     When I navigate to "Announcements" tab
+    When I navigate to "Announcements" tab
     And I click toggle button to select "Announcements - Published"
     Then I softly see value "Published" for title "Status" inside table "---announcement:-:ActiveFundingOpportunitiesAllTableId---"
     When I navigate to "Announcements" tab
@@ -193,8 +196,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I click on "Remove" icon for "BP01" inside flex table with id "---announcement:-:budgetPeriodTableId---"
     And I wait for "2" seconds
     Then I softly do not see value "BP01" for title "Budget Period Name" inside table "---announcement:-:budgetPeriodTableId---"
-    And I click on "Remove" icon for "Construction" inside flex table with id "---announcement:-:announcementBudgetCategory---" without waiting for record
-    And I refresh the page
+    And I click on "Remove" icon for "Construction" inside flex table with id "---announcement:-:announcementBudgetCategory---"
     And I wait for "2" seconds
     Then I softly do not see value "Construction" for title "Name" inside table "---announcement:-:announcementBudgetCategory---"
     And I click on "Edit" in the page details
@@ -209,10 +211,10 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I navigate to "History" sub tab
     And I navigate to "Field Audit" sub tab in split screen
     And I click on hyperlink containing value "View All"
-    Then I softly see value "$4,000.00" for title "New Value" inside field history table
-    Then I softly see value "$2,000.00" for title "Original Value" inside field history table
-    Then I softly see value "$6,000.00" for title "New Value" inside field history table
-    Then I softly see value "$3,000.00" for title "Original Value" inside field history table
+    Then I softly see value "$4,000" for title "New Value" inside field history table
+    Then I softly see value "$2,000" for title "Original Value" inside field history table
+    Then I softly see value "$6,000" for title "New Value" inside field history table
+    Then I softly see value "$3,000" for title "Original Value" inside field history table
     And I click on back arrow
     And I navigate to "Financials" sub tab
     Then I softly see value "Contingencies" for title "Name" inside table "---announcement:-:announcementBudgetCategory---"
@@ -226,13 +228,15 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I perform quick search for "Wildlife Services" in "---announcement:-:associateForRelated---" panel
     And I check "All" boxes in flex table with id "---announcement:-:associateForRelated---"
     And I click on top right button "Associate" in flex table with id "---announcement:-:associateForRelated---"
+    When I click modal button "Close"
     And I wait for "2" seconds
     And I save the value from row "1" for column name "Program Number" as "prNum" from flex table "---announcement:-:relatedAnnouncementTableId---"
     Then I softly see value "{SavedValue:prNum}" for title "Program Number" inside table "---announcement:-:relatedAnnouncementTableId---"
 
-  @70290 @70298 @70302 @70799 @73227 @userAllowToEnterDataInQualityAndAvailibility  @smoke
+  @70290 @70298 @70302 @70799 @73227 @userAllowToEnterDataInQualityAndAvailibility @smoke
   Scenario: To Verify that user able to see Text fields after select Q&A Availability  as "Yes"  And  user can enter and save all required fields while creating Announcement
   | To Validate system generated validation message for  Q&A Availability section when "Question Deadline Date",and "Response Deadline date" is greater then Application Due Date.
+    When I navigate to "Announcements" tab
     When I navigate to "Announcements" tab
     And I click toggle button to select "Announcements - Draft"
 #    And I select value inside table "---announcement:-:ActiveFundingOpportunitiesAllTableId---" is "All"
@@ -279,7 +283,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
       | Overview Tab - The question submission deadline must be before the Application due date.                              |
       | Overview Tab - The answer submission deadline must be before the Application due date.                                |
       | Financial Tab - There should be no gap between the dates. Enter the correct Budget Periods Start Dates and End Dates. |
-      | Responsibilities - At least one approver is required                                                                  |
+      | Responsibilities - At least one approver is required.                                                                  |
       | Overview Tab - Enter the Description.                                                                                 |
     And I click on "Edit" in the page details
     And I enter value "20" into field "ApplicationDueDate__c"
@@ -296,13 +300,14 @@ Feature: Validate all scenarios in the Competitive Announcement tab
       | Overview Tab - The response deadline cannot be earlier than the question deadline.                                    |
       | Overview Tab - Enter the Description.                                                                                 |
       | Financial Tab - There should be no gap between the dates. Enter the correct Budget Periods Start Dates and End Dates. |
-      | Responsibilities - At least one approver is required                                                                  |
+      | Responsibilities - At least one approver is required.                                                                  |
 
   @70479 @70481 @70503 @70422 @70507 @70542 @70543 @70425 @70424 @70426 @70419 @70417 @70418 @70506 @71951 @73408 @userDeleteSupportingDocument  @FieldHistoryExclude
   Scenario: To Verify that user can delete supporting document checklist While creating the Announcement |
   To Verify that user can Edit fields in supporting document checklist While creating the Announcement |
   To Verify that user can preview business forms while creating Announcement|
   To Verify that user can Edit business forms while creating Announcement
+    When I navigate to "Announcements" tab
     When I navigate to "Announcements" tab
     And I click toggle button to select "Announcements - Closed and Archived"
     And I perform quick search for "Closed" in "---announcement:-:ActiveFundingOpportunitiesAllTableId---" panel
@@ -330,7 +335,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I pause execution for "3" seconds
     When I click on "Upload Template" icon for "Automation test description" inside flex table with id "---announcement:-:annChecklist---" without waiting for record
     And I upload attachment "Attachment.pdf" of type "Others" from computer
-    When I close "Add Files" modal by clicking the top right x button
+    When I close "Upload Document" modal by clicking the top right x button
     Then I softly see value "Mandatory" for title "Required" inside table "---announcement:-:annChecklist---"
     Then I softly see value "Award" for title "Applies To" inside table "---announcement:-:annChecklist---"
     Then I softly see value "Active" for title "Status" inside table "---announcement:-:annChecklist---"
@@ -350,13 +355,13 @@ Feature: Validate all scenarios in the Competitive Announcement tab
       | Notes Record | Automation Notes |
     Then I softly see value "Notes Record" for title "Title" inside table "---announcement:-:AnnouncementNotestableId---"
     And I edit the following rows inline in flex table with id "---announcement:-:AnnouncementNotestableId---" by clicking "Edit" :
-    | Created By                  | Title         | Description       |
-    | {SavedValue:EXE Username}   | Notes Record1 | Automation Notes1 |
+      | Created By                | Title         | Description       |
+      | {SavedValue:EXE Username} | Notes Record1 | Automation Notes1 |
     Then I softly see value "Notes Record1" for title "Title" inside table "---announcement:-:AnnouncementNotestableId---"
     Then I softly see value "Automation Notes1" for title "Description" inside table "---announcement:-:AnnouncementNotestableId---"
     And I edit the following rows inline in flex table with id "---announcement:-:AnnouncementNotestableId---" by clicking "Edit" :
-      | Created By                  | Title         | Description       |
-      | {SavedValue:EXE Username}   |               | Automation Notes2 |
+      | Created By                | Title | Description       |
+      | {SavedValue:EXE Username} |       | Automation Notes2 |
     Then I softly see the following messages in the page details :
       | Required Fields Missing |
     And I pause execution for "2" seconds
@@ -368,7 +373,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I wait for "2" seconds
     Then I softly do not see "Funding Opportunity Announcement" has been added in "---announcement:-:AnnouncementAttachmentTableId---" flex table
 
- @70483 @userDeleteSupportingDocumentViewHyperlink
+  @70483 @userDeleteSupportingDocumentViewHyperlink
   Scenario: To Verify that user can view Template Link in supporting document checklist While creating the Announcement
     When I navigate to "Announcements" tab
     When I navigate to "Competitive" content inside "Announcements" subheader on left panel
@@ -378,14 +383,14 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     When I enter the following values into flex table with id "---announcement:-:annChecklist---" by clicking "Add" :
       | Description                 | Required  | Applies To | Status |
       | Automation test description | Mandatory | Award      | Active |
-   When I click on "Upload Template" icon for "Automation test description" inside flex table with id "---announcement:-:annChecklist---" without waiting for record
-   And I upload attachment without random number "Attachment.pdf" of type "Template for Announcement" from computer
-   When I click modal button "Close"
-   And I refresh the page
-   And I wait for "2" seconds
-   And I click on hyperlink containing value "View"
-   When I download the file
-   Then I see "Welcome to Smallpdf" on page "1" of "govgrants" pdf file
+    When I click on "Upload Template" icon for "Automation test description" inside flex table with id "---announcement:-:annChecklist---" without waiting for record
+    And I upload attachment without random number "Attachment.pdf" of type "Template for Announcement" from computer
+    When I click modal button "Close"
+    And I refresh the page
+    And I wait for "2" seconds
+    And I click on hyperlink containing value "View"
+    When I download the file
+    Then I see "Welcome to Smallpdf" on page "1" of "govgrants" pdf file
 
   @72323 @71972  @applicationDueDataOfAnnInHistory @FieldHistoryExclude
   Scenario: To verify field history update with respect to modification in Application Due Dates of Announcement|
@@ -410,8 +415,8 @@ Feature: Validate all scenarios in the Competitive Announcement tab
       | Budget Period Name | Start Date | End Date   |
       | BP01               | 03/13/2030 | 04/13/2030 |
     And I click on top right button "Add Budget Period" in flex table with id "---announcement:-:budgetPeriodTableId---"
-    Then I softly see value "04/14/2030" for title "Start Date" against the value "BP02" inside table "---announcement:-:budgetPeriodTableId---"
-    Then I softly see value "04/13/2031" for title "End Date" against the value "BP02" inside table "---announcement:-:budgetPeriodTableId---"
+    Then I softly see value "4/14/2030" for title "Start Date" against the value "BP02" inside table "---announcement:-:budgetPeriodTableId---"
+    Then I softly see value "4/13/2031" for title "End Date" against the value "BP02" inside table "---announcement:-:budgetPeriodTableId---"
 
   @70563 @70556 @70554 @70606 @70718 @73545 @73547 @73564 @73566 @userCanViewAndDeleteKPI  @buglogged151548
   Scenario: To  Verify that after associating objectives, related KPIs should be automatically populate while  creating the Announcement
@@ -472,27 +477,32 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     When I click on "Edit" icon for "Record id" inside flex table with id "---announcement:-:competitiveAnnouncementTableId---" without waiting for record
     And I click on top right button "Associate" in flex table with id "---announcement:-:relatedAnnouncementTableId---"
     And I click "Associate" after selection of "10.028" in the table "---announcement:-:associateForRelated---"
+    When I click modal button "Close"
+    And I wait for "2" seconds
     And I perform quick search for "Wildlife Services" in "---announcement:-:relatedAnnouncementTableId---" panel
     Then I softly see value "Wildlife Services" for title "Program Title" inside table "---announcement:-:relatedAnnouncementTableId---"
     Then I softly see value "Federal" for title "Type" inside table "---announcement:-:relatedAnnouncementTableId---"
     Then I softly can see row level action button "Remove" against "10.028" in flex table with id "---announcement:-:relatedAnnouncementTableId---"
     Then I softly can see row level action button "View" against "10.028" in flex table with id "---announcement:-:relatedAnnouncementTableId---"
     And I click on top right button "Associate" in flex table with id "---announcement:-:relatedAnnouncementTableId---"
-    And I click "Associate" after selection of "Test" in the table "---announcement:-:associateForRelated---"
-    And I click on "View" icon for "Test" inside flex table with id "---announcement:-:relatedAnnouncementTableId---" without waiting for record
-#    Then I see the header is "Federal/NGO Program" in the page details
-#    Then I see the sub-header is "Automation Permanent NGO Program" in the page details
-    Then I softly see status in Progress-bar is "Active" and is "dark blue"
+    And I click "Associate" after selection of "Bus Testing" in the table "---announcement:-:associateForRelated---"
+    When I click modal button "Close"
+    And I refresh the page
+    And I wait for "4" seconds
+    And I perform quick search for "Bus Testing" in "---announcement:-:relatedAnnouncementTableId---" panel
+    And I click on "View" icon for "Bus Testing" inside flex table with id "---announcement:-:relatedAnnouncementTableId---" without waiting for record
+    Then I see the header is "Federal Program" in the page details
+    Then I see the sub-header is "Bus Testing" in the page details
     And I wait for "5" seconds
     When I navigate to "Announcements" tab
     When I navigate to "Competitive" content inside "Announcements" subheader on left panel
     When I click toggle button to select "All Competitive Announcements"
     And I perform quick search for "Record id" in "---announcement:-:competitiveAnnouncementTableId---" panel
     When I click on "Edit" icon for "Record id" inside flex table with id "---announcement:-:competitiveAnnouncementTableId---" without waiting for record
-    And I click on "Remove" icon for "NGO" inside flex table with id "---announcement:-:relatedAnnouncementTableId---" without waiting for record
-    Then I softly do not see value "NGO" for title "Type" inside table "---announcement:-:relatedAnnouncementTableId---"
+    And I click on "Remove" icon for "Bus Testing" inside flex table with id "---announcement:-:relatedAnnouncementTableId---" without waiting for record
+    Then I softly do not see value "Bus Testing" for title "Program Title" inside table "---announcement:-:relatedAnnouncementTableId---"
 
- @75617 @70727 @73624 @70723 @73621 @72482 @73536 @announcementForPastApplicationDueDateCA @announcementWithBlankBudgetPeriodCA @submittedAnnouncementDeletionCA
+  @75617 @70727 @73624 @70723 @73621 @72482 @73536 @announcementForPastApplicationDueDateCA @announcementWithBlankBudgetPeriodCA @submittedAnnouncementDeletionCA
   Scenario Outline: Validate that user can not enter application due date as past date | Validate that user should not submit announcement with blank budget period dates|To Verify that user can view contact while creating Announcement
     When I click on "Edit" in the page details
     And I enter "Edition" values from "Announcement_Field_Values.xlsx"
@@ -508,11 +518,6 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     Given I edit the following rows inline in flex table with id "---announcement:-:fundingAccountsTableId---" by clicking "Edit" :
       | Funding Account             | Pre-Encumbrance |
       | {SavedValue:fundingAccount} | 2000            |
-#    When I navigate to "History" sub tab
-#    And I select "Related Funding Account" from dropdown present on top right of flex table id "History"
-#    Then I softly see value "Pre-Encumbrance" for title "Changed Field" inside table "History"
-#    Then I softly see value "$2,000.00" for title "New Value" inside table "History"
-#    Then I softly see value "$1,000.00" for title "Old Value" inside table "History"
     And I click on "Edit" in the page details
     When I navigate to "Financials" sub tab
     Given I edit the following rows inline in flex table with id "---announcement:-:fundingAccountsTableId---" by clicking "Edit" :
@@ -524,7 +529,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I click on top right button "New" in flex table with id "---announcement:-:contactTableId---"
     And I generate the random EmailID and save as "uniqueEmailID"
     And I enter values into fields
-      | Value                      | Field          |
+      | Value                      | Field     |
       | xy                         | Title     |
       | TestFirst                  | FirstName |
       | TestLast                   | LastName  |
@@ -554,7 +559,9 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     When I enter value "SecondLast" into field "LastName"
     When I enter value "{SavedValue:uniqueEmailID1}" into field "Email"
     And I click modal button "Save"
-    And I pause execution for "3" seconds
+    And I pause execution for "1" seconds
+    And I click on "Save" in the page details
+    And I pause execution for "2" seconds
     When I navigate to "Announcements" tab
     When I navigate to "Competitive" content inside "Announcements" subheader on left panel
     And I click toggle button to select "Draft Competitive Announcements"
@@ -563,12 +570,16 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     When I navigate to "Overview" sub tab
     And I click on "Remove" icon for "TestFirst TestLast" inside flex table with id "---announcement:-:contactTableId---" without waiting for record
     And I refresh the page
+    And I wait for "2" seconds
     Then I softly do not see value "TestFirst TestLast" for title "Name" inside table "---announcement:-:contactTableId---"
     And I click on top right button "Associate" in flex table with id "---announcement:-:contactTableId---"
     When I click "Associate" after selection of "{SavedValue:EXE Username}" by showing entries "All" in flex table with id "---announcement:-:annoucementContactTableId---"
+    When I click modal button "Close"
+    And I wait for "2" seconds
     When I navigate to "Setup" sub tab
     When I click on top right button "Associate" in flex table with id "---announcement:-:objectivesTableId---"
     When I click "Associate" after selection of "Automation Permanent Objective2" by showing entries "All" in flex table with id "---announcement:-:goalsTableId---"
+    And I wait for "2" seconds
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---announcement:-:approversTableId---" by clicking "New" :
       | Name                     | Announcement |
@@ -591,11 +602,12 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I click on "Start" icon for "Record id" inside flex table with id "---announcement:-:pendingTaskTableId---" without waiting for record
     When I navigate to "Responsibilities" sub tab
     When I click on "Enter Review" icon for "{SavedValue:FO Username}" inside flex table with id "---announcement:-:flexGridApproverRolesTableId---" without waiting for record
-    And I pause execution for "7" seconds
+    And I pause execution for "2" seconds
     When I enter in modal value "Passed" into field "Rating__c"
     And I enter in modal value "Passed" into field "ReviewComments__c"
     When I click modal button "Save"
     And I click on submit review
+    And I pause execution for "2" seconds
     When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Announcements" tab
     When I navigate to "<Announcement Type>" content inside "Announcements" subheader on left panel
@@ -617,6 +629,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
       | Budget Period Name | Start Date | End Date |
       | BP01               | 50         | 150      |
     When I navigate to "Overview" sub tab
+    And I wait for "3" seconds
     And I enter value "-1" into field "ApplicationDueDate__c"
     And I click on "Save" in the page details
     Then I softly see the following messages in the page details :
@@ -625,7 +638,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I enter value "No" into field "QAAvailability__c"
     And I click on "Save" in the page details
     And I click on "Submit For Approval" in the page details
-   And I wait for "5" seconds
+    And I wait for "5" seconds
     And I navigate to "Announcements" tab
     And I navigate to "Competitive" content inside "Announcements" subheader on left panel
     When I click toggle button to select "Draft Competitive Announcements"
@@ -640,6 +653,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     When I click on "Edit" in the page details
     And I enter "Edition" values from "Announcement_Field_Values.xlsx"
     And I click on "Save" in the page details
+    And I save the field labeled "EGMS ID" as "AnnEGMSID"
     When I navigate to "Financials" sub tab
     When I click on top right button "Associate" in flex table with id "---announcement:-:fundingAccountsTableId---"
     When I click "Associate" after selection of "{SavedValue:fundingAccount}" by showing entries "All" in flex table with id "---announcement:-:fundingAccTableId---"
@@ -683,12 +697,8 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I re-login to "Grantor" app as "FO" user on "INTERNAL" portal
     When I navigate to "Announcements" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    When I perform quick search for "Record id" in "---announcement:-:pendingTaskTableId---" panel
-    And I click on "Start" icon for "Record id" inside flex table with id "---announcement:-:pendingTaskTableId---"
-    # This is bug. @74799
-    #When I navigate to "Files" sub tab
-    #When I upload attachment "InternalOrganization_Field_Values.xlsx" of type "Funding Opportunity Announcement"
-    #Then I softly see "Funding Opportunity Announcement" has been added in "Attachments" flex table
+    When I perform quick search for "{SavedValue:AnnEGMSID}" in "---announcement:-:pendingTaskTableId---" panel
+    And I click on "Start" icon for "{SavedValue:AnnEGMSID}" inside flex table with id "---announcement:-:pendingTaskTableId---"
     Then I softly cannot see top right button "Edit" in page detail
     When I navigate to "Responsibilities" sub tab
     When I click on "Enter Review" icon for "{SavedValue:FO Username}" inside flex table with id "---announcement:-:flexGridApproverRolesTableId---" without waiting for record
@@ -783,7 +793,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
       | Question Order | Question  | Type    | Max Score |
       | 1              | Question1 | Written | 100       |
     And I pause execution for "3" seconds
-   And I collapse nested table containing column value "Budget"
+    And I collapse nested table containing column value "Budget"
     And I expand nested table containing column value "Match"
     When I enter the following values into flex table with id "---announcement:-:reviewPanelQuestionsTableId---" by clicking "New" :
       | Question Order | Question  | Type    | Max Score |
@@ -832,13 +842,13 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I pause execution for "2" seconds
     And I expand nested table containing column value "Management Review"
     And I wait for "5" seconds
-    When I click on "Review Form" icon for "Management Review" inside flex table with id "---announcement:-:preScreenReviewFormTableId---" without waiting for record
+    When I click on "Review Form" icon for "Management Review" inside flex table with id "---announcement:-:annReviewFormsTableId---" without waiting for record
     And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
       | Section Header             | Section Weight (%) |
       | Return on Investment (ROI) | 50                 |
     And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
-      | Section Header             | Section Weight (%) |
-      | Strategic Alignment        | 50                 |
+      | Section Header      | Section Weight (%) |
+      | Strategic Alignment | 50                 |
     And I pause execution for "3" seconds
     And I expand nested table containing column value "Return on Investment (ROI)"
     When I enter the following values into flex table with id "---announcement:-:reviewPanelQuestionsTableId---" by clicking "New" :
@@ -867,46 +877,43 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Announcements" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    When I perform quick search for "Record Id" in "---announcement:-:pendingTaskTableId---" panel
-    When I click on "Start" icon for "Record Id" inside flex table with id "---announcement:-:pendingTaskTableId---" without waiting for record
+    When I perform quick search for "{SavedValue:AnnEGMSID}" in "---announcement:-:pendingTaskTableId---" panel
+    When I click on "Start" icon for "{SavedValue:AnnEGMSID}" inside flex table with id "---announcement:-:pendingTaskTableId---" without waiting for record
     And I navigate to "History" sub tab
     Then I softly see snapshot with name containing "Snapshot_Announcement_Submission" as name
     And I click on hyperlink containing value "Snapshot_Announcement_Submission"
     And I click on "Download" button for snapshot view
     And I wait for "3" seconds
-    When I download the file for snapshot
+    When I download the file
     And I wait for "3" seconds
-    Then I softly see "Announcement information" on page "1" of "govgrants" pdf file
+    Then I softly see "Information" on page "1" of "govgrants" pdf file
     And I switch to parent tab
     And I click on "Close" button for view files page
-    And I see "{SavedValue:PM Username}" against "Initial Submitter" in approval history
     And I "Approve" in the approval decision
     When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Announcements" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    When I perform quick search for "Record Id" in "---announcement:-:pendingTaskTableId---" panel
-    When I click on "Start" icon for "Record Id" inside flex table with id "---announcement:-:pendingTaskTableId---" without waiting for record
+    When I perform quick search for "{SavedValue:AnnEGMSID}" in "---announcement:-:pendingTaskTableId---" panel
+    When I click on "Start" icon for "{SavedValue:AnnEGMSID}" inside flex table with id "---announcement:-:pendingTaskTableId---" without waiting for record
     And I "Reassign" to user "{SavedValue:PM Username}" in the approval decision
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Announcements" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    When I perform quick search for "Record Id" in "---announcement:-:pendingTaskTableId---" panel
-    When I click on "Start" icon for "Record Id" inside flex table with id "---announcement:-:pendingTaskTableId---" without waiting for record
-    And I "Approve" in the approval decision
-    And I navigate to "History" sub tab
-    Then I see "{SavedValue:PM Username}" against "Program Office Approval" in approval history
-    When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
-    And I navigate to "Announcements" tab
-    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    When I perform quick search for "Record Id" in "---announcement:-:pendingTaskTableId---" panel
-    When I click on "Start" icon for "Record Id" inside flex table with id "---announcement:-:pendingTaskTableId---" without waiting for record
+    When I perform quick search for "{SavedValue:AnnEGMSID}" in "---announcement:-:pendingTaskTableId---" panel
+    When I click on "Start" icon for "{SavedValue:AnnEGMSID}" inside flex table with id "---announcement:-:pendingTaskTableId---" without waiting for record
     And I "Approve" in the approval decision
     When I re-login to "Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Announcements" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    When I perform quick search for "Record Id" in "---announcement:-:pendingTaskTableId---" panel
-    When I click on "Start" icon for "Record Id" inside flex table with id "---announcement:-:pendingTaskTableId---" without waiting for record
+    When I perform quick search for "{SavedValue:AnnEGMSID}" in "---announcement:-:pendingTaskTableId---" panel
+    When I click on "Start" icon for "{SavedValue:AnnEGMSID}" inside flex table with id "---announcement:-:pendingTaskTableId---" without waiting for record
     And I "Approve" in the approval decision
+    When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
+    And I navigate to "Announcements" tab
+    When I navigate to "<Announcement Type>" content inside "Announcements" subheader on left panel
+    And I click toggle button to select "All Competitive Announcements"
+    And I perform quick search for "Record Id" in "---announcement:-:competitiveAnnouncementTableId---" panel
+    And I click on "View" icon for "Record Id" inside flex table with id "---announcement:-:competitiveAnnouncementTableId---" without waiting for record
     Then I softly can see top right button "Revise" in page detail
     And I click on "Revise" in the page details
     Then I softly see status in Progress-bar is "Created" and is "dark blue"
@@ -999,6 +1006,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I click on "View" icon for "Record Id" inside flex table with id "---announcement:-:competitiveAnnouncementTableId---" without waiting for record
     Then I softly can see top right button "Revise" in page detail
     And I click on "Publish" in the page details
+    Then I softly see field "Status" as "Published"
     Then I softly can see top right button "Extend Dates" in page detail
     When I navigate to "History" sub tab
     And I navigate to "Field Audit" sub tab in split screen
@@ -1037,7 +1045,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     When I refresh the page
     When I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---announcement:-:contactTableId---"
-   When I click "Associate" after selection of "{SavedValue:EXE Username}" by showing entries "All" in flex table with id "---announcement:-:annoucementContactTableId---"
+    When I click "Associate" after selection of "{SavedValue:EXE Username}" by showing entries "All" in flex table with id "---announcement:-:annoucementContactTableId---"
     When I navigate to "Setup" sub tab
     When I click on top right button "Associate" in flex table with id "---announcement:-:objectivesTableId---"
     When I click "Associate" after selection of "Automation Permanent Objective2" by showing entries "All" in flex table with id "---announcement:-:goalsTableId---"
@@ -1133,7 +1141,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     When I refresh the page
     When I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---announcement:-:contactTableId---"
-   When I click "Associate" after selection of "{SavedValue:EXE Username}" by showing entries "All" in flex table with id "---announcement:-:annoucementContactTableId---"
+    When I click "Associate" after selection of "{SavedValue:EXE Username}" by showing entries "All" in flex table with id "---announcement:-:annoucementContactTableId---"
     When I navigate to "Setup" sub tab
     When I click on top right button "Associate" in flex table with id "---announcement:-:objectivesTableId---"
     When I click "Associate" after selection of "Automation Permanent Objective2" by showing entries "All" in flex table with id "---announcement:-:goalsTableId---"
@@ -1194,7 +1202,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     When I refresh the page
     When I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---announcement:-:contactTableId---"
-   When I click "Associate" after selection of "{SavedValue:EXE Username}" by showing entries "All" in flex table with id "---announcement:-:annoucementContactTableId---"
+    When I click "Associate" after selection of "{SavedValue:EXE Username}" by showing entries "All" in flex table with id "---announcement:-:annoucementContactTableId---"
     When I navigate to "Setup" sub tab
     When I click on top right button "Associate" in flex table with id "---announcement:-:objectivesTableId---"
     When I click "Associate" after selection of "Automation Permanent Objective2" by showing entries "All" in flex table with id "---announcement:-:goalsTableId---"
@@ -1225,10 +1233,11 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     When I perform quick search for "Record Id" in "---announcement:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---announcement:-:pendingTaskTableId---" without waiting for record
     And I "Send to Owner" in the approval decision
+    And I pause execution for "60" seconds
     And I refresh the page
-    And I pause execution for "120" seconds
+    And I pause execution for "3" seconds
     Then I softly see status in Progress-bar is "Created" and is "dark blue"
-    Then I softly see that "Announcement" is in "Draft" status
+    Then I softly see that "Announcement" is in "Created" status
     And I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     When I navigate to "Announcements" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -1464,7 +1473,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I select "Download as PDF" from parallel lines dropdown of "Goals and Objectives"
     And I download the file
     And I wait for "5" seconds
-    Then I softly see "Objectives" on page "1" of "govgrants" pdf file
+    Then I softly see "Goals and Objectives" on page "1" of "govgrants" pdf file
 
   @74129 @userAllowToDownloadPDFKPI
   Scenario: To verify system allow to download PDF for Key performance Indicator(KPIs) section in setup tab of announcement
@@ -1510,7 +1519,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     When I refresh the page
     When I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---announcement:-:contactTableId---"
-   When I click "Associate" after selection of "{SavedValue:EXE Username}" by showing entries "All" in flex table with id "---announcement:-:annoucementContactTableId---"
+    When I click "Associate" after selection of "{SavedValue:EXE Username}" by showing entries "All" in flex table with id "---announcement:-:annoucementContactTableId---"
     When I navigate to "Setup" sub tab
     When I click on top right button "Associate" in flex table with id "---announcement:-:objectivesTableId---"
     When I click "Associate" after selection of "Automation Permanent Objective2" by showing entries "All" in flex table with id "---announcement:-:goalsTableId---"
@@ -1588,7 +1597,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     When I refresh the page
     When I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---announcement:-:contactTableId---"
-   When I click "Associate" after selection of "{SavedValue:EXE Username}" by showing entries "All" in flex table with id "---announcement:-:annoucementContactTableId---"
+    When I click "Associate" after selection of "{SavedValue:EXE Username}" by showing entries "All" in flex table with id "---announcement:-:annoucementContactTableId---"
     When I navigate to "Setup" sub tab
     When I click on top right button "Associate" in flex table with id "---announcement:-:objectivesTableId---"
     When I click "Associate" after selection of "Automation Permanent Objective2" by showing entries "All" in flex table with id "---announcement:-:goalsTableId---"
@@ -1631,7 +1640,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     When I refresh the page
     When I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---announcement:-:contactTableId---"
-   When I click "Associate" after selection of "{SavedValue:EXE Username}" by showing entries "All" in flex table with id "---announcement:-:annoucementContactTableId---"
+    When I click "Associate" after selection of "{SavedValue:EXE Username}" by showing entries "All" in flex table with id "---announcement:-:annoucementContactTableId---"
     When I navigate to "Setup" sub tab
     When I click on top right button "Associate" in flex table with id "---announcement:-:objectivesTableId---"
     When I click "Associate" after selection of "Automation Permanent Objective2" by showing entries "All" in flex table with id "---announcement:-:goalsTableId---"
@@ -1664,7 +1673,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     When I refresh the page
     When I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---announcement:-:contactTableId---"
-   When I click "Associate" after selection of "{SavedValue:EXE Username}" by showing entries "All" in flex table with id "---announcement:-:annoucementContactTableId---"
+    When I click "Associate" after selection of "{SavedValue:EXE Username}" by showing entries "All" in flex table with id "---announcement:-:annoucementContactTableId---"
     When I navigate to "Setup" sub tab
     When I click on top right button "Associate" in flex table with id "---announcement:-:objectivesTableId---"
     When I click "Associate" after selection of "Automation Permanent Objective2" by showing entries "All" in flex table with id "---announcement:-:goalsTableId---"
@@ -1696,7 +1705,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     When I refresh the page
     When I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---announcement:-:contactTableId---"
-   When I click "Associate" after selection of "{SavedValue:EXE Username}" by showing entries "All" in flex table with id "---announcement:-:annoucementContactTableId---"
+    When I click "Associate" after selection of "{SavedValue:EXE Username}" by showing entries "All" in flex table with id "---announcement:-:annoucementContactTableId---"
     When I navigate to "Setup" sub tab
     When I click on top right button "Associate" in flex table with id "---announcement:-:objectivesTableId---"
     When I click "Associate" after selection of "Automation Permanent Objective2" by showing entries "All" in flex table with id "---announcement:-:goalsTableId---"
@@ -1792,6 +1801,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I perform quick search for "Record ID" in "---announcement:-:competitiveAnnouncementTableId---" panel
     And I click on "View" icon for "Record ID" inside flex table with id "---announcement:-:competitiveAnnouncementTableId---"
     And I click on "Publish" in the page details
+    Then I softly see field "Status" as "Published"
     And I click on "Unpublish" in the page details
     Then I softly see field "Status" as "Under Revision"
     When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal

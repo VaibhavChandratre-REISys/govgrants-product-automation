@@ -1,7 +1,7 @@
 @home @grantor-regression @grantor-parallel-regression @regression
 Feature: Validate all scenarios in the home tab
 
-  @Add1 @56710 @56708 @internalOrganizationViewADMINEditPMView @smoke
+  @56710 @56708 @internalOrganizationViewADMINEditPMView @smoke
   Scenario: Validate whether all7 users have view access to Internal Organization
     Given I login to "Grantor" app as "Admin" user
     When I navigate to "Home" tab
@@ -31,7 +31,7 @@ Feature: Validate all scenarios in the home tab
     And I update title as "Automation.pdf" on upload file modal
     And I select Classification as "AGENCY DETAILS" at upload file modal
     When I click modal button "Save"
-    And I click modal button "Close"
+#    And I click modal button "Close"
     And I refresh the page
     And I wait for "2" seconds
     Then I softly see value "Automation.pdf" for title "Title" inside table "---home:-:internalOrganizationAddfile---"
@@ -130,11 +130,11 @@ Feature: Validate all scenarios in the home tab
     When I click modal button "Save"
     #And I close "Create Potential Reviewer Contact" modal by clicking the top right x button
     #And I save the contact name as "Automation Runtime Contact"
-    When I perform quick search for "{SavedValue:Automation Runtime Contact} Contact" in "---home:-:reviewersTableId---" panel
-    Then I see value "{SavedValue:Automation Runtime Contact} Contact" for title "Full Name" inside table "---home:-:reviewersTableId---"
+    When I perform quick search for "{SavedValue:Automation Runtime} Contact" in "---home:-:reviewersTableId---" panel
+    Then I see value "{SavedValue:Automation Runtime} Contact" for title "Full Name" inside table "---home:-:reviewersTableId---"
     Then I see value "New" for title "Status" inside table "---home:-:reviewersTableId---"
-    When I perform quick search for "{SavedValue:Automation Runtime Contact} Contact" in "---home:-:reviewersTableId---" panel
-    Then I softly can see row level action button "View" against "{SavedValue:Automation Runtime Contact} Contact" in flex table with id "---home:-:reviewersTableId---"
+    When I perform quick search for "{SavedValue:Automation Runtime} Contact" in "---home:-:reviewersTableId---" panel
+    Then I softly can see row level action button "View" against "{SavedValue:Automation Runtime} Contact" in flex table with id "---home:-:reviewersTableId---"
     Given I delete the record "{SavedValue:Automation Runtime Contact}" from the object "CONTACT"
     Examples:
       | User  |
@@ -152,16 +152,13 @@ Feature: Validate all scenarios in the home tab
     And I generate the random EmailID and save as "uniqueEmailID"
     And I enter value "{SavedValue:uniqueEmailID}" into field "Email"
     When I click modal button "Save"
-#    And I close "Create Potential Reviewer Contact" modal by clicking the top right x button
-#    And I save the contact name as "Automation Runtime Contact"
     And I navigate to "SME Reviewers" content inside "Contacts" subheader on left panel
-    And I perform quick search for "{SavedValue:Automation Runtime Contact} Contact" in "---home:-:reviewersTableId---" panel
-    #Bug441757
-    And I click on "Send Invitation" icon for "{SavedValue:Automation Runtime Contact} Contact" inside flex table with id "---home:-:reviewersTableId---" without waiting for record
+    And I perform quick search for "{SavedValue:Automation Runtime} Contact" in "---home:-:reviewersTableId---" panel
+    And I click on "Send Invitation" icon for "{SavedValue:Automation Runtime} Contact" inside flex table with id "---home:-:reviewersTableId---" without waiting for record
     And I pause execution for "5" seconds
     And I click "Send" button in modal
     Then I see the text "Email Sent Successfully" in modal
-    Given I delete the record "{SavedValue:Automation Runtime Contact} Contact" from the object "CONTACT"
+    Given I delete the record "{SavedValue:Automation Runtime} Contact" from the object "CONTACT"
 
     Examples:
       | User  |
@@ -182,9 +179,9 @@ Feature: Validate all scenarios in the home tab
     #And I close "Create Potential Reviewer Contact" modal by clicking the top right x button
 #    And I save the contact name as "Automation Runtime Contact"
     And I navigate to "SME Reviewers" content inside "Contacts" subheader on left panel
-    When I perform quick search for "{SavedValue:Automation Runtime Contact} Contact" in "---home:-:reviewersTableId---" panel
-    Then I can see row level action button "View" against "{SavedValue:Automation Runtime Contact} Contact" in flex table with id "---home:-:reviewersTableId---"
-    Given I delete the record "{SavedValue:Automation Runtime Contact} Contact" from the object "CONTACT"
+    When I perform quick search for "{SavedValue:Automation Runtime} Contact" in "---home:-:reviewersTableId---" panel
+    Then I can see row level action button "View" against "{SavedValue:Automation Runtime} Contact" in flex table with id "---home:-:reviewersTableId---"
+    Given I delete the record "{SavedValue:Automation Runtime} Contact" from the object "CONTACT"
     Examples:
       | User  |
       | ADMIN |
@@ -228,9 +225,8 @@ Feature: Validate all scenarios in the home tab
   Scenario Outline: Validate whether ADMIN have view access to DUNSRegistration
     Given I login to "Grantor" app as "<User>" user
     When I navigate to "Home" tab
-#    Then I softly can see "History" sub tab at view detail page
-    And I navigate to "UEI Registration" content inside "Useful Links" subheader on left panel
-    Then I navigate to url "https://sam.gov/content/entity-registration"
+    And I navigate to "Entity/UEI Registration" content inside "Useful Links" subheader on left panel
+    Then I navigate to url "https://sam.gov/entity-registration"
 
     Examples:
       | User  |
@@ -240,8 +236,8 @@ Feature: Validate all scenarios in the home tab
   Scenario Outline: Validate whether all users have view access to SAM.Gov Registration
     Given I login to "Grantor" app as "<User>" user
     When I navigate to "Home" tab
-    And I navigate to "SAM.gov Registration" content inside "Useful Links" subheader on left panel
-    Then I navigate to url "https://www.sam.gov/SAM/"
+    And I navigate to "Entity/UEI Registration" content inside "Useful Links" subheader on left panel
+    Then I navigate to url "https://sam.gov/entity-registration"
     Examples:
       | User  |
       | ADMIN |
@@ -253,7 +249,7 @@ Feature: Validate all scenarios in the home tab
     Given I login to "Grantor" app as "<User>" user
     When I navigate to "Home" tab
     And I navigate to "Contact Us" content inside "Technical Support" subheader on left panel
-    And I see "Customer_Support" in current url
+    Then I see "Customer_Support" in current url
     Examples:
       | User  |
       | ADMIN |
@@ -267,7 +263,6 @@ Feature: Validate all scenarios in the home tab
     When I navigate to "Subrecipients" content inside "Organization" subheader on left panel
     And I perform quick search for "SAN DIEGO ELECTRICAL TRAINING TRUST" in "---home:-:subrecipientActiveAccountId---" panel
     When I click on "Edit" icon for "SAN DIEGO ELECTRICAL TRAINING TRUST" inside flex table with id "---home:-:subrecipientActiveAccountId---" without waiting for record
-    #Bug441314
     And I enter "Edition" values from "SubrecipientOrganization_Field_Values"
     When I click on "Save" in the page details
     Then I see that "Subrecipient Organization" is in "Active" status
@@ -332,10 +327,9 @@ Feature: Validate all scenarios in the home tab
     And I generate the random EmailID and save as "uniqueEmailID"
     And I enter value "{SavedValue:uniqueEmailID}" into field "Email"
     When I click modal button "Save"
-    #And I close "Create Potential Reviewer Contact" modal by clicking the top right x button
-#    And I save the contact name as "Automation Runtime Contact"
-    And I perform quick search for "{SavedValue:Automation Runtime Contact} Contact" in "---home:-:reviewersTableId---" panel
-    When I click on "Edit" icon for "{SavedValue:Automation Runtime Contact} Contact" inside flex table with id "---home:-:reviewersTableId---" without waiting for record
+    And I wait for "1" seconds
+    And I perform quick search for "{SavedValue:Automation Runtime} Contact" in "---home:-:reviewersTableId---" panel
+    When I click on "Edit" icon for "{SavedValue:Automation Runtime} Contact" inside flex table with id "---home:-:reviewersTableId---" without waiting for record
     And I click modal button "Save"
     Then I see value "New" for title "Status" inside table "---home:-:reviewersTableId---"
 
@@ -355,6 +349,7 @@ Feature: Validate all scenarios in the home tab
     #And I close "New Additional Address" modal by clicking the top right x button
     Then I softly see that "Internal Organization" is in "Active" status
     #When I perform quick search for "Billing Address" in "---home:-:additionalAddressTableId---" panel
+    And I select value inside table "---home:-:additionalAddressTableId---" is "All"
     And I click on "Edit" icon for "Billing Address" inside flex table with id "---home:-:additionalAddressTableId---" without waiting for record
     And I enter "AdditioanlAddressesEdition" values from "InternalOrganization_Field_Values.xlsx"
     And I click modal button "Save"
@@ -376,14 +371,10 @@ Feature: Validate all scenarios in the home tab
     And I pause execution for "3" seconds
     And I click on "Full Name" column header inside table with id "---home:-:relatedContactsTableId---"
     And I pause execution for "3" seconds
-    #And I close "Create Contact" modal by clicking the top right x button
-#    And I save the contact name as "Automation Runtime Contact"
-#    When I perform quick search for "{SavedValue:Automation Runtime Contact}" in "---home:-:relatedContactsTableId---" panel
     Then I softly can see row level action button "Edit" against "{SavedValue:Automation Runtime Contact} Contact" in flex table with id "---home:-:relatedContactsTableId---"
     And I click on "Edit" icon for "{SavedValue:Automation Runtime Contact} Contact" inside flex table with id "---home:-:relatedContactsTableId---" without waiting for record
     When I enter "RelatedContactsEdition" values from "InternalOrganization_Field_Values.xlsx"
     And I click modal button "Save"
-    #When I close "Edit" modal by clicking the top right x button
     Then I softly see that "Internal Organization" is in "Active" status
     Given I delete the record "{SavedValue:Automation Runtime Contact} Contact" from the object "CONTACT"
 
@@ -489,12 +480,10 @@ Feature: Validate all scenarios in the home tab
     Given I login to "Grantor" app as "<User>" user
     When I navigate to "Home" tab
     And I navigate to "Internal" content inside "Organization" subheader on left panel
-    #When I perform quick search for "Teaching and Learning" in "---home:-:internalOrganizationId---" panel
     And I expand nested table containing column value "Test Automation Organization"
-   #Then I see values "Career and College Transition Division" and "Division" inside table
-    Then I softly see "Internal Organization" in flex table header "---home:-:internalOrganizationId---"
-    Then I softly see "Agency Abbreviation" in flex table header "---home:-:internalOrganizationId---"
-    Then I softly see "Account Type" in flex table header "---home:-:internalOrganizationId---"
+    Then I softly see "Internal Organization" in flex table header "DivisionsGrantor"
+    Then I softly see "Agency Abbreviation" in flex table header "DivisionsGrantor"
+    Then I softly see "Account Type" in flex table header "DivisionsGrantor"
 
     Examples:
       | User  |
@@ -583,7 +572,7 @@ Feature: Validate all scenarios in the home tab
       | User  |
       | ADMIN |
 
-  @Add1 @73851 @73856 @73850 @57347 @57348 @viewActiveGrantsSubmittedApplicationsOnRelatedLog
+  @73851 @73856 @73850 @57347 @57348 @viewActiveGrantsSubmittedApplicationsOnRelatedLog
   Scenario Outline: Verify all profiles users should be able to view the Submitted Applications and Active Grants.
     Given I activated standalone subaward "Automation Runtime Award Record" with properties "default" of type "Competitive"
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Application" and properties "default"
@@ -599,8 +588,9 @@ Feature: Validate all scenarios in the home tab
     Then I softly see field "Status" as "Published"
     When I click on "Qualify" in the page details
     When I click on "Create Application" in the page details
+    And I pause execution for "3" seconds
     And I click modal button "Save and Continue"
-    And I pause execution for "6" seconds
+    And I pause execution for "2" seconds
     And I enter "Edition" values from "Application_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I navigate to "Budget" sub tab
@@ -652,7 +642,7 @@ Feature: Validate all scenarios in the home tab
     And I update title as "Automation.pdf" on upload file modal
     And I select Classification as "Indirect rate plan" at upload file modal
     When I click modal button "Save"
-    And I click modal button "Close"
+#    And I click modal button "Close"
     And I refresh the page
     And I wait for "2" seconds
     Then I softly see value "Automation.pdf" for title "Title" inside table "---home:-:OrganizationAddfile---"
@@ -870,9 +860,7 @@ Feature: Validate all scenarios in the home tab
     And I navigate to "Home" tab
     And I select "Programs" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:ProgramID}"
-    #And I click toggle button to select "Internal Programs"
-#    And I perform quick search for "{SavedValue:ProgramID}" in "Program__c" panel
-    Then I see value "{SavedValue:ProgramID}" for title "EGMS ID" inside table "Programs||List View"
+    Then I see value "{SavedValue:ProgramID}" for title "EGMS ID" inside table "Programs" for global search record
 
   @62912 @VerifyrecentlyViewedRecordAndDetailsOnMiniPageLayoutAndHoverLink  @wip
   Scenario: The Internal User should be able to view the recently viewed record and details on the Mini pagelayout and the hover link  will take to the record
@@ -897,17 +885,17 @@ Feature: Validate all scenarios in the home tab
     #And I close "Create Potential Reviewer Contact" modal by clicking the top right x button
 #    And I save the contact name as "Automation Runtime Contact"
     And I navigate to "SME Reviewers" content inside "Contacts" subheader on left panel
-    And I perform quick search for "{SavedValue:Automation Runtime Contact} Contact" in "---home:-:reviewersTableId---" panel
-    And I click on "Send Invitation" icon for "{SavedValue:Automation Runtime Contact} Contact" inside flex table with id "---home:-:reviewersTableId---" without waiting for record
+    And I perform quick search for "{SavedValue:Automation Runtime} Contact" in "---home:-:reviewersTableId---" panel
+    And I click on "Send Invitation" icon for "{SavedValue:Automation Runtime} Contact" inside flex table with id "---home:-:reviewersTableId---" without waiting for record
     #Bug441757
     And I pause execution for "5" seconds
     And I click "Send" button in modal
     When I close "Reviewers" modal by clicking the top right x button
     When I navigate to "Home" tab
     And I navigate to "SME Reviewers" content inside "Contacts" subheader on left panel
-    And I perform quick search for "{SavedValue:Automation Runtime Contact} Contact" in "---home:-:reviewersTableId---" panel
+    And I perform quick search for "{SavedValue:Automation Runtime} Contact" in "---home:-:reviewersTableId---" panel
     Then I see value "Invitation Sent" for title "Status" inside table "---home:-:reviewersTableId---"
-    Given I delete the record "{SavedValue:Automation Runtime Contact} Contact" from the object "CONTACT"
+    Given I delete the record "{SavedValue:Automation Runtime} Contact" from the object "CONTACT"
     Examples:
       | User  |
       | ADMIN |
@@ -925,19 +913,18 @@ Feature: Validate all scenarios in the home tab
     And I generate the random EmailID and save as "uniqueEmailID"
     And I enter value "{SavedValue:uniqueEmailID}" into field "Email"
     When I click modal button "Save"
-    #And I close "Create Potential Reviewer Contact" modal by clicking the top right x button
-#    And I save the contact name as "Automation Runtime Contact"
-    And I perform quick search for "{SavedValue:Automation Runtime Contact} Contact" in "---home:-:reviewersTableId---" panel
-    Then I softly see value "{SavedValue:Automation Runtime Contact} Contact" for title "Full Name" inside table "---home:-:reviewersTableId---"
+    And I wait for "1" seconds
+    And I perform quick search for "{SavedValue:Automation Runtime} Contact" in "---home:-:reviewersTableId---" panel
+    Then I softly see value "{SavedValue:Automation Runtime} Contact" for title "Full Name" inside table "---home:-:reviewersTableId---"
     Then I softly see value "{SavedValue:uniqueEmailID}" for title "Email" inside table "---home:-:reviewersTableId---"
     Then I softly see value "New" for title "Status" inside table "---home:-:reviewersTableId---"
     Then I softly see value "Test Automation Organization" for title "Sponsoring Agency" inside table "---home:-:reviewersTableId---"
-    #34674 #Bug441757
-    And I click on "Send Invitation" icon for "{SavedValue:Automation Runtime Contact} Contact" inside flex table with id "---home:-:reviewersTableId---" without waiting for record
+    #34674
+    And I click on "Send Invitation" icon for "{SavedValue:Automation Runtime} Contact" inside flex table with id "---home:-:reviewersTableId---" without waiting for record
     And I pause execution for "5" seconds
     And I click "Send" button in modal
     Then I see the text "Email Sent Successfully" in modal
-    Given I delete the record "{SavedValue:Automation Runtime Contact} Contact" from the object "CONTACT"
+    Given I delete the record "{SavedValue:Automation Runtime} Contact" from the object "CONTACT"
 
   @201744 @201746 @201748 @ValidateSPIusershouldnotabletoeditfollowingfieldsFirstNameLastNameEmaildUserRolealreadyread-onlyonexternalprofileuser @sprint-5-US-200038
   Scenario Outline: Validate SPI user should not able to edit following fields a. First Name b. Last Name c. Email d. User Role already read-only on external profile user

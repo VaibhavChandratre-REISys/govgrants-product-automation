@@ -1,4 +1,4 @@
-@grantsAwardAllocation @grantor-regression @grantor-parallel-regression @grantAndAward @GrantsExecution
+@grantsAwardAllocation @grantor-regression @grantor-parallel-regression @grantAndAward
 Feature: Validate all scenarios of grants and award for Allocation
 
   @243736 @ValidatePOasreviewershouldabletoedittheTotalCommitmentfieldinsentforreviewstatesofawardifalloweditaccessisYesforreviewer @sprint-16-US-237985  @Allocation
@@ -145,6 +145,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I click on "Edit" in the page details
     When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
     And I click on "Save" in the page details
+    And I wait for "2" seconds
     And I navigate to "Budget" sub tab
     When I click on top right button "Associate" in flex table with id "---subAwardStandAlone:-:fundingAccountsTableId---"
     When I click "Associate" after selection of "Automation Permanent Funding Account" in the table "---subAwardStandAlone:-:awardFundingAccountsTableId---"
@@ -180,13 +181,9 @@ Feature: Validate all scenarios of grants and award for Allocation
       | {SavedValue:SPI3 Username} | Project Director/Manager | Checked          |
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
-      | Name                     | Award |
-      | {SavedValue:PM Username} | NA    |
-    When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
       | Name                     | Award  |
       | {SavedValue:PM Username} | Step 1 |
     And I click on "Send to Subrecipient" in the page details
-    And I wait for "3" seconds
     Then I softly see field "Status" as "Sent to Subrecipient"
     And I navigate to "Budget" sub tab
     When I click on "Edit" in the page details
@@ -436,6 +433,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     #243786
     And I click on top right button "Associate" in flex table with id "---subAwardStandAlone:-:focusAreaTableId---"
     When I click "Associate" after selection of "Automation Permanent Focus Area2" in the table "---subAwardStandAlone:-:associateModalTableId---"
+    When I click modal button "Close"
     And I wait for "2" seconds
     And I navigate to "Budget" sub tab
     Then I softly see value "Automation Permanent Focus Area2" for title "Title" inside table "---subAwardStandAlone:-:focusAreaTableId---"
@@ -679,62 +677,62 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I navigate to "Budget" sub tab
     Then I softly do not see "Budgeted Amount" in flex table header "---subAwardStandAlone:-:focusAreaTableId---"
 
-#  @243807 @243848 @244199 @ValidatePMusershouldnotseebudgetedamountcolumninsubmitforclosestateofawardFAYes @sprint-16-US-237985 @Allocation
-#  Scenario: Validate PM user should not see 'budgeted amount' column in submit for close state of award FAYes
-#    When I login to "Grantor" app as "PM" user
-#    And I navigate to "Grants" tab
-#    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
-#    And I click toggle button to select "Grants - All"
-#    When I perform quick search for "{AUTOEnvData:ByApplicantFocusYesClosedAwardDirectGrant}" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
-#    And I click on "View" icon for "{AUTOEnvData:ByApplicantFocusYesClosedAwardDirectGrant}" inside table
-#    When I navigate to "Subawards" sub tab
-#    And I click on "View" icon for "{AUTOEnvData:ByApplicantFocusYesClosedAwardDirectGrant}" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
-#    Then I softly see status in Progress-bar is "Closed" and is "dark blue"
-#    And I navigate to "Budget" sub tab
-#    Then I softly do not see "Budgeted Amount" in flex table header "---subAwardStandAlone:-:focusAreaTableId---"
-#    #243848
-#    And I navigate to "Budget" sub tab
-#    Then I softly cannot see row level action button "Edit" against "Automation Permanent Focus Area" in flex table with id "---subAwardStandAlone:-:focusAreaTableId---"
-#    #244199
-#    When I re-login to "Grants Portal" app as "IND" user on "SUBPORTAL" portal
-#    And I navigate to "Grants" tab
-#    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
-#    And I click toggle button to select "Grants - All"
-#    When I perform quick search for "{AUTOEnvData:INDAdminByApplicantFocusYesClosedAwardDirectGrant}" in "---progressReport:-:recipientActiveGrantId---" panel
-#    And I click on "View" icon for "{AUTOEnvData:INDAdminByApplicantFocusYesClosedAwardDirectGrant}" inside table
-#    And I wait for "2" seconds
-#    When I navigate to "Subawards" sub tab
-#    And I click on "View" icon for "{AUTOEnvData:INDAdminByApplicantFocusYesClosedAwardDirectGrant}" inside flex table with id "---progressReport:-:recipientsRelatedSubAwardsTableId---" without waiting for record
-#    When I navigate to "Budget" sub tab
-#    Then I softly do not see "Budgeted Amount" inside page block detail
+  @243807 @243848 @244199 @ValidatePMusershouldnotseebudgetedamountcolumninsubmitforclosestateofawardFAYes @sprint-16-US-237985 @Allocation
+  Scenario: Validate PM user should not see 'budgeted amount' column in submit for close state of award FAYes
+    When I login to "Grantor" app as "PM" user
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click toggle button to select "Grants - All"
+    When I perform quick search for "{AUTOEnvData:ByApplicantFocusYesClosedAwardDirectGrant}" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
+    And I click on "View" icon for "{AUTOEnvData:ByApplicantFocusYesClosedAwardDirectGrant}" inside table
+    When I navigate to "Subawards" sub tab
+    And I click on "View" icon for "{AUTOEnvData:ByApplicantFocusYesClosedAwardDirectGrant}" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
+    Then I softly see status in Progress-bar is "Closed" and is "dark blue"
+    And I navigate to "Budget" sub tab
+    Then I softly do not see "Budgeted Amount" in flex table header "---subAwardStandAlone:-:focusAreaTableId---"
+    #243848
+    And I navigate to "Budget" sub tab
+    Then I softly cannot see row level action button "Edit" against "Automation Permanent Focus Area" in flex table with id "---subAwardStandAlone:-:focusAreaTableId---"
+    #244199
+    When I re-login to "Grants Portal" app as "IND" user on "SUBPORTAL" portal
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click toggle button to select "Grants - All"
+    When I perform quick search for "{AUTOEnvData:INDAdminByApplicantFocusYesClosedAwardDirectGrant}" in "---progressReport:-:recipientActiveGrantId---" panel
+    And I click on "View" icon for "{AUTOEnvData:INDAdminByApplicantFocusYesClosedAwardDirectGrant}" inside table
+    And I wait for "2" seconds
+    When I navigate to "Subawards" sub tab
+    And I click on "View" icon for "{AUTOEnvData:INDAdminByApplicantFocusYesClosedAwardDirectGrant}" inside flex table with id "---progressReport:-:recipientsRelatedSubAwardsTableId---" without waiting for record
+    When I navigate to "Budget" sub tab
+    Then I softly do not see "Budgeted Amount" inside page block detail
 
-#  @243861 @244195 @244302 @ValidateAdminusershouldseeCumulativeObligationfieldinclosestateofawardFAYES @sprint-16-US-237985  @Allocation
-#  Scenario: Validate Admin user should see 'Cumulative Obligation' field in close state of award (FA=YES)
-#    When I login to "Grantor" app as "ADMIN" user
-#    And I navigate to "Grants" tab
-#    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
-#    And I click toggle button to select "Grants - All"
-#    When I perform quick search for "{AUTOEnvData:AdminByApplicantFocusYesClosedAwardDirectGrant}" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
-#    And I click on "View" icon for "{AUTOEnvData:AdminByApplicantFocusYesClosedAwardDirectGrant}" inside table
-#    When I navigate to "Subawards" sub tab
-#    And I click on "View" icon for "{AUTOEnvData:AdminByApplicantFocusYesClosedAwardDirectGrant}" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
-#    Then I softly see status in Progress-bar is "Closed" and is "dark blue"
-#    And I navigate to "Budget" sub tab
-#    Then I softly see "Cumulative Obligation" in flex table header "---subAwardStandAlone:-:focusAreaTableId---"
-#    Then I softly see "New Obligation" in flex table header "---subAwardStandAlone:-:focusAreaTableId---"
-#    #244195
-#    When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
-#    And I navigate to "Grants" tab
-#    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
-#    And I click toggle button to select "Grants - All"
-#    When I perform quick search for "{AUTOEnvData:AdminByApplicantFocusYesClosedAwardDirectGrant}" in "---progressReport:-:recipientActiveGrantId---" panel
-#    And I click on "View" icon for "{AUTOEnvData:AdminByApplicantFocusYesClosedAwardDirectGrant}" inside table
-#    When I navigate to "Subawards" sub tab
-#    And I click on "View" icon for "{AUTOEnvData:AdminByApplicantFocusYesClosedAwardDirectGrant}" inside flex table with id "---progressReport:-:recipientsRelatedSubAwardsTableId---" without waiting for record
-#    When I navigate to "Budget" sub tab
-#    Then I softly do not see "Budgeted Amount" inside page block detail
-#    #244302
-#    Then I softly see "Cumulative Obligation" in flex table header "---subAwardStandAlone:-:subrecipientFocusAreaTableId---"
+  @243861 @244195 @244302 @ValidateAdminusershouldseeCumulativeObligationfieldinclosestateofawardFAYES @sprint-16-US-237985  @Allocation
+  Scenario: Validate Admin user should see 'Cumulative Obligation' field in close state of award (FA=YES)
+    When I login to "Grantor" app as "ADMIN" user
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click toggle button to select "Grants - All"
+    When I perform quick search for "{AUTOEnvData:AdminByApplicantFocusYesClosedAwardDirectGrant}" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
+    And I click on "View" icon for "{AUTOEnvData:AdminByApplicantFocusYesClosedAwardDirectGrant}" inside table
+    When I navigate to "Subawards" sub tab
+    And I click on "View" icon for "{AUTOEnvData:AdminByApplicantFocusYesClosedAwardDirectGrant}" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
+    Then I softly see status in Progress-bar is "Closed" and is "dark blue"
+    And I navigate to "Budget" sub tab
+    Then I softly see "Cumulative Obligation" in flex table header "---subAwardStandAlone:-:focusAreaTableId---"
+    Then I softly see "New Obligation" in flex table header "---subAwardStandAlone:-:focusAreaTableId---"
+    #244195
+    When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click toggle button to select "Grants - All"
+    When I perform quick search for "{AUTOEnvData:AdminByApplicantFocusYesClosedAwardDirectGrant}" in "---progressReport:-:recipientActiveGrantId---" panel
+    And I click on "View" icon for "{AUTOEnvData:AdminByApplicantFocusYesClosedAwardDirectGrant}" inside table
+    When I navigate to "Subawards" sub tab
+    And I click on "View" icon for "{AUTOEnvData:AdminByApplicantFocusYesClosedAwardDirectGrant}" inside flex table with id "---progressReport:-:recipientsRelatedSubAwardsTableId---" without waiting for record
+    When I navigate to "Budget" sub tab
+    Then I softly do not see "Budgeted Amount" inside page block detail
+    #244302
+    Then I softly see "Cumulative Obligation" in flex table header "---subAwardStandAlone:-:subrecipientFocusAreaTableId---"
 
   @243928 @ValidateEXEusershouldnotseeCumulativeobligationreadonlycolumnincreatedSenttoSrbeforeapprovalinreviewpeerreviewedstateofaward @sprint-16-US-237985  @Allocation
   Scenario: Validate EXE user should not see 'Cumulative obligation' read only column in created, Sent to S/r before approval, in review/peer reviewed state of award
@@ -933,7 +931,7 @@ Feature: Validate all scenarios of grants and award for Allocation
       | Extra Salary | The narrative | 1000         | 100        | 100            |
     Then I softly can see row level action button "Edit" against "Extra Salary" in flex table with id "---subAwardStandAlone:-:addLinesBudgetCategoryTableId---"
     Then I softly can see row level action button "Delete" against "Extra Salary" in flex table with id "---subAwardStandAlone:-:addLinesBudgetCategoryTableId---"
-    When I close "Subaward Budget Category" modal by clicking the top right x button
+    When I close "Subaward Line Items" modal by clicking the top right x button
     #243933
     When I navigate to "Performance" sub tab
     And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:kpiTableId---" by clicking "Edit" :
@@ -968,7 +966,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I can see top right button "New" in flex table with id "---subAwardStandAlone:-:addLinesBudgetCategoryTableId---"
     Then I softly can see row level action button "Edit" against "Extra Salary" in flex table with id "---subAwardStandAlone:-:addLinesBudgetCategoryTableId---"
     Then I softly can see row level action button "Delete" against "Extra Salary" in flex table with id "---subAwardStandAlone:-:addLinesBudgetCategoryTableId---"
-    When I close "Subaward Budget Category" modal by clicking the top right x button
+    When I close "Subaward Line Items" modal by clicking the top right x button
     And I wait for "2" seconds
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
@@ -997,7 +995,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I can see top right button "New" in flex table with id "---subAwardStandAlone:-:addLinesBudgetCategoryTableId---"
     Then I softly can see row level action button "Edit" against "Extra Salary" in flex table with id "---subAwardStandAlone:-:addLinesBudgetCategoryTableId---"
     Then I softly can see row level action button "Delete" against "Extra Salary" in flex table with id "---subAwardStandAlone:-:addLinesBudgetCategoryTableId---"
-    When I close "Subaward Budget Category" modal by clicking the top right x button
+    When I close "Subaward Line Items" modal by clicking the top right x button
     And I wait for "2" seconds
     When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Grants" tab
@@ -2026,7 +2024,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     When I enter the following values into flex table with id "---subAwardStandAlone:-:RecipientAwardBudgetCategoryTableId---" by clicking "New" :
       | Title        | Narrative     | Award Amount | Cash Match | Non-Cash Match |
       | Extra Salary | The narrative | 1000         | 100        | 100            |
-    When I close "Subaward Budget Category" modal by clicking the top right x button
+    When I close "Subaward Line Items" modal by clicking the top right x button
     And I wait for "2" seconds
     When I navigate to "Performance" sub tab
     And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:kpiTableId---" by clicking "Edit" :
@@ -2166,7 +2164,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I cannot see top right button "New" in flex table with id "---subAwardStandAlone:-:addLinesBudgetCategoryTableId---"
     Then I softly cannot see row level action button "Edit" against "Extra Salary" in flex table with id "---subAwardStandAlone:-:RecipientAwardBudgetCategoryTableId---"
     Then I softly cannot see row level action button "Delete" against "Extra Salary" in flex table with id "---subAwardStandAlone:-:RecipientAwardBudgetCategoryTableId---"
-    When I close "Subaward Budget Category" modal by clicking the top right x button
+    When I close "Subaward Line Items" modal by clicking the top right x button
     And I wait for "2" seconds
     When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Grants" tab
@@ -2193,7 +2191,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I cannot see top right button "New" in flex table with id "---subAwardStandAlone:-:addLinesBudgetCategoryTableId---"
     Then I softly cannot see row level action button "Edit" against "Extra Salary" in flex table with id "---subAwardStandAlone:-:RecipientAwardBudgetCategoryTableId---"
     Then I softly cannot see row level action button "Delete" against "Extra Salary" in flex table with id "---subAwardStandAlone:-:RecipientAwardBudgetCategoryTableId---"
-    When I close "Subaward Budget Category" modal by clicking the top right x button
+    When I close "Subaward Line Items" modal by clicking the top right x button
     And I wait for "2" seconds
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
@@ -2228,7 +2226,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I cannot see top right button "New" in flex table with id "---subAwardStandAlone:-:addLinesBudgetCategoryTableId---"
     Then I softly cannot see row level action button "Edit" against "Extra Salary" in flex table with id "---subAwardStandAlone:-:RecipientAwardBudgetCategoryTableId---"
     Then I softly cannot see row level action button "Delete" against "Extra Salary" in flex table with id "---subAwardStandAlone:-:RecipientAwardBudgetCategoryTableId---"
-    When I close "Subaward Budget Category" modal by clicking the top right x button
+    When I close "Subaward Line Items" modal by clicking the top right x button
     And I wait for "2" seconds
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
@@ -2259,7 +2257,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I cannot see top right button "New" in flex table with id "---subAwardStandAlone:-:addLinesBudgetCategoryTableId---"
     Then I softly cannot see row level action button "Edit" against "Extra Salary" in flex table with id "---subAwardStandAlone:-:RecipientAwardBudgetCategoryTableId---"
     Then I softly cannot see row level action button "Delete" against "Extra Salary" in flex table with id "---subAwardStandAlone:-:RecipientAwardBudgetCategoryTableId---"
-    When I close "Subaward Budget Category" modal by clicking the top right x button
+    When I close "Subaward Line Items" modal by clicking the top right x button
     And I wait for "2" seconds
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
@@ -2333,7 +2331,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I cannot see top right button "New" in flex table with id "---subAwardStandAlone:-:addLinesBudgetCategoryTableId---"
     Then I softly cannot see row level action button "Edit" against "Extra Salary" in flex table with id "---subAwardStandAlone:-:RecipientAwardBudgetCategoryTableId---"
     Then I softly cannot see row level action button "Delete" against "Extra Salary" in flex table with id "---subAwardStandAlone:-:RecipientAwardBudgetCategoryTableId---"
-    When I close "Subaward Budget Category" modal by clicking the top right x button
+    When I close "Subaward Line Items" modal by clicking the top right x button
     And I wait for "2" seconds
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
@@ -2633,7 +2631,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     When I enter the following values into flex table with id "---subAwardStandAlone:-:RecipientAwardBudgetCategoryTableId---" by clicking "New" :
       | Title        | Narrative     | Award Amount | Cash Match | Non-Cash Match |
       | Extra Salary | The narrative | 1000         | 100        | 100            |
-    When I close "Subaward Budget Category" modal by clicking the top right x button
+    When I close "Subaward Line Items" modal by clicking the top right x button
     And I wait for "2" seconds
     When I navigate to "Performance" sub tab
     And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:kpiTableId---" by clicking "Edit" :
@@ -2713,7 +2711,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     When I enter the following values into flex table with id "---subAwardStandAlone:-:RecipientAwardBudgetCategoryTableId---" by clicking "New" :
       | Title        | Narrative     | Award Amount | Cash Match | Non-Cash Match |
       | Extra Salary | The narrative | 1000         | 100        | 100            |
-    When I close "Subaward Budget Category" modal by clicking the top right x button
+    When I close "Subaward Line Items" modal by clicking the top right x button
     And I wait for "2" seconds
     When I navigate to "Performance" sub tab
     And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:kpiTableId---" by clicking "Edit" :
@@ -2759,7 +2757,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     When I click on "Delete" icon for "Test" inside flex table with id "---subAwardStandAlone:-:RecipientAwardBudgetCategoryTableId---"
     And I wait for "2" seconds
     Then I softly do not see value "Test" for title "Narrative" inside table "---subAwardStandAlone:-:RecipientAwardBudgetCategoryTableId---"
-    When I close "Subaward Budget Category" modal by clicking the top right x button
+    When I close "Subaward Line Items" modal by clicking the top right x button
     And I wait for "2" seconds
     And I click on "Accept" in the page details
     #244359
@@ -2793,7 +2791,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I cannot see top right button "New" in flex table with id "---subAwardStandAlone:-:addLinesBudgetCategoryTableId---"
     Then I softly cannot see row level action button "Edit" against "Extra Salary" in flex table with id "---subAwardStandAlone:-:RecipientAwardBudgetCategoryTableId---"
     Then I softly cannot see row level action button "Delete" against "Extra Salary" in flex table with id "---subAwardStandAlone:-:RecipientAwardBudgetCategoryTableId---"
-    When I close "Subaward Budget Category" modal by clicking the top right x button
+    When I close "Subaward Line Items" modal by clicking the top right x button
     And I wait for "2" seconds
     When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Grants" tab
@@ -2832,7 +2830,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I cannot see top right button "New" in flex table with id "---subAwardStandAlone:-:addLinesBudgetCategoryTableId---"
     Then I softly cannot see row level action button "Edit" against "Extra Salary" in flex table with id "---subAwardStandAlone:-:RecipientAwardBudgetCategoryTableId---"
     Then I softly cannot see row level action button "Delete" against "Extra Salary" in flex table with id "---subAwardStandAlone:-:RecipientAwardBudgetCategoryTableId---"
-    When I close "Subaward Budget Category" modal by clicking the top right x button
+    When I close "Subaward Line Items" modal by clicking the top right x button
     And I wait for "2" seconds
     #244361
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
@@ -2863,7 +2861,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I cannot see top right button "New" in flex table with id "---subAwardStandAlone:-:addLinesBudgetCategoryTableId---"
     Then I softly cannot see row level action button "Edit" against "Extra Salary" in flex table with id "---subAwardStandAlone:-:RecipientAwardBudgetCategoryTableId---"
     Then I softly cannot see row level action button "Delete" against "Extra Salary" in flex table with id "---subAwardStandAlone:-:RecipientAwardBudgetCategoryTableId---"
-    When I close "Subaward Budget Category" modal by clicking the top right x button
+    When I close "Subaward Line Items" modal by clicking the top right x button
     And I wait for "2" seconds
     When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Grants" tab
@@ -2886,7 +2884,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I cannot see top right button "New" in flex table with id "---subAwardStandAlone:-:addLinesBudgetCategoryTableId---"
     Then I softly cannot see row level action button "Edit" against "Extra Salary" in flex table with id "---subAwardStandAlone:-:RecipientAwardBudgetCategoryTableId---"
     Then I softly cannot see row level action button "Delete" against "Extra Salary" in flex table with id "---subAwardStandAlone:-:RecipientAwardBudgetCategoryTableId---"
-    When I close "Subaward Budget Category" modal by clicking the top right x button
+    When I close "Subaward Line Items" modal by clicking the top right x button
     And I wait for "2" seconds
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
@@ -2911,7 +2909,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I cannot see top right button "New" in flex table with id "---subAwardStandAlone:-:addLinesBudgetCategoryTableId---"
     Then I softly cannot see row level action button "Edit" against "Extra Salary" in flex table with id "---subAwardStandAlone:-:RecipientAwardBudgetCategoryTableId---"
     Then I softly cannot see row level action button "Delete" against "Extra Salary" in flex table with id "---subAwardStandAlone:-:RecipientAwardBudgetCategoryTableId---"
-    When I close "Subaward Budget Category" modal by clicking the top right x button
+    When I close "Subaward Line Items" modal by clicking the top right x button
     And I click on "Accept after Approval" in the page details
     And I navigate to "Budget" sub tab
     When I click on "Add Line Items" icon for "Construction" inside flex table with id "---subAwardStandAlone:-:sRBudgetCategoryTableId---"
@@ -2919,7 +2917,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I cannot see top right button "New" in flex table with id "---subAwardStandAlone:-:addLinesBudgetCategoryTableId---"
     Then I softly cannot see row level action button "Edit" against "Extra Salary" in flex table with id "---subAwardStandAlone:-:RecipientAwardBudgetCategoryTableId---"
     Then I softly cannot see row level action button "Delete" against "Extra Salary" in flex table with id "---subAwardStandAlone:-:RecipientAwardBudgetCategoryTableId---"
-    When I close "Subaward Budget Category" modal by clicking the top right x button
+    When I close "Subaward Line Items" modal by clicking the top right x button
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
@@ -2945,7 +2943,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I cannot see top right button "New" in flex table with id "---subAwardStandAlone:-:addLinesBudgetCategoryTableId---"
     Then I softly cannot see row level action button "Edit" against "Extra Salary" in flex table with id "---subAwardStandAlone:-:RecipientAwardBudgetCategoryTableId---"
     Then I softly cannot see row level action button "Delete" against "Extra Salary" in flex table with id "---subAwardStandAlone:-:RecipientAwardBudgetCategoryTableId---"
-    When I close "Subaward Budget Category" modal by clicking the top right x button
+    When I close "Subaward Line Items" modal by clicking the top right x button
     And I wait for "2" seconds
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
@@ -3010,7 +3008,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I cannot see top right button "New" in flex table with id "---subAwardStandAlone:-:addLinesBudgetCategoryTableId---"
     Then I softly cannot see row level action button "Edit" against "Extra Salary" in flex table with id "---subAwardStandAlone:-:RecipientAwardBudgetCategoryTableId---"
     Then I softly cannot see row level action button "Delete" against "Extra Salary" in flex table with id "---subAwardStandAlone:-:RecipientAwardBudgetCategoryTableId---"
-    When I close "Subaward Budget Category" modal by clicking the top right x button
+    When I close "Subaward Line Items" modal by clicking the top right x button
     And I wait for "2" seconds
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
@@ -3075,7 +3073,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     When I enter the following values into flex table with id "---subAwardStandAlone:-:RecipientAwardBudgetCategoryTableId---" by clicking "New" :
       | Title        | Narrative     | Award Amount | Cash Match | Non-Cash Match |
       | Extra Salary | The narrative | 1000         | 100        | 100            |
-    When I close "Subaward Budget Category" modal by clicking the top right x button
+    When I close "Subaward Line Items" modal by clicking the top right x button
     And I wait for "2" seconds
     When I navigate to "Performance" sub tab
     And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:kpiTableId---" by clicking "Edit" :
@@ -3116,21 +3114,21 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I cannot see top right button "New" in flex table with id "---subAwardStandAlone:-:addLinesBudgetCategoryTableId---"
     Then I softly cannot see row level action button "Edit" against "Extra Salary" in flex table with id "---subAwardStandAlone:-:RecipientAwardBudgetCategoryTableId---"
     Then I softly cannot see row level action button "Delete" against "Extra Salary" in flex table with id "---subAwardStandAlone:-:RecipientAwardBudgetCategoryTableId---"
-    When I close "Subaward Budget Category" modal by clicking the top right x button
+    When I close "Subaward Line Items" modal by clicking the top right x button
     And I wait for "2" seconds
-#    And I navigate to "Grants" tab
-#    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
-#    And I click toggle button to select "Grants - All"
-#    When I perform quick search for "<Records>" in "---paymentRequest:-:recipientGrantTableId---" panel
-#    And I click on "View" icon for "<Records>" inside flex table with id "---paymentRequest:-:recipientGrantTableId---" without waiting for record
-#    When I navigate to "Subawards" sub tab
-#    And I click on "View" icon for "<Records>" inside flex table with id "---paymentRequest:-:recipientAwardTableId---" without waiting for record
-#    And I navigate to "Budget" sub tab
-#    When I click on "Add Line Items" icon for "Construction" inside flex table with id "---subAwardStandAlone:-:sRBudgetCategoryTableId---"
-#    And I wait for "2" seconds
-#    Then I cannot see top right button "New" in flex table with id "---subAwardStandAlone:-:addLinesBudgetCategoryTableId---"
-#    Then I softly cannot see row level action button "Edit" against "Construction" in flex table with id "---subAwardStandAlone:-:RecipientAwardBudgetCategoryTableId---"
-#    Then I softly cannot see row level action button "Delete" against "Construction" in flex table with id "---subAwardStandAlone:-:RecipientAwardBudgetCategoryTableId---"
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click toggle button to select "Grants - All"
+    When I perform quick search for "<Records>" in "---paymentRequest:-:recipientGrantTableId---" panel
+    And I click on "View" icon for "<Records>" inside flex table with id "---paymentRequest:-:recipientGrantTableId---" without waiting for record
+    When I navigate to "Subawards" sub tab
+    And I click on "View" icon for "<Records>" inside flex table with id "---paymentRequest:-:recipientAwardTableId---" without waiting for record
+    And I navigate to "Budget" sub tab
+    When I click on "Add Line Items" icon for "Construction" inside flex table with id "---subAwardStandAlone:-:sRBudgetCategoryTableId---"
+    And I wait for "2" seconds
+    Then I cannot see top right button "New" in flex table with id "---subAwardStandAlone:-:addLinesBudgetCategoryTableId---"
+    Then I softly cannot see row level action button "Edit" against "Construction" in flex table with id "---subAwardStandAlone:-:RecipientAwardBudgetCategoryTableId---"
+    Then I softly cannot see row level action button "Delete" against "Construction" in flex table with id "---subAwardStandAlone:-:RecipientAwardBudgetCategoryTableId---"
 
     Examples:
       | User | AllocationType     | Contacts                   | Records                                       |
@@ -3973,7 +3971,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     When I enter the following values into flex table with id "---subAwardStandAlone:-:RecipientAwardBudgetCategoryTableId---" by clicking "New" :
       | Title        | Narrative     | Award Amount | Cash Match | Non-Cash Match |
       | Extra Salary | The narrative | 1000         | 100        | 100            |
-    When I close "Subaward Budget Category" modal by clicking the top right x button
+    When I close "Subaward Line Items" modal by clicking the top right x button
     And I refresh the page
     And I wait for "2" seconds
     When I navigate to "Performance" sub tab
@@ -4281,7 +4279,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     When I enter the following values into flex table with id "---subAwardStandAlone:-:RecipientAwardBudgetCategoryTableId---" by clicking "New" :
       | Title        | Narrative     | Award Amount | Cash Match | Non-Cash Match |
       | Extra Salary | The narrative | 1000         | 100        | 100            |
-    When I close "Subaward Budget Category" modal by clicking the top right x button
+    When I close "Subaward Line Items" modal by clicking the top right x button
     And I refresh the page
     When I navigate to "Performance" sub tab
     And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:kpiTableId---" by clicking "Edit" :
@@ -4331,7 +4329,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I cannot see top right button "New" in flex table with id "---subAwardStandAlone:-:addLinesBudgetCategoryTableId---"
     Then I softly cannot see row level action button "Edit" against "Extra Salary" in flex table with id "---subAwardStandAlone:-:RecipientAwardBudgetCategoryTableId---"
     Then I softly cannot see row level action button "Delete" against "Extra Salary" in flex table with id "---subAwardStandAlone:-:RecipientAwardBudgetCategoryTableId---"
-    When I close "Subaward Budget Category" modal by clicking the top right x button
+    When I close "Subaward Line Items" modal by clicking the top right x button
     And I wait for "2" seconds
     When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Grants" tab
@@ -4354,7 +4352,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I cannot see top right button "New" in flex table with id "---subAwardStandAlone:-:RecipientAwardBudgetCategoryTableId---"
     Then I softly cannot see row level action button "Edit" against "Extra Salary" in flex table with id "---subAwardStandAlone:-:RecipientAwardBudgetCategoryTableId---"
     Then I softly cannot see row level action button "Delete" against "Extra Salary" in flex table with id "---subAwardStandAlone:-:RecipientAwardBudgetCategoryTableId---"
-    When I close "Subaward Budget Category" modal by clicking the top right x button
+    When I close "Subaward Line Items" modal by clicking the top right x button
     And I wait for "2" seconds
     And I click on "Send to Subrecipient" in the page details
     And I wait for "2" seconds
@@ -4365,7 +4363,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I cannot see top right button "New" in flex table with id "---subAwardStandAlone:-:RecipientAwardBudgetCategoryTableId---"
     Then I softly cannot see row level action button "Edit" against "Extra Salary" in flex table with id "---subAwardStandAlone:-:RecipientAwardBudgetCategoryTableId---"
     Then I softly cannot see row level action button "Delete" against "Extra Salary" in flex table with id "---subAwardStandAlone:-:RecipientAwardBudgetCategoryTableId---"
-    When I close "Subaward Budget Category" modal by clicking the top right x button
+    When I close "Subaward Line Items" modal by clicking the top right x button
     And I wait for "2" seconds
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
@@ -4387,7 +4385,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I cannot see top right button "New" in flex table with id "---subAwardStandAlone:-:RecipientAwardBudgetCategoryTableId---"
     Then I softly cannot see row level action button "Edit" against "Extra Salary" in flex table with id "---subAwardStandAlone:-:RecipientAwardBudgetCategoryTableId---"
     Then I softly cannot see row level action button "Delete" against "Extra Salary" in flex table with id "---subAwardStandAlone:-:RecipientAwardBudgetCategoryTableId---"
-    When I close "Subaward Budget Category" modal by clicking the top right x button
+    When I close "Subaward Line Items" modal by clicking the top right x button
     And I click on "Activate" in the page details
     Then I softly see that "Subaward" is in "Activated" status
     And I navigate to "Budget" sub tab
@@ -4396,7 +4394,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I cannot see top right button "New" in flex table with id "---subAwardStandAlone:-:RecipientAwardBudgetCategoryTableId---"
     Then I softly cannot see row level action button "Edit" against "Extra Salary" in flex table with id "---subAwardStandAlone:-:RecipientAwardBudgetCategoryTableId---"
     Then I softly cannot see row level action button "Delete" against "Extra Salary" in flex table with id "---subAwardStandAlone:-:RecipientAwardBudgetCategoryTableId---"
-    When I close "Subaward Budget Category" modal by clicking the top right x button
+    When I close "Subaward Line Items" modal by clicking the top right x button
     And I wait for "2" seconds
     And I navigate to "Management" sub tab
     And I wait for "2" seconds
@@ -4451,7 +4449,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I cannot see top right button "New" in flex table with id "---subAwardStandAlone:-:RecipientAwardBudgetCategoryTableId---"
     Then I softly cannot see row level action button "Edit" against "Extra Salary" in flex table with id "---subAwardStandAlone:-:RecipientAwardBudgetCategoryTableId---"
     Then I softly cannot see row level action button "Delete" against "Extra Salary" in flex table with id "---subAwardStandAlone:-:RecipientAwardBudgetCategoryTableId---"
-    When I close "Subaward Budget Category" modal by clicking the top right x button
+    When I close "Subaward Line Items" modal by clicking the top right x button
     And I wait for "2" seconds
     And I click on "Activate" in the page details
     And I wait for "4" seconds
@@ -4462,7 +4460,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I cannot see top right button "New" in flex table with id "---subAwardStandAlone:-:RecipientAwardBudgetCategoryTableId---"
     Then I softly cannot see row level action button "Edit" against "Extra Salary" in flex table with id "---subAwardStandAlone:-:RecipientAwardBudgetCategoryTableId---"
     Then I softly cannot see row level action button "Delete" against "Extra Salary" in flex table with id "---subAwardStandAlone:-:RecipientAwardBudgetCategoryTableId---"
-    When I close "Subaward Budget Category" modal by clicking the top right x button
+    When I close "Subaward Line Items" modal by clicking the top right x button
     And I wait for "2" seconds
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
@@ -6126,6 +6124,7 @@ Feature: Validate all scenarios of grants and award for Allocation
       | Construction    | 1200         | 100        | 100            |
     And I wait for "3" seconds
     And I click on "Accept" in the page details
+    And I wait for "2" seconds
     Then I softly see the following messages in the page details contains:
       | Budget Tab - The Budgeted Amount must be equal to the New Obligation for the following Focus Areas - (Automation Permanent Focus Area) |
     #244246
@@ -6285,7 +6284,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     When I enter the following values into flex table with id "---subAwardStandAlone:-:RecipientAwardBudgetCategoryTableId---" by clicking "New" :
       | Title        | Narrative     | Award Amount | Cash Match | Non-Cash Match |
       | Extra Salary | The narrative | 1000         | 100        | 100            |
-    When I close "Subaward Budget Category" modal by clicking the top right x button
+    When I close "Subaward Line Items" modal by clicking the top right x button
     And I refresh the page
     When I navigate to "Performance" sub tab
     And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:kpiTableId---" by clicking "Edit" :
@@ -6568,6 +6567,8 @@ Feature: Validate all scenarios of grants and award for Allocation
       | Automation Permanent Focus Area | 0          | 3650     | 1000           |
     And I click on top right button "Associate" in flex table with id "---subAwardStandAlone:-:focusAreaTableId---"
     When I click "Associate" after selection of "Automation Permanent Focus Area2" in the table "---subAwardStandAlone:-:associateModalTableId---"
+    When I click modal button "Close"
+    And I wait for "2" seconds
     And I navigate to "Budget" sub tab
     And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:focusAreaTableId---" by clicking "Edit" :
       | Title                            | Start Date | End Date | New Obligation |
@@ -6701,6 +6702,8 @@ Feature: Validate all scenarios of grants and award for Allocation
       | Automation Permanent Focus Area | 0          | 3650     | 1000           |
     And I click on top right button "Associate" in flex table with id "---subAwardStandAlone:-:focusAreaTableId---"
     When I click "Associate" after selection of "Automation Permanent Focus Area2" in the table "---subAwardStandAlone:-:associateModalTableId---"
+    When I click modal button "Close"
+    And I wait for "2" seconds
     And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:focusAreaTableId---" by clicking "Edit" :
       | Title                            | Start Date | End Date | New Obligation |
       | Automation Permanent Focus Area2 | 0          | 3650     | 0              |
@@ -7176,6 +7179,8 @@ Feature: Validate all scenarios of grants and award for Allocation
       | Automation Permanent Focus Area | 0          | 3650     |
     And I click on top right button "Associate" in flex table with id "---subAwardStandAlone:-:focusAreaTableId---"
     When I click "Associate" after selection of "Automation Permanent Focus Area2" in the table "---subAwardStandAlone:-:associateModalTableId---"
+    When I click modal button "Close"
+    And I wait for "2" seconds
     And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:focusAreaTableId---" by clicking "Edit" :
       | Title                            | Start Date | End Date |
       | Automation Permanent Focus Area2 | 0          | 3650     |
@@ -7469,6 +7474,8 @@ Feature: Validate all scenarios of grants and award for Allocation
       | Automation Permanent Focus Area | 0          | 3650     |
     And I click on top right button "Associate" in flex table with id "---subAwardStandAlone:-:focusAreaTableId---"
     When I click "Associate" after selection of "Automation Permanent Focus Area2" in the table "---subAwardStandAlone:-:associateModalTableId---"
+    When I click modal button "Close"
+    And I wait for "2" seconds
     And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:focusAreaTableId---" by clicking "Edit" :
       | Title                            | Start Date | End Date |
       | Automation Permanent Focus Area2 | 0          | 3650     |
@@ -7660,6 +7667,8 @@ Feature: Validate all scenarios of grants and award for Allocation
       | Automation Permanent Focus Area | 0          | 3650     |
     And I click on top right button "Associate" in flex table with id "---subAwardStandAlone:-:focusAreaTableId---"
     When I click "Associate" after selection of "Automation Permanent Focus Area2" in the table "---subAwardStandAlone:-:associateModalTableId---"
+    When I click modal button "Close"
+    And I wait for "2" seconds
     And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:focusAreaTableId---" by clicking "Edit" :
       | Title                            | Start Date | End Date |
       | Automation Permanent Focus Area2 | 0          | 3650     |
@@ -7772,6 +7781,8 @@ Feature: Validate all scenarios of grants and award for Allocation
       | Automation Permanent Focus Area | 0          | 3650     |
     And I click on top right button "Associate" in flex table with id "---subAwardStandAlone:-:focusAreaTableId---"
     When I click "Associate" after selection of "Automation Permanent Focus Area2" in the table "---subAwardStandAlone:-:associateModalTableId---"
+    When I click modal button "Close"
+    And I wait for "2" seconds
     And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:focusAreaTableId---" by clicking "Edit" :
       | Title                            | Start Date | End Date |
       | Automation Permanent Focus Area2 | 0          | 3650     |
@@ -7908,6 +7919,8 @@ Feature: Validate all scenarios of grants and award for Allocation
       | Automation Permanent Focus Area | 0          | 3650     |
     And I click on top right button "Associate" in flex table with id "---subAwardStandAlone:-:focusAreaTableId---"
     When I click "Associate" after selection of "Automation Permanent Focus Area2" in the table "---subAwardStandAlone:-:associateModalTableId---"
+    When I click modal button "Close"
+    And I wait for "2" seconds
     And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:focusAreaTableId---" by clicking "Edit" :
       | Title                            | Start Date | End Date |
       | Automation Permanent Focus Area2 | 0          | 3650     |
@@ -8470,6 +8483,8 @@ Feature: Validate all scenarios of grants and award for Allocation
       | Automation Permanent Focus Area | 0          | 3650     |
     And I click on top right button "Associate" in flex table with id "---subAwardStandAlone:-:focusAreaTableId---"
     When I click "Associate" after selection of "Automation Permanent Focus Area2" in the table "---subAwardStandAlone:-:associateModalTableId---"
+    When I click modal button "Close"
+    And I wait for "2" seconds
     And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:focusAreaTableId---" by clicking "Edit" :
       | Title                            | Start Date | End Date |
       | Automation Permanent Focus Area2 | 0          | 3650     |
@@ -9440,6 +9455,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     #243592
     And I click on top right button "Associate" in flex table with id "---subAwardStandAlone:-:focusAreaTableId---"
     When I click "Associate" after selection of "Automation Permanent Focus Area2" in the table "---subAwardStandAlone:-:associateModalTableId---"
+    When I click modal button "Close"
     And I wait for "2" seconds
     Then I softly see value "Automation Permanent Focus Area2" for title "Title" inside table "---subAwardStandAlone:-:focusAreaTableId---"
     And I click on "Remove" icon for "Automation Permanent Focus Area2" inside flex table with id "---subAwardStandAlone:-:focusAreaTableId---"
@@ -9751,7 +9767,7 @@ Feature: Validate all scenarios of grants and award for Allocation
       | Extra Salary | The narrative | 1000         | 100        | 100            |
     Then I softly can see row level action button "Edit" against "Extra Salary" in flex table with id "---subAwardStandAlone:-:addLinesBudgetCategoryTableId---"
     Then I softly can see row level action button "Delete" against "Extra Salary" in flex table with id "---subAwardStandAlone:-:addLinesBudgetCategoryTableId---"
-    When I close "Subaward Budget Category" modal by clicking the top right x button
+    When I close "Subaward Line Items" modal by clicking the top right x button
     #243632
     When I navigate to "Performance" sub tab
     And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:kpiTableId---" by clicking "Edit" :
@@ -9783,7 +9799,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I can see top right button "New" in flex table with id "---subAwardStandAlone:-:addLinesBudgetCategoryTableId---"
     Then I softly can see row level action button "Edit" against "Extra Salary" in flex table with id "---subAwardStandAlone:-:addLinesBudgetCategoryTableId---"
     Then I softly can see row level action button "Delete" against "Extra Salary" in flex table with id "---subAwardStandAlone:-:addLinesBudgetCategoryTableId---"
-    When I close "Subaward Budget Category" modal by clicking the top right x button
+    When I close "Subaward Line Items" modal by clicking the top right x button
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -9811,7 +9827,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I can see top right button "New" in flex table with id "---subAwardStandAlone:-:addLinesBudgetCategoryTableId---"
     Then I softly can see row level action button "Edit" against "Extra Salary" in flex table with id "---subAwardStandAlone:-:addLinesBudgetCategoryTableId---"
     Then I softly can see row level action button "Delete" against "Extra Salary" in flex table with id "---subAwardStandAlone:-:addLinesBudgetCategoryTableId---"
-    When I close "Subaward Budget Category" modal by clicking the top right x button
+    When I close "Subaward Line Items" modal by clicking the top right x button
     When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -9881,7 +9897,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     When I enter the following values into flex table with id "---subAwardStandAlone:-:RecipientAwardBudgetCategoryTableId---" by clicking "New" :
       | Title        | Narrative     | Award Amount | Cash Match | Non-Cash Match |
       | Extra Salary | The narrative | 900          | 100        | 100            |
-    When I close "Subaward Budget Category" modal by clicking the top right x button
+    When I close "Subaward Line Items" modal by clicking the top right x button
     And I wait for "2" seconds
     When I navigate to "Performance" sub tab
     And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:kpiTableId---" by clicking "Edit" :
@@ -9929,7 +9945,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:RecipientAwardBudgetCategoryTableId---" by clicking "Edit" :
       | Title        | Narrative     | Award Amount | Cash Match | Non-Cash Match |
       | Extra Salary | The narrative | 1000         | 100        | 100            |
-    When I close "Subaward Budget Category" modal by clicking the top right x button
+    When I close "Subaward Line Items" modal by clicking the top right x button
     And I wait for "2" seconds
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
@@ -10626,6 +10642,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     #243974
     And I click on top right button "Associate" in flex table with id "---subAwardStandAlone:-:focusAreaTableId---"
     When I click "Associate" after selection of "Automation Permanent Focus Area2" in the table "---subAwardStandAlone:-:associateModalTableId---"
+    When I click modal button "Close"
     And I wait for "2" seconds
     Then I softly see value "Automation Permanent Focus Area2" for title "Title" inside table "---subAwardStandAlone:-:focusAreaTableId---"
     And I click on "Remove" icon for "Automation Permanent Focus Area2" inside flex table with id "---subAwardStandAlone:-:focusAreaTableId---"
@@ -10910,7 +10927,7 @@ Feature: Validate all scenarios of grants and award for Allocation
       | Extra Salary | The narrative | 1000         | 100        | 100            |
     Then I softly can see row level action button "Edit" against "Extra Salary" in flex table with id "---subAwardStandAlone:-:addLinesBudgetCategoryTableId---"
     Then I softly can see row level action button "Delete" against "Extra Salary" in flex table with id "---subAwardStandAlone:-:addLinesBudgetCategoryTableId---"
-    When I close "Subaward Budget Category" modal by clicking the top right x button
+    When I close "Subaward Line Items" modal by clicking the top right x button
     #243993
     When I navigate to "Performance" sub tab
     And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:kpiTableId---" by clicking "Edit" :
@@ -10942,7 +10959,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I can see top right button "New" in flex table with id "---subAwardStandAlone:-:addLinesBudgetCategoryTableId---"
     Then I softly can see row level action button "Edit" against "Extra Salary" in flex table with id "---subAwardStandAlone:-:addLinesBudgetCategoryTableId---"
     Then I softly can see row level action button "Delete" against "Extra Salary" in flex table with id "---subAwardStandAlone:-:addLinesBudgetCategoryTableId---"
-    When I close "Subaward Budget Category" modal by clicking the top right x button
+    When I close "Subaward Line Items" modal by clicking the top right x button
     And I wait for "2" seconds
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
@@ -10971,7 +10988,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I can see top right button "New" in flex table with id "---subAwardStandAlone:-:addLinesBudgetCategoryTableId---"
     Then I softly can see row level action button "Edit" against "Extra Salary" in flex table with id "---subAwardStandAlone:-:addLinesBudgetCategoryTableId---"
     Then I softly can see row level action button "Delete" against "Extra Salary" in flex table with id "---subAwardStandAlone:-:addLinesBudgetCategoryTableId---"
-    When I close "Subaward Budget Category" modal by clicking the top right x button
+    When I close "Subaward Line Items" modal by clicking the top right x button
     When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -11042,7 +11059,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     When I enter the following values into flex table with id "---subAwardStandAlone:-:RecipientAwardBudgetCategoryTableId---" by clicking "New" :
       | Title        | Narrative     | Award Amount | Cash Match | Non-Cash Match |
       | Extra Salary | The narrative | 900          | 100        | 100            |
-    When I close "Subaward Budget Category" modal by clicking the top right x button
+    When I close "Subaward Line Items" modal by clicking the top right x button
     And I wait for "2" seconds
     When I navigate to "Performance" sub tab
     And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:kpiTableId---" by clicking "Edit" :
@@ -11280,7 +11297,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     When I enter the following values into flex table with id "---subAwardStandAlone:-:RecipientAwardBudgetCategoryTableId---" by clicking "New" :
       | Title        | Narrative     | Award Amount | Cash Match | Non-Cash Match |
       | Extra Salary | The narrative | 1000         | 100        | 100            |
-    When I close "Subaward Budget Category" modal by clicking the top right x button
+    When I close "Subaward Line Items" modal by clicking the top right x button
     And I refresh the page
     When I navigate to "Performance" sub tab
     And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:kpiTableId---" by clicking "Edit" :
@@ -11408,7 +11425,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I cannot see top right button "New" in flex table with id "---subAwardStandAlone:-:budgetLineItems---"
     Then I softly cannot see row level action button "Edit" against "Extra Salary" in flex table with id "---subAwardStandAlone:-:budgetLineItems---"
     Then I softly cannot see row level action button "Delete" against "Extra Salary" in flex table with id "---subAwardStandAlone:-:budgetLineItems---"
-    When I close "Subaward Budget Category" modal by clicking the top right x button
+    When I close "Subaward Line Items" modal by clicking the top right x button
     #245292
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
@@ -11442,7 +11459,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I cannot see top right button "New" in flex table with id "---subAwardStandAlone:-:budgetLineItems---"
     Then I softly cannot see row level action button "Edit" against "Extra Salary" in flex table with id "---subAwardStandAlone:-:budgetLineItems---"
     Then I softly cannot see row level action button "Delete" against "Extra Salary" in flex table with id "---subAwardStandAlone:-:budgetLineItems---"
-    When I close "Subaward Budget Category" modal by clicking the top right x button
+    When I close "Subaward Line Items" modal by clicking the top right x button
     #245292
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
@@ -11525,7 +11542,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     When I enter the following values into flex table with id "---subAwardStandAlone:-:RecipientAwardBudgetCategoryTableId---" by clicking "New" :
       | Title        | Narrative     | Award Amount | Cash Match | Non-Cash Match |
       | Extra Salary | The narrative | 1000         | 100        | 100            |
-    When I close "Subaward Budget Category" modal by clicking the top right x button
+    When I close "Subaward Line Items" modal by clicking the top right x button
     And I refresh the page
     When I navigate to "Performance" sub tab
     And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:kpiTableId---" by clicking "Edit" :
@@ -11670,7 +11687,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I cannot see top right button "New" in flex table with id "---subAwardStandAlone:-:addLinesBudgetCategoryTableId---"
     Then I softly cannot see row level action button "Edit" against "Extra Salary" in flex table with id "---subAwardStandAlone:-:addLinesBudgetCategoryTableId---"
     Then I softly cannot see row level action button "Delete" against "Extra Salary" in flex table with id "---subAwardStandAlone:-:addLinesBudgetCategoryTableId---"
-    When I close "Subaward Budget Category" modal by clicking the top right x button
+    When I close "Subaward Line Items" modal by clicking the top right x button
     And I wait for "2" seconds
     #245291
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
@@ -11930,7 +11947,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     When I enter the following values into flex table with id "---subAwardStandAlone:-:RecipientAwardBudgetCategoryTableId---" by clicking "New" :
       | Title        | Narrative     | Award Amount | Cash Match | Non-Cash Match |
       | Extra Salary | The narrative | 1000         | 100        | 100            |
-    When I close "Subaward Budget Category" modal by clicking the top right x button
+    When I close "Subaward Line Items" modal by clicking the top right x button
     And I refresh the page
     When I navigate to "Performance" sub tab
     And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:kpiTableId---" by clicking "Edit" :
@@ -12259,7 +12276,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I softly can see page block "Budget Summary"
     And I navigate to "Budget" sub tab
     Then I softly can see page block "Budget Summary by Focus Area"
-    Then I softly do not see value "Automation Permanent Focus Area2" for title "Title" inside table "---subAwardStandAlone:-:focusAreaTableId---"
+    Then I softly see value "Automation Permanent Focus Area2" for title "Title" inside table "---subAwardStandAlone:-:focusAreaTableId---"
     Then I softly see value "$1,000.00" for title "Budgeted Amount" against the value "Automation Permanent Focus Area" inside table "---subAwardStandAlone:-:focusAreaTableId---"
 
   @239577 @239596 @ValidatePOusercannotAddandremoveFocusAreainbudgetsummaryfocusareasectiononaward @sprint-15-US-237846  @Allocation @ProExecute
@@ -12825,16 +12842,16 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I navigate to "Budget" sub tab
     Then I softly see "Cumulative Obligation" in flex table header "---subAwardStandAlone:-:focusAreaTableId---"
     Then I softly see "New Obligation" in flex table header "---subAwardStandAlone:-:focusAreaTableId---"
-#    And I navigate to "Grants" tab
-#    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
-#    And I click toggle button to select "Grants - All"
-#    When I perform quick search for "{AUTOEnvData:AutomationClosedSubAward}" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
-#    And I click on "View" icon for "{AUTOEnvData:AutomationClosedSubAward}" inside flex table with id "---subAwardStandAlone:-:activeGrantsTableId---" without waiting for record
-#    When I navigate to "Subawards" sub tab
-#    And I click on "View" icon for "{AUTOEnvData:AutomationClosedSubAward}" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
-#    And I navigate to "Budget" sub tab
-#    Then I softly see "Cumulative Obligation" in flex table header "---subAwardStandAlone:-:focusAreaTableId---"
-#    Then I softly see "New Obligation" in flex table header "---subAwardStandAlone:-:focusAreaTableId---"
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click toggle button to select "Grants - All"
+    When I perform quick search for "{AUTOEnvData:AutomationClosedSubAward}" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
+    And I click on "View" icon for "{AUTOEnvData:AutomationClosedSubAward}" inside flex table with id "---subAwardStandAlone:-:activeGrantsTableId---" without waiting for record
+    When I navigate to "Subawards" sub tab
+    And I click on "View" icon for "{AUTOEnvData:AutomationClosedSubAward}" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
+    And I navigate to "Budget" sub tab
+    Then I softly see "Cumulative Obligation" in flex table header "---subAwardStandAlone:-:focusAreaTableId---"
+    Then I softly see "New Obligation" in flex table header "---subAwardStandAlone:-:focusAreaTableId---"
 
     Examples:
       | Award Name                                       | Grant Name                                       |
@@ -13924,7 +13941,7 @@ Feature: Validate all scenarios of grants and award for Allocation
       | Funding Account             | Encumbrance |
       | {SavedValue:fundingAccount} | 1000        |
     Then I softly see value "$1,000.00" for title "Encumbrance" against the value "{SavedValue:fundingAccount}" inside table "---subAwardStandAlone:-:fundingAccountsTableId---"
-    And I refresh the page00
+    And I refresh the page
     Then I softly see field "New Obligation" as "$1,000.00"
     Then I softly see field "Cumulative Obligation" as "$1,000.00"
     When I navigate to "Overview" sub tab
@@ -14554,18 +14571,18 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I softly do not see "Budgeted Amount" in flex table header "---subAwardStandAlone:-:focusAreaTableId---"
     Then I softly see field "NewObligation__c" not in edit mode
     Then I softly see field "CumulativeObligation__c" not in edit mode
-#    And I navigate to "Grants" tab
-#    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
-#    And I click toggle button to select "Grants - All"
-#    When I perform quick search for "{AUTOEnvData:ByApplicantAndFocusAreaYesClosedSubaward}" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
-#    And I click on "View" icon for "{AUTOEnvData:ByApplicantAndFocusAreaYesClosedSubaward}" inside table
-#    When I navigate to "Subawards" sub tab
-#    And I click on "View" icon for "{AUTOEnvData:ByApplicantAndFocusAreaYesClosedSubaward}" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
-#    And I navigate to "Budget" sub tab
-#    #240521
-#    Then I softly do not see "Budgeted Amount" in flex table header "---subAwardStandAlone:-:focusAreaTableId---"
-#    Then I softly see field "NewObligation__c" not in edit mode
-#    Then I softly see field "CumulativeObligation__c" not in edit mode
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click toggle button to select "Grants - All"
+    When I perform quick search for "{AUTOEnvData:ByApplicantAndFocusAreaYesClosedSubaward}" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
+    And I click on "View" icon for "{AUTOEnvData:ByApplicantAndFocusAreaYesClosedSubaward}" inside table
+    When I navigate to "Subawards" sub tab
+    And I click on "View" icon for "{AUTOEnvData:ByApplicantAndFocusAreaYesClosedSubaward}" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
+    And I navigate to "Budget" sub tab
+    #240521
+    Then I softly do not see "Budgeted Amount" in flex table header "---subAwardStandAlone:-:focusAreaTableId---"
+    Then I softly see field "NewObligation__c" not in edit mode
+    Then I softly see field "CumulativeObligation__c" not in edit mode
 
     Examples:
       | Award Name                                       | Grant Name                                       |
@@ -14754,17 +14771,17 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I softly do not see "Budgeted Amount" in flex table header "---subAwardStandAlone:-:focusAreaTableId---"
     Then I softly see field "NewObligation__c" not in edit mode
     Then I softly see field "CumulativeObligation__c" not in edit mode
-#    And I navigate to "Grants" tab
-#    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
-#    And I click toggle button to select "Grants - All"
-#    When I perform quick search for "{AUTOEnvData:ByApplicantAndFocusAreaYesClosedSubaward}" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
-#    And I click on "View" icon for "{AUTOEnvData:ByApplicantAndFocusAreaYesClosedSubaward}" inside table
-#    When I navigate to "Subawards" sub tab
-#    And I click on "View" icon for "{AUTOEnvData:ByApplicantAndFocusAreaYesClosedSubaward}" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
-#    And I navigate to "Budget" sub tab
-#    Then I softly do not see "Budgeted Amount" in flex table header "---subAwardStandAlone:-:focusAreaTableId---"
-#    Then I softly see field "NewObligation__c" not in edit mode
-#    Then I softly see field "CumulativeObligation__c" not in edit mode
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click toggle button to select "Grants - All"
+    When I perform quick search for "{AUTOEnvData:ByApplicantAndFocusAreaYesClosedSubaward}" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
+    And I click on "View" icon for "{AUTOEnvData:ByApplicantAndFocusAreaYesClosedSubaward}" inside table
+    When I navigate to "Subawards" sub tab
+    And I click on "View" icon for "{AUTOEnvData:ByApplicantAndFocusAreaYesClosedSubaward}" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
+    And I navigate to "Budget" sub tab
+    Then I softly do not see "Budgeted Amount" in flex table header "---subAwardStandAlone:-:focusAreaTableId---"
+    Then I softly see field "NewObligation__c" not in edit mode
+    Then I softly see field "CumulativeObligation__c" not in edit mode
 
     Examples:
       | Award Name                                       | Grant Name                                       |
@@ -15812,18 +15829,18 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I softly do not see "Actions" in flex table header "---subAwardStandAlone:-:subrecipientFocusAreaTableId---"
     Then I softly see field "NewObligation__c" not in edit mode
     Then I softly see field "CumulativeObligation__c" not in edit mode
-#    And I navigate to "Grants" tab
-#    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
-#    And I click toggle button to select "Grants - All"
-#    When I perform quick search for "{AUTOEnvData:ByApplicantAndFocusAreaYesClosedSubaward}" in "---progressReport:-:recipientActiveGrantId---" panel
-#    And I click on "View" icon for "{AUTOEnvData:ByApplicantAndFocusAreaYesClosedSubaward}" inside table
-#    When I navigate to "Subawards" sub tab
-#    And I click on "View" icon for "{AUTOEnvData:ByApplicantAndFocusAreaYesClosedSubaward}" inside flex table with id "---progressReport:-:recipientsRelatedSubAwardsTableId---" without waiting for record
-#    Then I softly see that "Subaward" is in "Closed" status
-#    And I navigate to "Budget" sub tab
-#    Then I softly do not see "Actions" in flex table header "---subAwardStandAlone:-:subrecipientFocusAreaTableId---"
-#    Then I softly see field "NewObligation__c" not in edit mode
-#    Then I softly see field "CumulativeObligation__c" not in edit mode
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click toggle button to select "Grants - All"
+    When I perform quick search for "{AUTOEnvData:ByApplicantAndFocusAreaYesClosedSubaward}" in "---progressReport:-:recipientActiveGrantId---" panel
+    And I click on "View" icon for "{AUTOEnvData:ByApplicantAndFocusAreaYesClosedSubaward}" inside table
+    When I navigate to "Subawards" sub tab
+    And I click on "View" icon for "{AUTOEnvData:ByApplicantAndFocusAreaYesClosedSubaward}" inside flex table with id "---progressReport:-:recipientsRelatedSubAwardsTableId---" without waiting for record
+    Then I softly see that "Subaward" is in "Closed" status
+    And I navigate to "Budget" sub tab
+    Then I softly do not see "Actions" in flex table header "---subAwardStandAlone:-:subrecipientFocusAreaTableId---"
+    Then I softly see field "NewObligation__c" not in edit mode
+    Then I softly see field "CumulativeObligation__c" not in edit mode
 
     Examples:
       | Award Name                                       | Grant Name                                       |
@@ -17096,6 +17113,9 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I softly see field "Match this Budget Period" inside page block
     And I wait for "3" seconds
     And I "Send back" in the approval decision
+    And I wait for "100" seconds
+    And I refresh the page
+    And I wait for "3" seconds
     Then I softly see field "Status" as "Created"
     When I navigate to "Budget" sub tab
     Then I softly see field "Budget Period End Date" inside page block
@@ -17422,7 +17442,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I softly can see page block "Budget Summary"
     And I navigate to "Budget" sub tab
     Then I softly can see page block "Budget Summary by Focus Area"
-    Then I softly do not see value "Automation Permanent Focus Area2" for title "Title" inside table "---subAwardStandAlone:-:focusAreaTableId---"
+    Then I softly see value "Automation Permanent Focus Area2" for title "Title" inside table "---subAwardStandAlone:-:focusAreaTableId---"
     Then I softly see value "$1,000.00" for title "Budgeted Amount" against the value "Automation Permanent Focus Area" inside table "---subAwardStandAlone:-:focusAreaTableId---"
 
   @244014 @244024 @ValidateDirectPOusershouldseefollowingreadonlyfieldsunderBudgetSummarysectioninCreatedSendtoSubrecipientbeforeApprovalSentforReviewReviewedStatus @sprint-16-US-226122  @Allocation
@@ -18212,7 +18232,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I softly can see page block "Budget Summary"
     And I navigate to "Budget" sub tab
     Then I softly can see page block "Budget Summary by Focus Area"
-    Then I softly do not see value "Automation Permanent Focus Area2" for title "Title" inside table "---subAwardStandAlone:-:focusAreaTableId---"
+    Then I softly see value "Automation Permanent Focus Area2" for title "Title" inside table "---subAwardStandAlone:-:focusAreaTableId---"
     Then I softly see value "$1,000.00" for title "Budgeted Amount" against the value "Automation Permanent Focus Area" inside table "---subAwardStandAlone:-:focusAreaTableId---"
 
   @244216 @ValidateCompAnnSPISPAusershouldseefollowingreadonlyfieldsunderBudgetSummarysectioninSendtoSubrecipientbeforeApprovalSentforReviewReviewedStatus @sprint-16-US-226926  @Allocation
@@ -20859,7 +20879,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     When I enter the following values into flex table with id "---subAwardStandAlone:-:RecipientAwardBudgetCategoryTableId---" by clicking "New" :
       | Title        | Narrative     | Award Amount | Cash Match | Non-Cash Match |
       | Extra Salary | The narrative | 1000         | 100        | 100            |
-    When I close "Subaward Budget Category" modal by clicking the top right x button
+    When I close "Subaward Line Items" modal by clicking the top right x button
     And I refresh the page
     When I navigate to "Performance" sub tab
     And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:kpiTableId---" by clicking "Edit" :
@@ -20931,7 +20951,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     When I enter the following values into flex table with id "---subAwardStandAlone:-:RecipientAwardBudgetCategoryTableId---" by clicking "New" :
       | Title        | Narrative     | Award Amount | Cash Match | Non-Cash Match |
       | Extra Salary | The narrative | 1000         | 100        | 100            |
-    When I close "Subaward Budget Category" modal by clicking the top right x button
+    When I close "Subaward Line Items" modal by clicking the top right x button
     And I refresh the page
     When I navigate to "Performance" sub tab
     And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:kpiTableId---" by clicking "Edit" :
@@ -21052,7 +21072,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I cannot see top right button "New" in flex table with id "---subAwardStandAlone:-:RecipientAwardBudgetCategoryTableId---"
     Then I softly cannot see row level action button "Edit" against "Extra Salary" in flex table with id "---subAwardStandAlone:-:RecipientAwardBudgetCategoryTableId---"
     Then I softly cannot see row level action button "Delete" against "Extra Salary" in flex table with id "---subAwardStandAlone:-:RecipientAwardBudgetCategoryTableId---"
-    When I close "Subaward Budget Category" modal by clicking the top right x button
+    When I close "Subaward Line Items" modal by clicking the top right x button
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -21077,7 +21097,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I cannot see top right button "New" in flex table with id "---subAwardStandAlone:-:RecipientAwardBudgetCategoryTableId---"
     Then I softly cannot see row level action button "Edit" against "Extra Salary" in flex table with id "---subAwardStandAlone:-:RecipientAwardBudgetCategoryTableId---"
     Then I softly cannot see row level action button "Delete" against "Extra Salary" in flex table with id "---subAwardStandAlone:-:RecipientAwardBudgetCategoryTableId---"
-    When I close "Subaward Budget Category" modal by clicking the top right x button
+    When I close "Subaward Line Items" modal by clicking the top right x button
     When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
@@ -21104,7 +21124,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I cannot see top right button "New" in flex table with id "---subAwardStandAlone:-:RecipientAwardBudgetCategoryTableId---"
     Then I softly cannot see row level action button "Edit" against "Extra Salary" in flex table with id "---subAwardStandAlone:-:RecipientAwardBudgetCategoryTableId---"
     Then I softly cannot see row level action button "Delete" against "Extra Salary" in flex table with id "---subAwardStandAlone:-:RecipientAwardBudgetCategoryTableId---"
-    When I close "Subaward Budget Category" modal by clicking the top right x button
+    When I close "Subaward Line Items" modal by clicking the top right x button
     And I click on "Accept after Approval" in the page details
     When I navigate to "Budget" sub tab
     Then I softly see "New Obligation" in flex table header "---subAwardStandAlone:-:subrecipientFocusAreaTableId---"
@@ -21115,7 +21135,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I cannot see top right button "New" in flex table with id "---subAwardStandAlone:-:RecipientAwardBudgetCategoryTableId---"
     Then I softly cannot see row level action button "Edit" against "Extra Salary" in flex table with id "---subAwardStandAlone:-:RecipientAwardBudgetCategoryTableId---"
     Then I softly cannot see row level action button "Delete" against "Extra Salary" in flex table with id "---subAwardStandAlone:-:RecipientAwardBudgetCategoryTableId---"
-    When I close "Subaward Budget Category" modal by clicking the top right x button
+    When I close "Subaward Line Items" modal by clicking the top right x button
     When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
@@ -21187,7 +21207,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     When I enter the following values into flex table with id "---subAwardStandAlone:-:RecipientAwardBudgetCategoryTableId---" by clicking "New" :
       | Title        | Narrative     | Award Amount | Cash Match | Non-Cash Match |
       | Extra Salary | The narrative | 1000         | 100        | 100            |
-    When I close "Subaward Budget Category" modal by clicking the top right x button
+    When I close "Subaward Line Items" modal by clicking the top right x button
     And I refresh the page
     When I navigate to "Performance" sub tab
     And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:kpiTableId---" by clicking "Edit" :
@@ -21378,7 +21398,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     When I enter the following values into flex table with id "---subAwardStandAlone:-:RecipientAwardBudgetCategoryTableId---" by clicking "New" :
       | Title        | Narrative     | Award Amount | Cash Match | Non-Cash Match |
       | Extra Salary | The narrative | 900          | 100        | 100            |
-    When I close "Subaward Budget Category" modal by clicking the top right x button
+    When I close "Subaward Line Items" modal by clicking the top right x button
     When I navigate to "Performance" sub tab
     And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:kpiTableId---" by clicking "Edit" :
       | EGMS ID                  | Target |
@@ -21414,7 +21434,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:RecipientAwardBudgetCategoryTableId---" by clicking "Edit" :
       | Title        | Narrative     | Award Amount | Cash Match | Non-Cash Match |
       | Extra Salary | The narrative | 1000         | 100        | 100            |
-    When I close "Subaward Budget Category" modal by clicking the top right x button
+    When I close "Subaward Line Items" modal by clicking the top right x button
     And I click on "Accept" in the page details
     Then I softly see field "Status" as "Accepted"
 
@@ -21535,7 +21555,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     When I enter the following values into flex table with id "---subAwardStandAlone:-:RecipientAwardBudgetCategoryTableId---" by clicking "New" :
       | Title        | Narrative     | Award Amount | Cash Match | Non-Cash Match |
       | Extra Salary | The narrative | 1000         | 100        | 100            |
-    When I close "Subaward Budget Category" modal by clicking the top right x button
+    When I close "Subaward Line Items" modal by clicking the top right x button
     And I refresh the page
     When I navigate to "Performance" sub tab
     And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:kpiTableId---" by clicking "Edit" :
@@ -21661,7 +21681,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     When I enter the following values into flex table with id "---subAwardStandAlone:-:RecipientAwardBudgetCategoryTableId---" by clicking "New" :
       | Title        | Narrative     | Award Amount | Cash Match | Non-Cash Match |
       | Extra Salary | The narrative | 900          | 100        | 100            |
-    When I close "Subaward Budget Category" modal by clicking the top right x button
+    When I close "Subaward Line Items" modal by clicking the top right x button
     When I navigate to "Performance" sub tab
     And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:kpiTableId---" by clicking "Edit" :
       | EGMS ID                  | Target |
@@ -21729,7 +21749,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     When I enter the following values into flex table with id "---subAwardStandAlone:-:RecipientAwardBudgetCategoryTableId---" by clicking "New" :
       | Title        | Narrative     | Award Amount | Cash Match | Non-Cash Match |
       | Extra Salary | The narrative | 1000         | 100        | 100            |
-    When I close "Subaward Budget Category" modal by clicking the top right x button
+    When I close "Subaward Line Items" modal by clicking the top right x button
     And I refresh the page
     When I navigate to "Performance" sub tab
     And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:kpiTableId---" by clicking "Edit" :
@@ -22016,7 +22036,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     When I enter the following values into flex table with id "---subAwardStandAlone:-:RecipientAwardBudgetCategoryTableId---" by clicking "New" :
       | Title        | Narrative     | Award Amount | Cash Match | Non-Cash Match |
       | Extra Salary | The narrative | 1000         | 100        | 100            |
-    When I close "Subaward Budget Category" modal by clicking the top right x button
+    When I close "Subaward Line Items" modal by clicking the top right x button
     And I refresh the page
     When I navigate to "Performance" sub tab
     And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:kpiTableId---" by clicking "Edit" :
@@ -22213,7 +22233,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     When I enter the following values into flex table with id "---subAwardStandAlone:-:RecipientAwardBudgetCategoryTableId---" by clicking "New" :
       | Title        | Narrative     | Award Amount | Cash Match | Non-Cash Match |
       | Extra Salary | The narrative | 800          | 100        | 100            |
-    When I close "Subaward Budget Category" modal by clicking the top right x button
+    When I close "Subaward Line Items" modal by clicking the top right x button
     And I refresh the page
     When I navigate to "Performance" sub tab
     And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:kpiTableId---" by clicking "Edit" :
@@ -22256,7 +22276,7 @@ Feature: Validate all scenarios of grants and award for Allocation
       | Extra Salary | Test      | 1200         | 100        | 100            |
     When I click on "Delete" icon for "Test" inside flex table with id "---subAwardStandAlone:-:RecipientAwardBudgetCategoryTableId---"
     Then I softly do not see value "Test" for title "Narrative" inside table "---subAwardStandAlone:-:RecipientAwardBudgetCategoryTableId---"
-    When I close "Subaward Budget Category" modal by clicking the top right x button
+    When I close "Subaward Line Items" modal by clicking the top right x button
     #246455
     And I click on "Accept" in the page details
     Then I softly see the following messages in the page details contains:
@@ -22267,7 +22287,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:RecipientAwardBudgetCategoryTableId---" by clicking "Edit" :
       | Title        | Narrative     | Award Amount | Cash Match | Non-Cash Match |
       | Extra Salary | The narrative | 1000         | 100        | 100            |
-    When I close "Subaward Budget Category" modal by clicking the top right x button
+    When I close "Subaward Line Items" modal by clicking the top right x button
     And I click on "Accept" in the page details
     Then I softly see field "Status" as "Accepted"
 
@@ -23071,6 +23091,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I click on "View" icon for "{SavedValue:AwardEGMSID2}" inside flex table with id "---paymentRequest:-:recipientAwardTableId---" without waiting for record
     Then I softly see status in Progress-bar is "Activated" and is "dark blue"
     When I navigate to "Budget" sub tab
+    And I wait for "2" seconds
     Then I softly see field "Budget Period Number" as "BP02"
     Then I softly do not see "Carry-Forward" inside page block detail
 
@@ -23753,7 +23774,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     When I enter the following values into flex table with id "---subAwardStandAlone:-:budgetLineItems---" by clicking "New" :
       | Title        | Narrative     | Award Amount | Cash Match | Non-Cash Match |
       | Extra Salary | The narrative | 2000         | 100        | 100            |
-    When I close "Subaward Budget Category" modal by clicking the top right x button
+    When I close "Subaward Line Items" modal by clicking the top right x button
     And I refresh the page
     When I navigate to "Performance" sub tab
     And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:kpiTableId---" by clicking "Edit" :
@@ -23836,7 +23857,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     When I enter the following values into flex table with id "---paymentRequest:-:paymentLineItemsTableId---" by clicking "New" :
       | Title        | Narrative     | Unit Price | Quantity | Measurement |
       | Extra Salary | The narrative | 500        | 1        | Feet        |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Payment Line Items" modal by clicking the top right x button
     And I click on "Submit to Grantor" in the page details
     Then I softly see field "Status" as "Submitted to Grantor"
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
@@ -23848,7 +23869,6 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I click on "View" icon for "{SavedValue:PayreqId}" inside flex table with id "---paymentRequest:-:paymentrequestReimbursementTableId---" without waiting for record
     And I navigate to "Financials" sub tab
     #Bug418244
-    #nbelowfieldsare not editable - https://test8-internal--prolwcut.sandbox.lightning.force.com/lightning/r/PaymentRequest__c/a2xDV000001cFkLYAU/view
     And I edit the following rows inline in flex table with id "---paymentRequest:-:fundingAccountTableId---" by clicking "Edit" :
       | Funding Account             | Net Spent This Action |
       | {SavedValue:fundingAccount} | 500                   |
@@ -24155,6 +24175,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I enter "Subrecipient fields" values from "Closeout_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I click on "Acknowledge" in the page details
+    And I wait for "3" seconds
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     When I navigate to "Closeout" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -24267,6 +24288,8 @@ Feature: Validate all scenarios of grants and award for Allocation
       | Automation Permanent Focus Area | 0          | 3650     | 1000           |
     When I click on top right button "Associate" in flex table with id "---subAwardStandAlone:-:focusAreaTableId---"
     When I click "Associate" after selection of "Automation Permanent Focus Area2" by showing entries "All" in flex table with id "---subAwardStandAlone:-:AssociateFocusArea---"
+    When I click modal button "Close"
+    And I wait for "2" seconds
     And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:focusAreaTableId---" by clicking "Edit" :
       | Title                            | Start Date | End Date | New Obligation |
       | Automation Permanent Focus Area2 | 0          | 3650     | 1000           |
@@ -24390,13 +24413,13 @@ Feature: Validate all scenarios of grants and award for Allocation
     When I enter the following values into flex table with id "---paymentRequest:-:paymentLineItemsTableId---" by clicking "New" :
       | Title        | Narrative     | Unit Price | Quantity | Measurement |
       | Extra Salary | The narrative | 500        | 1        | Feet        |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Payment Line Items" modal by clicking the top right x button
     And I click on page navigation arrow "---paymentRequest:-:paymentRequestBudgetTableId---" for table id "Next"
     When I click on "Show line items" icon for "Construction" inside flex table with id "---paymentRequest:-:paymentRequestBudgetTableId---" with wait for record
     When I enter the following values into flex table with id "---paymentRequest:-:paymentLineItemsTableId---" by clicking "New" :
       | Title        | Narrative     | Unit Price | Quantity | Measurement |
       | Extra Salary | The narrative | 500        | 1        | Feet        |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Payment Line Items" modal by clicking the top right x button
     And I click on "Submit to Grantor" in the page details
     Then I softly see field "Status" as "Submitted to Grantor"
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
@@ -24520,13 +24543,13 @@ Feature: Validate all scenarios of grants and award for Allocation
     When I enter the following values into flex table with id "---paymentRequest:-:paymentLineItemsTableId---" by clicking "New" :
       | Title        | Narrative     | Unit Price | Quantity | Measurement |
       | Extra Salary | The narrative | 500        | 1        | Feet        |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Payment Line Items" modal by clicking the top right x button
     And I click on page navigation arrow "---paymentRequest:-:paymentRequestBudgetTableId---" for table id "Next"
     When I click on "Show line items" icon for "Construction" inside flex table with id "---paymentRequest:-:paymentRequestBudgetTableId---" with wait for record
     When I enter the following values into flex table with id "---paymentRequest:-:paymentLineItemsTableId---" by clicking "New" :
       | Title        | Narrative     | Unit Price | Quantity | Measurement |
       | Extra Salary | The narrative | 500        | 1        | Feet        |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Payment Line Items" modal by clicking the top right x button
     And I click on "Submit to Grantor" in the page details
     Then I softly see field "Status" as "Submitted to Grantor"
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
@@ -24655,13 +24678,13 @@ Feature: Validate all scenarios of grants and award for Allocation
     When I enter the following values into flex table with id "---paymentRequest:-:paymentLineItemsTableId---" by clicking "New" :
       | Title        | Narrative     | Unit Price | Quantity | Measurement |
       | Extra Salary | The narrative | 500        | 1        | Feet        |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Payment Line Items" modal by clicking the top right x button
     And I click on page navigation arrow "---paymentRequest:-:paymentRequestBudgetTableId---" for table id "Next"
     When I click on "Show line items" icon for "Construction" inside flex table with id "---paymentRequest:-:paymentRequestBudgetTableId---" with wait for record
     When I enter the following values into flex table with id "---paymentRequest:-:paymentLineItemsTableId---" by clicking "New" :
       | Title        | Narrative     | Unit Price | Quantity | Measurement |
       | Extra Salary | The narrative | 500        | 1        | Feet        |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Payment Line Items" modal by clicking the top right x button
     And I click on "Submit to Grantor" in the page details
     Then I softly see field "Status" as "Submitted to Grantor"
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
@@ -25190,7 +25213,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     When I enter the following values into flex table with id "---paymentRequest:-:paymentLineItemsTableId---" by clicking "New" :
       | Title        | Narrative     | Unit Price | Quantity | Measurement |
       | Extra Salary | The narrative | 500        | 1        | Feet        |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Payment Line Items" modal by clicking the top right x button
     And I click on "Submit to Grantor" in the page details
     Then I softly see field "Status" as "Submitted to Grantor"
     When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
@@ -25290,7 +25313,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     When I enter the following values into flex table with id "AwardLineItems" by clicking "New" :
       | Title        | Narrative     | Award Amount | Cash Match | Non-Cash Match |
       | Extra Salary | The narrative | 1000         | 100        | 100            |
-    When I close "Subaward Budget Category" modal by clicking the top right x button
+    When I close "Subaward Line Items" modal by clicking the top right x button
     And I wait for "2" seconds
     Then I softly see value "$1,000.00" for title "Award Amount" against the value "Construction" inside table "---subAwardStandAlone:-:subAwardBudgetTableId---"
     Then I softly see value "$100.00" for title "Cash Match" against the value "Construction" inside table "---subAwardStandAlone:-:subAwardBudgetTableId---"
@@ -25302,7 +25325,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I softly see value "$1,000.00" for title "Award Amount" against the value "Extra Salary" inside table "AwardLineItems"
     Then I softly see value "$100.00" for title "Cash Match" against the value "Extra Salary" inside table "AwardLineItems"
     Then I softly see value "$100.00" for title "Non-Cash Match" against the value "Extra Salary" inside table "AwardLineItems"
-    When I close "Subaward Budget Category" modal by clicking the top right x button
+    When I close "Subaward Line Items" modal by clicking the top right x button
     And I wait for "2" seconds
     When I navigate to "Performance" sub tab
     And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:kpiTableId---" by clicking "Edit" :
@@ -25343,7 +25366,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I softly see value "$1,000.00" for title "Award Amount" against the value "Extra Salary" inside table "AwardLineItems"
     Then I softly see value "$100.00" for title "Cash Match" against the value "Extra Salary" inside table "AwardLineItems"
     Then I softly see value "$100.00" for title "Non-Cash Match" against the value "Extra Salary" inside table "AwardLineItems"
-    When I close "Subaward Budget Category" modal by clicking the top right x button
+    When I close "Subaward Line Items" modal by clicking the top right x button
     And I wait for "2" seconds
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab

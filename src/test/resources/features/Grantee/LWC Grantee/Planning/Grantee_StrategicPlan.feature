@@ -177,13 +177,13 @@ Feature: Validate all scenarios for Strategic Plan
     And I click on top right button "Send Email" in flex table with id "CommunicationHistory"
     And I send the email under collab tab with following details:
       | To                        | Subject            | Body            |
-      | pm.automation@yopmail.com | Automation Subject | Automation Body |
+      | pm.automation.qa2@yopmail.com | Automation Subject | Automation Body |
     When I click modal button "Close"
     And I refresh the page
     And I wait for "3" seconds
     Then I softly see value "Automation Subject" for title "Subject" inside table "CommunicationHistory"
     Then I softly see value "victor.exeqagrantee@yopmail.com" for title "From Address" inside table "CommunicationHistory"
-    Then I softly see value "pm.automation@yopmail.com" for title "To Address" inside table "CommunicationHistory"
+    Then I softly see value "pm.automation.qa2@yopmail.com" for title "To Address" inside table "CommunicationHistory"
     And I navigate to "Overview" sub tab
     And I click on top right button "New" in flex table with id "---grantee_tableId:-:StrategicGoalsandObjective---"
     When I enter in modal value "Automation Strategic Goal" into field "StrategyTitle__c"
@@ -224,13 +224,13 @@ Feature: Validate all scenarios for Strategic Plan
     And I click on top right button "Send Email" in flex table with id "CommunicationHistory"
     And I send the email under collab tab with following details:
       | To                        | Subject            | Body            |
-      | pm.automation@yopmail.com | Automation Subject | Automation Body |
+      | pm.automation.qa2@yopmail.com | Automation Subject | Automation Body |
     When I click modal button "Close"
     And I refresh the page
     And I wait for "3" seconds
     Then I softly see value "Automation Subject" for title "Subject" inside table "CommunicationHistory"
     Then I softly see value "victor.exeqagrantee@yopmail.com" for title "From Address" inside table "CommunicationHistory"
-    Then I softly see value "pm.automation@yopmail.com" for title "To Address" inside table "CommunicationHistory"
+    Then I softly see value "pm.automation.qa2@yopmail.com" for title "To Address" inside table "CommunicationHistory"
     And I navigate to "Overview" sub tab
     When I click on top right button "New" in flex table with id "---grantee_tableId:-:Objectives---"
     When I enter in modal value "Automation Strategic Objective" into field "StrategyTitle__c"
@@ -279,13 +279,13 @@ Feature: Validate all scenarios for Strategic Plan
     And I click on top right button "Send Email" in flex table with id "CommunicationHistory"
     And I send the email under collab tab with following details:
       | To                        | Subject            | Body            |
-      | pm.automation@yopmail.com | Automation Subject | Automation Body |
+      | pm.automation.qa2@yopmail.com | Automation Subject | Automation Body |
     When I click modal button "Close"
     And I refresh the page
     And I wait for "3" seconds
     Then I softly see value "Automation Subject" for title "Subject" inside table "CommunicationHistory"
     Then I softly see value "victor.exeqagrantee@yopmail.com" for title "From Address" inside table "CommunicationHistory"
-    Then I softly see value "pm.automation@yopmail.com" for title "To Address" inside table "CommunicationHistory"
+    Then I softly see value "pm.automation.qa2@yopmail.com" for title "To Address" inside table "CommunicationHistory"
     And I save the field labeled "Strategic Plan" as "StrategicPlan"
     And I click on hyperlink containing value "{SavedValue:StrategicPlan}"
     When I navigate to "Related Log" sub tab
@@ -432,13 +432,13 @@ Feature: Validate all scenarios for Strategic Plan
     And I click on top right button "Send Email" in flex table with id "CommunicationHistory"
     And I send the email under collab tab with following details:
       | To                        | Subject            | Body            |
-      | pm.automation@yopmail.com | Automation Subject | Automation Body |
+      | pm.automation.qa2@yopmail.com | Automation Subject | Automation Body |
     When I click modal button "Close"
     And I refresh the page
     And I wait for "3" seconds
     Then I softly see value "Automation Subject" for title "Subject" inside table "CommunicationHistory"
     Then I softly see value "victor.exeqagrantee@yopmail.com" for title "From Address" inside table "CommunicationHistory"
-    Then I softly see value "pm.automation@yopmail.com" for title "To Address" inside table "CommunicationHistory"
+    Then I softly see value "pm.automation.qa2@yopmail.com" for title "To Address" inside table "CommunicationHistory"
     And I navigate to "Overview" sub tab
     And I click on top right button "New" in flex table with id "---grantee_tableId:-:StrategicGoalsandObjective---"
     When I enter in modal value "Automation Strategic Goal" into field "StrategyTitle__c"
@@ -479,13 +479,13 @@ Feature: Validate all scenarios for Strategic Plan
     And I click on top right button "Send Email" in flex table with id "CommunicationHistory"
     And I send the email under collab tab with following details:
       | To                        | Subject            | Body            |
-      | pm.automation@yopmail.com | Automation Subject | Automation Body |
+      | pm.automation.qa2@yopmail.com | Automation Subject | Automation Body |
     When I click modal button "Close"
     And I refresh the page
     And I wait for "3" seconds
     Then I softly see value "Automation Subject" for title "Subject" inside table "CommunicationHistory"
     Then I softly see value "victor.exeqagrantee@yopmail.com" for title "From Address" inside table "CommunicationHistory"
-    Then I softly see value "pm.automation@yopmail.com" for title "To Address" inside table "CommunicationHistory"
+    Then I softly see value "pm.automation.qa2@yopmail.com" for title "To Address" inside table "CommunicationHistory"
     And I navigate to "Overview" sub tab
     When I click on top right button "New" in flex table with id "---grantee_tableId:-:Objectives---"
     When I enter in modal value "Automation Strategic Objective" into field "StrategyTitle__c"
@@ -534,13 +534,13 @@ Feature: Validate all scenarios for Strategic Plan
     And I click on top right button "Send Email" in flex table with id "CommunicationHistory"
     And I send the email under collab tab with following details:
       | To                        | Subject            | Body            |
-      | pm.automation@yopmail.com | Automation Subject | Automation Body |
+      | pm.automation.qa2@yopmail.com | Automation Subject | Automation Body |
     When I click modal button "Close"
     And I refresh the page
     And I wait for "3" seconds
     Then I softly see value "Automation Subject" for title "Subject" inside table "CommunicationHistory"
     Then I softly see value "victor.exeqagrantee@yopmail.com" for title "From Address" inside table "CommunicationHistory"
-    Then I softly see value "pm.automation@yopmail.com" for title "To Address" inside table "CommunicationHistory"
+    Then I softly see value "pm.automation.qa2@yopmail.com" for title "To Address" inside table "CommunicationHistory"
     And I save the field labeled "Strategic Plan" as "StrategicPlan"
     And I click on hyperlink containing value "{SavedValue:StrategicPlan}"
     When I navigate to "Related Log" sub tab
@@ -687,13 +687,13 @@ Feature: Validate all scenarios for Strategic Plan
     And I click on top right button "Send Email" in flex table with id "CommunicationHistory"
     And I send the email under collab tab with following details:
       | To                        | Subject            | Body            |
-      | pm.automation@yopmail.com | Automation Subject | Automation Body |
+      | pm.automation.qa2@yopmail.com | Automation Subject | Automation Body |
     When I click modal button "Close"
     And I refresh the page
     And I wait for "3" seconds
     Then I softly see value "Automation Subject" for title "Subject" inside table "CommunicationHistory"
     Then I softly see value "victor.exeqagrantee@yopmail.com" for title "From Address" inside table "CommunicationHistory"
-    Then I softly see value "pm.automation@yopmail.com" for title "To Address" inside table "CommunicationHistory"
+    Then I softly see value "pm.automation.qa2@yopmail.com" for title "To Address" inside table "CommunicationHistory"
     And I navigate to "Overview" sub tab
     And I click on top right button "New" in flex table with id "---grantee_tableId:-:StrategicGoalsandObjective---"
     When I enter in modal value "Automation Strategic Goal" into field "StrategyTitle__c"
@@ -734,13 +734,13 @@ Feature: Validate all scenarios for Strategic Plan
     And I click on top right button "Send Email" in flex table with id "CommunicationHistory"
     And I send the email under collab tab with following details:
       | To                        | Subject            | Body            |
-      | pm.automation@yopmail.com | Automation Subject | Automation Body |
+      | pm.automation.qa2@yopmail.com | Automation Subject | Automation Body |
     When I click modal button "Close"
     And I refresh the page
     And I wait for "3" seconds
     Then I softly see value "Automation Subject" for title "Subject" inside table "CommunicationHistory"
     Then I softly see value "victor.exeqagrantee@yopmail.com" for title "From Address" inside table "CommunicationHistory"
-    Then I softly see value "pm.automation@yopmail.com" for title "To Address" inside table "CommunicationHistory"
+    Then I softly see value "pm.automation.qa2@yopmail.com" for title "To Address" inside table "CommunicationHistory"
     And I navigate to "Overview" sub tab
     When I click on top right button "New" in flex table with id "---grantee_tableId:-:Objectives---"
     When I enter in modal value "Automation Strategic Objective" into field "StrategyTitle__c"
@@ -789,13 +789,13 @@ Feature: Validate all scenarios for Strategic Plan
     And I click on top right button "Send Email" in flex table with id "CommunicationHistory"
     And I send the email under collab tab with following details:
       | To                        | Subject            | Body            |
-      | pm.automation@yopmail.com | Automation Subject | Automation Body |
+      | pm.automation.qa2@yopmail.com | Automation Subject | Automation Body |
     When I click modal button "Close"
     And I refresh the page
     And I wait for "3" seconds
     Then I softly see value "Automation Subject" for title "Subject" inside table "CommunicationHistory"
     Then I softly see value "victor.exeqagrantee@yopmail.com" for title "From Address" inside table "CommunicationHistory"
-    Then I softly see value "pm.automation@yopmail.com" for title "To Address" inside table "CommunicationHistory"
+    Then I softly see value "pm.automation.qa2@yopmail.com" for title "To Address" inside table "CommunicationHistory"
     And I save the field labeled "Strategic Plan" as "StrategicPlan"
     And I click on hyperlink containing value "{SavedValue:StrategicPlan}"
     When I navigate to "Related Log" sub tab
@@ -942,13 +942,13 @@ Feature: Validate all scenarios for Strategic Plan
     And I click on top right button "Send Email" in flex table with id "CommunicationHistory"
     And I send the email under collab tab with following details:
       | To                        | Subject            | Body            |
-      | pm.automation@yopmail.com | Automation Subject | Automation Body |
+      | pm.automation.qa2@yopmail.com | Automation Subject | Automation Body |
     When I click modal button "Close"
     And I refresh the page
     And I wait for "3" seconds
     Then I softly see value "Automation Subject" for title "Subject" inside table "CommunicationHistory"
     Then I softly see value "victor.exeqagrantee@yopmail.com" for title "From Address" inside table "CommunicationHistory"
-    Then I softly see value "pm.automation@yopmail.com" for title "To Address" inside table "CommunicationHistory"
+    Then I softly see value "pm.automation.qa2@yopmail.com" for title "To Address" inside table "CommunicationHistory"
     And I navigate to "Overview" sub tab
     And I click on top right button "New" in flex table with id "---grantee_tableId:-:StrategicGoalsandObjective---"
     When I enter in modal value "Automation Strategic Goal" into field "StrategyTitle__c"
@@ -989,13 +989,13 @@ Feature: Validate all scenarios for Strategic Plan
     And I click on top right button "Send Email" in flex table with id "CommunicationHistory"
     And I send the email under collab tab with following details:
       | To                        | Subject            | Body            |
-      | pm.automation@yopmail.com | Automation Subject | Automation Body |
+      | pm.automation.qa2@yopmail.com | Automation Subject | Automation Body |
     When I click modal button "Close"
     And I refresh the page
     And I wait for "3" seconds
     Then I softly see value "Automation Subject" for title "Subject" inside table "CommunicationHistory"
     Then I softly see value "victor.exeqagrantee@yopmail.com" for title "From Address" inside table "CommunicationHistory"
-    Then I softly see value "pm.automation@yopmail.com" for title "To Address" inside table "CommunicationHistory"
+    Then I softly see value "pm.automation.qa2@yopmail.com" for title "To Address" inside table "CommunicationHistory"
     And I navigate to "Overview" sub tab
     When I click on top right button "New" in flex table with id "---grantee_tableId:-:Objectives---"
     When I enter in modal value "Automation Strategic Objective" into field "StrategyTitle__c"
@@ -1044,13 +1044,13 @@ Feature: Validate all scenarios for Strategic Plan
     And I click on top right button "Send Email" in flex table with id "CommunicationHistory"
     And I send the email under collab tab with following details:
       | To                        | Subject            | Body            |
-      | pm.automation@yopmail.com | Automation Subject | Automation Body |
+      | pm.automation.qa2@yopmail.com | Automation Subject | Automation Body |
     When I click modal button "Close"
     And I refresh the page
     And I wait for "3" seconds
     Then I softly see value "Automation Subject" for title "Subject" inside table "CommunicationHistory"
     Then I softly see value "victor.exeqagrantee@yopmail.com" for title "From Address" inside table "CommunicationHistory"
-    Then I softly see value "pm.automation@yopmail.com" for title "To Address" inside table "CommunicationHistory"
+    Then I softly see value "pm.automation.qa2@yopmail.com" for title "To Address" inside table "CommunicationHistory"
     And I save the field labeled "Strategic Plan" as "StrategicPlan"
     And I click on hyperlink containing value "{SavedValue:StrategicPlan}"
     When I navigate to "Related Log" sub tab

@@ -373,7 +373,7 @@ public final class GovGrantsObjects {
      */
     public void uploadAttachmentInFlexTableFromComputer(Boolean withoutRandomNumber, String fileName, String fileType) {
         By classificationType = By.xpath("//select[@title='Classification' or @name='Classification']");
-        By options = By.xpath("//select//option");
+        By options = By.xpath("//select//option[text()='" + fileType + "']");
         By filePath = By.xpath("//label[contains(@id,'file')]/../input");
         String defaultFilePath = System.getProperty("user.dir") + "/src/main/resources/";
         String[] splitFileName = fileName.split("\\.");
@@ -634,7 +634,7 @@ public final class GovGrantsObjects {
         if (uniqueColumnValue.equalsIgnoreCase("Record Id")) {
             columnValueUpdated = govgrants.perform().pageDetails().idOfRecord;
         }
-        WebElement ClickSelector = I.amPerforming().getElementReference().of(By.xpath("//div[contains(@aria-label,'" + tableId + "')]//table//th//*[text()='" + columnValueUpdated + "']//ancestor::tr//td//a[@role='button'] | //div[contains(@aria-label,'" + tableId + "')]//table//td//*[text()='" + columnValueUpdated + "']//ancestor::tr//td//a[@role='button']"));
+        WebElement ClickSelector = I.amPerforming().getElementReference().of(By.xpath("//h2//*[text()='" + tableId + "']/../parent::div/ancestor::div[contains(@class,'results')]//table//th//*[text()='" + columnValueUpdated + "']//ancestor::tr//td//a[@role='button']"));
         I.amPerforming().click().withJavaScript(ClickSelector);
         WebElement element = I.amPerforming().getElementReference().of(By.xpath("//div[@role='menu']//ul//li//*[text()='" + buttonName + "']"));
         I.amPerforming().click().withJavaScript(element);

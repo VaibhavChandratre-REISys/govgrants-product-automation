@@ -23,6 +23,7 @@ public final class Modal {
                 I.amPerforming().click().withJavaScript(modalButton);
                 govgrants.perform().mainPage().waitForNavigationLogoToDisappear();
         }
+        govgrants.perform().modal().acceptPopUp();
     }
 
     public By getModalContentSpecificButton(String buttonName) {
@@ -76,14 +77,34 @@ public final class Modal {
     }
 
     /**
+     * Accept modal based on pop up for discard changes
+     */
+    public void acceptPopUpForEditPage() {
+        try {
+            if (I.amPerforming().checkToSee().IsElementPresentQuick(By.xpath("//div[contains(@class,'modal__container')]//div[contains(@class,'modal-header')]//h1[text()='Save Changes?']"))) {
+                WebElement popup = I.amPerforming().getElementReference().of(By.xpath("//div[contains(@class,'modal__container')]"));
+                I.amPerforming().click().on(I.amPerforming().getElementReference().ofNested(popup, By.xpath("//div[contains(@class,'modal__container')]//button[text()='Discard Changes']")));
+            }
+        } catch (Exception e) {
+
+        }
+
+    }
+
+
+    /**
      * Accept/reject modal based pop up with passed parameter
      */
     public void acceptPopUpWithParameter(String buttonName) {
         try {
             if (I.amPerforming().checkToSee().isDisplayed(By.xpath("//div[contains(@class,'modal__footer')] | //div[contains(@class,'modal__container')]//lightning-confirm | //div[contains(@class,'modal__container')]//header"), true)) {
-                I.amPerforming().click().on(By.xpath("//div[contains(@class,'modal__footer')]//button[text()='" + buttonName + "'] | //div[contains(@class,'modal__container')]//button[text()='" + buttonName + "'] | //footer[contains(@class,'modal__footer')]//button[text()='" + buttonName + "']"));
+                try {
+                    I.amPerforming().click().on(By.xpath("//div[contains(@class,'modal__footer')]//button[text()='" + buttonName + "'] | //div[contains(@class,'modal__container')]//button[text()='" + buttonName + "'] | //footer[contains(@class,'modal__footer')]//button[text()='" + buttonName + "']"));
+                } catch (Exception xe) {
+                    I.amPerforming().click().withJavaScript(By.xpath("//div[contains(@class,'modal__footer')]//button[text()='" + buttonName + "'] | //div[contains(@class,'modal__container')]//button[text()='" + buttonName + "'] | //footer[contains(@class,'modal__footer')]//button[text()='" + buttonName + "']"));
+                }
             }
-        } catch (Exception e) {
+        } catch (Exception ignored) {
         }
     }
 

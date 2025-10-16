@@ -222,7 +222,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Planning" tab
     When I navigate to "External Programs" content inside "Programs" subheader on left panel
-    And I click toggle button to select "All NGO Programs"
+    And I click toggle button to select "NGO Programs - All"
     When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:ExternalNGOProgramTableId---" panel
     And I click on "View" icon for "{SavedValue:ProgramEGMSID}" inside flex table with id "---program:-:ExternalNGOProgramTableId---" without waiting for record
     And I click on "Activate" in the page details
@@ -1891,7 +1891,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I navigate to "Risk Assessment" sub tab
     And I perform quick search for "Active" in "---orgRiskAssessment:-:orgRiskAssessmentTableId---" panel
     When I click on "View" icon for "Active" inside flex table with id "---orgRiskAssessment:-:orgRiskAssessmentTableId---" without waiting for record
-    Then I softly see field "State" as "Active"
+    Then I softly see field "Status" as "Active"
 
   @72349 @adhocReimbursementHappyPath @ProdSan1
   Scenario: Validate the Reimbursement Payment Request happy path and the status changes to 'Paid'
@@ -1917,7 +1917,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I enter the following values into flex table with id "---paymentRequest:-:paymentLineItemsTableId---" by clicking "New" :
       | Title        | Narrative     | Unit Price | Quantity | Measurement |
       | Extra Salary | The narrative | 30         | 1        | Feet        |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Payment Line Items" modal by clicking the top right x button
     And I click on "Submit to Grantor" in the page details
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -2046,7 +2046,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I enter the following values into flex table with id "---paymentRequest:-:paymentLineItemsTableId---" by clicking "New" :
       | Title        | Narrative     | Unit Price | Quantity | Measurement | Advance Applied |
       | Extra Salary | The narrative | 30         | 1        | Feet        | 10              |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Payment Line Items" modal by clicking the top right x button
     And I wait for "2" seconds
     And I click on "Submit to Grantor" in the page details
     And I wait for "2" seconds
@@ -2108,7 +2108,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I enter the following values into flex table with id "---paymentRequest:-:paymentLineItemsTableId---" by clicking "New" :
       | Title        | Narrative     | Unit Price | Quantity | Measurement |
       | Extra Salary | The narrative | 30         | 1        | Feet        |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Payment Line Items" modal by clicking the top right x button
     And I click on "Submit to Grantor" in the page details
     And I wait for "2" seconds
     Then I softly see field "Status" as "Submitted to Grantor"
@@ -2944,7 +2944,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click on top right button "New" in flex table with id "---amendment:-:amendmentRequestTableId---"
     When I enter "ScopeOfWork_Creation" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
-    And I wait for "8" seconds
+    And I wait for "4" seconds
     And I enter "ScopeOfWork_Edition" values from "AmendmentRequest_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "scopeWorkId"
@@ -3041,7 +3041,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I wait for "3" seconds
     Then I softly see that "Subaward" is in "Activated" status
 
-  @SubrecipientBudgetRedirection @ProdSan1 @TBE
+  @SubrecipientBudgetRedirection @ProdSan1
   Scenario: Validate Subrecipient side Budget Redirection Amendment End to End flow
     And I activated standalone subaward "Automation Runtime Award" with properties "IS_BUILDUP_FUNCTIONALITY_YES" of type "Formula_By_Applicant_Focus_Area"
     Given I am on "SUBPORTAL" portal
@@ -3068,13 +3068,13 @@ Feature: Validate sanity testing of Complete Business Flow
     And I edit the following rows inline in flex table with id "---amendment:-:amendmentLineItemsTableId---" by clicking "Edit" :
       | Title        | Award Amount |
       | Construction | 900          |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Amendment Line Items" modal by clicking the top right x button
     And I wait for "2" seconds
     When I click on "Add Line Items" icon for "Indirect costs" inside flex table with id "---amendment:-:budgetChangeTableId---"
     And I enter the following values into flex table with id "---amendment:-:amendmentLineItemsTableId---" by clicking "New" :
       | Title        | Narrative     | Award Amount |
       | Construction | The Narrative | 100          |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Amendment Line Items" modal by clicking the top right x button
     And I click on "Submit to Grantor" in the page details
     And I wait for "2" seconds
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
@@ -3154,9 +3154,9 @@ Feature: Validate sanity testing of Complete Business Flow
     And I clear in modal the value from table field "NonCashMatch__c"
     And I click on top right button "Save" in flex table with id "---subAwardStandAlone:-:addLinesBudgetCategoryTableId---"
     And I wait for "5" seconds
-    Then I softly see value "$0.00" for title "Award Amount" against the value "Extra Salary" inside table "---subAwardStandAlone:-:addLinesBudgetCategoryTableId---"
-    Then I softly see value "$0.00" for title "Cash Match" against the value "Extra Salary" inside table "---subAwardStandAlone:-:addLinesBudgetCategoryTableId---"
-    Then I softly see value "$0.00" for title "Non-Cash Match" against the value "Extra Salary" inside table "---subAwardStandAlone:-:addLinesBudgetCategoryTableId---"
+    Then I softly see value "" for title "Award Amount" against the value "Extra Salary" inside table "---subAwardStandAlone:-:addLinesBudgetCategoryTableId---"
+    Then I softly see value "" for title "Cash Match" against the value "Extra Salary" inside table "---subAwardStandAlone:-:addLinesBudgetCategoryTableId---"
+    Then I softly see value "" for title "Non-Cash Match" against the value "Extra Salary" inside table "---subAwardStandAlone:-:addLinesBudgetCategoryTableId---"
     When I click on "Delete" icon for "Extra Salary" inside flex table with id "---subAwardStandAlone:-:addLinesBudgetCategoryTableId---"
     And I wait for "5" seconds
     Then I softly see "No Records Found" inside flex table with id "---subAwardStandAlone:-:subAwardBudgetTableId---"
@@ -3332,7 +3332,7 @@ Feature: Validate sanity testing of Complete Business Flow
       | Title        | Award Amount |
       | Construction | 1500         |
     And I wait for "2" seconds
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Amendment Line Items" modal by clicking the top right x button
     And I wait for "2" seconds
     And I click on page navigation arrow "---amendment:-:budgetChangeTableId---" for table id "Next"
     When I click on "Add Line Items" icon for "Construction" inside flex table with id "---amendment:-:budgetChangeTableId---"
@@ -3340,7 +3340,7 @@ Feature: Validate sanity testing of Complete Business Flow
       | Title        | Award Amount |
       | Construction | 1500         |
     And I wait for "2" seconds
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Amendment Line Items" modal by clicking the top right x button
     And I wait for "2" seconds
     And I refresh the page
     And I click on "Submit to Grantor" in the page details
@@ -3411,13 +3411,13 @@ Feature: Validate sanity testing of Complete Business Flow
       | Title        | Award Amount |
       | Construction | 450          |
     And I wait for "2" seconds
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Amendment Line Items" modal by clicking the top right x button
     When I click on "Add Line Items" icon for "Indirect costs" inside flex table with id "---amendment:-:budgetChangeTableId---"
     And I enter the following values into flex table with id "---amendment:-:amendmentLineItemsTableId---" by clicking "New" :
       | Title        | Narrative     | Award Amount |
       | Construction | The Narrative | 50           |
     And I wait for "2" seconds
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Amendment Line Items" modal by clicking the top right x button
     And I wait for "3" seconds
     And I click on page navigation arrow "---amendment:-:budgetChangeTableId---" for table id "Next"
     And I wait for "3" seconds
@@ -3426,14 +3426,14 @@ Feature: Validate sanity testing of Complete Business Flow
       | Title        | Award Amount |
       | Construction | 450          |
     And I wait for "2" seconds
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Amendment Line Items" modal by clicking the top right x button
     And I wait for "3" seconds
     When I click on "Add Line Items" icon for "Indirect costs" inside flex table with id "---amendment:-:budgetChangeTableId---"
     And I enter the following values into flex table with id "---amendment:-:amendmentLineItemsTableId---" by clicking "New" :
       | Title        | Narrative     | Award Amount |
       | Construction | The Narrative | 50           |
     And I wait for "2" seconds
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Amendment Line Items" modal by clicking the top right x button
     And I wait for "2" seconds
     And I click on "Submit to Grantor" in the page details
     Then I softly see field "Status" as "Submitted to Grantor"
@@ -4493,12 +4493,17 @@ Feature: Validate sanity testing of Complete Business Flow
     When I click on "Save" in the page details
     And I wait for "3" seconds
     And I click on "Send Invitation" icon for "{SavedValue:Automation Runtime} User" inside flex table with id "---home:-:userContactsTableId---" without waiting for record
+    And I wait for "2" seconds
     And I click "Send" button in modal
+    And I wait for "4" seconds
     Then I softly see the following messages in the page details :
       | Email Sent Successfully. |
-    When I click modal button "Ok"
+    When I click modal button "Close"
+    And I wait for "2" seconds
+    And I logout
+    And I wait for "2" seconds
     And I checkout to maildrop with mailid "{SavedValue:uniqueEmailID1}"
-    And I navigate to maildrop portal for "{SavedValue:uniqueEmailID}" with subject "Sandbox: Notification: You have been Invited to Register in the"
+    And I navigate to maildrop portal for "{SavedValue:uniqueEmailID1}" with subject "Sandbox: Notification: Invitation to be a user of EGMS"
     When I click on "Agree" in the page details
     When I click on "Agree" in the page details
     And I click on "Save" in the page details
@@ -4559,16 +4564,17 @@ Feature: Validate sanity testing of Complete Business Flow
     And I wait for "2" seconds
     And I perform quick search for "{SavedValue:Automation Runtime} Contact" in "---home:-:reviewersTableId---" panel
     And I click on "Send Invitation" icon for "{SavedValue:Automation Runtime} Contact" inside flex table with id "---home:-:reviewersTableId---" without waiting for record
-    And I click "Send" button in modal
     And I wait for "2" seconds
-    Then I softly see the following messages in the page details :
-      | Email Sent Successfully. |
+    And I click "Send" button in modal
+    And I wait for "4" seconds
+    Then I see the text "Email Sent Successfully." in modal
     And I checkout to maildrop with mailid "{SavedValue:uniqueEmailID}"
     And I navigate to maildrop portal for "{SavedValue:uniqueEmailID}" with subject "Sandbox: Notification: You have been Invited to Register in the"
     When I click on "Agree" in the page details
     When I click on "Agree" in the page details
     And I enter "Edition" values from "PotentialReviewersContact_Field_Values.xlsx"
     And I click on "Save" in the page details
+    And I halt execution
     When I click on "Submit" in the page details
     And I pause execution for "5" seconds
     Then I see the following messages in the page details contains:
@@ -4578,5 +4584,373 @@ Feature: Validate sanity testing of Complete Business Flow
     And I navigate to reset password link
     Then I set password for the user
     And I navigate to "Home" tab
-    And I select "My Profile" from user dropdown
+    And I select "Profile" from user dropdown
     Then I see the header is "{SavedValue:Automation Runtime} Contact" in the page details
+
+  @227725 @VerifythenewreadonlyfieldforTotalAllocationFundingthisshouldbetotalofAllAllocationAmountfromrecommendedapplicationsectionforformulaannouncement @ProdSan4
+  Scenario Outline: Verify the new readonly field for "Total Allocation Funding", this should be total of All Allocation Amount, from recommended application section for formula announcement .
+  | FDM - Verify Subaward floor and Subaward Ceiling fields are hidden for formula announcement |
+    Given I published "Formula" type announcement having name "Automation Runtime Formula Announcement" and properties "BY_APPLICANT"
+    And I initiated an application review for application "<Announcement Name>" on announcement "<Announcement Name>" with properties "default"
+    When I login to "Grantor" app as "PM" user
+    When I navigate to "Applications" tab
+    And I navigate to "Applications" content inside "Applications" subheader on left panel
+    When I click toggle button to select "Applications - All"
+    And I perform quick search for "<Announcement Name>" in "---applicationIntake:-:applicantGrantorApplicationsTableId---" panel
+    When I click on "View" icon for "<Announcement Name>" inside table
+    And I save the field labeled "EGMS ID" as "AppEgmdId"
+    When I navigate to "Applications" tab
+    And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
+    When I click toggle button to select "Application Reviews - All"
+    And I perform quick search for "<Announcement Name>" in "---applicationReview:-:announcementListTableId---" panel
+    When I click on "View" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:announcementListTableId---" with wait for record
+    And I navigate to "Related Log" sub tab
+    When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
+    And I wait for "2" seconds
+    When I perform quick search for "<Announcement Name>" in "---applicationReview:-:appTableId---" panel
+    When I check "<Announcement Name>" boxes in flex table with id "---applicationReview:-:appTableId---"
+    And I click on top right button "Promote to Next Step" in flex table with id "---applicationReview:-:appTableId---"
+    And I wait for "2" seconds
+    And I click on "Next Review Step" in the page details
+    When I edit the following rows inline in flex table with id "---applicationReview:-:formTableId---" by clicking "Edit" :
+      | Form Name         | Due in Days |
+      | Program Review    | 5           |
+      | Fiscal Review     | 5           |
+      | Compliance Review | 5           |
+    When I enter the following values into flex table with id "---applicationReview:-:reviewersTableId---" by clicking "Add" :
+      | Reviewer                  |
+      | {SavedValue:EXE Username} |
+      | {SavedValue:FO Username}  |
+      | {SavedValue:PM Username}  |
+    When I expand nested table containing column value "<Announcement Name>"
+    And I click on "Assign" icon for "Program Review" inside flex table with id "---applicationReview:-:reviewFormsTableId---" with wait for record
+    And I perform quick search for "{SavedValue:PM Username}" in "---applicationReview:-:panelAppTableId---" panel
+    And I check "{SavedValue:PM Username}" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
+    When I click on top right button "Assign" in flex table with id "---applicationReview:-:panelAppTableId---"
+    When I click modal button "Close"
+    And I wait for "2" seconds
+    And I click on "Assign" icon for "Fiscal Review" inside flex table with id "---applicationReview:-:reviewFormsTableId---" with wait for record
+    And I perform quick search for "{SavedValue:FO Username}" in "---applicationReview:-:panelAppTableId---" panel
+    And I check "{SavedValue:FO Username}" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
+    When I click on top right button "Assign" in flex table with id "---applicationReview:-:panelAppTableId---"
+    When I click modal button "Close"
+    And I wait for "2" seconds
+    And I click on "Assign" icon for "Compliance Review" inside flex table with id "---applicationReview:-:reviewFormsTableId---" with wait for record
+    And I perform quick search for "{SavedValue:EXE Username}" in "---applicationReview:-:panelAppTableId---" panel
+    And I check "{SavedValue:EXE Username}" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
+    When I click on top right button "Assign" in flex table with id "---applicationReview:-:panelAppTableId---"
+    When I click modal button "Close"
+    And I refresh the page
+    And I pause execution for "5" seconds
+    And I check "All" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
+    And I pause execution for "2" seconds
+    And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
+    And I pause execution for "3" seconds
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
+    And I navigate to "Applications" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "{SavedValue:AppEgmdId}" in "---applicationReview:-:pendingTaskTableId---" panel
+    And I click on "Start" icon for "{SavedValue:AppEgmdId}" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
+    And I click on "Edit" in the page details
+    When I complete filling in the Review form with recommendation "Recommended"
+    And I click on "Save" in the page details
+    And I wait for "6" seconds
+    When I click on "Submit" in the page details without processing
+    When I click alert button "OK"
+    And I wait for "5" seconds
+    When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
+    And I navigate to "Applications" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "{SavedValue:AppEgmdId}" in "---applicationReview:-:pendingTaskTableId---" panel
+    And I click on "Start" icon for "{SavedValue:AppEgmdId}" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
+    And I click on "Edit" in the page details
+    When I complete filling in the Review form with recommendation "Recommended"
+    And I click on "Save" in the page details
+    And I wait for "6" seconds
+    When I click on "Submit" in the page details without processing
+    When I click alert button "OK"
+    And I wait for "5" seconds
+    When I re-login to "Grantor" app as "FO" user on "INTERNAL" portal
+    And I navigate to "Applications" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "{SavedValue:AppEgmdId}" in "---applicationReview:-:pendingTaskTableId---" panel
+    And I click on "Start" icon for "{SavedValue:AppEgmdId}" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
+    And I click on "Edit" in the page details
+    When I complete filling in the Review form with recommendation "Recommended"
+    And I click on "Save" in the page details
+    And I wait for "6" seconds
+    When I click on "Submit" in the page details without processing
+    When I click alert button "OK"
+    And I wait for "5" seconds
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
+    And I navigate to "Applications" tab
+    And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
+    When I click toggle button to select "Application Reviews - All"
+    And I perform quick search for "<Announcement Name>" in "---applicationReview:-:announcementListTableId---" panel
+    When I click on "View" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:announcementListTableId---"
+    And I navigate to "Related Log" sub tab
+    When I click on "View" icon for "SME Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
+    And I wait for "2" seconds
+    Then I softly see that "Review Completed" has been added in flextable with Id "---applicationReview:-:appreviewsTableId---"
+    When I check "<Announcement Name>" boxes in flex table with id "---applicationReview:-:appTableId---"
+    And I click on top right button "Promote to Next Step" in flex table with id "---applicationReview:-:appTableId---"
+    And I wait for "2" seconds
+    And I click on "Next Review Step" in the page details
+    When I edit the following rows inline in flex table with id "---applicationReview:-:formTableId---" by clicking "Edit" :
+      | Form Name         | Due in Days |
+      | Management Review | 5           |
+    When I enter the following values into flex table with id "---applicationReview:-:reviewersTableId---" by clicking "Add" :
+      | Reviewer                 |
+      | {SavedValue:FO Username} |
+    And I click on "Assign" icon for "{SavedValue:FO Username}" inside flex table with id "---applicationReview:-:reviewersTableId---"
+    When I perform quick search for "<Announcement Name>" in "---applicationReview:-:assignApplicationsTableId---" panel
+    And I check "<Announcement Name>" boxes in flex table with id "---applicationReview:-:assignApplicationsTableId---"
+    When I click on top right button "Assign" in flex table with id "---applicationReview:-:assignApplicationsTableId---"
+    When I click modal button "Close"
+    And I refresh the page
+    And I pause execution for "5" seconds
+    When I check "<Announcement Name>" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
+    And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
+    And I wait for "2" seconds
+    When I re-login to "Grantor" app as "FO" user on "INTERNAL" portal
+    And I navigate to "Applications" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "{SavedValue:AppEgmdId}" in "---applicationReview:-:pendingTaskTableId---" panel
+    And I click on "Start" icon for "{SavedValue:AppEgmdId}" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
+    And I click on "Edit" in the page details
+    When I complete filling in the Review form with recommendation "Recommended"
+    And I click on "Save" in the page details
+    And I wait for "6" seconds
+    When I click on "Submit" in the page details without processing
+    When I click alert button "OK"
+    And I wait for "5" seconds
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
+    And I navigate to "Applications" tab
+    And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
+    When I click toggle button to select "Application Reviews - All"
+    And I perform quick search for "<Announcement Name>" in "---applicationReview:-:announcementListTableId---" panel
+    When I click on "View" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:announcementListTableId---"
+    And I navigate to "Related Log" sub tab
+    When I click on "View" icon for "Management Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
+    And I wait for "2" seconds
+    Then I softly see that "Review Completed" has been added in flextable with Id "---applicationReview:-:appreviewsTableId---"
+    When I check "<Announcement Name>" boxes in flex table with id "---applicationReview:-:appTableId---"
+    And I click on top right button "Promote to FDM" in flex table with id "---applicationReview:-:appTableId---"
+    When I click on "Funding Decision Memo" in the page details
+    Then I softly see field "Status" as "Created"
+    #227725
+    And I edit the following rows inline in flex table with id "FundingDecisionMemoApplications" by clicking "Edit" :
+      | Application Title   | Recommend for Funding | Comments    |
+      | <Announcement Name> | Yes                   | Recommended |
+    And I refresh the page
+    Then I softly see field "Total Allocation Funding" as "$1,000.00"
+    When I hovering mouse on help text icon inside page block detail "Total Allocation Funding"
+    Then I softly see "Total amount allocated across all approved applications in relationship to this Announcement" shown as help text
+
+    Examples:
+      | Announcement Name                                    |
+      | {SavedValue:Automation Runtime Formula Announcement} |
+
+  @announcementToCheckSessionStorageScenario @ProdSan4
+  Scenario: Validate announcement To Check Session Storage Scenario
+    When I login to "Grantor" app as "PO" user
+    And I navigate to "Announcements" tab
+    When I navigate to "Formula" content inside "Announcements" subheader on left panel
+    And I click toggle button to select "Draft Formula Announcements"
+    And I click on top right button "New" in flex table with id "---announcement:-:formulaAnnouncementTableId---"
+    And I enter "FormulaAnnouncement" values from "Announcement_Field_Values.xlsx"
+    And I click modal button "Continue"
+    When I enter "Creation_Formula_ByApplicant" values from "Announcement_Field_Values.xlsx"
+    And I click modal button "Save and Continue"
+    And I click on "Save" in the page details
+    And I get the "EGMS ID"
+    When I navigate to "Announcements" tab
+    When I navigate to "Announcements" tab
+    And I click toggle button to select "Announcements - All"
+    And I perform quick search for "Record id" in "---announcement:-:ActiveFundingOpportunitiesAllTableId---" panel
+    When  I click on "Delete" icon for "Record id" inside flex table with id "---announcement:-:ActiveFundingOpportunitiesAllTableId---" without waiting for record
+    And I perform quick search for "Record id" in "---announcement:-:ActiveFundingOpportunitiesAllTableId---" panel
+    Then I do not see value "Record id" for title "Announcement Name" inside table "---announcement:-:ActiveFundingOpportunitiesAllTableId---"
+
+  @541932 @ValidateSMEreviewerissubmitthereviewcommentsandcompletetheapplicationreview
+  Scenario Outline: Validate SME reviewer is submit the review comments and complete the application review
+    Given I published "Competitive" type announcement having name "Automation Runtime Announcement Application Review" and properties "default"
+    And I initiated an application review for application "{SavedValue:Automation Runtime Announcement Application Review}" on announcement "{SavedValue:Automation Runtime Announcement Application Review}" with properties "default"
+    And I login to "Grantor" app as "PM" user
+    When I navigate to "Applications" tab
+    And I navigate to "Applications" content inside "Applications" subheader on left panel
+    When I click toggle button to select "Applications - All"
+    And I perform quick search for "<Announcement Name>" in "---applicationIntake:-:applicantGrantorApplicationsTableId---" panel
+    And I click on "View" icon for "<Announcement Name>" inside flex table with id "---applicationIntake:-:applicantGrantorApplicationsTableId---"
+    And I get the "EGMS ID"
+    And I wait for "3" seconds
+    When I navigate to "Applications" tab
+    And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
+    When I click toggle button to select "Application Reviews - All"
+    And I perform quick search for "<Announcement Name>" in "---applicationReview:-:announcementListTableId---" panel
+    When I click on "View" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:announcementListTableId---" with wait for record
+    And I navigate to "Related Log" sub tab
+    When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
+    And I wait for "2" seconds
+    When I edit the following rows inline in flex table with id "---applicationReview:-:formTableId---" by clicking "Edit" :
+      | Form Name  | Due in Days |
+      | Pre-Screen | 5           |
+    When I enter the following values into flex table with id "---applicationReview:-:reviewersTableId---" by clicking "Add" :
+      | Reviewer                  |
+      | {SavedValue:SME Username} |
+    And I click on "Assign" icon for "{SavedValue:SME Username}" inside flex table with id "---applicationReview:-:reviewersTableId---"
+    When I perform quick search for "<Announcement Name>" in "---applicationReview:-:assignApplicationsTableId---" panel
+    And I check "<Announcement Name>" boxes in flex table with id "---applicationReview:-:assignApplicationsTableId---"
+    When I click on top right button "Assign" in flex table with id "---applicationReview:-:assignApplicationsTableId---"
+    When I close "Assign Applications" modal by clicking the top right x button
+    And I refresh the page
+    And I wait for "2" seconds
+    When I check "<Announcement Name>" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
+    And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
+    And I wait for "2" seconds
+    When I re-login to "Grantor" app as "SME" user on "INTERNAL" portal
+    And I navigate to "Home" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "Record Id" in "---negotiation:-:homePendingTasks---" panel
+    And I click on "Start" icon for "Record Id" inside flex table with id "---negotiation:-:homePendingTasks---"
+    And I click on "Edit" in the page details
+    When I complete filling in the Review form with recommendation "Recommended"
+    And I click on "Save" in the page details
+    When I click on "Submit" in the page details without processing
+    When I click alert button "OK"
+    Then I see that "Status" is in "Review Completed" status
+    And I save the field in the form labeled "Score" as "preScreenScore"
+    Then I softly see field in the form "Score" as "{SavedValue:preScreenScore}"
+    Then I softly can see top right button "Undo" in page detail
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
+    When I navigate to "Applications" tab
+    And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
+    When I click toggle button to select "Application Reviews - All"
+    And I perform quick search for "<Announcement Name>" in "---applicationReview:-:announcementListTableId---" panel
+    When I click on "View" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:announcementListTableId---"
+    And I navigate to "Related Log" sub tab
+    When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
+    And I wait for "2" seconds
+    When I check "<Announcement Name>" boxes in flex table with id "---applicationReview:-:appTableId---"
+    And I click on top right button "Promote to Next Step" in flex table with id "---applicationReview:-:appTableId---"
+    And I wait for "2" seconds
+    And I click on "Next Review Step" in the page details
+    When I edit the following rows inline in flex table with id "---applicationReview:-:formTableId---" by clicking "Edit" :
+      | Form Name         | Due in Days |
+      | Program Review    | 5           |
+      | Fiscal Review     | 5           |
+      | Compliance Review | 5           |
+    When I enter the following values into flex table with id "---applicationReview:-:reviewersTableId---" by clicking "Add" :
+      | Reviewer                  |
+      | {SavedValue:SME Username} |
+    When I expand nested table containing column value "<Announcement Name>"
+    And I click on "Assign" icon for "Program Review" inside flex table with id "---applicationReview:-:reviewFormsTableId---" with wait for record
+    And I perform quick search for "{SavedValue:SME Username}" in "---applicationReview:-:panelAppTableId---" panel
+    And I check "{SavedValue:SME Username}" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
+    When I click on top right button "Assign" in flex table with id "---applicationReview:-:panelAppTableId---"
+    When I click modal button "Close"
+    And I refresh the page
+    And I wait for "2" seconds
+    And I click on "Assign" icon for "Fiscal Review" inside flex table with id "---applicationReview:-:reviewFormsTableId---" with wait for record
+    And I perform quick search for "{SavedValue:SME Username}" in "---applicationReview:-:panelAppTableId---" panel
+    And I check "{SavedValue:SME Username}" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
+    When I click on top right button "Assign" in flex table with id "---applicationReview:-:panelAppTableId---"
+    When I click modal button "Close"
+    And I refresh the page
+    And I wait for "2" seconds
+    And I click on "Assign" icon for "Compliance Review" inside flex table with id "---applicationReview:-:reviewFormsTableId---" with wait for record
+    And I perform quick search for "{SavedValue:SME Username}" in "---applicationReview:-:panelAppTableId---" panel
+    And I check "{SavedValue:SME Username}" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
+    When I click on top right button "Assign" in flex table with id "---applicationReview:-:panelAppTableId---"
+    When I click modal button "Close"
+    And I refresh the page
+    And I wait for "2" seconds
+    And I check "All" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
+    And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
+    And I wait for "2" seconds
+    When I re-login to "Grantor" app as "SME" user on "INTERNAL" portal
+    And I navigate to "Home" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "Record Id" in "---negotiation:-:homePendingTasks---" panel
+    And I click on "Start" icon for "Record Id" inside flex table with id "---negotiation:-:homePendingTasks---"
+    And I click on "Edit" in the page details
+    When I complete filling in the Review form with recommendation "Recommended"
+    And I click on "Save" in the page details
+    When I click on "Submit" in the page details without processing
+    When I click alert button "OK"
+    Then I see that "Status" is in "Review Completed" status
+    And I save the field in the form labeled "Score" as "programSMEScore"
+    Then I softly see field in the form "Score" as "{SavedValue:programSMEScore}"
+    Then I softly can see top right button "Undo" in page detail
+    And I navigate to "Home" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "Record Id" in "---negotiation:-:homePendingTasks---" panel
+    And I click on "Start" icon for "Record Id" inside flex table with id "---negotiation:-:homePendingTasks---"
+    When I click on "Edit" in the page details
+    When I complete filling in the Review form with recommendation "Recommended"
+    And I click on "Save" in the page details
+    When I click on "Submit" in the page details without processing
+    When I click alert button "OK"
+    Then I see that "Status" is in "Review Completed" status
+    And I save the field in the form labeled "Score" as "fiscalSMEScore"
+    Then I softly see field in the form "Score" as "{SavedValue:fiscalSMEScore}"
+    Then I softly can see top right button "Undo" in page detail
+    And I navigate to "Home" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "Record Id" in "---negotiation:-:homePendingTasks---" panel
+    And I click on "Start" icon for "Record Id" inside flex table with id "---negotiation:-:homePendingTasks---"
+    When I click on "Edit" in the page details
+    When I complete filling in the Review form with recommendation "Recommended"
+    And I click on "Save" in the page details
+    When I click on "Submit" in the page details without processing
+    When I click alert button "OK"
+    Then I see that "Status" is in "Review Completed" status
+    And I save the field in the form labeled "Score" as "complianceSMEScore"
+    Then I softly see field in the form "Score" as "{SavedValue:complianceSMEScore}"
+    Then I softly can see top right button "Undo" in page detail
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
+    And I navigate to "Applications" tab
+    And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
+    When I click toggle button to select "Application Reviews - All"
+    And I perform quick search for "<Announcement Name>" in "---applicationReview:-:announcementListTableId---" panel
+    When I click on "View" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:announcementListTableId---"
+    And I navigate to "Related Log" sub tab
+    When I click on "View" icon for "SME Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
+    When I check "<Announcement Name>" boxes in flex table with id "---applicationReview:-:appTableId---"
+    And I click on top right button "Promote to Next Step" in flex table with id "---applicationReview:-:appTableId---"
+    And I wait for "2" seconds
+    And I click on "Next Review Step" in the page details
+    When I edit the following rows inline in flex table with id "---applicationReview:-:formTableId---" by clicking "Edit" :
+      | Form Name         | Due in Days |
+      | Management Review | 5           |
+    When I enter the following values into flex table with id "---applicationReview:-:reviewersTableId---" by clicking "Add" :
+      | Reviewer                  |
+      | {SavedValue:SME Username} |
+    And I click on "Assign" icon for "{SavedValue:SME Username}" inside flex table with id "---applicationReview:-:reviewersTableId---"
+    When I perform quick search for "<Announcement Name>" in "---applicationReview:-:assignApplicationsTableId---" panel
+    And I check "<Announcement Name>" boxes in flex table with id "---applicationReview:-:assignApplicationsTableId---"
+    When I click on top right button "Assign" in flex table with id "---applicationReview:-:assignApplicationsTableId---"
+    When I click modal button "Close"
+    And I refresh the page
+    And I wait for "2" seconds
+    When I check "<Announcement Name>" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
+    And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
+    And I wait for "2" seconds
+    When I re-login to "Grantor" app as "SME" user on "INTERNAL" portal
+    And I navigate to "Home" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "Record Id" in "---negotiation:-:homePendingTasks---" panel
+    And I click on "Start" icon for "Record Id" inside flex table with id "---negotiation:-:homePendingTasks---"
+    When I click on "Edit" in the page details
+    When I complete filling in the Review form with recommendation "Recommended"
+    And I click on "Save" in the page details
+    When I click on "Submit" in the page details without processing
+    When I click alert button "OK"
+    Then I see that "Status" is in "Review Completed" status
+    And I save the field in the form labeled "Score" as "managementScore"
+    Then I softly see field in the form "Score" as "{SavedValue:managementScore}"
+    Then I softly can see top right button "Undo" in page detail
+
+    Examples:
+      | Announcement Name                                               | Application Name                                                |
+      | {SavedValue:Automation Runtime Announcement Application Review} | {SavedValue:Automation Runtime Announcement Application Review} |

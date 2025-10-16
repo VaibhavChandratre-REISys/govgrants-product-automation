@@ -1,4 +1,4 @@
-@paymentRequestWB @paymentRequest @grantor-regression @grantor-parallel-regression @paymentRequest @regression
+@paymentRequestWB @paymentRequest @grantor-regression @grantor-parallel-regression @paymentRequest
 Feature: Payment Request scenarios without background
 
   @53910 @ValidateAdvancePaymentRequestButton  @smoke
@@ -225,7 +225,7 @@ Feature: Payment Request scenarios without background
     When I enter the following values into flex table with id "---paymentRequest:-:paymentLineItemsTableId---" by clicking "New" :
       | Title        | Narrative     | Unit Price | Quantity | Measurement | Other Charges ($) |
       | Extra Salary | The narrative | 10         | 1        | Feet        | 10                |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Payment Line Items" modal by clicking the top right x button
     And I navigate to "Forms and Files" sub tab
     Then I see that "Automation" has been added in flextable with Id "---paymentRequest:-:checklistTableId---"
     Examples:
@@ -254,7 +254,7 @@ Feature: Payment Request scenarios without background
     When I enter the following values into flex table with id "---paymentRequest:-:paymentLineItemsTableId---" by clicking "New" :
       | Title        | Narrative     | Unit Price | Quantity | Measurement | Other Charges ($) |
       | Extra Salary | The narrative | 10         | 1        | Feet        | 10                |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Payment Line Items" modal by clicking the top right x button
     When I navigate to "Forms and Files" sub tab
     Then I see "No Records Found" inside flex table with id "---paymentRequest:-:checklistTableId---"
     Examples:
@@ -353,7 +353,7 @@ Feature: Payment Request scenarios without background
     When I click on "Save" in the page details
     And I navigate to "Forms and Files" sub tab
     When I click on "Attach" icon for "Mandatory" inside flex table with id "---paymentRequest:-:recipientAdvanceSupportiveDocumentChecklistTableId---" without waiting for record
-    And I upload attachment "Attachment.pdf" of type "Others" from computer
+    And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
     And I click modal button "Close"
     And I wait for "2" seconds
     Then I see that "Automation" has been added in flextable with Id "---paymentRequest:-:checklistTableId---"
@@ -383,7 +383,7 @@ Feature: Payment Request scenarios without background
     When I enter the following values into flex table with id "---paymentRequest:-:paymentLineItemsTableId---" by clicking "New" :
       | Title        | Narrative     | Unit Price | Quantity | Measurement | Other Charges ($) |
       | Extra Salary | The narrative | 10         | 1        | Feet        | 10                |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Payment Line Items" modal by clicking the top right x button
     And I click on "Submit to Grantor" in the page details
     Then I see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
     Examples:
@@ -528,10 +528,10 @@ Feature: Payment Request scenarios without background
     When I get the "EGMS ID"
     When I navigate to "Forms and Files" sub tab
     When I click on "Attach" icon for "Mandatory" inside flex table with id "---paymentRequest:-:recipientAdvanceSupportiveDocumentChecklistTableId---" without waiting for record
-    And I upload attachment "Attachment.pdf" of type "Others" from computer
+    And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
     And I click modal button "Close"
     And I click on top right button "Add Files" in flex table with id "---paymentRequest:-:recipientAdvancePaymentFilesTableId---"
-    And I upload attachment "Attachment.pdf" of type "Invoice" from computer
+    And I upload attachment without random number "Attachment.pdf" of type "Invoice" from computer
     And I click modal button "Close"
     And I click on "Submit to Grantor" in the page details
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
@@ -594,10 +594,10 @@ Feature: Payment Request scenarios without background
     When I get the "EGMS ID"
     When I navigate to "Forms and Files" sub tab
     When I click on "Attach" icon for "Mandatory" inside flex table with id "---paymentRequest:-:recipientAdvanceSupportiveDocumentChecklistTableId---" without waiting for record
-    And I upload attachment "Attachment.pdf" of type "Others" from computer
+    And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
     And I click modal button "Close"
     And I click on top right button "Add Files" in flex table with id "---paymentRequest:-:recipientAdvancePaymentFilesTableId---"
-    And I upload attachment "Attachment.pdf" of type "Invoice" from computer
+    And I upload attachment without random number "Attachment.pdf" of type "Invoice" from computer
     And I click modal button "Close"
     And I click on "Submit to Grantor" in the page details
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
@@ -656,7 +656,7 @@ Feature: Payment Request scenarios without background
     When I enter the following values into flex table with id "---paymentRequest:-:paymentLineItemsTableId---" by clicking "New" :
       | Title        | Narrative     | Unit Price | Quantity | Measurement | Other Charges ($) | Program Income Disbursed | Cash Match | Non-Cash Match |
       | Extra Salary | The narrative | 10         | 1        | Feet        | 10                | 20                       | 10         | 10             |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Payment Line Items" modal by clicking the top right x button
     And I click on "Submit to Grantor" in the page details
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -716,7 +716,7 @@ Feature: Payment Request scenarios without background
     When I enter the following values into flex table with id "---paymentRequest:-:paymentLineItemsTableId---" by clicking "New" :
       | Title        | Narrative     | Unit Price | Quantity | Measurement | Other Charges ($) | Program Income Disbursed | Cash Match | Non-Cash Match |
       | Extra Salary | The narrative | 10         | 1        | Feet        | 10                | 20                       | 10         | 10             |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Payment Line Items" modal by clicking the top right x button
     And I click on "Submit to Grantor" in the page details
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -816,7 +816,7 @@ Feature: Payment Request scenarios without background
     When I enter the following values into flex table with id "---paymentRequest:-:paymentLineItemsTableId---" by clicking "New" :
       | Title        | Narrative     | Unit Price | Quantity | Measurement |
       | Extra Salary | The narrative | 30         | 1        | Feet        |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Payment Line Items" modal by clicking the top right x button
     And I click on "Submit to Grantor" in the page details
     Then I softly see field "Status" as "Submitted to Grantor"
 
@@ -942,7 +942,7 @@ Feature: Payment Request scenarios without background
     When I enter the following values into flex table with id "---paymentRequest:-:paymentLineItemsTableId---" by clicking "New" :
       | Title        | Narrative     | Unit Price | Quantity | Measurement |
       | Extra Salary | The narrative | 30         | 1        | Feet        |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Payment Line Items" modal by clicking the top right x button
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
@@ -961,7 +961,7 @@ Feature: Payment Request scenarios without background
     When I enter the following values into flex table with id "---paymentRequest:-:paymentLineItemsTableId---" by clicking "New" :
       | Title        | Narrative     | Unit Price | Quantity | Measurement |
       | Extra Salary | The narrative | 10         | 1        | Feet        |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Payment Line Items" modal by clicking the top right x button
     And I get the "EGMS ID"
     And I click on "Submit to Grantor" in the page details
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
@@ -1103,7 +1103,7 @@ Feature: Payment Request scenarios without background
     When I enter the following values into flex table with id "---paymentRequest:-:paymentLineItemsTableId---" by clicking "New" :
       | Title        | Narrative     | Unit Price | Quantity | Measurement |
       | Extra Salary | The narrative | 30         | 1        | Feet        |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Payment Line Items" modal by clicking the top right x button
     And I get the "EGMS ID"
     And I click on "Submit to Grantor" in the page details
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
@@ -1178,7 +1178,7 @@ Feature: Payment Request scenarios without background
     When I enter the following values into flex table with id "---paymentRequest:-:paymentLineItemsTableId---" by clicking "New" :
       | Title        | Narrative     | Unit Price | Quantity | Measurement |
       | Extra Salary | The narrative | 30         | 1        | Feet        |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Payment Line Items" modal by clicking the top right x button
     And I get the "EGMS ID"
     And I click on "Submit to Grantor" in the page details
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
@@ -1232,7 +1232,7 @@ Feature: Payment Request scenarios without background
     When I enter the following values into flex table with id "---paymentRequest:-:paymentLineItemsTableId---" by clicking "New" :
       | Title        | Narrative     | Unit Price | Quantity | Measurement |
       | Extra Salary | The narrative | 30         | 1        | Feet        |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Payment Line Items" modal by clicking the top right x button
     And I get the "EGMS ID"
     And I click on "Submit to Grantor" in the page details
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
@@ -1295,7 +1295,7 @@ Feature: Payment Request scenarios without background
     When I enter the following values into flex table with id "---paymentRequest:-:paymentLineItemsTableId---" by clicking "New" :
       | Title        | Narrative     | Unit Price | Quantity | Measurement |
       | Extra Salary | The narrative | 30         | 1        | Feet        |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Payment Line Items" modal by clicking the top right x button
     And I get the "EGMS ID"
     And I click on "Submit to Grantor" in the page details
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
@@ -1338,7 +1338,7 @@ Feature: Payment Request scenarios without background
     When I enter the following values into flex table with id "---paymentRequest:-:paymentLineItemsTableId---" by clicking "New" :
       | Title        | Narrative     | Unit Price | Quantity | Measurement |
       | Extra Salary | The narrative | 30         | 1        | Feet        |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Payment Line Items" modal by clicking the top right x button
     And I get the "EGMS ID"
     And I click on "Submit to Grantor" in the page details
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
@@ -1385,7 +1385,7 @@ Feature: Payment Request scenarios without background
     When I enter the following values into flex table with id "---paymentRequest:-:paymentLineItemsTableId---" by clicking "New" :
       | Title        | Narrative     | Unit Price | Quantity | Measurement |
       | Extra Salary | The narrative | 30         | 1        | Feet        |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Payment Line Items" modal by clicking the top right x button
     And I get the "EGMS ID"
     And I click on "Submit to Grantor" in the page details
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
@@ -1484,7 +1484,7 @@ Feature: Payment Request scenarios without background
     When I enter the following values into flex table with id "---paymentRequest:-:paymentLineItemsTableId---" by clicking "New" :
       | Title        | Narrative     | Unit Price | Quantity | Measurement |
       | Extra Salary | The narrative | 30         | 1        | Feet        |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Payment Line Items" modal by clicking the top right x button
     And I get the "EGMS ID"
     And I click on "Submit to Grantor" in the page details
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
@@ -1531,7 +1531,7 @@ Feature: Payment Request scenarios without background
     When I enter the following values into flex table with id "---paymentRequest:-:paymentLineItemsTableId---" by clicking "New" :
       | Title        | Narrative     | Unit Price | Quantity | Measurement |
       | Extra Salary | The narrative | 30         | 1        | Feet        |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Payment Line Items" modal by clicking the top right x button
     And I get the "EGMS ID"
     And I click on "Submit to Grantor" in the page details
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
@@ -1579,7 +1579,7 @@ Feature: Payment Request scenarios without background
       | Construction    | 10                            |
     When I navigate to "Forms and Files" sub tab
     When I click on "Attach" icon for "Mandatory" inside flex table with id "---paymentRequest:-:recipientAdvanceSupportiveDocumentChecklistTableId---" without waiting for record
-    And I upload attachment "Attachment.pdf" of type "Others" from computer
+    And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
     When I click modal button "Close"
     # there is no add files button
     And I click on top right button "Add Files" in flex table with id "---paymentRequest:-:recipientAdvancePaymentFilesTableId---"
@@ -1697,7 +1697,7 @@ Feature: Payment Request scenarios without background
     When I enter the following values into flex table with id "---paymentRequest:-:paymentLineItemsTableId---" by clicking "New" :
       | Title        | Narrative     | Unit Price | Quantity | Measurement | Other Charges ($) | Program Income Disbursed | Cash Match | Non-Cash Match |
       | Extra Salary | The narrative | 10         | 1        | Feet        | 10                | 20                       | 100        | 100            |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Payment Line Items" modal by clicking the top right x button
     And I click on "Submit to Grantor" in the page details
     Then I see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
     And I save the field labeled "EGMS ID" as "PayreqId"
@@ -1739,7 +1739,7 @@ Feature: Payment Request scenarios without background
     When I enter the following values into flex table with id "---paymentRequest:-:paymentLineItemsTableId---" by clicking "New" :
       | Title        | Narrative     | Unit Price | Quantity | Measurement | Other Charges ($) | Program Income Disbursed | Cash Match | Non-Cash Match |
       | Extra Salary | The narrative | 10         | 1        | Feet        | 10                | 20                       | 100        | 100            |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Payment Line Items" modal by clicking the top right x button
     And I click on "Submit to Grantor" in the page details
     Then I see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
     And I save the field labeled "EGMS ID" as "PayreqId"
@@ -1791,7 +1791,7 @@ Feature: Payment Request scenarios without background
     When I enter the following values into flex table with id "---paymentRequest:-:paymentLineItemsTableId---" by clicking "New" :
       | Title        | Narrative     | Unit Price | Quantity | Measurement | Other Charges ($) | Program Income Disbursed | Cash Match | Non-Cash Match |
       | Extra Salary | The narrative | 10         | 1        | Feet        | 10                | 20                       | 100        | 100            |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Payment Line Items" modal by clicking the top right x button
     And I click on "Submit to Grantor" in the page details
     Then I see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
     And I save the field labeled "EGMS ID" as "PayreqId"
@@ -1998,7 +1998,7 @@ Feature: Payment Request scenarios without background
     When I enter the following values into flex table with id "---paymentRequest:-:paymentLineItemsTableId---" by clicking "New" :
       | Title        | Narrative     | Unit Price | Quantity | Measurement | Other Charges ($) | Program Income Disbursed | Cash Match | Non-Cash Match |
       | Extra Salary | The narrative | 10         | 1        | Feet        | 10                | 20                       | 100        | 100            |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Payment Line Items" modal by clicking the top right x button
     And I click on "Submit to Grantor" in the page details
     Then I see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
     And I save the field labeled "EGMS ID" as "PayreqId"
@@ -2056,7 +2056,7 @@ Feature: Payment Request scenarios without background
     When I enter the following values into flex table with id "---paymentRequest:-:paymentLineItemsTableId---" by clicking "New" :
       | Title        | Narrative     | Unit Price | Quantity | Measurement |
       | Extra Salary | The narrative | 30         | 1        | Feet        |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Payment Line Items" modal by clicking the top right x button
     And I click on "Submit to Grantor" in the page details
     Then I see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
     And I save the field labeled "EGMS ID" as "PayreqId"
@@ -2101,7 +2101,7 @@ Feature: Payment Request scenarios without background
     When I perform quick search for "{SavedValue:PayreqId}" in "---paymentRequest:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "{SavedValue:PayreqId}" inside flex table with id "---paymentRequest:-:pendingTaskTableId---" without waiting for record
     When I "Reject" in the approval decision
-    And I checkout to yopmail with mailid "pm1.automation@yopmail.com"
+    And I checkout to yopmail with mailid "pm1.automation.qa2@yopmail.com"
     And I pause execution for "10" seconds
     Then I refresh the page
     And I see the mail subject is as follows :
@@ -2158,7 +2158,7 @@ Feature: Payment Request scenarios without background
     When I enter the following values into flex table with id "---paymentRequest:-:paymentLineItemsTableId---" by clicking "New" :
       | Title        | Narrative     | Unit Price | Quantity | Measurement |
       | Extra Salary | The narrative | 10         | 1        | Feet        |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Payment Line Items" modal by clicking the top right x button
     And I click on "Submit to Grantor" in the page details
     When I re-login to "Grantor" app as "Admin" user on "INTERNAL" portal
     And I navigate to "Home" tab
@@ -2195,7 +2195,7 @@ Feature: Payment Request scenarios without background
     When I enter the following values into flex table with id "---paymentRequest:-:paymentLineItemsTableId---" by clicking "New" :
       | Title        | Narrative     | Unit Price | Quantity | Measurement |
       | Extra Salary | The narrative | 10         | 1        | Feet        |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Payment Line Items" modal by clicking the top right x button
     And I click on "Submit to Grantor" in the page details
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -2235,7 +2235,7 @@ Feature: Payment Request scenarios without background
       | Construction    | 10                            |
     When I navigate to "Forms and Files" sub tab
     When I click on "Attach" icon for "Mandatory" inside flex table with id "---paymentRequest:-:recipientAdvanceSupportiveDocumentChecklistTableId---" without waiting for record
-    And I upload attachment "Attachment.pdf" of type "Others" from computer
+    And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
     When I click on "Submit to Grantor" in the page details
     Then I see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
     When I re-login to "Grantor" app as "Admin" user on "INTERNAL" portal
@@ -2321,7 +2321,7 @@ Feature: Payment Request scenarios without background
     When I enter the following values into flex table with id "---paymentRequest:-:paymentLineItemsTableId---" by clicking "New" :
       | Title        | Narrative     | Unit Price | Quantity | Measurement |
       | Extra Salary | The narrative | 30         | 1        | Feet        |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Payment Line Items" modal by clicking the top right x button
     And I click on "Submit to Grantor" in the page details
     When I re-login to "Grantor" app as "PM1" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -2355,7 +2355,7 @@ Feature: Payment Request scenarios without background
     When I enter the following values into flex table with id "---paymentRequest:-:paymentLineItemsTableId---" by clicking "New" :
       | Title        | Narrative     | Unit Price | Quantity | Measurement |
       | Extra Salary | The narrative | 30         | 1        | Feet        |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Payment Line Items" modal by clicking the top right x button
     And I click on "Submit to Grantor" in the page details
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Home" tab
@@ -2486,7 +2486,7 @@ Feature: Payment Request scenarios without background
     When I enter the following values into flex table with id "---paymentRequest:-:paymentLineItemsTableId---" by clicking "New" :
       | Title        | Narrative     | Unit Price | Quantity | Measurement |
       | Extra Salary | The narrative | 30         | 1        | Feet        |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Payment Line Items" modal by clicking the top right x button
     And I click on "Submit to Grantor" in the page details
     When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Home" tab
@@ -2615,7 +2615,7 @@ Feature: Payment Request scenarios without background
     When I enter the following values into flex table with id "---paymentRequest:-:paymentLineItemsTableId---" by clicking "New" :
       | Title        | Narrative     | Unit Price | Quantity | Measurement |
       | Extra Salary | The narrative | 30         | 1        | Feet        |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Payment Line Items" modal by clicking the top right x button
     And I click on "Submit to Grantor" in the page details
     When I re-login to "Grantor" app as "PO" user on "INTERNAL" portal
     And I navigate to "Home" tab
@@ -2650,7 +2650,7 @@ Feature: Payment Request scenarios without background
     When I enter the following values into flex table with id "---paymentRequest:-:paymentLineItemsTableId---" by clicking "New" :
       | Title        | Narrative     | Unit Price | Quantity | Measurement |
       | Extra Salary | The narrative | 30         | 1        | Feet        |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Payment Line Items" modal by clicking the top right x button
     And I click on "Submit to Grantor" in the page details
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Home" tab
@@ -2787,7 +2787,7 @@ Feature: Payment Request scenarios without background
     When I enter the following values into flex table with id "---paymentRequest:-:paymentLineItemsTableId---" by clicking "New" :
       | Title        | Narrative     | Unit Price | Quantity | Measurement |
       | Extra Salary | The narrative | 10         | 1        | Feet        |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Payment Line Items" modal by clicking the top right x button
     And I click on "Submit to Grantor" in the page details
     When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Home" tab
@@ -2832,7 +2832,7 @@ Feature: Payment Request scenarios without background
       | Construction    | 10                            |
     When I navigate to "Forms and Files" sub tab
     When I click on "Attach" icon for "Mandatory" inside flex table with id "---paymentRequest:-:recipientAdvanceSupportiveDocumentChecklistTableId---" without waiting for record
-    And I upload attachment "Attachment.pdf" of type "Others" from computer
+    And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
     And I click modal button "Close"
     When I click on "Submit to Grantor" in the page details
     Then I see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
@@ -2880,7 +2880,7 @@ Feature: Payment Request scenarios without background
     When I enter the following values into flex table with id "---paymentRequest:-:paymentLineItemsTableId---" by clicking "New" :
       | Title        | Narrative     | Unit Price | Quantity | Measurement |
       | Extra Salary | The narrative | 30         | 1        | Feet        |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Payment Line Items" modal by clicking the top right x button
     And I click on "Submit to Grantor" in the page details
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Home" tab
@@ -2914,7 +2914,7 @@ Feature: Payment Request scenarios without background
       | Construction    | 10                            |
     When I navigate to "Forms and Files" sub tab
     When I click on "Attach" icon for "Mandatory" inside flex table with id "---paymentRequest:-:recipientAdvanceSupportiveDocumentChecklistTableId---" without waiting for record
-    And I upload attachment "Attachment.pdf" of type "Others" from computer
+    And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
     And I click modal button "Close"
     When I click on "Submit to Grantor" in the page details
     Then I see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
@@ -2952,7 +2952,7 @@ Feature: Payment Request scenarios without background
       | Construction    | 10                            |
     When I navigate to "Forms and Files" sub tab
     When I click on "Attach" icon for "Mandatory" inside flex table with id "---paymentRequest:-:recipientAdvanceSupportiveDocumentChecklistTableId---" without waiting for record
-    And I upload attachment "Attachment.pdf" of type "Others" from computer
+    And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
     And I click modal button "Close"
     When I click on "Submit to Grantor" in the page details
     Then I see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
@@ -2995,7 +2995,7 @@ Feature: Payment Request scenarios without background
     When I enter the following values into flex table with id "---paymentRequest:-:paymentLineItemsTableId---" by clicking "New" :
       | Title        | Narrative     | Unit Price | Quantity | Measurement |
       | Extra Salary | The narrative | 30         | 1        | Feet        |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Payment Line Items" modal by clicking the top right x button
     And I click on "Submit to Grantor" in the page details
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Home" tab
@@ -3040,7 +3040,7 @@ Feature: Payment Request scenarios without background
       | Construction    | 10                            |
     When I navigate to "Forms and Files" sub tab
     When I click on "Attach" icon for "Mandatory" inside flex table with id "---paymentRequest:-:recipientAdvanceSupportiveDocumentChecklistTableId---" without waiting for record
-    And I upload attachment "Attachment.pdf" of type "Others" from computer
+    And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
     And I click modal button "Close"
     When I click on "Submit to Grantor" in the page details
     Then I see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
@@ -3081,7 +3081,7 @@ Feature: Payment Request scenarios without background
     When I enter the following values into flex table with id "---paymentRequest:-:paymentLineItemsTableId---" by clicking "New" :
       | Title        | Narrative     | Unit Price | Quantity | Measurement |
       | Extra Salary | The narrative | 10         | 1        | Feet        |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Payment Line Items" modal by clicking the top right x button
     And I click on "Submit to Grantor" in the page details
     When I re-login to "Grantor" app as "PO" user on "INTERNAL" portal
     And I navigate to "Home" tab
@@ -3125,7 +3125,7 @@ Feature: Payment Request scenarios without background
     When I enter the following values into flex table with id "---paymentRequest:-:paymentLineItemsTableId---" by clicking "New" :
       | Title        | Narrative     | Unit Price | Quantity | Measurement |
       | Extra Salary | The narrative | 30         | 1        | Feet        |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Payment Line Items" modal by clicking the top right x button
     And I click on "Submit to Grantor" in the page details
     When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Home" tab
@@ -3171,7 +3171,7 @@ Feature: Payment Request scenarios without background
     When I enter the following values into flex table with id "---paymentRequest:-:paymentLineItemsTableId---" by clicking "New" :
       | Title        | Narrative     | Unit Price | Quantity | Measurement |
       | Extra Salary | The narrative | 30         | 1        | Feet        |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Payment Line Items" modal by clicking the top right x button
     And I click on "Submit to Grantor" in the page details
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Home" tab
@@ -3287,7 +3287,7 @@ Feature: Payment Request scenarios without background
     When I enter the following values into flex table with id "---paymentRequest:-:paymentLineItemsTableId---" by clicking "New" :
       | Title        | Narrative     | Unit Price | Quantity | Measurement |
       | Extra Salary | The narrative | 30         | 1        | Feet        |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Payment Line Items" modal by clicking the top right x button
     And I click on "Submit to Grantor" in the page details
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Home" tab
@@ -3328,7 +3328,7 @@ Feature: Payment Request scenarios without background
     When I enter the following values into flex table with id "---paymentRequest:-:paymentLineItemsTableId---" by clicking "New" :
       | Title        | Narrative     | Unit Price | Quantity | Measurement |
       | Extra Salary | The narrative | 30         | 1        | Feet        |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Payment Line Items" modal by clicking the top right x button
     And I click on "Submit to Grantor" in the page details
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -3361,7 +3361,7 @@ Feature: Payment Request scenarios without background
       | Construction    | 10                            |
     When I navigate to "Forms and Files" sub tab
     When I click on "Attach" icon for "Mandatory" inside flex table with id "---paymentRequest:-:recipientAdvanceSupportiveDocumentChecklistTableId---" without waiting for record
-    And I upload attachment "Attachment.pdf" of type "Others" from computer
+    And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
     When I click on "Submit to Grantor" in the page details
     Then I see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
     When I re-login to "Grantor" app as "PO" user on "INTERNAL" portal
@@ -3417,7 +3417,7 @@ Feature: Payment Request scenarios without background
     When I enter the following values into flex table with id "---paymentRequest:-:paymentLineItemsTableId---" by clicking "New" :
       | Title        | Narrative     | Unit Price | Quantity | Measurement |
       | Extra Salary | The narrative | 30         | 1        | Feet        |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Payment Line Items" modal by clicking the top right x button
     And I click on "Submit to Grantor" in the page details
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Home" tab
@@ -3486,7 +3486,7 @@ Feature: Payment Request scenarios without background
     When I enter the following values into flex table with id "---paymentRequest:-:paymentLineItemsTableId---" by clicking "New" :
       | Title        | Narrative     | Unit Price | Quantity | Measurement |
       | Extra Salary | The narrative | 30         | 1        | Feet        |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Payment Line Items" modal by clicking the top right x button
     And I click on "Submit to Grantor" in the page details
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Home" tab
@@ -3535,7 +3535,7 @@ Feature: Payment Request scenarios without background
     When I enter the following values into flex table with id "---paymentRequest:-:paymentLineItemsTableId---" by clicking "New" :
       | Title        | Narrative     | Unit Price | Quantity | Measurement |
       | Extra Salary | The narrative | 30         | 1        | Feet        |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Payment Line Items" modal by clicking the top right x button
     And I click on "Submit to Grantor" in the page details
     When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Home" tab
@@ -3569,7 +3569,7 @@ Feature: Payment Request scenarios without background
     When I enter the following values into flex table with id "---paymentRequest:-:paymentLineItemsTableId---" by clicking "New" :
       | Title        | Narrative     | Unit Price | Quantity | Measurement |
       | Extra Salary | The narrative | 30         | 1        | Feet        |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Payment Line Items" modal by clicking the top right x button
     And I click on "Submit to Grantor" in the page details
     When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -3605,7 +3605,7 @@ Feature: Payment Request scenarios without background
     When I enter the following values into flex table with id "---paymentRequest:-:paymentLineItemsTableId---" by clicking "New" :
       | Title        | Narrative     | Unit Price | Quantity | Measurement | Other Charges ($) | Program Income Disbursed | Cash Match | Non-Cash Match |
       | Extra Salary | The narrative | 10         | 1        | Feet        | 10                | 20                       | 100        | 100            |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Payment Line Items" modal by clicking the top right x button
     And I click on "Submit to Grantor" in the page details
     Then I see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
     And I save the field labeled "EGMS ID" as "PayreqId"
@@ -3655,7 +3655,7 @@ Feature: Payment Request scenarios without background
     When I enter the following values into flex table with id "---paymentRequest:-:paymentLineItemsTableId---" by clicking "New" :
       | Title        | Narrative     | Unit Price | Quantity | Measurement | Other Charges ($) | Program Income Disbursed | Cash Match | Non-Cash Match |
       | Extra Salary | The narrative | 10         | 1        | Feet        | 10                | 20                       | 100        | 100            |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Payment Line Items" modal by clicking the top right x button
     And I click on "Submit to Grantor" in the page details
     Then I see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
     And I save the field labeled "EGMS ID" as "PayreqId"
@@ -3712,7 +3712,7 @@ Feature: Payment Request scenarios without background
     When I enter the following values into flex table with id "---paymentRequest:-:paymentLineItemsTableId---" by clicking "New" :
       | Title        | Narrative     | Unit Price | Quantity | Measurement | Other Charges ($) | Program Income Disbursed | Cash Match | Non-Cash Match |
       | Extra Salary | The narrative | 10         | 1        | Feet        | 10                | 20                       | 100        | 100            |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Payment Line Items" modal by clicking the top right x button
     And I click on "Submit to Grantor" in the page details
     Then I see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
     And I save the field labeled "EGMS ID" as "PayreqId"
@@ -3764,7 +3764,7 @@ Feature: Payment Request scenarios without background
       | Construction    | 10                            |
     When I navigate to "Forms and Files" sub tab
     When I click on "Attach" icon for "Mandatory" inside flex table with id "---paymentRequest:-:recipientAdvanceSupportiveDocumentChecklistTableId---" without waiting for record
-    And I upload attachment "Attachment.pdf" of type "Others" from computer
+    And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
     And I click modal button "Close"
     When I click on "Submit to Grantor" in the page details
     Then I see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
@@ -3817,7 +3817,7 @@ Feature: Payment Request scenarios without background
     When I enter the following values into flex table with id "---paymentRequest:-:paymentLineItemsTableId---" by clicking "New" :
       | Title        | Narrative     | Unit Price | Quantity | Measurement | Other Charges ($) | Program Income Disbursed | Cash Match | Non-Cash Match |
       | Extra Salary | The narrative | 10         | 1        | Feet        | 10                | 20                       | 100        | 100            |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Payment Line Items" modal by clicking the top right x button
     And I click on "Submit to Grantor" in the page details
     Then I see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
     And I save the field labeled "EGMS ID" as "PayreqId"
@@ -3871,7 +3871,7 @@ Feature: Payment Request scenarios without background
     When I enter the following values into flex table with id "---paymentRequest:-:paymentLineItemsTableId---" by clicking "New" :
       | Title        | Narrative     | Unit Price | Quantity | Measurement | Other Charges ($) | Program Income Disbursed | Cash Match | Non-Cash Match |
       | Extra Salary | The narrative | 10         | 1        | Feet        | 10                | 20                       | 100        | 100            |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Payment Line Items" modal by clicking the top right x button
     And I click on "Submit to Grantor" in the page details
     Then I see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
     And I save the field labeled "EGMS ID" as "PayreqId"
@@ -3908,8 +3908,6 @@ Feature: Payment Request scenarios without background
     And I navigate to "Forms and Files" sub tab
     Then I cannot see top right button "Add Files" in flex table with id "---paymentRequest:-:reimburseFilesTableId---"
     Then I can see top right button "New" in flex table with id "---paymentRequest:-:reimbursePaymentsNotesTableId---"
-#    And I navigate to "Collab" sub tab
-#    Then I can see top right button "Send Email" in flex table with id "---paymentRequest:-:reimburseCollabMessages---"
 
   @197763 @ValidatePaymentRequestApproverSendBackemailshouldbegeneratedforad-hocreimbursementpaymentrequestfornewowner @sprint-4  @reassignment
   Scenario: Validate Payment Request Approver Send Back email should be generated for ad-hoc reimbursement payment request for new owner
@@ -3935,7 +3933,7 @@ Feature: Payment Request scenarios without background
     When I enter the following values into flex table with id "---paymentRequest:-:paymentLineItemsTableId---" by clicking "New" :
       | Title        | Narrative     | Unit Price | Quantity | Measurement |
       | Extra Salary | The narrative | 30         | 1        | Feet        |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Payment Line Items" modal by clicking the top right x button
     And I click on "Submit to Grantor" in the page details
     Then I see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
     And I save the field labeled "EGMS ID" as "PayreqId"
@@ -3981,7 +3979,7 @@ Feature: Payment Request scenarios without background
     When I perform quick search for "{SavedValue:PayreqId}" in "---paymentRequest:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "{SavedValue:PayreqId}" inside flex table with id "---paymentRequest:-:pendingTaskTableId---" without waiting for record
     And I "Send to Owner" in the approval decision
-    And I checkout to yopmail with mailid "automationpo1@yopmail.com"
+    And I checkout to yopmail with mailid "automation.po1.qa2@yopmail.com"
     And I pause execution for "10" seconds
     Then I refresh the page
     And I see the mail subject is as follows :
@@ -4097,7 +4095,7 @@ Feature: Payment Request scenarios without background
     When I enter the following values into flex table with id "---paymentRequest:-:paymentLineItemsTableId---" by clicking "New" :
       | Title        | Narrative     | Unit Price | Quantity | Measurement | Other Charges ($) | Program Income Disbursed | Cash Match | Non-Cash Match |
       | Extra Salary | The narrative | 10         | 1        | Feet        | 10                | 20                       | 100        | 100            |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Payment Line Items" modal by clicking the top right x button
     And I click on "Submit to Grantor" in the page details
     Then I see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
     And I save the field labeled "EGMS ID" as "PayreqId"
@@ -4133,8 +4131,6 @@ Feature: Payment Request scenarios without background
     And I navigate to "Forms and Files" sub tab
     Then I can see top right button "Add Files" in flex table with id "---paymentRequest:-:reimburseFilesTableId---"
     Then I can see top right button "New" in flex table with id "---paymentRequest:-:reimbursePaymentsNotesTableId---"
-#    And I navigate to "Collab" sub tab
-#    Then I can see top right button "Send Email" in flex table with id "---paymentRequest:-:reimburseCollabMessages---"
 
   @197433 @ValidatePaymentRequestGrantorNotifyemailshouldbegeneratedforad-hocreimbursementpaymentrequestfornewowner @sprint-12-US-226646  @reassignment
   Scenario: Validate Payment Request Grantor Notify email should be generated for ad-hoc reimbursement payment request for new owner
@@ -4160,7 +4156,7 @@ Feature: Payment Request scenarios without background
     When I enter the following values into flex table with id "---paymentRequest:-:paymentLineItemsTableId---" by clicking "New" :
       | Title        | Narrative     | Unit Price | Quantity | Measurement |
       | Extra Salary | The narrative | 30         | 1        | Feet        |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Payment Line Items" modal by clicking the top right x button
     And I click on "Submit to Grantor" in the page details
     Then I see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
     And I save the field labeled "EGMS ID" as "PayreqId"
@@ -4204,7 +4200,7 @@ Feature: Payment Request scenarios without background
     When I enter the following values into flex table with id "---paymentRequest:-:paymentLineItemsTableId---" by clicking "New" :
       | Title        | Narrative     | Unit Price | Quantity | Measurement |
       | Extra Salary | The narrative | 30         | 1        | Feet        |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Payment Line Items" modal by clicking the top right x button
     And I click on "Submit to Grantor" in the page details
     Then I see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
     When I re-login to "Grantor" app as "EXE1" user on "INTERNAL" portal
@@ -4212,7 +4208,7 @@ Feature: Payment Request scenarios without background
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:PayreqId}" in "---paymentRequest:-:pendingTaskTableId---" panel
     Then I see value "{SavedValue:PayreqId}" for title "EGMS ID" inside table "---paymentRequest:-:pendingTaskTableId---"
-    And I checkout to yopmail with mailid "exe1.automation@yopmail.com"
+    And I checkout to yopmail with mailid "exe1.automation.qa2@yopmail.com"
     And I pause execution for "30" seconds
     Then I refresh the page
     And I see the mail subject is as follows :
@@ -4262,7 +4258,7 @@ Feature: Payment Request scenarios without background
     When I enter the following values into flex table with id "---paymentRequest:-:paymentLineItemsTableId---" by clicking "New" :
       | Title        | Narrative     | Unit Price | Quantity | Measurement | Other Charges ($) | Program Income Disbursed | Cash Match | Non-Cash Match |
       | Extra Salary | The narrative | 10         | 1        | Feet        | 10                | 20                       | 100        | 100            |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Payment Line Items" modal by clicking the top right x button
     And I click on "Submit to Grantor" in the page details
     Then I see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
     And I save the field labeled "EGMS ID" as "PayreqId"
@@ -4315,7 +4311,7 @@ Feature: Payment Request scenarios without background
     When I enter the following values into flex table with id "---paymentRequest:-:paymentLineItemsTableId---" by clicking "New" :
       | Title        | Narrative     | Unit Price | Quantity | Measurement |
       | Extra Salary | The narrative | 10         | 1        | Feet        |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Payment Line Items" modal by clicking the top right x button
     And I click on "Submit to Grantor" in the page details
     And I save the field labeled "EGMS ID" as "PayreqId"
     When I re-login to "Grantor" app as "Admin" user on "INTERNAL" portal
@@ -4381,7 +4377,7 @@ Feature: Payment Request scenarios without background
     When I enter the following values into flex table with id "---paymentRequest:-:paymentLineItemsTableId---" by clicking "New" :
       | Title        | Narrative     | Unit Price | Quantity | Measurement |
       | Extra Salary | The narrative | 30         | 1        | Feet        |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Payment Line Items" modal by clicking the top right x button
     And I click on "Submit to Grantor" in the page details
     Then I see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
     And I save the field labeled "EGMS ID" as "PayreqId"
@@ -4427,8 +4423,12 @@ Feature: Payment Request scenarios without background
     When I perform quick search for "{SavedValue:PayreqId}" in "---paymentRequest:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "{SavedValue:PayreqId}" inside flex table with id "---paymentRequest:-:pendingTaskTableId---" without waiting for record
     And I "Send to Owner" in the approval decision
-    And I checkout to yopmail with mailid "pm1.automation@yopmail.com"
-    And I pause execution for "10" seconds
+    And I wait for "120" seconds
+    And I refresh the page
+    And I wait for "3" seconds
+    Then I softly see field "Status" as "Submitted to Grantor"
+    And I checkout to yopmail with mailid "pm1.automation.qa2@yopmail.com"
+    And I pause execution for "120" seconds
     Then I refresh the page
     And I see the mail subject is as follows :
       """
@@ -4478,7 +4478,7 @@ Feature: Payment Request scenarios without background
     When I enter the following values into flex table with id "---paymentRequest:-:paymentLineItemsTableId---" by clicking "New" :
       | Title        | Narrative     | Unit Price | Quantity | Measurement |
       | Extra Salary | The narrative | 30         | 1        | Feet        |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Payment Line Items" modal by clicking the top right x button
     And I click on "Submit to Grantor" in the page details
     Then I see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
     And I save the field labeled "EGMS ID" as "PayreqId"
@@ -4528,7 +4528,7 @@ Feature: Payment Request scenarios without background
     And I "Approve" in the approval decision
     Then I softly see field "Status" as "Approved"
     Then I softly see status in Progress-bar is "Approved" and is "dark blue"
-    And I checkout to yopmail with mailid "pm1.automation@yopmail.com"
+    And I checkout to yopmail with mailid "pm1.automation.qa2@yopmail.com"
     And I pause execution for "10" seconds
     Then I refresh the page
     And I see the mail subject is as follows :
@@ -4579,7 +4579,7 @@ Feature: Payment Request scenarios without background
     When I enter the following values into flex table with id "---paymentRequest:-:paymentLineItemsTableId---" by clicking "New" :
       | Title        | Narrative     | Unit Price | Quantity | Measurement |
       | Extra Salary | The narrative | 30         | 1        | Feet        |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Payment Line Items" modal by clicking the top right x button
     And I click on "Submit to Grantor" in the page details
     Then I see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
     And I save the field labeled "EGMS ID" as "PayreqId"
@@ -4625,7 +4625,7 @@ Feature: Payment Request scenarios without background
     When I perform quick search for "{SavedValue:PayreqId}" in "---paymentRequest:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "{SavedValue:PayreqId}" inside flex table with id "---paymentRequest:-:pendingTaskTableId---" without waiting for record
     When I "Reject" in the approval decision
-    And I checkout to yopmail with mailid "automationpo1@yopmail.com"
+    And I checkout to yopmail with mailid "automation.po1.qa2@yopmail.com"
     And I pause execution for "10" seconds
     Then I refresh the page
     And I see the mail subject is as follows :
@@ -4666,7 +4666,7 @@ Feature: Payment Request scenarios without background
     When I enter the following values into flex table with id "---paymentRequest:-:paymentLineItemsTableId---" by clicking "New" :
       | Title        | Narrative     | Unit Price | Quantity | Measurement |
       | Extra Salary | The narrative | 10         | 1        | Feet        |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Payment Line Items" modal by clicking the top right x button
     And I click on "Submit to Grantor" in the page details
     And I wait for "5" seconds
     And I navigate to "Grants" tab
@@ -4724,14 +4724,14 @@ Feature: Payment Request scenarios without background
     When I enter the following values into flex table with id "---paymentRequest:-:paymentLineItemsTableId---" by clicking "New" :
       | Title        | Narrative     | Unit Price | Quantity | Measurement |
       | Extra Salary | The narrative | 30         | 1        | Feet        |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Payment Line Items" modal by clicking the top right x button
     And I click on "Submit to Grantor" in the page details
     When I re-login to "Grantor" app as "PM1" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:PayreqId}" in "---paymentRequest:-:pendingTaskTableId---" panel
     Then I softly see value "{SavedValue:PayreqId}" for title "EGMS ID" inside table "---paymentRequest:-:pendingTaskTableId---"
-    And I checkout to yopmail with mailid "pm.automation@yopmail.com"
+    And I checkout to yopmail with mailid "pm1.automation.qa2@yopmail.com"
     And I pause execution for "180" seconds
     Then I refresh the page
     And I see the mail subject is as follows :
@@ -4782,7 +4782,7 @@ Feature: Payment Request scenarios without background
     When I enter the following values into flex table with id "---paymentRequest:-:paymentLineItemsTableId---" by clicking "New" :
       | Title        | Narrative     | Unit Price | Quantity | Measurement |
       | Extra Salary | The narrative | 30         | 1        | Feet        |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Payment Line Items" modal by clicking the top right x button
     And I click on "Submit to Grantor" in the page details
     Then I see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
     And I save the field labeled "EGMS ID" as "PayreqId"
@@ -4870,7 +4870,7 @@ Feature: Payment Request scenarios without background
       | Construction    | 10                            |
     When I navigate to "Forms and Files" sub tab
     When I click on "Attach" icon for "Mandatory" inside flex table with id "---paymentRequest:-:recipientAdvanceSupportiveDocumentChecklistTableId---" without waiting for record
-    And I upload attachment "Attachment.pdf" of type "Others" from computer
+    And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
     When I click on "Submit to Grantor" in the page details
     Then I see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
@@ -4950,7 +4950,7 @@ Feature: Payment Request scenarios without background
     When I enter the following values into flex table with id "---paymentRequest:-:paymentLineItemsTableId---" by clicking "New" :
       | Title        | Narrative     | Unit Price | Quantity | Measurement |
       | Extra Salary | The narrative | 30         | 1        | Feet        |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Payment Line Items" modal by clicking the top right x button
     And I click on "Submit to Grantor" in the page details
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -5043,7 +5043,7 @@ Feature: Payment Request scenarios without background
       | Construction    | 10                            |
     When I navigate to "Forms and Files" sub tab
     When I click on "Attach" icon for "Mandatory" inside flex table with id "---paymentRequest:-:recipientAdvanceSupportiveDocumentChecklistTableId---" without waiting for record
-    And I upload attachment "Attachment.pdf" of type "Others" from computer
+    And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
     When I click on "Submit to Grantor" in the page details
     Then I see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
     And I save the field labeled "EGMS ID" as "PayreqId"
@@ -5089,7 +5089,7 @@ Feature: Payment Request scenarios without background
       | Construction    | 10                            |
     When I navigate to "Forms and Files" sub tab
     When I click on "Attach" icon for "Mandatory" inside flex table with id "---paymentRequest:-:recipientAdvanceSupportiveDocumentChecklistTableId---" without waiting for record
-    And I upload attachment "Attachment.pdf" of type "Others" from computer
+    And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
     And I click modal button "Close"
     When I click on "Submit to Grantor" in the page details
     Then I see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
@@ -5098,7 +5098,7 @@ Feature: Payment Request scenarios without background
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:PayreqId}" in "---paymentRequest:-:pendingTaskTableId---" panel
     Then I see value "{SavedValue:PayreqId}" for title "EGMS ID" inside table "---paymentRequest:-:pendingTaskTableId---"
-    And I checkout to yopmail with mailid "pm1.automation@yopmail.com"
+    And I checkout to yopmail with mailid "pm1.automation.qa2@yopmail.com"
     And I pause execution for "180" seconds
     Then I refresh the page
     And I see the mail subject is as follows :
@@ -5149,7 +5149,7 @@ Feature: Payment Request scenarios without background
     When I enter the following values into flex table with id "---paymentRequest:-:paymentLineItemsTableId---" by clicking "New" :
       | Title        | Narrative     | Unit Price | Quantity | Measurement |
       | Extra Salary | The narrative | 30         | 1        | Feet        |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Payment Line Items" modal by clicking the top right x button
     And I click on "Submit to Grantor" in the page details
     Then I see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
     And I save the field labeled "EGMS ID" as "PayreqId"
@@ -5173,7 +5173,7 @@ Feature: Payment Request scenarios without background
     When I perform quick search for "{SavedValue:PayreqId}" in "---paymentRequest:-:paymentRequestSourceOwnerTableId---" panel
     Then I do not see value "{SavedValue:PayreqId}" for title "Payment Request ID" inside table "---paymentRequest:-:paymentRequestSourceOwnerTableId---"
     And I pause execution for "2" seconds
-    And I checkout to yopmail with mailid "pm.automation@yopmail.com"
+    And I checkout to yopmail with mailid "pm.automation.qa2@yopmail.com"
     Then I refresh the page
     And I see the mail subject is as follows :
       """
@@ -5198,7 +5198,7 @@ Feature: Payment Request scenarios without background
       The EGMS Team
       """
     Given I am on "INTERNAL" portal
-    And I checkout to yopmail with mailid "pm1.automation@yopmail.com"
+    And I checkout to yopmail with mailid "pm1.automation.qa2@yopmail.com"
     Then I refresh the page
     And I see the mail subject is as follows :
       """
@@ -5223,7 +5223,7 @@ Feature: Payment Request scenarios without background
       The EGMS Team
       """
     Given I am on "INTERNAL" portal
-    And I checkout to yopmail with mailid "govgrantsautomation@yopmail.com"
+    And I checkout to yopmail with mailid "govgrantsautomation.q2@yopmail.com"
     Then I refresh the page
     And I see the mail subject is as follows :
       """
@@ -5275,7 +5275,7 @@ Feature: Payment Request scenarios without background
       | Construction    | 10                            |
     When I navigate to "Forms and Files" sub tab
     When I click on "Attach" icon for "Mandatory" inside flex table with id "---paymentRequest:-:recipientAdvanceSupportiveDocumentChecklistTableId---" without waiting for record
-    And I upload attachment "Attachment.pdf" of type "Others" from computer
+    And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
     When I click on "Submit to Grantor" in the page details
     Then I see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
@@ -5306,7 +5306,7 @@ Feature: Payment Request scenarios without background
     And I reset the table
     When I perform quick search for "{SavedValue:PayreqId}" in "---program:-:grantorTaskReassignTableId---" panel
     Then I softly see value "{SavedValue:PayreqId}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
-    And I checkout to yopmail with mailid "pm1.automation@yopmail.com"
+    And I checkout to yopmail with mailid "pm1.automation.qa2@yopmail.com"
     And I pause execution for "10" seconds
     Then I refresh the page
     And I see the mail subject is as follows :
@@ -5431,7 +5431,7 @@ Feature: Payment Request scenarios without background
     When I enter the following values into flex table with id "---paymentRequest:-:paymentLineItemsTableId---" by clicking "New" :
       | Title        | Narrative     | Unit Price | Quantity | Measurement |
       | Extra Salary | The narrative | 30         | 1        | Feet        |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Payment Line Items" modal by clicking the top right x button
     And I click on "Submit to Grantor" in the page details
     And I wait for "5" seconds
     And I navigate to "Grants" tab
@@ -5456,7 +5456,7 @@ Feature: Payment Request scenarios without background
     When I enter the following values into flex table with id "---paymentRequest:-:paymentLineItemsTableId---" by clicking "New" :
       | Title        | Narrative     | Unit Price | Quantity | Measurement |
       | Extra Salary | The narrative | 30         | 1        | Feet        |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Payment Line Items" modal by clicking the top right x button
     And I click on "Submit to Grantor" in the page details
     And I wait for "5" seconds
     And I navigate to "Grants" tab
@@ -5481,7 +5481,7 @@ Feature: Payment Request scenarios without background
     When I enter the following values into flex table with id "---paymentRequest:-:paymentLineItemsTableId---" by clicking "New" :
       | Title        | Narrative     | Unit Price | Quantity | Measurement |
       | Extra Salary | The narrative | 30         | 1        | Feet        |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Payment Line Items" modal by clicking the top right x button
     And I click on "Submit to Grantor" in the page details
     And I wait for "5" seconds
     And I navigate to "Grants" tab
@@ -5505,7 +5505,7 @@ Feature: Payment Request scenarios without background
     When I enter the following values into flex table with id "---paymentRequest:-:paymentLineItemsTableId---" by clicking "New" :
       | Title        | Narrative     | Unit Price | Quantity | Measurement |
       | Extra Salary | The narrative | 30         | 1        | Feet        |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Payment Line Items" modal by clicking the top right x button
     And I click on "Submit to Grantor" in the page details
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -5543,7 +5543,7 @@ Feature: Payment Request scenarios without background
     When I enter the following values into flex table with id "---paymentRequest:-:paymentLineItemsTableId---" by clicking "New" :
       | Title        | Narrative     | Unit Price | Quantity | Measurement |
       | Extra Salary | The narrative | 30         | 1        | Feet        |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Payment Line Items" modal by clicking the top right x button
     And I click on "Submit to Grantor" in the page details
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -5581,7 +5581,7 @@ Feature: Payment Request scenarios without background
     When I enter the following values into flex table with id "---paymentRequest:-:paymentLineItemsTableId---" by clicking "New" :
       | Title        | Narrative     | Unit Price | Quantity | Measurement |
       | Extra Salary | The narrative | 30         | 1        | Feet        |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Payment Line Items" modal by clicking the top right x button
     And I click on "Submit to Grantor" in the page details
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -5648,7 +5648,7 @@ Feature: Payment Request scenarios without background
     When I perform quick search for "Automation Runtime Bulk award" in "---paymentRequest:-:paymentRequestSourceOwnerTableId---" panel
     Then I do not see value "{SavedValue:PayreqId9}" for title "Payment Request ID" inside table "---paymentRequest:-:paymentRequestSourceOwnerTableId---"
     And I pause execution for "2" seconds
-    And I checkout to yopmail with mailid "pm1.automation@yopmail.com"
+    And I checkout to yopmail with mailid "pm1.automation.qa2@yopmail.com"
     Then I refresh the page
     And I see the mail subject is as follows :
       """
@@ -5710,7 +5710,7 @@ Feature: Payment Request scenarios without background
       | Construction    | 10                            |
     When I navigate to "Forms and Files" sub tab
     When I click on "Attach" icon for "Mandatory" inside flex table with id "---paymentRequest:-:recipientAdvanceSupportiveDocumentChecklistTableId---" without waiting for record
-    And I upload attachment "Attachment.pdf" of type "Others" from computer
+    And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
     And I click modal button "Close"
     When I click on "Submit to Grantor" in the page details
     Then I see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
@@ -5754,7 +5754,7 @@ Feature: Payment Request scenarios without background
       | Construction    | 10                            |
     When I navigate to "Forms and Files" sub tab
     When I click on "Attach" icon for "Mandatory" inside flex table with id "---paymentRequest:-:recipientAdvanceSupportiveDocumentChecklistTableId---" without waiting for record
-    And I upload attachment "Attachment.pdf" of type "Others" from computer
+    And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
     When I click on "Submit to Grantor" in the page details
     Then I see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
@@ -5768,7 +5768,7 @@ Feature: Payment Request scenarios without background
     And I pause execution for "30" seconds
     When I perform quick search for "{SavedValue:PayreqId}" in "---program:-:grantorTaskReassignTableId---" panel
     Then I softly do not see value "{SavedValue:PayreqId}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
-    And I checkout to yopmail with mailid "pm1.automation@yopmail.com"
+    And I checkout to yopmail with mailid "pm1.automation.qa2@yopmail.com"
     And I pause execution for "10" seconds
     Then I refresh the page
     And I see the mail subject is as follows :
@@ -5821,7 +5821,7 @@ Feature: Payment Request scenarios without background
       | Construction    | 10                            |
     When I navigate to "Forms and Files" sub tab
     When I click on "Attach" icon for "Mandatory" inside flex table with id "---paymentRequest:-:recipientAdvanceSupportiveDocumentChecklistTableId---" without waiting for record
-    And I upload attachment "Attachment.pdf" of type "Others" from computer
+    And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
     When I click modal button "Close"
     When I click on "Submit to Grantor" in the page details
     Then I see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
@@ -5866,7 +5866,7 @@ Feature: Payment Request scenarios without background
       | Construction    | 10                            |
     When I navigate to "Forms and Files" sub tab
     When I click on "Attach" icon for "Mandatory" inside flex table with id "---paymentRequest:-:recipientAdvanceSupportiveDocumentChecklistTableId---" without waiting for record
-    And I upload attachment "Attachment.pdf" of type "Others" from computer
+    And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
     When I click modal button "Close"
     When I click on "Submit to Grantor" in the page details
     Then I see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
@@ -5912,7 +5912,7 @@ Feature: Payment Request scenarios without background
     When I enter the following values into flex table with id "---paymentRequest:-:paymentLineItemsTableId---" by clicking "New" :
       | Title        | Narrative     | Unit Price | Quantity | Measurement |
       | Extra Salary | The narrative | 30         | 1        | Feet        |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Payment Line Items" modal by clicking the top right x button
     And I click on "Submit to Grantor" in the page details
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -6080,7 +6080,7 @@ Feature: Payment Request scenarios without background
     When I enter the following values into flex table with id "---paymentRequest:-:paymentLineItemsTableId---" by clicking "New" :
       | Title        | Narrative     | Unit Price | Quantity | Measurement |
       | Extra Salary | The narrative | 30         | 1        | Feet        |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Payment Line Items" modal by clicking the top right x button
     And I click on "Submit to Grantor" in the page details
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -6112,7 +6112,7 @@ Feature: Payment Request scenarios without background
     Then I softly see value "{SavedValue:PayreqId}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
     And I logout
     And I wait for "2" seconds
-    And I checkout to yopmail with mailid "exe1.automation@yopmail.com"
+    And I checkout to yopmail with mailid "exe1.automation.qa2@yopmail.com"
     And I pause execution for "10" seconds
     Then I refresh the page
     And I see the mail subject is as follows :
@@ -6124,13 +6124,6 @@ Feature: Payment Request scenarios without background
       Hello,
 
       The task(s) below have been reassigned from [Automation EXE] to [Automation EXE1] successfully. Please find the details below:
-
-      EGMS ID Type Status Subject Assigned By Due Date
-
-
-      Because these tasks have been reassigned, the original reviewer may have lost edit access to the record. However, they may still view the record.
-      Login in to EGMS and click on EGMS IDs to access the assigned record.
-
 
       The task(s) below were failed to reassigned as user was already assigned as a reviewer on this record.
 
@@ -6293,7 +6286,7 @@ Feature: Payment Request scenarios without background
     When I enter the following values into flex table with id "---paymentRequest:-:paymentLineItemsTableId---" by clicking "New" :
       | Title        | Narrative     | Unit Price | Quantity | Measurement |
       | Extra Salary | The narrative | 30         | 1        | Feet        |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Payment Line Items" modal by clicking the top right x button
     And I click on "Submit to Grantor" in the page details
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -6338,7 +6331,7 @@ Feature: Payment Request scenarios without background
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:PayreqId}" in "---paymentRequest:-:pendingTaskTableId---" panel
     Then I softly see value "{SavedValue:PayreqId}" for title "EGMS ID" inside table "---paymentRequest:-:pendingTaskTableId---"
-    And I checkout to yopmail with mailid "fo.automation@yopmail.com"
+    And I checkout to yopmail with mailid "fo.automation.qa2@yopmail.com"
     And I pause execution for "10" seconds
     Then I refresh the page
     And I see the mail subject is as follows :
@@ -6389,7 +6382,7 @@ Feature: Payment Request scenarios without background
     When I enter the following values into flex table with id "---paymentRequest:-:paymentLineItemsTableId---" by clicking "New" :
       | Title        | Narrative     | Unit Price | Quantity | Measurement |
       | Extra Salary | The narrative | 30         | 1        | Feet        |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Payment Line Items" modal by clicking the top right x button
     And I click on "Submit to Grantor" in the page details
     Then I softly see field "Status" as "Submitted to Grantor"
     And I navigate to "Grants" tab
@@ -6413,7 +6406,7 @@ Feature: Payment Request scenarios without background
     When I enter the following values into flex table with id "---paymentRequest:-:paymentLineItemsTableId---" by clicking "New" :
       | Title        | Narrative     | Unit Price | Quantity | Measurement |
       | Extra Salary | The narrative | 30         | 1        | Feet        |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Payment Line Items" modal by clicking the top right x button
     And I click on "Submit to Grantor" in the page details
     Then I softly see field "Status" as "Submitted to Grantor"
     And I navigate to "Grants" tab
@@ -6437,7 +6430,7 @@ Feature: Payment Request scenarios without background
     When I enter the following values into flex table with id "---paymentRequest:-:paymentLineItemsTableId---" by clicking "New" :
       | Title        | Narrative     | Unit Price | Quantity | Measurement |
       | Extra Salary | The narrative | 30         | 1        | Feet        |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Payment Line Items" modal by clicking the top right x button
     And I click on "Submit to Grantor" in the page details
     Then I softly see field "Status" as "Submitted to Grantor"
     And I navigate to "Grants" tab
@@ -6461,7 +6454,7 @@ Feature: Payment Request scenarios without background
     When I enter the following values into flex table with id "---paymentRequest:-:paymentLineItemsTableId---" by clicking "New" :
       | Title        | Narrative     | Unit Price | Quantity | Measurement |
       | Extra Salary | The narrative | 30         | 1        | Feet        |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Payment Line Items" modal by clicking the top right x button
     And I click on "Submit to Grantor" in the page details
     Then I softly see field "Status" as "Submitted to Grantor"
     And I navigate to "Grants" tab
@@ -6485,7 +6478,7 @@ Feature: Payment Request scenarios without background
     When I enter the following values into flex table with id "---paymentRequest:-:paymentLineItemsTableId---" by clicking "New" :
       | Title        | Narrative     | Unit Price | Quantity | Measurement |
       | Extra Salary | The narrative | 30         | 1        | Feet        |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Payment Line Items" modal by clicking the top right x button
     And I click on "Submit to Grantor" in the page details
     Then I softly see field "Status" as "Submitted to Grantor"
     And I navigate to "Grants" tab
@@ -6509,7 +6502,7 @@ Feature: Payment Request scenarios without background
     When I enter the following values into flex table with id "---paymentRequest:-:paymentLineItemsTableId---" by clicking "New" :
       | Title        | Narrative     | Unit Price | Quantity | Measurement |
       | Extra Salary | The narrative | 30         | 1        | Feet        |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Payment Line Items" modal by clicking the top right x button
     And I click on "Submit to Grantor" in the page details
     Then I softly see field "Status" as "Submitted to Grantor"
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
@@ -6548,7 +6541,7 @@ Feature: Payment Request scenarios without background
     When I enter the following values into flex table with id "---paymentRequest:-:paymentLineItemsTableId---" by clicking "New" :
       | Title        | Narrative     | Unit Price | Quantity | Measurement |
       | Extra Salary | The narrative | 30         | 1        | Feet        |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Payment Line Items" modal by clicking the top right x button
     And I click on "Submit to Grantor" in the page details
     Then I softly see field "Status" as "Submitted to Grantor"
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
@@ -6587,7 +6580,7 @@ Feature: Payment Request scenarios without background
     When I enter the following values into flex table with id "---paymentRequest:-:paymentLineItemsTableId---" by clicking "New" :
       | Title        | Narrative     | Unit Price | Quantity | Measurement |
       | Extra Salary | The narrative | 30         | 1        | Feet        |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Payment Line Items" modal by clicking the top right x button
     And I click on "Submit to Grantor" in the page details
     Then I softly see field "Status" as "Submitted to Grantor"
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
@@ -6626,7 +6619,7 @@ Feature: Payment Request scenarios without background
     When I enter the following values into flex table with id "---paymentRequest:-:paymentLineItemsTableId---" by clicking "New" :
       | Title        | Narrative     | Unit Price | Quantity | Measurement |
       | Extra Salary | The narrative | 30         | 1        | Feet        |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Payment Line Items" modal by clicking the top right x button
     And I click on "Submit to Grantor" in the page details
     Then I softly see field "Status" as "Submitted to Grantor"
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
@@ -6665,7 +6658,7 @@ Feature: Payment Request scenarios without background
     When I enter the following values into flex table with id "---paymentRequest:-:paymentLineItemsTableId---" by clicking "New" :
       | Title        | Narrative     | Unit Price | Quantity | Measurement |
       | Extra Salary | The narrative | 30         | 1        | Feet        |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Payment Line Items" modal by clicking the top right x button
     And I click on "Submit to Grantor" in the page details
     Then I softly see field "Status" as "Submitted to Grantor"
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
@@ -6728,7 +6721,7 @@ Feature: Payment Request scenarios without background
     When I perform quick search for "Automation Runtime Bulk award" in "---paymentRequest:-:paymentRequestSourceOwnerTableId---" panel
     Then I do not see value "{SavedValue:PayreqId10}" for title "Payment Request ID" inside table "---paymentRequest:-:paymentRequestSourceOwnerTableId---"
     And I pause execution for "2" seconds
-    And I checkout to yopmail with mailid "pm1.automation@yopmail.com"
+    And I checkout to yopmail with mailid "pm1.automation.qa2@yopmail.com"
     Then I refresh the page
     And I see the mail subject is as follows :
       """
@@ -6831,7 +6824,7 @@ Feature: Payment Request scenarios without background
     When I get the "EGMS ID"
     When I navigate to "Forms and Files" sub tab
     When I click on "Attach" icon for "Mandatory" inside flex table with id "---paymentRequest:-:recipientAdvanceSupportiveDocumentChecklistTableId---" without waiting for record
-    And I upload attachment "Attachment.pdf" of type "Others" from computer
+    And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
     And I click modal button "Close"
     And I click on "Submit to Grantor" in the page details
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
@@ -6902,7 +6895,7 @@ Feature: Payment Request scenarios without background
     When I enter the following values into flex table with id "---paymentRequest:-:paymentLineItemsTableId---" by clicking "New" :
       | Title        | Narrative     | Unit Price | Quantity | Measurement |
       | Extra Salary | The narrative | 500        | 1        | Feet        |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Payment Line Items" modal by clicking the top right x button
     And I click on "Submit to Grantor" in the page details
     Then I softly see field "Status" as "Submitted to Grantor"
     When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
@@ -6940,7 +6933,7 @@ Feature: Payment Request scenarios without background
     When I enter the following values into flex table with id "---paymentRequest:-:paymentLineItemsTableId---" by clicking "New" :
       | Title        | Narrative     | Unit Price | Quantity | Measurement |
       | Extra Salary | The narrative | 600        | 1        | Feet        |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Payment Line Items" modal by clicking the top right x button
     And I click on "Submit to Grantor" in the page details
     Then I softly see field "Status" as "Submitted to Grantor"
     When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
@@ -7197,7 +7190,7 @@ Feature: Payment Request scenarios without background
     When I enter the following values into flex table with id "---paymentRequest:-:paymentLineItemsTableId---" by clicking "New" :
       | Title        | Narrative     | Unit Price | Quantity | Measurement | Advance Applied |
       | Extra Salary | The narrative | 600        | 1        | Feet        | 10              |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Payment Line Items" modal by clicking the top right x button
     And I click on "Submit to Grantor" in the page details
     Then I softly see field "Status" as "Submitted to Grantor"
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
@@ -7270,7 +7263,7 @@ Feature: Payment Request scenarios without background
     Then I see the following messages in the page details contains:
       | Files Tab - Complete each mandatory item listed in the checklist before submitting this Payment Request. |
 
-  @ValidateGrantreassignemntBeforeSubmitPaymentRequestToCheckRecordNotVisibleToNewOwner @reassignment
+  @FlexSharing1 @ValidateGrantreassignemntBeforeSubmitPaymentRequestToCheckRecordNotVisibleToNewOwner @reassignment
   Scenario: Validate Grant Reassignemnt Before Submit Payment Request To Check Record not visible To New Owner
     And I activated standalone subaward "Automation Runtime Award" with properties "ADVANCE_PERMISSIBLE_YES_FOCUS_AREA_NO" of type "Competitive"
     And I am on "SUBPORTAL" portal
@@ -7297,7 +7290,7 @@ Feature: Payment Request scenarios without background
       | Construction    | 10                            |
     When I navigate to "Forms and Files" sub tab
     When I click on "Attach" icon for "Mandatory" inside flex table with id "---paymentRequest:-:recipientAdvanceSupportiveDocumentChecklistTableId---" without waiting for record
-    And I upload attachment "Attachment.pdf" of type "Others" from computer
+    And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
     And I click modal button "Close"
     And I wait for "2" seconds
     When I re-login to "Grantor" app as "Admin" user on "INTERNAL" portal
@@ -7337,7 +7330,7 @@ Feature: Payment Request scenarios without background
     When I perform quick search for "{SavedValue:PayreqId}" in "---paymentRequest:-:pendingTaskTableId---" panel
     Then I do not see value "{SavedValue:PayreqId}" for title "EGMS ID" inside table "---paymentRequest:-:pendingTaskTableId---"
 
-  @ValidateFlexSharingRelatedScenarioForPaymentrequestAllTables
+  @FlexSharing2 @ValidateFlexSharingRelatedScenarioForPaymentrequestAllTables
   Scenario: Validate FlexSharing Related Scenario For Payment Request All Tables
     Given I activated standalone subaward "Automation Runtime Direct Award" with properties "ADVANCE_PERMISSIBLE_YES_FOCUS_AREA_NO" of type "Competitive"
     And I login to "Grantor" app as "PM" user
@@ -7355,7 +7348,7 @@ Feature: Payment Request scenarios without background
     And I refresh the page
     And I wait for "3" seconds
     Then I softly see value "View" for title "Template Link" against the value "Advance Request" inside table "---progressreport:-:grantChecklistsTableId---"
-    And I save the value from row "4" for column name "Template Link" as "TemplateLink" from flex table "---progressreport:-:grantChecklistsTableId---"
+    And I save the value from row "3" for column name "Template Link" as "TemplateLink" from flex table "---progressreport:-:grantChecklistsTableId---"
     When I navigate to "Subawards" sub tab
     And I click on "View" icon for "{SavedValue:Automation Runtime Direct Award}" inside flex table with id "---progressreport:-:GrantsSubAwardsTableId---" without waiting for record
     And I navigate to "Budget" sub tab

@@ -541,7 +541,7 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
     Then I softly see confirmation box with body "WARNING: This action will reopen the approval decision made earlier. Do you want to proceed?" is displayed
     And I click "OK" on modal confirmation box
     Then I softly see field "Status" as "Submitted for Approval"
-    And I checkout to yopmail with mailid "automationpo@yopmail.com"
+    And I checkout to yopmail with mailid "automation.po.qa2@yopmail.com"
     And I pause execution for "10" seconds
     Then I refresh the page
     And I see the mail subject is as follows :
@@ -568,7 +568,7 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
     The EGMS Team
     """
     Then I refresh the page
-    And I checkout to yopmail with mailid "exe.automation@yopmail.com"
+    And I checkout to yopmail with mailid "exe.automation.qa2@yopmail.com"
     And I pause execution for "10" seconds
     Then I refresh the page
     And I see the mail subject is as follows :
@@ -595,7 +595,7 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
     The EGMS Team
     """
     Then I refresh the page
-    And I checkout to yopmail with mailid "pm.automation@yopmail.com"
+    And I checkout to yopmail with mailid "pm.automation.qa2@yopmail.com"
     And I pause execution for "10" seconds
     Then I refresh the page
     And I see the mail subject is as follows :
@@ -933,7 +933,6 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
     Then I cannot see top right button "Undo" in page detail
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I wait for "2" seconds
-    And I select "Site Visits" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:SitevVisitId}"
     And I click on hyperlink containing value "{SavedValue:SitevVisitId}"
     Then I softly see field "Status" as "Notified"
@@ -958,7 +957,6 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
     Then I cannot see top right button "Undo" in page detail
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I wait for "2" seconds
-    And I select "Site Visits" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:SitevVisitId}"
     And I click on hyperlink containing value "{SavedValue:SitevVisitId}"
     Then I softly see status in Progress-bar is "In Progress" and is "dark blue"
@@ -993,7 +991,6 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
     Then I cannot see top right button "Undo" in page detail
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I wait for "2" seconds
-    And I select "Site Visits" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:SitevVisitId}"
     And I click on hyperlink containing value "{SavedValue:SitevVisitId}"
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
@@ -1051,7 +1048,6 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
     #342548
     Then I cannot see top right button "Undo" in page detail
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
-    And I select "Site Visits" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:SitevVisitId}"
     And I click on hyperlink containing value "{SavedValue:SitevVisitId}"
     Then I softly see field "Status" as "Approved"
@@ -1117,7 +1113,7 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
     And I select "Site Visits" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:SitevVisitId}"
     And I click on hyperlink containing value "{SavedValue:SitevVisitId}"
-    Then I softly see field "Status" as " Submitted for Review"
+    Then I softly see field "Status" as "Submitted for Review"
     Then I cannot see top right button "Undo" in page detail
     And I re-login to "Grantor" app as "PO" user on "INTERNAL" portal
     When I navigate to "Monitoring" tab
@@ -1144,7 +1140,6 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
     And I select "Site Visits" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:SitevVisitId}"
     And I click on hyperlink containing value "{SavedValue:SitevVisitId}"
-    And I click on "View" icon for "Record Id" inside flex table with id "---sitevisits:-:manageSiteVisitTableId---"
     #342559
     Then I softly see field "Status" as "Reviewed"
     Then I cannot see top right button "Undo" in page detail
@@ -1163,7 +1158,7 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
     And I perform quick search inside global search "{SavedValue:SitevVisitId}"
     And I click on hyperlink containing value "{SavedValue:SitevVisitId}"
      #342559
-    Then I softly see field "Status" as " Submitted for Review"
+    Then I softly see field "Status" as "Reviewed"
     Then I cannot see top right button "Undo" in page detail
 
   @342571 @342575 @342584 @OSVVerifythatUndoButtonwillnotvisibletoanyuserwhenOrganizationSitevisitisininSendtoSrState @sprint-13-US-331643 @Undo @366345

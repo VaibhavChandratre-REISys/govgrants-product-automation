@@ -110,6 +110,7 @@ Feature: Grantee Smoke scenarios
     Then I softly can see top right button "Add Files" in flex table with id "---grantee_tableId:-:leadsAddFileTableId---"
     And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:leadsAddFileTableId---"
     And I upload attachment without random number "AttachmentTesting.pdf" of type "Other" from computer
+    And I wait for "2" seconds
     When I click modal button "Close"
     And I wait for "2" seconds
     Then I see "AttachmentTesting.pdf" has been added in "Lead Files" flex table
@@ -292,6 +293,7 @@ Feature: Grantee Smoke scenarios
     Then I softly can see top right button "Add Files" in flex table with id "---grantee_tableId:-:leadsAddFileTableId---"
     And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:leadsAddFileTableId---"
     And I upload attachment without random number "AttachmentTesting.pdf" of type "Other" from computer
+    And I wait for "5" seconds
     When I click modal button "Close"
     And I wait for "2" seconds
     Then I see "AttachmentTesting.pdf" has been added in "Lead Files" flex table
@@ -317,6 +319,7 @@ Feature: Grantee Smoke scenarios
     When I click on "Activate" in the page details without processing
     Then I softly see confirmation box with body "Are you sure you want to Activate the lead?" is displayed
     When I click modal button "OK"
+    And I wait for "2" seconds
     Then I softly see field "State" as "Posted"
     Then I can see top right button "Qualify Lead" in page detail
     And I click on "Qualify Lead" in the page details
@@ -456,7 +459,7 @@ Feature: Grantee Smoke scenarios
       | userName      | userType   |
       | Sarah PM user | GRANTEE PM |
 
-  @485372 @ValidatePMusercanseeProgressreportschedulesfromawardinMonitoringschedules @Grantee_Smoke1 @wip
+  @485372 @ValidatePMusercanseeProgressreportschedulesfromawardinMonitoringschedules @Grantee_Smoke1
   Scenario Outline: Validate PM user can see Progress report schedules from award in Monitoring schedules
     When I login to "Grantee" app as "<userType>" user
     And I navigate to "Grants" tab
@@ -1259,20 +1262,20 @@ Feature: Grantee Smoke scenarios
     And I click on top right button "Send Email" in flex table with id "CommunicationHistory"
     And I send the email under collab tab with following details:
       | To                        | Subject            | Body            |
-      | pm.automation@yopmail.com | Automation Subject | Automation Body |
+      | pm.automation.qa2@yopmail.com | Automation Subject | Automation Body |
     When I click modal button "Close"
     And I refresh the page
     And I wait for "3" seconds
     Then I softly see value "Automation Subject" for title "Subject" inside table "CommunicationHistory"
     Then I softly see value "<emailId>" for title "From Address" inside table "CommunicationHistory"
-    Then I softly see value "pm.automation@yopmail.com" for title "To Address" inside table "CommunicationHistory"
+    Then I softly see value "pm.automation.qa2@yopmail.com" for title "To Address" inside table "CommunicationHistory"
     When I click on "Activate" in the page details
     Then I see status in Progress-bar is "Active" and is "dark blue"
     When I navigate to "Related Log" sub tab
     Then I softly see "No Records Found" inside flex table with id "Goals"
     Then I softly see "No Records Found" inside flex table with id "KPIsGranteeRelatedAwards"
     And I navigate to "History" sub tab
-    Then I softly see snapshot with name containing "History.pdf" as name
+    Then I softly see snapshot with name containing "Activate.pdf" as name
     Examples:
       | userType   | emailId                 |
       | GRANTEE PM | sarah.pm.23@yopmail.com |
@@ -5328,9 +5331,8 @@ Feature: Grantee Smoke scenarios
     Then I softly see value "Submitted for Approval" for title "Original Value" inside field history table
     And I click on back arrow
     When I navigate to "History" sub tab
-    Then I softly see snapshot with name containing "ApprovalPDF.pdf" as name
+    Then I softly see snapshot with name containing "Approver Decision.pdf" as name
     Then I softly see snapshot with name containing "SubmitForApproval.pdf" as name
-    Then I softly see snapshot with name containing "Complete Review.pdf" as name
     Then I softly can see top right button "View NOGA" in page detail
 #    And I click on "View NOGA" in the page details
 #    And I download the file
@@ -5960,6 +5962,7 @@ Feature: Grantee Smoke scenarios
     Then I softly see top right button "Add Files" inside flex table "---grantee_tableId:-:federalFilesTableId---"
     And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:federalFilesTableId---"
     And I upload attachment without random number "<attachment>" of type "Indirect Cost Rate Letter" from computer
+    And I wait for "5" seconds
     When I click modal button "Close"
     And I wait for "2" seconds
     Then I see "<attachment>" has been added in "Organization Files" flex table
@@ -6108,7 +6111,7 @@ Feature: Grantee Smoke scenarios
     Then I see field "Last Name" as "Execution" on modal
     Then I see field "Phone" as "(896) 709-3844" on modal
     Then I see field "Mobile Phone" as "(896) 709-3440" on modal
-    Then I see field "Email" as " {SavedValue:uniqueEmailID}" on modal
+    Then I see field "Email" as "{SavedValue:uniqueEmailID}" on modal
     And I click on top right button "Edit" in flex table with id "---grantee_tableId:-:nonFedContactTableId---"
     When I enter in modal value "Automation Runtime Test" into field "Title"
     When I enter in modal value "Automation1" into field "FirstName"
@@ -6124,7 +6127,7 @@ Feature: Grantee Smoke scenarios
     Then I see field "Last Name" as "Execution1" on modal
     Then I see field "Phone" as "(896) 709-3855" on modal
     Then I see field "Mobile Phone" as "(896) 709-3455" on modal
-    Then I see field "Email" as " {SavedValue:uniqueEmailID}" on modal
+    Then I see field "Email" as "{SavedValue:uniqueEmailID}" on modal
     And I click on hyperlink for modal containing value "Test With Automation PM"
     Then I see the header is "Non-Federal Organization" in the page details
     Then I see the sub-header is "Test With Automation PM" in the page details
@@ -6657,7 +6660,7 @@ Feature: Grantee Smoke scenarios
     And I update title as "Automation.pdf" on upload file modal
     And I select Classification as "Strategic Plan" at upload file modal
     When I click modal button "Save"
-    And I click modal button "Close"
+#    And I click modal button "Close"
     And I refresh the page
     And I wait for "2" seconds
     Then I softly see value "Automation.pdf" for title "Title" inside table "---grantee_tableId:-:strategicPlansFilesTableId---"
@@ -6704,7 +6707,7 @@ Feature: Grantee Smoke scenarios
     And I update title as "Automation.pdf" on upload file modal
     And I select Classification as "Strategic Goal" at upload file modal
     When I click modal button "Save"
-    And I click modal button "Close"
+#    And I click modal button "Close"
     And I refresh the page
     And I wait for "2" seconds
     Then I softly see value "Automation.pdf" for title "Title" inside table "---grantee_tableId:-:strategicGoalsFilesTableId---"
@@ -6759,7 +6762,7 @@ Feature: Grantee Smoke scenarios
     And I update title as "Automation.pdf" on upload file modal
     And I select Classification as "Objective" at upload file modal
     When I click modal button "Save"
-    And I click modal button "Close"
+#    And I click modal button "Close"
     And I refresh the page
     And I wait for "2" seconds
     Then I softly see value "Automation.pdf" for title "Title" inside table "---grantee_tableId:-:objectivesAddFilesTableId---"
@@ -6850,13 +6853,13 @@ Feature: Grantee Smoke scenarios
     And I click on top right button "Send Email" in flex table with id "CommunicationHistory"
     And I send the email under collab tab with following details:
       | To                        | Subject            | Body            |
-      | pm.automation@yopmail.com | Automation Subject | Automation Body |
+      | pm.automation.qa2@yopmail.com | Automation Subject | Automation Body |
     When I click modal button "Close"
     And I refresh the page
     And I wait for "3" seconds
     Then I softly see value "Automation Subject" for title "Subject" inside table "CommunicationHistory"
     Then I softly see value "victor.exeqagrantee@yopmail.com" for title "From Address" inside table "CommunicationHistory"
-    Then I softly see value "pm.automation@yopmail.com" for title "To Address" inside table "CommunicationHistory"
+    Then I softly see value "pm.automation.qa2@yopmail.com" for title "To Address" inside table "CommunicationHistory"
     When I click on "Activate" in the page details
     Then I see status in Progress-bar is "Active" and is "dark blue"
     And I navigate to "History" sub tab
@@ -8469,9 +8472,8 @@ Feature: Grantee Smoke scenarios
     Then I softly see value "Submitted for Approval" for title "Original Value" inside field history table
     And I click on back arrow
     When I navigate to "History" sub tab
-    Then I softly see snapshot with name containing "ApprovalPDF.pdf" as name
+    Then I softly see snapshot with name containing "Approver Decision.pdf" as name
     Then I softly see snapshot with name containing "SubmitForApproval.pdf" as name
-    Then I softly see snapshot with name containing "Complete Review.pdf" as name
     Then I softly can see top right button "View NOGA" in page detail
 
   @490130 @ValidatePreAppVerifyabletocreatepreapplicationwithGrantsGovLeadPMProfile @Grantee_Smoke1
@@ -8514,6 +8516,8 @@ Feature: Grantee Smoke scenarios
     And I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside flex table with id "---grantee_tableId:-:qualifiedLeadTableId---" without waiting for record
     When I click on "Convert to Opportunity" in the page details
     And I create opportunity with state "Created" for opportunity number "{SavedValue:Automation Runtime}" with properties "default"
+    And I refresh the page
+    And I wait for "3" seconds
     And I save the field labeled "EGMS ID" as "opportunityEGMSID"
     When I click on "Validate" in the page details
     And I wait for "3" seconds
@@ -8528,6 +8532,7 @@ Feature: Grantee Smoke scenarios
     When I click on "Start" icon for "{SavedValue:opportunityEGMSID}" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
     When I "Reject" in the approval decision
     Then I softly see status in Progress-bar is "Rejected" and is "Red"
+#    When I re-login to "Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
     And I navigate to "Opportunities" tab
     When I navigate to "Qualified" content inside "Leads" subheader on left panel
     And I click toggle button to select "Qualified Leads - All"
@@ -8962,6 +8967,7 @@ Feature: Grantee Smoke scenarios
     And I save the field labeled "EGMS ID" as "BDRAMENDID"
     Then I softly can see top right button "Save" in page detail
     Then I softly can see top right button "Cancel" in page detail
+    And I click on "Save" in the page details
     When I navigate to "Overview" sub tab
     And I click on hyperlink containing value "{SavedValue:AwardEGMSID1}"
     When I navigate to "Amendments" sub tab
@@ -9004,7 +9010,7 @@ Feature: Grantee Smoke scenarios
     Then I softly see "Collapse" button for header
     Then I softly see field "EGMS ID" as "{SavedValue:BDRAMENDID}"
     Then I softly see field "Status" as "Created"
-    Then I softly see field "Initiated By" as "Grantee"
+    Then I softly see field "Initiated By" as "Grantor"
     Then I softly see field "Amendment Type" as "Budget Redirection"
     Then I can see top right button "Edit" in page detail
     Then I can see top right button "Delete" in page detail
@@ -9121,6 +9127,7 @@ Feature: Grantee Smoke scenarios
     When I enter the following values into flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---" by clicking "New" :
       | Reviewer Name | Role            | Description            | Due Date | Allow Record Editing |
       | David FO      | Fiscal Reviewer | Automation Description | 5        | Yes                  |
+    And I wait for "3" seconds
     Then I softly see the following messages in the page details contains:
       | Responsibilities Tab - A person with the same role cannot be added again. |
     And I refresh the page
@@ -9209,8 +9216,8 @@ Feature: Grantee Smoke scenarios
     And I update title as "Automation.pdf" on upload file modal
     And I select Classification as "Notice of Award" at upload file modal
     When I click modal button "Save"
-    And I click modal button "Close"
-    And I refresh the page
+#    And I click modal button "Close"
+    And I wait for "3" seconds
     Then I softly see "Notice of Award" has been added in "Amendment Files" flex table
     And I click on "Delete" icon for "Notice of Award" inside flex table with id "---grantee_tableId:-:amendmentRequestAddFile---" without waiting for record
     Then I softly do not see value "Notice of Award" for title "Title" inside table "---grantee_tableId:-:amendmentRequestAddFile---"
@@ -9339,7 +9346,9 @@ Feature: Grantee Smoke scenarios
     And I send the email under collab tab with following details:
       | To          | Subject            | Body            |
       | <emailIdTo> | Automation Subject | Automation Body |
+    And I wait for "2" seconds
     When I click modal button "Close"
+    And I wait for "1" seconds
     And I refresh the page
     And I wait for "3" seconds
     Then I softly see value "Automation Subject" for title "Subject" inside table "CommunicationHistory"
@@ -9676,6 +9685,7 @@ Feature: Grantee Smoke scenarios
     And I enter a review as "Passed"
     When I click modal button "Save"
     And I click on submit review
+    And I wait for "2" seconds
     Then I softly see value "Submitted" for title "Status" against the value "Grantee PO" inside table "---grantee_tableId:-:financialReportPeerReviewTableId---"
     Then I softly cannot see row level action button "Enter Review" against "Grantee PO" in flex table with id "---grantee_tableId:-:financialReportPeerReviewTableId---"
     When I re-login to "Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
@@ -9776,8 +9786,10 @@ Feature: Grantee Smoke scenarios
     When I upload file "AttachmentTesting.pdf" into library
     Then I do not see "Upload" button is disabled at modal under library
     When I click modal button "Close"
+    And I wait for "2" seconds
     And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:financialReportAddFilesTableId---"
     And I upload attachment without random number "Attachment.pdf" of type "Other" from computer
+    And I wait for "3" seconds
     When I click modal button "Close"
     And I refresh the page
     And I wait for "2" seconds
@@ -9790,7 +9802,8 @@ Feature: Grantee Smoke scenarios
     And I update title as "Automation.pdf" on upload file modal
     And I select Classification as "Financial Report" at upload file modal
     When I click modal button "Save"
-    And I click modal button "Close"
+    And I wait for "2" seconds
+#    And I click modal button "Close"
     And I refresh the page
     And I wait for "2" seconds
     Then I softly see value "Automation.pdf" for title "Title" inside table "---grantee_tableId:-:financialReportAddFilesTableId---"
@@ -9798,8 +9811,9 @@ Feature: Grantee Smoke scenarios
     When I enter the following values into flex table with id "---grantee_tableId:-:financialReportNotesTableId---" by clicking "New" :
       | Description      |
       | Automation Notes |
+    And I wait for "2" seconds
     Then I softly see the following messages in the page details :
-      | Required Fields Missing |
+      | Required fields missing |
     And I refresh the page
     And I wait for "3" seconds
     When I enter the following values into flex table with id "---grantee_tableId:-:financialReportNotesTableId---" by clicking "New" :
@@ -9831,13 +9845,13 @@ Feature: Grantee Smoke scenarios
     And I click on top right button "Send Email" in flex table with id "CommunicationHistory"
     And I send the email under collab tab with following details:
       | To                        | Subject            | Body            |
-      | pm.automation@yopmail.com | Automation Subject | Automation Body |
+      | pm.automation.qa2@yopmail.com | Automation Subject | Automation Body |
     When I click modal button "Close"
     And I refresh the page
     And I wait for "3" seconds
     Then I softly see value "Automation Subject" for title "Subject" inside table "CommunicationHistory"
     Then I softly see value "sarah.pm.23@yopmail.com" for title "From Address" inside table "CommunicationHistory"
-    Then I softly see value "pm.automation@yopmail.com" for title "To Address" inside table "CommunicationHistory"
+    Then I softly see value "pm.automation.qa2@yopmail.com" for title "To Address" inside table "CommunicationHistory"
     Then I softly can see row level action button "View" against "Automation Subject" in flex table with id "CommunicationHistory"
     Then I softly can see row level action button "Reply" against "Automation Subject" in flex table with id "CommunicationHistory"
     When I click on "Validate" in the page details
@@ -10573,7 +10587,7 @@ Feature: Grantee Smoke scenarios
 
   @486506 @ValidateFDPOnonrecordownerusershouldabletoseetheapplicationissubmittedtoGrantorManuallead @Grantee_Smoke3
   Scenario: Validate FD PO non record owner user should able to see the application is submitted to Grantor Manual lead
-    And I create "Manual" qualified lead for title "Automation Runtime Opportunity" and opportunity number "Automation Runtime" with properties "default-Grantee PO user"
+    And I create "Manual" qualified lead for title "Automation Runtime Opportunity" and opportunity number "Automation Runtime" with properties "default"
     Given I login to "Grantee" app as "GRANTEE PM" user
     And I navigate to "Opportunities" tab
     When I navigate to "Qualified" content inside "Leads" subheader on left panel
@@ -11454,13 +11468,12 @@ Feature: Grantee Smoke scenarios
     And I click on top right button "Send Email" in flex table with id "CommunicationHistory"
     And I send the email under collab tab with following details:
       | To                        | Subject            | Body            |
-      | pm.automation@yopmail.com | Automation Subject | Automation Body |
+      | pm.automation.qa2@yopmail.com | Automation Subject | Automation Body |
     When I click modal button "Close"
-    And I refresh the page
     And I wait for "3" seconds
     Then I softly see value "Automation Subject" for title "Subject" inside table "CommunicationHistory"
-    Then I softly see value "product.qa@yopmail.com" for title "From Address" inside table "CommunicationHistory"
-    Then I softly see value "pm.automation@yopmail.com" for title "To Address" inside table "CommunicationHistory"
+    Then I softly see value "profuctqa@yopmail.com" for title "From Address" inside table "CommunicationHistory"
+    Then I softly see value "pm.automation.qa2@yopmail.com" for title "To Address" inside table "CommunicationHistory"
     When I click on "Activate" in the page details
     Then I see status in Progress-bar is "Active" and is "dark blue"
     And I navigate to "History" sub tab
@@ -11729,7 +11742,8 @@ Feature: Grantee Smoke scenarios
     And I update title as "Automation.pdf" on upload file modal
     And I select Classification as "Notice of Award" at upload file modal
     When I click modal button "Save"
-    And I click modal button "Close"
+#    And I click modal button "Close"
+    And I wait for "3" seconds
     And I refresh the page
     And I wait for "3" seconds
     Then I softly see "Notice of Award" has been added in "Amendment Files" flex table
@@ -12782,7 +12796,9 @@ Feature: Grantee Smoke scenarios
     Then I softly see link "{SavedValue:LastModifiedBy}" inside Page block
     And I click on hyperlink containing value "{SavedValue:LastModifiedBy}"
     Then I softly see the text containing "sarah.pm@ggp.test8.qagrnteatm"
+    And I wait for "2" seconds
     And I click on back arrow
+    And I wait for "2" seconds
     Then I softly can see row level action button "View" against "Federal Financial Report (SF-425)" in flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
     Then I softly can see row level action button "Splitview" against "Federal Financial Report (SF-425)" in flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
     Then I softly can see row level action button "Preview" against "Federal Financial Report (SF-425)" in flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
@@ -12852,7 +12868,8 @@ Feature: Grantee Smoke scenarios
     And I update title as "Automation.pdf" on upload file modal
     And I select Classification as "Financial Report" at upload file modal
     When I click modal button "Save"
-    And I click modal button "Close"
+#    And I click modal button "Close"
+    And I wait for "2" seconds
     And I refresh the page
     And I wait for "2" seconds
     Then I softly see value "Automation.pdf" for title "Title" inside table "---grantee_tableId:-:financialReportAddFilesTableId---"
@@ -12861,7 +12878,7 @@ Feature: Grantee Smoke scenarios
       | Description      |
       | Automation Notes |
     Then I softly see the following messages in the page details :
-      | Required Fields Missing |
+      | Required fields missing |
     And I refresh the page
     And I wait for "3" seconds
     When I enter the following values into flex table with id "---grantee_tableId:-:financialReportNotesTableId---" by clicking "New" :
@@ -12891,16 +12908,16 @@ Feature: Grantee Smoke scenarios
     Then I softly see "Email Subject" in flex table header "CommunicationHistory"
     Then I softly see "Preview" in flex table header "CommunicationHistory"
     And I click on top right button "Send Email" in flex table with id "CommunicationHistory"
-    And I wait for "1" seconds
+    And I wait for "2" seconds
     And I send the email under collab tab with following details:
       | To                        | Subject            | Body            |
-      | pm.automation@yopmail.com | Automation Subject | Automation Body |
+      | pm.automation.qa2@yopmail.com | Automation Subject | Automation Body |
     When I click modal button "Close"
     And I refresh the page
     And I wait for "3" seconds
     Then I softly see value "Automation Subject" for title "Subject" inside table "CommunicationHistory"
     Then I softly see value "govgrantsuat@yopmail.com" for title "From Address" inside table "CommunicationHistory"
-    Then I softly see value "pm.automation@yopmail.com" for title "To Address" inside table "CommunicationHistory"
+    Then I softly see value "pm.automation.qa2@yopmail.com" for title "To Address" inside table "CommunicationHistory"
     Then I softly can see row level action button "View" against "Automation Subject" in flex table with id "CommunicationHistory"
     Then I softly can see row level action button "Reply" against "Automation Subject" in flex table with id "CommunicationHistory"
     When I click on "Validate" in the page details
@@ -13603,13 +13620,13 @@ Feature: Grantee Smoke scenarios
     And I click on top right button "Send Email" in flex table with id "CommunicationHistory"
     And I send the email under collab tab with following details:
       | To                        | Subject            | Body            |
-      | pm.automation@yopmail.com | Automation Subject | Automation Body |
+      | pm.automation.qa2@yopmail.com | Automation Subject | Automation Body |
     When I click modal button "Close"
     And I refresh the page
     And I wait for "3" seconds
     Then I softly see value "Automation Subject" for title "Subject" inside table "CommunicationHistory"
     Then I softly see value "sarah.pm.23@yopmail.com" for title "From Address" inside table "CommunicationHistory"
-    Then I softly see value "pm.automation@yopmail.com" for title "To Address" inside table "CommunicationHistory"
+    Then I softly see value "pm.automation.qa2@yopmail.com" for title "To Address" inside table "CommunicationHistory"
     Then I softly can see row level action button "View" against "Automation Subject" in flex table with id "CommunicationHistory"
     Then I softly can see row level action button "Reply" against "Automation Subject" in flex table with id "CommunicationHistory"
     When I click on "Validate" in the page details
@@ -14246,13 +14263,13 @@ Feature: Grantee Smoke scenarios
     And I wait for "2" seconds
     And I send the email under collab tab with following details:
       | To                        | Subject            | Body            |
-      | pm.automation@yopmail.com | Automation Subject | Automation Body |
+      | pm.automation.qa2@yopmail.com | Automation Subject | Automation Body |
     When I click modal button "Close"
     And I refresh the page
     And I wait for "3" seconds
     Then I softly see value "Automation Subject" for title "Subject" inside table "CommunicationHistory"
     Then I softly see value "sarah.pm.23@yopmail.com" for title "From Address" inside table "CommunicationHistory"
-    Then I softly see value "pm.automation@yopmail.com" for title "To Address" inside table "CommunicationHistory"
+    Then I softly see value "pm.automation.qa2@yopmail.com" for title "To Address" inside table "CommunicationHistory"
     Then I softly can see row level action button "View" against "Automation Subject" in flex table with id "CommunicationHistory"
     Then I softly can see row level action button "Reply" against "Automation Subject" in flex table with id "CommunicationHistory"
     When I click on "Validate" in the page details
@@ -14982,13 +14999,13 @@ Feature: Grantee Smoke scenarios
     And I click on top right button "Send Email" in flex table with id "CommunicationHistory"
     And I send the email under collab tab with following details:
       | To                        | Subject            | Body            |
-      | pm.automation@yopmail.com | Automation Subject | Automation Body |
+      | pm.automation.qa2@yopmail.com | Automation Subject | Automation Body |
     When I click modal button "Close"
     And I refresh the page
     And I wait for "3" seconds
     Then I softly see value "Automation Subject" for title "Subject" inside table "CommunicationHistory"
     Then I softly see value "sarah.pm.23@yopmail.com" for title "From Address" inside table "CommunicationHistory"
-    Then I softly see value "pm.automation@yopmail.com" for title "To Address" inside table "CommunicationHistory"
+    Then I softly see value "pm.automation.qa2@yopmail.com" for title "To Address" inside table "CommunicationHistory"
     Then I softly can see row level action button "View" against "Automation Subject" in flex table with id "CommunicationHistory"
     Then I softly can see row level action button "Reply" against "Automation Subject" in flex table with id "CommunicationHistory"
 

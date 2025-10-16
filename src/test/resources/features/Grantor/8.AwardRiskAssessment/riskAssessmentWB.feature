@@ -1,4 +1,4 @@
-@riskAssessment @grantor-regression @grantor-parallel-regression @regression @riskAssessmentWB
+@riskAssessment @grantor-regression @grantor-parallel-regression @regression @riskAssessmentWB @RiskExecution
 Feature: Risk Assessment scenarios without background
 
   @59252 @64792 @64942 @64944 @validateDataOnGrantAwardRA
@@ -122,6 +122,8 @@ Feature: Risk Assessment scenarios without background
     When I click on top right button "New" in flex table with id "---subAwardStandAlone:-:riskAssessmentTableId---"
     And I enter "Risk Assessment Creation" values from "Award_Field_Values.xlsx"
     When I click on "Save and Continue" in the page details
+    And I wait for "2" seconds
+    And I click on "Save" in the page details
     And I navigate to "Assessment" sub tab
     Then I softly see field "Status" as "Created"
     And I wait for "2" seconds

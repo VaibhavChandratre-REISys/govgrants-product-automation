@@ -1,4 +1,4 @@
-@riskAssessment @orgAwardLevelRiskAssessment @regression @orgRiskAssessment @orgRiskAssessmentWithBackground
+@riskAssessment @regression @orgRiskAssessment @orgRiskAssessmentWithBackground @orgRisk2
 Feature: Validate all scenarios in the Organizational Risk Assessment
 
   Background: To create a Organizational Risk Assessment
@@ -26,6 +26,9 @@ Feature: Validate all scenarios in the Organizational Risk Assessment
     And I navigate to "Home" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Automation Permanent Organization for Risk Assessment" in "---orgRiskAssessment:-:pendingTaskTableId---" panel
+    And I click on advance filter of table id "---orgRiskAssessment:-:pendingTaskTableId---" for LWC
+    And I enter advance filter values inside id "---orgRiskAssessment:-:pendingTaskTableId---" for LWC
+      | Status | equals to | Not Started |
 
   @62629 @62945 @RevisedRiskAssessmentShouldMarkFirstAsExpired
   Scenario: Validate the Revised Risk Assessment should mark the Initial Risk Assessment as Expired.
@@ -61,6 +64,9 @@ Feature: Validate all scenarios in the Organizational Risk Assessment
     And I navigate to "Home" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Automation Permanent Organization for Risk Assessment" in "---orgRiskAssessment:-:pendingTaskTableId---" panel
+    And I click on advance filter of table id "---orgRiskAssessment:-:pendingTaskTableId---" for LWC
+    And I enter advance filter values inside id "---orgRiskAssessment:-:pendingTaskTableId---" for LWC
+      | Status | equals to | Not Started |
     When I click on "Start" icon for "Automation Permanent Organization for Risk Assessment" inside flex table with id "---orgRiskAssessment:-:pendingTaskTableId---" without waiting for record
     And I wait for "3" seconds
     And I navigate to "Risk Assessment" sub tab
@@ -112,6 +118,9 @@ Feature: Validate all scenarios in the Organizational Risk Assessment
     And I navigate to "Home" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Automation Permanent Organization for Risk Assessment" in "---orgRiskAssessment:-:pendingTaskTableId---" panel
+    And I click on advance filter of table id "---orgRiskAssessment:-:pendingTaskTableId---" for LWC
+    And I enter advance filter values inside id "---orgRiskAssessment:-:pendingTaskTableId---" for LWC
+      | Status | equals to | Not Started |
     When I click on "Start" icon for "Automation Permanent Organization for Risk Assessment" inside flex table with id "---orgRiskAssessment:-:pendingTaskTableId---" without waiting for record
     And I wait for "3" seconds
     And I navigate to "Risk Assessment" sub tab
@@ -119,7 +128,7 @@ Feature: Validate all scenarios in the Organizational Risk Assessment
     When I click on "Save and Continue" in the page details
     #62946
     Then I see the following messages in the page details contains:
-      | To Save, Acknowledgement is required in the Signatures Confirming Assessment section.. |
+      | To Save, Acknowledgement is required in the Signatures Confirming Assessment section. |
     And I enter "Risk Assessment Creation" values from "Award_Field_Values.xlsx"
     When I click modal button "Save and Continue"
     And I wait for "3" seconds
@@ -168,6 +177,9 @@ Feature: Validate all scenarios in the Organizational Risk Assessment
     And I navigate to "Home" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Automation Permanent Organization for Risk Assessment" in "---orgRiskAssessment:-:pendingTaskTableId---" panel
+    And I click on advance filter of table id "---orgRiskAssessment:-:pendingTaskTableId---" for LWC
+    And I enter advance filter values inside id "---orgRiskAssessment:-:pendingTaskTableId---" for LWC
+      | Status | equals to | Not Started |
     When I click on "Start" icon for "Automation Permanent Organization for Risk Assessment" inside flex table with id "---orgRiskAssessment:-:pendingTaskTableId---" without waiting for record
     And I wait for "3" seconds
     And I navigate to "Risk Assessment" sub tab
@@ -211,6 +223,9 @@ Feature: Validate all scenarios in the Organizational Risk Assessment
     And I navigate to "Home" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Automation Permanent Organization for Risk Assessment" in "---orgRiskAssessment:-:pendingTaskTableId---" panel
+    And I click on advance filter of table id "---orgRiskAssessment:-:pendingTaskTableId---" for LWC
+    And I enter advance filter values inside id "---orgRiskAssessment:-:pendingTaskTableId---" for LWC
+      | Status | equals to | Not Started |
     When I click on "Start" icon for "Automation Permanent Organization for Risk Assessment" inside flex table with id "---orgRiskAssessment:-:pendingTaskTableId---" without waiting for record
     And I wait for "3" seconds
     And I navigate to "Risk Assessment" sub tab
@@ -224,7 +239,7 @@ Feature: Validate all scenarios in the Organizational Risk Assessment
     Then I can see top right button "Edit" in page detail
     Then I can see top right button "Submit" in page detail
 
- @62951 @RAinCreatedStatusImpactOnAward
+  @62951 @RAinCreatedStatusImpactOnAward
   Scenario Outline: Validate if SA has requested for revision of initial Risk Assessment  and it is being revised and present in Created sttaus does not make an impact on Award Activation system will always refer the active Risk Assessment.
     When I click on "Start" icon for "Automation Permanent Organization for Risk Assessment" inside flex table with id "---orgRiskAssessment:-:pendingTaskTableId---" without waiting for record
     And I wait for "3" seconds
@@ -255,6 +270,9 @@ Feature: Validate all scenarios in the Organizational Risk Assessment
     And I navigate to "Home" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Automation Permanent Organization for Risk Assessment" in "---orgRiskAssessment:-:pendingTaskTableId---" panel
+    And I click on advance filter of table id "---orgRiskAssessment:-:pendingTaskTableId---" for LWC
+    And I enter advance filter values inside id "---orgRiskAssessment:-:pendingTaskTableId---" for LWC
+      | Status | equals to | Not Started |
     When I click on "Start" icon for "Automation Permanent Organization for Risk Assessment" inside flex table with id "---orgRiskAssessment:-:pendingTaskTableId---" without waiting for record
     And I wait for "3" seconds
     And I navigate to "Risk Assessment" sub tab
@@ -279,7 +297,7 @@ Feature: Validate all scenarios in the Organizational Risk Assessment
     And I click on "Edit" in the page details
     When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
     And I click on "Save" in the page details
-   And I wait for "2" seconds
+    And I wait for "2" seconds
     When I navigate to "Budget" sub tab
     When I click on top right button "Associate" in flex table with id "---subAwardStandAlone:-:fundingAccountsTableId---"
     When I click "Associate" after selection of "Automation Permanent Funding Account" by showing entries "All" in flex table with id "---subAwardStandAlone:-:awardFundingAccountsTableId---"
@@ -290,7 +308,7 @@ Feature: Validate all scenarios in the Organizational Risk Assessment
       | Title                           | Start Date | End Date |
       | Automation Permanent Focus Area | 0          | 3650     |
     When I edit the following rows inline in flex table with id "---subAwardStandAlone:-:fundingAccountsTableId---" by clicking "Edit" :
-      | Funding Account              | Encumbrance |
+      | Funding Account             | Encumbrance |
       | {SavedValue:fundingAccount} | 1000        |
     And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:subAwardBudgetTableId---" by clicking "Edit" :
       | Budget Category | Award Amount | Cash Match | Non-Cash Match |
@@ -299,6 +317,10 @@ Feature: Validate all scenarios in the Organizational Risk Assessment
     And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:kpiTableId---" by clicking "Edit" :
       | EGMS ID                  | Target |
       | Automation Permanent KPI | 10     |
+    When I navigate to "Overview" sub tab
+    And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:associatedContactsTableId---" by clicking "Edit" :
+      | Name          | Project Role             | Is Key Personnel |
+      | Automation SA | Project Director/Manager | Checked          |
     And I navigate to "Terms" sub tab
     And I click on "Edit" icon for "Payment Request" inside flex table with id "---subAwardStandAlone:-:paymentRequestSchedulesTableId---" without waiting for record
     When I enter in modal "Payment Request Schedule" values from "Award_Field_Values.xlsx"
@@ -323,6 +345,7 @@ Feature: Validate all scenarios in the Organizational Risk Assessment
       | Name                     | Risk Assessment |
       | {SavedValue:FO Username} | Step 2          |
     And I click on "Submit for Approval" in the page details
+    Then I see field "Status" as "Submitted for Approval"
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -344,6 +367,7 @@ Feature: Validate all scenarios in the Organizational Risk Assessment
     When I navigate to "Subawards" sub tab
     And I click on "View" icon for "<Award Name>" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
     When I navigate to "Overview" sub tab
+    And I get the "EGMS ID"
     And I click on "Send to Subrecipient" in the page details
     And I re-login to "Grants Portal" app as "SA" user on "SUBPORTAL" portal
     When I navigate to "Grants" tab
@@ -359,15 +383,19 @@ Feature: Validate all scenarios in the Organizational Risk Assessment
     And I click on "View" icon for "<Grant Name>" inside table
     When I navigate to "Subawards" sub tab
     And I click on "View" icon for "<Award Name>" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
+    And I navigate to "Responsibilities" sub tab
+    And I get the "EGMS ID"
+    When I enter the following values into flex table with id "---subAwardFromFDM:-:GrantsRolesAndResponsibilitiesTableId---" by clicking "New" :
+      | Name                     | Award  |
+      | {SavedValue:PM Username} | Step 1 |
+    When I enter the following values into flex table with id "---subAwardFromFDM:-:GrantsRolesAndResponsibilitiesTableId---" by clicking "New" :
+      | Name                     | Award  |
+      | {SavedValue:FO Username} | Step 2 |
     When I navigate to "Terms" sub tab
     When I click on top right button "Associate Mandatory Terms and Conditions" in flex table with id "---subAwardStandAlone:-:termsndConditionsTableId---"
-    When I pause execution for "10" seconds
+    When I pause execution for "3" seconds
     And I click on "Submit for Approval" in the page details
-    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
-    And I navigate to "Grants" tab
-    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    When I perform quick search for "Record Id" in "---subAwardStandAlone:-:pendingTaskTableId---" panel
-    And I click on "Start" icon for "Record Id" inside flex table with id "---subAwardStandAlone:-:pendingTaskTableId---" without waiting for record
+    Then I see field "Status" as "Submitted for Approval"
     And I "Approve" in the approval decision
     When I re-login to "Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Grants" tab
@@ -375,12 +403,7 @@ Feature: Validate all scenarios in the Organizational Risk Assessment
     When I perform quick search for "Record Id" in "---subAwardStandAlone:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "Record Id" inside flex table with id "---subAwardStandAlone:-:pendingTaskTableId---" without waiting for record
     And I "Approve" in the approval decision
-    When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
-    And I navigate to "Grants" tab
-    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    When I perform quick search for "Record Id" in "---subAwardStandAlone:-:pendingTaskTableId---" panel
-    And I click on "Start" icon for "Record Id" inside flex table with id "---subAwardStandAlone:-:pendingTaskTableId---" without waiting for record
-    And I "Approve" in the approval decision
+    Then I softly see field "Status" as "Approved"
     When I re-login to "Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
@@ -464,6 +487,9 @@ Feature: Validate all scenarios in the Organizational Risk Assessment
     And I navigate to "Home" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Revise Risk Assessment" in "---orgRiskAssessment:-:pendingTaskTableId---" panel
+    And I click on advance filter of table id "---orgRiskAssessment:-:pendingTaskTableId---" for LWC
+    And I enter advance filter values inside id "---orgRiskAssessment:-:pendingTaskTableId---" for LWC
+      | Status | equals to | Not Started |
     When I click on "Start" icon for "Revise Risk Assessment" inside flex table with id "---orgRiskAssessment:-:pendingTaskTableId---" without waiting for record
     And I wait for "3" seconds
     And I navigate to "Risk Assessment" sub tab
@@ -498,7 +524,7 @@ Feature: Validate all scenarios in the Organizational Risk Assessment
     When I save the field labeled "EGMS ID" as "EGMSID"
     When I click on "Submit" in the page details
     Then I see the following messages in the page details contains:
-      | Assessment Tab - Sign the Risk Assessment form by checking the Acknowledgement box.|
+      | Assessment Tab - Sign the Risk Assessment form by checking the Acknowledgement box. |
 
   @63075 @VerifyEffectiveDateAndExpirationDate
   Scenario: Validate whether the Active Org Risk Assessment for Organization is updated for one year under Effective Date and Expiration Date fields inside flextable
@@ -595,7 +621,7 @@ Feature: Validate all scenarios in the Organizational Risk Assessment
     And I navigate to "Risk Assessment" sub tab
     Then I see that "{SavedValue:EGMSID}" has been added in flextable with Id "---orgRiskAssessment:-:orgRiskAssessmentTableId---"
 
-  @63980 @validateRiskAssesmentActiveInPDF  @skipOnJenkins
+  @63980 @validateRiskAssesmentActiveInPDF
   Scenario: Verify that user can check PDF files with validation for Org Risk Assessment
     When I click on "Start" icon for "Automation Permanent Organization for Risk Assessment" inside flex table with id "---orgRiskAssessment:-:pendingTaskTableId---" without waiting for record
     And I wait for "3" seconds
@@ -629,7 +655,7 @@ Feature: Validate all scenarios in the Organizational Risk Assessment
       | Detail | Page Number |
       | Active | 1           |
 
- @64128  @63983 @grantorViewOrgRA  @runOrgRisk
+  @64128  @63983 @grantorViewOrgRA @runOrgRisk
   Scenario: Validate Risk Assessment data/status should be displayed to internal user irrespective of the state of Risk Assessment.
     When I click on "Start" icon for "Automation Permanent Organization for Risk Assessment" inside flex table with id "---orgRiskAssessment:-:pendingTaskTableId---" without waiting for record
     And I wait for "3" seconds
@@ -692,6 +718,9 @@ Feature: Validate all scenarios in the Organizational Risk Assessment
     And I navigate to "Home" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Revise Risk Assessment" in "---orgRiskAssessment:-:pendingTaskTableId---" panel
+    And I click on advance filter of table id "---orgRiskAssessment:-:pendingTaskTableId---" for LWC
+    And I enter advance filter values inside id "---orgRiskAssessment:-:pendingTaskTableId---" for LWC
+      | Status | equals to | Not Started |
     When I click on "Start" icon for "Revise Risk Assessment" inside flex table with id "---orgRiskAssessment:-:pendingTaskTableId---" without waiting for record
     And I wait for "3" seconds
     And I navigate to "Risk Assessment" sub tab
@@ -782,7 +811,6 @@ Feature: Validate all scenarios in the Organizational Risk Assessment
   @64603 @taskIsNotCreatedForSPI
   Scenario: Verify Task is not generated for SPI to Create Risk Assessment for an Organization
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
-#    When I create a risk assessment record for organization "Automation Permanent Organization for Risk Assessment"
     And I navigate to "Home" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Automation Permanent Organization for Risk Assessment" in "---orgRiskAssessment:-:pendingTaskTableId---" panel
@@ -791,6 +819,9 @@ Feature: Validate all scenarios in the Organizational Risk Assessment
     And I navigate to "Home" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Automation Permanent Organization for Risk Assessment" in "---orgRiskAssessment:-:pendingTaskTableId---" panel
+    And I click on advance filter of table id "---orgRiskAssessment:-:pendingTaskTableId---" for LWC
+    And I enter advance filter values inside id "---orgRiskAssessment:-:pendingTaskTableId---" for LWC
+      | Status | equals to | Not Started |
     When I click on "Start" icon for "Automation Permanent Organization for Risk Assessment" inside flex table with id "---orgRiskAssessment:-:pendingTaskTableId---" without waiting for record
     And I wait for "3" seconds
     And I navigate to "Risk Assessment" sub tab
@@ -873,6 +904,9 @@ Feature: Validate all scenarios in the Organizational Risk Assessment
     And I navigate to "Home" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Automation Permanent Organization for Risk Assessment" in "---orgRiskAssessment:-:pendingTaskTableId---" panel
+    And I click on advance filter of table id "---orgRiskAssessment:-:pendingTaskTableId---" for LWC
+    And I enter advance filter values inside id "---orgRiskAssessment:-:pendingTaskTableId---" for LWC
+      | Status | equals to | Not Started |
     When I click on "Start" icon for "Automation Permanent Organization for Risk Assessment" inside flex table with id "---orgRiskAssessment:-:pendingTaskTableId---" without waiting for record
     And I wait for "3" seconds
     And I navigate to "Risk Assessment" sub tab
@@ -938,6 +972,9 @@ Feature: Validate all scenarios in the Organizational Risk Assessment
     And I navigate to "Home" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Automation Permanent Organization for Risk Assessment" in "---orgRiskAssessment:-:pendingTaskTableId---" panel
+    And I click on advance filter of table id "---orgRiskAssessment:-:pendingTaskTableId---" for LWC
+    And I enter advance filter values inside id "---orgRiskAssessment:-:pendingTaskTableId---" for LWC
+      | Status | equals to | Not Started |
     When I click on "Start" icon for "Automation Permanent Organization for Risk Assessment" inside flex table with id "---orgRiskAssessment:-:pendingTaskTableId---" without waiting for record
     And I wait for "3" seconds
     And I navigate to "Risk Assessment" sub tab
@@ -988,6 +1025,9 @@ Feature: Validate all scenarios in the Organizational Risk Assessment
     And I navigate to "Home" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Revise Risk Assessment" in "---orgRiskAssessment:-:pendingTaskTableId---" panel
+    And I click on advance filter of table id "---orgRiskAssessment:-:pendingTaskTableId---" for LWC
+    And I enter advance filter values inside id "---orgRiskAssessment:-:pendingTaskTableId---" for LWC
+      | Status | equals to | Not Started |
     When I click on "Start" icon for "Revise Risk Assessment" inside flex table with id "---orgRiskAssessment:-:pendingTaskTableId---" without waiting for record
     And I wait for "3" seconds
     And I navigate to "Risk Assessment" sub tab

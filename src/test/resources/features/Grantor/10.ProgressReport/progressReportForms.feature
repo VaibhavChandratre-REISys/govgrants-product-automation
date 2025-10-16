@@ -97,7 +97,6 @@ Feature: Validate scenarios in Progress Report Forms
       | To Save, City is required in the Recipient Information section.                                                                                                                    |
       | To Save, State is required in the Recipient Information section.                                                                                                                   |
       | To Save, ZIP / Postal Code is required in the Recipient Information section.                                                                                                       |
-      | To Save, Country is required in the Recipient Information section.                                                                                                                 |
       | To Save, First Name is required in the 13. Certification section.                                                                                                                  |
       | To Save, Last Name is required in the 13. Certification section.                                                                                                                   |
       | To Save, Title is required in the 13. Certification section.                                                                                                                       |
@@ -256,12 +255,13 @@ Feature: Validate scenarios in Progress Report Forms
     And I enter value "{AUTOEnvData:StringOf60Chars}" into field "RecipientOrganizationNameSF428__c"
     When I click on "Save" in the page details
     Then I softly see field "Recipient Organization Name" as "{AUTOEnvData:StringOf60Chars}"
+    And I wait for "7" seconds
     When I click on "Edit" in the page details
     And I clear the value from field "Street1SF428__c"
     When I click on "Save" in the page details
     And I wait for "2" seconds
     #280184
-    Then I softly see the following messages in the page details contains:
+    Then I see the following messages in the page details contains:
       | To Save, Street1 is required in the Recipient Information section. |
     And I enter value "{AUTOEnvData:StringOf55Chars}" into field "Street1SF428__c"
     When I click on "Save" in the page details
@@ -3224,7 +3224,7 @@ Feature: Validate scenarios in Progress Report Forms
       | Adding file is required in "Files section" with classification "Supplemental Sheet SF-428S or recipient equivalent ", If any option in "1b. Equipment Acquired under a Federal Award" is checked.                               |
       | Adding file is required in "Files section" with classification "Supplemental Sheet SF-428S or recipient equivalent ", If "3. Report Loss, Destruction or Theft of Federally-owned Property" is checked.                         |
       | Any one among "Sale Proceeds" or "Estimate of Current Fair Market Value" is required to be checked, if "2b. Sale of acquired equipment" is checked.                                                                             |
-      | "Percentage of Federal participation" is required, if "2b. Sale of acquired equipment" is checked.                                                                                                                               |
+      | "Percentage of Federal participation" is required, if "2b. Sale of acquired equipment" is checked.                                                                                                                              |
       | "Federal Share" is required, if "2b. Sale of acquired equipment" is checked.                                                                                                                                                    |
       | "Selling and handling allowance", if "2b. Sale of acquired equipment" is checked.                                                                                                                                               |
       | Total Amount is required, if "2b. Sale of acquired equipment" is checked.                                                                                                                                                       |
@@ -4410,11 +4410,11 @@ Feature: Validate scenarios in Progress Report Forms
     When I click on "Save" in the page details
     And I wait for "3" seconds
     Then I softly see the following messages in the page details contains:
-      | To Save, Federal Grant or Other Identifying Number Assigned by Federal Agency is required in the Federal Grant or Other Identifying Number Assigned by Federal Agency section.|
-      | To Save, Street1 is required in the 14b. Address of Real Property (legal description and complete address including zoning information) section.|
-      | To Save, City is required in the 14b. Address of Real Property (legal description and complete address including zoning information) section.|
-      | To Save, State is required in the 14b. Address of Real Property (legal description and complete address including zoning information) section.|
-      | To Save, ZIP / Postal Code is required in the 14b. Address of Real Property (legal description and complete address including zoning information) section.|
+      | To Save, Federal Grant or Other Identifying Number Assigned by Federal Agency is required in the Federal Grant or Other Identifying Number Assigned by Federal Agency section. |
+      | To Save, Street1 is required in the 14b. Address of Real Property (legal description and complete address including zoning information) section.                               |
+      | To Save, City is required in the 14b. Address of Real Property (legal description and complete address including zoning information) section.                                  |
+      | To Save, State is required in the 14b. Address of Real Property (legal description and complete address including zoning information) section.                                 |
+      | To Save, ZIP / Postal Code is required in the 14b. Address of Real Property (legal description and complete address including zoning information) section.                     |
     And I enter "SF429A_Form_incorrect_data" values from "ProgressReport_Field_Values.xlsx"
     And I wait for "10" seconds
     When I click on "Save" in the page details
@@ -4572,11 +4572,11 @@ Feature: Validate scenarios in Progress Report Forms
     When I click on "Save" in the page details
     And I wait for "3" seconds
     Then I softly see the following messages in the page details contains:
-      | To Save, Federal Grant or Other Identifying Number Assigned by Federal Agency (#2 on cover page) is required in the Federal Grant or Other Identifying Number Assigned by Federal Agency section.|
-      | To Save, Street1 is required in the 13b. Address of Real Property (legal description and complete address including zoning information) section.|
-      | To Save, City is required in the 13b. Address of Real Property (legal description and complete address including zoning information) section.|
-      | To Save, State is required in the 13b. Address of Real Property (legal description and complete address including zoning information) section.|
-      | To Save, ZIP / Postal Code is required in the 13b. Address of Real Property (legal description and complete address including zoning information) section.|
+      | To Save, Federal Grant or Other Identifying Number Assigned by Federal Agency (#2 on cover page) is required in the Federal Grant or Other Identifying Number Assigned by Federal Agency section. |
+      | To Save, Street1 is required in the 13b. Address of Real Property (legal description and complete address including zoning information) section.                                                  |
+      | To Save, City is required in the 13b. Address of Real Property (legal description and complete address including zoning information) section.                                                     |
+      | To Save, State is required in the 13b. Address of Real Property (legal description and complete address including zoning information) section.                                                    |
+      | To Save, ZIP / Postal Code is required in the 13b. Address of Real Property (legal description and complete address including zoning information) section.                                        |
     And I enter "SF429B_Form_incorrect_data" values from "ProgressReport_Field_Values.xlsx"
     And I wait for "3" seconds
     When I click on "Save" in the page details
@@ -4759,11 +4759,11 @@ Feature: Validate scenarios in Progress Report Forms
     When I click on "Save" in the page details
     And I wait for "3" seconds
     Then I softly see the following messages in the page details contains:
-      | To Save, Federal Grant or Other Identifying Number Assigned by Federal Agency (#2 on cover page) is required in the Federal Grant or Other Identifying Number Assigned by Federal Agency section.|
-      | To Save, Street 1 is required in the 13b. Address of Real Property (legal description and complete address including zoning information) section.|
-      | To Save, City is required in the 13b. Address of Real Property (legal description and complete address including zoning information) section.|
-      | To Save, State is required in the 13b. Address of Real Property (legal description and complete address including zoning information) section.|
-      | To Save, Zip Code is required in the 13b. Address of Real Property (legal description and complete address including zoning information) section.|
+      | To Save, Federal Grant or Other Identifying Number Assigned by Federal Agency (#2 on cover page) is required in the Federal Grant or Other Identifying Number Assigned by Federal Agency section. |
+      | To Save, Street 1 is required in the 13b. Address of Real Property (legal description and complete address including zoning information) section.                                                 |
+      | To Save, City is required in the 13b. Address of Real Property (legal description and complete address including zoning information) section.                                                     |
+      | To Save, State is required in the 13b. Address of Real Property (legal description and complete address including zoning information) section.                                                    |
+      | To Save, Zip Code is required in the 13b. Address of Real Property (legal description and complete address including zoning information) section.                                                 |
     And I enter "SF429C_Form_incorrect_data" values from "ProgressReport_Field_Values.xlsx"
     And I wait for "6" seconds
     When I click on "Save" in the page details
@@ -4832,24 +4832,24 @@ Feature: Validate scenarios in Progress Report Forms
     When I click on "Save" in the page details
     And I wait for "2" seconds
     Then I softly see the following messages in the page details contains:
-      | To Save, 1. Federal Agency and Organizational Element to Which Report is Submitted is required in the 1. Federal Agency and Organizational Element to Which Report is Submitted section.|
-      | To Save, 2. Federal Grant(s) or Other Identifying Number(s) Assigned by Federal Agency(ies) is required in the 2. Federal Grant(s) or Other Identifying Number(s) Assigned by Federal Agency(ies) section.|
-      | To Save, Recipient Organization Name is required in the 3. Recipient Organization (name and complete address including zip code) section.|
-      | To Save, Street1 is required in the 3. Recipient Organization (name and complete address including zip code) section.|
-      | To Save, City is required in the 3. Recipient Organization (name and complete address including zip code) section.|
-      | To Save, State is required in the 3. Recipient Organization (name and complete address including zip code) section.|
-      | To Save, ZIP / Postal Code is required in the 3. Recipient Organization (name and complete address including zip code) section.|
-      | First Name is required to save.                                                                         |
-      | Last Name is required to save.                                                                          |
-      | To Save, Email is required in the 6. Contact Person for this Report section.|
-      | To Save, Phone is required in the 6. Contact Person for this Report section.|
-      | To Save, First Name is required in the Details of Authorized Certifying Official section.|
-      | To Save, Last Name is required in the Details of Authorized Certifying Official section.|
-      | To Save, Title is required in the Details of Authorized Certifying Official section.|
-      | To Save, 11b. Signature of Authorized Certifying Official is required in the Details of Authorized Certifying Official section.|
-      | To Save, 11c. Telephone(area code,number, extension) of Authorized Certifying Official is required in the Details of Authorized Certifying Official section.|
-      | To Save, 11d. Email Address of Authorized Certifying Official is required in the Details of Authorized Certifying Official section.|
-      | To Save, 11e. Date report submitted (MM/DD/YYYY) is required in the Details of Authorized Certifying Official section.|
+      | To Save, 1. Federal Agency and Organizational Element to Which Report is Submitted is required in the 1. Federal Agency and Organizational Element to Which Report is Submitted section.                   |
+      | To Save, 2. Federal Grant(s) or Other Identifying Number(s) Assigned by Federal Agency(ies) is required in the 2. Federal Grant(s) or Other Identifying Number(s) Assigned by Federal Agency(ies) section. |
+      | To Save, Recipient Organization Name is required in the 3. Recipient Organization (name and complete address including zip code) section.                                                                  |
+      | To Save, Street1 is required in the 3. Recipient Organization (name and complete address including zip code) section.                                                                                      |
+      | To Save, City is required in the 3. Recipient Organization (name and complete address including zip code) section.                                                                                         |
+      | To Save, State is required in the 3. Recipient Organization (name and complete address including zip code) section.                                                                                        |
+      | To Save, ZIP / Postal Code is required in the 3. Recipient Organization (name and complete address including zip code) section.                                                                            |
+      | To Save, First Name is required in the 6. Contact Person for this Report section.                                                                                                                          |
+      | To Save, Last Name is required in the 6. Contact Person for this Report section.                                                                                                                           |
+      | To Save, Email is required in the 6. Contact Person for this Report section.                                                                                                                               |
+      | To Save, Phone is required in the 6. Contact Person for this Report section.                                                                                                                               |
+      | To Save, First Name is required in the Details of Authorized Certifying Official section.                                                                                                                  |
+      | To Save, Last Name is required in the Details of Authorized Certifying Official section.                                                                                                                   |
+      | To Save, Title is required in the Details of Authorized Certifying Official section.                                                                                                                       |
+      | To Save, 11b. Signature of Authorized Certifying Official is required in the Details of Authorized Certifying Official section.                                                                            |
+      | To Save, 11c. Telephone(area code,number, extension) of Authorized Certifying Official is required in the Details of Authorized Certifying Official section.                                               |
+      | To Save, 11d. Email Address of Authorized Certifying Official is required in the Details of Authorized Certifying Official section.                                                                        |
+      | To Save, 11e. Date report submitted (MM/DD/YYYY) is required in the Details of Authorized Certifying Official section.                                                                                     |
     And I enter values into fields
       | Value              | Field                                  |
       | 1234               | FederalAgencyandOrganizationalSF429__c |
@@ -5215,23 +5215,23 @@ Feature: Validate scenarios in Progress Report Forms
     And I wait for "3" seconds
     When I click on "Save" in the page details
     Then I softly see the following messages in the page details contains:
-      | To Save, 1. Type of Request is required in the 1. Type of Request section.|
-      | To Save, 2. Basis of Request is required in the 2. Basis of Request section.|
-      | To Save, 3. Federal Sponsoring Agency and Organizational Element to Which This Report Is Submitted is required in the 3. Federal Sponsoring Agency and Organizational Element to Which This Report Is Submitted section.|
-      | To Save, From is required in the 8. Period Covered by This Request section.|
-      | To Save, To is required in the 8. Period Covered by This Request section.|
-      | Street1 is required to save.                                                                                   |
-      | City is required to save.                                                                                      |
-      | State is required to save.                                                                                     |
-      | ZIP / Postal Code is required to save.                                                                         |
-      | To Save, Street1 is required in the 10. Payee (Where check is to be sent if different than item 9) section.|
-      | To Save, City is required in the 10. Payee (Where check is to be sent if different than item 9) section.|
-      | To Save, State is required in the 10. Payee (Where check is to be sent if different than item 9) section.|
-      | To Save, ZIP / Postal Code is required in the 10. Payee (Where check is to be sent if different than item 9) section.|
-      | To Save, Signature of Authorized Certifying Official is required in the 12. Certification section.|
-      | To Save, Date Report Submitted: is required in the 12. Certification section.|
-      | To Save, Signature of Authorized Certifying Official is required in the 12. Certification section.|
-      | To Save, Date Request Submitted is required in the 12. Certification section.|
+      | To Save, 1. Type of Request is required in the 1. Type of Request section.                                                                                                                                               |
+      | To Save, 2. Basis of Request is required in the 2. Basis of Request section.                                                                                                                                             |
+      | To Save, 3. Federal Sponsoring Agency and Organizational Element to Which This Report Is Submitted is required in the 3. Federal Sponsoring Agency and Organizational Element to Which This Report Is Submitted section. |
+      | To Save, From is required in the 8. Period Covered by This Request section.                                                                                                                                              |
+      | To Save, To is required in the 8. Period Covered by This Request section.                                                                                                                                                |
+      | To Save, Street1 is required in the 9. Recipient Organization section.                                                                                                                                                   |
+      | To Save, City is required in the 9. Recipient Organization section.                                                                                                                                                      |
+      | To Save, State is required in the 9. Recipient Organization section.                                                                                                                                                     |
+      | To Save, ZIP / Postal Code is required in the 9. Recipient Organization section.                                                                                                                                         |
+      | To Save, Street1 is required in the 10. Payee (Where check is to be sent if different than item 9) section.                                                                                                              |
+      | To Save, City is required in the 10. Payee (Where check is to be sent if different than item 9) section.                                                                                                                 |
+      | To Save, State is required in the 10. Payee (Where check is to be sent if different than item 9) section.                                                                                                                |
+      | To Save, ZIP / Postal Code is required in the 10. Payee (Where check is to be sent if different than item 9) section.                                                                                                    |
+      | To Save, Signature of Authorized Certifying Official is required in the 12. Certification section.                                                                                                                       |
+      | To Save, Date Report Submitted: is required in the 12. Certification section.                                                                                                                                            |
+      | To Save, Signature of Authorized Certifying Official is required in the 12. Certification section.                                                                                                                       |
+      | To Save, Date Request Submitted is required in the 12. Certification section.                                                                                                                                            |
     And I enter "SF271_incorrect_data" values from "ProgressReport_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I wait for "2" seconds

@@ -1,4 +1,4 @@
-@deskReview @grantor-regression @grantor-parallel-regression @siteVisit @regression @siteAndDeskReview
+@deskReview @grantor-regression @grantor-parallel-regression @siteVisit @regression @siteAndDeskReview @deskExecution
 Feature: Validate all scenarios in Desk Review
 
   Background: Create Desk Review
@@ -321,7 +321,7 @@ Feature: Validate all scenarios in Desk Review
     Then I softly see field "Status" as "Submitted to Grantor"
     And I logout
     And I wait for "2" seconds
-    And I checkout to yopmail with mailid "pm.automation@yopmail.com"
+    And I checkout to yopmail with mailid "pm.automation.qa2@yopmail.com"
     And I pause execution for "180" seconds
     Then I refresh the page
     And I see the mail subject is as follows :
@@ -392,7 +392,7 @@ Feature: Validate all scenarios in Desk Review
     Then I softly see status in Progress-bar is "In Progress" and is "dark blue"
     And I logout
     And I pause execution for "2" seconds
-    And I checkout to yopmail with mailid "pm.automation@yopmail.com"
+    And I checkout to yopmail with mailid "pm.automation.qa2@yopmail.com"
     And I pause execution for "5" seconds
     Then I refresh the page
     And I see the mail subject is as follows :
@@ -1059,7 +1059,7 @@ Feature: Validate all scenarios in Desk Review
     And I click on "Close" button for view files page
     And I logout
 #    And I pause execution for "120" seconds
-#    And I checkout to yopmail with mailid "exe.automation@yopmail.com"
+#    And I checkout to yopmail with mailid "exe.automation.qa2@yopmail.com"
 #    And I refresh the page
 #    And I see the mail subject is as follows :
 #     """
@@ -1141,7 +1141,7 @@ Feature: Validate all scenarios in Desk Review
     When I click on "View" icon for "{SavedValue:Automation Runtime Award Desk Review}" inside flex table with id "---deskreview:-:monitoringTabDeskReviewTableId---"
     Then I softly see status in Progress-bar is "Closed" and is "dark blue"
     When I pause execution for "120" seconds
-    And I checkout to yopmail with mailid "automationspi31@yopmail.com"
+    And I checkout to yopmail with mailid "automationspi31.qa2@yopmail.com"
     And I refresh the page
     And I see the mail subject is as follows :
       """
@@ -1572,8 +1572,7 @@ Feature: Validate all scenarios in Desk Review
     And I update title as "Automation.pdf" on upload file modal
     And I select Classification as "Other" at upload file modal
     When I click modal button "Save"
-    And I click modal button "Close"
-    And I refresh the page
+#    And I click modal button "Close"
     And I wait for "2" seconds
     Then I softly see value "Automation.pdf" for title "Title" inside table "---deskreview:-:deskReviewsFilesTableId---"
     And I click on "Delete" icon for "Automation.pdf" inside flex table with id "---deskreview:-:deskReviewsFilesTableId---" without waiting for record

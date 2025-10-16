@@ -232,7 +232,7 @@ Feature: Validate all scenarios in Funding Source
     And I refresh the page
     When I navigate to "Planning" tab
     And I navigate to "Funding Sources" content inside "Setup" subheader on left panel
-    And I click toggle button to select "Internal Funding Sources -Closed"
+    And I click toggle button to select "Internal Funding Sources - Closed"
     When I perform quick search for "<Funding Source>" in "---fundingsource:-:fundingSourceTableId---" panel
     And I click on "View" icon for "<Funding Source>" inside table
     And I wait for "3" seconds
@@ -314,7 +314,7 @@ Feature: Validate all scenarios in Funding Source
     And I update title as "Automation.pdf" on upload file modal
     And I select Classification as "Supporting Documents" at upload file modal
     When I click modal button "Save"
-    And I click modal button "Close"
+#    And I click modal button "Close"
     And I refresh the page
     And I wait for "2" seconds
     Then I softly see value "Automation.pdf" for title "Title" inside table "---fundingSource:-:InternalFundingSourceFilesTableId---"
@@ -354,7 +354,7 @@ Feature: Validate all scenarios in Funding Source
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     When I navigate to "Planning" tab
     And I navigate to "Funding Sources" content inside "Setup" subheader on left panel
-    And I click toggle button to select "Internal Funding Sources -Closed"
+    And I click toggle button to select "Internal Funding Sources - Closed"
     When I perform quick search for "{SavedValue:FUNDINGSOURCE}" in "---fundingsource:-:fundingSourceTableId---" panel
     And I click on "View" icon for "{SavedValue:FUNDINGSOURCE}" inside table
     When I navigate to "Files" sub tab
@@ -362,6 +362,8 @@ Feature: Validate all scenarios in Funding Source
     Then I softly can see row level action button "Download" against "Supporting Documents" in flex table with id "---fundingSource:-:InternalFundingSourceFilesTableId---"
     Then I softly can see row level action button "View" against "Supporting Documents" in flex table with id "---fundingSource:-:InternalFundingSourceFilesTableId---"
     And I click on "Download" icon for "Supporting Documents" inside flex table with id "---fundingSource:-:InternalFundingSourceFilesTableId---" without waiting for record
+    And I download the file without rename 
+    And I wait for "2" seconds
     Then I softly verify that the file "Automation.pdf" is downloaded
 
   @196553 @ValidatefilerelatedpermissionsforADMINprofileduringtheworkflowStatusCreatedActivatedClosedwhenInternalFundingSourceiscreatedbyEXE @Sprint-3-US-195048
@@ -484,6 +486,8 @@ Feature: Validate all scenarios in Funding Source
     Then I softly can see row level action button "Download" against "Other" in flex table with id "---fundingSource:-:InternalFundingSourceFilesTableId---"
     Then I softly can see row level action button "View" against "Other" in flex table with id "---fundingSource:-:InternalFundingSourceFilesTableId---"
     And I click on "Download" icon for "Other" inside flex table with id "---fundingSource:-:InternalFundingSourceFilesTableId---" without waiting for record
+    And I download the file without rename
+    And I wait for "3" seconds
     Then I softly verify that the file "Attachment.pdf" is downloaded
 
   @196556 @ValidatefilerelatedpermissionsforPOprofileduringtheworkflowStatusCreatedActivatedActivewhenInternalFundingSourceiscreatedbyEXE @Sprint-3-US-195048
@@ -530,6 +534,8 @@ Feature: Validate all scenarios in Funding Source
     Then I softly can see row level action button "Download" against "Other" in flex table with id "---fundingSource:-:InternalFundingSourceFilesTableId---"
     Then I softly can see row level action button "View" against "Other" in flex table with id "---fundingSource:-:InternalFundingSourceFilesTableId---"
     And I click on "Download" icon for "Other" inside flex table with id "---fundingSource:-:InternalFundingSourceFilesTableId---" without waiting for record
+    And I download the file without rename
+    And I wait for "3" seconds
     Then I softly verify that the file "Attachment.pdf" is downloaded
 
   @196558 @196563 @ValidatefilerelatedpermissionsforEXEprofileduringtheworkflowStatusCreatedActivatedClosedwhenExternalFundingSourceiscreatedbyEXE @Sprint-3-US-195048
@@ -587,7 +593,7 @@ Feature: Validate all scenarios in Funding Source
     When I re-login to "Grantor" app as "PO" user on "INTERNAL" portal
     When I navigate to "Planning" tab
     And I navigate to "Funding Sources" content inside "Setup" subheader on left panel
-    And I click toggle button to select "All External Funding Sources"
+    And I click toggle button to select "External Funding Sources - All"
     When I perform quick search for "{SavedValue:FUNDINGSOURCE}" in "---fundingsource:-:externalFundingTableId---" panel
     And I click on "View" icon for "{SavedValue:FUNDINGSOURCE}" inside table
     When I navigate to "Files" sub tab
@@ -595,9 +601,11 @@ Feature: Validate all scenarios in Funding Source
     Then I softly can see row level action button "Download" against "Other" in flex table with id "---fundingSource:-:externalFundingSourceTableId---"
     Then I softly can see row level action button "View" against "Other" in flex table with id "---fundingSource:-:externalFundingSourceTableId---"
     And I click on "Download" icon for "Other" inside flex table with id "---fundingSource:-:externalFundingSourceTableId---" without waiting for record
+    And I download the file without rename
+    And I wait for "3" seconds
     Then I softly verify that the file "Attachment.pdf" is downloaded
 
- @196559 @196561 @ValidatefilerelatedpermissionsforADMINprofileduringtheworkflowStatusCreatedActivatedClosedwhenExternalFundingSourceiscreatedbyEXE @Sprint-3-US-195048
+  @196559 @196561 @ValidatefilerelatedpermissionsforADMINprofileduringtheworkflowStatusCreatedActivatedClosedwhenExternalFundingSourceiscreatedbyEXE @Sprint-3-US-195048
   Scenario: Validate file related permissions for ADMIN profile during the workflow Status (Created, Activated, Closed) when External Funding Source is created by ADMIN
     When I login to "Grantor" app as "ADMIN" user
     And I navigate to "Planning" tab
@@ -653,7 +661,7 @@ Feature: Validate all scenarios in Funding Source
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     When I navigate to "Planning" tab
     And I navigate to "Funding Sources" content inside "Setup" subheader on left panel
-    And I click toggle button to select "All External Funding Sources"
+    And I click toggle button to select "External Funding Sources - All"
     When I perform quick search for "{SavedValue:FUNDINGSOURCE}" in "---fundingsource:-:externalFundingTableId---" panel
     And I click on "View" icon for "{SavedValue:FUNDINGSOURCE}" inside table
     When I navigate to "Files" sub tab
@@ -661,6 +669,8 @@ Feature: Validate all scenarios in Funding Source
     Then I softly can see row level action button "Download" against "Other" in flex table with id "---fundingSource:-:externalFundingSourceTableId---"
     Then I softly can see row level action button "View" against "Other" in flex table with id "---fundingSource:-:externalFundingSourceTableId---"
     And I click on "Download" icon for "Other" inside flex table with id "---fundingSource:-:externalFundingSourceTableId---" without waiting for record
+    And I download the file without rename
+    And I wait for "3" seconds
     Then I softly verify that the file "Attachment.pdf" is downloaded
 
   @196560 @196562 @ValidatefilerelatedpermissionsforFOprofileduringtheworkflowStatusCreatedActivatedClosedwhenExternalFundingSourceiscreatedbyFO @Sprint-3-US-195048
@@ -719,7 +729,7 @@ Feature: Validate all scenarios in Funding Source
     When I re-login to "Grantor" app as "FD" user on "INTERNAL" portal
     When I navigate to "Planning" tab
     And I navigate to "Funding Sources" content inside "Setup" subheader on left panel
-    And I click toggle button to select "All External Funding Sources"
+    And I click toggle button to select "External Funding Sources - All"
     When I perform quick search for "{SavedValue:FUNDINGSOURCE}" in "---fundingsource:-:externalFundingTableId---" panel
     And I click on "View" icon for "{SavedValue:FUNDINGSOURCE}" inside table
     When I navigate to "Files" sub tab
@@ -727,5 +737,6 @@ Feature: Validate all scenarios in Funding Source
     Then I softly can see row level action button "Download" against "Other" in flex table with id "---fundingSource:-:externalFundingSourceTableId---"
     Then I softly can see row level action button "View" against "Other" in flex table with id "---fundingSource:-:externalFundingSourceTableId---"
     And I click on "Download" icon for "Other" inside flex table with id "---fundingSource:-:externalFundingSourceTableId---" without waiting for record
-    And I wait for "1" seconds
+    And I download the file without rename
+    And I wait for "3" seconds
     Then I softly verify that the file "Attachment.pdf" is downloaded

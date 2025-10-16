@@ -256,7 +256,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---paymentRequest:-:recipientAwardTableId---" without waiting for record
     When I navigate to "Actuals" sub tab
     And I click on top right button "Reimbursement Request" in flex table with id "---paymentRequest:-:paymentRequestTableId---"
-    When I enter value "Automation Runtime Payment Request" into field "Title__c"
+    When I enter in modal value "Automation Runtime Payment Request" into field "Title__c"
     And I click modal button "Save and Continue"
     When I enter "Edition" values from "PaymentRequest_Field_Values.xlsx"
     When I click on "Save" in the page details
@@ -2525,11 +2525,11 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I navigate to "Budget" sub tab
     When I click on "Add Line Items" icon for "Construction" inside flex table with id "---subAwardStandAlone:-:subAwardBudgetTableId---"
     And I save the value from row "1" for column name "Award Amount" as "AwardAmount1" from flex table "---subAwardStandAlone:-:RecipientAwardBudgetCategoryTableId---"
-    When I close "Subaward Budget Category" modal by clicking the top right x button
+    When I close "Subaward Line Items" modal by clicking the top right x button
     And I click on page navigation arrow "---subAwardStandAlone:-:subAwardBudgetTableId---" for table id "Next"
     When I click on "Add Line Items" icon for "Construction" inside flex table with id "---subAwardStandAlone:-:subAwardBudgetTableId---"
     And I save the value from row "1" for column name "Award Amount" as "AwardAmount2" from flex table "---subAwardStandAlone:-:RecipientAwardBudgetCategoryTableId---"
-    When I close "Subaward Budget Category" modal by clicking the top right x button
+    When I close "Subaward Line Items" modal by clicking the top right x button
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
     And I navigate to "Subawards" content inside "Grants, Subawards & Amendments" subheader on left panel
@@ -12236,8 +12236,10 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I click on "View" icon for "Activated" inside flex table with id "---amendment:-:recipientAwardsTableId---" without waiting for record
     Then I softly see field "Status" as "Activated"
     And I click on hyperlink containing value "{SavedValue:GrantEGMSID}"
+    And I wait for "2" seconds
     #268797
     When I navigate to "Budget" sub tab
+    And I wait for "2" seconds
     Then I softly see field "Cumulative Obligation" as "$1,000.00"
     And I save the field labeled "Cumulative Obligation" as "CumulativeObligation4"
     Then I softly do not see addition of two fields "{SavedValue:CumulativeObligationAmended}" and "{SavedValue:CumulativeObligationActivated}" is equal to "{SavedValue:CumulativeObligation4}"
@@ -13122,8 +13124,8 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly see value "$500.00" for title "Balance" against the value "Automation Permanent Focus Area2" inside table "---subAwardStandAlone:-:awardPaymentSummaryFocusAreaTableId---"
     Then I softly see value "{SavedValue:Balance2}" is "Equals to" the value "{SavedValue:BalanceAW2}"
 
-  @265696 @VerifyINDusercancarryforwardtheamountfromonefocusareatoanotherfocusareaFANo @sprint-20-US-248356  @Allocation @skipDueToIndUser
-  Scenario:Verify IND user can carryforward the amount from one focus area to another focus area (FA is No)
+  @265696 @VerifyINDusercancarryforwardtheamountfromonefocusareatoanotherfocusareaFAYES @sprint-20-US-248356  @Allocation @skipDueToIndUser
+  Scenario:Verify IND user can carryforward the amount from one focus area to another focus area (FA is Yes)
     And I activated standalone subaward "Automation Runtime Award" with properties "SECOND_FOCUS_AREA_BUD_CAT_SUB_ORG_IND-Automation PM user" of type "Formula_By_Applicant"
     When I login to "Grantor" app as "PM" user
     And I navigate to "Grants" tab
@@ -16149,6 +16151,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I click on "Activate" in the page details
     Then I softly see field "Status" as "Activated"
     When I navigate to "Actuals" sub tab
+    And I wait for "2" seconds
     #271808
     Then I softly see field "Cumulative Obligation" as "$600.00"
     And I save the field labeled "Cumulative Obligation" as "CumulativeObligationActAwd"
@@ -16206,6 +16209,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly see value "{SavedValue:newObligationAmend33}" is "Equals to" the value "{SavedValue:newObligationAdAct33}"
     And I save the field labeled "Grant ID" as "GrantId"
     And I click "{SavedValue:GrantId}" lookup link
+    And I wait for "2" seconds
     When I navigate to "Budget" sub tab
     #271828
     Then I softly see field "Cumulative Obligation" as "$600.00"
@@ -19888,7 +19892,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I navigate to "Files" sub tab
     Then I can see top right button "Add Files" in flex table with id "---amendment:-:amendmentAddFilesTableId---"
     Then I can see top right button "New" in flex table with id "---amendment:-:amendmentAddNotesTableId---"
-    And I checkout to yopmail with mailid "automationpo1@yopmail.com"
+    And I checkout to yopmail with mailid "automation.po1.qa2@yopmail.com"
     Then I refresh the page
     And I see the mail subject is as follows :
       """

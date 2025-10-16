@@ -1,4 +1,4 @@
-@paymentRequestWithBackground @paymentRequest @grantor-regression @grantor-parallel-regression @payReqPendingExecution
+@paymentRequestAddFiles @paymentRequest @grantor-regression @grantor-parallel-regression @payReqPendingExecution
 Feature: Validate all scenarios in Payment Request with add file
 
   @193832 @193959 @VerifySPIusercanaddfileonadhocreimbursementPRifuserhaseditaccessontopeditbuttonforPRincreatedstate @sprint-14-US-225425 @addFiles
@@ -35,8 +35,7 @@ Feature: Validate all scenarios in Payment Request with add file
     And I update title as "Automation.pdf" on upload file modal
     And I select Classification as "Receipt" at upload file modal
     When I click modal button "Save"
-    And I click modal button "Close"
-    And I refresh the page
+#    And I click modal button "Close"
     And I wait for "2" seconds
     Then I softly see value "Automation.pdf" for title "Title" inside table "---paymentRequest:-:recipientReimbursmentPaymentFilesTableId---"
     Then I softly see value "Receipt" for title "Classification" inside table "---paymentRequest:-:recipientReimbursmentPaymentFilesTableId---"
@@ -93,7 +92,7 @@ Feature: Validate all scenarios in Payment Request with add file
     When I enter the following values into flex table with id "---paymentRequest:-:paymentLineItemsTableId---" by clicking "New" :
       | Title        | Narrative     | Unit Price | Quantity | Measurement |
       | Extra Salary | The narrative | 10         | 1        | Feet        |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Payment Line Items" modal by clicking the top right x button
     Then I see status in Progress-bar is "Created" and is "dark blue"
     Then I can see top right button "Edit" in page detail
     When I navigate to "Forms and Files" sub tab
@@ -129,7 +128,7 @@ Feature: Validate all scenarios in Payment Request with add file
     When I enter the following values into flex table with id "---paymentRequest:-:paymentLineItemsTableId---" by clicking "New" :
       | Title        | Narrative     | Unit Price | Quantity | Measurement | Other Charges ($) |
       | Extra Salary | The narrative | 10         | 1        | Feet        | 10                |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Payment Line Items" modal by clicking the top right x button
     And I click on "Submit to Grantor" in the page details
     And I wait for "2" seconds
     Then I softly see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
@@ -451,7 +450,7 @@ Feature: Validate all scenarios in Payment Request with add file
     When I enter the following values into flex table with id "---paymentRequest:-:paymentLineItemsTableId---" by clicking "New" :
       | Title        | Narrative     | Unit Price | Quantity | Measurement | Other Charges ($) |
       | Extra Salary | The narrative | 10         | 1        | Feet        | 10                |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Payment Line Items" modal by clicking the top right x button
     And I click on "Submit to Grantor" in the page details
     And I wait for "2" seconds
     Then I softly see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
@@ -531,7 +530,7 @@ Feature: Validate all scenarios in Payment Request with add file
     When I enter the following values into flex table with id "---paymentRequest:-:paymentLineItemsTableId---" by clicking "New" :
       | Title        | Narrative     | Unit Price | Quantity | Measurement | Other Charges ($) |
       | Extra Salary | The narrative | 10         | 1        | Feet        | 10                |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Payment Line Items" modal by clicking the top right x button
     And I click on "Submit to Grantor" in the page details
     And I wait for "2" seconds
     Then I softly see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
@@ -585,7 +584,7 @@ Feature: Validate all scenarios in Payment Request with add file
     When I enter the following values into flex table with id "---paymentRequest:-:paymentLineItemsTableId---" by clicking "New" :
       | Title        | Narrative     | Unit Price | Quantity | Measurement | Other Charges ($) |
       | Extra Salary | The narrative | 10         | 1        | Feet        | 10                |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Payment Line Items" modal by clicking the top right x button
     And I click on "Submit to Grantor" in the page details
     And I wait for "2" seconds
     Then I softly see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
@@ -652,7 +651,7 @@ Feature: Validate all scenarios in Payment Request with add file
     When I enter the following values into flex table with id "---paymentRequest:-:paymentLineItemsTableId---" by clicking "New" :
       | Title        | Narrative     | Unit Price | Quantity | Measurement | Other Charges ($) |
       | Extra Salary | The narrative | 10         | 1        | Feet        | 10                |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Payment Line Items" modal by clicking the top right x button
     And I click on "Submit to Grantor" in the page details
     And I wait for "2" seconds
     Then I softly see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
@@ -800,6 +799,7 @@ Feature: Validate all scenarios in Payment Request with add file
     And I navigate to "Forms and Files" sub tab
     Then I softly can see row level action button "Download" against "Attachment.pdf" in flex table with id "---paymentRequest:-:recipientAdvancePaymentFilesTableId---"
     When I click on "Download" icon for "Attachment.pdf" inside flex table with id "---paymentRequest:-:recipientAdvancePaymentFilesTableId---" without waiting for record
+    And I download the file without rename
     Then I softly verify that the file "Attachment.pdf" is downloaded
 
   @193977 @VerifyPMusercannotseetopleveleditbuttonandshouldabletoaddfileonadhocreimbursementPRwhenusersendtoownerwhileapproval @sprint-14-US-225425 @addFiles
@@ -825,7 +825,7 @@ Feature: Validate all scenarios in Payment Request with add file
     When I enter the following values into flex table with id "---paymentRequest:-:paymentLineItemsTableId---" by clicking "New" :
       | Title        | Narrative     | Unit Price | Quantity | Measurement | Other Charges ($) |
       | Extra Salary | The narrative | 10         | 1        | Feet        | 10                |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Payment Line Items" modal by clicking the top right x button
     And I click on "Submit to Grantor" in the page details
     And I wait for "2" seconds
     Then I softly see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
@@ -898,7 +898,7 @@ Feature: Validate all scenarios in Payment Request with add file
     When I enter the following values into flex table with id "---paymentRequest:-:paymentLineItemsTableId---" by clicking "New" :
       | Title        | Narrative     | Unit Price | Quantity | Measurement | Other Charges ($) |
       | Extra Salary | The narrative | 10         | 1        | Feet        | 10                |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Payment Line Items" modal by clicking the top right x button
     And I click on "Submit to Grantor" in the page details
     And I wait for "2" seconds
     Then I softly see status in Progress-bar is "Submitted to Grantor" and is "dark blue"

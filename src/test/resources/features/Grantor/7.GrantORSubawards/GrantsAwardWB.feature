@@ -1,4 +1,4 @@
-@grantsAwardWB @grantor-regression @grantor-parallel-regression @grantAndAward @AwardExecution @GrantsExecution
+@grantsAwardWB @grantor-regression @grantor-parallel-regression @grantAndAward @AwardExecution
 Feature: Validate all scenarios of grants and award without background
 
   @35555 @VerifyUsersCanSeeNewButtonOnGrantListView
@@ -148,13 +148,14 @@ Feature: Validate all scenarios of grants and award without background
     And I click on Menu icon present on top right corner of the page
     And I wait for "2" seconds
     And I select "Take Snapshot" from dropdown
-    And I refresh the page
     And I wait for "2" seconds
+    And I refresh the page
+    And I wait for "3" seconds
     When I navigate to "History" sub tab
     And I click on hyperlink containing value "SnapShot"
     And I click on "Download" button for snapshot view
     And I wait for "3" seconds
-    When I download the file for snapshot
+    When I download the file
     And I wait for "3" seconds
     Then I see "$0.00" on page "3" of "govgrant" pdf file
 
@@ -479,9 +480,6 @@ Feature: Validate all scenarios of grants and award without background
     And I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---subAwardFromFDM:-:riskAssessmentApproverTableId---" by clicking "New" :
       | Name                     | Risk Assessment |
-      | {SavedValue:PM Username} | NA              |
-    When I enter the following values into flex table with id "---subAwardFromFDM:-:riskAssessmentApproverTableId---" by clicking "New" :
-      | Name                     | Risk Assessment |
       | {SavedValue:PM Username} | Step 1          |
     When I enter the following values into flex table with id "---subAwardFromFDM:-:riskAssessmentApproverTableId---" by clicking "New" :
       | Name                     | Risk Assessment |
@@ -537,13 +535,13 @@ Feature: Validate all scenarios of grants and award without background
     And I navigate to "Budget" sub tab
     When I click on top right button "Associate" in flex table with id "---subAwardStandAlone:-:fundingAccountsTableId---"
     And I save the value from row "1" for column name "EGMS ID" as "EGMS ID1" from flex table "---subAwardStandAlone:-:awardFundingAccountsTableId---"
-    When I click "Associate" after selection of "{SavedValue:EGMS ID1}" in the table "---subAwardStandAlone:-:awardFundingAccountsTableId---"
+    When I click "Associate" after selection of "Automation Permanent Funding Account1" in the table "---subAwardStandAlone:-:awardFundingAccountsTableId---"
     When I close "Associate Funding Accounts" modal by clicking the top right x button
     And I refresh the page
     And I navigate to "Budget" sub tab
     When I edit the following rows inline in flex table with id "---subAwardStandAlone:-:fundingAccountsTableId---" by clicking "Edit" :
-      | Funding Account       | Encumbrance |
-      | {SavedValue:EGMS ID1} | 1000        |
+      | Funding Account              | Encumbrance |
+      | {SavedValue:fundingAccount1} | 1000        |
     And I click on "Remove" icon for "{SavedValue:fundingAccount}" inside flex table with id "---subAwardStandAlone:-:fundingAccountsTableId---" without waiting for record
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---subAwardFromFDM:-:peerReviewersTableId---" by clicking "New" :
@@ -558,9 +556,10 @@ Feature: Validate all scenarios of grants and award without background
     When I click on "Start" icon for "Record Id" inside flex table with id "---subAwardFromFDM:-:pendingTaskTableId---" without waiting for record
     And I navigate to "Responsibilities" sub tab
     When I click on "Enter Review" icon for "{SavedValue:FO Username}" inside flex table with id "---subAwardFromFDM:-:peerReviewersTableId---" without waiting for record
+    And I pause execution for "3" seconds
     And I enter a review as "Passed"
     When I click modal button "Save"
-    And I pause execution for "5" seconds
+    And I pause execution for "2" seconds
     And I click on submit review
     And I wait for "3" seconds
     When I re-login to "Grantor" app as "dynamicUser" user on "INTERNAL" portal
@@ -1017,7 +1016,7 @@ Feature: Validate all scenarios of grants and award without background
     And I click on "View" icon for "Created" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
     And I navigate to "Terms" sub tab
     When I click on top right button "Associate Mandatory Terms and Conditions" in flex table with id "---subAwardStandAlone:-:termsndConditionsTableId---"
-    And I refresh the page
+    And I wait for "3" seconds
     And I navigate to "Terms" sub tab
     And I save the value from row "1" for column name "Title" as "NonMandatoryT_C" from flex table "---subAwardStandAlone:-:termsndConditionsTableId---"
     Then I softly can see row level action button "Edit" against "{SavedValue:NonMandatoryT_C}" in flex table with id "---subAwardStandAlone:-:termsndConditionsTableId---"
@@ -1056,7 +1055,7 @@ Feature: Validate all scenarios of grants and award without background
     When I enter the following values into flex table with id "---subAwardStandAlone:-:budgetLineItems---" by clicking "New" :
       | Title        | Narrative     | Award Amount | Cash Match | Non-Cash Match |
       | Extra Salary | The narrative | 1000         | 100        | 100            |
-    When I close "Subaward Budget Category" modal by clicking the top right x button
+    When I close "Subaward Line Items" modal by clicking the top right x button
     When I navigate to "Performance" sub tab
     And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:kpiTableId---" by clicking "Edit" :
       | EGMS ID                  | Target |
@@ -1143,7 +1142,7 @@ Feature: Validate all scenarios of grants and award without background
       | Extra Salary | The narrative | 1000         | 100        | 100            |
     Then I softly see value "$1,000.00" for title "Award Amount" against the value "Extra Salary" inside table "---subAwardStandAlone:-:RecipientAwardBudgetCategoryTableId---"
     Then I softly see value "$100.00" for title "Cash Match" against the value "Extra Salary" inside table "---subAwardStandAlone:-:RecipientAwardBudgetCategoryTableId---"
-    When I close "Subaward Budget Category" modal by clicking the top right x button
+    When I close "Subaward Line Items" modal by clicking the top right x button
     And I wait for "3" seconds
     When I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -1154,7 +1153,7 @@ Feature: Validate all scenarios of grants and award without background
     When I enter the following values into flex table with id "---subAwardStandAlone:-:budgetLineItems---" by clicking "New" :
       | Title        | Narrative     | Award Amount | Cash Match | Non-Cash Match |
       | Extra Salary | The narrative | 10000        | 100        | 100            |
-    When I close "Subaward Budget Category" modal by clicking the top right x button
+    When I close "Subaward Line Items" modal by clicking the top right x button
     And I wait for "2" seconds
     Then I softly see value "$10,000.00" for title "Award Amount" against the value "Equipment" inside table "---subAwardStandAlone:-:sRBudgetCategoryTableId---"
     Then I softly see value "$100.00" for title "Cash Match" against the value "Equipment" inside table "---subAwardStandAlone:-:sRBudgetCategoryTableId---"
@@ -1954,6 +1953,8 @@ Feature: Validate all scenarios of grants and award without background
     And I get the "EGMS ID"
     And I click on "Edit" in the page details
     When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
+    And I navigate to "Budget" sub tab
+    And I enter value "15" into field "BudgetRedirectionThreshhold__c"
     And I click on "Save" in the page details
     And I navigate to "Budget" sub tab
     When I click on top right button "Associate" in flex table with id "---subAwardStandAlone:-:fundingAccountsTableId---"
@@ -1995,9 +1996,6 @@ Feature: Validate all scenarios of grants and award without background
     And I wait for "3" seconds
     When I get the "EGMS ID"
     When I navigate to "Responsibilities" sub tab
-    When I enter the following values into flex table with id "---subAwardStandAlone:-:riskAssessmentApproverTableId---" by clicking "New" :
-      | Name                     | Risk Assessment |
-      | {SavedValue:PM Username} | NA              |
     When I enter the following values into flex table with id "---subAwardStandAlone:-:riskAssessmentApproverTableId---" by clicking "New" :
       | Name                     | Risk Assessment |
       | {SavedValue:PM Username} | Step 1          |
@@ -2385,7 +2383,7 @@ Feature: Validate all scenarios of grants and award without background
     When I enter the following values into flex table with id "---paymentRequest:-:paymentLineItemsTableId---" by clicking "New" :
       | Title        | Narrative     | Unit Price | Quantity | Measurement | Other Charges ($) | Program Income Disbursed | Cash Match | Non-Cash Match |
       | Extra Salary | The narrative | 500        | 1        | Feet        | 0                 | 0                        | 100        | 100            |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Payment Line Items" modal by clicking the top right x button
     And I click on "Submit to Grantor" in the page details
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -2468,6 +2466,7 @@ Feature: Validate all scenarios of grants and award without background
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Closed"
+    When I perform quick search for "<Award Name>" in "---subAwardFromFDM:-:grantsTableId---" panel
     When I click on "View" icon for "<Award Name>" inside flex table with id "---subAwardFromFDM:-:grantsTableId---" without waiting for record
     And I navigate to "Budget" sub tab
     Then I softly see field "Cumulative Obligation" as "{SavedValue:CumulativeObligation}"
@@ -2497,6 +2496,7 @@ Feature: Validate all scenarios of grants and award without background
     When I login to "Grantor" app as "PM" user
     When I navigate to "Planning" tab
     When I navigate to "Terms and Conditions" content inside "Setup" subheader on left panel
+    When I perform quick search for "Terms" in "---home:-:termsAndConditionsTableId---" panel
     And I save the total records from the flex table id "---home:-:termsAndConditionsTableId---" as "totalRecords"
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
@@ -4974,7 +4974,7 @@ Feature: Validate all scenarios of grants and award without background
     And I click on "Submit for Approval" in the page details
     And I "Reject" in the approval decision
     Then I softly see field "Status" as "Rejected"
-    And I checkout to yopmail with mailid "pm1.automation@yopmail.com"
+    And I checkout to yopmail with mailid "pm1.automation.qa2@yopmail.com"
     And I pause execution for "180" seconds
     Then I refresh the page
     And I see the mail subject is as follows :
@@ -5087,7 +5087,7 @@ Feature: Validate all scenarios of grants and award without background
     And I "Send back" in the approval decision
     And I wait for "5" seconds
     Then I softly see field "Status" as "Created"
-    And I checkout to yopmail with mailid "pm1.automation@yopmail.com"
+    And I checkout to yopmail with mailid "pm1.automation.qa2@yopmail.com"
     And I pause execution for "120" seconds
     Then I refresh the page
     And I see the mail subject is as follows :
@@ -5102,7 +5102,7 @@ Feature: Validate all scenarios of grants and award without background
       Subaward Title: {SavedValue:Automation Runtime Direct Award}
       Subaward Type: Initial
       Subaward Number: {SavedValue:AwardEGMSID}
-      Grant :
+      Grant : {SavedValue:GrantEGMSID}
       Log in to EGMS and click here for more details.
       Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrantssupport@reisystems.com, if you have any questions or need assistance with this task.
       Thank you.
@@ -5197,7 +5197,7 @@ Feature: Validate all scenarios of grants and award without background
     When I click on top right button "Associate Mandatory Terms and Conditions" in flex table with id "---subAwardStandAlone:-:termsndConditionsTableId---"
     And I click on "Submit for Approval" in the page details
     And I "Approve" in the approval decision
-    And I checkout to yopmail with mailid "pm1.automation@yopmail.com"
+    And I checkout to yopmail with mailid "pm1.automation.qa2@yopmail.com"
     And I pause execution for "180" seconds
     Then I refresh the page
     And I see the mail subject is as follows :
@@ -5512,7 +5512,7 @@ Feature: Validate all scenarios of grants and award without background
       | Description                 | Required  | Applies To  | Status |
       | Automation test description | Mandatory | Application | Active |
     When I click on "Upload Template" icon for "Not Applicable" inside flex table with id "---subAwardStandAlone:-:grantSupportDocTableId---" without waiting for record
-    Then I softly see "Add Supporting Documents Checklist" opens in overLay window
+    Then I softly see "Upload Document" opens in overLay window
 
   @220559 @sprint-7-US-205248
   Scenario: Validate PO user click on Upload Template icon a new modal will open It will have one option Upload File from Computer
@@ -5573,6 +5573,7 @@ Feature: Validate all scenarios of grants and award without background
       | Automation test description | Mandatory | Application | Active |
     When I click on "Upload Template" icon for "Not Applicable" inside flex table with id "---subAwardStandAlone:-:grantSupportDocTableId---" without waiting for record
     Then I see "Upload" button is disabled at modal under library
+    And I select Classification as "Others" at upload file modal
     When I upload file "AttachmentTesting.pdf" into library
     Then I do not see "Upload" button is disabled at modal under library
 
@@ -5777,12 +5778,12 @@ Feature: Validate all scenarios of grants and award without background
     And I click on submit review
     And I logout
     And I pause execution for "5" seconds
-    And I checkout to yopmail with mailid "pm1.automation@yopmail.com"
+    And I checkout to yopmail with mailid "pm1.automation.qa2@yopmail.com"
     And I pause execution for "180" seconds
     Then I refresh the page
     And I see the mail subject is as follows :
       """
-      Sandbox: Notification: {SavedValue:Automation Runtime Direct Award} has been Peer Reviewed
+      Sandbox: Notification: Award {SavedValue:Automation Runtime Direct Award} has been Peer Reviewed
       """
     Then I see the mail text is as follows :
       """
@@ -5839,7 +5840,7 @@ Feature: Validate all scenarios of grants and award without background
     And I pause execution for "5" seconds
     And I click on submit review
     And I pause execution for "5" seconds
-    And I checkout to yopmail with mailid "pm.automation@yopmail.com"
+    And I checkout to yopmail with mailid "pm.automation.qa2@yopmail.com"
     And I pause execution for "180" seconds
     Then I refresh the page
     And I see the mail subject is as follows :
@@ -5909,7 +5910,7 @@ Feature: Validate all scenarios of grants and award without background
       | Automation EXE | Fiscal Reviewer | Automation Description | 5        | No                   |
     And I click on "Send for Review" icon for "Created" inside flex table with id "---subAwardFromFDM:-:peerReviewersTableId---" without waiting for record
     Then I softly see field "Status" as "Submitted for Review"
-    And I checkout to yopmail with mailid "pm1.automation@yopmail.com"
+    And I checkout to yopmail with mailid "pm1.automation.qa2@yopmail.com"
     And I pause execution for "10" seconds
     Then I refresh the page
     And I see the mail subject is as follows :
@@ -6358,7 +6359,7 @@ Feature: Validate all scenarios of grants and award without background
     When I perform quick search for "{SavedValue:GrantEGMSID}" in "---subAwardStandAlone:-:grantTargetOwnerTableId---" panel
     Then I see value "{SavedValue:GrantEGMSID}" for title "Grant ID" inside table "---subAwardStandAlone:-:grantTargetOwnerTableId---"
     And I pause execution for "2" seconds
-    And I checkout to yopmail with mailid "pm1.automation@yopmail.com"
+    And I checkout to yopmail with mailid "pm1.automation.qa2@yopmail.com"
     And I pause execution for "180" seconds
     Then I refresh the page
     And I see the mail subject is as follows :
@@ -6385,7 +6386,7 @@ Feature: Validate all scenarios of grants and award without background
       The EGMS Team
       """
     Given I am on "INTERNAL" portal
-    And I checkout to yopmail with mailid "pm.automation@yopmail.com"
+    And I checkout to yopmail with mailid "pm.automation.qa2@yopmail.com"
     Then I refresh the page
     And I see the mail subject is as follows :
       """
@@ -6454,7 +6455,7 @@ Feature: Validate all scenarios of grants and award without background
     And I reset the table
     When I perform quick search for "{SavedValue:AwardEGMSID}" in "---program:-:grantorTaskReassignTableId---" panel
     Then I softly see value "{SavedValue:AwardEGMSID}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
-    And I checkout to yopmail with mailid "pm1.automation@yopmail.com"
+    And I checkout to yopmail with mailid "pm1.automation.qa2@yopmail.com"
     And I pause execution for "180" seconds
     Then I refresh the page
     And I see the mail subject is as follows :
@@ -6519,7 +6520,7 @@ Feature: Validate all scenarios of grants and award without background
     And I reset the table
     When I perform quick search for "{SavedValue:AwardEGMSID}" in "---program:-:grantorTaskReassignTableId---" panel
     Then I softly see value "{SavedValue:AwardEGMSID}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
-    And I checkout to yopmail with mailid "exe1.automation@yopmail.com"
+    And I checkout to yopmail with mailid "exe1.automation.qa2@yopmail.com"
     And I pause execution for "10" seconds
     Then I refresh the page
     And I see the mail subject is as follows :
@@ -7145,7 +7146,7 @@ Feature: Validate all scenarios of grants and award without background
     And I click on "View" icon for "{SavedValue:AwardEGMSID9}" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
     Then I can see top right button "Edit" in page detail
     Then I can see top right button "Send to Subrecipient" in page detail
-    And I checkout to yopmail with mailid "govgrantsautomation@yopmail.com"
+    And I checkout to yopmail with mailid "govgrantsautomation.q2@yopmail.com"
     Then I refresh the page
     And I see the mail subject is as follows :
       """
@@ -7208,7 +7209,7 @@ Feature: Validate all scenarios of grants and award without background
     When I enter the following values into flex table with id "---paymentRequest:-:paymentLineItemsTableId---" by clicking "New" :
       | Title        | Narrative     | Unit Price | Quantity | Measurement | Other Charges ($) | Program Income Disbursed | Cash Match | Non-Cash Match |
       | Extra Salary | The narrative | 10         | 1        | Feet        | 10                | 20                       | 100        | 100            |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Payment Line Items" modal by clicking the top right x button
     And I click on "Submit to Grantor" in the page details
     Then I see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
     Given I delete the record "{SavedValue:Automation Runtime Bulks Grants Records}" from the object "Progress Report"
@@ -7381,7 +7382,8 @@ Feature: Validate all scenarios of grants and award without background
     Then I softly see value "{SavedValue:GrantEGMSID2}" for title "Grant ID" inside table "---subAwardStandAlone:-:grantTargetOwnerTableId---"
     And I pause execution for "2" seconds
     And I logout
-    And I checkout to yopmail with mailid "govgrantsautomation@yopmail.com"
+    And I pause execution for "2" seconds
+    And I checkout to yopmail with mailid "govgrantsautomation.q2@yopmail.com"
     Then I refresh the page
     And I see the mail subject is as follows :
       """
@@ -7589,7 +7591,7 @@ Feature: Validate all scenarios of grants and award without background
     And I close the tab
     And I wait for "2" seconds
     When I click on "Submit to Grantor" in the page details
-    Then I softly see field "Status" as "Submitted to Grantor"
+    Then I see field "Status" as "Submitted to Grantor"
     And I activated standalone subaward "Automation Runtime Award Desk Review" with properties "Automation EXE user" of type "Competitive"
     And I wait for "5" seconds
     When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
@@ -7641,7 +7643,8 @@ Feature: Validate all scenarios of grants and award without background
     When I perform quick search for "{SavedValue:AnnEGMSID}" in "---program:-:grantorTaskReassignTableId---" panel
     Then I softly do not see value "{SavedValue:AnnEGMSID}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
     And I logout
-    And I checkout to yopmail with mailid "pm.automation@yopmail.com"
+    And I pause execution for "2" seconds
+    And I checkout to yopmail with mailid "pm.automation.qa2@yopmail.com"
     And I pause execution for "180" seconds
     Then I refresh the page
     And I see the mail subject is as follows :
@@ -7685,7 +7688,8 @@ Feature: Validate all scenarios of grants and award without background
     When I perform quick search for "{SavedValue:progID}" in "---program:-:grantorTaskReassignTableId---" panel
     Then I softly do not see value "{SavedValue:progID}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
     And I logout
-    And I checkout to yopmail with mailid "exe1.automation@yopmail.com"
+    And I pause execution for "2" seconds
+    And I checkout to yopmail with mailid "exe1.automation.qa2@yopmail.com"
     And I pause execution for "180" seconds
     Then I refresh the page
     And I see the mail subject is as follows :
@@ -7721,7 +7725,9 @@ Feature: Validate all scenarios of grants and award without background
     And I pause execution for "30" seconds
     When I perform quick search for "{SavedValue:DeskReview}" in "---program:-:grantorTaskReassignTableId---" panel
     Then I softly do not see value "{SavedValue:DeskReview}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
-    And I checkout to yopmail with mailid "exe1.automation@yopmail.com"
+    And I logout
+    And I pause execution for "2" seconds
+    And I checkout to yopmail with mailid "exe1.automation.qa2@yopmail.com"
     And I pause execution for "180" seconds
     Then I refresh the page
     And I see the mail subject is as follows :
@@ -7770,14 +7776,14 @@ Feature: Validate all scenarios of grants and award without background
     Then I softly see value "{SavedValue:DeskReview}" for title "EGMS ID" inside table "---deskreview:-:monitoringTabPhasePendingTasks---"
     When I click on "Start" icon for "{SavedValue:DeskReview}" inside flex table with id "---deskreview:-:monitoringTabPhasePendingTasks---"
     When I navigate to "Responsibilities" sub tab
-    When I click on "Enter Review" icon for "{SavedValue:PM Username}" inside flex table with id "---deskreview:-:reviewersFlexTableId---"
+    When I click on "Enter Review" icon for "{SavedValue:EXE1 Username}" inside flex table with id "---deskreview:-:reviewersFlexTableId---"
     And I enter values into fields
       | Value  | Field             |
       | Passed | Rating__c         |
       | Passed | ReviewComments__c |
     When I click modal button "Save"
     And I click on submit review
-    When I close "Site Visit Reviewers" modal by clicking the top right x button
+#    When I close "Site Visit Reviewers" modal by clicking the top right x button
     And I wait for "3" seconds
     When I re-login to "Grantor" app as "EXE1" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -8005,7 +8011,7 @@ Feature: Validate all scenarios of grants and award without background
     And I reset the table
     When I perform quick search for "{SavedValue:AwardEGMSID}" in "---program:-:grantorTaskReassignTableId---" panel
     Then I softly do not see value "{SavedValue:AwardEGMSID}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
-    And I checkout to yopmail with mailid "pm1.automation@yopmail.com"
+    And I checkout to yopmail with mailid "pm1.automation.qa2@yopmail.com"
     And I pause execution for "180" seconds
     Then I refresh the page
     And I see the mail subject is as follows :
@@ -8231,7 +8237,7 @@ Feature: Validate all scenarios of grants and award without background
     Then I softly see value "Submitted" for title "Status" inside table "---subAwardFromFDM:-:peerReviewersTableId---"
     And I logout
     And I wait for "2" seconds
-    And I checkout to yopmail with mailid "pm1.automation@yopmail.com"
+    And I checkout to yopmail with mailid "pm1.automation.qa2@yopmail.com"
     And I pause execution for "10" seconds
     Then I refresh the page
     And I see the mail subject is as follows :
@@ -8364,8 +8370,9 @@ Feature: Validate all scenarios of grants and award without background
     When I click on "Enter Review" icon for "{SavedValue:EXE Username}" inside flex table with id "---subAwardStandAlone:-:peerReviewersTableId---" without waiting for record
     And I enter a review as "Passed"
     When I click modal button "Save"
-    And I pause execution for "7" seconds
+    And I pause execution for "3" seconds
     And I click on submit review
+    And I pause execution for "3" seconds
     When I re-login to "Grantor" app as "PO" user on "INTERNAL" portal
     And I navigate to "Home" tab
     And I navigate to "Completed Tasks" content inside "My Tasks" subheader on left panel
@@ -8519,7 +8526,7 @@ Feature: Validate all scenarios of grants and award without background
     And I reset the table
     When I perform quick search for "{SavedValue:AwardEGMSID}" in "---program:-:grantorTaskReassignTableId---" panel
     Then I softly see value "{SavedValue:AwardEGMSID}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
-    And I checkout to yopmail with mailid "fo1.automation@yopmail.com"
+    And I checkout to yopmail with mailid "fo1.automation.qa2@yopmail.com"
     And I pause execution for "10" seconds
     Then I refresh the page
     And I see the mail subject is as follows :
@@ -8529,15 +8536,6 @@ Feature: Validate all scenarios of grants and award without background
     Then I see the mail text is as follows :
       """
       Hello,
-
-      The task(s) below have been reassigned from [Automation FO] to [Automation FO1] successfully. Please find the details below:
-
-      EGMS ID Type Status Subject Assigned By Due Date
-
-
-      Because these tasks have been reassigned, the original reviewer may have lost edit access to the record. However, they may still view the record.
-      Login in to EGMS and click on EGMS IDs to access the assigned record.
-
 
       The task(s) below were failed to reassigned as user was already assigned as a reviewer on this record.
 
@@ -8671,7 +8669,7 @@ Feature: Validate all scenarios of grants and award without background
     And I refresh the page
     And I wait for "7" seconds
     Then I softly see status in Progress-bar is "Rejected" and is "Red"
-    And I checkout to yopmail with mailid "pm.automation@yopmail.com"
+    And I checkout to yopmail with mailid "pm.automation.qa2@yopmail.com"
     And I pause execution for "180" seconds
     Then I refresh the page
     And I see the mail subject is as follows :
@@ -8812,7 +8810,7 @@ Feature: Validate all scenarios of grants and award without background
     And I click on "Start" icon for "{SavedValue:AwardEGMSID}" inside flex table with id "---subAwardStandAlone:-:pendingTaskTableId---" without waiting for record
     And I "Approve" in the approval decision
     Then I softly see field "Status" as "Approved"
-    And I checkout to yopmail with mailid "pm.automation@yopmail.com"
+    And I checkout to yopmail with mailid "pm.automation.qa2@yopmail.com"
     And I pause execution for "180" seconds
     Then I refresh the page
     And I see the mail subject is as follows :
@@ -8890,7 +8888,8 @@ Feature: Validate all scenarios of grants and award without background
     Then I softly see value "Submitted" for title "Status" inside table "---subAwardFromFDM:-:peerReviewersTableId---"
     Then I softly see value "Automation EXE1" for title "Reviewer Name" against the value "Submitted" inside table "---subAwardFromFDM:-:peerReviewersTableId---"
     And I logout
-    And I checkout to yopmail with mailid "pm.automation@yopmail.com"
+    And I wait for "2" seconds
+    And I checkout to yopmail with mailid "pm.automation.qa2@yopmail.com"
     And I pause execution for "180" seconds
     Then I refresh the page
     And I see the mail subject is as follows :
@@ -9015,7 +9014,7 @@ Feature: Validate all scenarios of grants and award without background
     And I reset the table
     When I perform quick search for "{SavedValue:AwardEGMSID}" in "---program:-:grantorTaskReassignTableId---" panel
     Then I softly see value "{SavedValue:AwardEGMSID}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
-    And I checkout to yopmail with mailid "exe1.automation@yopmail.com"
+    And I checkout to yopmail with mailid "exe1.automation.qa2@yopmail.com"
     And I pause execution for "180" seconds
     Then I refresh the page
     And I see the mail subject is as follows :
@@ -9605,7 +9604,7 @@ Feature: Validate all scenarios of grants and award without background
     And I reset the table
     When I perform quick search for "{SavedValue:AwardEGMSID4}" in "---program:-:grantorTaskReassignTableId---" panel
     Then I softly do not see value "{SavedValue:AwardEGMSID4}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
-    And I checkout to yopmail with mailid "fo1.automation@yopmail.com"
+    And I checkout to yopmail with mailid "fo1.automation.qa2@yopmail.com"
     And I pause execution for "180" seconds
     Then I refresh the page
     And I see the mail subject is as follows :
@@ -9629,7 +9628,7 @@ Feature: Validate all scenarios of grants and award without background
       The EGMS Team.
       """
     Given I am on "INTERNAL" portal
-    And I checkout to yopmail with mailid "fo1.automation@yopmail.com"
+    And I checkout to yopmail with mailid "fo1.automation.qa2@yopmail.com"
     And I pause execution for "180" seconds
     Then I refresh the page
     And I see the mail subject is as follows :
@@ -9640,76 +9639,60 @@ Feature: Validate all scenarios of grants and award without background
     Then I see the mail text is as follows :
       """
       Hello,
-
-      The task(s) below have been reassigned from [Automation FO] to [Automation FO1] successfully. Please find the details below:
-
-      EGMS ID Type Status Subject Assigned By Due Date
-      {SavedValue:AnnEGMSID} Approve Funding Announcement Not Started Approve Announcement #{SavedValue:AnnEGMSID} Created for Program #{SavedValue:ProgramEGMSID} Automation PM {Date:yyyy/MM/dd 00:00:00::d+10}
-
-
-      Because these tasks have been reassigned, the original reviewer may have lost edit access to the record. However, they may still view the record.
-      Login in to EGMS and click on EGMS IDs to access the assigned record.
-
-      Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrantssupport@reisystems.com if you have any questions or need assistance with this task.
-
-      Thank you,
-
-      The EGMS Team.
-      """
-    Given I am on "INTERNAL" portal
-    And I checkout to yopmail with mailid "fo1.automation@yopmail.com"
-    And I pause execution for "180" seconds
-    Then I refresh the page
-    And I see the mail subject is as follows :
-      """
-      Sandbox: Task Reassignment Report
-      """
-
-    Then I see the mail text is as follows :
-      """
-      Hello,
-
-      The task(s) below have been reassigned from [Automation FO] to [Automation FO1] successfully. Please find the details below:
-
-      EGMS ID Type Status Subject Assigned By Due Date
-      {SavedValue:AnnEGMSID} Approve Funding Announcement Not Started Approve Announcement #{SavedValue:AnnEGMSID} Created for Program #{SavedValue:ProgramEGMSID} Automation FO {Date:yyyy/MM/dd 00:00:00::d+10}
-
-
-      Because these tasks have been reassigned, the original reviewer may have lost edit access to the record. However, they may still view the record.
-      Login in to EGMS and click on EGMS IDs to access the assigned record.
-
-      Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrantssupport@reisystems.com if you have any questions or need assistance with this task.
-
-      Thank you,
-
-      The EGMS Team.
-      """
-    Given I am on "INTERNAL" portal
-    And I checkout to yopmail with mailid "pm.automation@yopmail.com"
-    And I pause execution for "180" seconds
-    Then I refresh the page
-    And I see the mail subject is as follows :
-      """
-      Sandbox: Task Reassignment Report
-      """
-
-    Then I see the mail text is as follows :
-      """
-      Hello,
-
-      The task(s) below have been reassigned from [Automation PM] to [Automation PM1] successfully. Please find the details below:
-
-      EGMS ID Type Status Subject Assigned By Due Date
-      {SavedValue:AnnEGMSID} Approve Funding Announcement Not Started Approve Announcement #{SavedValue:AnnEGMSID} Created for Program #{SavedValue:ProgramEGMSID} Automation PM {Date:yyyy/MM/dd 00:00:00::d+10}
-
-
-      Because these tasks have been reassigned, the original reviewer may have lost edit access to the record. However, they may still view the record.
-      Login in to EGMS and click on EGMS IDs to access the assigned record.
-
 
       The task(s) below were failed to reassigned as user was already assigned as a reviewer on this record.
 
       EGMS ID Type Status Subject Assigned By Reason of Failure
+      {SavedValue:AwardEGMSID2} Review Grantor Announcement Not Started Review Announcement #{SavedValue:AwardEGMSID1} Created for Program #{SavedValue:ProgramEGMSID} Automation FO Responsibilities Tab - A person with the same role cannot be added again.
+
+
+      Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrantssupport@reisystems.com if you have any questions or need assistance with this task.
+
+      Thank you,
+
+      The EGMS Team.
+      """
+    Given I am on "INTERNAL" portal
+    And I checkout to yopmail with mailid "fo1.automation.qa2@yopmail.com"
+    And I pause execution for "180" seconds
+    Then I refresh the page
+    And I see the mail subject is as follows :
+      """
+      Sandbox: Task Reassignment Report
+      """
+
+    Then I see the mail text is as follows :
+      """
+      Hello,
+
+      The task(s) below were failed to reassigned as user was already assigned as a reviewer on this record.
+
+      EGMS ID Type Status Subject Assigned By Reason of Failure
+      {SavedValue:AwardEGMSID3} Review Grantor Announcement Not Started Review Announcement #{SavedValue:AwardEGMSID1} Created for Program #{SavedValue:ProgramEGMSID} Automation FO Responsibilities Tab - A person with the same role cannot be added again.
+
+
+      Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrantssupport@reisystems.com if you have any questions or need assistance with this task.
+
+      Thank you,
+
+      The EGMS Team.
+      """
+    Given I am on "INTERNAL" portal
+    And I checkout to yopmail with mailid "pm.automation.qa2@yopmail.com"
+    And I pause execution for "180" seconds
+    Then I refresh the page
+    And I see the mail subject is as follows :
+      """
+      Sandbox: Task Reassignment Report
+      """
+    Then I see the mail text is as follows :
+      """
+      Hello,
+
+      The task(s) below were failed to reassigned as user was already assigned as a reviewer on this record.
+
+      EGMS ID Type Status Subject Assigned By Reason of Failure
+      {SavedValue:AwardEGMSID2} Review Grantor Announcement Not Started Review Announcement #{SavedValue:AwardEGMSID1} Created for Program #{SavedValue:ProgramEGMSID} Automation FO Responsibilities Tab - A person with the same role cannot be added again.
 
 
       Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrantssupport@reisystems.com if you have any questions or need assistance with this task.
@@ -9808,12 +9791,12 @@ Feature: Validate all scenarios of grants and award without background
     Then I softly see value "Submitted" for title "Status" inside table "---subAwardFromFDM:-:peerReviewersTableId---"
     And I logout
     And I wait for "5" seconds
-    And I checkout to yopmail with mailid "pm1.automation@yopmail.com"
+    And I checkout to yopmail with mailid "pm1.automation.qa2@yopmail.com"
     And I pause execution for "180" seconds
     Then I refresh the page
     And I see the mail subject is as follows :
       """
-      Sandbox: Notification: {SavedValue:Automation Runtime Direct Award} has been Peer Reviewed
+      Sandbox: Notification: Award {SavedValue:Automation Runtime Direct Award} has been Peer Reviewed
       """
     Then I see the mail text is as follows :
       """
@@ -10733,7 +10716,7 @@ Feature: Validate all scenarios of grants and award without background
     And I "Approve" in the approval decision
     Then I softly see status in Progress-bar is "Approved" and is "dark blue"
     And I click on "Publish" in the page details
-    Then I softly see status in Progress-bar is "Published" and is "dark blue"
+    Then I softly see field "Status" as "Published"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Opportunities" tab
     And I wait for "2" seconds
@@ -10752,7 +10735,7 @@ Feature: Validate all scenarios of grants and award without background
     When I expand nested table containing column value "BP01"
     And I edit the following rows inline in flex table with id "---applicationReview:-:budgetTableId---" by clicking "Edit" :
       | Category Name | Budget | Cash Match | Non-Cash Match |
-      | Construction  | 500    | 100        | 100            |
+      | Construction  | 1000   | 100        | 100            |
     When I navigate to "Overview" sub tab
     And I edit the following rows inline in flex table with id "---applicationReview:-:flexGridAppContactTableId---" by clicking "Edit" :
       | Name                       | Is Key Contact |
@@ -10783,7 +10766,9 @@ Feature: Validate all scenarios of grants and award without background
     When I click toggle button to select "Application Reviews - All"
     And I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---applicationReview:-:announcementListTableId---" panel
     When I click on "Initiate Review Process" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---applicationReview:-:announcementListTableId---" with wait for record
-    And I wait for "5" seconds
+    And I wait for "10" seconds
+    And I refresh the page
+    And I wait for "3" seconds
     And I created approved FDM on application "{SavedValue:Automation Runtime Announcement}"
     And I wait for "3" seconds
     Given I created award from approved FDM with announcement "{SavedValue:Automation Runtime Announcement}" and properties "Automation PM user"
@@ -10794,7 +10779,8 @@ Feature: Validate all scenarios of grants and award without background
     When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---subAwardStandAlone:-:SubAwardTableId---" panel
     And I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---subAwardStandAlone:-:SubAwardTableId---" without waiting for record
     And I navigate to "Budget" sub tab
-    Then I softly do not see value "Automation Permanent Focus Area2" for title "Title" inside table "---subAwardStandAlone:-:focusAreaTableId---"
+    Then I softly see value "Automation Permanent Focus Area2" for title "Title" inside table "---subAwardStandAlone:-:focusAreaTableId---"
+    Then I softly see value "$0.00" for title "Budgeted Amount" against the value "Automation Permanent Focus Area2" inside table "---subAwardStandAlone:-:focusAreaTableId---"
 
   @196080 @ValidateEXEusergrantownercanabletoEditDeletefilesongrantifuserhaseditaccessonmaineditbuttonforgrantisinCreatedstate @addFiles
   Scenario: Validate EXE user grant owner can able to Edit/Delete files on grant if user has edit access on main edit button for grant is in 'Created' state
@@ -10823,8 +10809,7 @@ Feature: Validate all scenarios of grants and award without background
     And I update title as "Automation.pdf" on upload file modal
     And I select Classification as "Award Related" at upload file modal
     When I click modal button "Save"
-    And I click modal button "Close"
-    And I refresh the page
+#    And I click modal button "Close"
     And I wait for "2" seconds
     Then I softly see value "Automation.pdf" for title "Title" inside table "---subAwardStandAlone:-:GrantsAttachmentTableId---"
     Then I softly see value "Award Related" for title "Classification" inside table "---subAwardStandAlone:-:GrantsAttachmentTableId---"
@@ -10859,8 +10844,7 @@ Feature: Validate all scenarios of grants and award without background
     And I update title as "Automation.pdf" on upload file modal
     And I select Classification as "Certification" at upload file modal
     When I click modal button "Save"
-    And I click modal button "Close"
-    And I refresh the page
+#    And I click modal button "Close"
     And I wait for "2" seconds
     Then I softly see value "Automation.pdf" for title "Title" inside table "---subAwardStandAlone:-:addFilesTableId---"
     Then I softly see value "Certification" for title "Classification" inside table "---subAwardStandAlone:-:addFilesTableId---"
@@ -10868,3 +10852,168 @@ Feature: Validate all scenarios of grants and award without background
     And I wait for "2" seconds
     Then I softly see the following messages in the page details :
       | File Automation.pdf deleted successfully. |
+
+  @53911 @66200 @67817 @66318 @68036 @69318 @ValidateAdvancePaymentRequestcreation
+  Scenario Outline: Advance Payment Request creation when Advance Payment Allowed selected as Yes
+    When I login to "Grantor" app as "dynamicUser" user
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:activeGrantsTableId---"
+    And I enter "GrantFields1" values from "Award_Field_Values.xlsx"
+    And I click modal button "Continue"
+    And I enter "Grant_Edition_Comp_Focus_No" values from "Award_Field_Values.xlsx"
+    When I click modal button "Save and Continue"
+    And I navigate to "Subawards" sub tab
+    And I click on "View" icon for "Created" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
+    And I get the "EGMS ID"
+    And I click on "Edit" in the page details
+    When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
+    And I click on "Save" in the page details
+    And I navigate to "Budget" sub tab
+    When I click on top right button "Associate" in flex table with id "---subAwardStandAlone:-:fundingAccountsTableId---"
+    When I click "Associate" after selection of "Automation Permanent Funding Account" by showing entries "All" in flex table with id "---subAwardStandAlone:-:awardFundingAccountsTableId---"
+    When I close "Associate Funding Accounts" modal by clicking the top right x button
+#    And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:focusAreaTableId---" by clicking "Edit" :
+#      | Title                           | Start Date | End Date |
+#      | Automation Permanent Focus Area | 0          | 3650     |
+    When I edit the following rows inline in flex table with id "---subAwardStandAlone:-:fundingAccountsTableId---" by clicking "Edit" :
+      | Funding Account             | Encumbrance |
+      | {SavedValue:fundingAccount} | 1000        |
+    And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:subAwardBudgetTableId---" by clicking "Edit" :
+      | Budget Category | Award Amount | Cash Match | Non-Cash Match |
+      | Construction    | 1000         | 100        | 100            |
+    When I navigate to "Performance" sub tab
+    And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:kpiTableId---" by clicking "Edit" :
+      | EGMS ID                  | Target |
+      | Automation Permanent KPI | 10     |
+    And I navigate to "Terms" sub tab
+    And I click on "Edit" icon for "Payment Request" inside flex table with id "---subAwardStandAlone:-:paymentRequestSchedulesTableId---" without waiting for record
+    When I enter in modal "Payment Request Schedule" values from "Award_Field_Values.xlsx"
+    And I click modal button "Save"
+    #When I close "Edit Payment Request Schedule" modal by clicking the top right x button
+    And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardStandAlone:-:progressReportScheduleTableId---" without waiting for record
+    When I enter in modal "Progress Report Schedule" values from "Award_Field_Values.xlsx"
+    And I click modal button "Save"
+    #When I close "Edit Progress Report Schedule" modal by clicking the top right x button
+    And I save the field labeled "EGMS ID" as "AwardEGMSID"
+    When I navigate to "Overview" sub tab
+    And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:associatedContactsTableId---" by clicking "Edit" :
+      | Name                       | Project Role             | Is Key Personnel |
+      | {SavedValue:SPI3 Username} | Project Director/Manager | Checked          |
+    When I navigate to "Responsibilities" sub tab
+    When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
+      | Award  | Name                     |
+      | Step 1 | {SavedValue:PM Username} |
+    When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
+      | Award  | Name                      |
+      | Step 2 | {SavedValue:EXE Username} |
+    When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
+      | Award  | Name                     |
+      | Step 3 | {SavedValue:FO Username} |
+    When I get the "EGMS ID"
+    And I click on "Send to Subrecipient" in the page details
+    And I navigate to "History" sub tab
+    And I wait for "60" seconds
+    And I refresh the page
+    And I wait for "2" seconds
+    Then I softly see snapshot with name containing "Subaward Send_to_Subrecipient.pdf" as name
+    And I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
+    When I navigate to "Grants" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "Record Id" in "---subAwardStandAlone:-:pendingTaskTableId---" panel
+    When I click on "Start" icon for "Record Id" inside flex table with id "---subAwardStandAlone:-:pendingTaskTableId---" without waiting for record
+    When I click on "Accept" in the page details
+    And I navigate to "History" sub tab
+    And I wait for "60" seconds
+    And I refresh the page
+    And I wait for "2" seconds
+    Then I softly see snapshot with name containing "Award_Accepted.pdf" as name
+    When I re-login to "Grantor" app as "dynamicUser" user on "INTERNAL" portal
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click toggle button to select "Grants - All"
+    When I perform quick search for "<Grant Name>" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
+    And I click on "View" icon for "<Grant Name>" inside table
+    When I navigate to "Subawards" sub tab
+    And I click on "View" icon for "<Award Name>" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
+    When I navigate to "Terms" sub tab
+    When I click on top right button "Associate Mandatory Terms and Conditions" in flex table with id "---subAwardStandAlone:-:termsndConditionsTableId---"
+    And I navigate to "Budget" sub tab
+    And I wait for "2" seconds
+    Then I see value "$1,000.00" for title "Encumbrance" against the value "{SavedValue:fundingAccount}" inside table "---subAwardStandAlone:-:fundingAccountsTableId---"
+    And I click on "Submit for Approval" in the page details
+    And I navigate to "History" sub tab
+    And I wait for "30" seconds
+    And I refresh the page
+    And I wait for "2" seconds
+    Then I softly see snapshot with name containing "Subaward_Submit_for_Approval.pdf" as name
+    And I "Approve" in the approval decision
+    When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
+    And I navigate to "Grants" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    When I perform quick search for "Record Id" in "---subAwardStandAlone:-:pendingTaskTableId---" panel
+    And I click on "Start" icon for "Record Id" inside flex table with id "---subAwardStandAlone:-:pendingTaskTableId---" without waiting for record
+    And I "Approve" in the approval decision
+    When I re-login to "Grantor" app as "FO" user on "INTERNAL" portal
+    And I navigate to "Grants" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    When I perform quick search for "Record Id" in "---subAwardStandAlone:-:pendingTaskTableId---" panel
+    And I click on "Start" icon for "Record Id" inside flex table with id "---subAwardStandAlone:-:pendingTaskTableId---" without waiting for record
+    And I "Approve" in the approval decision
+    When I re-login to "Grantor" app as "dynamicUser" user on "INTERNAL" portal
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click toggle button to select "Grants - All"
+    When I perform quick search for "<Grant Name>" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
+    And I click on "View" icon for "<Grant Name>" inside table
+    When I navigate to "Subawards" sub tab
+    And I click on "View" icon for "<Award Name>" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
+    And I click on "Send to Subrecipient" in the page details
+    When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
+    And I navigate to "Grants" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "Record Id" in "---subAwardStandAlone:-:pendingTaskTableId---" panel
+    When I click on "Start" icon for "Record Id" inside flex table with id "---subAwardStandAlone:-:pendingTaskTableId---" without waiting for record
+    And I click on "Accept after Approval" in the page details
+    And I navigate to "History" sub tab
+    And I wait for "60" seconds
+    And I refresh the page
+    And I wait for "2" seconds
+    Then I softly see snapshot with name containing "Accepted_After_Approval.pdf" as name
+    When I re-login to "Grantor" app as "dynamicUser" user on "INTERNAL" portal
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click toggle button to select "Grants - All"
+    When I perform quick search for "<Grant Name>" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
+    And I click on "View" icon for "<Grant Name>" inside table
+    When I navigate to "Subawards" sub tab
+    And I click on "View" icon for "<Award Name>" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
+    And I navigate to "Budget" sub tab
+    Then I softly cannot see top right button "Associate" for "---subAwardStandAlone:-:focusAreaTableId---" flex table
+    Then I softly cannot see top right button "Edit" in flex table with id "---subAwardStandAlone:-:focusAreaTableId--"
+    And I click on "Activate" in the page details
+    Then I softly see field "Status" as "Activated"
+    When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click toggle button to select "Grants - Active"
+    And I perform quick search for "<Award Name>" in "---paymentRequest:-:recipientGrantTableId---" panel
+    Then I see value "{SavedValue:AwardEGMSID}" for title "Active Subaward" against the value "<Grant Name>" inside table "---paymentRequest:-:recipientGrantTableId---"
+    When I navigate to "Subawards" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I perform quick search for "<Award Name>" in "---paymentRequest:-:recipientsSubawardTableId---" panel
+    And I click on "View" icon for "<Award Name>" inside flex table with id "---paymentRequest:-:recipientsSubawardTableId---" without waiting for record
+    And I navigate to "History" sub tab
+    And I wait for "60" seconds
+    And I refresh the page
+    And I wait for "2" seconds
+    Then I softly see snapshot with name containing "Award_Accepted.pdf" as name
+    When I navigate to "Actuals" sub tab
+    And I click on top right button "Advance Request" in flex table with id "---paymentRequest:-:paymentRequestTableId---"
+    When I enter value "Automation Payment Request" into field "Title__c"
+    And I click modal button "Save and Continue"
+    When I enter "Edition" values from "PaymentRequest_Field_Values.xlsx"
+    When I click on "Save" in the page details
+    Then I softly see status in Progress-bar is "Created" and is "dark blue"
+    Examples:
+      | Award Name                                   | Grant Name                                   |
+      | {SavedValue:Automation Runtime Direct Award} | {SavedValue:Automation Runtime Direct Award} |

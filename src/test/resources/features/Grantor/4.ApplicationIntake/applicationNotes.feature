@@ -1,4 +1,4 @@
-@applicationNotes @grantor-regression @grantor-parallel-regression @app @regression @ApplicationExecution-reg
+@applicationNotes @grantor-regression @grantor-parallel-regression @app @regression @ApplicationAndPre-App
 Feature: Application Intake scenarios without background
 
   @228678 @ValidatePMPOEXEADMINFDusershouldbeabletoAddnotesbutEditDeletetheirownnotesonapplicationisinSubmittograntorstate @Sprint-12-US-226970 @Notes
@@ -804,7 +804,8 @@ Feature: Application Intake scenarios without background
       | Automation Negotiation Iniatiation | ApplicantResponse__c |
     When I click on "Save" in the page details
     When I click on "Submit to Grantor" in the page details
-    Then I softly see field "Status" as "Negotiation Submitted"
+    And I wait for "2" seconds
+    Then I see field "Status" as "Negotiation Submitted"
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     When I navigate to "Applications" tab
     And I navigate to "Applications" content inside "Applications" subheader on left panel
@@ -1697,6 +1698,7 @@ Feature: Application Intake scenarios without background
     When I click on "View" icon for "{SavedValue:Automation Runtime Announcement Application Intake}" inside flex table with id "---applicationReview:-:reviewsTableId---"
     When I click on "Qualify" in the page details
     When I click on "Create Application" in the page details
+    And I wait for "4" seconds
     And I click modal button "Save and Continue"
     When I enter "Edition" values from "Application_Field_Values.xlsx"
     When I click on "Save" in the page details

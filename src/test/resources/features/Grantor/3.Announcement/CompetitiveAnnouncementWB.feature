@@ -1704,7 +1704,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
       | Title        | Narrative     | Award Budget | Cash Match | Non-Cash Match |
       | Extra Salary | The narrative | 500          | 100        | 100            |
     Then I softly can see row level action button "Edit" against "Extra Salary" in flex table with id "---applicationReview:-:addLineItemsModalTableId---"
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "App Line Items" modal by clicking the top right x button
     And I refresh the page
     When I expand nested table containing column value "BP01"
     And I click on page navigation arrow "---applicationReview:-:budgetTableId---" for table id "Next"
@@ -1726,7 +1726,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     When I click on "View" icon for "{SavedValue:Automation Runtime Announcement for Pre-App}" inside table
     When I click on "Qualify" in the page details
     And I click on "Create Pre-Application" in the page details
-    And I wait for "3" seconds
+    And I wait for "5" seconds
     When I click modal button "Save and Continue"
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "PreappEGMSID"
@@ -1765,6 +1765,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     When I click on "View" icon for "Record Id" inside table
     Then I softly can see top right button "Create Application" in page detail
     When I click on "Create Application" in the page details
+    And I wait for "5" seconds
     And I click modal button "Save and Continue"
     And I enter "Edition" values from "Application_Field_Values.xlsx"
     When I click on "Save" in the page details
@@ -1772,7 +1773,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I navigate to "Budget" sub tab
     Then I softly see field "Budgeted Amount" as "$1,000.00"
     Then I softly can see top right button "Add Focus Area" in flex table with id "---applicationIntake:-:budgetSumamaryByFocusAreaTableId---"
-    Then I softly see value "$1,000" for title "Budgeted Amount" against the value "Automation Permanent Focus Area" inside table "---applicationIntake:-:budgetSumamaryByFocusAreaTableId---"
+    Then I softly see value "$1,000.00" for title "Budgeted Amount" against the value "Automation Permanent Focus Area" inside table "---applicationIntake:-:budgetSumamaryByFocusAreaTableId---"
     And I click on "Remove Focus Area" icon for "Automation Permanent Focus Area" inside flex table with id "---applicationIntake:-:budgetSumamaryByFocusAreaTableId---" without waiting for record
     Then I softly do not see value "Automation Permanent Focus Area" for title "Title" inside table "---applicationIntake:-:budgetSumamaryByFocusAreaTableId---"
     And I refresh the page
@@ -1828,7 +1829,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I navigate to "Funding Decision Memo" sub tab
     When I check "<Announcement Name>" boxes in flex table with id "---applicationReview:-:recommendedTableId---"
     When I click on top right button "Notify Selected Applicants" in flex table with id "---applicationReview:-:recommendedTableId---"
-    And I checkout to yopmail with mailid "automationspi31@yopmail.com"
+    And I checkout to yopmail with mailid "automationspi31.qa2@yopmail.com"
     And I pause execution for "10" seconds
     Then I refresh the page
     And I see the mail subject is as follows :

@@ -2279,7 +2279,7 @@ Feature: Validate all scenarios in the Risk Assessment
     And I select "Take Snapshot" from dropdown
     And I wait for "5" seconds
     When I navigate to "History" sub tab
-    And I click on hyperlink containing value "Risk Assessment Activation/Rejection.pdf"
+    And I click on hyperlink containing value "Approver Decision.pdf"
     And I click on "Download" button for snapshot view
     And I wait for "3" seconds
     When I download the file for snapshot
@@ -2346,8 +2346,8 @@ Feature: Validate all scenarios in the Risk Assessment
     And I update title as "Automation.pdf" on upload file modal
     And I select Classification as "Program Artifacts" at upload file modal
     When I click modal button "Save"
-    And I click modal button "Close"
-    And I refresh the page
+#    And I click modal button "Close"
+#    And I refresh the page
     And I wait for "2" seconds
     Then I softly see value "Automation.pdf" for title "Title" inside table "---orgRiskAssessment:-:awardRiskAssessmentTableId---"
     Then I softly see value "Program Artifacts" for title "Classification" inside table "---orgRiskAssessment:-:awardRiskAssessmentTableId---"
@@ -3546,9 +3546,9 @@ Feature: Validate all scenarios in the Risk Assessment
     When I enter in modal "Progress Report Schedule" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
     When I navigate to "Overview" sub tab
-    And I click on top right button "Associate" in flex table with id "---subAwardFromFDM:-:associateContactTableId---"
-    When I click "Associate" after selection of "{SavedValue:SPI4 Username}" in the table "---subAwardFromFDM:-:keyContactsTableId---"
-    When I click modal button "Close"
+#    And I click on top right button "Associate" in flex table with id "---subAwardFromFDM:-:associateContactTableId---"
+#    When I click "Associate" after selection of "{SavedValue:SPI4 Username}" in the table "---subAwardFromFDM:-:keyContactsTableId---"
+#    When I click modal button "Close"
     And I wait for "2" seconds
     And I edit the following rows inline in flex table with id "---subAwardFromFDM:-:associateContactTableId---" by clicking "Edit" :
       | Name                       | Project Role             | Is Key Personnel |
@@ -3921,7 +3921,9 @@ Feature: Validate all scenarios in the Risk Assessment
     And I click modal button "Save"
     #When I close "Edit Payment Request Schedule" modal by clicking the top right x button
     And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardStandAlone:-:progressReportScheduleTableId---" without waiting for record
+    When I enter in modal "Progress Report Schedule" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
+    And I wait for "2" seconds
     #When I close "Edit Progress Report Schedule" modal by clicking the top right x button
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
@@ -5405,7 +5407,7 @@ Feature: Validate all scenarios in the Risk Assessment
     And I click on submit review
     And I logout
     And I wait for "2" seconds
-    And I checkout to yopmail with mailid "automationpo1@yopmail.com"
+    And I checkout to yopmail with mailid "automation.po1.qa2@yopmail.com"
     And I pause execution for "180" seconds
     Then I refresh the page
     And I see the mail subject is as follows :
@@ -5510,7 +5512,7 @@ Feature: Validate all scenarios in the Risk Assessment
     When I click on "Start" icon for "{SavedValue:RAEGMSID}" inside flex table with id "---subAwardStandAlone:-:pendingTaskTableId---" without waiting for record
     And I "Reject" in the approval decision
     Then I softly see field "Status" as "Rejected"
-    And I checkout to yopmail with mailid "exe1.automation@yopmail.com"
+    And I checkout to yopmail with mailid "exe1.automation.qa2@yopmail.com"
     And I pause execution for "20" seconds
     And I refresh the page
     And I see the mail subject is as follows :
@@ -5699,7 +5701,7 @@ Feature: Validate all scenarios in the Risk Assessment
     And I "Approve" in the approval decision
     And I wait for "2" seconds
     Then I see status in Progress-bar is "Active" and is "dark blue"
-    And I checkout to yopmail with mailid "pm1.automation@yopmail.com"
+    And I checkout to yopmail with mailid "pm1.automation.qa2@yopmail.com"
     And I pause execution for "20" seconds
     Then I refresh the page
     And I see the mail subject is as follows :
@@ -5960,7 +5962,7 @@ Feature: Validate all scenarios in the Risk Assessment
     When I click on "Start" icon for "{SavedValue:RAEGMSID}" inside flex table with id "---subAwardStandAlone:-:pendingTaskTableId---" without waiting for record
     And I "Send to Owner" in the approval decision
     Then I softly see field "Status" as "Created"
-    And I checkout to yopmail with mailid "pm1.automation@yopmail.com"
+    And I checkout to yopmail with mailid "pm1.automation.qa2@yopmail.com"
     And I pause execution for "20" seconds
     Then I refresh the page
     And I see the mail subject is as follows :
@@ -6296,7 +6298,7 @@ Feature: Validate all scenarios in the Risk Assessment
     Then I softly see value "{SavedValue:RAEGMSID}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
     And I logout
     And I wait for "2" seconds
-    And I checkout to yopmail with mailid "fo1.automation@yopmail.com"
+    And I checkout to yopmail with mailid "fo1.automation.qa2@yopmail.com"
     And I pause execution for "10" seconds
     Then I refresh the page
     And I see the mail subject is as follows :
@@ -6425,7 +6427,7 @@ Feature: Validate all scenarios in the Risk Assessment
     And I click on hyperlink containing value "View All"
     Then I softly see value "Automation PM1" for title "New Value" inside field history table
     Then I softly see value "Automation PM" for title "Original Value" inside field history table
-    And I checkout to yopmail with mailid "pm.automation@yopmail.com"
+    And I checkout to yopmail with mailid "pm.automation.qa2@yopmail.com"
     And I pause execution for "120" seconds
     Then I refresh the page
     And I see the mail subject is as follows :
@@ -6451,7 +6453,7 @@ Feature: Validate all scenarios in the Risk Assessment
       The EGMS Team
       """
     Given I am on "INTERNAL" portal
-    And I checkout to yopmail with mailid "pm1.automation@yopmail.com"
+    And I checkout to yopmail with mailid "pm1.automation.qa2@yopmail.com"
     Then I refresh the page
     And I see the mail subject is as follows :
       """
@@ -6476,7 +6478,7 @@ Feature: Validate all scenarios in the Risk Assessment
       The EGMS Team
       """
     Given I am on "INTERNAL" portal
-    And I checkout to yopmail with mailid "govgrantsautomation@yopmail.com"
+    And I checkout to yopmail with mailid "govgrantsautomation.q2@yopmail.com"
     Then I refresh the page
     And I see the mail subject is as follows :
       """
@@ -6808,7 +6810,7 @@ Feature: Validate all scenarios in the Risk Assessment
     And I click on "Start" icon for "Record Id" inside flex table with id "---riskassessment:-:pendingTaskTableId---" without waiting for record
     When I navigate to "Responsibilities" sub tab
     Then I softly see value "Automation FO" for title "Name" against the value "Fiscal Reviewer" inside table "---riskassessment:-:raPeerReviewFlexTableId---"
-    And I checkout to yopmail with mailid "fo1.automation@yopmail.com"
+    And I checkout to yopmail with mailid "fo1.automation.qa2@yopmail.com"
     And I pause execution for "10" seconds
     Then I refresh the page
     And I see the mail subject is as follows :
@@ -7266,7 +7268,7 @@ Feature: Validate all scenarios in the Risk Assessment
     When I navigate to "Files" sub tab
     Then I softly can see top right button "Add Files" in flex table with id "---orgRiskAssessment:-:awardRiskAssessmentTableId---"
     Then I softly can see top right button "New" in flex table with id "---riskassessment:-:riskAssNotesTableId---"
-    And I checkout to yopmail with mailid "pm.automation@yopmail.com"
+    And I checkout to yopmail with mailid "pm.automation.qa2@yopmail.com"
     And I pause execution for "120" seconds
     Then I refresh the page
     And I see the mail subject is as follows :
@@ -7302,7 +7304,7 @@ Feature: Validate all scenarios in the Risk Assessment
       The EGMS Team
       """
     Given I am on "INTERNAL" portal
-    And I checkout to yopmail with mailid "pm1.automation@yopmail.com"
+    And I checkout to yopmail with mailid "pm1.automation.qa2@yopmail.com"
     Then I refresh the page
     And I see the mail subject is as follows :
       """
@@ -7347,6 +7349,8 @@ Feature: Validate all scenarios in the Risk Assessment
     And I click modal button "Continue"
     And I enter "Grant_Edition" values from "Award_Field_Values.xlsx"
     When I click modal button "Save and Continue"
+    And I wait for "2" seconds
+    And I save the field labeled "EGMS ID" as "GrantEGMSID"
     And I navigate to "Subawards" sub tab
     And I click on "View" icon for "Created" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
     When I get the "EGMS ID"
@@ -7383,6 +7387,10 @@ Feature: Validate all scenarios in the Risk Assessment
     And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:associatedContactsTableId---" by clicking "Edit" :
       | Name                      | Project Role             | Is Key Personnel |
       | {SavedValue:IND Username} | Project Director/Manager | Checked          |
+    When I navigate to "Responsibilities" sub tab
+    When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
+      | Name                      | Award  |
+      | {SavedValue:EXE Username} | Step 1 |
     And I click on "Send to Subrecipient" in the page details
     Then I softly see field "Status" as "Sent to Subrecipient"
     When I navigate to "Management" sub tab
@@ -7421,7 +7429,7 @@ Feature: Validate all scenarios in the Risk Assessment
     Then I softly see value "Created" for title "Status" against the value "{SavedValue:RAEGMSID}" inside table "---riskassessment:-:organizationprofileviewTableId---"
     And I logout
     And I wait for "2" seconds
-#    And I checkout to yopmail with mailid "pm.automation@yopmail.com"
+#    And I checkout to yopmail with mailid "pm.automation.qa2@yopmail.com"
 #    And I pause execution for "10" seconds
 #    Then I refresh the page
 #    And I see the mail subject is as follows :
@@ -7516,7 +7524,7 @@ Feature: Validate all scenarios in the Risk Assessment
     Then I softly see field "Status" as "Created"
     And I logout
     And I wait for "2" seconds
-#    And I checkout to yopmail with mailid "pm.automation@yopmail.com"
+#    And I checkout to yopmail with mailid "pm.automation.qa2@yopmail.com"
 #    And I pause execution for "10" seconds
 #    Then I refresh the page
 #    And I see the mail subject is as follows :
@@ -7592,7 +7600,7 @@ Feature: Validate all scenarios in the Risk Assessment
     And I submit the approval in the approval decision without processing
     And I logout
     And I wait for "2" seconds
-#    And I checkout to yopmail with mailid "automationpo@yopmail.com"
+#    And I checkout to yopmail with mailid "automation.po.qa2@yopmail.com"
 #    And I pause execution for "20" seconds
 #    Then I refresh the page
 #    And I see the mail subject is as follows :
@@ -7689,22 +7697,10 @@ Feature: Validate all scenarios in the Risk Assessment
     And I perform quick search for "{SavedValue:RAEGMSID}" in "---riskassessment:-:organizationprofileviewTableId---" panel
     Then I softly see value "{SavedValue:RAEGMSID}" for title "EGMS ID" inside table "---riskassessment:-:organizationprofileviewTableId---"
     Then I softly see value "Active" for title "Status" against the value "{SavedValue:RAEGMSID}" inside table "---riskassessment:-:organizationprofileviewTableId---"
-    When I re-login to "Grants Portal" app as "IND" user on "SUBPORTAL" portal
-    And I navigate to "Monitoring" tab
-    When I navigate to "Risk Assessments" content inside "Monitoring Activities" subheader on left panel
-    When I click toggle button to select "Subaward Risk Assessment - All"
-    And I perform quick search for "{SavedValue:RAEGMSID}" in "---riskassessment:-:riskAssessmentGridViewExternalTableId---" panel
-    Then I softly see value "{SavedValue:RAEGMSID}" for title "EGMS ID" inside table "---riskassessment:-:riskAssessmentGridViewExternalTableId---"
-    Then I softly see value "Active" for title "Status" against the value "{SavedValue:RAEGMSID}" inside table "---riskassessment:-:riskAssessmentGridViewExternalTableId---"
-    And I navigate to "Home" tab
-    When I navigate to "Individual Profile" content inside "Organization" subheader on left panel
-    And I navigate to "Risk Assessment" sub tab
-    And I perform quick search for "{SavedValue:RAEGMSID}" in "---riskassessment:-:organizationprofileviewTableId---" panel
-    Then I softly see value "{SavedValue:RAEGMSID}" for title "EGMS ID" inside table "---riskassessment:-:organizationprofileviewTableId---"
-    Then I softly see value "Active" for title "Status" against the value "{SavedValue:RAEGMSID}" inside table "---riskassessment:-:riskAssessmentGridViewExternalTableId---"
-    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
+    And I wait for "2" seconds
     And I navigate to "Subawards" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I wait for "2" seconds
     And I click toggle button to select "Subawards  - All"
     When I perform quick search for "{SavedValue:AwardEGMSID}" in "---subAwardStandAlone:-:SubAwardTableId---" panel
     And I click on "View" icon for "{SavedValue:AwardEGMSID}" inside flex table with id "---subAwardStandAlone:-:SubAwardTableId---" without waiting for record
@@ -7760,6 +7756,61 @@ Feature: Validate all scenarios in the Risk Assessment
     And I perform quick search for "{SavedValue:RAEGMSID1}" in "---riskassessment:-:organizationprofileviewTableId---" panel
     Then I softly see value "{SavedValue:RAEGMSID1}" for title "EGMS ID" inside table "---riskassessment:-:organizationprofileviewTableId---"
     Then I softly see value "Active" for title "Status" against the value "{SavedValue:RAEGMSID1}" inside table "---riskassessment:-:organizationprofileviewTableId---"
+    And I re-login to "Grants Portal" app as "IND" user on "SUBPORTAL" portal
+    When I navigate to "Grants" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "{SavedValue:AwardEGMSID}" in "---subAwardStandAlone:-:subrecipientPendingtaskTableId---" panel
+    When I click on "Start" icon for "{SavedValue:AwardEGMSID}" inside flex table with id "---subAwardStandAlone:-:subrecipientPendingtaskTableId---" without waiting for record
+    When I click on "Accept" in the page details
+    And I wait for "2" seconds
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click toggle button to select "Grants - All"
+    When I perform quick search for "{SavedValue:GrantEGMSID}" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
+    And I click on "View" icon for "{SavedValue:GrantEGMSID}" inside table
+    When I navigate to "Subawards" sub tab
+    And I click on "View" icon for "{SavedValue:AwardEGMSID}" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
+    When I navigate to "Terms" sub tab
+    When I click on top right button "Associate Mandatory Terms and Conditions" in flex table with id "---subAwardStandAlone:-:termsndConditionsTableId---"
+    And I pause execution for "3" seconds
+    And I click on "Submit for Approval" in the page details
+    Then I see status in Progress-bar is "Submitted for Approval" and is "dark blue"
+    When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
+    And I navigate to "Grants" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    When I perform quick search for "{SavedValue:AwardEGMSID}" in "---subAwardStandAlone:-:pendingTaskTableId---" panel
+    And I click on "Start" icon for "{SavedValue:AwardEGMSID}" inside flex table with id "---subAwardStandAlone:-:pendingTaskTableId---" without waiting for record
+    And I "Approve" in the approval decision
+    And I wait for "2" seconds
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click toggle button to select "Grants - All"
+    When I perform quick search for "{SavedValue:GrantEGMSID}" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
+    And I click on "View" icon for "{SavedValue:GrantEGMSID}" inside table
+    When I navigate to "Subawards" sub tab
+    And I click on "View" icon for "{SavedValue:AwardEGMSID}" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
+    And I click on "Send to Subrecipient" in the page details
+    And I wait for "2" seconds
+    When I re-login to "Grants Portal" app as "IND" user on "SUBPORTAL" portal
+    And I navigate to "Grants" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "{SavedValue:AwardEGMSID}" in "---subAwardStandAlone:-:subrecipientPendingtaskTableId---" panel
+    When I click on "Start" icon for "{SavedValue:AwardEGMSID}" inside flex table with id "---subAwardStandAlone:-:subrecipientPendingtaskTableId---" without waiting for record
+    And I click on "Accept after Approval" in the page details
+    And I wait for "2" seconds
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click toggle button to select "Grants - All"
+    When I perform quick search for "{SavedValue:GrantEGMSID}" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
+    And I click on "View" icon for "{SavedValue:GrantEGMSID}" inside table
+    When I navigate to "Subawards" sub tab
+    And I click on "View" icon for "{SavedValue:AwardEGMSID}" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
+    And I click on "Activate" in the page details
+    And I wait for "3" seconds
+    Then I see that "Subaward" is in "Activated" status
     When I re-login to "Grants Portal" app as "IND" user on "SUBPORTAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Risk Assessments" content inside "Monitoring Activities" subheader on left panel
@@ -7776,10 +7827,10 @@ Feature: Validate all scenarios in the Risk Assessment
     And I navigate to "Risk Assessment" sub tab
     And I perform quick search for "{SavedValue:RAEGMSID}" in "---riskassessment:-:organizationprofileviewTableId---" panel
     Then I softly see value "{SavedValue:RAEGMSID}" for title "EGMS ID" inside table "---riskassessment:-:organizationprofileviewTableId---"
-    Then I softly see value "Expired" for title "Status" against the value "{SavedValue:RAEGMSID}" inside table "---riskassessment:-:riskAssessmentGridViewExternalTableId---"
+    Then I softly see value "Expired" for title "Status" against the value "{SavedValue:RAEGMSID}" inside table "---riskassessment:-:organizationprofileviewTableId---"
     And I perform quick search for "{SavedValue:RAEGMSID1}" in "---riskassessment:-:organizationprofileviewTableId---" panel
     Then I softly see value "{SavedValue:RAEGMSID1}" for title "EGMS ID" inside table "---riskassessment:-:organizationprofileviewTableId---"
-    Then I softly see value "Active" for title "Status" against the value "{SavedValue:RAEGMSID1}" inside table "---riskassessment:-:riskAssessmentGridViewExternalTableId---"
+    Then I softly see value "Active" for title "Status" against the value "{SavedValue:RAEGMSID1}" inside table "---riskassessment:-:organizationprofileviewTableId---"
 
   @116310 @ValidateAwardOwnerhasthepermissiontorevisetheawardRiskAssessmentuntilawardactivation @Sprint-23-US-273843  @Allocation
   Scenario Outline: Validate Award Owner has the permission to revise the award Risk Assessment until award activation
@@ -7971,10 +8022,9 @@ Feature: Validate all scenarios in the Risk Assessment
     Then I softly see value "Active" for title "New Value" inside field history table
     Then I softly see value "Submitted for Approval" for title "Original Value" inside field history table
     And I click on back arrow
-    Then I softly see snapshot with name containing "Subaward Risk Assessment.pdf" as name
-    Then I softly see snapshot with user containing "{SavedValue:PM Username}" against the value "Subaward Risk Assessment.pdf"
-    Then I softly see snapshot with name containing "Risk Assessment Activation/Rejection.pdf" as name
-    Then I softly see snapshot with user containing "{SavedValue:FD Username}" against the value "Risk Assessment Activation/Rejection.pdf"
+    And I wait for "2" seconds
+    Then I softly see snapshot with name containing "Approver Decision.pdf" as name
+    Then I softly see snapshot with user containing "{SavedValue:FD Username}" against the value "Approver Decision.pdf"
 
   @119401 @Validatetheriskassessmentisapprovedstep4setupactivatedpostalltheapprovalarecompletewhenpeerreviewwasperformedonit @Sprint-23-US-273843  @Allocation
   Scenario: Validate the risk assessment is approved step4 set up activated post all the approval are complete when peer review was performed on it

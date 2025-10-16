@@ -56,7 +56,7 @@ Feature: Validate all scenarios in Closeout
     When I enter the following values into flex table with id "---paymentRequest:-:paymentLineItemsTableId---" by clicking "New" :
       | Title        | Narrative     | Unit Price | Quantity | Measurement |
       | Extra Salary | The narrative | 500        | 1        | Feet        |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Payment Line Items" modal by clicking the top right x button
     And I click on "Submit to Grantor" in the page details
     Then I softly see field "Status" as "Submitted to Grantor"
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
@@ -165,7 +165,7 @@ Feature: Validate all scenarios in Closeout
     When I enter the following values into flex table with id "---paymentRequest:-:paymentLineItemsTableId---" by clicking "New" :
       | Title        | Narrative     | Unit Price | Quantity | Measurement |
       | Extra Salary | The narrative | 500        | 1        | Feet        |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Payment Line Items" modal by clicking the top right x button
     And I click on "Submit to Grantor" in the page details
     Then I softly see field "Status" as "Submitted to Grantor"
     When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
@@ -199,6 +199,7 @@ Feature: Validate all scenarios in Closeout
     And I enter in modal "Paid Details" values from "PaymentRequest_Field_Values.xlsx"
     When I click modal button "Save"
     When I click modal button "Close"
+    And I wait for "2" seconds
     Then I softly see status in Progress-bar is "Paid" and is "dark blue"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     When I navigate to "Closeout" tab
@@ -255,7 +256,7 @@ Feature: Validate all scenarios in Closeout
     When I enter the following values into flex table with id "---paymentRequest:-:paymentLineItemsTableId---" by clicking "New" :
       | Title        | Narrative     | Unit Price | Quantity | Measurement |
       | Extra Salary | The narrative | 500        | 1        | Feet        |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Payment Line Items" modal by clicking the top right x button
     And I click on "Submit to Grantor" in the page details
     Then I softly see field "Status" as "Submitted to Grantor"
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
@@ -289,6 +290,7 @@ Feature: Validate all scenarios in Closeout
     And I enter in modal "Paid Details" values from "PaymentRequest_Field_Values.xlsx"
     When I click modal button "Save"
     When I click modal button "Close"
+    And I wait for "2" seconds
     Then I softly see status in Progress-bar is "Paid" and is "dark blue"
     When I re-login to "Grants Portal" app as "SPA" user on "SUBPORTAL" portal
     When I navigate to "Closeout" tab
@@ -296,7 +298,6 @@ Feature: Validate all scenarios in Closeout
     When I perform quick search for "{SavedValue:closeoutID}" in "---closeout:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "{SavedValue:closeoutID}" inside flex table with id "---closeout:-:pendingTaskTableId---"
     And I navigate to "Overview" sub tab
-    And I wait for "2" seconds
     Then I softly see field "Spent" as "$500.00"
     Then I softly see value "$500.00" for title "Spent" against the value "Total" inside table "---closeout:-:subrecipientBudgetSummaryFocusAreaTableId---"
 
@@ -384,7 +385,7 @@ Feature: Validate all scenarios in Closeout
     When I enter the following values into flex table with id "---paymentRequest:-:paymentLineItemsTableId---" by clicking "New" :
       | Title        | Narrative     | Unit Price | Quantity | Measurement |
       | Extra Salary | The narrative | 500        | 1        | Feet        |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Payment Line Items" modal by clicking the top right x button
     And I click on "Submit to Grantor" in the page details
     Then I softly see field "Status" as "Submitted to Grantor"
     When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
@@ -603,7 +604,7 @@ Feature: Validate all scenarios in Closeout
     When I enter the following values into flex table with id "---paymentRequest:-:paymentLineItemsTableId---" by clicking "New" :
       | Title        | Narrative     | Unit Price | Quantity | Measurement |
       | Extra Salary | The narrative | 500        | 1        | Feet        |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Payment Line Items" modal by clicking the top right x button
     And I click on "Submit to Grantor" in the page details
     Then I softly see field "Status" as "Submitted to Grantor"
     When I re-login to "Grantor" app as "<Profile>" user on "INTERNAL" portal
@@ -720,7 +721,7 @@ Feature: Validate all scenarios in Closeout
     When I enter the following values into flex table with id "---paymentRequest:-:paymentLineItemsTableId---" by clicking "New" :
       | Title        | Narrative     | Unit Price | Quantity | Measurement |
       | Extra Salary | The narrative | 500        | 1        | Feet        |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Payment Line Items" modal by clicking the top right x button
     And I click on "Submit to Grantor" in the page details
     Then I softly see field "Status" as "Submitted to Grantor"
     When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
@@ -789,7 +790,7 @@ Feature: Validate all scenarios in Closeout
     When I enter the following values into flex table with id "---paymentRequest:-:paymentLineItemsTableId---" by clicking "New" :
       | Title        | Narrative     | Unit Price | Quantity | Measurement |
       | Extra Salary | The narrative | 500        | 1        | Feet        |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Payment Line Items" modal by clicking the top right x button
     And I click on "Submit to Grantor" in the page details
     Then I softly see field "Status" as "Submitted to Grantor"
     When I re-login to "Grantor" app as "PO" user on "INTERNAL" portal
@@ -860,7 +861,7 @@ Feature: Validate all scenarios in Closeout
     When I enter the following values into flex table with id "---paymentRequest:-:paymentLineItemsTableId---" by clicking "New" :
       | Title        | Narrative     | Unit Price | Quantity | Measurement |
       | Extra Salary | The narrative | 500        | 1        | Feet        |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Payment Line Items" modal by clicking the top right x button
     And I click on "Submit to Grantor" in the page details
     Then I softly see field "Status" as "Submitted to Grantor"
     When I re-login to "Grantor" app as "PO" user on "INTERNAL" portal
@@ -885,8 +886,6 @@ Feature: Validate all scenarios in Closeout
     When I perform quick search for "{SavedValue:PayreqId}" in "---paymentRequest:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "{SavedValue:PayreqId}" inside flex table with id "---paymentRequest:-:pendingTaskTableId---" without waiting for record
     When I "Reject" in the approval decision
-    And I wait for "2" seconds
-    And I refresh the page
     Then I softly see field "Status" as "Rejected"
     When I re-login to "Grantor" app as "PO" user on "INTERNAL" portal
     And I navigate to "Closeout" tab
@@ -942,7 +941,7 @@ Feature: Validate all scenarios in Closeout
     When I enter the following values into flex table with id "---paymentRequest:-:paymentLineItemsTableId---" by clicking "New" :
       | Title        | Narrative     | Unit Price | Quantity | Measurement |
       | Extra Salary | The narrative | 500        | 1        | Feet        |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Payment Line Items" modal by clicking the top right x button
     And I click on "Submit to Grantor" in the page details
     Then I softly see field "Status" as "Submitted to Grantor"
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
@@ -964,14 +963,12 @@ Feature: Validate all scenarios in Closeout
     When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    And I wait for "2" seconds
     When I perform quick search for "{SavedValue:PayreqId}" in "---paymentRequest:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "{SavedValue:PayreqId}" inside flex table with id "---paymentRequest:-:pendingTaskTableId---" without waiting for record
     When I "Approve" in the approval decision
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     And I navigate to "Reimbursements" content inside "Payments" subheader on left panel
-    And I wait for "2" seconds
     When I perform quick search for "{SavedValue:PayreqId}" in "---paymentRequest:-:paymentrequestReimbursementTableId---" panel
     And I click on "View" icon for "{SavedValue:PayreqId}" inside flex table with id "---paymentRequest:-:paymentrequestReimbursementTableId---" without waiting for record
     When I click on "Mark As Paid" in the page details
@@ -1073,7 +1070,7 @@ Feature: Validate all scenarios in Closeout
     When I enter the following values into flex table with id "---paymentRequest:-:paymentLineItemsTableId---" by clicking "New" :
       | Title        | Narrative     | Unit Price | Quantity | Measurement |
       | Extra Salary | The narrative | 500        | 1        | Feet        |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Payment Line Items" modal by clicking the top right x button
     And I click on "Submit to Grantor" in the page details
     Then I softly see field "Status" as "Submitted to Grantor"
     When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
@@ -1138,13 +1135,11 @@ Feature: Validate all scenarios in Closeout
     When I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "PayreqId"
     And I navigate to "Financials" sub tab
-    And I wait for "2" seconds
     When I click on "Show line items" icon for "Construction" inside flex table with id "---paymentRequest:-:paymentRequestBudgetTableId---" with wait for record
-    And I wait for "2" seconds
     When I enter the following values into flex table with id "---paymentRequest:-:paymentLineItemsTableId---" by clicking "New" :
       | Title        | Narrative     | Unit Price | Quantity | Measurement |
       | Extra Salary | The narrative | 200        | 1        | Feet        |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Payment Line Items" modal by clicking the top right x button
     And I click on "Submit to Grantor" in the page details
     Then I softly see field "Status" as "Submitted to Grantor"
     When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
@@ -1222,7 +1217,6 @@ Feature: Validate all scenarios in Closeout
     And I perform quick search for "{SavedValue:closeoutID}" in "---closeout:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "{SavedValue:closeoutID}" inside flex table with id "---closeout:-:pendingTaskTableId---"
     And I "Reject" in the approval decision
-    And I refresh the page
     Then I softly see field "Status" as "Rejected"
     When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Closeout" tab
@@ -1261,7 +1255,7 @@ Feature: Validate all scenarios in Closeout
 
   @266847 @ValidatethatFocusAreaaddedandupdatedSpentvalueinnewBPaftercreatingcloseoutshouldreflectsonCloseout @sprint-20-US-246948  @Allocation
   Scenario: Validate that Focus Area added and updated Spent value in new BP after creating closeout should reflects on Closeout
-    And I activated standalone subaward "Automation Runtime Award" with properties "default-Automation EXE user" of type "Competitive"
+    And I activated standalone subaward "Automation Runtime Award" with properties "Automation EXE user" of type "Competitive"
     When I login to "Grantor" app as "EXE" user
     And I navigate to "Grants" tab
     And I navigate to "Subawards" content inside "Grants, Subawards & Amendments" subheader on left panel
@@ -1333,7 +1327,7 @@ Feature: Validate all scenarios in Closeout
     When I enter the following values into flex table with id "---paymentRequest:-:paymentLineItemsTableId---" by clicking "New" :
       | Title        | Narrative     | Unit Price | Quantity | Measurement |
       | Extra Salary | The narrative | 200        | 1        | Feet        |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Payment Line Items" modal by clicking the top right x button
     And I click on "Submit to Grantor" in the page details
     Then I softly see field "Status" as "Submitted to Grantor"
     When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
@@ -1406,7 +1400,7 @@ Feature: Validate all scenarios in Closeout
     When I enter the following values into flex table with id "---paymentRequest:-:paymentLineItemsTableId---" by clicking "New" :
       | Title        | Narrative     | Unit Price | Quantity | Measurement |
       | Extra Salary | The narrative | 200        | 1        | Feet        |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Payment Line Items" modal by clicking the top right x button
     And I click on "Submit to Grantor" in the page details
     Then I softly see field "Status" as "Submitted to Grantor"
     When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
@@ -1440,6 +1434,7 @@ Feature: Validate all scenarios in Closeout
     And I enter in modal "Paid Details" values from "PaymentRequest_Field_Values.xlsx"
     When I click modal button "Save"
     When I click modal button "Close"
+    And I wait for "2" seconds
     Then I see status in Progress-bar is "Paid" and is "dark blue"
     And I navigate to "Closeout" tab
     When I navigate to "Project Period Closeouts" content inside "Closeouts" subheader on left panel
@@ -1450,7 +1445,7 @@ Feature: Validate all scenarios in Closeout
     Then I softly see field "Spent" as "$400.00"
     Then I softly see value "$400.00" for title "Spent" against the value "Total" inside table "---closeout:-:grantorBudgetSummaryFocusAreaTableId---"
 
-  @265532 @ValidatePOuserseeSpentvalueisaddedoncloseoutinspentcolumnforfocusareaifusercreatelatestpaymentrequestaftercloseout @sprint-20-US-246948  @Allocation  @needrerun
+  @265532 @ValidatePOuserseeSpentvalueisaddedoncloseoutinspentcolumnforfocusareaifusercreatelatestpaymentrequestaftercloseout @sprint-20-US-246948  @Allocation
   Scenario: Validate PO user see 'Spent' value is added on closeout in spent column for focus area if user create latest payment request after closeout
     And I activated standalone subaward "Automation Runtime Award" with properties "Automation PO user" of type "Competitive"
     And I am on "SUBPORTAL" portal
@@ -1474,7 +1469,7 @@ Feature: Validate all scenarios in Closeout
     When I enter the following values into flex table with id "---paymentRequest:-:paymentLineItemsTableId---" by clicking "New" :
       | Title        | Narrative     | Unit Price | Quantity | Measurement |
       | Extra Salary | The narrative | 200        | 1        | Feet        |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Payment Line Items" modal by clicking the top right x button
     And I click on "Submit to Grantor" in the page details
     Then I softly see field "Status" as "Submitted to Grantor"
     When I re-login to "Grantor" app as "PO" user on "INTERNAL" portal
@@ -1508,6 +1503,7 @@ Feature: Validate all scenarios in Closeout
     And I enter in modal "Paid Details" values from "PaymentRequest_Field_Values.xlsx"
     When I click modal button "Save"
     When I click modal button "Close"
+    And I wait for "2" seconds
     Then I see status in Progress-bar is "Paid" and is "dark blue"
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
@@ -1545,7 +1541,7 @@ Feature: Validate all scenarios in Closeout
     When I enter the following values into flex table with id "---paymentRequest:-:paymentLineItemsTableId---" by clicking "New" :
       | Title        | Narrative     | Unit Price | Quantity | Measurement |
       | Extra Salary | The narrative | 300        | 1        | Feet        |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Payment Line Items" modal by clicking the top right x button
     And I click on "Submit to Grantor" in the page details
     Then I softly see field "Status" as "Submitted to Grantor"
     When I re-login to "Grantor" app as "PO" user on "INTERNAL" portal
@@ -1590,7 +1586,7 @@ Feature: Validate all scenarios in Closeout
     Then I softly see field "Spent" as "$500.00"
     Then I softly see value "$500.00" for title "Spent" against the value "Automation Permanent Focus Area" inside table "---closeout:-:grantorBudgetSummaryFocusAreaTableId---"
 
-  @267259 @ValidateTheBehaviourOFSpentValueonCloseoutFor2awards @sprint-20-US-246948  @Allocation @needrerun
+  @267259 @ValidateTheBehaviourOFSpentValueonCloseoutFor2awards @sprint-20-US-246948  @Allocation
   Scenario: Validate The Behaviour OF Spent Value on Closeout For 2 awards
     And I activated standalone subaward "Automation Runtime Award" with properties "Automation PM user" of type "Competitive"
     And I am on "SUBPORTAL" portal
@@ -1614,7 +1610,7 @@ Feature: Validate all scenarios in Closeout
     When I enter the following values into flex table with id "---paymentRequest:-:paymentLineItemsTableId---" by clicking "New" :
       | Title        | Narrative     | Unit Price | Quantity | Measurement |
       | Extra Salary | The narrative | 200        | 1        | Feet        |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Payment Line Items" modal by clicking the top right x button
     And I click on "Submit to Grantor" in the page details
     Then I softly see field "Status" as "Submitted to Grantor"
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
@@ -1720,7 +1716,7 @@ Feature: Validate all scenarios in Closeout
     When I enter the following values into flex table with id "---paymentRequest:-:paymentLineItemsTableId---" by clicking "New" :
       | Title        | Narrative     | Unit Price | Quantity | Measurement |
       | Extra Salary | The narrative | 200        | 1        | Feet        |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Payment Line Items" modal by clicking the top right x button
     And I click on "Submit to Grantor" in the page details
     Then I softly see field "Status" as "Submitted to Grantor"
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
@@ -1777,7 +1773,7 @@ Feature: Validate all scenarios in Closeout
     Then I softly see value "$1,000.00" for title "Encumbrance" against the value "{SavedValue:fundingAccount}" inside table "---closeout:-:grantorBudgetSummaryFocusAreaTableId---"
     Then I softly see value "$600.00" for title "Encumbrance Balance" against the value "{SavedValue:fundingAccount}" inside table "---closeout:-:grantorBudgetSummaryFocusAreaTableId---"
 
-  @267748 @ValidateCloseoutvalueinspentfieldandCumumativeobligationcolumnoncloseoutrequestwhenpaymentrequestisnotyetapprovedFANO @sprint-21-US-265880  @Allocation  @needrerun
+  @267748 @ValidateCloseoutvalueinspentfieldandCumumativeobligationcolumnoncloseoutrequestwhenpaymentrequestisnotyetapprovedFANO @sprint-21-US-265880  @Allocation
   Scenario: Validate Closeout value in spent field and Cumumative obligation column on closeout request when payment request is not yet approved FA NO
     And I activated standalone subaward "Automation Runtime FDM Announcement" with properties "Automation PO user" of type "Formula_By_Applicant_Focus_Area_No"
     And I am on "SUBPORTAL" portal
@@ -1801,7 +1797,7 @@ Feature: Validate all scenarios in Closeout
     When I enter the following values into flex table with id "---paymentRequest:-:paymentLineItemsTableId---" by clicking "New" :
       | Title        | Narrative     | Unit Price | Quantity | Measurement |
       | Extra Salary | The narrative | 500        | 1        | Feet        |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Payment Line Items" modal by clicking the top right x button
     And I click on "Submit to Grantor" in the page details
     Then I softly see field "Status" as "Submitted to Grantor"
     When I re-login to "Grantor" app as "PO" user on "INTERNAL" portal
@@ -1846,7 +1842,7 @@ Feature: Validate all scenarios in Closeout
     When I enter the following values into flex table with id "---paymentRequest:-:paymentLineItemsTableId---" by clicking "New" :
       | Title        | Narrative     | Unit Price | Quantity | Measurement |
       | Extra Salary | The narrative | 500        | 1        | Feet        |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Payment Line Items" modal by clicking the top right x button
     And I click on "Submit to Grantor" in the page details
     Then I softly see field "Status" as "Submitted to Grantor"
     When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
@@ -1904,7 +1900,7 @@ Feature: Validate all scenarios in Closeout
     Then I softly see value "$500.00" for title "Balance" against the value "Total" inside table "---closeout:-:grantorBudgetSummaryFocusAreaTableId---"
     Then I softly see value "$500.00" for title "Spent" against the value "Total" inside table "---closeout:-:grantorBudgetSummaryFocusAreaTableId---"
 
-  @267750 @ValidatevalueinSpentandCumulativeobligationcolumnoncloseoutrequestwhencloseoutrequestiscreatedafterfirstpaymentrequestisapprovedandsecondpaymentrequestisrejectedfromapprovalprocess @sprint-21-US-265880  @Allocation @needrerun
+  @267750 @ValidatevalueinSpentandCumulativeobligationcolumnoncloseoutrequestwhencloseoutrequestiscreatedafterfirstpaymentrequestisapprovedandsecondpaymentrequestisrejectedfromapprovalprocess @sprint-21-US-265880  @Allocation
   Scenario: Validate value inSpent and Cumulative obligation  column on closeout request when closeout request is created after first payment request is approved and second payment request is rejected from approval process
     And I activated standalone subaward "Automation Runtime Award" with properties "Automation EXE user" of type "Formula_By_Applicant"
     And I am on "SUBPORTAL" portal
@@ -1928,7 +1924,7 @@ Feature: Validate all scenarios in Closeout
     When I enter the following values into flex table with id "---paymentRequest:-:paymentLineItemsTableId---" by clicking "New" :
       | Title        | Narrative     | Unit Price | Quantity | Measurement |
       | Extra Salary | The narrative | 500        | 1        | Feet        |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Payment Line Items" modal by clicking the top right x button
     And I click on "Submit to Grantor" in the page details
     Then I softly see field "Status" as "Submitted to Grantor"
     When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
@@ -1984,7 +1980,7 @@ Feature: Validate all scenarios in Closeout
     When I enter the following values into flex table with id "---paymentRequest:-:paymentLineItemsTableId---" by clicking "New" :
       | Title        | Narrative     | Unit Price | Quantity | Measurement |
       | Extra Salary | The narrative | 500        | 1        | Feet        |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Payment Line Items" modal by clicking the top right x button
     And I click on "Submit to Grantor" in the page details
     Then I softly see field "Status" as "Submitted to Grantor"
     When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
@@ -2032,7 +2028,7 @@ Feature: Validate all scenarios in Closeout
     Then I softly see value "$500.00" for title "Balance" against the value "Total" inside table "---closeout:-:grantorBudgetSummaryFocusAreaTableId---"
     Then I softly see value "$500.00" for title "Spent" against the value "Total" inside table "---closeout:-:grantorBudgetSummaryFocusAreaTableId---"
 
-  @267755 @ValidatevalueinSpentandCumulativeobligationcolumnoncloseoutrequestwhencloseoutrequestisincreatedstateandFundingChangeandpaymentrequestisapproved @sprint-21-US-265880  @Allocation @needrerun
+  @267755 @ValidatevalueinSpentandCumulativeobligationcolumnoncloseoutrequestwhencloseoutrequestisincreatedstateandFundingChangeandpaymentrequestisapproved @sprint-21-US-265880  @Allocation
   Scenario: Validate value in Spent and Cumulative obligation column on closeout request when closeout request is in created state and Funding Change, and payment request is approved
     And I activated standalone subaward "Automation Runtime Award" with properties "Automation PO user" of type "Directed"
     And I am on "SUBPORTAL" portal
@@ -2072,7 +2068,6 @@ Feature: Validate all scenarios in Closeout
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Monitoring" tab
     And I navigate to "Reimbursements" content inside "Payments" subheader on left panel
-    And I wait for "3" seconds
     And I click toggle button to select "Reimbursements - All"
     When I perform quick search for "{SavedValue:PayreqId}" in "---paymentRequest:-:RecipientpaymentrequestReimbursementTableId---" panel
     And I click on "View" icon for "{SavedValue:PayreqId}" inside flex table with id "---paymentRequest:-:RecipientpaymentrequestReimbursementTableId---" without waiting for record
@@ -2081,7 +2076,7 @@ Feature: Validate all scenarios in Closeout
     When I enter the following values into flex table with id "---paymentRequest:-:paymentLineItemsTableId---" by clicking "New" :
       | Title        | Narrative     | Unit Price | Quantity | Measurement |
       | Extra Salary | The narrative | 500        | 1        | Feet        |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Payment Line Items" modal by clicking the top right x button
     And I click on "Submit to Grantor" in the page details
     Then I softly see field "Status" as "Submitted to Grantor"
     When I re-login to "Grantor" app as "PO" user on "INTERNAL" portal
@@ -2198,7 +2193,7 @@ Feature: Validate all scenarios in Closeout
     Then I softly see value "$500.00" for title "Balance" against the value "Total" inside table "---closeout:-:grantorBudgetSummaryFocusAreaTableId---"
     Then I softly see value "$500.00" for title "Spent" against the value "Total" inside table "---closeout:-:grantorBudgetSummaryFocusAreaTableId---"
 
-  @267758 @ValidateFormulaGrantvalueinCumulativeobligationfieldandCumulativeobligationcolumnoncloseoutrequestwhencloseoutrequestisincreatedandsecondperiodicrenewalamendmentandpaymentrequestisapprovedFANO @sprint-21-US-265880  @Allocation @needrerun
+  @267758 @ValidateFormulaGrantvalueinCumulativeobligationfieldandCumulativeobligationcolumnoncloseoutrequestwhencloseoutrequestisincreatedandsecondperiodicrenewalamendmentandpaymentrequestisapprovedFANO @sprint-21-US-265880  @Allocation
   Scenario: Validate Formula Grant value in Cumulative obligation field and Cumulative obligation column on closeout request when closeout request is in created and second periodic renewal amendment and payment request is approved(FA=NO)
     And I activated standalone subaward "Automation Runtime FDM Announcement" with properties "ADVANCE_PERMISSIBLE_YES_FOCUS_AREA_NO-Automation PO user" of type "Formula_By_Applicant_Focus_Area_No"
     And I am on "SUBPORTAL" portal
@@ -2222,8 +2217,9 @@ Feature: Validate all scenarios in Closeout
     When I enter the following values into flex table with id "---paymentRequest:-:paymentLineItemsTableId---" by clicking "New" :
       | Title        | Narrative     | Unit Price | Quantity | Measurement |
       | Extra Salary | The narrative | 500        | 1        | Feet        |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Payment Line Items" modal by clicking the top right x button
     And I click on "Submit to Grantor" in the page details
+    And I wait for "3" seconds
     Then I softly see field "Status" as "Submitted to Grantor"
     When I re-login to "Grantor" app as "PO" user on "INTERNAL" portal
     And I navigate to "Grants" tab
@@ -2385,7 +2381,7 @@ Feature: Validate all scenarios in Closeout
     Then I softly see field "Balance" as "$2,500.00"
     Then I softly see field "Cumulative Obligation" as "$3,000.00"
 
-  @267760 @ValidatevalueinSpentandCumulativeobligationcolumnoncloseoutrequestwhencloseoutrequestisincreatedstateandBudgetrediectionamendmentisapproved @sprint-21-US-265880  @Allocation @needrerun
+  @267760 @ValidatevalueinSpentandCumulativeobligationcolumnoncloseoutrequestwhencloseoutrequestisincreatedstateandBudgetrediectionamendmentisapproved @sprint-21-US-265880  @Allocation
   Scenario: Validate value in Spent and Cumulative obligation column on closeout request when closeout request is in created state and Budget rediection amendment is approved
     And I published "Formula" type announcement having name "Automation Runtime Award" and properties "BY_APPLICANT_RISK_ASSESSMENT_NO-Automation PO user"
     And I initiated an application review for application "{SavedValue:Automation Runtime Award}" on announcement "{SavedValue:Automation Runtime Award}" with properties "default"
@@ -2437,7 +2433,6 @@ Feature: Validate all scenarios in Closeout
       | Budget Category | Spent This Action |
       | Construction    | 500               |
     And I click on "Submit to Grantor" in the page details
-    And I wait for "2" seconds
     Then I softly see field "Status" as "Submitted to Grantor"
     When I re-login to "Grantor" app as "PO" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -2499,7 +2494,7 @@ Feature: Validate all scenarios in Closeout
     Then I softly see value "$500.00" for title "Balance" against the value "Total" inside table "---closeout:-:grantorBudgetSummaryFocusAreaTableId---"
     Then I softly see value "$500.00" for title "Spent" against the value "Total" inside table "---closeout:-:grantorBudgetSummaryFocusAreaTableId---"
 
-  @267761 @ValidateAuditorvalueinSpentandCumulativeobligationcolumnoncloseoutrequestwhencloseoutrequestisincreatedstateandpaymentrequestisapprovedandnewawardisactivatedfromcarryforwardamendment @sprint-21-US-265880  @Allocation @needrerun
+  @267761 @ValidateAuditorvalueinSpentandCumulativeobligationcolumnoncloseoutrequestwhencloseoutrequestisincreatedstateandpaymentrequestisapprovedandnewawardisactivatedfromcarryforwardamendment @sprint-21-US-265880  @Allocation
   Scenario: Validate Auditor value in Spent and Cumulative obligation column on closeout request when closeout request is in created state and payment request is approved and new award is activated from carry forward amendment
     And I activated standalone subaward "Automation Runtime Amendment Award" with properties "SECOND_FOCUS_AREA_BUDGET_CATEGORY-Automation PM user" of type "Formula_By_Applicant_Focus_Area"
     When I am on "SUBPORTAL" portal
@@ -2525,9 +2520,7 @@ Feature: Validate all scenarios in Closeout
     When I enter the following values into flex table with id "---paymentRequest:-:paymentLineItemsTableId---" by clicking "New" :
       | Title        | Narrative     | Unit Price | Quantity | Measurement |
       | Extra Salary | The narrative | 300        | 1        | Feet        |
-    And I wait for "2" seconds
-    When I close "Add Line Items" modal by clicking the top right x button
-    And I wait for "3" seconds
+    When I close "Payment Line Items" modal by clicking the top right x button
     And I click on "Submit to Grantor" in the page details
     Then I softly see field "Status" as "Submitted to Grantor"
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
@@ -2601,6 +2594,7 @@ Feature: Validate all scenarios in Closeout
       | Construction  | 1000                 | 100        | 0              |
     And I refresh the page
     And I click on "Submit to Grantor" in the page details
+    And I wait for "2" seconds
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -2635,7 +2629,7 @@ Feature: Validate all scenarios in Closeout
     When I enter the following values into flex table with id "---paymentRequest:-:paymentLineItemsTableId---" by clicking "New" :
       | Title        | Narrative     | Unit Price | Quantity | Measurement |
       | Extra Salary | The narrative | 200        | 1        | Feet        |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Payment Line Items" modal by clicking the top right x button
     And I click on "Submit to Grantor" in the page details
     Then I softly see field "Status" as "Submitted to Grantor"
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
@@ -2738,7 +2732,6 @@ Feature: Validate all scenarios in Closeout
     And I click on "Submit for Approval" in the page details
     And I wait for "4" seconds
     And I "Approve" in the approval decision
-    And I wait for "2" seconds
     Then I softly see field "Status" as "Approved"
     And I click on "Amend Subaward" in the page details
     And I wait for "4" seconds
@@ -2783,13 +2776,13 @@ Feature: Validate all scenarios in Closeout
     When I enter the following values into flex table with id "---paymentRequest:-:paymentLineItemsTableId---" by clicking "New" :
       | Title        | Narrative     | Unit Price | Quantity | Measurement |
       | Extra Salary | The narrative | 500        | 1        | Feet        |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Payment Line Items" modal by clicking the top right x button
     And I click on page navigation arrow "---paymentRequest:-:paymentRequestBudgetTableId---" for table id "Next"
     When I click on "Show line items" icon for "Construction" inside flex table with id "---paymentRequest:-:paymentRequestBudgetTableId---" with wait for record
     When I enter the following values into flex table with id "---paymentRequest:-:paymentLineItemsTableId---" by clicking "New" :
       | Title        | Narrative     | Unit Price | Quantity | Measurement |
       | Extra Salary | The narrative | 500        | 1        | Feet        |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Payment Line Items" modal by clicking the top right x button
     And I click on "Submit to Grantor" in the page details
     Then I softly see field "Status" as "Submitted to Grantor"
     When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
@@ -2933,13 +2926,13 @@ Feature: Validate all scenarios in Closeout
     When I enter the following values into flex table with id "---paymentRequest:-:paymentLineItemsTableId---" by clicking "New" :
       | Title        | Narrative     | Unit Price | Quantity | Measurement |
       | Extra Salary | The narrative | 500        | 1        | Feet        |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Payment Line Items" modal by clicking the top right x button
     And I click on page navigation arrow "---paymentRequest:-:paymentRequestBudgetTableId---" for table id "Next"
     When I click on "Show line items" icon for "Construction" inside flex table with id "---paymentRequest:-:paymentRequestBudgetTableId---" with wait for record
     When I enter the following values into flex table with id "---paymentRequest:-:paymentLineItemsTableId---" by clicking "New" :
       | Title        | Narrative     | Unit Price | Quantity | Measurement |
       | Extra Salary | The narrative | 500        | 1        | Feet        |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Payment Line Items" modal by clicking the top right x button
     And I click on "Submit to Grantor" in the page details
     Then I softly see field "Status" as "Submitted to Grantor"
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
@@ -2986,7 +2979,7 @@ Feature: Validate all scenarios in Closeout
     Then I softly see value "$1,000.00" for title "Spent" against the value "Total" inside table "---closeout:-:grantorBudgetSummaryFocusAreaTableId---"
     Then I softly see value "$1,000.00" for title "Spent" against the value "Total" inside table "---closeout:-:closeoutFundingAccountsTableId---"
 
-  @272433 @ValidateSPIuserseecorrectspentamountshouldupdateoncloseoutrequest @Sprint-22-US-270869  @Allocation @needrerun
+  @272433 @ValidateSPIuserseecorrectspentamountshouldupdateoncloseoutrequest @Sprint-22-US-270869  @Allocation
   Scenario: Validate SPI user see correct spent amount should update on closeout request
     And I activated standalone subaward "Automation Runtime Award" with properties "SECOND_FOCUS_AREA_BUDGET_CATEGORY" of type "Formula_By_Applicant_Focus_Area"
     Given I login to "Grantor" app as "PM" user
@@ -3024,13 +3017,13 @@ Feature: Validate all scenarios in Closeout
     When I enter the following values into flex table with id "---paymentRequest:-:paymentLineItemsTableId---" by clicking "New" :
       | Title        | Narrative     | Unit Price | Quantity | Measurement |
       | Extra Salary | The narrative | 500        | 1        | Feet        |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Payment Line Items" modal by clicking the top right x button
     And I click on page navigation arrow "---paymentRequest:-:paymentRequestBudgetTableId---" for table id "Next"
     When I click on "Show line items" icon for "Construction" inside flex table with id "---paymentRequest:-:paymentRequestBudgetTableId---" with wait for record
     When I enter the following values into flex table with id "---paymentRequest:-:paymentLineItemsTableId---" by clicking "New" :
       | Title        | Narrative     | Unit Price | Quantity | Measurement |
       | Extra Salary | The narrative | 500        | 1        | Feet        |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Payment Line Items" modal by clicking the top right x button
     And I click on "Submit to Grantor" in the page details
     Then I softly see field "Status" as "Submitted to Grantor"
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
@@ -3077,7 +3070,7 @@ Feature: Validate all scenarios in Closeout
     Then I softly see value "$500.00" for title "Spent" against the value "Automation Permanent Focus Area2" inside table "---closeout:-:subrecipientBudgetSummaryFocusAreaTableId---"
     Then I softly see value "$1,000.00" for title "Spent" against the value "Total" inside table "---closeout:-:subrecipientBudgetSummaryFocusAreaTableId---"
 
-  @274304 @ValidateCloseoutFormulaPMuserseespentvalueshouldbeupdatedoncloseoutinsubmitforapprovalstateofcloseoutWhenFANO @Sprint-23-US-273843  @Allocation @needrerun
+  @274304 @ValidateCloseoutFormulaPMuserseespentvalueshouldbeupdatedoncloseoutinsubmitforapprovalstateofcloseoutWhenFANO @Sprint-23-US-273843  @Allocation
   Scenario: Validate Closeout Formula PM user see 'spent' value should be updated on closeout in submit for approval state of closeout When FA=NO
     Given I activated standalone subaward "Automation Runtime Award for closeout" with properties "ADVANCE_PERMISSIBLE_YES_FOCUS_AREA_NO" of type "Competitive"
     When I login to "Grantor" app as "PM" user

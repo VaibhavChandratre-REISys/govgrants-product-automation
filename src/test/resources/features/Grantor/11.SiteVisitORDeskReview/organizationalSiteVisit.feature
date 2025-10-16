@@ -1,4 +1,4 @@
-@organizationalSiteVisit @grantor-regression @grantor-parallel-regression @siteVisit @regression @siteVisit_Lwc_Run @siteAndDeskReview
+@organizationalSiteVisit @grantor-regression @grantor-parallel-regression @siteVisit @regression @siteVisit_Lwc_Run @siteAndDeskReview @siteExecution
 Feature: Validate all scenarios in Organizational Site Visit
 
   Background: Creation of Organizational Site Visit
@@ -13,7 +13,7 @@ Feature: Validate all scenarios in Organizational Site Visit
     When I click on "Qualify" in the page details
     And I pause execution for "3" seconds
     When I click on "Create Application" in the page details
-    And I wait for "3" seconds
+    And I wait for "5" seconds
     And I click modal button "Save and Continue"
     And I pause execution for "3" seconds
     And I enter "Edition" values from "Application_Field_Values.xlsx"
@@ -180,7 +180,7 @@ Feature: Validate all scenarios in Organizational Site Visit
     Then I softly see that "{SavedValue:Automation Runtime Site Visit Org level}" is in "Notified" status
     And I logout
     And I wait for "2" seconds
-    And I checkout to yopmail with mailid "automationspi31@yopmail.com"
+    And I checkout to yopmail with mailid "automationspi31.qa2@yopmail.com"
     And I pause execution for "120" seconds
     Then I refresh the page
     And I see the mail subject is as follows :
@@ -191,6 +191,7 @@ Feature: Validate all scenarios in Organizational Site Visit
     When I login to "Grantor" app as "dynamicUser" user
     And I navigate to "Monitoring" tab
     When I navigate to "Site Visits" content inside "Monitoring Activities" subheader on left panel
+    And I click toggle button to select "Site Visit Reports - All"
     When I perform quick search for "{SavedValue:SiteVisitId}" in "---sitevisits:-:manageSiteVisitTableId---" panel
     And I click on "View" icon for "{SavedValue:SiteVisitId}" inside flex table with id "---sitevisits:-:manageSiteVisitTableId---"
     When I click on "Conduct" in the page details
@@ -636,10 +637,9 @@ Feature: Validate all scenarios in Organizational Site Visit
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "Record Id" in "---orgLevelSiteVisits:-:sitevisitPhasePendingTableId---" panel
     And I click on "Start" icon for "Record Id" inside flex table with id "---orgLevelSiteVisits:-:sitevisitPhasePendingTableId---"
-    And I click on "Accept and Close" in the page details
     Then I softly can see top right button "Accept and Close" in page detail
-    And I click on "Menu" in the page details
-    And I select "Take Snapshot" from dropdown
+    And I click on "Accept and Close" in the page details
+    And I click on "Take Snapshot" in the page details
     When I navigate to "History" sub tab
     And I click on hyperlink containing value "Site Visit - Accept And Close"
     And I wait for "5" seconds
@@ -1340,8 +1340,7 @@ Feature: Validate all scenarios in Organizational Site Visit
     And I update title as "Automation.pdf" on upload file modal
     And I select Classification as "Other" at upload file modal
     When I click modal button "Save"
-    And I click modal button "Close"
-    And I refresh the page
+#    And I click modal button "Close"
     And I wait for "2" seconds
     Then I softly see value "Automation.pdf" for title "Title" inside table "---sitevisits:-:siteVisitAddFilesTableId---"
     Then I softly see value "Other" for title "Classification" inside table "---sitevisits:-:siteVisitAddFilesTableId---"
@@ -1687,7 +1686,9 @@ Feature: Validate all scenarios in Organizational Site Visit
     And I click on "View" icon for "SAN DIEGO ELECTRICAL TRAINING TRUST" inside table
     When I navigate to "Related Log" sub tab
     When I perform quick search for "Record Id" in "SiteVisit" panel
-    Then I see "No Records Found" inside flex table with id "SiteVisit"
+    Then I softly see value "Record Id" for title "EGMS ID" inside table "SiteVisit"
+    Then I cannot see row level action button "Delete" against "Record Id" in flex table with id "SiteVisit"
+    Then I cannot see row level action button "Edit" against "Record Id" in flex table with id "SiteVisit"
 
   @39187 @clickAcceptAndCloseButtonforAward
   Scenario: Verify that when user click on 'Approve and Close' button then status will change to closed for Award level

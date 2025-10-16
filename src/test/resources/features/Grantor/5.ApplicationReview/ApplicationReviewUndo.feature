@@ -3318,7 +3318,6 @@ Feature: Validate all scenarios in the Application Review with Undo Feature
     When I click on "Request Negotiation" icon for "{SavedValue:Automation Runtime FDM Announcement}" inside flex table with id "---applicationReview:-:appTableId---" without waiting for record
     When I save the field labeled "EGMS ID" as "EGMSID"
     And I navigate to "Negotiations" sub tab
-    When I click on "Edit" in the page details
     When I clear the value from field "ApplicationSectionsForRevision__c"
     When  I enter "Edition_Forms" values from "Negotiations_Field_Values.xlsx"
     When I click on "Save" in the page details
@@ -3790,6 +3789,7 @@ Feature: Validate all scenarios in the Application Review with Undo Feature
     When I click on "Submit" in the page details without processing
     When I click alert button "OK"
     And I wait for "5" seconds
+    Then I see that "Status" is in "Review Completed" status
     When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Applications" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -3802,6 +3802,7 @@ Feature: Validate all scenarios in the Application Review with Undo Feature
     When I click on "Submit" in the page details without processing
     When I click alert button "OK"
     And I wait for "5" seconds
+    Then I see that "Status" is in "Review Completed" status
     When I re-login to "Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Applications" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -3814,6 +3815,7 @@ Feature: Validate all scenarios in the Application Review with Undo Feature
     When I click on "Submit" in the page details without processing
     When I click alert button "OK"
     And I wait for "5" seconds
+    Then I see that "Status" is in "Review Completed" status
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Applications" tab
     And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
@@ -3907,7 +3909,9 @@ Feature: Validate all scenarios in the Application Review with Undo Feature
     When I perform quick search for "Compliance Review" in "---applicationReview:-:assignApplicationsTableId---" panel
     And I check "<Application Name>" boxes in flex table with id "---applicationReview:-:assignApplicationsTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:assignApplicationsTableId---"
-    And I pause execution for "2" seconds
+    And I pause execution for "3" seconds
+    And I refresh the page
+    And I pause execution for "3" seconds
     When I perform quick search for "{SavedValue:appEGMSID}" in "---applicationReview:-:appreviewsTableId---" panel
     And I check "All" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
     And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
@@ -3923,6 +3927,7 @@ Feature: Validate all scenarios in the Application Review with Undo Feature
     When I click on "Submit" in the page details without processing
     When I click alert button "OK"
     And I wait for "2" seconds
+    Then I see that "Status" is in "Review Completed" status
     When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Applications" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -3934,6 +3939,7 @@ Feature: Validate all scenarios in the Application Review with Undo Feature
     When I click on "Submit" in the page details without processing
     When I click alert button "OK"
     And I wait for "2" seconds
+    Then I see that "Status" is in "Review Completed" status
     When I re-login to "Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Applications" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -3945,6 +3951,7 @@ Feature: Validate all scenarios in the Application Review with Undo Feature
     When I click on "Submit" in the page details without processing
     When I click alert button "OK"
     And I wait for "2" seconds
+    Then I see that "Status" is in "Review Completed" status
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Applications" tab
     And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
@@ -3979,6 +3986,7 @@ Feature: Validate all scenarios in the Application Review with Undo Feature
     When I click on "Submit" in the page details without processing
     When I click alert button "OK"
     And I wait for "2" seconds
+    Then I see that "Status" is in "Review Completed" status
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Applications" tab
     And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel

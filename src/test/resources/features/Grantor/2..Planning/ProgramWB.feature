@@ -1,7 +1,7 @@
 @programWB @grantor-regression @grantor-parallel-regression @planning @regression
 Feature: Validate all scenarios for program
 
-   @109448 @VerifySelectionOfChildOrganization
+  @109448 @VerifySelectionOfChildOrganization
   Scenario: Verifying if the user is able to change or add child organization to created program
     Given I login to "Grantor" app as "PM" user
     And I navigate to "Planning" tab
@@ -18,10 +18,10 @@ Feature: Validate all scenarios for program
     And I navigate to "Internal Programs" content inside "Programs" subheader on left panel
     And I click toggle button to select "Internal Programs - Draft"
     When I perform quick search for "{SavedValue:Automation Runtime Internal Program}" in "---program:-:programsTableId---" panel
-     And I click on "View" icon for "{SavedValue:Automation Runtime Internal Program}" inside flex table with id "---program:-:programsTableId---" without waiting for record
-     And I click on "Edit" in the page details
+    And I click on "View" icon for "{SavedValue:Automation Runtime Internal Program}" inside flex table with id "---program:-:programsTableId---" without waiting for record
+    And I click on "Edit" in the page details
     And I click on remove for lookup from field "Account__c"
-     And I enter in the value "Test Automation Organization" in lookup field
+    And I enter in the value "Test Automation Organization" in lookup field
     And I click on "Save" in the page details
     Then I softly see field "Internal Organization" as "Test Automation Organization"
 
@@ -76,7 +76,7 @@ Feature: Validate all scenarios for program
     When I re-login to "Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Planning" tab
     When I navigate to "External Programs" content inside "Programs" subheader on left panel
-    And I click toggle button to select "All NGO Programs"
+    And I click toggle button to select "NGO Programs - All"
     When I perform quick search for "<Program Name>" in "---program:-:ExternalNGOProgramTableId---" panel
     And I click on "View" icon for "<Program Name>" inside flex table with id "---program:-:ExternalNGOProgramTableId---" without waiting for record
     And I click on "Activate" in the page details
@@ -101,7 +101,7 @@ Feature: Validate all scenarios for program
     And I pause execution for "3" seconds
     And I navigate to "Planning" tab
     When I navigate to "External Programs" content inside "Programs" subheader on left panel
-    And I click toggle button to select "All NGO Programs"
+    And I click toggle button to select "NGO Programs - All"
     When I perform quick search for "<Program Name>" in "---program:-:ExternalNGOProgramTableId---" panel
     Then I softly can see row level action button "Edit" against "Created" in flex table with id "---program:-:ExternalNGOProgramTableId---"
     #110504 #monu
@@ -111,7 +111,7 @@ Feature: Validate all scenarios for program
     When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Planning" tab
     When I navigate to "External Programs" content inside "Programs" subheader on left panel
-    And I click toggle button to select "All NGO Programs"
+    And I click toggle button to select "NGO Programs - All"
     When I perform quick search for "<Program Name>" in "---program:-:ExternalNGOProgramTableId---" panel
     Then I softly can see row level action button "View" against "Created" in flex table with id "---program:-:ExternalNGOProgramTableId---"
     Then I softly cannot see row level action button "Edit" against "Created" in flex table with id "---program:-:ExternalNGOProgramTableId---"
@@ -226,7 +226,7 @@ Feature: Validate all scenarios for program
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Planning" tab
     When I navigate to "External Programs" content inside "Programs" subheader on left panel
-    And I click toggle button to select "All NGO Programs"
+    And I click toggle button to select "NGO Programs - All"
     When I perform quick search for "<Program Name>" in "---program:-:ExternalNGOProgramTableId---" panel
     And I click on "View" icon for "<Program Name>" inside flex table with id "---program:-:ExternalNGOProgramTableId---" without waiting for record
     Then I softly cannot see top right button "Edit" in page detail
@@ -644,7 +644,7 @@ Feature: Validate all scenarios for program
     Then I softly do not see value "{SavedValue:ProgramEGMSID}" for title "EGMS ID" inside table "---program:-:pendingTaskTableId---"
     And I navigate to "Planning" tab
     When I navigate to "External Programs" content inside "Programs" subheader on left panel
-    And I click toggle button to select "All NGO Programs"
+    And I click toggle button to select "NGO Programs - All"
     When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:ExternalNGOProgramTableId---" panel
     And I save the value from row "1" for column name "Created By ID" as "created" from flex table "---program:-:ExternalNGOProgramTableId---"
     Then I softly see value "{SavedValue:created}" for title "Created By ID" inside table "---program:-:ExternalNGOProgramTableId---"
@@ -1246,6 +1246,7 @@ Feature: Validate all scenarios for program
     Then I do not see value "Record Id" for title "EGMS ID" inside table "---program:-:pendingTaskTableId---"
     And I navigate to "Planning" tab
     When I navigate to "Completed Tasks" content inside "My Tasks" subheader on left panel
+    When I perform quick search for "Record Id" in "---program:-:completedTaskTableId---" panel
     Then I see value "Record Id" for title "EGMS ID" inside table "---program:-:completedTaskTableId---"
     Then I softly see value "Activate Internal Program {SavedValue:ProgramEGMSID}" for title "Subject" inside table "---program:-:completedTaskTableId---"
 
@@ -1603,7 +1604,7 @@ Feature: Validate all scenarios for program
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Planning" tab
     When I navigate to "External Programs" content inside "Programs" subheader on left panel
-    And I click toggle button to select "All NGO Programs"
+    And I click toggle button to select "NGO Programs - All"
     When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:ExternalNGOProgramTableId---" panel
     And I click on "View" icon for "{SavedValue:ProgramEGMSID}" inside flex table with id "---program:-:ExternalNGOProgramTableId---"
     And I navigate to "History" sub tab
@@ -1636,6 +1637,7 @@ Feature: Validate all scenarios for program
     Then I do not see value "Record Id" for title "EGMS ID" inside table "---program:-:pendingTaskTableId---"
     And I navigate to "Planning" tab
     When I navigate to "Completed Tasks" content inside "My Tasks" subheader on left panel
+    When I perform quick search for "Record Id" in "---program:-:completedTaskTableId---" panel
     Then I see value "Record Id" for title "EGMS ID" inside table "---program:-:completedTaskTableId---"
     Then I softly see value "Activate NGO Program {SavedValue:ProgramEGMSID}" for title "Subject" inside table "---program:-:completedTaskTableId---"
 
@@ -1902,7 +1904,7 @@ Feature: Validate all scenarios for program
     When I re-login to "Grantor" app as "PM1" user on "INTERNAL" portal
     And I navigate to "Planning" tab
     When I navigate to "External Programs" content inside "Programs" subheader on left panel
-    And I click toggle button to select "All NGO Programs"
+    And I click toggle button to select "NGO Programs - All"
     When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:ExternalNGOProgramTableId---" panel
     And I click on "View" icon for "{SavedValue:ProgramEGMSID}" inside flex table with id "---program:-:ExternalNGOProgramTableId---" without waiting for record
     And I click on "Activate" in the page details
@@ -1927,7 +1929,7 @@ Feature: Validate all scenarios for program
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Planning" tab
     When I navigate to "External Programs" content inside "Programs" subheader on left panel
-    And I click toggle button to select "All NGO Programs"
+    And I click toggle button to select "NGO Programs - All"
     When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:ExternalNGOProgramTableId---" panel
     And I click on "View" icon for "{SavedValue:ProgramEGMSID}" inside flex table with id "---program:-:ExternalNGOProgramTableId---" without waiting for record
     And I navigate to "History" sub tab
@@ -1976,7 +1978,7 @@ Feature: Validate all scenarios for program
     When I click table top right button "Transfer Ownership" in flex table with id "---program:-:adminOwnerReplaceTableId---"
     Then I softly see confirmation box with body "When the ownership of the record is changed, all pending tasks assigned to the owner of the record will be reassigned automatically as well. Do you wish to proceed?" is displayed
     And I click "OK" on modal confirmation box
-    And I pause execution for "30" seconds
+    And I pause execution for "50" seconds
     When I navigate to "Records of Target User" sub tab
     When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:adminTargetOwnerReplaceTableId---" panel
     Then I see value "{SavedValue:ProgramEGMSID}" for title "Program ID" inside table "---program:-:adminTargetOwnerReplaceTableId---"
@@ -1984,7 +1986,7 @@ Feature: Validate all scenarios for program
     When I re-login to "Grantor" app as "EXE1" user on "INTERNAL" portal
     And I navigate to "Planning" tab
     When I navigate to "External Programs" content inside "Programs" subheader on left panel
-    And I click toggle button to select "All NGO Programs"
+    And I click toggle button to select "NGO Programs - All"
     When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:ExternalNGOProgramTableId---" panel
     And I click on "View" icon for "{SavedValue:ProgramEGMSID}" inside flex table with id "---program:-:ExternalNGOProgramTableId---" without waiting for record
     When I navigate to "Responsibilities" sub tab
@@ -1997,13 +1999,12 @@ Feature: Validate all scenarios for program
     Then I softly see value "Approve NGO Program {SavedValue:ProgramEGMSID}" for title "Subject" inside table "---program:-:pendingTaskTableId---"
     And I click on "Start" icon for "Record Id" inside flex table with id "---program:-:pendingTaskTableId---" without waiting for record
     And I "Reject" in the approval decision
-    And I refresh the page
     Then I softly see field "Status" as "Rejected"
     And I navigate to "Planning" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:pendingTaskTableId---" panel
     Then I do not see value "{SavedValue:ProgramEGMSID}" for title "EGMS ID" inside table "---program:-:pendingTaskTableId---"
-    And I checkout to yopmail with mailid "exe1.automation@yopmail.com"
+    And I checkout to yopmail with mailid "exe1.automation.qa2@yopmail.com"
     And I pause execution for "180" seconds
     Then I refresh the page
     And I see the mail subject is as follows :
@@ -2131,7 +2132,8 @@ Feature: Validate all scenarios for program
     When I click on "Start" icon for "Record Id" inside flex table with id "---program:-:homePendingTableId---"
     And I "Send to Owner" in the approval decision
     And I logout
-    And I checkout to yopmail with mailid "exe.automation@yopmail.com"
+    And I wait for "2" seconds
+    And I checkout to yopmail with mailid "exe1.automation.qa2@yopmail.com"
     And I pause execution for "10" seconds
     Then I refresh the page
     And I see the mail subject is as follows :
@@ -2164,7 +2166,7 @@ Feature: Validate all scenarios for program
     When I perform quick search for "Record Id" in "---program:-:programsTableId---" panel
     And I click on "View" icon for "Record Id" inside flex table with id "---program:-:programsTableId---" without waiting for record
     Then I can see top right button "Edit" in page detail
-    Then I softly can see top right button "Submit for Approval" in page detail
+    Then I softly can see top right button "Submit For Approval" in page detail
     When I navigate to "Overview" sub tab
     Then  I can see top right button "Associate" in flex table with id "---program:-:contactsTableId---"
     Then  I can see top right button "New" in flex table with id "---program:-:contactsTableId---"
@@ -2178,7 +2180,7 @@ Feature: Validate all scenarios for program
     Then  I can see top right button "New" in flex table with id "---program:-:approverTableId---"
     When I navigate to "Files" sub tab
     Then  I can see top right button "Add Files" in flex table with id "---program:-:GrantorInternalProgramFilesTableId---"
-    Then  I can see top right button "Add" in flex table with id "---program:-:internalProgramNotesTableId---"
+    Then  I can see top right button "New" in flex table with id "---program:-:internalProgramNotesTableId---"
 
   @199612 @validateownershipreassignmentissuccessfulforainternalprogramonRejectedstatus @sprint-4  @reassignment
   Scenario: Validate ownership reassignment is successful for a internal program on Rejected status
@@ -2454,7 +2456,7 @@ Feature: Validate all scenarios for program
     Then I softly see value "Automation PM" for title "Name" inside table "---program:-:programOwnerTableId---"
     And I "Approve" in the approval decision
     Then I softly see status in Progress-bar is "Approved" and is "dark blue"
-     And I wait for "5" seconds
+    And I wait for "5" seconds
     And I navigate to "Planning" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:ProgramEGMSID1}" in "---program:-:pendingTaskTableId---" panel
@@ -2464,7 +2466,7 @@ Feature: Validate all scenarios for program
     Then I softly see value "Automation EXE" for title "Name" inside table "---program:-:programOwnerTableId---"
     And I "Approve" in the approval decision
     Then I softly see status in Progress-bar is "Approved" and is "dark blue"
-     And I wait for "5" seconds
+    And I wait for "5" seconds
     And I navigate to "Planning" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:ProgramEGMSID2}" in "---program:-:pendingTaskTableId---" panel
@@ -2559,9 +2561,6 @@ Feature: Validate all scenarios for program
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---program:-:extapproverTableId---" by clicking "New" :
       | Name              | Program |
-      | Automation ADMIN1 | NA      |
-    When I enter the following values into flex table with id "---program:-:extapproverTableId---" by clicking "New" :
-      | Name              | Program |
       | Automation ADMIN1 | Step 1  |
     Then I softly see value "Automation ADMIN1" for title "Name" inside table "---program:-:extapproverTableId---"
     And I save the value from row "1" for column name "Name" as "OwnerName" from flex table "---program:-:programOwnerTableId---"
@@ -2625,7 +2624,7 @@ Feature: Validate all scenarios for program
     When I click "Associate" after selection of "Automation Permanent Focus Area" by showing entries "All" in flex table with id "---program:-:associateFocusAreaTableId---"
     And I click modal button "Close"
     And I click on top right button "Associate" in flex table with id "---program:-:objectivesTableId---"
-    When I click "Associate" after selection of "SYSTEM" by showing entries "All" in flex table with id "---program:-:associateObjectivesTableId---"
+    When I click "Associate" after selection of "Automation Strategic Objectives Admin" by showing entries "All" in flex table with id "---program:-:associateObjectivesTableId---"
     And I click modal button "Close"
     And I click on top right button "Associate" in flex table with id "---program:-:kpiTableId---"
     When I perform quick search for "Automation Permanent KPI For Admin" in "---program:-:associateKPITableId---" panel
@@ -2788,7 +2787,7 @@ Feature: Validate all scenarios for program
       | Description                 | Required  | Applies To  | Status |
       | Automation test description | Mandatory | Application | Active |
     When I click on "Upload Template" icon for "Not Applicable" inside flex table with id "---program:-:checklistTableId---" without waiting for record
-    Then I softly see "Add Files" opens in overLay window
+    Then I softly see "Upload Document" opens in overLay window
 
   @204033 @ValidatenewmodalofaddfilesopenitwillhaveoneoptionUploadFilefromComputer @sprint-7-US-202724
   Scenario: Validate new modal of add files open it will have one option Upload File from Computer
@@ -2826,8 +2825,8 @@ Feature: Validate all scenarios for program
       | Automation test description | Mandatory | Application | Active |
     When I click on "Upload Template" icon for "Not Applicable" inside flex table with id "---program:-:checklistTableId---" without waiting for record
     Then I see field "Classification" as "Select file classification" on modal
-    Then I see field "Upload File" as " " on modal
-    Then I see field "Description" as " " on modal
+    Then I see field "Upload File" as "Choose a File OR Drag it here" on modal
+    Then I softly see field on modal "Description" inside page block
 
   @204037 @ValidateUserPMcanseetwobuttonsatthebottomofUploadFilesfromComputerUploadItwillenableonlyafterwechooseafiletouploadelseitwillbedisabled @sprint-7-US-202724
   Scenario: Validate User PM can see two buttons at the bottom of Upload Files from Computer Upload It will enable only after we choose a file to upload else it will be disabled
@@ -2848,6 +2847,7 @@ Feature: Validate all scenarios for program
       | Automation test description | Mandatory | Application | Active |
     When I click on "Upload Template" icon for "Not Applicable" inside flex table with id "---program:-:checklistTableId---" without waiting for record
     Then I see "Upload" button is disabled at modal under library
+    And I select Classification as "Others" at upload file modal
     When I upload file "AttachmentTesting.pdf" into library
     Then I do not see "Upload" button is disabled at modal under library
 
@@ -2990,7 +2990,7 @@ Feature: Validate all scenarios for program
     And I click on submit review
     And I logout
     And I wait for "2" seconds
-    And I checkout to yopmail with mailid "pm.automation@yopmail.com"
+    And I checkout to yopmail with mailid "pm.automation.qa2@yopmail.com"
     And I pause execution for "180" seconds
     Then I refresh the page
     And I see the mail subject is as follows :
@@ -3007,8 +3007,7 @@ Feature: Validate all scenarios for program
 
    Log in to EGMS and click here to start reviewing the details.
 
-   Please do not reply to this system-generated email. You may contact the GovGrants Support Team at {!$Setup.GNT__GlobalConfig__c.SupportEmail__c} if you have any questions or need assistance with this task.
-
+   Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrantssupport@reisystems.com if you have any questions or need assistance with this task.
    Thank you.
    The EGMS Team
       """
@@ -3023,7 +3022,7 @@ Feature: Validate all scenarios for program
     When I navigate to "Responsibilities" sub tab
     And I click on "Complete Review" in the page details
     Then I softly see field "Status" as "Reviewed"
-    Then I can see top right button "Submit for Approval" in page detail
+    Then I can see top right button "Submit For Approval" in page detail
 
   @197527 @ValidatereassignedtaskownerPMuserisabletoactivatetheexternalprogramifadmintransferstaskofthetasktypeActivateNGOProgramwhenstatusoftaskisNotStarted @sprint-12-US-226646  @reassignment @
   Scenario: Validate reassigned task owner PM user is able to activate the external program if admin transfers task of the task type Activate NGO Program when status of task is Not Started
@@ -3189,15 +3188,12 @@ Feature: Validate all scenarios for program
     When I click "Associate" after selection of "Automation Permanent Focus Area" by showing entries "All" in flex table with id "---program:-:associateFocusAreaTableId---"
     And I click modal button "Close"
     And I click on top right button "Associate" in flex table with id "---program:-:objectivesTableId---"
-    When I click "Associate" after selection of "SYSTEM" by showing entries "All" in flex table with id "---program:-:associateObjectivesTableId---"
+    When I click "Associate" after selection of "Automation Strategic Objectives Admin" by showing entries "All" in flex table with id "---program:-:associateObjectivesTableId---"
     And I click modal button "Close"
     And I click on top right button "Associate" in flex table with id "---program:-:kpiTableId---"
     When I click "Associate" after selection of "Automation Permanent KPI For Admin" by showing entries "All" in flex table with id "---program:-:associateKPITableId---"
     And I click modal button "Close"
     And I navigate to "Responsibilities" sub tab
-    When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
-      | Name              | Program |
-      | Automation ADMIN1 | NA      |
     When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
       | Name              | Program |
       | Automation ADMIN1 | NA      |
@@ -3239,9 +3235,6 @@ Feature: Validate all scenarios for program
     And I click on top right button "Associate" in flex table with id "---program:-:kpiTableId---"
     When I click "Associate" after selection of "Automation Permanent KPI" by showing entries "All" in flex table with id "---program:-:associateKPITableId---"
     When I navigate to "Responsibilities" sub tab
-    When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
-      | Name                     | Program |
-      | {SavedValue:PM Username} | NA      |
     When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
       | Name                      | Program |
       | {SavedValue:EXE Username} | Step 1  |
@@ -3318,9 +3311,6 @@ Feature: Validate all scenarios for program
     And I click on top right button "Associate" in flex table with id "---program:-:kpiTableId---"
     When I click "Associate" after selection of "Automation Permanent KPI" by showing entries "All" in flex table with id "---program:-:associateKPITableId---"
     When I navigate to "Responsibilities" sub tab
-    When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
-      | Name                     | Program |
-      | {SavedValue:PM Username} | NA      |
     When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
       | Name                      | Program |
       | {SavedValue:EXE Username} | Step 1  |
@@ -3672,7 +3662,7 @@ Feature: Validate all scenarios for program
     And I reset the table
     When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:grantorTaskReassignTableId---" panel
     Then I softly do not see value "{SavedValue:ProgramEGMSID}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
-    And I checkout to yopmail with mailid "pm.automation@yopmail.com"
+    And I checkout to yopmail with mailid "pm.automation.qa2@yopmail.com"
     And I pause execution for "10" seconds
     Then I refresh the page
     And I see the mail subject is as follows :
@@ -3753,7 +3743,7 @@ Feature: Validate all scenarios for program
     And I pause execution for "30" seconds
     When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:grantorTaskReassignTableId---" panel
     Then I softly see value "{SavedValue:ProgramEGMSID}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
-    And I checkout to yopmail with mailid "fo1.automation@yopmail.com"
+    And I checkout to yopmail with mailid "fo1.automation.qa2@yopmail.com"
     And I pause execution for "180" seconds
     Then I refresh the page
     And I see the mail subject is as follows :
@@ -3827,7 +3817,7 @@ Feature: Validate all scenarios for program
     And I reset the table
     When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:grantorTaskReassignTableId---" panel
     Then I softly see value "{SavedValue:ProgramEGMSID}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
-    And I checkout to yopmail with mailid "pm1.automation@yopmail.com"
+    And I checkout to yopmail with mailid "pm1.automation.qa2@yopmail.com"
     And I pause execution for "180" seconds
     Then I refresh the page
     And I see the mail subject is as follows :
@@ -3944,7 +3934,7 @@ Feature: Validate all scenarios for program
     Then I softly do not see value "{SavedValue:ProgramEGMSID1}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
     And I logout
     And I wait for "2" seconds
-    And I checkout to yopmail with mailid "pm1.automation@yopmail.com"
+    And I checkout to yopmail with mailid "pm1.automation.qa2@yopmail.com"
     And I pause execution for "120" seconds
     Then I refresh the page
     And I see the mail subject is as follows :
@@ -3955,15 +3945,6 @@ Feature: Validate all scenarios for program
     Then I see the mail text is as follows :
       """
       Hello,
-
-      The task(s) below have been reassigned from [Automation PM] to [Automation PM1] successfully. Please find the details below:
-
-      EGMS ID Type Status Subject Assigned By Due Date
-
-
-      Because these tasks have been reassigned, the original reviewer may have lost edit access to the record. However, they may still view the record.
-      Login in to EGMS and click on EGMS IDs to access the assigned record.
-
 
       The task(s) below were failed to reassigned as user was already assigned as a reviewer on this record.
 
@@ -3978,7 +3959,7 @@ Feature: Validate all scenarios for program
       The EGMS Team.
       """
     Given I am on "INTERNAL" portal
-    And I checkout to yopmail with mailid "pm1.automation@yopmail.com"
+    And I checkout to yopmail with mailid "pm1.automation.qa2@yopmail.com"
     And I pause execution for "180" seconds
     Then I refresh the page
     And I see the mail subject is as follows :
@@ -4096,7 +4077,7 @@ Feature: Validate all scenarios for program
     When I navigate to "Records of Target User" sub tab
     When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:adminTargetOwnerReplaceTableId---" panel
     Then I see value "{SavedValue:ProgramEGMSID}" for title "Program ID" inside table "---program:-:adminTargetOwnerReplaceTableId---"
-    And I checkout to yopmail with mailid "pm.automation@yopmail.com"
+    And I checkout to yopmail with mailid "pm.automation.qa2@yopmail.com"
     And I pause execution for "180" seconds
     Then I refresh the page
     And I see the mail subject is as follows :
@@ -4147,7 +4128,7 @@ Feature: Validate all scenarios for program
     When I navigate to "Records of Target User" sub tab
     When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:adminTargetOwnerReplaceTableId---" panel
     Then I see value "{SavedValue:ProgramEGMSID}" for title "Program ID" inside table "---program:-:adminTargetOwnerReplaceTableId---"
-    And I checkout to yopmail with mailid "pm1.automation@yopmail.com"
+    And I checkout to yopmail with mailid "pm1.automation.qa2@yopmail.com"
     And I pause execution for "180" seconds
     Then I refresh the page
     And I see the mail subject is as follows :
@@ -4216,7 +4197,7 @@ Feature: Validate all scenarios for program
     And I reset the table
     When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:grantorTaskReassignTableId---" panel
     Then I softly do not see value "{SavedValue:ProgramEGMSID}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
-    And I checkout to yopmail with mailid "pm.automation@yopmail.com"
+    And I checkout to yopmail with mailid "pm.automation.qa2@yopmail.com"
     And I pause execution for "180" seconds
     Then I refresh the page
     And I see the mail subject is as follows :
@@ -4249,7 +4230,7 @@ Feature: Validate all scenarios for program
       The EGMS Team.
       """
     Given I am on "INTERNAL" portal
-    And I checkout to yopmail with mailid "pm1.automation@yopmail.com"
+    And I checkout to yopmail with mailid "pm1.automation.qa2@yopmail.com"
     And I pause execution for "10" seconds
     Then I refresh the page
     And I see the mail subject is as follows :
@@ -4352,7 +4333,6 @@ Feature: Validate all scenarios for program
     And I click on top right button "New" in flex table with id "---program:-:programsTableId---"
     When I enter in modal "Creation" values from "Program_Field_Values.xlsx"
     And I click modal button "Save and Continue"
-    And I wait for "10" seconds
     When I enter "Edition" values from "Program_Field_Values.xlsx"
     And I click on "Save" in the page details
     And I get the "EGMS ID"
@@ -4386,7 +4366,7 @@ Feature: Validate all scenarios for program
     And I reset the table
     When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:grantorTaskReassignTableId---" panel
     Then I softly do not see value "{SavedValue:ProgramEGMSID}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
-    And I checkout to yopmail with mailid "exe.automation@yopmail.com"
+    And I checkout to yopmail with mailid "exe.automation.qa2@yopmail.com"
     And I pause execution for "10" seconds
     Then I refresh the page
     And I see the mail subject is as follows :
@@ -4415,7 +4395,7 @@ Feature: Validate all scenarios for program
       The EGMS Team.
       """
     Given I am on "INTERNAL" portal
-    And I checkout to yopmail with mailid "exe1.automation@yopmail.com"
+    And I checkout to yopmail with mailid "exe1.automation.qa2@yopmail.com"
     And I pause execution for "10" seconds
     Then I refresh the page
     And I see the mail subject is as follows :
@@ -4463,9 +4443,6 @@ Feature: Validate all scenarios for program
     And I click on top right button "Associate" in flex table with id "---program:-:contactsTableId---"
     When I click "Associate" after selection of "{SavedValue:EXE Username}" by showing entries "All" in flex table with id "---program:-:associateContactsTableId---"
     When I navigate to "Responsibilities" sub tab
-    When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
-      | Name                     | Program |
-      | {SavedValue:PM Username} | NA      |
     When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
       | Name                      | Program |
       | {SavedValue:EXE Username} | Step 1  |
@@ -4683,12 +4660,8 @@ Feature: Validate all scenarios for program
     When I click "Associate" after selection of "Automation Permanent KPI" by showing entries "All" in flex table with id "---program:-:associateKPITableId---"
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
-      | Name                     | Program |
-      | {SavedValue:PM Username} | NA      |
-    When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
       | Name                     | Program | Announcement |
       | {SavedValue:PM Username} | Step 1  | Step 1       |
-    And I refresh the page
     And I click on "Submit For Approval" in the page details
     Then I softly see field "Status" as "Submitted for Approval"
     And I pause execution for "3" seconds
@@ -4822,7 +4795,7 @@ Feature: Validate all scenarios for program
     And I pause execution for "30" seconds
     When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:grantorTaskReassignTableId---" panel
     Then I softly see value "{SavedValue:ProgramEGMSID}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
-    And I checkout to yopmail with mailid "fo1.automation@yopmail.com"
+    And I checkout to yopmail with mailid "fo1.automation.qa2@yopmail.com"
     And I pause execution for "10" seconds
     Then I refresh the page
     And I see the mail subject is as follows :
@@ -4833,15 +4806,6 @@ Feature: Validate all scenarios for program
     Then I see the mail text is as follows :
       """
       Hello,
-
-      The task(s) below have been reassigned from [Automation FO] to [Automation FO1] successfully. Please find the details below:
-
-      EGMS ID Type Status Subject Assigned By Due Date
-
-
-      Because these tasks have been reassigned, the original reviewer may have lost edit access to the record. However, they may still view the record.
-      Login in to EGMS and click on EGMS IDs to access the assigned record.
-
 
       The task(s) below were failed to reassigned as user was already assigned as a reviewer on this record.
 
@@ -4904,7 +4868,7 @@ Feature: Validate all scenarios for program
     And I pause execution for "30" seconds
     When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:grantorTaskReassignTableId---" panel
     Then I softly see value "{SavedValue:ProgramEGMSID}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
-    And I checkout to yopmail with mailid "exe1.automation@yopmail.com"
+    And I checkout to yopmail with mailid "exe1.automation.qa2@yopmail.com"
     And I pause execution for "120" seconds
     Then I refresh the page
     And I see the mail subject is as follows :
@@ -5065,7 +5029,7 @@ Feature: Validate all scenarios for program
     Then I softly do not see value "{SavedValue:ProgramEGMSID}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
     And I navigate to "Planning" tab
     When I navigate to "External Programs" content inside "Programs" subheader on left panel
-    And I click toggle button to select "All NGO Programs"
+    And I click toggle button to select "NGO Programs - All"
     When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:ExternalNGOProgramTableId---" panel
     And I click on "View" icon for "{SavedValue:ProgramEGMSID}" inside flex table with id "---program:-:ExternalNGOProgramTableId---" without waiting for record
     When I navigate to "Responsibilities" sub tab
@@ -5118,7 +5082,7 @@ Feature: Validate all scenarios for program
     And I pause execution for "30" seconds
     When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:grantorTaskReassignTableId---" panel
     Then I softly see value "{SavedValue:ProgramEGMSID}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
-    And I checkout to yopmail with mailid "exe.automation@yopmail.com"
+    And I checkout to yopmail with mailid "exe.automation.qa2@yopmail.com"
     And I pause execution for "150" seconds
     Then I refresh the page
     And I see the mail subject is as follows :
@@ -5205,7 +5169,7 @@ Feature: Validate all scenarios for program
     And I enter in modal value "Passed" into field "ReviewComments__c"
     When I click modal button "Save"
     And I click on submit review
-    And I checkout to yopmail with mailid "exe1.automation@yopmail.com"
+    And I checkout to yopmail with mailid "exe1.automation.qa2@yopmail.com"
     And I pause execution for "180" seconds
     Then I refresh the page
     And I see the mail subject is as follows :
@@ -5637,7 +5601,7 @@ Feature: Validate all scenarios for program
     When I perform quick search for "{SavedValue:ProgramEGMSID10}" in "---program:-:programsTableId---" panel
     And I click on "View" icon for "{SavedValue:ProgramEGMSID10}" inside flex table with id "---program:-:programsTableId---" without waiting for record
     Then I can see top right button "Amend Program" in page detail
-    And I checkout to yopmail with mailid "pm1.automation@yopmail.com"
+    And I checkout to yopmail with mailid "pm1.automation.qa2@yopmail.com"
     And I pause execution for "10" seconds
     Then I refresh the page
     And I see the mail subject is as follows :
@@ -5989,8 +5953,8 @@ Feature: Validate all scenarios for program
     Then I softly can see row level action button "Edit" against "Notes Record" in flex table with id "---program:-:internalProgramNotesTableId---"
     Then I softly can see row level action button "Delete" against "Notes Record" in flex table with id "---program:-:internalProgramNotesTableId---"
     And I edit the following rows inline in flex table with id "---program:-:internalProgramNotesTableId---" by clicking "Edit" :
-      | Created By     | Title          | Description       |
-      | Automation EXE | Notes Record1 | Automation Notes1  |
+      | Created By     | Title         | Description       |
+      | Automation EXE | Notes Record1 | Automation Notes1 |
     Then I softly see value "Notes Record1" for title "Title" inside table "---program:-:internalProgramNotesTableId---"
     Then I softly see value "Automation Notes1" for title "Description" inside table "---program:-:internalProgramNotesTableId---"
     And I click on "Delete" icon for "Notes Record1" inside flex table with id "---program:-:internalProgramNotesTableId---" without waiting for record
@@ -6552,7 +6516,7 @@ Feature: Validate all scenarios for program
     When I re-login to "Grantor" app as "AUDITOR" user on "INTERNAL" portal
     And I navigate to "Planning" tab
     When I navigate to "External Programs" content inside "Programs" subheader on left panel
-    And I click toggle button to select "All NGO Programs"
+    And I click toggle button to select "NGO Programs - All"
     When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:ExternalNGOProgramTableId---" panel
     And I click on "View" icon for "{SavedValue:ProgramEGMSID}" inside flex table with id "---program:-:ExternalNGOProgramTableId---" without waiting for record
     And I navigate to "Files" sub tab
@@ -6561,7 +6525,7 @@ Feature: Validate all scenarios for program
     Then I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Planning" tab
     When I navigate to "External Programs" content inside "Programs" subheader on left panel
-    And I click toggle button to select "All NGO Programs"
+    And I click toggle button to select "NGO Programs - All"
     When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:ExternalNGOProgramTableId---" panel
     And I click on "View" icon for "{SavedValue:ProgramEGMSID}" inside flex table with id "---program:-:ExternalNGOProgramTableId---" without waiting for record
     Then I softly see status in Progress-bar is "Created" and is "dark blue"
@@ -6589,7 +6553,7 @@ Feature: Validate all scenarios for program
     Then I re-login to "Grantor" app as "PO" user on "INTERNAL" portal
     And I navigate to "Planning" tab
     When I navigate to "External Programs" content inside "Programs" subheader on left panel
-    And I click toggle button to select "All NGO Programs"
+    And I click toggle button to select "NGO Programs - All"
     When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:ExternalNGOProgramTableId---" panel
     And I click on "View" icon for "{SavedValue:ProgramEGMSID}" inside flex table with id "---program:-:ExternalNGOProgramTableId---" without waiting for record
     Then I softly see status in Progress-bar is "Created" and is "dark blue"
@@ -6617,7 +6581,7 @@ Feature: Validate all scenarios for program
     Then I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Planning" tab
     When I navigate to "External Programs" content inside "Programs" subheader on left panel
-    And I click toggle button to select "All NGO Programs"
+    And I click toggle button to select "NGO Programs - All"
     When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:ExternalNGOProgramTableId---" panel
     And I click on "View" icon for "{SavedValue:ProgramEGMSID}" inside flex table with id "---program:-:ExternalNGOProgramTableId---" without waiting for record
     Then I softly see status in Progress-bar is "Created" and is "dark blue"
@@ -6678,7 +6642,7 @@ Feature: Validate all scenarios for program
     Then I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Planning" tab
     When I navigate to "External Programs" content inside "Programs" subheader on left panel
-    And I click toggle button to select "All NGO Programs"
+    And I click toggle button to select "NGO Programs - All"
     When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:ExternalNGOProgramTableId---" panel
     And I click on "View" icon for "{SavedValue:ProgramEGMSID}" inside flex table with id "---program:-:ExternalNGOProgramTableId---" without waiting for record
     And I navigate to "Files" sub tab
@@ -6705,7 +6669,7 @@ Feature: Validate all scenarios for program
     Then I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Planning" tab
     When I navigate to "External Programs" content inside "Programs" subheader on left panel
-    And I click toggle button to select "All NGO Programs"
+    And I click toggle button to select "NGO Programs - All"
     When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:ExternalNGOProgramTableId---" panel
     And I click on "View" icon for "{SavedValue:ProgramEGMSID}" inside flex table with id "---program:-:ExternalNGOProgramTableId---" without waiting for record
     And I navigate to "Files" sub tab
@@ -6732,10 +6696,10 @@ Feature: Validate all scenarios for program
     Then I re-login to "Grantor" app as "ADMIN" user on "INTERNAL" portal
     And I navigate to "Planning" tab
     When I navigate to "External Programs" content inside "Programs" subheader on left panel
-    And I click toggle button to select "All NGO Programs"
+    And I click toggle button to select "NGO Programs - All"
     When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:ExternalNGOProgramTableId---" panel
     And I click on "View" icon for "{SavedValue:ProgramEGMSID}" inside flex table with id "---program:-:ExternalNGOProgramTableId---" without waiting for record
-    Then I softly see status in Progress-bar is "Created" and is "dark blue"
+    Then I softly see field "Status" as "Approved"
     And I navigate to "Files" sub tab
     When I enter the following values into flex table with id "---program:-:externalProgramNotesTableId---" by clicking "New" :
       | Title         | Description       |
@@ -6784,7 +6748,7 @@ Feature: Validate all scenarios for program
     Then I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Planning" tab
     When I navigate to "External Programs" content inside "Programs" subheader on left panel
-    And I click toggle button to select "All NGO Programs"
+    And I click toggle button to select "NGO Programs - All"
     When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:ExternalNGOProgramTableId---" panel
     And I click on "View" icon for "{SavedValue:ProgramEGMSID}" inside flex table with id "---program:-:ExternalNGOProgramTableId---" without waiting for record
     Then I softly see status in Progress-bar is "Created" and is "dark blue"
@@ -6799,7 +6763,7 @@ Feature: Validate all scenarios for program
     Then I re-login to "Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Planning" tab
     When I navigate to "External Programs" content inside "Programs" subheader on left panel
-    And I click toggle button to select "All NGO Programs"
+    And I click toggle button to select "NGO Programs - All"
     When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:ExternalNGOProgramTableId---" panel
     And I click on "View" icon for "{SavedValue:ProgramEGMSID}" inside flex table with id "---program:-:ExternalNGOProgramTableId---" without waiting for record
     Then I softly see status in Progress-bar is "Created" and is "dark blue"
@@ -6814,7 +6778,7 @@ Feature: Validate all scenarios for program
     Then I re-login to "Grantor" app as "PO" user on "INTERNAL" portal
     And I navigate to "Planning" tab
     When I navigate to "External Programs" content inside "Programs" subheader on left panel
-    And I click toggle button to select "All NGO Programs"
+    And I click toggle button to select "NGO Programs - All"
     When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:ExternalNGOProgramTableId---" panel
     And I click on "View" icon for "{SavedValue:ProgramEGMSID}" inside flex table with id "---program:-:ExternalNGOProgramTableId---" without waiting for record
     Then I softly see status in Progress-bar is "Created" and is "dark blue"
@@ -6829,7 +6793,7 @@ Feature: Validate all scenarios for program
     Then I re-login to "Grantor" app as "FD" user on "INTERNAL" portal
     And I navigate to "Planning" tab
     When I navigate to "External Programs" content inside "Programs" subheader on left panel
-    And I click toggle button to select "All NGO Programs"
+    And I click toggle button to select "NGO Programs - All"
     When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:ExternalNGOProgramTableId---" panel
     And I click on "View" icon for "{SavedValue:ProgramEGMSID}" inside flex table with id "---program:-:ExternalNGOProgramTableId---" without waiting for record
     Then I softly see status in Progress-bar is "Created" and is "dark blue"
@@ -6844,7 +6808,7 @@ Feature: Validate all scenarios for program
     Then I re-login to "Grantor" app as "ADMIN" user on "INTERNAL" portal
     And I navigate to "Planning" tab
     When I navigate to "External Programs" content inside "Programs" subheader on left panel
-    And I click toggle button to select "All NGO Programs"
+    And I click toggle button to select "NGO Programs - All"
     When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:ExternalNGOProgramTableId---" panel
     And I click on "View" icon for "{SavedValue:ProgramEGMSID}" inside flex table with id "---program:-:ExternalNGOProgramTableId---" without waiting for record
     Then I softly see status in Progress-bar is "Created" and is "dark blue"
@@ -6859,7 +6823,7 @@ Feature: Validate all scenarios for program
     Then I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Planning" tab
     When I navigate to "External Programs" content inside "Programs" subheader on left panel
-    And I click toggle button to select "All NGO Programs"
+    And I click toggle button to select "NGO Programs - All"
     When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:ExternalNGOProgramTableId---" panel
     And I click on "View" icon for "{SavedValue:ProgramEGMSID}" inside flex table with id "---program:-:ExternalNGOProgramTableId---" without waiting for record
     Then I softly see status in Progress-bar is "Created" and is "dark blue"
@@ -6883,12 +6847,11 @@ Feature: Validate all scenarios for program
     When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "{SavedValue:ProgramEGMSID}" inside flex table with id "---program:-:pendingTaskTableId---" without waiting for record
     And I "Reject" in the approval decision
-    And I refresh the page
     Then I softly see field "Status" as "Rejected"
     Then I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Planning" tab
     When I navigate to "External Programs" content inside "Programs" subheader on left panel
-    And I click toggle button to select "All NGO Programs"
+    And I click toggle button to select "NGO Programs - All"
     When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:ExternalNGOProgramTableId---" panel
     And I click on "View" icon for "{SavedValue:ProgramEGMSID}" inside flex table with id "---program:-:ExternalNGOProgramTableId---" without waiting for record
     Then I softly see field "Status" as "Rejected"
@@ -6909,7 +6872,7 @@ Feature: Validate all scenarios for program
     Then I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Planning" tab
     When I navigate to "External Programs" content inside "Programs" subheader on left panel
-    And I click toggle button to select "All NGO Programs"
+    And I click toggle button to select "NGO Programs - All"
     When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:ExternalNGOProgramTableId---" panel
     And I click on "View" icon for "{SavedValue:ProgramEGMSID}" inside flex table with id "---program:-:ExternalNGOProgramTableId---" without waiting for record
     Then I softly see field "Status" as "Rejected"
@@ -6930,7 +6893,7 @@ Feature: Validate all scenarios for program
     Then I re-login to "Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Planning" tab
     When I navigate to "External Programs" content inside "Programs" subheader on left panel
-    And I click toggle button to select "All NGO Programs"
+    And I click toggle button to select "NGO Programs - All"
     When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:ExternalNGOProgramTableId---" panel
     And I click on "View" icon for "{SavedValue:ProgramEGMSID}" inside flex table with id "---program:-:ExternalNGOProgramTableId---" without waiting for record
     Then I softly see field "Status" as "Rejected"
@@ -6951,7 +6914,7 @@ Feature: Validate all scenarios for program
     Then I re-login to "Grantor" app as "PO" user on "INTERNAL" portal
     And I navigate to "Planning" tab
     When I navigate to "External Programs" content inside "Programs" subheader on left panel
-    And I click toggle button to select "All NGO Programs"
+    And I click toggle button to select "NGO Programs - All"
     When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:ExternalNGOProgramTableId---" panel
     And I click on "View" icon for "{SavedValue:ProgramEGMSID}" inside flex table with id "---program:-:ExternalNGOProgramTableId---" without waiting for record
     Then I softly see field "Status" as "Rejected"
@@ -6972,7 +6935,7 @@ Feature: Validate all scenarios for program
     Then I re-login to "Grantor" app as "FD" user on "INTERNAL" portal
     And I navigate to "Planning" tab
     When I navigate to "External Programs" content inside "Programs" subheader on left panel
-    And I click toggle button to select "All NGO Programs"
+    And I click toggle button to select "NGO Programs - All"
     When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:ExternalNGOProgramTableId---" panel
     And I click on "View" icon for "{SavedValue:ProgramEGMSID}" inside flex table with id "---program:-:ExternalNGOProgramTableId---" without waiting for record
     Then I softly see field "Status" as "Rejected"
@@ -6993,7 +6956,7 @@ Feature: Validate all scenarios for program
     Then I re-login to "Grantor" app as "ADMIN" user on "INTERNAL" portal
     And I navigate to "Planning" tab
     When I navigate to "External Programs" content inside "Programs" subheader on left panel
-    And I click toggle button to select "All NGO Programs"
+    And I click toggle button to select "NGO Programs - All"
     When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:ExternalNGOProgramTableId---" panel
     And I click on "View" icon for "{SavedValue:ProgramEGMSID}" inside flex table with id "---program:-:ExternalNGOProgramTableId---" without waiting for record
     Then I softly see field "Status" as "Rejected"
@@ -7230,7 +7193,7 @@ Feature: Validate all scenarios for program
     Then I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Planning" tab
     When I navigate to "External Programs" content inside "Programs" subheader on left panel
-    And I click toggle button to select "All NGO Programs"
+    And I click toggle button to select "NGO Programs - All"
     When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:ExternalNGOProgramTableId---" panel
     And I click on "View" icon for "{SavedValue:ProgramEGMSID}" inside flex table with id "---program:-:ExternalNGOProgramTableId---" without waiting for record
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
@@ -7255,7 +7218,7 @@ Feature: Validate all scenarios for program
     Then I re-login to "Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Planning" tab
     When I navigate to "External Programs" content inside "Programs" subheader on left panel
-    And I click toggle button to select "All NGO Programs"
+    And I click toggle button to select "NGO Programs - All"
     When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:ExternalNGOProgramTableId---" panel
     And I click on "View" icon for "{SavedValue:ProgramEGMSID}" inside flex table with id "---program:-:ExternalNGOProgramTableId---" without waiting for record
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
@@ -7280,7 +7243,7 @@ Feature: Validate all scenarios for program
     Then I re-login to "Grantor" app as "FD" user on "INTERNAL" portal
     And I navigate to "Planning" tab
     When I navigate to "External Programs" content inside "Programs" subheader on left panel
-    And I click toggle button to select "All NGO Programs"
+    And I click toggle button to select "NGO Programs - All"
     When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:ExternalNGOProgramTableId---" panel
     And I click on "View" icon for "{SavedValue:ProgramEGMSID}" inside flex table with id "---program:-:ExternalNGOProgramTableId---" without waiting for record
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
@@ -7305,7 +7268,7 @@ Feature: Validate all scenarios for program
     Then I re-login to "Grantor" app as "Admin" user on "INTERNAL" portal
     And I navigate to "Planning" tab
     When I navigate to "External Programs" content inside "Programs" subheader on left panel
-    And I click toggle button to select "All NGO Programs"
+    And I click toggle button to select "NGO Programs - All"
     When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:ExternalNGOProgramTableId---" panel
     And I click on "View" icon for "{SavedValue:ProgramEGMSID}" inside flex table with id "---program:-:ExternalNGOProgramTableId---" without waiting for record
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
@@ -7367,7 +7330,7 @@ Feature: Validate all scenarios for program
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Planning" tab
     When I navigate to "External Programs" content inside "Programs" subheader on left panel
-    And I click toggle button to select "All NGO Programs"
+    And I click toggle button to select "NGO Programs - All"
     When I perform quick search for "Record Id" in "---program:-:ExternalNGOProgramTableId---" panel
     And I click on "View" icon for "Record Id" inside flex table with id "---program:-:ExternalNGOProgramTableId---" without waiting for record
     And I click on "Activate" in the page details
@@ -7393,7 +7356,7 @@ Feature: Validate all scenarios for program
     Then I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Planning" tab
     When I navigate to "External Programs" content inside "Programs" subheader on left panel
-    And I click toggle button to select "All NGO Programs"
+    And I click toggle button to select "NGO Programs - All"
     When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:ExternalNGOProgramTableId---" panel
     And I click on "View" icon for "{SavedValue:ProgramEGMSID}" inside flex table with id "---program:-:ExternalNGOProgramTableId---" without waiting for record
     Then I softly see status in Progress-bar is "Active" and is "dark blue"
@@ -7418,7 +7381,7 @@ Feature: Validate all scenarios for program
     Then I re-login to "Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Planning" tab
     When I navigate to "External Programs" content inside "Programs" subheader on left panel
-    And I click toggle button to select "All NGO Programs"
+    And I click toggle button to select "NGO Programs - All"
     When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:ExternalNGOProgramTableId---" panel
     And I click on "View" icon for "{SavedValue:ProgramEGMSID}" inside flex table with id "---program:-:ExternalNGOProgramTableId---" without waiting for record
     Then I softly see status in Progress-bar is "Active" and is "dark blue"
@@ -7443,7 +7406,7 @@ Feature: Validate all scenarios for program
     Then I re-login to "Grantor" app as "PO" user on "INTERNAL" portal
     And I navigate to "Planning" tab
     When I navigate to "External Programs" content inside "Programs" subheader on left panel
-    And I click toggle button to select "All NGO Programs"
+    And I click toggle button to select "NGO Programs - All"
     When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:ExternalNGOProgramTableId---" panel
     And I click on "View" icon for "{SavedValue:ProgramEGMSID}" inside flex table with id "---program:-:ExternalNGOProgramTableId---" without waiting for record
     Then I softly see status in Progress-bar is "Active" and is "dark blue"
@@ -7505,21 +7468,25 @@ Feature: Validate all scenarios for program
     And I navigate to "Messages" sub tab
     And I click on top right button "Send Email" in flex table with id "---program:-:programCollabMessagesTableId---"
     And I send the email under collab tab with following details:
-      | To                        | Subject         | Body                       |
-      | fo.automation@yopmail.com | Automation Test | Automation Test Email Body |
+      | To                            | Subject         | Body                       |
+      | fo.automation.qa2@yopmail.com | Automation Test | Automation Test Email Body |
+    And I wait for "2" seconds
     Then I see the text "Email Sent Successfully." in modal
     And I close "Send Email" modal by clicking the top right x button
+    And I wait for "2" seconds
     Then I softly see value "" for title "Attention To" inside table "---program:-:programCollabMessagesTableId---"
     Then I see the following rows under the following headers in table with id "---program:-:programCollabMessagesTableId---" :
-      | Subject         | From Address              | CC Address | To Address                | Attention To | Email Subject   |
-      | Automation Test | pm.automation@yopmail.com |            | fo.automation@yopmail.com |              | Automation Test |
+      | Subject         | From Address                  | CC Address | To Address                    | Attention To | Email Subject   |
+      | Automation Test | pm.automation.qa2@yopmail.com |            | fo.automation.qa2@yopmail.com |              | Automation Test |
     #330580
     And I click on "Reply" icon for "Automation Test" inside flex table with id "---program:-:programCollabMessagesTableId---" without waiting for record
     And I send the email under collab tab with following details:
-      | To                        | Subject              | Body                          |
-      | fo.automation@yopmail.com | RE: Automation Test1 | Automation Re-Test Email Body |
+      | To                            | Subject              | Body                          |
+      | fo.automation.qa2@yopmail.com | RE: Automation Test1 | Automation Re-Test Email Body |
+    And I wait for "2" seconds
     Then I see the text "Email Sent Successfully." in modal
     And I close "Send Email" modal by clicking the top right x button
+    And I wait for "2" seconds
     Then I see value "" for title "Attention To" against the value "RE: Automation Test1" inside table "---program:-:programCollabMessagesTableId---"
     #330611
     When I re-login to "Grantor" app as "FO" user on "INTERNAL" portal
@@ -7530,15 +7497,17 @@ Feature: Validate all scenarios for program
     And I click on "View" icon for "{SavedValue:ProgramEGMSID}" inside flex table with id "---program:-:programsTableId---"
     And I navigate to "Messages" sub tab
     Then I see the following rows under the following headers in table with id "---program:-:programCollabMessagesTableId---" :
-      | Subject         | From Address              | CC Address | To Address                | Attention To | Email Subject   |
-      | Automation Test | pm.automation@yopmail.com |            | fo.automation@yopmail.com |              | Automation Test |
+      | Subject         | From Address                  | CC Address | To Address                    | Attention To | Email Subject   |
+      | Automation Test | pm.automation.qa2@yopmail.com |            | fo.automation.qa2@yopmail.com |              | Automation Test |
     #330615
     And I click on "Reply" icon for "Automation Test" inside flex table with id "---program:-:programCollabMessagesTableId---" without waiting for record
     And I send the email under collab tab with following details:
-      | To                        | Subject              | Body                                |
-      | fo.automation@yopmail.com | RE: Automation Test2 | Automation Re-Test Email Body Again |
+      | To                            | Subject              | Body                                |
+      | fo.automation.qa2@yopmail.com | RE: Automation Test2 | Automation Re-Test Email Body Again |
+    And I wait for "2" seconds
     Then I see the text "Email Sent Successfully." in modal
     And I close "Send Email" modal by clicking the top right x button
+    And I wait for "2" seconds
     Then I see value "" for title "Attention To" against the value "RE: Automation Test2" inside table "---program:-:programCollabMessagesTableId---"
 
   @331481 @331482 @331479 @331477 @331478 @ValidatethatSarahPMAndPeerReviewerVictorEXEwillseesystemEmailafterSarahPmsendsInternalProgramforPeerreview @Sprint-11-US-327737 @SystemEmail
@@ -7576,12 +7545,12 @@ Feature: Validate all scenarios for program
     And I refresh the page
     And I navigate to "Messages" sub tab
     Then I softly see value "Notification: Program {SavedValue:ProgramEGMSID} awaiting Peer Review" for title "Subject" inside table "---program:-:systemEmailsTableId---"
-    Then I softly see value "pm.automation@yopmail.com" for title "From Address" inside table "---program:-:systemEmailsTableId---"
-    Then I softly see value "exe.automation@yopmail.com" for title "To Address" inside table "---program:-:systemEmailsTableId---"
-    And I click on "View" icon for "exe.automation@yopmail.com" inside flex table with id "---program:-:systemEmailsTableId---" without waiting for record
+    Then I softly see value "pm.automation.qa2@yopmail.com" for title "From Address" inside table "---program:-:systemEmailsTableId---"
+    Then I softly see value "exe.automation.qa2@yopmail.com" for title "To Address" inside table "---program:-:systemEmailsTableId---"
+    And I click on "View" icon for "exe.automation.qa2@yopmail.com" inside flex table with id "---program:-:systemEmailsTableId---" without waiting for record
     Then I softly see following details for email sent under collab:
-      | pm.automation@yopmail.com                                             |
-      | exe.automation@yopmail.com                                            |
+      | pm.automation.qa2@yopmail.com                                         |
+      | exe.automation.qa2@yopmail.com                                        |
       | Notification: Program {SavedValue:ProgramEGMSID} awaiting Peer Review |
     When I close "System Email" modal by clicking the top right x button
     When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
@@ -7591,12 +7560,12 @@ Feature: Validate all scenarios for program
     When I click on "Start" icon for "Record Id" inside flex table with id "---program:-:homePendingTableId---"
     And I navigate to "Messages" sub tab
     Then I softly see value "Notification: Program {SavedValue:ProgramEGMSID} awaiting Peer Review" for title "Subject" inside table "---program:-:systemEmailsTableId---"
-    Then I softly see value "pm.automation@yopmail.com" for title "From Address" inside table "---program:-:systemEmailsTableId---"
-    Then I softly see value "exe.automation@yopmail.com" for title "To Address" inside table "---program:-:systemEmailsTableId---"
-    And I click on "View" icon for "exe.automation@yopmail.com" inside flex table with id "---program:-:systemEmailsTableId---" without waiting for record
+    Then I softly see value "pm.automation.qa2@yopmail.com" for title "From Address" inside table "---program:-:systemEmailsTableId---"
+    Then I softly see value "exe.automation.qa2@yopmail.com" for title "To Address" inside table "---program:-:systemEmailsTableId---"
+    And I click on "View" icon for "exe.automation.qa2@yopmail.com" inside flex table with id "---program:-:systemEmailsTableId---" without waiting for record
     Then I softly see following details for email sent under collab:
-      | pm.automation@yopmail.com                                             |
-      | exe.automation@yopmail.com                                            |
+      | pm.automation.qa2@yopmail.com                                         |
+      | exe.automation.qa2@yopmail.com                                        |
       | Notification: Program {SavedValue:ProgramEGMSID} awaiting Peer Review |
     When I close "System Email" modal by clicking the top right x button
     #331482
@@ -7612,12 +7581,12 @@ Feature: Validate all scenarios for program
     And I refresh the page
     And I navigate to "Messages" sub tab
     Then I softly see value "Notification: Program {SavedValue:ProgramEGMSID} has been Peer Reviewed" for title "Subject" inside table "---program:-:systemEmailsTableId---"
-    Then I softly see value "exe.automation@yopmail.com" for title "From Address" inside table "---program:-:systemEmailsTableId---"
-    Then I softly see value "pm.automation@yopmail.com" for title "To Address" inside table "---program:-:systemEmailsTableId---"
+    Then I softly see value "exe.automation.qa2@yopmail.com" for title "From Address" inside table "---program:-:systemEmailsTableId---"
+    Then I softly see value "pm.automation.qa2@yopmail.com" for title "To Address" inside table "---program:-:systemEmailsTableId---"
     And I click on "View" icon for "Notification: Program {SavedValue:ProgramEGMSID} has been Peer Reviewed" inside flex table with id "---program:-:systemEmailsTableId---" without waiting for record
     Then I softly see following details for email sent under collab:
-      | exe.automation@yopmail.com                                              |
-      | pm.automation@yopmail.com                                               |
+      | exe.automation.qa2@yopmail.com                                          |
+      | pm.automation.qa2@yopmail.com                                           |
       | Notification: Program {SavedValue:ProgramEGMSID} has been Peer Reviewed |
     When I close "System Email" modal by clicking the top right x button
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
@@ -7628,12 +7597,12 @@ Feature: Validate all scenarios for program
     And I click on "View" icon for "{SavedValue:ProgramEGMSID}" inside table
     And I navigate to "Messages" sub tab
     Then I softly see value "Notification: Program {SavedValue:ProgramEGMSID} has been Peer Reviewed" for title "Subject" inside table "---program:-:systemEmailsTableId---"
-    Then I softly see value "exe.automation@yopmail.com" for title "From Address" inside table "---program:-:systemEmailsTableId---"
-    Then I softly see value "pm.automation@yopmail.com" for title "To Address" inside table "---program:-:systemEmailsTableId---"
+    Then I softly see value "exe.automation.qa2@yopmail.com" for title "From Address" inside table "---program:-:systemEmailsTableId---"
+    Then I softly see value "pm.automation.qa2@yopmail.com" for title "To Address" inside table "---program:-:systemEmailsTableId---"
     And I click on "View" icon for "Notification: Program {SavedValue:ProgramEGMSID} has been Peer Reviewed" inside flex table with id "---program:-:systemEmailsTableId---" without waiting for record
     Then I softly see following details for email sent under collab:
-      | exe.automation@yopmail.com                                              |
-      | pm.automation@yopmail.com                                               |
+      | exe.automation.qa2@yopmail.com                                          |
+      | pm.automation.qa2@yopmail.com                                           |
       | Notification: Program {SavedValue:ProgramEGMSID} has been Peer Reviewed |
     When I close "System Email" modal by clicking the top right x button
     #331477
@@ -7708,12 +7677,12 @@ Feature: Validate all scenarios for program
     And I navigate to "Messages" sub tab
     And I refresh the page
     Then I softly see value "Notification: Approver has initiated Undo Action on Program #{SavedValue:ProgramEGMSID}." for title "Subject" inside table "---program:-:systemEmailsTableId---"
-    Then I softly see value "automationpo@yopmail.com" for title "From Address" inside table "---program:-:systemEmailsTableId---"
-    Then I softly see value "automationpo@yopmail.com" for title "To Address" inside table "---program:-:systemEmailsTableId---"
-    And I click on "View" icon for "automationpo@yopmail.com" inside flex table with id "---program:-:systemEmailsTableId---" without waiting for record
+    Then I softly see value "automation.po.qa2@yopmail.com" for title "From Address" inside table "---program:-:systemEmailsTableId---"
+    Then I softly see value "automation.po.qa2@yopmail.com" for title "To Address" inside table "---program:-:systemEmailsTableId---"
+    And I click on "View" icon for "automation.po.qa2@yopmail.com" inside flex table with id "---program:-:systemEmailsTableId---" without waiting for record
     Then I softly see following details for email sent under collab:
-      | automationpo@yopmail.com                                                                 |
-      | automationpo@yopmail.com                                                                 |
+      | automation.po.qa2@yopmail.com                                                            |
+      | automation.po.qa2@yopmail.com                                                            |
       | Notification: Approver has initiated Undo Action on Program #{SavedValue:ProgramEGMSID}. |
     When I close "System Email" modal by clicking the top right x button
     When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
@@ -7725,12 +7694,12 @@ Feature: Validate all scenarios for program
     And I navigate to "Messages" sub tab
     And I refresh the page
     Then I softly see value "Notification: Approver has initiated Undo Action on Program #{SavedValue:ProgramEGMSID}." for title "Subject" inside table "---program:-:systemEmailsTableId---"
-    Then I softly see value "automationpo@yopmail.com" for title "From Address" inside table "---program:-:systemEmailsTableId---"
-    Then I softly see value "exe.automation@yopmail.com" for title "To Address" inside table "---program:-:systemEmailsTableId---"
-    And I click on "View" icon for "exe.automation@yopmail.com" inside flex table with id "---program:-:systemEmailsTableId---" without waiting for record
+    Then I softly see value "automation.po.qa2@yopmail.com" for title "From Address" inside table "---program:-:systemEmailsTableId---"
+    Then I softly see value "exe.automation.qa2@yopmail.com" for title "To Address" inside table "---program:-:systemEmailsTableId---"
+    And I click on "View" icon for "exe.automation.qa2@yopmail.com" inside flex table with id "---program:-:systemEmailsTableId---" without waiting for record
     Then I softly see following details for email sent under collab:
-      | automationpo@yopmail.com                                                                 |
-      | exe.automation@yopmail.com                                                               |
+      | automation.po.qa2@yopmail.com                                                            |
+      | exe.automation.qa2@yopmail.com                                                           |
       | Notification: Approver has initiated Undo Action on Program #{SavedValue:ProgramEGMSID}. |
     When I close "System Email" modal by clicking the top right x button
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
@@ -7742,12 +7711,12 @@ Feature: Validate all scenarios for program
     And I navigate to "Messages" sub tab
     And I refresh the page
     Then I softly see value "Notification: Approver has initiated Undo Action on Program #{SavedValue:ProgramEGMSID}." for title "Subject" inside table "---program:-:systemEmailsTableId---"
-    Then I softly see value "automationpo@yopmail.com" for title "From Address" inside table "---program:-:systemEmailsTableId---"
-    Then I softly see value "pm.automation@yopmail.com" for title "To Address" inside table "---program:-:systemEmailsTableId---"
-    And I click on "View" icon for "pm.automation@yopmail.com" inside flex table with id "---program:-:systemEmailsTableId---" without waiting for record
+    Then I softly see value "automation.po.qa2@yopmail.com" for title "From Address" inside table "---program:-:systemEmailsTableId---"
+    Then I softly see value "pm.automation.qa2@yopmail.com" for title "To Address" inside table "---program:-:systemEmailsTableId---"
+    And I click on "View" icon for "pm.automation.qa2@yopmail.com" inside flex table with id "---program:-:systemEmailsTableId---" without waiting for record
     Then I softly see following details for email sent under collab:
-      | automationpo@yopmail.com                                                                 |
-      | pm.automation@yopmail.com                                                                |
+      | automation.po.qa2@yopmail.com                                                            |
+      | pm.automation.qa2@yopmail.com                                                            |
       | Notification: Approver has initiated Undo Action on Program #{SavedValue:ProgramEGMSID}. |
 
   @331862 @331869 @ValidatethatEmailwillnotgenerateSystemEmailmessagestabwhenOwnerofprogramclicksonActivatebuttononInternalProgram @Sprint-11-US-327737 @SystemEmail
@@ -7838,14 +7807,14 @@ Feature: Validate all scenarios for program
     And I navigate to "Messages" sub tab
     And I click on top right button "Send Email" in flex table with id "---program:-:programCollabMessagesTableId---"
     And I send the email under collab tab with following details:
-      | To                        | Subject         | Body                       |
-      | pm.automation@yopmail.com | Automation Test | Automation Test Email Body |
+      | To                            | Subject         | Body                       |
+      | pm.automation.qa2@yopmail.com | Automation Test | Automation Test Email Body |
     Then I see the text "Email Sent Successfully." in modal
     And I close "Send Email" modal by clicking the top right x button
     Then I softly see value "" for title "Attention To" inside table "---program:-:programCollabMessagesTableId---"
     Then I see the following rows under the following headers in table with id "---program:-:programCollabMessagesTableId---" :
-      | Subject         | From Address             | CC Address | To Address                | Attention To | Email Subject   |
-      | Automation Test | automationfd@yopmail.com |            | pm.automation@yopmail.com |              | Automation Test |
+      | Subject         | From Address                  | CC Address | To Address                    | Attention To | Email Subject   |
+      | Automation Test | automation.fd.qa2@yopmail.com |            | pm.automation.qa2@yopmail.com |              | Automation Test |
     And I refresh the page
     Then I see "No Records Found" inside flex table with id "---program:-:systemEmailsTableId---"
     #331480
@@ -7983,7 +7952,6 @@ Feature: Validate all scenarios for program
     Then I see "No Records Found" inside flex table with id "---program:-:systemEmailsTableId---"
     #331823
     And I "Reject" in the approval decision
-    And I refresh the page
     Then I softly see field "Status" as "Rejected"
     And I navigate to "Messages" sub tab
     Then I see "No Records Found" inside flex table with id "---program:-:systemEmailsTableId---"
@@ -8120,14 +8088,14 @@ Feature: Validate all scenarios for program
     And I navigate to "Messages" sub tab
     And I click on top right button "Send Email" in flex table with id "---program:-:programCollabMessagesTableId---"
     And I send the email under collab tab with following details:
-      | To                        | Subject         | Body                       |
-      | fo.automation@yopmail.com | Automation Test | Automation Test Email Body |
+      | To                            | Subject         | Body                       |
+      | fo.automation.qa2@yopmail.com | Automation Test | Automation Test Email Body |
     Then I see the text "Email Sent Successfully." in modal
     And I close "Send Email" modal by clicking the top right x button
     Then I softly see value "" for title "Attention To" inside table "---program:-:programCollabMessagesTableId---"
     Then I see the following rows under the following headers in table with id "---program:-:programCollabMessagesTableId---" :
-      | Subject         | From Address               | CC Address | To Address                | Attention To | Email Subject   |
-      | Automation Test | exe.automation@yopmail.com |            | fo.automation@yopmail.com |              | Automation Test |
+      | Subject         | From Address                   | CC Address | To Address                    | Attention To | Email Subject   |
+      | Automation Test | exe.automation.qa2@yopmail.com |            | fo.automation.qa2@yopmail.com |              | Automation Test |
     #330624
     When I re-login to "Grantor" app as "PO" user on "INTERNAL" portal
     And I navigate to "Planning" tab
@@ -8138,8 +8106,8 @@ Feature: Validate all scenarios for program
     And I navigate to "Messages" sub tab
     And I click on "Reply" icon for "Automation Test" inside flex table with id "---program:-:programCollabMessagesTableId---" without waiting for record
     And I send the email under collab tab with following details:
-      | To                        | Subject              | Body                                |
-      | fo.automation@yopmail.com | RE: Automation Test2 | Automation Re-Test Email Body Again |
+      | To                            | Subject              | Body                                |
+      | fo.automation.qa2@yopmail.com | RE: Automation Test2 | Automation Re-Test Email Body Again |
     Then I see the text "Email Sent Successfully." in modal
     And I close "Send Email" modal by clicking the top right x button
     Then I see value "" for title "Attention To" against the value "RE: Automation Test2" inside table "---program:-:programCollabMessagesTableId---"
@@ -8321,7 +8289,7 @@ Feature: Validate all scenarios for program
     And I navigate to "Messages" sub tab
     Then I softly see top right button "Send Email" inside flex table "---program:-:programCollabMessagesTableId---"
 
-  @ValidateNewButtonForContactSection
+  @Notags @ValidateNewButtonForContactSection
   Scenario: Validate New Button functio ality on contact section
     When I login to "Grantor" app as "dynamicUser" user
     And I navigate to "Planning" tab

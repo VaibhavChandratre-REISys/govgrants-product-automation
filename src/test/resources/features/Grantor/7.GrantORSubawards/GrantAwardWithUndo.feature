@@ -1,4 +1,4 @@
-@grantsAwardUndo @grantor-regression @grantor-parallel-regression @grantAndAward @regression @GrantsExecution
+@grantsAwardUndo @grantor-regression @grantor-parallel-regression @grantAndAward
 Feature: Validate all scenarios of grants and award with undo
 
   @286390  @sprint-1-US-295145  @Undo @bug-414263
@@ -2015,7 +2015,8 @@ Feature: Validate all scenarios of grants and award with undo
     Then I can see top right button "Undo" in page detail
     When I navigate to "Responsibilities" sub tab
     Then I softly see value "{SavedValue:PO1 Username}" for title "Name" inside table "---subAwardStandAlone:-:awardApproversTableId---"
-   And I navigate to "History" sub tab
+    And I navigate to "History" sub tab
+    And I navigate to "Field Audit" sub tab in split screen
     And I click on hyperlink containing value "View All"
     Then I softly see value "Approved" for title "New Value" inside field history table
     Then I softly see value "Submitted for Approval" for title "Original Value" inside field history table
@@ -2259,7 +2260,7 @@ Feature: Validate all scenarios of grants and award with undo
     Then I can see top right button "Undo" in page detail
     And I click on "Undo" in the page details
     Then I softly see field "Status" as "Submitted for Approval"
-    And I checkout to yopmail with mailid "pm.automation@yopmail.com"
+    And I checkout to yopmail with mailid "pm.automation.qa2@yopmail.com"
     Then I refresh the page
     Then I do not see the mail text is as follows :
       """
@@ -2281,7 +2282,7 @@ Feature: Validate all scenarios of grants and award with undo
      Thank you.
      The EGMS Team
       """
-    And I checkout to yopmail with mailid "pm1.automation@yopmail.com"
+    And I checkout to yopmail with mailid "pm1.automation.qa2@yopmail.com"
     Then I refresh the page
     And I see the mail subject is as follows :
     """
@@ -2485,7 +2486,7 @@ Feature: Validate all scenarios of grants and award with undo
     Then I see status in Progress-bar is "Approved" and is "dark blue"
     Then I can see top right button "Undo" in page detail
 
- @286507  @sprint-1-US-295145  @Undo @bug-414554
+  @286507  @sprint-1-US-295145  @Undo @bug-414554
   Scenario: Verify user see all tables display correctly in downloaded PDF for award in rejected state
     When I login to "Grantor" app as "PM" user
     And I navigate to "Grants" tab

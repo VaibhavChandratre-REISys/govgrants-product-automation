@@ -340,13 +340,13 @@ Feature: Validate all scenarios for closeout
     And I click on top right button "Send Email" in flex table with id "CommunicationHistory"
     And I send the email under collab tab with following details:
       | To                        | Subject            | Body            |
-      | pm.automation@yopmail.com | Automation Subject | Automation Body |
+      | pm.automation.qa2@yopmail.com | Automation Subject | Automation Body |
     When I click modal button "Close"
     And I refresh the page
     And I wait for "4" seconds
     Then I softly see value "Automation Subject" for title "Subject" inside table "CommunicationHistory"
     Then I softly see value "sarah.pm.23@yopmail.com" for title "From Address" inside table "CommunicationHistory"
-    Then I softly see value "pm.automation@yopmail.com" for title "To Address" inside table "CommunicationHistory"
+    Then I softly see value "pm.automation.qa2@yopmail.com" for title "To Address" inside table "CommunicationHistory"
     When I re-login to "As a Grantee" app as "GRANTEE PO" user on "INTERNAL" portal
     And I navigate to "Closeout" tab
     And I navigate to "Closeout" tab
@@ -385,13 +385,13 @@ Feature: Validate all scenarios for closeout
     And I click on top right button "Send Email" in flex table with id "CommunicationHistory"
     And I send the email under collab tab with following details:
       | To                        | Subject            | Body            |
-      | pm.automation@yopmail.com | Automation Subject | Automation Body |
+      | pm.automation.qa2@yopmail.com | Automation Subject | Automation Body |
     When I click modal button "Close"
     And I refresh the page
     And I wait for "3" seconds
     Then I softly see value "Automation Subject" for title "Subject" inside table "CommunicationHistory"
     Then I softly see value "govgrantsuat@yopmail.com" for title "From Address" inside table "CommunicationHistory"
-    Then I softly see value "pm.automation@yopmail.com" for title "To Address" inside table "CommunicationHistory"
+    Then I softly see value "pm.automation.qa2@yopmail.com" for title "To Address" inside table "CommunicationHistory"
 
   @446125 @ValidateGPCloseoutwithEXEprofileifGrantisnotactivethenunabletoseenewbuttontocreatecloseout @GRegression1 @GranteeTBE
   Scenario: Validate GP Closeout with EXE  profile ,if Grant is not active then unable to see new button to create closeout
@@ -1410,13 +1410,13 @@ Feature: Validate all scenarios for closeout
     And I click on top right button "Send Email" in flex table with id "CommunicationHistory"
     And I send the email under collab tab with following details:
       | To                        | Subject            | Body            |
-      | pm.automation@yopmail.com | Automation Subject | Automation Body |
+      | pm.automation.qa2@yopmail.com | Automation Subject | Automation Body |
     When I click modal button "Close"
     And I refresh the page
     And I wait for "4" seconds
     Then I softly see value "Automation Subject" for title "Subject" inside table "CommunicationHistory"
     Then I softly see value "sarah.pm.23@yopmail.com" for title "From Address" inside table "CommunicationHistory"
-    Then I softly see value "pm.automation@yopmail.com" for title "To Address" inside table "CommunicationHistory"
+    Then I softly see value "pm.automation.qa2@yopmail.com" for title "To Address" inside table "CommunicationHistory"
 
   @484063 @ValidateFromAppGPCloseoutwithPMProfileabletocreateProjectperiodcloseoutandabletocompletethecloseout @GRegression1
   Scenario: Validate From App GP Closeout with PM Profile Able to create Project period closeout and able to complete the closeout

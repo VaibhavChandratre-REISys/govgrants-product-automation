@@ -1,4 +1,4 @@
-@SiteVisitExecution @siteVisits @grantor-regression @grantor-parallel-regression @siteVisit @regression @siteVisit_Lwc_Run @siteAndDeskReview
+@SiteVisitExecution @siteVisits @grantor-regression @grantor-parallel-regression @siteVisit @regression @siteVisit_Lwc_Run @siteAndDeskReview @siteExecution
 Feature: Validate all scenarios in the Site Visit
 
   Background: Data setup for Site Visit
@@ -63,7 +63,7 @@ Feature: Validate all scenarios in the Site Visit
     And I logout
     And I pause execution for "2" seconds
     And I refresh the page
-    And I checkout to yopmail with mailid "automationspi31@yopmail.com"
+    And I checkout to yopmail with mailid "automationspi31.qa2@yopmail.com"
     And I pause execution for "3" seconds
     And I refresh the page
     Then I see the mail subject is as follows :
@@ -869,7 +869,7 @@ Feature: Validate all scenarios in the Site Visit
     Then I softly see status in Progress-bar is "In Progress" and is "dark blue"
     And I logout
     And I pause execution for "2" seconds
-    And I checkout to yopmail with mailid "pm.automation@yopmail.com"
+    And I checkout to yopmail with mailid "pm.automation.qa2@yopmail.com"
     And I pause execution for "200" seconds
     Then I refresh the page
     And I see the mail subject is as follows :
@@ -1105,7 +1105,7 @@ Feature: Validate all scenarios in the Site Visit
     Then I softly see status in Progress-bar is "Closed" and is "dark blue"
     And I logout
     When I pause execution for "120" seconds
-    And I checkout to yopmail with mailid "automationspi31@yopmail.com"
+    And I checkout to yopmail with mailid "automationspi31.qa2@yopmail.com"
     And I refresh the page
     And I see the mail subject is as follows :
       """
@@ -1117,6 +1117,7 @@ Feature: Validate all scenarios in the Site Visit
     And I navigate to "Monitoring" tab
     When I navigate to "Site Visits" content inside "Monitoring Activities" subheader on left panel
     When I perform quick search for "Record Id" in "---sitevisits:-:manageSiteVisitTableId---" panel
+    And I click toggle button to select "Site Visit Reports - All"
     And I click on "View" icon for "Record Id" inside flex table with id "---sitevisits:-:manageSiteVisitTableId---"
     And I click on Menu icon present on top right corner of the page
     And I wait for "3" seconds

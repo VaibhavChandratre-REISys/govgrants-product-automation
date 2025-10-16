@@ -1,4 +1,4 @@
-@organizationalDeskReviewUndo @grantor-regression @grantor-parallel-regression @siteVisit @regression @siteAndDeskReview
+@organizationalDeskReviewUndo @grantor-regression @grantor-parallel-regression @siteVisit @regression @siteAndDeskReview @deskExecution
 Feature: Validate all scenarios in Organizational Desk Review Without Undo
 
   @308889 @ODR-VerifythatUNDOiconorbuttonisnotavailableontheactionbuttonsofOrganizationDeskreviewrecordontablethatispresentonsidebarorphaselevelorthatonOrganization @sprint-7-US-306815 @Undo
@@ -486,7 +486,7 @@ Feature: Validate all scenarios in Organizational Desk Review Without Undo
     Then I softly see confirmation box with body "WARNING: This action will reopen the approval decision made earlier. Do you want to proceed?" is displayed
     And I click "OK" on modal confirmation box
     Then I softly see field "Status" as "Submitted for Approval"
-    And I checkout to yopmail with mailid "exe.automation@yopmail.com"
+    And I checkout to yopmail with mailid "exe.automation.qa2@yopmail.com"
     And I pause execution for "10" seconds
     Then I refresh the page
     And I see the mail subject is as follows :
@@ -512,7 +512,7 @@ Feature: Validate all scenarios in Organizational Desk Review Without Undo
     Thank you.
     The EGMS Team
     """
-    And I checkout to yopmail with mailid "fo.automation@yopmail.com"
+    And I checkout to yopmail with mailid "fo.automation.qa2@yopmail.com"
     And I pause execution for "10" seconds
     Then I refresh the page
     And I see the mail subject is as follows :
@@ -538,7 +538,7 @@ Feature: Validate all scenarios in Organizational Desk Review Without Undo
     Thank you.
     The EGMS Team
     """
-    And I checkout to yopmail with mailid "pm1.automation@yopmail.com"
+    And I checkout to yopmail with mailid "pm1.automation.qa2@yopmail.com"
     And I pause execution for "10" seconds
     Then I refresh the page
     And I see the mail subject is as follows :
@@ -564,7 +564,7 @@ Feature: Validate all scenarios in Organizational Desk Review Without Undo
     Thank you.
     The EGMS Team
     """
-    And I checkout to yopmail with mailid "automationpo@yopmail.com"
+    And I checkout to yopmail with mailid "automation.po.qa2@yopmail.com"
     And I pause execution for "10" seconds
     Then I refresh the page
     And I see the mail subject is as follows :
@@ -590,7 +590,7 @@ Feature: Validate all scenarios in Organizational Desk Review Without Undo
     Thank you.
     The EGMS Team
     """
-    And I checkout to yopmail with mailid "pm.automation@yopmail.com"
+    And I checkout to yopmail with mailid "pm.automation.qa2@yopmail.com"
     And I pause execution for "10" seconds
     Then I refresh the page
     And I see the mail subject is as follows :
@@ -1027,7 +1027,7 @@ Feature: Validate all scenarios in Organizational Desk Review Without Undo
     #296098
     Then I softly see status in Progress-bar is "Approved" and is "dark blue"
     Then I cannot see top right button "Undo" in page detail
-    And I checkout to yopmail with mailid "pm1.automation@yopmail.com"
+    And I checkout to yopmail with mailid "pm1.automation.qa2@yopmail.com"
     And I pause execution for "10" seconds
     Then I refresh the page
     And I see the mail subject is as follows :
@@ -1160,10 +1160,13 @@ Feature: Validate all scenarios in Organizational Desk Review Without Undo
     #296153
     Then I can see top right button "Undo" in page detail
     When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
-    And I navigate to "Monitoring" tab
-    When I navigate to "Desk Reviews" content inside "Monitoring Activities" subheader on left panel
-    When I perform quick search for "{SavedValue:DeskReviewID}" in "---deskreview:-:deskReviewGridViewTableId---" panel
-    And I click on "View" icon for "{SavedValue:DeskReviewID}" inside flex table with id "---deskreview:-:deskReviewGridViewTableId---"
+    And I navigate to "Home" tab
+    When I navigate to "Subrecipients" content inside "Organization" subheader on left panel
+    When I perform quick search for "SAN DIEGO ELECTRICAL TRAINING TRUST" in "ActiveAccount" panel
+    And I click on "View" icon for "SAN DIEGO ELECTRICAL TRAINING TRUST" inside table
+    Given I navigate to "Related Log" sub tab
+    When I perform quick search for "{SavedValue:DeskReviewID}" in "---orgLevelDeskReview:-:deskreviewPanelId---" panel
+    And I click on "View" icon for "{SavedValue:DeskReviewID}" inside flex table with id "---orgLevelDeskReview:-:deskreviewPanelId---"
     Then I softly see status in Progress-bar is "Approved" and is "dark blue"
     #296154
     Then I cannot see top right button "Undo" in page detail
@@ -1504,6 +1507,7 @@ Feature: Validate all scenarios in Organizational Desk Review Without Undo
     And I click on "Undo" in the page details without processing
     Then I softly see confirmation box with body "WARNING: This action will reopen the approval decision made earlier. Do you want to proceed?" is displayed
     And I click "OK" on modal confirmation box
+    And I wait for "2" seconds
     Then I softly see field "Status" as "Submitted for Approval"
 
   @329508 @ValidateOrgDRFieldhistoryshouldgetupdatedafterclickonundobuttoaftertakingapprovaldecisionApproved @Undo @FieldHistoryExclude
