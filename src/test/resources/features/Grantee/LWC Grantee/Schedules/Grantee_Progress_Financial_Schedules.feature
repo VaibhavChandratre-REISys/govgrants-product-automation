@@ -16581,7 +16581,7 @@ Feature: Validate all scenarios for Progress & Financial Schedules
     Then I softly cannot see row level action button "Edit" against "{SavedValue:EGMS ID12}" in flex table with id "---grantee_tableId:-:financialReportProgressReportSchedules---"
     Then I softly cannot see row level action button "Edit" against "{SavedValue:EGMS ID13}" in flex table with id "---grantee_tableId:-:financialReportProgressReportSchedules---"
 
-  @473156 @ValidatePOuserincaseperiodicrenewalschedulesarecreatedin1stawardthenin2ndawardasperschedulesof2ndawardabletosee
+  @473156 @ValidatePOuserincaseperiodicrenewalschedulesarecreatedin1stawardthenin2ndawardasperschedulesof2ndawardabletosee @PO_Grantee @P2_Grantee @GRegression5
   Scenario: Validate PO user in case periodic renewal schedules are created in 1st award then in 2nd award as per schedules of 2nd award able to see
     And I "Created" standalone subaward "Automation Runtime award" with properties "default-Grantee PO user"
     And I updated direct grant award for title "{SavedValue:Automation Runtime award}" with properties "default"
@@ -16697,7 +16697,7 @@ Feature: Validate all scenarios for Progress & Financial Schedules
     Then I softly see value "{SavedValue:FINANEGMS ID11}" for title "EGMS ID" against the value "Financial Report" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
     Then I softly see value "{SavedValue:FINANEGMS ID12}" for title "EGMS ID" against the value "Financial Report" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
 
-  @473154 @ValidatePOuserincaseperiodicrenewalschedulesarenotcreatedin1stawardthenin2ndawardschedulesunabletosee
+  @473154 @ValidatePOuserincaseperiodicrenewalschedulesarenotcreatedin1stawardthenin2ndawardschedulesunabletosee @PO_Grantee @P2_Grantee @GRegression5
   Scenario: Validate PO user in case periodic renewal schedules are not created in 1st award then in 2nd award schedules unable to see
     When I login to "As a Grantee" app as "GRANTEE PO" user
     And I navigate to "Grants" tab
