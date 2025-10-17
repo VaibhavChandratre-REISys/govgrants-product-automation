@@ -6,6 +6,7 @@ import com.helperPackage.handlers.govgrants;
 import com.helperPackage.register.I;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
+import io.cucumber.java.PendingException;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -155,6 +156,11 @@ public class CommonSteps {
     @And("I click on {string} button for snapshot view")
     public void iClickOnButtonForSnapshotView(String buttonName) {
         projectManager.clickOnuttonForSnapshotView(buttonName);
+    }
+
+    @And("I hover mouse on the field {string} of page block {string}")
+    public void iHoverMouseOnTheFieldOfPageBlock(String fieldName, String pageBlockName) {
+        projectManager.MouseOnTheFieldOfPageBlock(fieldName, pageBlockName);
     }
 }
 

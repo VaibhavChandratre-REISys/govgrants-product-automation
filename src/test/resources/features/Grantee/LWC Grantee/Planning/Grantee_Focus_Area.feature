@@ -407,3 +407,53 @@ Feature: Validate all scenarios for Focus Areas
     Then I see option "Take Snapshot" present in parallel dropdown
     When I click on "Activate" in the page details
     Then I see status in Progress-bar is "Active" and is "dark blue"
+
+  @440278 @ValidatePOprofileabletoseeviewactiononlyfortheFocusareas @PO_Grantee @GRegression5 @P3_Grantee
+    Scenario: Validate PO profile able to see view action only for the Focus areas
+    When I login to "As a Grantee" app as "GRANTEE PM" user
+    When I navigate to "Planning" tab
+    When I navigate to "Focus Areas" content inside "Setup" subheader on left panel
+    And I click on top right button "New" in flex table with id "---grantee_tableId:-:GranteeProjectTableId---"
+    When I enter in modal value "Automation Runtime Focus Area" into field "Title__c"
+    When I enter in modal value "Automation Test Description" into field "Description__c"
+    When I click modal button "Save and Continue"
+    And I wait for "2" seconds
+    And I click on "Save" in the page details
+    When I navigate to "Files" sub tab
+    And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:focusAreaAddFilesTableId---"
+    When I upload attachment without random number "AttachmentTesting.pdf" of type "Other" from computer
+    And I wait for "2" seconds
+    When I click modal button "Close"
+    Then I see "AttachmentTesting.pdf" has been added in "Focus Area Files" flex table
+    And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:focusAreaAddFilesTableId---"
+    And I upload attachment without random number "Attachment.pdf" of type "Other" from computer
+    When I click modal button "Close"
+    And I wait for "2" seconds
+    Then I see "Attachment.pdf" has been added in "Focus Area Files" flex table
+    When I enter the following values into flex table with id "---grantee_tableId:-:focusAreaNotesTableId---" by clicking "New" :
+      | Title        | Description      |
+      | Notes Record | Automation Notes |
+    Then I softly see value "Notes Record" for title "Title" inside table "---grantee_tableId:-:focusAreaNotesTableId---"
+    And I save the field labeled "EGMS ID" as "FocusEGMSID"
+    When I re-login to "As a Grantee" app as "GRANTEE PO" user on "INTERNAL" portal
+    When I navigate to "Planning" tab
+    When I navigate to "Focus Areas" content inside "Setup" subheader on left panel
+    Then I softly do not see top right button "New" inside flex table "---grantee_tableId:-:GranteeProjectTableId---"
+    When I perform quick search for "{SavedValue:FocusEGMSID}" in "---grantee_tableId:-:GranteeProjectTableId---" panel
+    Then I softly cannot see row level action button "Edit" against "{SavedValue:FocusEGMSID}" in flex table with id "---grantee_tableId:-:GranteeProjectTableId---"
+    Then I softly cannot see row level action button "Delete" against "{SavedValue:FocusEGMSID}" in flex table with id "---grantee_tableId:-:GranteeProjectTableId---"
+    And I click on "View" icon for "{SavedValue:FocusEGMSID}" inside table
+    Then I softly cannot see top right button "Edit" in page detail
+    When I navigate to "Files" sub tab
+    Then I softly cannot see row level action button "Edit" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:focusAreaAddFilesTableId---"
+    Then I softly cannot see row level action button "Delete" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:focusAreaAddFilesTableId---"
+    Then I softly can see row level action button "View" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:focusAreaAddFilesTableId---"
+    Then I softly can see row level action button "Download" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:focusAreaAddFilesTableId---"
+    Then I softly cannot see row level action button "Edit" against "Notes Record" in flex table with id "---grantee_tableId:-:focusAreaNotesTableId---"
+    Then I softly cannot see row level action button "Delete" against "Notes Record" in flex table with id "---grantee_tableId:-:focusAreaNotesTableId---"
+    When I enter the following values into flex table with id "---grantee_tableId:-:focusAreaNotesTableId---" by clicking "New" :
+      | Title         | Description       |
+      | Notes Record1 | Automation Notes1 |
+    Then I softly see value "Notes Record1" for title "Title" inside table "---grantee_tableId:-:focusAreaNotesTableId---"
+    Then I softly can see row level action button "Edit" against "Notes Record1" in flex table with id "---grantee_tableId:-:focusAreaNotesTableId---"
+    Then I softly can see row level action button "Delete" against "Notes Record1" in flex table with id "---grantee_tableId:-:focusAreaNotesTableId---"

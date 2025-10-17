@@ -1775,3 +1775,18 @@ Feature: Validate all scenarios of every modules flow
       | IND          |
       | SPI4         |
       | SME          |
+
+    @snapShottest @debug
+    Scenario: snapshot execution
+      And I "Created" award from application for opportunity "CAS-HHS0000660610" for title "Automation Runtime Opportunity111316" with properties "default"
+      And I updated award from application for title "Automation Runtime Opportunity111316" with properties "default"
+      And I activate the award for title "Automation Runtime Opportunity111316"
+
+  @TestIssue
+  Scenario:
+    And I "Created" standalone subaward "Automation Runtime award" with properties "default-Grantee PO user"
+    And I updated direct grant award for title "{SavedValue:Automation Runtime award}" with properties "default"
+    And I activate the award for title "{SavedValue:Automation Runtime award}"
+    And I "Submitted For Approval" the "Progress Report" for title "{SavedValue:Automation Runtime award}" with properties "PO_OWNER"
+#    And I "Submitted for Approval" the "Progress Report" for title "{SavedValue:Automation Runtime award}" with properties "PO_OWNER"
+    And I halt execution

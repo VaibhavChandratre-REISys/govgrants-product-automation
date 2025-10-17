@@ -1,4 +1,4 @@
-@GranteeAmendment @GranteeAmendmentPDF @skipOnJenkins
+@GranteeAmendment @GranteeAmendmentPDF
 Feature: Validate all scenarios for Grantee Amendment Request for PDF
 
   @449406 @VerifyPMuserasAROwnersameasAwardOwnercanabletocreatebudgetRedirectionARonactiveAward&abletoAcceptit&abletocreatenewAward&seeimpactonAward&GrantFlowAR @GRegression1 @GranteeTBE

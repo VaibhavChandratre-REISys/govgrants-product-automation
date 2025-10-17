@@ -97,7 +97,22 @@ public class UsersAndURL implements UsersController {
         String password;
         switch (userLevel.toUpperCase()) {
             case "PM":
-                password = "Salesforce@2041";
+                password = "Salesforce@2042";
+                break;
+            case "EXE":
+                password = "Salesforce@2042";
+                break;
+            case "FO":
+                password = "Salesforce@2042";
+                break;
+            case "FD":
+                password = "Salesforce@2042";
+                break;
+            case "PO":
+                password = "Salesforce@2042";
+                break;
+            case "SPI3":
+                password = "Salesforce@2042";
                 break;
             case "ADMIN":
                 password = "Salesforce@2030";
@@ -169,13 +184,13 @@ public class UsersAndURL implements UsersController {
                 password = "Grants@2026";
                 break;
             case "GRANTEE ADMIN":
-                password = "Grantee@2031";
+                password = "Grantee@2032";
                 break;
             case "GRANTEE ADMIN1":
                 password = "Grantee@2027";
                 break;
             case "GRANTEE PM":
-                password = "Grantee@2031";
+                password = "Grantee@2032";
                 break;
             case "GRANTEE PM1":
                 password = "Grantee@2031";
@@ -184,19 +199,19 @@ public class UsersAndURL implements UsersController {
                 password = "Grantee@2032";
                 break;
             case "GRANTEE EXE":
-                password = "Grantee@2031";
+                password = "Grantee@2032";
                 break;
             case "GRANTEE EXE1":
                 password = "Grantee@2031";
                 break;
             case "GRANTEE FO":
-                password = "Grantee@2031";
+                password = "Grantee@2032";
                 break;
             case "GRANTEE FO1":
                 password = "Grantee@2030";
                 break;
             case "GRANTEE FD":
-                password = "Grantee@2031";
+                password = "Grantee@2032";
                 break;
             case "GRANTEE FD1":
                 password = "Grantee@2030";
@@ -205,7 +220,7 @@ public class UsersAndURL implements UsersController {
                 password = "Grantee@2031";
                 break;
             case "GRANTEE PO":
-                password = "Grantee@2031";
+                password = "Grantee@2032";
                 break;
             case "GRANTEE PO1":
                 password = "Grantee@2030";

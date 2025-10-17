@@ -1634,3 +1634,207 @@ Feature: Validate all scenarios for Financial Report
     And I save the value from row "4" for column name "EGMS ID" as "financialEGMSID2" from flex table "---grantee_tableId:-:FinancialsReportTableId---"
     Then I see value "Scheduled" for title "Report Type" against the value "{SavedValue:financialEGMSID2}" inside table "---grantee_tableId:-:FinancialsReportTableId---"
     Then I softly see total records count "Total Records: 4" in flex table "---grantee_tableId:-:FinancialsReportTableId---"
+
+  @496165 @ValidateAwardFromAppReviewedthefinancialreportbyassignedReviewerwithallowrecordeditingYes @P2_Grantee @PM_Grantee @GRegression5
+  Scenario: Validate Award from App Reviewed the financial report by assigned Reviewer with allow record editing Yes
+    Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
+    And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default"
+    Given I login to "As a Grantee" app as "GRANTEE PM" user
+    And I navigate to "Opportunities" tab
+    When I navigate to "Qualified" content inside "Leads" subheader on left panel
+    And I click toggle button to select "Qualified Leads - All"
+    When I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:qualifiedLeadTableId---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside flex table with id "---grantee_tableId:-:qualifiedLeadTableId---" without waiting for record
+    When I click on "Convert to Opportunity" in the page details
+    And I save the field labeled "EGMS ID" as "opportunityEGMSID"
+    And I create opportunity with state "Approved" for opportunity number "CAS-HHS0000660610" with properties "default"
+    And I create Application "{SavedValue:Automation Runtime Opportunity}" with state "Submitted to Grantor" for opportunity number "CAS-HHS0000660610" with properties "default"
+    And I "Created" award from application for opportunity "CAS-HHS0000660610" for title "{SavedValue:Automation Runtime Opportunity}" with properties "default"
+    And I updated award from application for title "{SavedValue:Automation Runtime Opportunity}" with properties "default"
+    And I activate the award for title "{SavedValue:Automation Runtime Opportunity}"
+    And I "Created" the "Financial Report" for title "{SavedValue:Automation Runtime Opportunity}" with properties "default"
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+    And I click toggle button to select "Grants - All"
+    When I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:GrantsTable---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
+    When I navigate to "Awards" sub tab
+    And I click on "View" icon for "Activated" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
+    And I save the field labeled "EGMS ID" as "AwardEGMSID"
+    And I navigate to "Management" sub tab
+    And I click on "View" icon for "Created" inside flex table with id "---grantee_tableId:-:FinancialReportsOnAwards---"
+    And I save the field labeled "EGMS ID" as "financialEGMSID"
+    And I wait for "3" seconds
+    When I navigate to "Overview" sub tab
+    And I save the field labeled "Reporting Period Start Date" as "ReportingPeriodStartDate"
+    And I save the field labeled "Reporting Period End Date" as "ReportingPeriodEndDate"
+    When I navigate to "Responsibilities" sub tab
+    When I enter the following values into flex table with id "---grantee_tableId:-:financialReportPeerReviewTableId---" by clicking "New" :
+      | Reviewer Name | Role            | Description            | Due Date | Allow Record Editing |
+      | David FO      | Fiscal Reviewer | Automation Description | 5        | Yes                  |
+    When I enter the following values into flex table with id "---grantee_tableId:-:financialReportPeerReviewTableId---" by clicking "New" :
+      | Reviewer Name | Role            | Description            | Due Date | Allow Record Editing |
+      | David FO      | Fiscal Reviewer | Automation Description | 5        | Yes                  |
+    Then I softly see the following messages in the page details contains:
+      | Responsibilities Tab - A person with the same role cannot be added again. |
+    And I refresh the page
+    And I wait for "2" seconds
+    When I enter the following values into flex table with id "---grantee_tableId:-:financialReportPeerReviewTableId---" by clicking "New" :
+      | Reviewer Name | Role             | Description            | Due Date | Allow Record Editing |
+      | David FO      | Program Reviewer | Automation Description | 5        | No                   |
+    Then I softly see the following messages in the page details contains:
+      | Saved Successfully! |
+    And I click on "Send for Review" icon for "Fiscal Reviewer" inside table
+    Then I softly see field "Status" as "Submitted for Review"
+    When I re-login to "As a Grantee" app as "GRANTEE FO" user on "INTERNAL" portal
+    And I navigate to "Monitoring" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "{SavedValue:financialEGMSID}" in "---grantee_tableId:-:PendingTask---" panel
+    Then I softly see value "{SavedValue:financialEGMSID}" for title "EGMS ID" inside table "---grantee_tableId:-:PendingTask---"
+    When I click on "Start" icon for "{SavedValue:financialEGMSID}" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
+    Then I softly can see top right button "Edit" in page detail
+    When I navigate to "Overview" sub tab
+    And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:OtherKeyContactsForFinancialReport---"
+    When I click "Associate" after selection of "David FO" in the table "---grantee_tableId:-:associateModalProgressTableId---"
+    When I click modal button "Close"
+    And I wait for "3" seconds
+    Then I softly can see row level action button "Remove" against "David FO" in flex table with id "---grantee_tableId:-:OtherKeyContactsForFinancialReport---"
+    Then I softly can see row level action button "Edit" against "David FO" in flex table with id "---grantee_tableId:-:OtherKeyContactsForFinancialReport---"
+    Then I softly can see row level action button "View" against "David FO" in flex table with id "---grantee_tableId:-:OtherKeyContactsForFinancialReport---"
+    When I navigate to "Forms and Files" sub tab
+    Then I softly can see row level action button "View" against "Federal Financial Report (SF-425)" in flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
+    Then I softly can see row level action button "Splitview" against "Federal Financial Report (SF-425)" in flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
+    Then I softly can see row level action button "Preview" against "Federal Financial Report (SF-425)" in flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
+    Then I softly can see row level action button "Edit" against "Federal Financial Report (SF-425)" in flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
+    And I navigate to "Responsibilities" sub tab
+    When I click on "Enter Review" icon for "Fiscal Reviewer" inside flex table with id "---grantee_tableId:-:financialReportPeerReviewTableId---" without waiting for record
+    And I wait for "2" seconds
+    When I click modal button "Save"
+    And I wait for "2" seconds
+    Then I softly see the following messages in the page details contains:
+      | To Save, Rating is required.   |
+      | To Save, Comments is required. |
+    And I enter a review as "Passed"
+    When I click modal button "Save"
+    And I click on submit review
+    Then I softly see value "Submitted" for title "Status" against the value "Fiscal Reviewer" inside table "---grantee_tableId:-:financialReportPeerReviewTableId---"
+    Then I softly cannot see row level action button "Enter Review" against "Fiscal Reviewer" in flex table with id "---grantee_tableId:-:financialReportPeerReviewTableId---"
+    And I expand nested table containing column value "Fiscal Reviewer"
+    Then I softly see value "Passed" for title "Rating" inside table "---grantee_tableId:-:peerReviewerFinancialChildTableId---"
+    Then I softly see value "Automation Reviewer comments" for title "Review Comments" inside table "---grantee_tableId:-:peerReviewerFinancialChildTableId---"
+    And I navigate to "Monitoring" tab
+    When I navigate to "Completed Tasks" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "{SavedValue:financialEGMSID}" in "---grantee_tableId:-:monitoringCompletedTaskTableId---" panel
+    Then I softly see value "{SavedValue:financialEGMSID}" for title "EGMS ID" inside table "---grantee_tableId:-:monitoringCompletedTaskTableId---"
+    When I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
+    And I navigate to "Monitoring" tab
+    When I navigate to "Financial Reports" content inside "Monitoring" subheader on left panel
+    And I click toggle button to select "Financial Reports - Draft"
+    And I perform quick search for "{SavedValue:financialEGMSID}" in "---grantee_tableId:-:FinancialReportsOnMonitoring---" panel
+    When I click on "View" icon for "{SavedValue:financialEGMSID}" inside table
+    Then I softly can see top right button "Edit" in page detail
+    Then I softly can see top right button "Complete Review" in page detail
+    When I navigate to "Responsibilities" sub tab
+    Then I softly can see row level action button "Resend for Review" against "Fiscal Reviewer" in flex table with id "---grantee_tableId:-:financialReportPeerReviewTableId---"
+    Then I softly see top right button "New" inside flex table "---grantee_tableId:-:financialReportPeerReviewTableId---"
+    When I click on "Complete Review" in the page details
+    Then I softly see field "Status" as "Reviewed"
+    Then I softly cannot see top right button "New" in flex table with id "---grantee_tableId:-:financialReportPeerReviewTableId---"
+    Then I softly cannot see row level action button "Edit" against "Fiscal Reviewer" in flex table with id "---grantee_tableId:-:financialReportPeerReviewTableId---"
+    Then I softly cannot see row level action button "Delete" against "Fiscal Reviewer" in flex table with id "---grantee_tableId:-:financialReportPeerReviewTableId---"
+    Then I softly cannot see row level action button "Send for Review" against "Fiscal Reviewer" in flex table with id "---grantee_tableId:-:financialReportPeerReviewTableId---"
+    And I navigate to "History" sub tab
+    And I navigate to "Field Audit" sub tab in split screen
+    And I click on hyperlink containing value "View All"
+    Then I softly see value "Reviewed" for title "New Value" inside field history table
+    Then I softly see value "Submitted for Review" for title "Original Value" inside field history table
+
+  @499578 @ValidatethatoncefinalfinancialreportiscreatedandapprovedthenlaterusershouldnotcreatedscheduleFR @GRegression5 @PM_Grantee @P3_Grantee
+  Scenario: Validate that once final financial report is created and approved then later user should not created schedule FR
+    And I "Created" standalone subaward "Automation Runtime award" with properties "default"
+    And I updated direct grant award for title "{SavedValue:Automation Runtime award}" with properties "default"
+    And I activate the award for title "{SavedValue:Automation Runtime award}"
+    When I login to "As a Grantee" app as "GRANTEE PM" user
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+    And I click toggle button to select "Grants - All"
+    When I perform quick search for "{SavedValue:Automation Runtime award}" in "---grantee_tableId:-:GrantsTable---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime award}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
+    Then I softly see field "Status" as "Active"
+    Then I softly see status in Progress-bar is "Active" and is "dark blue"
+    And I save the field labeled "EGMS ID" as "GrantEGMSID"
+    When I navigate to "Awards" sub tab
+    And I click on "View" icon for "Activated" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
+    Then I softly see field "Status" as "Activated"
+    And I save the field labeled "EGMS ID" as "AwardEGMSID"
+    And I navigate to "Management" sub tab
+    And I click on "Edit" icon for "Financial Report" inside flex table with id "---grantee_tableId:-:awardReportSchedulesTableId---" without waiting for record
+    When I enter in modal "Grantee_Financial_Schedules" values from "Award_Field_Values.xlsx"
+    And I click modal button "Save"
+    And I wait for "3" seconds
+    And I expand nested table containing column value "Financial Report"
+    And I save the value from row "1" for column name "EGMS ID" as "EGMS ID1" from flex table "---grantee_tableId:-:financialReportProgressReportSchedules---"
+    And I edit the following rows inline in flex table with id "---grantee_tableId:-:awardReportSchedulesTableId---" by clicking "Edit" :
+      | EGMS ID               | Report Creation Date |
+      | {SavedValue:EGMS ID1} | 0                    |
+    And I wait for "250" seconds
+    And I refresh the page
+    And I wait for "3" seconds
+    Then I see value "Scheduled" for title "Report Type" inside table "---grantee_tableId:-:FinancialsReportTableId---"
+    And I save the value from row "1" for column name "EGMS ID" as "financialEGMSID1" from flex table "---grantee_tableId:-:FinancialsReportTableId---"
+    And I navigate to "Monitoring" tab
+    When I navigate to "Financial Reports" content inside "Monitoring" subheader on left panel
+    And I click toggle button to select "Financial Reports - Draft"
+    And I perform quick search for "{SavedValue:financialEGMSID1}" in "---grantee_tableId:-:FinancialReportsOnMonitoring---" panel
+    When I click on "View" icon for "{SavedValue:financialEGMSID1}" inside table
+    And I click on "Edit" in the page details
+    When I enter value "Checked" into field "IsFinalReport__c"
+    And I click on "Save" in the page details
+    And I navigate to "Responsibilities" sub tab
+    When I enter the following values into flex table with id "---grantee_tableId:-:financialReportApproverTableId---" by clicking "New" :
+      | Name     | Financial Report |
+      | Sarah PM | Step 1           |
+    When I navigate to "Forms and Files" sub tab
+    When I click on "Edit" icon for "Federal Financial Report (SF-425)" inside flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
+    And I switch to tab number "1"
+    And I enter "FederalFinancialReport_425" values from "Financial_Report_Field_Values.xlsx"
+    And I click on "Save" in the page details
+    And I wait for "2" seconds
+    When I click on "Validate" in the page details
+    And I wait for "2" seconds
+    Then I softly see the following messages in the page details :
+      | Form validated successfully. |
+    And I close the tab
+    And I wait for "1" seconds
+    When I click on "Validate" in the page details
+    Then I softly see the following messages in the page details contains:
+      | The Report has been validated successfully. |
+    And I click on "Submit for Approval" in the page details
+    Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
+    When I "Approve" in the approval decision
+    Then I softly see status in Progress-bar is "Approved" and is "dark blue"
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+    And I click toggle button to select "Grants - All"
+    When I perform quick search for "{SavedValue:Automation Runtime award}" in "---grantee_tableId:-:GrantsTable---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime award}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
+    When I navigate to "Awards" sub tab
+    And I click on "View" icon for "Activated" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
+    Then I softly see field "Status" as "Activated"
+    Then I softly see status in Progress-bar is "Activated" and is "dark blue"
+    And I navigate to "Management" sub tab
+    And I wait for "3" seconds
+    And I expand nested table containing column value "Financial Report"
+    And I save the value from row "2" for column name "EGMS ID" as "EGMS ID2" from flex table "---grantee_tableId:-:financialReportProgressReportSchedules---"
+    And I edit the following rows inline in flex table with id "---grantee_tableId:-:awardReportSchedulesTableId---" by clicking "Edit" :
+      | EGMS ID               | Report Creation Date |
+      | {SavedValue:EGMS ID2} | 0                    |
+    And I wait for "250" seconds
+    And I refresh the page
+    And I wait for "3" seconds
+    Then I softly see "cross" symbol against the value "{SavedValue:EGMS ID2}" in flex table with id "---grantee_tableId:-:awardReportSchedulesTableId---"
+    And I click on top right button "New" in flex table with id "---grantee_tableId:-:FinancialsReportTableId---"
+    And I enter "Creation" values from "Financial_Report_Field_Values.xlsx"
+    And I click modal button "Save and Continue"
+    And I wait for "2" seconds
+    Then I softly see field "Status" as "Created"
