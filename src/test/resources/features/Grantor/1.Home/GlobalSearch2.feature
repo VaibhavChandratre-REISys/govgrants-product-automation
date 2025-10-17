@@ -621,18 +621,19 @@ Feature: Validate all scenarios for the global search
     And I pause execution for "3" seconds
     When I click on top right button "New" in flex table with id "---home:-:subrecipientContactTableId---"
     And I enter "Creation" values from "SubrecipientContact_Field_Values.xlsx"
+    When I enter in modal value "Non-User" into field "UserRole__c"
     And I generate the random EmailID and save as "uniqueEmailID"
     And I enter value "{SavedValue:uniqueEmailID}" into field "Email"
     When I click modal button "Save"
     And I pause execution for "3" seconds
     And I refresh the page
     And I select "Contacts" from dropdown for Global search
-    And I perform quick search inside global search "{SavedValue:Automation Runtime Contact}"
-    And I click on hyperlink for global search containing value "{SavedValue:Automation Runtime Contact}"
+    And I perform quick search inside global search "{SavedValue:Automation Runtime Contact} Contact"
+    And I click on hyperlink for global search containing value "{SavedValue:Automation Runtime Contact} Contact"
     #390882
     Then I softly see page title contains as "{SavedValue:Automation Runtime Contact}"
     And I select "Contacts" from dropdown for Global search
-    And I perform quick search inside global search "{SavedValue:Automation Runtime Contact}"
+    And I perform quick search inside global search "{SavedValue:Automation Runtime Contact} Contact"
     And I click on hyperlink for global search containing value "SAN DIEGO ELECTRICAL TRAINING TRUST"
     #390882
     Then I softly see page title contains as "SAN DIEGO ELECTRICAL TRAINING TRUST"
