@@ -597,6 +597,13 @@ Feature: Validate all scenarios for the global search
     Then I softly can see top right button "Save" in page detail
     Then I softly can see top right button "Cancel" in page detail
     And I select "Contacts" from dropdown for Global search
+    And I perform quick search inside global search "{user:RegisteredUser}"
+    And I click on row level action button "Edit" against "{user:RegisteredUser}" in global search with id "Contacts"
+    And I pause execution for "3" seconds
+    #390873
+    Then I softly can see top right button "Save" in page detail
+    Then I softly can see top right button "Cancel" in page detail
+    And I select "Contacts" from dropdown for Global search
     And I perform quick search inside global search "{user:ActiveUser}"
     And I click on row level action button "Edit" against "{user:ActiveUser}" in global search with id "Contacts"
     And I pause execution for "3" seconds

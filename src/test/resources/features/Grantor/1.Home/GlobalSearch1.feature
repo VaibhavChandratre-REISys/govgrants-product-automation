@@ -305,7 +305,8 @@ Feature: Validate all scenarios for the global search
     And I click toggle button to select "Internal Funding Sources - All"
     When I perform quick search for "{SavedValue:FundingSourcesID}" in "---fundingsource:-:fundingSourceTableId---" panel
     And I click on "View" icon for "{SavedValue:FundingSourcesID}" inside table
-    And I click on "View" icon for "Active" inside flex table with id "---fundingsource:-:fundingAccountTableId----"
+    And I wait for "1" seconds
+    And I click on "View" icon for "Active" inside flex table with id "---fundingsource:-:fundingAccountTableId---"
     When I click on "Deactivate" in the page details
     Then I softly see field "Status" as "Closed"
     And I click on hyperlink for invisible fields containing value "{SavedValue:FundingSourcesID}"
