@@ -964,7 +964,7 @@ Feature: Validate all scenarios in Negotiations
     And I wait for "3" seconds
     When I click on hyperlink containing value "{SavedValue:AnnID}"
     And I wait for "6" seconds
-    Then I see status in Progress-bar is "Converted to Award" and is "dark blue"
+    Then I see status in Progress-bar is "Published" and is "dark blue"
 
   @133262 @133251 @ValidatePMUserAllowEditSelectAtLeastOneFormErrorMessage @Sprint-3
   Scenario: Validate PM User Allow Edit Select At Least One Form Error Message

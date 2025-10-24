@@ -3,6 +3,8 @@ package com.ggproduct.automation.steps.govgrantsSteps;
 import com.helperPackage.handlers.govgrants;
 import com.helperPackage.exception.TestingBlazeCustomException;
 import com.helperPackage.register.I;
+import io.cucumber.java.PendingException;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import jdk.jfr.Description;
@@ -153,6 +155,7 @@ public final class GovGrantsAssertionSteps {
 
     @Then("^I (softly see|see|softly cannot see) the following messages? in the page details (contains)?:$")
     public void assertPageMessageValue(String usage, String contains, List<String> messages) {
+        I.amPerforming().browserOperationsTo().CheckPageLoadingStatus();
         ggAssertionObjects.assertPageMessageValue(
                 contains != null,
                 messages,

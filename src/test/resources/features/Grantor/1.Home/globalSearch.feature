@@ -1140,16 +1140,16 @@ Feature: Validate all scenarios for the global search
     And I navigate to "Announcements" tab
     And I perform quick search inside global search "Announcement"
     And I click on "Show more" button on left navigation for global search
-    Then I softly see the text "Config: Batch Jobs" on left navigation for global search
+    Then I softly do not see the text "Config: Batch Jobs" on left navigation for global search
     Then I softly see the text "Contact Point Addresses" on left navigation for global search
     Then I softly see the text "Contact Point Emails" on left navigation for global search
     Then I softly see the text "Contact Point Phones" on left navigation for global search
     Then I softly see the text "Contact Point Phones" on left navigation for global search
     Then I softly see the text "Case Comments" on left navigation for global search
     Then I softly see the text "Task Config" on left navigation for global search
-    Then I softly see the text "Step Progressbar Header Config" on left navigation for global search
-    Then I softly see the text "SObject Config" on left navigation for global search
-    Then I softly see the text "Page Layouts Config" on left navigation for global search
+    Then I softly do not see the text "Step Progressbar Header Config" on left navigation for global search
+    Then I softly do not see the text "SObject Config" on left navigation for global search
+    Then I softly do not see the text "Page Layouts Config" on left navigation for global search
 
   @388946 @ValidatePMuserisabletoseethetableforextraobjectswhicharepresentinthesearchresultforPlanningmodule @sprint-2-US-386939  @GlobalSearch
   Scenario: Validate PM user is able to see the table for extra objects which are present in the search result for Planning module

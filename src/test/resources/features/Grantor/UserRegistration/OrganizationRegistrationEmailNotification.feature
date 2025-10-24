@@ -1,7 +1,6 @@
 @organizationRegistrationPage @userRegistration @parallel-regression @regression @grantor-regression @userRegistrationEmailNotification @organizationRegistrationPageEmailNotification @EmailNotification @RegistrationmailandPdf  @skipOnJenkins
 Feature: Validate all registration related scenarios for Email Notification
 
-
   @82030 @verifyEmailNotificationForOrganizationRegistration-Organization  @wip
   Scenario:Verify user should be able to see email notificatio after queued email is approved
     Given I begin "Organization" registration as "Register As Organization"
@@ -31,7 +30,6 @@ Feature: Validate all registration related scenarios for Email Notification
       """
        {regconfirmationmailbody:mailbody}
       """
-
 
   @85792 @validateSAUserforUserRegistration-Organization
   Scenario:To verify SA allow to modify newly created contact in contact table  for Additional user registration process
@@ -100,7 +98,7 @@ Feature: Validate all registration related scenarios for Email Notification
       Sandbox: Your EGMS Registration has Been Approved
       """
 
-  @84611 @83374 @83527 @84612 @83373 @84613 @validateSAUserforUserRegistration-Organization @debug
+  @84611 @83374 @83527 @84612 @83373 @84613 @validateSAUserforUserRegistration-Organization
   Scenario:To verify SA allow to modify newly created contact in contact table  for Additional user registration process
     Given I begin "Organization" registration as "Register As Organization"
     When I click on "Agree" in the page details

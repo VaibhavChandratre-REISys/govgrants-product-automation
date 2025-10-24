@@ -3164,9 +3164,24 @@ public class GrantorPayloads {
                 return updatePreApplicationAsYesWithNoConstructionForOpportunity(defaultJson);
             case "PRE_APP_YES_NGO_BUDGET_TYPE":
                 return updatePreApplicationAsYesWithNGOBudgetType(defaultJson);
+            case "APPLICATION_DUE_DATE_PASSED":
+                return updateApplicationDueDatePassed(defaultJson, oppoNo, state);
             default:
                 return defaultJson;
         }
+    }
+
+    private JsonObject updateApplicationDueDatePassed(JsonObject defaultJson, String oppoNo, String state) {
+        JsonObject pre_application = defaultJson.getAsJsonArray("OpportunityData").get(0).getAsJsonObject();
+        JsonArray pre = new JsonArray();
+        pre_application.addProperty("isPreApplicationRequired", "No");
+        pre_application.addProperty("preApplicationDueDate", I.amPerforming().dateOperationsToGet().currentDateWithOffsetInDesiredFormat(-2, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
+        pre_application.addProperty("letterOfIntentRequired", "Yes");
+        pre_application.addProperty("letterOfIntentDueDate", I.amPerforming().dateOperationsToGet().currentDateWithOffsetInDesiredFormat(-1, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
+        pre_application.addProperty("applicationDueDate", I.amPerforming().dateOperationsToGet().currentDateWithOffsetInDesiredFormat(-1, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
+        pre.add(pre_application);
+        defaultJson.add("OpportunityData", pre);
+        return defaultJson;
     }
 
     private JsonObject updatePreApplicationAsYesWithNGOBudgetType(JsonObject defaultJson) {
@@ -3411,9 +3426,43 @@ public class GrantorPayloads {
                 return payloadForDavidFoApprover(json, module);
             case "TWO_STEP_APPROVER":
                 return payloadForTwoStepApprover(json, module);
+            case "TWO_STEP_APPROVER_PO_OWNER":
+                return payloadForTwoStepApproverPOOwner(json, module);
             default:
                 return json;
         }
+    }
+
+    private JsonObject payloadForTwoStepApproverPOOwner(JsonObject json, String module) {
+        JsonObject preAPPData = json.getAsJsonArray("preAppAndAppData").get(0).getAsJsonObject();
+        JsonObject preAPPData1 = json.getAsJsonArray("preAppAndAppData").get(0).getAsJsonObject();
+        preAPPData1.addProperty("OwnerId", ProjectWebServices.getIdOf("User", "Grantee PO"));
+
+        JsonArray topLevelApprovers = new JsonArray();
+        JsonObject topLevelApprover = new JsonObject();
+        topLevelApprover.addProperty("name", ProjectWebServices.getIdOf("User", "Sarah PM"));
+        if(module.equalsIgnoreCase("Pre-application")){
+            topLevelApprover.addProperty("preApplication", "Step1");
+        }else{
+            topLevelApprover.addProperty("application", "Step1");
+        }
+        topLevelApprovers.add(topLevelApprover);
+
+        JsonObject topLevelApprover2 = new JsonObject();
+        topLevelApprover2.addProperty("name", ProjectWebServices.getIdOf("User", "Victor EXE"));
+        if(module.equalsIgnoreCase("Pre-application")){
+            topLevelApprover2.addProperty("preApplication", "Step2");
+        }else{
+            topLevelApprover2.addProperty("application", "Step2");
+        }
+        topLevelApprovers.add(topLevelApprover2);
+
+        preAPPData.add("approvers", topLevelApprovers);
+        JsonArray preAPPDataDataArray = new JsonArray();
+        preAPPDataDataArray.add(preAPPData);
+        preAPPDataDataArray.add(preAPPData1);
+        json.add("preAppAndAppData", preAPPDataDataArray);
+        return json;
     }
 
     private JsonObject payloadForLineItemBudget(JsonObject json) {
@@ -4225,9 +4274,46 @@ public class GrantorPayloads {
                 return updateNoApprover(defaultJson, title, type, status);
             case "NA_APPROVER_EXE_OWNER":
                 return updateNoApproverWithEXEOwner(defaultJson, title, type, status);
+            case "PO_OWNER":
+                return updatePOOwner(defaultJson, title, type, status);
             default:
                 return defaultJson;
         }
+    }
+
+    private JsonObject updatePOOwner(JsonObject defaultJson, String title, String type, String status) {
+        JsonObject progressReportDetails = new JsonObject();
+
+        // Basic progress report details
+        progressReportDetails.addProperty("AwardTitle", title);
+        if(type.equalsIgnoreCase("Progress Report")) {
+            progressReportDetails.addProperty("ReportType", "Program");
+        }else{
+            progressReportDetails.addProperty("ReportType", "Fiscal");
+        }
+        progressReportDetails.addProperty("OwnerID", ProjectWebServices.getIdOf("User", "Grantee PO"));
+        progressReportDetails.addProperty("ReportDueDate", I.amPerforming().dateOperationsToGet().currentDateWithOffsetInDesiredFormat(3650, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
+        progressReportDetails.addProperty("KeyAccomplishments", "Automation Test Key Accomplishments");
+        progressReportDetails.addProperty("Obstacles", "Automation Test Obstacles");
+        progressReportDetails.addProperty("Plans", "Automation Test Plans");
+        progressReportDetails.addProperty("SubmittedtoGrantor", I.amPerforming().dateOperationsToGet().currentDateWithOffsetInDesiredFormat(1, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
+        progressReportDetails.addProperty("isCreatedOrApprovedProgressReport", status);
+        progressReportDetails.addProperty("isFinalReport", false);
+
+        JsonArray approvers = new JsonArray();
+        JsonObject approver = new JsonObject();
+        approver.addProperty("name", ProjectWebServices.getIdOf("User", "Victor EXE"));
+        approver.addProperty("progressreport", "Step1");
+        approvers.add(approver);
+        progressReportDetails.add("approvers", approvers);
+
+        // Creating the progress report data array and adding the progress report object
+        JsonArray progressReportDataArray = new JsonArray();
+        progressReportDataArray.add(progressReportDetails);
+
+        defaultJson.add("progressReportData", progressReportDataArray);
+
+        return defaultJson;
     }
 
     private JsonObject updateNoApproverWithEXEOwner(JsonObject defaultJson, String title, String type, String status) {
@@ -4485,13 +4571,198 @@ public class GrantorPayloads {
                 return payloadForGranteeStepFourApprover(defaultJson);
             case "KEY_PERSONNEL_CHANGE":
                 return updateKeyPersonnelChange(defaultJson, type, grantTitle, state);
+            case "KEY_PERSONNEL_CHANGE_EXE_OWNER":
+                return updateKeyPersonnelChangeEXEOwner(defaultJson, type, grantTitle, state);
             case "PERIODIC_FD_APPROVER_EXE_OWNER":
                 return updatePeriodicFDApproverEXEOwner(defaultJson, type, grantTitle, state);
             case "PERIODIC_FD_APPROVER_PO_OWNER":
                 return updatePeriodicFDApproverPOOwner(defaultJson, type, grantTitle, state);
+            case "SOW_AMENDMENT_NEW_AWARD_ID":
+                return updateScopeOfWorkNewAwardID(defaultJson, type, grantTitle, state);
             default:
                 return defaultJson;
         }
+    }
+
+    private JsonObject updateScopeOfWorkNewAwardID(JsonObject defaultJson, String type, String grantTitle, String state) {
+        JsonObject grantAwardData = new JsonObject();
+        grantAwardData.addProperty("InitiatedBy", "Grantee");
+        grantAwardData.addProperty("PleaseselectAmendmentRequestType", type);
+        grantAwardData.addProperty("AwardTitle", grantTitle);
+        grantAwardData.addProperty("Justification", "Automation Test");
+        grantAwardData.addProperty("Impact", "Automation Test Impact");
+        grantAwardData.addProperty("ownerId", ProjectWebServices.getIdOf("User", "Sarah PM"));
+        grantAwardData.addProperty("isStatusCreatedOrApproved", state);
+        grantAwardData.addProperty("MaximumIndirectCostRate", 10);
+        grantAwardData.addProperty("NewAwardTitle", "Automation Runtime New Award");
+        grantAwardData.addProperty("NewAwardDescription", "Automation Test");
+        grantAwardData.addProperty("BudgetRedirectionThreshold", 10);
+        grantAwardData.addProperty("Addressline", "Rei System");
+        grantAwardData.addProperty("Address", "Baner");
+        grantAwardData.addProperty("City", "Alaska");
+        grantAwardData.addProperty("County", "Alaska");
+        grantAwardData.addProperty("State", "MA");
+        grantAwardData.addProperty("CongressionalDistrict", "345");
+        grantAwardData.addProperty("ZipCode", "45678");
+        grantAwardData.addProperty("Country", "USA");
+        if(!type.equalsIgnoreCase("Funding Change")) {
+            grantAwardData.addProperty("NewBudgetPeriodEndDate", I.amPerforming().dateOperationsToGet().currentDateWithOffsetInDesiredFormat(3670, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
+        } else{
+            grantAwardData.addProperty("NewBudgetPeriodEndDate", I.amPerforming().dateOperationsToGet().currentDateWithOffsetInDesiredFormat(3650, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
+        }
+        grantAwardData.addProperty("RequestedChangeinAwardBudget", 2000);
+        if(!type.equalsIgnoreCase("Funding Change")) {
+            grantAwardData.addProperty("ProposedBudgetPeriodEndDate", I.amPerforming().dateOperationsToGet().currentDateWithOffsetInDesiredFormat(3670, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
+        }else{
+            grantAwardData.addProperty("ProposedBudgetPeriodEndDate", I.amPerforming().dateOperationsToGet().currentDateWithOffsetInDesiredFormat(3650, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
+        }
+        grantAwardData.addProperty("4DigitZipCodeExtension", "3456");
+        grantAwardData.addProperty("OtherChangeDescription", "Automation Test");
+        grantAwardData.addProperty("PurposeSummary", "Automation Test");
+        grantAwardData.addProperty("OtherAmendmentTypeDetails", "Automation Test");
+        grantAwardData.addProperty("GeneralCondition", false);
+
+        // Focus Areas
+        if(!type.equalsIgnoreCase("Funding Change")) {
+            JsonArray focusAreas = new JsonArray();
+            JsonObject focusArea = new JsonObject();
+            focusArea.addProperty("Title", "Automation Permanent Focus Area");
+            focusArea.addProperty("StartDate", I.amPerforming().dateOperationsToGet().currentDateWithOffsetInDesiredFormat(15, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
+            focusArea.addProperty("EndDate", I.amPerforming().dateOperationsToGet().currentDateWithOffsetInDesiredFormat(3670, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
+            focusAreas.add(focusArea);
+            grantAwardData.add("focusAreas", focusAreas);
+        }
+
+        // Build-up Items
+        JsonArray buildUpItems = new JsonArray();
+        JsonObject buildUpItem = new JsonObject();
+        buildUpItem.addProperty("BudgetCategory", "Construction");
+        buildUpItem.addProperty("Title", "Construction");
+        buildUpItem.addProperty("Narrative", "Test Build-up");
+        buildUpItem.addProperty("awardBudget", 2000);
+        buildUpItem.addProperty("CashMatch", 200);
+        buildUpItem.addProperty("OtherLeverage", 200);
+        buildUpItem.addProperty("ServiceAreaName", "Automation Permanent Focus Area");
+        buildUpItems.add(buildUpItem);
+        grantAwardData.add("BuildUpItems", buildUpItems);
+
+
+        // Indirect Rates
+        JsonArray indirectRates = new JsonArray();
+        JsonObject indirectRate = new JsonObject();
+        indirectRate.addProperty("title", "New Indirect rates2");
+        indirectRate.addProperty("effectiveFrom", I.amPerforming().dateOperationsToGet().currentDateWithOffsetInDesiredFormat(15, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
+        indirectRate.addProperty("effectiveUntil", I.amPerforming().dateOperationsToGet().currentDateWithOffsetInDesiredFormat(50, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
+        indirectRate.addProperty("indirectCostRates", 10);
+        indirectRate.addProperty("indirectCostRateType", "Final");
+        indirectRates.add(indirectRate);
+        grantAwardData.add("indirectRates", indirectRates);
+
+        // Special Conditions
+        JsonArray specialCondition = new JsonArray();
+        JsonObject condition1 = new JsonObject();
+        condition1.addProperty("title", "Terms1");
+        condition1.addProperty("description", "Automation Test");
+        condition1.addProperty("sequence", 1);
+        condition1.addProperty("EffectiveFromDate", I.amPerforming().dateOperationsToGet().currentDateWithOffsetInDesiredFormat(15, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
+        condition1.addProperty("EffectiveEndDate", I.amPerforming().dateOperationsToGet().currentDateWithOffsetInDesiredFormat(3670, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
+        specialCondition.add(condition1);
+
+        grantAwardData.add("specialCondition", specialCondition);
+
+        // Approvers
+        JsonArray approvers = new JsonArray();
+        JsonObject approver = new JsonObject();
+        approver.addProperty("name", ProjectWebServices.getIdOf("User", "Sarah PM"));
+        approver.addProperty("amendmentRequest", "Step1");
+        approvers.add(approver);
+        grantAwardData.add("approvers", approvers);
+
+        // Creating the GrantAwardData array and adding the GrantAwardData object
+        JsonArray grantAwardDataArray = new JsonArray();
+        grantAwardDataArray.add(grantAwardData);
+
+        // Creating the final JSON object
+        JsonObject finalJson = new JsonObject();
+        finalJson.add("GrantAwardData", grantAwardDataArray);
+
+        return defaultJson;
+    }
+
+    private JsonObject updateKeyPersonnelChangeEXEOwner(JsonObject defaultJson, String type, String grantTitle, String state) {
+        JsonObject grantAwardData = new JsonObject();
+        grantAwardData.addProperty("InitiatedBy", "Grantee");
+        grantAwardData.addProperty("PleaseselectAmendmentRequestType", type);
+        grantAwardData.addProperty("AwardTitle", grantTitle);
+        grantAwardData.addProperty("Justification", "Automation Test");
+        grantAwardData.addProperty("Impact", "Automation Test Impact");
+        grantAwardData.addProperty("ownerId", ProjectWebServices.getIdOf("User", "Victor EXE"));
+        grantAwardData.addProperty("isStatusCreatedOrApproved", state);
+        grantAwardData.addProperty("MaximumIndirectCostRate", 10);
+        grantAwardData.addProperty("NewAwardTitle", grantTitle);
+        grantAwardData.addProperty("NewAwardDescription", "Automation Test");
+        grantAwardData.addProperty("NewBudgetPeriodEndDate", I.amPerforming().dateOperationsToGet().currentDateWithOffsetInDesiredFormat(3650, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
+        grantAwardData.addProperty("BudgetRedirectionThreshold", 10);
+        grantAwardData.addProperty("Addressline", "Rei System");
+        grantAwardData.addProperty("Address", "Baner");
+        grantAwardData.addProperty("City", "Alaska");
+        grantAwardData.addProperty("County", "Alaska");
+        grantAwardData.addProperty("State", "MA");
+        grantAwardData.addProperty("CongressionalDistrict", "345");
+        grantAwardData.addProperty("ZipCode", "45678");
+        grantAwardData.addProperty("Country", "USA");
+        grantAwardData.addProperty("ProposedBudgetPeriodEndDate", I.amPerforming().dateOperationsToGet().currentDateWithOffsetInDesiredFormat(3670, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
+        grantAwardData.addProperty("4DigitZipCodeExtension", "3456");
+        grantAwardData.addProperty("OtherChangeDescription", "Automation Test");
+        grantAwardData.addProperty("PurposeSummary", "Automation Test");
+        grantAwardData.addProperty("OtherAmendmentTypeDetails", "Automation Test");
+        grantAwardData.addProperty("GeneralCondition", false);
+
+        // Contacts
+        JsonArray contacts = new JsonArray();
+        JsonObject contact = new JsonObject();
+        contact.addProperty("Name", "Sarah PM");
+        contact.addProperty("ProjectRole", "Grants Management Officer");
+        contact.addProperty("IsKeyContact", true);
+        contacts.add(contact);
+        grantAwardData.add("contacts", contacts);
+
+        // Focus Areas
+        JsonArray focusAreas = new JsonArray();
+        JsonObject focusArea = new JsonObject();
+        focusArea.addProperty("Title", "Automation Permanent Focus Area");
+        focusArea.addProperty("StartDate", I.amPerforming().dateOperationsToGet().currentDateWithOffsetInDesiredFormat(15, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
+        focusArea.addProperty("EndDate", I.amPerforming().dateOperationsToGet().currentDateWithOffsetInDesiredFormat(3670, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
+        focusAreas.add(focusArea);
+        grantAwardData.add("focusAreas", focusAreas);
+
+
+        // Special Conditions
+        JsonArray specialCondition = new JsonArray();
+        JsonObject condition1 = new JsonObject();
+        condition1.addProperty("title", "Terms1");
+        condition1.addProperty("description", "Automation Test");
+        condition1.addProperty("sequence", 1);
+        condition1.addProperty("EffectiveFromDate", I.amPerforming().dateOperationsToGet().currentDateWithOffsetInDesiredFormat(15, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
+        condition1.addProperty("EffectiveEndDate", I.amPerforming().dateOperationsToGet().currentDateWithOffsetInDesiredFormat(3670, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
+        specialCondition.add(condition1);
+        grantAwardData.add("specialCondition", specialCondition);
+
+        // Approvers
+        JsonArray approvers = new JsonArray();
+        JsonObject approver = new JsonObject();
+        approver.addProperty("name", ProjectWebServices.getIdOf("User", "Sarah PM"));
+        approver.addProperty("amendmentRequest", "Step1");
+        approvers.add(approver);
+        grantAwardData.add("approvers", approvers);
+
+        // Creating the GrantAwardData array and adding the GrantAwardData object
+        JsonArray grantAwardDataArray = new JsonArray();
+        grantAwardDataArray.add(grantAwardData);
+
+        defaultJson.add("GrantAwardData", grantAwardDataArray);
+
+        return defaultJson;
     }
 
     private JsonObject updatePeriodicFDApproverPOOwner(JsonObject defaultJson, String type, String grantTitle, String state) {
@@ -5026,7 +5297,7 @@ public class GrantorPayloads {
         grantAwardData.addProperty("MaximumIndirectCostRate", 10);
         grantAwardData.addProperty("NewAwardTitle", grantTitle);
         grantAwardData.addProperty("NewAwardDescription", "Automation Test");
-        grantAwardData.addProperty("NewBudgetPeriodEndDate", I.amPerforming().dateOperationsToGet().currentDateWithOffsetInDesiredFormat(365, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
+        grantAwardData.addProperty("NewBudgetPeriodEndDate", I.amPerforming().dateOperationsToGet().currentDateWithOffsetInDesiredFormat(3650, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
         grantAwardData.addProperty("BudgetRedirectionThreshold", 10);
         grantAwardData.addProperty("Addressline", "Rei System");
         grantAwardData.addProperty("Address", "Baner");
@@ -5064,6 +5335,15 @@ public class GrantorPayloads {
         indirectRates.add(indirectRate);
         grantAwardData.add("indirectRates", indirectRates);
 
+        // Contacts
+        JsonArray contacts = new JsonArray();
+        JsonObject contact = new JsonObject();
+        contact.addProperty("Name", "Sarah PM");
+        contact.addProperty("ProjectRole", "Grants Management Officer");
+        contact.addProperty("IsKeyContact", true);
+        contacts.add(contact);
+        grantAwardData.add("contacts", contacts);
+
         // Objectives
 //        JsonArray objectives = new JsonArray();
 //        objectives.add("Automation Permanent Objective");
@@ -5079,15 +5359,16 @@ public class GrantorPayloads {
 //        kpis.add(kpi1);
 //        grantAwardData.add("kpis", kpis);
 
-//        // Special Conditions
+        // Special Conditions
 //        JsonArray specialCondition = new JsonArray();
 //        JsonObject condition1 = new JsonObject();
-//        condition1.addProperty("title", "Terms");
+//        condition1.addProperty("title", "Terms1");
 //        condition1.addProperty("description", "Automation Test");
 //        condition1.addProperty("sequence", 1);
 //        condition1.addProperty("EffectiveFromDate", I.amPerforming().dateOperationsToGet().currentDateWithOffsetInDesiredFormat(15, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
 //        condition1.addProperty("EffectiveEndDate", I.amPerforming().dateOperationsToGet().currentDateWithOffsetInDesiredFormat(3670, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
 //        specialCondition.add(condition1);
+//        grantAwardData.add("specialCondition", specialCondition);
 
 //        JsonObject condition2 = new JsonObject();
 //        condition2.addProperty("title", "Terms");
@@ -5456,9 +5737,17 @@ public class GrantorPayloads {
         grantAwardData.addProperty("CongressionalDistrict", "345");
         grantAwardData.addProperty("ZipCode", "45678");
         grantAwardData.addProperty("Country", "USA");
-        grantAwardData.addProperty("NewBudgetPeriodEndDate", I.amPerforming().dateOperationsToGet().currentDateWithOffsetInDesiredFormat(3670, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
+        if(!type.equalsIgnoreCase("Funding Change")) {
+            grantAwardData.addProperty("NewBudgetPeriodEndDate", I.amPerforming().dateOperationsToGet().currentDateWithOffsetInDesiredFormat(3670, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
+        } else{
+            grantAwardData.addProperty("NewBudgetPeriodEndDate", I.amPerforming().dateOperationsToGet().currentDateWithOffsetInDesiredFormat(3650, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
+        }
         grantAwardData.addProperty("RequestedChangeinAwardBudget", 2000);
-        grantAwardData.addProperty("ProposedBudgetPeriodEndDate", I.amPerforming().dateOperationsToGet().currentDateWithOffsetInDesiredFormat(3670, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
+        if(!type.equalsIgnoreCase("Funding Change")) {
+            grantAwardData.addProperty("ProposedBudgetPeriodEndDate", I.amPerforming().dateOperationsToGet().currentDateWithOffsetInDesiredFormat(3670, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
+        }else{
+            grantAwardData.addProperty("ProposedBudgetPeriodEndDate", I.amPerforming().dateOperationsToGet().currentDateWithOffsetInDesiredFormat(3650, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
+        }
         grantAwardData.addProperty("4DigitZipCodeExtension", "3456");
         grantAwardData.addProperty("OtherChangeDescription", "Automation Test");
         grantAwardData.addProperty("PurposeSummary", "Automation Test");
@@ -5502,7 +5791,7 @@ public class GrantorPayloads {
         // Indirect Rates
         JsonArray indirectRates = new JsonArray();
         JsonObject indirectRate = new JsonObject();
-        indirectRate.addProperty("title", "New Indirect rate1");
+        indirectRate.addProperty("title", "New Indirect rates2");
         indirectRate.addProperty("effectiveFrom", I.amPerforming().dateOperationsToGet().currentDateWithOffsetInDesiredFormat(15, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
         indirectRate.addProperty("effectiveUntil", I.amPerforming().dateOperationsToGet().currentDateWithOffsetInDesiredFormat(50, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
         indirectRate.addProperty("indirectCostRates", 10);
@@ -5525,15 +5814,15 @@ public class GrantorPayloads {
 //        kpis.add(kpi1);
 //        grantAwardData.add("kpis", kpis);
 
-//        // Special Conditions
-//        JsonArray specialCondition = new JsonArray();
-//        JsonObject condition1 = new JsonObject();
-//        condition1.addProperty("title", "Terms");
-//        condition1.addProperty("description", "Automation Test");
-//        condition1.addProperty("sequence", 1);
-//        condition1.addProperty("EffectiveFromDate", I.amPerforming().dateOperationsToGet().currentDateWithOffsetInDesiredFormat(15, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
-//        condition1.addProperty("EffectiveEndDate", I.amPerforming().dateOperationsToGet().currentDateWithOffsetInDesiredFormat(3670, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
-//        specialCondition.add(condition1);
+        // Special Conditions
+        JsonArray specialCondition = new JsonArray();
+        JsonObject condition1 = new JsonObject();
+        condition1.addProperty("title", "Terms1");
+        condition1.addProperty("description", "Automation Test");
+        condition1.addProperty("sequence", 1);
+        condition1.addProperty("EffectiveFromDate", I.amPerforming().dateOperationsToGet().currentDateWithOffsetInDesiredFormat(15, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
+        condition1.addProperty("EffectiveEndDate", I.amPerforming().dateOperationsToGet().currentDateWithOffsetInDesiredFormat(3670, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
+        specialCondition.add(condition1);
 
 //        JsonObject condition2 = new JsonObject();
 //        condition2.addProperty("title", "Terms");
@@ -5542,7 +5831,7 @@ public class GrantorPayloads {
 //        condition2.addProperty("EffectiveFromDate", I.amPerforming().dateOperationsToGet().currentDateWithOffsetInDesiredFormat(15, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
 //        condition2.addProperty("EffectiveEndDate", I.amPerforming().dateOperationsToGet().currentDateWithOffsetInDesiredFormat(3670, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
 //        specialCondition.add(condition2);
-//        grantAwardData.add("specialCondition", specialCondition);
+        grantAwardData.add("specialCondition", specialCondition);
 
         // Approvers
         JsonArray approvers = new JsonArray();
@@ -5832,9 +6121,116 @@ public class GrantorPayloads {
                 return payloadForGranteeStepThreeApproverApprover(json);
             case "STEP_TWO_AMENDMENT":
                 return payloadForGranteeStepTwoForAmendment(json);
+            case "NO_SCHEDULES":
+                return payloadForNoSchedulesPOOwner(json,appTitle);
             default:
                 return json;
         }
+    }
+
+    private JsonObject payloadForNoSchedulesPOOwner(JsonObject json, String appTitle) {
+        JsonObject grantDetails = new JsonObject();
+        grantDetails.addProperty("AwardTitle", appTitle);
+
+        // Adding external program names
+        JsonArray externalProgramNames = new JsonArray();
+        JsonObject externalProgram1 = new JsonObject();
+        externalProgram1.addProperty("IsPrimaryProgram", true);
+        externalProgram1.addProperty("Title", "Automation Permanent NGO Program");
+        externalProgramNames.add(externalProgram1);
+        grantDetails.add("externalProgramNames", externalProgramNames);
+
+        // Adding contacts
+        JsonArray contacts = new JsonArray();
+        JsonObject contact = new JsonObject();
+        contact.addProperty("Name", ProjectWebServices.getIdOf("Contact", "Victor EXE"));
+        contact.addProperty("ProjectRole", "Project Director/PI");
+        contact.addProperty("IsKeyContact", true);
+        contacts.add(contact);
+        grantDetails.add("contacts", contacts);
+
+        // Adding focus areas
+        JsonArray focusAreas = new JsonArray();
+        JsonObject focusArea1 = new JsonObject();
+        focusArea1.addProperty("Title", "Automation Permanent Focus Area");
+        focusArea1.addProperty("StartDate", I.amPerforming().dateOperationsToGet().currentDateWithOffsetInDesiredFormat(15, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
+        focusArea1.addProperty("EndDate", I.amPerforming().dateOperationsToGet().currentDateWithOffsetInDesiredFormat(3650, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
+        focusAreas.add(focusArea1);
+        grantDetails.add("focusAreas", focusAreas);
+
+        // Adding build-up items
+        JsonArray buildUpItems = new JsonArray();
+        JsonObject buildUpItem = new JsonObject();
+        buildUpItem.addProperty("BudgetCategory", "Construction");
+        buildUpItem.addProperty("Title", "Construction");
+        buildUpItem.addProperty("Narrative", "Test Build-up");
+        buildUpItem.addProperty("awardBudget", 5000);
+        buildUpItem.addProperty("CashMatch", 500);
+        buildUpItem.addProperty("OtherLeverage", 200);
+        buildUpItem.addProperty("ServiceAreaName", "Automation Permanent Focus Area");
+        buildUpItems.add(buildUpItem);
+        grantDetails.add("buildUpItems", buildUpItems);
+
+        // Adding indirect rates
+        JsonArray indirectRates = new JsonArray();
+        JsonObject indirectRate = new JsonObject();
+        indirectRate.addProperty("title", "New Indirect rate1");
+        indirectRate.addProperty("effectiveFrom", I.amPerforming().dateOperationsToGet().currentDateWithOffsetInDesiredFormat(25, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
+        indirectRate.addProperty("effectiveUntil", I.amPerforming().dateOperationsToGet().currentDateWithOffsetInDesiredFormat(40, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
+        indirectRate.addProperty("indirectCostRates", 10);
+        indirectRate.addProperty("indirectCostRateType", "Final");
+        indirectRates.add(indirectRate);
+        grantDetails.add("indirectRates", indirectRates);
+
+        // Adding program income
+        JsonArray programIncome = new JsonArray();
+        JsonObject programIncome1 = new JsonObject();
+        programIncome1.addProperty("serviceAreaName", "Automation Permanent Focus Area");
+        programIncome1.addProperty("projectedProgramIncome", 200);
+        programIncome1.addProperty("programIncomeJustification", "Automation Test");
+        programIncome.add(programIncome1);
+        grantDetails.add("programIncome", programIncome);
+
+        // Adding objectives
+        JsonArray objectives = new JsonArray();
+        objectives.add("Automation Permanent Objective");
+        grantDetails.add("objectives", objectives);
+
+        // Adding KPIs
+        JsonArray kpis = new JsonArray();
+        JsonObject kpi1 = new JsonObject();
+        kpi1.addProperty("Title", "Automation Runtime KPI");
+        kpi1.addProperty("Target", 10);
+        kpi1.addProperty("CurrentValue", 2);
+        kpi1.addProperty("CurrentValueAsOf", I.amPerforming().dateOperationsToGet().currentDateWithOffsetInDesiredFormat(15, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
+        kpis.add(kpi1);
+        grantDetails.add("kpis", kpis);
+
+        // Adding special conditions
+        JsonArray specialConditions = new JsonArray();
+        JsonObject condition1 = new JsonObject();
+        condition1.addProperty("title", "Terms");
+        condition1.addProperty("description", "Automation Test");
+        condition1.addProperty("sequence", 1);
+        condition1.addProperty("EffectiveFromDate", I.amPerforming().dateOperationsToGet().currentDateWithOffsetInDesiredFormat(15, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
+        condition1.addProperty("EffectiveEndDate", I.amPerforming().dateOperationsToGet().currentDateWithOffsetInDesiredFormat(3650, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
+        specialConditions.add(condition1);
+        grantDetails.add("specialCondition", specialConditions);
+
+        // Adding approvers
+        JsonArray approvers = new JsonArray();
+        JsonObject approver = new JsonObject();
+        approver.addProperty("name", ProjectWebServices.getIdOf("User", "Victor EXE"));
+        approver.addProperty("Award", "Step1");
+        approvers.add(approver);
+        grantDetails.add("approvers", approvers);
+
+        // Creating the final JSON object
+        JsonObject finalJson = new JsonObject();
+        JsonArray grantDataArray = new JsonArray();
+        grantDataArray.add(grantDetails);
+        finalJson.add("AwardChildData", grantDataArray);
+        return json;
     }
 
     private JsonObject payloadForThreeFocusWithBudget(JsonObject json) {

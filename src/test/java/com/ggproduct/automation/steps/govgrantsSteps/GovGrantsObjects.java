@@ -373,7 +373,7 @@ public final class GovGrantsObjects {
      */
     public void uploadAttachmentInFlexTableFromComputer(Boolean withoutRandomNumber, String fileName, String fileType) {
         By classificationType = By.xpath("//select[@title='Classification' or @name='Classification']");
-        By options = By.xpath("//select//option");
+        By options = By.xpath("//select//option[text()='" + fileType + "']");
         By filePath = By.xpath("//label[contains(@id,'file')]/../input");
         String defaultFilePath = System.getProperty("user.dir") + "/src/main/resources/";
         String[] splitFileName = fileName.split("\\.");
