@@ -1966,6 +1966,20 @@ Feature: Validate all scenarios for Opportunity
     Then I softly see toggle option "Opportunities Not Converted to Application - All" inside flex table id "---grantee_tableId:-:OpportunityNotConvertedToApplication---"
     And I click toggle button to select "Opportunities Not Converted to Application - All"
     And I wait for "2" seconds
+    And I select value inside table "---grantee_tableId:-:OpportunityNotConvertedToApplication---" is "All"
+    When I click on button "resetIcon" in flex table with id "---grantee_tableId:-:OpportunityNotConvertedToApplication---"
+    And I click toggle button to select "Opportunities Not Converted to Application - All"
+    And I click on page navigation arrow "---grantee_tableId:-:OpportunityNotConvertedToApplication---" for table id "Next"
+    When I click on button "resetIcon" in flex table with id "---grantee_tableId:-:OpportunityNotConvertedToApplication---"
+    And I click toggle button to select "Opportunities Not Converted to Application - All"
+    Then I softly see "Actions" in flex table header "---grantee_tableId:-:OpportunityNotConvertedToApplication---"
+    Then I softly see "EGMS ID" in flex table header "---grantee_tableId:-:OpportunityNotConvertedToApplication---"
+    Then I softly see "Opportunity Number" in flex table header "---grantee_tableId:-:OpportunityNotConvertedToApplication---"
+    Then I softly see "Opportunity Title" in flex table header "---grantee_tableId:-:OpportunityNotConvertedToApplication---"
+    Then I softly see "Funding Organization" in flex table header "---grantee_tableId:-:OpportunityNotConvertedToApplication---"
+    Then I softly see "Application Due Date" in flex table header "---grantee_tableId:-:OpportunityNotConvertedToApplication---"
+    Then I softly see "Internal Organization" in flex table header "---grantee_tableId:-:OpportunityNotConvertedToApplication---"
+    Then I softly see "Status" in flex table header "---grantee_tableId:-:OpportunityNotConvertedToApplication---"
     When I perform quick search for "Draft" in "---grantee_tableId:-:OpportunityNotConvertedToApplication---" panel
     Then I softly see value "Draft" for title "Status" inside table "---grantee_tableId:-:OpportunityNotConvertedToApplication---"
     When I perform quick search for "Submitted for Review" in "---grantee_tableId:-:OpportunityNotConvertedToApplication---" panel
@@ -2068,10 +2082,13 @@ Feature: Validate all scenarios for Opportunity
     When I save the field labeled "Estimated Project Period End Date" as "EstimatedProjectPeriodEndDate"
     And I click on "Edit" in the page details
     And I enter value "150" into field "PreApplicationDueDate__c"
+    And I enter value "151" into field "LetterOfIntentDueDate__c"
     And I navigate to "Evaluation" sub tab
     And I enter value "Yes" into field "MaintenanceEffortRequire__c"
     And I enter value "Automation Test" into field "StatutoryMaintenanceOfEffort__c"
     And I click on "Save" in the page details
+    Then I softly see the following messages in the page details contains:
+      | Please enter the Letter of Intent date equal to or lesser than Pre-Application due date. |
     And I wait for "2" seconds
     And I save the field labeled "EGMS ID" as "opportunityEGMSID"
     And I navigate to "Responsibilities" sub tab
@@ -2082,7 +2099,6 @@ Feature: Validate all scenarios for Opportunity
     Then I softly see asterisk mark on "Category Of Funding Activity"
     Then I softly see asterisk mark on "Description"
     Then I softly see asterisk mark on "Is Leverage Allowed?"
-    And I click on "Edit" in the page details
     Then I see textarea field "AnnouncementDescription__c" is editable
     Then I softly see fields "LaverageAllowed__c" is in edit mode
     Then I softly see fields "AnnouncementDescription__c" is in edit mode
@@ -2094,12 +2110,10 @@ Feature: Validate all scenarios for Opportunity
     And I enter value "Test" into field "AnnouncementDescription__c"
     And I enter value "-30" into field "EstimatedProjectPeriodStartDate__c"
     And I enter value "150" into field "AnticipatedAwardDate__c"
-    And I enter value "160" into field "LetterOfIntentDueDate__c"
     And I click on "Save" in the page details
     Then I softly see the following messages in the page details contains:
       | Estimated Project Period Start Date should be after Application Due Date             |
       | Anticipated award date should be between application due date and project start date |
-      | Please enter the Letter of Intent date equal to or lesser than Pre-Application due date. |
     Examples:
       | Owner          | OwnerType          |
       | GRANTEE EXE    | Victor EXE user    |

@@ -571,7 +571,7 @@ Feature: Validate all scenarios for Financial Report
     And I save the field labeled "Opportunity Number" as "Automation Runtime"
     And I create opportunity with state "Approved" for opportunity number "{SavedValue:Automation Runtime Opportunity}" with properties "default"
     And I create Application "{SavedValue:Automation Runtime Opportunity}" with state "Submitted to Grantor" for opportunity number "{SavedValue:Automation Runtime}" with properties "default"
-    And I "Created" award from application for opportunity "{SavedValue:Automation Runtime Opportunity}" for title "{SavedValue:Automation Runtime Opportunity}" with properties "default"
+    And I "Created" award from application for opportunity "{SavedValue:Automation Runtime}" for title "{SavedValue:Automation Runtime Opportunity}" with properties "default"
     And I updated award from application for title "{SavedValue:Automation Runtime Opportunity}" with properties "default"
     And I activate the award for title "{SavedValue:Automation Runtime Opportunity}"
     And I navigate to "Grants" tab

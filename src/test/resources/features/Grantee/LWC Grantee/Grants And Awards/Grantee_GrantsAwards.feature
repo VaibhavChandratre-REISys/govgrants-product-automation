@@ -4665,6 +4665,7 @@ Feature: Validate all scenarios for Grants & Awards
       When I login to "As a Grantee" app as "GRANTEE ADMIN" user
       And I perform quick search inside global search "Active Grant Summary by Agency"
       Then I softly see value "Active Grant Summary by Agency" for title "Report Name" inside table "Reports"
+      Then I softly can see row level action button "Run" against "Active Grant Summary by Agency" in global search with id "Reports"
       And I click on row level action button "Run" against "Active Grant Summary by Agency" in global search with id "Reports"
       Then I see the header is "Active Grant Summary by Agency" in the page details
       Then I see the sub-header is "This report provides a consolidated view of all active grants associated with each Funding Organization." in the page details

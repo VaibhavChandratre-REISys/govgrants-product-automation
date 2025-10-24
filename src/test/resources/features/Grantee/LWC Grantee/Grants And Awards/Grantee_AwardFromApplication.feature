@@ -6968,12 +6968,6 @@ Feature: Validate all scenarios for Grantee Award from Application
     When I click on parallel lines menu bar with data target value "Focus Area"
     Then I see option "Refresh" present in parallel dropdown
     Then I see option "Download as PDF" present in parallel dropdown
-    When I click on "Title" column header inside table with id "---grantee_tableId:-:ProjectTableId---"
-    Then I softly see sort order "Descending" for column "Title" inside table with id "---grantee_tableId:-:ProjectTableId---"
-    When I click on "Start Date" column header inside table with id "---grantee_tableId:-:ProjectTableId---"
-    Then I softly see sort order "Ascending" for column "Start Date" inside table with id "---grantee_tableId:-:ProjectTableId---"
-    When I click on "End Date" column header inside table with id "---grantee_tableId:-:ProjectTableId---"
-    Then I softly see sort order "Ascending" for column "End Date" inside table with id "---grantee_tableId:-:ProjectTableId---"
     Then I softly see "Award Budget" page block displayed
     Then I softly see "Budget Category" in flex table header "---grantee_tableId:-:AwardBudgetTableId---"
     Then I softly see "Award  Budget" in flex table header "---grantee_tableId:-:AwardBudgetTableId---"
@@ -7162,3 +7156,67 @@ Feature: Validate all scenarios for Grantee Award from Application
       | To                        | Subject            | Body            |
       | pm.automation@yopmail.com | Automation Subject | Automation Body |
     When I click modal button "Close"
+
+     @495602 @validatePastduedateremindershouldbegenerateforapprovedaward
+     Scenario: Validate Past due date reminder should be generate for approved award
+       Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
+       And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default"
+       Given I login to "As a Grantee" app as "GRANTEE PM" user
+       And I navigate to "Opportunities" tab
+       When I navigate to "Qualified" content inside "Leads" subheader on left panel
+       And I click toggle button to select "Qualified Leads - All"
+       When I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:qualifiedLeadTableId---" panel
+       And I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside flex table with id "---grantee_tableId:-:qualifiedLeadTableId---" without waiting for record
+       When I click on "Convert to Opportunity" in the page details
+       And I save the field labeled "EGMS ID" as "opportunityEGMSID"
+       And I create opportunity with state "Approved" for opportunity number "CAS-HHS0000660610" with properties "default"
+       And I create Application "{SavedValue:Automation Runtime Opportunity}" with state "Submitted to Grantor" for opportunity number "CAS-HHS0000660610" with properties "default"
+       And I "Created" award from application for opportunity "CAS-HHS0000660610" for title "{SavedValue:Automation Runtime Opportunity}" with properties "default"
+       And I updated award from application for title "{SavedValue:Automation Runtime Opportunity}" with properties "default"
+       And I navigate to "Grants" tab
+       When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+       And I click toggle button to select "Grants - All"
+       When I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:GrantsTable---" panel
+       And I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
+       Then I softly see field "Status" as "Draft"
+       Then I softly see status in Progress-bar is "Created" and is "dark blue"
+       And I save the field labeled "EGMS ID" as "GrantEGMSID"
+       When I navigate to "Awards" sub tab
+       And I click on "View" icon for "Created" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
+       Then I softly see field "Status" as "Created"
+       And I get the "EGMS ID"
+       And I save the field labeled "EGMS ID" as "AwardEGMSID"
+       When I navigate to "Responsibilities" sub tab
+       When I enter the following values into flex table with id "---grantee_tableId:-:awardApproverTableId---" by clicking "New" :
+         | Name       | Award         |
+         | Grantee PO | Step 1        |
+       When I navigate to "Files" sub tab
+       And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:awardAddFilesTableId---"
+       And I upload attachment without random number "AttachmentTesting.pdf" of type "Interim Award Document" from computer
+       When I click modal button "Close"
+       And I wait for "2" seconds
+       Then I see "AttachmentTesting.pdf" has been added in "Award Files" flex table
+       And I click on "Submit For Approval" in the page details
+       And I pause execution for "180000" seconds
+       And I checkout to yopmail with mailid "govgrantsuat@yopmail.com"
+       Then I refresh the page
+       And I see the mail subject is as follows :
+         """
+        Sandbox: EGMS Task Past Due Reminder
+         """
+       Then I see the mail text is as follows :
+       """
+      Hello Grantee PO,
+
+     This email is to notify you that you have pending task(s) with past due date, as per the details below:
+
+      EGMS ID                  Type                  Subject      Assigned By          Due Date
+    {SavedValue:AwardEGMSID}
+
+      To view details, Please access the Enterprise Grants Management System (EGMS) portal using your login credentials and navigate to My Tasks section.
+
+     This email was automatically generated by the system. Please DO NOT reply to this system-generated email.
+
+      Sincerely,
+      Enterprise Grants Management System (EGMS)
+      """

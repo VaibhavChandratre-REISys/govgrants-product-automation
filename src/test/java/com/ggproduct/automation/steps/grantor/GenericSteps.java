@@ -706,6 +706,28 @@ public class GenericSteps {
         }
         grantorWebServices.createQualifiedLead(isManual,oppTitle,oppoNo,filter);
     }
+    //Pranita
+    @And("I create {string} closed lead for title {string} and opportunity number {string} with properties {string}")
+    public void iCreateClosedLeadTitleOfOpportunityNumberWithProperties(String isManual, String oppTitle, String oppoNo, String filter) {
+        String newoppTitle = oppTitle + I.amPerforming().addOnsTo().getRandomNumber();
+        I.amPerforming().propertiesFileOperationsTo().saveValue(oppTitle, newoppTitle);
+        oppTitle = newoppTitle;
+
+        if (oppoNo.startsWith("Automation Closed Runtime")) {
+            var newFieldValue = oppoNo + I.amPerforming().addOnsTo().getStringRandomNumber();
+            I.amPerforming().propertiesFileOperationsTo().saveValue(oppoNo, newFieldValue);
+            oppoNo = newFieldValue;
+        }
+        grantorWebServices.createClosedLead(isManual,oppTitle,oppoNo,filter);
+    }
+
+    @And("I create Closed opportunity with state {string} for opportunity number {string} with properties {string}")
+    public void iCreateClosedOpportunityWithStateForOpportunityNumberWithProperties(String state, String oppoNo, String filter) {
+        govgrants.perform().mainPage().waitForNavigationLogoToDisappear();
+        grantorWebServices.CreateClosedOpportunityWithStateForOpportunityNumberWithProperties(state, oppoNo, filter);
+    }
+    //Pranita
+
 
     @And("I create opportunity with state {string} for opportunity number {string} with properties {string}")
     public void iCreateOpportunityWithStateForOpportunityNumberWithProperties(String state, String oppoNo, String filter) {
