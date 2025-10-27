@@ -224,7 +224,7 @@ Feature: Validate all scenarios in the Organizational Risk Assessment
     Then I can see top right button "Edit" in page detail
     Then I can see top right button "Submit" in page detail
 
- @62951 @RAinCreatedStatusImpactOnAward
+  @62951 @RAinCreatedStatusImpactOnAward
   Scenario Outline: Validate if SA has requested for revision of initial Risk Assessment  and it is being revised and present in Created sttaus does not make an impact on Award Activation system will always refer the active Risk Assessment.
     When I click on "Start" icon for "Automation Permanent Organization for Risk Assessment" inside flex table with id "---orgRiskAssessment:-:pendingTaskTableId---" without waiting for record
     And I wait for "3" seconds
@@ -279,8 +279,8 @@ Feature: Validate all scenarios in the Organizational Risk Assessment
     And I click on "Edit" in the page details
     When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
     And I click on "Save" in the page details
-   And I save the field labeled "EGMS ID" as "EGMSID"
-   And I wait for "2" seconds
+    And I save the field labeled "EGMS ID" as "EGMSID"
+    And I wait for "2" seconds
     When I navigate to "Budget" sub tab
     When I click on top right button "Associate" in flex table with id "---subAwardStandAlone:-:fundingAccountsTableId---"
     When I click "Associate" after selection of "Automation Permanent Funding Account" by showing entries "All" in flex table with id "---subAwardStandAlone:-:awardFundingAccountsTableId---"
@@ -291,7 +291,7 @@ Feature: Validate all scenarios in the Organizational Risk Assessment
       | Title                           | Start Date | End Date |
       | Automation Permanent Focus Area | 0          | 3650     |
     When I edit the following rows inline in flex table with id "---subAwardStandAlone:-:fundingAccountsTableId---" by clicking "Edit" :
-      | Funding Account              | Encumbrance |
+      | Funding Account             | Encumbrance |
       | {SavedValue:fundingAccount} | 1000        |
     And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:subAwardBudgetTableId---" by clicking "Edit" :
       | Budget Category | Award Amount | Cash Match | Non-Cash Match |
@@ -300,6 +300,14 @@ Feature: Validate all scenarios in the Organizational Risk Assessment
     And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:kpiTableId---" by clicking "Edit" :
       | EGMS ID                  | Target |
       | Automation Permanent KPI | 10     |
+    When I navigate to "Overview" sub tab
+    And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:associatedContactsTableId---" by clicking "Edit" :
+      | Name          | Project Role             | Is Key Personnel |
+      | Automation SA | Project Director/Manager | Checked          |
+    When I navigate to "Responsibilities" sub tab
+    When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
+      | Name                      | Award  |
+      | {SavedValue:EXE Username} | Step 1 |
     And I navigate to "Terms" sub tab
     And I click on "Edit" icon for "Payment Request" inside flex table with id "---subAwardStandAlone:-:paymentRequestSchedulesTableId---" without waiting for record
     When I enter in modal "Payment Request Schedule" values from "Award_Field_Values.xlsx"
@@ -350,7 +358,7 @@ Feature: Validate all scenarios in the Organizational Risk Assessment
     When I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:EGMSID}" in "---subAwardStandAlone:-:pendingTaskTableId---" panel
-   When I click on "Start" icon for "{SavedValue:EGMSID}" inside flex table with id "---subAwardStandAlone:-:pendingTaskTableId---" without waiting for record
+    When I click on "Start" icon for "{SavedValue:EGMSID}" inside flex table with id "---subAwardStandAlone:-:pendingTaskTableId---" without waiting for record
     When I click on "Accept" in the page details
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Grants" tab
@@ -367,20 +375,8 @@ Feature: Validate all scenarios in the Organizational Risk Assessment
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    When I perform quick search for "Record Id" in "---subAwardStandAlone:-:pendingTaskTableId---" panel
-    And I click on "Start" icon for "Record Id" inside flex table with id "---subAwardStandAlone:-:pendingTaskTableId---" without waiting for record
-    And I "Approve" in the approval decision
-    When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
-    And I navigate to "Grants" tab
-    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    When I perform quick search for "Record Id" in "---subAwardStandAlone:-:pendingTaskTableId---" panel
-    And I click on "Start" icon for "Record Id" inside flex table with id "---subAwardStandAlone:-:pendingTaskTableId---" without waiting for record
-    And I "Approve" in the approval decision
-    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
-    And I navigate to "Grants" tab
-    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    When I perform quick search for "Record Id" in "---subAwardStandAlone:-:pendingTaskTableId---" panel
-    And I click on "Start" icon for "Record Id" inside flex table with id "---subAwardStandAlone:-:pendingTaskTableId---" without waiting for record
+    When I perform quick search for "{SavedValue:EGMSID}" in "---subAwardStandAlone:-:pendingTaskTableId---" panel
+    And I click on "Start" icon for "{SavedValue:EGMSID}" inside flex table with id "---subAwardStandAlone:-:pendingTaskTableId---" without waiting for record
     And I "Approve" in the approval decision
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Grants" tab
@@ -499,7 +495,7 @@ Feature: Validate all scenarios in the Organizational Risk Assessment
     When I save the field labeled "EGMS ID" as "EGMSID"
     When I click on "Submit" in the page details
     Then I see the following messages in the page details contains:
-      | Assessment Tab - Sign the Risk Assessment form by checking the Acknowledgement box.|
+      | Assessment Tab - Sign the Risk Assessment form by checking the Acknowledgement box. |
 
   @63075 @VerifyEffectiveDateAndExpirationDate
   Scenario: Validate whether the Active Org Risk Assessment for Organization is updated for one year under Effective Date and Expiration Date fields inside flextable
@@ -630,7 +626,7 @@ Feature: Validate all scenarios in the Organizational Risk Assessment
       | Detail | Page Number |
       | Active | 1           |
 
- @64128  @63983 @grantorViewOrgRA  @runOrgRisk
+  @64128  @63983 @grantorViewOrgRA  @runOrgRisk
   Scenario: Validate Risk Assessment data/status should be displayed to internal user irrespective of the state of Risk Assessment.
     When I click on "Start" icon for "Automation Permanent Organization for Risk Assessment" inside flex table with id "---orgRiskAssessment:-:pendingTaskTableId---" without waiting for record
     And I wait for "3" seconds

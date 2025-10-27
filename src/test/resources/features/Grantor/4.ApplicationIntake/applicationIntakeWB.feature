@@ -2252,6 +2252,7 @@ Feature: Application Intake scenarios without background
     #219507 #219641
     Then I softly see field "Status" as "Converted to Award"
     When I navigate to "Budget" sub tab
+    And I wait for "2" seconds
     Then I softly see field "Recommended Budget" as "$1,000.00"
     Examples:
       | Announcement Name                            | Announcement Type |

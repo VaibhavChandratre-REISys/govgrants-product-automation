@@ -24,10 +24,10 @@ Feature: Validate all scenarios for KPI
     Then I see "Key Performance Indicators (KPI)" inside "Setup" is displayed
     Then I see "Focus Areas" inside "Setup" is displayed
     Examples:
-      | User        |
-      | GRANTEE PM  |
+      | User       |
+      | GRANTEE PM |
 
-  @455420 @455421 @KPIVerifyFDusershouldseefooternavigatorafteropentheKPI
+  @455420 @KPIVerifyFDusershouldseefooternavigatorafteropentheKPI
   Scenario Outline:KPI_ Verify EXE user should see footer navigator after open the KPI
     When I login to "As a Grantee" app as "<User>" user
     And I navigate to "Planning" tab
@@ -76,8 +76,8 @@ Feature: Validate all scenarios for KPI
     Then I see "Key Performance Indicators (KPI)" inside "Setup" is displayed
     Then I see "Focus Areas" inside "Setup" is displayed
     Examples:
-      | User        |
-      | GRANTEE FD  |
+      | User       |
+      | GRANTEE FD |
 
   @477639 @ValidatePOusershoulonlyviewaccessforKPI @P2_Grantee @PO_Grantee @GRegression2
   Scenario Outline: Validate PO user should only view access for KPI
@@ -164,8 +164,8 @@ Feature: Validate all scenarios for KPI
     And I navigate to "History" sub tab
     Then I softly see "No Records Found" inside snapshot history
     Examples:
-      | userType   | EmailId                     |
-      | GRANTEE PO | govgrantsuat@yopmail.com    |
+      | userType   | EmailId                  |
+      | GRANTEE PO | govgrantsuat@yopmail.com |
 
   @477642 @ValidatePOusershoulonlyviewaccessforKPI @P3_Grantee @FO_Grantee @GRegression2
   Scenario Outline: Validate FO user should only view access for KPI
@@ -252,8 +252,8 @@ Feature: Validate all scenarios for KPI
     And I navigate to "History" sub tab
     Then I softly see "No Records Found" inside snapshot history
     Examples:
-      | userType   | EmailId                     |
-      | GRANTEE FO | david.fo@yopmail.com        |
+      | userType   | EmailId              |
+      | GRANTEE FO | david.fo@yopmail.com |
 
   @477643 @ValidatePOusershoulonlyviewaccessforKPI @P3_Grantee @FD_Grantee @GRegression2
   Scenario Outline: Validate FD user should only view access for KPI
@@ -353,11 +353,11 @@ Feature: Validate all scenarios for KPI
     And I wait for "2" seconds
     And I click modal button "Save and Continue"
     Then I softly see the following messages in the page details contains:
-      | To Save, Title is required.                |
-      | To Save, Domain is required.               |
-      | To Save, Measure is required.              |
-      | To Save, Unit of Measurement is required.  |
-      | To Save, Indicator is required.            |
+      | To Save, Title is required.               |
+      | To Save, Domain is required.              |
+      | To Save, Measure is required.             |
+      | To Save, Unit of Measurement is required. |
+      | To Save, Indicator is required.           |
     And I wait for "2" seconds
     And I enter "Grantee_Creation" values from "KPI_Field_Values.xlsx"
     And I click modal button "Save and Continue"
@@ -377,8 +377,8 @@ Feature: Validate all scenarios for KPI
       | To Save, Indicator is required in the Overview tab under the Overview section.           |
 
     Examples:
-      | userType      |
-      | GRANTEE EXE   |
+      | userType    |
+      | GRANTEE EXE |
 
   @477630 @ValidatePMusershouldabletoseevalidationmessagesforrequiredtosavefiledonKPI @P2_Grantee @ADMIN_Grantee @GRegression2
   Scenario Outline: Validate ADMIN user should able to see validation messages for required to save filed on KPI
@@ -390,11 +390,11 @@ Feature: Validate all scenarios for KPI
     And I wait for "2" seconds
     And I click modal button "Save and Continue"
     Then I softly see the following messages in the page details contains:
-      | To Save, Title is required.                |
-      | To Save, Domain is required.               |
-      | To Save, Measure is required.              |
-      | To Save, Unit of Measurement is required.  |
-      | To Save, Indicator is required.            |
+      | To Save, Title is required.               |
+      | To Save, Domain is required.              |
+      | To Save, Measure is required.             |
+      | To Save, Unit of Measurement is required. |
+      | To Save, Indicator is required.           |
     And I wait for "2" seconds
     And I enter "Grantee_Creation" values from "KPI_Field_Values.xlsx"
     And I click modal button "Save and Continue"
@@ -510,3 +510,40 @@ Feature: Validate all scenarios for KPI
     When I navigate to "Related Log" sub tab
     Then I softly see "No Records Found" inside flex table with id "Goals"
     Then I softly see "No Records Found" inside flex table with id "KPIsGranteeRelatedAwards"
+
+  @443867 @ValidatePMusershouldabletoseerequiredfieldsvalidationonclickofSavebuttonondetailpagelayoutofKPIwhenIkeptrequiredfieldsareblank @GRegression5 @PM_Grantee @P3_Grantee
+  Scenario Outline: Validate PM user should able to see required fields validation on click of Save button on detail page layout of KPI when I kept required fields are blank
+    When I login to "As a Grantee" app as "<userType>" user
+    And I navigate to "Planning" tab
+    When I navigate to "Key Performance Indicators (KPI)" content inside "Setup" subheader on left panel
+    And I click toggle button to select "Key Performance Indicators (KPI) - Draft"
+    And I click on top right button "New" in flex table with id "---grantee_tableId:-:KPITable---"
+    And I wait for "2" seconds
+    And I click modal button "Save and Continue"
+    Then I softly see the following messages in the page details contains:
+      | To Save, Title is required.               |
+      | To Save, Domain is required.              |
+      | To Save, Measure is required.             |
+      | To Save, Unit of Measurement is required. |
+      | To Save, Indicator is required.           |
+    And I wait for "2" seconds
+    And I enter "Grantee_Creation" values from "KPI_Field_Values.xlsx"
+    And I click modal button "Save and Continue"
+    And I wait for "3" seconds
+    When I clear the value from field "Description__c"
+    When I clear the value from field "Title__c"
+    When I enter value "--None--" into field "Unit__c"
+    When I enter value "--None--" into field "Orientation__c"
+    When I enter value "--None--" into field "Domain__c"
+    And I click on "Save" in the page details
+    And I wait for "2" seconds
+    Then I softly see the following messages in the page details contains:
+      | To Save, Domain is required in the Overview tab under the Overview section.              |
+      | To Save, Title is required in the Overview tab under the Overview section.               |
+      | To Save, Measure is required in the Overview tab under the Overview section.             |
+      | To Save, Unit of Measurement is required in the Overview tab under the Overview section. |
+      | To Save, Indicator is required in the Overview tab under the Overview section.           |
+
+    Examples:
+      | userType    |
+      | GRANTEE PM  |

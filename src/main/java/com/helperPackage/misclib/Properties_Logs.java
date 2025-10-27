@@ -21,7 +21,7 @@ package com.helperPackage.misclib;
 
 import com.helperPackage.register.I;
 import com.helperPackage.report.LogLevel;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.*;
 
 import java.io.*;
 import java.nio.charset.StandardCharsets;
@@ -38,8 +38,8 @@ import java.util.Set;
 
 public final class Properties_Logs {
     private final Map<String, String> valueStore = new HashMap<>();
-    String log4jConfPath = "log4j.properties";
-    static final Logger log = Logger.getLogger(TestBlazeLogs.class.getName());
+    String log4jConfPath = "log4j2.properties";
+    static final Logger log = LogManager.getLogger(TestBlazeLogs.class.getName());
     Properties OR;
     TestBlazeLogs testBlazeLogs;
 

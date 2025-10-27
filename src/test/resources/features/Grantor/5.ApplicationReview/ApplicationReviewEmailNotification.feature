@@ -552,3 +552,105 @@ Feature: Validate all scenarios in the Application Review without background  fo
     Examples:
       | Announcement Name                                | Application Name                                 |
       | {SavedValue:Automation Runtime FDM Announcement} | {SavedValue:Automation Runtime FDM Announcement} |
+
+  @202576 @ValidateApplicationReviewtaskofpre-screenreviewshouldbegeneratedforassignedreviewerPMuserandhecanreassignreviewtasktootherPMuser @sprint-6-US-201906  @reassignment
+  Scenario Outline: Validate Application Review' task of pre-screen review should be generated for assigned reviewer PM user and he can reassign review task to other PM user
+    And I published "Competitive" type announcement having name "Automation Runtime Announcement Application Review" and properties "default-Automation EXE user"
+    When I initiated an application review for application "{SavedValue:Automation Runtime Announcement Application Review}" on announcement "{SavedValue:Automation Runtime Announcement Application Review}" with properties "default"
+    When I login to "Grantor" app as "EXE" user
+    When I navigate to "Applications" tab
+    And I navigate to "Applications" content inside "Applications" subheader on left panel
+    When I click toggle button to select "Applications - All"
+    And I perform quick search for "<Application Name>" in "---applicationIntake:-:applicantGrantorApplicationsTableId---" panel
+    When I click on "View" icon for "<Application Name>" inside flex table with id "---applicationIntake:-:applicantGrantorApplicationsTableId---"
+    And I get the "EGMS ID"
+    When I save the field labeled "EGMS ID" as "AppEGMSID"
+    When I navigate to "Applications" tab
+    And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
+    When I click toggle button to select "Application Reviews - All"
+    And I perform quick search for "<Announcement Name>" in "---applicationReview:-:announcementListTableId---" panel
+    When I click on "View" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:announcementListTableId---" with wait for record
+    And I navigate to "Related Log" sub tab
+    When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
+    And I wait for "2" seconds
+    When I edit the following rows inline in flex table with id "---applicationReview:-:formTableId---" by clicking "Edit" :
+      | Form Name  | Due in Days |
+      | Pre-Screen | 5           |
+    When I enter the following values into flex table with id "---applicationReview:-:reviewersTableId---" by clicking "Add" :
+      | Reviewer                 |
+      | {SavedValue:PM Username} |
+    And I click on "Assign" icon for "{SavedValue:PM Username}" inside flex table with id "---applicationReview:-:reviewersTableId---"
+    When I perform quick search for "<Application Name>" in "---applicationReview:-:assignApplicationsTableId---" panel
+    And I check "<Application Name>" boxes in flex table with id "---applicationReview:-:assignApplicationsTableId---"
+    When I click on top right button "Assign" in flex table with id "---applicationReview:-:assignApplicationsTableId---"
+    When I click modal button "Close"
+    And I refresh the page
+    When I check "<Application Name>" boxes in flex table with id "---applicationReview:-:appreviewsTableId---"
+    And I pause execution for "3" seconds
+    And I click on top right button "Send for Review" in flex table with id "---applicationReview:-:appreviewsTableId---"
+    Then I softly see that "Sent for Review" has been added in flextable with Id "---applicationReview:-:appreviewsTableId---"
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
+    And I navigate to "Applications" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "{SavedValue:AppEGMSID}" in "---applicationReview:-:pendingTaskTableId---" panel
+    Then I softly see value "{SavedValue:AppEGMSID}" for title "EGMS ID" inside table "---applicationReview:-:pendingTaskTableId---"
+    And I navigate to "Home" tab
+    When I navigate to "My Tasks" content inside "Reassign" subheader on left panel
+    When I reassign task to "Automation PM1"
+    When I perform quick search for "{SavedValue:AppEGMSID}" in "---program:-:grantorTaskReassignTableId---" panel
+    When I check "{SavedValue:AppEGMSID}" boxes in flex table with id "---program:-:grantorTaskReassignTableId---"
+    And I click on top right button "Reassign Selected" in flex table with id "---program:-:grantorTaskReassignTableId---"
+    And I pause execution for "30" seconds
+    And I reset the table
+    When I perform quick search for "{SavedValue:AppEGMSID}" in "---program:-:grantorTaskReassignTableId---" panel
+    Then I softly do not see value "{SavedValue:AppEGMSID}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
+    When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
+    And I navigate to "Applications" tab
+    And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
+    When I click toggle button to select "Application Reviews - All"
+    And I perform quick search for "<Announcement Name>" in "---applicationReview:-:announcementListTableId---" panel
+    When I click on "View" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:announcementListTableId---"
+    And I navigate to "Related Log" sub tab
+    When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
+    And I wait for "2" seconds
+    Then I softly see value "Automation PM1" for title "Assigned To" inside table "---applicationReview:-:appreviewsTableId---"
+    When I re-login to "Grantor" app as "PM1" user on "INTERNAL" portal
+    And I navigate to "Applications" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "{SavedValue:AppEGMSID}" in "---applicationReview:-:pendingTaskTableId---" panel
+    And I click on "Start" icon for "{SavedValue:AppEGMSID}" inside flex table with id "---applicationReview:-:pendingTaskTableId---"
+    And I pause execution for "3" seconds
+    And I click on "Edit" in the page details
+    When I complete filling in the Review form with recommendation "Recommended"
+    And I click on "Save" in the page details
+    And I wait for "6" seconds
+    When I click on "Submit" in the page details without processing
+    When I click alert button "OK"
+    And I wait for "5" seconds
+    Then I softly see that "Status" is in "Review Completed" status
+    And I checkout to yopmail with mailid "exe.automation.qa2@yopmail.com"
+    And I pause execution for "100" seconds
+    Then I refresh the page
+    #Bug412940
+    And I see the mail subject is as follows :
+      """
+      Sandbox: Notification: Application {SavedValue:AppEGMSID} has been reviewed
+      """
+
+    Then I see the mail text is as follows :
+      """
+      Hello Automation EXE,
+
+      This email is to inform you that Automation PM1 has completed a review of Application #{SavedValue:AppEGMSID} for Funding Opportunity #{SavedValue:AnnEGMSID}.
+
+      Log in to EGMS and click here for more details.
+
+      Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrantssupport@reisystems.com, if you have any questions or need assistance with this task.
+
+      Thank you.
+      The EGMS Team
+      """
+
+    Examples:
+      | Announcement Name                                               | Application Name                                                |
+      | {SavedValue:Automation Runtime Announcement Application Review} | {SavedValue:Automation Runtime Announcement Application Review} |
