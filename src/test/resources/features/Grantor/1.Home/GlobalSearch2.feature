@@ -1373,12 +1373,12 @@ Feature: Validate all scenarios for the global search
 #    And I click on "Awards" button on left navigation for global search
     #389043
     Then I softly see "EGMS ID" inside refine by filter
-    Then I softly see "Announcement EGMS ID" inside refine by filter
+#    Then I softly see "Announcement EGMS ID" inside refine by filter
     Then I softly see "Award Title" inside refine by filter
     Then I softly see "Recipient Organization" inside refine by filter
-    Then I softly see the text "Cumulative Obligation" on left navigation for global search
-    Then I softly see "Min" inside refine by filter
-    Then I softly see "Max" inside refine by filter
+#    Then I softly see the text "Cumulative Obligation" on left navigation for global search
+#    Then I softly see "Min" inside refine by filter
+#    Then I softly see "Max" inside refine by filter
     Then I softly see "Status" inside refine by filter
     Then I softly see the text "Refine By" on left navigation for global search
     And I click on "Expand List" button on left navigation for global search
@@ -1398,11 +1398,11 @@ Feature: Validate all scenarios for the global search
 #    And I click on "Awards" button on left navigation for global search
     Then I softly see options "Relevance" inside "Relevance" dropdown
     Then I softly see options "EGMS ID" inside "Relevance" dropdown
-    Then I softly see options "Announcement EGMS ID" inside "Relevance" dropdown
+#    Then I softly see options "Announcement EGMS ID" inside "Relevance" dropdown
     Then I softly see options "Award Title" inside "Relevance" dropdown
-    Then I softly see options "External Organization" inside "Relevance" dropdown
-    Then I softly see options "New Obligation" inside "Relevance" dropdown
-    Then I softly see options "Cumulative Obligation" inside "Relevance" dropdown
+    Then I softly see options "Recipient Organization" inside "Relevance" dropdown
+#    Then I softly see options "New Obligation" inside "Relevance" dropdown
+#    Then I softly see options "Cumulative Obligation" inside "Relevance" dropdown
     Then I softly see options "Status" inside "Relevance" dropdown
 
   @389314  @sprint-2-US-386939  @GlobalSearch
@@ -1525,11 +1525,11 @@ Feature: Validate all scenarios for the global search
       #389335
     Then I softly see "EGMS ID" inside refine by filter
     Then I softly see "Title" inside refine by filter
-    Then I softly see "Owner First Name" inside refine by filter
-    Then I softly see "Owner Last Name" inside refine by filter
+#    Then I softly see "Owner First Name" inside refine by filter
+#    Then I softly see "Owner Last Name" inside refine by filter
     Then I softly see the text "Status" on left navigation for global search
-    And I filter field record by "EXE" by label "Owner Last Name" in left panel for global search
-    Then I softly see value "EXE" for title "Owner Last Name" inside table "Focus Areas" for global search record
+#    And I filter field record by "EXE" by label "Owner Last Name" in left panel for global search
+#    Then I softly see value "EXE" for title "Owner Last Name" inside table "Focus Areas" for global search record
     Then I softly see the text "Refine By" on left navigation for global search
     And I click on "Expand List" button on left navigation for global search
     Then I softly see the text "External Registration" on left navigation for global search

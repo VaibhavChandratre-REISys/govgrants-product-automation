@@ -1931,4 +1931,6 @@ Feature: Validate all scenarios of every modules flow
   Scenario:
 #    And I published "Competitive" type announcement having name "Automation Test Record" and properties "default"
 #    And I initiated an application review for application "{SavedValue:Automation Test Record}" on announcement "{SavedValue:Automation Test Record}" with properties "default"
-    Given I delete the record "Automation Permanent Organization for Risk Assessment" from the object "ORGANIZATION RISKASSESSMENT"
+#    Given I delete the record "Automation Permanent Organization for Risk Assessment" from the object "ORGANIZATION RISKASSESSMENT"
+    Given I login to "Grantor" app as "ADMIN" user
+    When I navigate to "Home" tab

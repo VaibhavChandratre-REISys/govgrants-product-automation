@@ -908,7 +908,7 @@ public final class GovGrantsAssertionObjects {
         if (uniqueColumnValue.equalsIgnoreCase("Record Id")) {
             columnValueUpdated = govgrants.perform().pageDetails().idOfRecord;
         }
-        WebElement ClickSelector = I.amPerforming().getElementReference().of(By.xpath("//h2//*[text()='" + tableId + "']/../parent::div/ancestor::div[contains(@class,'results')]//table//th//*[text()='" + columnValueUpdated + "']//ancestor::tr//td//a[@role='button']"));
+        WebElement ClickSelector = I.amPerforming().getElementReference().of(By.xpath("//h2//*[text()='" + tableId + "']/../parent::div/ancestor::div[contains(@class,'results')]//table//th//*[text()='" + columnValueUpdated + "']//ancestor::tr//td//a[@role='button'] | //h2//*[text()='" + tableId + "']/../parent::div/ancestor::div[contains(@class,'results')]//table//td//*[text()='" + columnValueUpdated + "']//ancestor::tr//td//a[@role='button']"));
 
         I.amPerforming().click().withJavaScript(ClickSelector);
         List<Elements> elements = I.amPerforming().getElementReference().forListOfElements().of(By.xpath("//div[@role='menu']//ul//li//*[text()='" + buttonName + "']"));

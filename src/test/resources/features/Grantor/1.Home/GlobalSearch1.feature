@@ -1555,30 +1555,18 @@ Feature: Validate all scenarios for the global search
     And I select "External Registration" from dropdown for Global search
     And I perform quick search inside global search "{AUTOEnvData:AutomationExternalOrgSubmitforApproved}"
     Then I softly see value "{AUTOEnvData:AutomationExternalOrgSubmitforApproved}" for title "External Organization" inside table "External Registration" for global search record
-    And I click on row level action button "Edit" against "{AUTOEnvData:AutomationExternalOrgSubmitforApproved}" in global search with id "External Registration"
-    Then I softly see field "Status" as "Submitted for Approval"
-    Then I cannot see top right button "Save" in page detail
-    Then I cannot see top right button "Cancel" in page detail
-    Then I softly see the text containing "You dont have sufficient access to edit this record"
+    Then I softly cannot see row level action button "Edit" against "{AUTOEnvData:AutomationExternalOrgSubmitforApproved}" in global search with id "External Registration"
     And I wait for "5" seconds
     And I navigate to "Home" tab
     And I select "External Registration" from dropdown for Global search
     And I perform quick search inside global search "{AUTOEnvData:AutomationExternalOrgApproved}"
     Then I softly see value "{AUTOEnvData:AutomationExternalOrgApproved}" for title "External Organization" inside table "External Registration" for global search record
-    And I click on row level action button "Edit" against "{AUTOEnvData:AutomationExternalOrgApproved}" in global search with id "External Registration"
-    Then I softly see field "Status" as "Approved"
-    Then I cannot see top right button "Save" in page detail
-    Then I cannot see top right button "Cancel" in page detail
-    Then I softly see the text containing "You dont have sufficient access to edit this record"
+    Then I softly cannot see row level action button "Edit" against "{AUTOEnvData:AutomationExternalOrgApproved}" in global search with id "External Registration"
     And I navigate to "Home" tab
     And I select "External Registration" from dropdown for Global search
     And I perform quick search inside global search "{AUTOEnvData:AutomationExternalOrgRejected}"
     Then I softly see value "{AUTOEnvData:AutomationExternalOrgRejected}" for title "External Organization" inside table "External Registration" for global search record
-    And I click on row level action button "Edit" against "{AUTOEnvData:AutomationExternalOrgRejected}" in global search with id "External Registration"
-    Then I softly see field "Status" as "Active"
-    Then I cannot see top right button "Save" in page detail
-    Then I cannot see top right button "Cancel" in page detail
-    Then I softly see the text containing "You dont have sufficient access to edit this record"
+    Then I softly cannot see row level action button "Edit" against "{AUTOEnvData:AutomationExternalOrgRejected}" in global search with id "External Registration"
 
   @389520 @389525 @389537 @389536 @VerifythatthereviewownerisabletoeditSubmitDeclinetheaccessforrecordwhenReviewsareinsentforreviewstate @sprint-2-US-386939  @GlobalSearch
   Scenario:Verify that the review owner is able to edit/Submit/Decline the access for record when Reviews are in sent for review state.
