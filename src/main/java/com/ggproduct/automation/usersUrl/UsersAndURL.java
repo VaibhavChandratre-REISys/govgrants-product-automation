@@ -520,7 +520,7 @@ public class UsersAndURL implements UsersController {
         username.put("PO1", "automationpo1@yopmail.com.qaorg");
         username.put("FO1", "fo1.automation@yopmail.com.qaorg");
         username.put("FD1", "automationfd1@yopmail.com.qaorg");
-        username.put("SPI3", "automationspi30@yopmail.com.qaorg");
+        username.put("SPI3", "danieljacks@yopmail.com");
         username.put("SPA", "spa.automation@yopmail.com");
         username.put("SA", "automationspi2@yopmail.com");
         username.put("IND", "ind2029.automation@yopmail.com");
