@@ -2148,12 +2148,6 @@ Feature: Validate all scenarios for Financial Report
     And I save the value from row "6" for column name "EGMS ID" as "financialEGMSID6" from flex table "---grantee_tableId:-:FinancialsReportTableId---"
     Then I softly see value "Scheduled" for title "Report Type" against the value "{SavedValue:financialEGMSID6}" inside table "---grantee_tableId:-:FinancialsReportTableId---"
 
-
-
-
-
-
-
   @443594 @ValidateReviewedthefinancialreportbyassignedReviewerwithallowrecordeditingYes @P2_Grantee @EXE_Grantee @GRegression5
   Scenario:Validate Reviewed the financial reportby assigned Reviewer with allow record editing Yes
     And I "Created" standalone subaward "Automation Runtime award" with properties "default-Victor EXE user"

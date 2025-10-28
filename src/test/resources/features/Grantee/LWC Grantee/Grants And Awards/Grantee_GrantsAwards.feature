@@ -5408,7 +5408,9 @@ Feature: Validate all scenarios for Grants & Awards
     And I wait for "2" seconds
     Then I see "AttachmentTesting.pdf" has been added in "Award Files" flex table
     And I click on "Submit For Approval" in the page details
-
+    And I wait for "3" seconds
+    Then I see status in Progress-bar is "Submitted for Approval" and is "dark blue"
+    
     @488674 @488676 @488677 @488681 @488674 @491450 @validateGrantAmountfieldonactualtabinFinancialSummarysection @P2_Grantee @Gregression2 @PM_Grantee
     Scenario: Validate Grant Amount field on actual tab in Financial Summary section.
     And I "Created" standalone subaward "Automation Runtime Award" with properties "NON_CONSTRUCTION"
@@ -5601,6 +5603,8 @@ Feature: Validate all scenarios for Grants & Awards
       When I enter the following values into flex table with id "---grantee_tableId:-:grantNotesTableId---" by clicking "New" :
         | Title        | Description      |
         | Notes Record | Automation Notes |
+      Then I softly see the following messages in the page details contains:
+          | Saved Successfully! |
 
   @459814 @VerifyforAwardsNotesection"Add"isReplacewith"New"button.
   Scenario: Verify for Award Note section "Add" is Replace with "New" button.
@@ -5624,3 +5628,5 @@ Feature: Validate all scenarios for Grants & Awards
     When I enter the following values into flex table with id "---grantee_tableId:-:awardsNotesTableId---" by clicking "New" :
       | Title        | Description      |
       | Notes Record | Automation Notes |
+    Then I softly see the following messages in the page details contains:
+      | Saved Successfully! |

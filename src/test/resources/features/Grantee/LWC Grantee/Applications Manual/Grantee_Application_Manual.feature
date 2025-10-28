@@ -394,4 +394,3 @@ Feature: Validate all scenarios for Applications Manual
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "appEGMSID"
     Then I softly see field "Status" as "Created"
-
