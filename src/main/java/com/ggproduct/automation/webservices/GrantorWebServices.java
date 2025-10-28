@@ -398,6 +398,32 @@ public class GrantorWebServices extends ProjectWebServices {
         response.prettyPrint();
         assertStatusCode(response);
     }
+    //Pranita
+    public void createClosedLead(String isManual, String oppTitle, String oppoNo, String filter) {
+        createClosedLeadGetCall(projectApis.payloadForClosedLead(isManual, oppTitle, oppoNo, filter));
+    }
+    private void createClosedLeadGetCall(JsonObject jsonObject) {
+        String createAwardEndPoint = endPoint + "/services/apexrest/createOpportunityFromLead";
+        Response response = I.amPerforming().restHttp().postCall(jsonObject, null,
+                createAwardEndPoint, "Authorization", "Bearer " + tokenString, null);
+        response.prettyPrint();
+        assertStatusCode(response);
+    }
+
+    public void CreateClosedOpportunityWithStateForOpportunityNumberWithProperties(String state, String oppoNo, String filter) {
+        createOpportunityPatchCall(projectApis.payloadForCreatedOrApprovedClosedOpportunity(state, oppoNo, filter));
+    }
+
+    private void createClosedOpportunityPatchCall(JsonObject jsonObject) {
+        String createAwardEndPoint = endPoint + "/services/apexrest/UpdateGranteeOpportunity";
+        Response response = I.amPerforming().restHttp().patchCall(jsonObject, null,
+                createAwardEndPoint, "Authorization", "Bearer " + tokenString, null);
+        response.prettyPrint();
+        assertStatusCode(response);
+    }
+
+
+    //Pranita
 
     public void CreateOpportunityWithStateForOpportunityNumberWithProperties(String state, String oppoNo, String filter) {
         createOpportunityPatchCall(projectApis.payloadForCreatedOrApprovedOpportunity(state, oppoNo, filter));

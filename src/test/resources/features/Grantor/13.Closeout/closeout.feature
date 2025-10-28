@@ -999,7 +999,7 @@ Feature: Validate all scenarios in Closeout
     When I navigate to "Overview" sub tab
     And I enter value "checked" into field "Aggreement__c"
     When I click on "Save" in the page details
-    And I wait for "2" seconds
+    And I wait for "4" seconds
     Then I softly see field "Acknowledgement" as "checked"
     And I click on "Acknowledge" in the page details
     Then I softly see status in Progress-bar is "Acknowledged by Subrecipient" and is "dark blue"

@@ -1095,3 +1095,59 @@ Feature: Validate all scenarios for Pre-Applications Manual
     And I wait for "3" seconds
     Then I softly see the following messages in the page details contains:
       | Pre-Application has been validated successfully. |
+
+    @463427 @Validatewithpouserasperbudgettype-ConstructionabletoseetheCategories
+    Scenario:Validate with PO user, As per budget type  - Construction able to see the Categories.
+    And I create "Manual" qualified lead for title "Automation Runtime Opportunity" and opportunity number "Automation Runtime" with properties "default-Grantee PO user"
+    Given I login to "As a Grantee" app as "GRANTEE PO" user
+    And I navigate to "Opportunities" tab
+    When I navigate to "Qualified" content inside "Leads" subheader on left panel
+    And I click toggle button to select "Qualified Leads - All"
+    When I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:qualifiedLeadTableId---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside flex table with id "---grantee_tableId:-:qualifiedLeadTableId---" without waiting for record
+    When I click on "Convert to Opportunity" in the page details
+    And I save the field labeled "EGMS ID" as "opportunityEGMSID"
+    And I create opportunity with state "Approved" for opportunity number "{SavedValue:Automation Runtime}" with properties "PRE_APPLICATION_YES"
+    And I create Pre-application "{SavedValue:Automation Runtime Opportunity}" with state "Created" for opportunity number "{SavedValue:Automation Runtime}" with properties "default-Grantee PO user"
+    And I navigate to "Applications" tab
+    When I navigate to "Pre-Applications" content inside "Applications" subheader on left panel
+    And I click toggle button to select "Pre-Applications - All"
+    When I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:preApplicaltionTableId---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside flex table with id "---grantee_tableId:-:preApplicaltionTableId---" without waiting for record
+    When I navigate to "Applications" tab
+    And I navigate to "Pre-Applications" content inside "Applications" subheader on left panel
+    When I click toggle button to select "Pre-Applications - All"
+    And I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:PreApplication---" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside table
+    And I save the field labeled "EGMS ID" as "PreappEGMSID"
+    When I navigate to "Setup" sub tab
+    Then I softly see "Project Period" page block displayed
+    Then I softly see "Budget Period Details" page block displayed
+    Then I softly see that "Project Period Start Date" rendered in view mode only
+    And I save the field labeled "Project Period Start Date" as "ProjectPeriodStartDate"
+    Then I softly see field "Project Period Start Date" as "{SavedValue:ProjectPeriodStartDate}"
+    Then I softly see that "Project Period End Date" rendered in view mode only
+    And I save the field labeled "Project Period End Date" as "ProjectPeriodEndDate"
+    Then I softly see field "Project Period End Date" as "{SavedValue:ProjectPeriodEndDate}"
+    Then I softly can see top right button "Associate Focus Area" in flex table with id "---grantee_tableId:-:preAppcationBudgetTableId---"
+    Then I softly can see top right button "Create New Budget Period" in flex table with id "---grantee_tableId:-:preAppcationBudgetTableId---"
+    Then I softly can see row level action button "Delete" against "BP01" in flex table with id "---grantee_tableId:-:preAppcationBudgetTableId---"
+    Then I softly can see row level action button "Edit" against "BP01" in flex table with id "---grantee_tableId:-:preAppcationBudgetTableId---"
+    Given I expand nested table containing column value "BP01"
+    Then I softly can see row level action button "Remove" against "Automation Permanent Focus Area" in flex table with id "---grantee_tableId:-:preAppcationBudgetTableId---"
+    And I navigate to "Budget" sub tab
+    Then I softly see field "Budget Type" as "Construction"
+    Given I expand nested table containing column value "BP01"
+    Then I softly see "Award Budget" in flex table header "---grantee_tableId:-:preAppBudgetDetailTableId---"
+    Then I softly see value "Administrative and legal expenses" for title "Budget Category" inside table "---grantee_tableId:-:preAppBudgetDetailTableId---"
+    Then I softly see value "Land, structures, rights-of-way, appraisals, etc." for title "Budget Category" inside table "---grantee_tableId:-:preAppBudgetDetailTableId---"
+    Then I softly see value "Relocation expenses and payments" for title "Budget Category" inside table "---grantee_tableId:-:preAppBudgetDetailTableId---"
+    Then I softly see value "Architectural and engineering fees" for title "Budget Category" inside table "---grantee_tableId:-:preAppBudgetDetailTableId---"
+    Then I softly see value "Other architectural and engineering fees" for title "Budget Category" inside table "---grantee_tableId:-:preAppBudgetDetailTableId---"
+    Then I softly see value "Project inspection fees" for title "Budget Category" inside table "---grantee_tableId:-:preAppBudgetDetailTableId---"
+    Then I softly see value "Site work" for title "Budget Category" inside table "---grantee_tableId:-:preAppBudgetDetailTableId---"
+    Then I softly see value "Construction" for title "Budget Category" inside table "---grantee_tableId:-:preAppBudgetDetailTableId---"
+    Then I softly see value "Indirect costs" for title "Budget Category" inside table "---grantee_tableId:-:preAppBudgetDetailTableId---"
+    Then I softly see value "Equipment" for title "Budget Category" inside table "---grantee_tableId:-:preAppBudgetDetailTableId---"
+    Then I softly see value "Miscellaneous" for title "Budget Category" inside table "---grantee_tableId:-:preAppBudgetDetailTableId---"
+    Then I softly see value "Contingencies" for title "Budget Category" inside table "---grantee_tableId:-:preAppBudgetDetailTableId---"
