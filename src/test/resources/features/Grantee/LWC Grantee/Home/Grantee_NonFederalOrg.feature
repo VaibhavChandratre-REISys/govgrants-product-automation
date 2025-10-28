@@ -1,9 +1,9 @@
 @GranteeNonFederalOrgamization
 Feature: Validate all scenarios for Non Federal Organization
 
-  @460982 @ValidateNonFederalAuditorprofileusershouldseeallfieldsandsectiononNonfederalOrglayoutinreadonlyViewonlyAccess
+  @460982 @ValidateNonFederalAuditorprofileusershouldseeallfieldsandsectiononNonfederalOrglayoutinreadonlyViewonlyAccess @P4_Grantee @AUDITOR_Grantee @GRegression2
   Scenario Outline: Validate Non Federal Auditor profile user should see all fields and section on Non federal Org layout in readonly View only Access
-    When I login to "Grantor" app as "<userType>" user
+    When I login to "Grantee" app as "<userType>" user
     When I navigate to "Home" tab
     And I navigate to "External" content inside "Organizations" subheader on left panel
     And I click on top right button "New" in flex table with id "---grantee_tableId:-:nonFedOrgTableId---"
@@ -85,7 +85,7 @@ Feature: Validate all scenarios for Non Federal Organization
     When I enter the following values into flex table with id "---grantee_tableId:-:fedNotesTableId---" by clicking "New" :
       | Title   | Description      |
       | <Notes> | Automation Notes |
-    And I re-login to "As a Grantee" app as "<userAuditor>" user on "INTERNAL" portal
+    And I re-login to "Grantee" app as "<userAuditor>" user on "INTERNAL" portal
     When I navigate to "Home" tab
     And I navigate to "External" content inside "Organizations" subheader on left panel
     Then I softly do not see top right button "New" inside flex table "---grantee_tableId:-:nonFedOrgTableId---"
@@ -233,7 +233,7 @@ Feature: Validate all scenarios for Non Federal Organization
 
   @461000 @NonFederalVerifyusershouldseeallfieldsandsectiononNonfederalOrg @P3_Grantee @PO_Grantee @GRegression3
   Scenario Outline: Non Federal Verify user should see all fields and section on Non federal Org
-    When I login to "Grantor" app as "GRANTEE PM" user
+    When I login to "Grantee" app as "GRANTEE PM" user
     When I navigate to "Home" tab
     And I navigate to "External" content inside "Organizations" subheader on left panel
     Then I softly see top right button "New" inside flex table "---grantee_tableId:-:nonFedOrgTableId---"
@@ -259,7 +259,7 @@ Feature: Validate all scenarios for Non Federal Organization
     When I click modal button "Close"
     And I wait for "2" seconds
     Then I see "Attachment.pdf" has been added in "Organization Files" flex table
-    And I re-login to "As a Grantee" app as "<userType>" user on "INTERNAL" portal
+    And I re-login to "Grantee" app as "<userType>" user on "INTERNAL" portal
     When I navigate to "Home" tab
     And I navigate to "External" content inside "Organizations" subheader on left panel
     Then I softly do not see top right button "New" inside flex table "---grantee_tableId:-:nonFedOrgTableId---"
@@ -428,7 +428,7 @@ Feature: Validate all scenarios for Non Federal Organization
 
   @482144 @ValidateNonFederalFOprofileusershouldseeallfieldsandsectiononNonfederalOrglayoutinreadonlyViewonlyAccess @P3_Grantee @FO_Grantee @GRegression4
   Scenario Outline: Validate Non Federal FO profile user should see all fields and section on Non federal Org layout in readonly View only Access
-    When I login to "Grantor" app as "<userType>" user
+    When I login to "Grantee" app as "<userType>" user
     When I navigate to "Home" tab
     And I navigate to "External" content inside "Organizations" subheader on left panel
     And I click on top right button "New" in flex table with id "---grantee_tableId:-:nonFedOrgTableId---"
@@ -464,7 +464,7 @@ Feature: Validate all scenarios for Non Federal Organization
     When I enter the following values into flex table with id "---grantee_tableId:-:fedNotesTableId---" by clicking "New" :
       | Title   | Description      |
       | <Notes> | Automation Notes |
-    And I re-login to "As a Grantee" app as "<userProfile>" user on "INTERNAL" portal
+    And I re-login to "Grantee" app as "<userProfile>" user on "INTERNAL" portal
     When I navigate to "Home" tab
     And I navigate to "External" content inside "Organizations" subheader on left panel
     Then I softly do not see top right button "New" inside flex table "---grantee_tableId:-:nonFedOrgTableId---"
@@ -675,7 +675,7 @@ Feature: Validate all scenarios for Non Federal Organization
 
   @482146 @ValidateNonFederalFOprofileusershouldseeallfieldsandsectiononNonfederalOrglayoutinreadonlyViewonlyAccess @P2_Grantee @FD_Grantee @GRegression4
   Scenario Outline: Validate Non Federal FD profile user should see all fields and section on Non federal Org layout in readonly View only Access
-    When I login to "Grantor" app as "<userType>" user
+    When I login to "Grantee" app as "<userType>" user
     When I navigate to "Home" tab
     And I navigate to "External" content inside "Organizations" subheader on left panel
     And I click on top right button "New" in flex table with id "---grantee_tableId:-:nonFedOrgTableId---"
@@ -711,7 +711,7 @@ Feature: Validate all scenarios for Non Federal Organization
     When I enter the following values into flex table with id "---grantee_tableId:-:fedNotesTableId---" by clicking "New" :
       | Title   | Description      |
       | <Notes> | Automation Notes |
-    And I re-login to "As a Grantee" app as "<userProfile>" user on "INTERNAL" portal
+    And I re-login to "Grantee" app as "<userProfile>" user on "INTERNAL" portal
     When I navigate to "Home" tab
     And I navigate to "External" content inside "Organizations" subheader on left panel
     Then I softly do not see top right button "New" inside flex table "---grantee_tableId:-:nonFedOrgTableId---"
@@ -922,7 +922,7 @@ Feature: Validate all scenarios for Non Federal Organization
 
   @482149 @ValidateNonFederalEXEprofileusershouldseeallfieldsandsectiononNonfederalOrglayoutinreadonlyViewonlyAccess @P1_Grantee @EXE_Grantee @GRegression1
   Scenario Outline: Validate Non Federal EXE profile user should see all fields and section on Non federal Org layout in readonly View only Access
-    When I login to "Grantor" app as "<userType>" user
+    When I login to "Grantee" app as "<userType>" user
     When I navigate to "Home" tab
     And I navigate to "External" content inside "Organizations" subheader on left panel
     And I click on top right button "New" in flex table with id "---grantee_tableId:-:nonFedOrgTableId---"
@@ -958,7 +958,7 @@ Feature: Validate all scenarios for Non Federal Organization
     When I enter the following values into flex table with id "---grantee_tableId:-:fedNotesTableId---" by clicking "New" :
       | Title   | Description      |
       | <Notes> | Automation Notes |
-    And I re-login to "As a Grantee" app as "<userProfile>" user on "INTERNAL" portal
+    And I re-login to "Grantee" app as "<userProfile>" user on "INTERNAL" portal
     When I navigate to "Home" tab
     And I navigate to "External" content inside "Organizations" subheader on left panel
     Then I softly do not see top right button "New" inside flex table "---grantee_tableId:-:nonFedOrgTableId---"
@@ -1169,7 +1169,7 @@ Feature: Validate all scenarios for Non Federal Organization
 
   @477510 @NonFederalVerifyusershouldseeallfieldsandsectiononNonfederalOrg
   Scenario Outline: Non Federal Verify user should see all fields and section on Non federal Org
-    When I login to "Grantor" app as "<userType>" user
+    When I login to "Grantee" app as "<userType>" user
     When I navigate to "Home" tab
     And I navigate to "External" content inside "Organizations" subheader on left panel
     Then I softly see top right button "New" inside flex table "---grantee_tableId:-:nonFedOrgTableId---"
@@ -1374,3 +1374,40 @@ Feature: Validate all scenarios for Non Federal Organization
     Examples:
       | userType      | attachment     | Notes           | userName   | Title |
       | GRANTEE ADMIN | Attachment.pdf | Notes for ADMIN | Product QA | Test2 |
+
+  @443741 @ValidateNonFederalusershouldnotdeletetheparentOrgwhohavechildOrg @GRegression5 @PM_Grantee @P2_Grantee
+    Scenario: Validate Non Federal user should not delete the parent Org who have child Org
+    When I login to "Grantee" app as "GRANTEE PM" user
+    When I navigate to "Home" tab
+    And I navigate to "External" content inside "Organizations" subheader on left panel
+    And I click on top right button "New" in flex table with id "---grantee_tableId:-:nonFedOrgTableId---"
+    When I enter in modal value "123" into field "CongressionalDistrict__c"
+    When I enter in modal value "www.google.com" into field "Website"
+    When I enter in modal value "erer" into field "AddressLine2__c"
+    When I enter in modal value "1234" into field "BillingPostalCodeExtension__c"
+    When I enter in modal value "vegas" into field "County__c"
+    When I enter in modal value "Automation Runtime Organization" into field "Name"
+    When I enter in modal value "NGO" into field "NonFederalOrganizationType__c"
+    When I enter in modal value "Street 1" into field "BillingStreet"
+    When I enter in modal value "New York" into field "BillingCity"
+    When I enter in modal value "AL" into field "State__c"
+    When I enter in modal value "USA" into field "BillingCountry"
+    When I enter in modal value "45623" into field "BillingPostalCode"
+    And I click modal button "Save and Continue"
+    And I click on "Save" in the page details
+    And I navigate to "Overview" sub tab
+    And I save the field labeled "Organization Name" as "OrganizationName"
+    Then I softly see field "Organization Name" as "{SavedValue:OrganizationName}"
+    When I click on top right button "Associate" in flex table with id "---grantee_tableId:-:nonFedChildOrgTableId---"
+    When I click "Associate" after selection of "department of city" in the table "---grantee_tableId:-:nonFedChildOrgAssociateTableId---"
+    And I wait for "2" seconds
+    And I click modal button "Close"
+    And I wait for "2" seconds
+    When I re-login to "Grantee" app as "GRANTEE ADMIN" user on "INTERNAL" portal
+    When I navigate to "Home" tab
+    And I navigate to "External" content inside "Organizations" subheader on left panel
+    When I perform quick search for "{SavedValue:OrganizationName}" in "---grantee_tableId:-:nonFedOrgTableId---" panel
+    And I click on "Delete" icon for "{SavedValue:OrganizationName}" inside flex table with id "---grantee_tableId:-:nonFedOrgTableId---"
+    And I wait for "2" seconds
+    Then I softly see the following messages in the page details contains:
+      | Organization or Agency has associated Child Organizations and cannot be deleted. |

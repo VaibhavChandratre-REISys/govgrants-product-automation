@@ -3,7 +3,7 @@ Feature: Validate all scenarios for Leads
 
   @482115 @482331 @ValidateFOusershouldhaveviewaccessonlyonthequalifiedlead @FO_Grantee @P3_Grantee @GRegression2
   Scenario Outline: Validate FO user should have view access only on the qualified lead
-    Given I login to "As a Grantee" app as "GRANTEE PM" user
+    Given I login to "Grantee" app as "GRANTEE PM" user
     And I navigate to "Opportunities" tab
     When I navigate to "Not Yet Qualified" content inside "Leads" subheader on left panel
     Then I softly see top right button "New" inside flex table "---grantee_tableId:-:LeadsNotYetQualified---"
@@ -140,7 +140,7 @@ Feature: Validate all scenarios for Leads
     Then I can see top right button "Qualify Lead" in page detail
     And I save the field labeled "EGMS ID" as "LeadsEGMSID"
     #482331
-    And I re-login to "As a Grantee" app as "<User>" user on "INTERNAL" portal
+    And I re-login to "Grantee" app as "<User>" user on "INTERNAL" portal
     And I navigate to "Opportunities" tab
     When I navigate to "Not Yet Qualified" content inside "Leads" subheader on left panel
     And I click toggle button to select "Leads Not Yet Qualified - All"
@@ -148,7 +148,7 @@ Feature: Validate all scenarios for Leads
     When I click on "View" icon for "{SavedValue:LeadsEGMSID}" inside flex table with id "---grantee_tableId:-:LeadsNotYetQualified---"
     Then I softly see field "State" as "Posted"
     Then I cannot see top right button "Qualify Lead" in page detail
-    And I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
+    And I re-login to "Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
     And I navigate to "Opportunities" tab
     When I navigate to "Not Yet Qualified" content inside "Leads" subheader on left panel
     And I click toggle button to select "Leads Not Yet Qualified - All"
@@ -158,7 +158,7 @@ Feature: Validate all scenarios for Leads
     And I click on "Qualify Lead" in the page details
     Then I softly see field "Status" as "Qualified Lead"
     And I save the field labeled "EGMS ID" as "QualifiedEGMSID"
-    And I re-login to "As a Grantee" app as "<User>" user on "INTERNAL" portal
+    And I re-login to "Grantee" app as "<User>" user on "INTERNAL" portal
     And I navigate to "Opportunities" tab
     When I navigate to "Qualified" content inside "Leads" subheader on left panel
     And I click toggle button to select "<Toggles>"
@@ -197,12 +197,12 @@ Feature: Validate all scenarios for Leads
     Then I softly see "Snapshot History" page block displayed
 
     Examples:
-      | User            | Validation        | Toggles                |
-      | GRANTEE FO      | softly can see    | Qualified Leads - All  |
+      | User       | Validation     | Toggles               |
+      | GRANTEE FO | softly can see | Qualified Leads - All |
 
   @482116 @482332 @ValidateFOusershouldhaveviewaccessonlyonthequalifiedlead @FD_Grantee @P3_Grantee @GRegression2
   Scenario Outline: Validate FD user should have view access only on the qualified lead
-    Given I login to "As a Grantee" app as "GRANTEE PM" user
+    Given I login to "Grantee" app as "GRANTEE PM" user
     And I navigate to "Opportunities" tab
     When I navigate to "Not Yet Qualified" content inside "Leads" subheader on left panel
     Then I softly see top right button "New" inside flex table "---grantee_tableId:-:LeadsNotYetQualified---"
@@ -339,7 +339,7 @@ Feature: Validate all scenarios for Leads
     Then I can see top right button "Qualify Lead" in page detail
     And I save the field labeled "EGMS ID" as "LeadsEGMSID"
     #482332
-    And I re-login to "As a Grantee" app as "<User>" user on "INTERNAL" portal
+    And I re-login to "Grantee" app as "<User>" user on "INTERNAL" portal
     And I navigate to "Opportunities" tab
     When I navigate to "Not Yet Qualified" content inside "Leads" subheader on left panel
     And I click toggle button to select "Leads Not Yet Qualified - All"
@@ -347,7 +347,7 @@ Feature: Validate all scenarios for Leads
     When I click on "View" icon for "{SavedValue:LeadsEGMSID}" inside flex table with id "---grantee_tableId:-:LeadsNotYetQualified---"
     Then I softly see field "State" as "Posted"
     Then I cannot see top right button "Qualify Lead" in page detail
-    And I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
+    And I re-login to "Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
     And I navigate to "Opportunities" tab
     When I navigate to "Not Yet Qualified" content inside "Leads" subheader on left panel
     And I click toggle button to select "Leads Not Yet Qualified - All"
@@ -357,7 +357,7 @@ Feature: Validate all scenarios for Leads
     And I click on "Qualify Lead" in the page details
     Then I softly see field "Status" as "Qualified Lead"
     And I save the field labeled "EGMS ID" as "QualifiedEGMSID"
-    And I re-login to "As a Grantee" app as "<User>" user on "INTERNAL" portal
+    And I re-login to "Grantee" app as "<User>" user on "INTERNAL" portal
     And I navigate to "Opportunities" tab
     When I navigate to "Qualified" content inside "Leads" subheader on left panel
     And I click toggle button to select "<Toggles>"
@@ -396,12 +396,12 @@ Feature: Validate all scenarios for Leads
     Then I softly see "Snapshot History" page block displayed
 
     Examples:
-      | User            | Validation        | Toggles                |
-      | GRANTEE FD      | softly can see    | Qualified Leads - All  |
+      | User       | Validation     | Toggles               |
+      | GRANTEE FD | softly can see | Qualified Leads - All |
 
   @482117 @482334 @ValidateFOusershouldhaveviewaccessonlyonthequalifiedlead @ADMIN_Grantee @P3_Grantee @GRegression2
   Scenario Outline: Validate ADMIN user should have view access only on the qualified lead
-    Given I login to "As a Grantee" app as "GRANTEE PM" user
+    Given I login to "Grantee" app as "GRANTEE PM" user
     And I navigate to "Opportunities" tab
     When I navigate to "Not Yet Qualified" content inside "Leads" subheader on left panel
     Then I softly see top right button "New" inside flex table "---grantee_tableId:-:LeadsNotYetQualified---"
@@ -538,7 +538,7 @@ Feature: Validate all scenarios for Leads
     Then I can see top right button "Qualify Lead" in page detail
     And I save the field labeled "EGMS ID" as "LeadsEGMSID"
 #    482334
-    And I re-login to "As a Grantee" app as "<User>" user on "INTERNAL" portal
+    And I re-login to "Grantee" app as "<User>" user on "INTERNAL" portal
     And I navigate to "Opportunities" tab
     When I navigate to "Not Yet Qualified" content inside "Leads" subheader on left panel
     And I click toggle button to select "Leads Not Yet Qualified - All"
@@ -546,7 +546,7 @@ Feature: Validate all scenarios for Leads
     When I click on "View" icon for "{SavedValue:LeadsEGMSID}" inside flex table with id "---grantee_tableId:-:LeadsNotYetQualified---"
     Then I softly see field "State" as "Posted"
     Then I cannot see top right button "Qualify Lead" in page detail
-    And I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
+    And I re-login to "Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
     And I navigate to "Opportunities" tab
     When I navigate to "Not Yet Qualified" content inside "Leads" subheader on left panel
     And I click toggle button to select "Leads Not Yet Qualified - All"
@@ -556,7 +556,7 @@ Feature: Validate all scenarios for Leads
     And I click on "Qualify Lead" in the page details
     Then I softly see field "Status" as "Qualified Lead"
     And I save the field labeled "EGMS ID" as "QualifiedEGMSID"
-    And I re-login to "As a Grantee" app as "<User>" user on "INTERNAL" portal
+    And I re-login to "Grantee" app as "<User>" user on "INTERNAL" portal
     And I navigate to "Opportunities" tab
     When I navigate to "Qualified" content inside "Leads" subheader on left panel
     And I click toggle button to select "<Toggles>"
@@ -595,12 +595,12 @@ Feature: Validate all scenarios for Leads
     Then I softly see "Snapshot History" page block displayed
 
     Examples:
-      | User            | Validation        | Toggles                |
-      | GRANTEE ADMIN1  | softly can see    | Qualified Leads - Open |
+      | User           | Validation     | Toggles                |
+      | GRANTEE ADMIN1 | softly can see | Qualified Leads - Open |
 
   @482118 @ValidateFOusershouldhaveviewaccessonlyonthequalifiedlead @Auditor_Grantee @P4_Grantee @GRegression2
   Scenario Outline: Validate AUDITOR user should have view access only on the qualified lead
-    Given I login to "As a Grantee" app as "GRANTEE PM" user
+    Given I login to "Grantee" app as "GRANTEE PM" user
     And I navigate to "Opportunities" tab
     When I navigate to "Not Yet Qualified" content inside "Leads" subheader on left panel
     Then I softly see top right button "New" inside flex table "---grantee_tableId:-:LeadsNotYetQualified---"
@@ -736,7 +736,7 @@ Feature: Validate all scenarios for Leads
     Then I softly see field "State" as "Posted"
     Then I can see top right button "Qualify Lead" in page detail
     And I save the field labeled "EGMS ID" as "LeadsEGMSID"
-    And I re-login to "As a Grantee" app as "<User>" user on "INTERNAL" portal
+    And I re-login to "Grantee" app as "<User>" user on "INTERNAL" portal
     And I navigate to "Opportunities" tab
     When I navigate to "Not Yet Qualified" content inside "Leads" subheader on left panel
     And I click toggle button to select "Leads Not Yet Qualified - All"
@@ -744,7 +744,7 @@ Feature: Validate all scenarios for Leads
     When I click on "View" icon for "{SavedValue:LeadsEGMSID}" inside flex table with id "---grantee_tableId:-:LeadsNotYetQualified---"
     Then I softly see field "State" as "Posted"
     Then I cannot see top right button "Qualify Lead" in page detail
-    And I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
+    And I re-login to "Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
     And I navigate to "Opportunities" tab
     When I navigate to "Not Yet Qualified" content inside "Leads" subheader on left panel
     And I click toggle button to select "Leads Not Yet Qualified - All"
@@ -754,7 +754,7 @@ Feature: Validate all scenarios for Leads
     And I click on "Qualify Lead" in the page details
     Then I softly see field "Status" as "Qualified Lead"
     And I save the field labeled "EGMS ID" as "QualifiedEGMSID"
-    And I re-login to "As a Grantee" app as "<User>" user on "INTERNAL" portal
+    And I re-login to "Grantee" app as "<User>" user on "INTERNAL" portal
     And I navigate to "Opportunities" tab
     When I navigate to "Qualified" content inside "Leads" subheader on left panel
     And I click toggle button to select "<Toggles>"
@@ -793,12 +793,12 @@ Feature: Validate all scenarios for Leads
     Then I softly see "Snapshot History" page block displayed
 
     Examples:
-      | User            | Validation        | Toggles                |
-      | GRANTEE AUDITOR | softly cannot see | Qualified Leads - All  |
+      | User            | Validation        | Toggles               |
+      | GRANTEE AUDITOR | softly cannot see | Qualified Leads - All |
 
   @462721 @ValidatetheflowofasPMuserisabletocreateandqualifythemanuallead @P1_Grantee @PM_Grantee @GRegression1
   Scenario Outline: Validate the flow of as PM/PO user is able to create and qualify the manual lead
-    Given I login to "As a Grantee" app as "<User>" user
+    Given I login to "Grantee" app as "<User>" user
     And I navigate to "Opportunities" tab
     When I navigate to "Not Yet Qualified" content inside "Leads" subheader on left panel
     Then I softly see top right button "New" inside flex table "---grantee_tableId:-:LeadsNotYetQualified---"
@@ -975,12 +975,12 @@ Feature: Validate all scenarios for Leads
     Then I softly see "Notes" page block displayed
     Then I softly see "Business Forms" page block displayed
     Examples:
-      | User        |
-      | GRANTEE PM  |
+      | User       |
+      | GRANTEE PM |
 
   @482114 @ValidatetheflowofasPMuserisabletocreateandqualifythemanuallead @P1_Grantee @EXE_Grantee @GRegression1
   Scenario Outline: Validate the flow of as EXE user is able to create and qualify the manual lead
-    Given I login to "As a Grantee" app as "<User>" user
+    Given I login to "Grantee" app as "<User>" user
     And I navigate to "Opportunities" tab
     When I navigate to "Not Yet Qualified" content inside "Leads" subheader on left panel
     Then I softly see top right button "New" inside flex table "---grantee_tableId:-:LeadsNotYetQualified---"
@@ -1160,10 +1160,10 @@ Feature: Validate all scenarios for Leads
       | User        |
       | GRANTEE EXE |
 
-  @482166 @ValidateQualifyLeadPMusercanqualifytheleadwhichisingestedfromgrantsgov
+  @482166 @ValidateQualifyLeadPMusercanqualifytheleadwhichisingestedfromgrantsgov @PO_Grantee @P1_Grantee @GRegression1
   Scenario Outline: Validate Qualify Lead PM user can qualify the lead which is ingested from grants gov
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberPM1User}"
-    Given I login to "As a Grantee" app as "<userType>" user
+    Given I login to "Grantee" app as "<userType>" user
     And I navigate to "Opportunities" tab
     When I navigate to "Not Yet Qualified" content inside "Leads" subheader on left panel
     Then I softly see top right button "New" inside flex table "---grantee_tableId:-:LeadsNotYetQualified---"
@@ -1258,7 +1258,7 @@ Feature: Validate all scenarios for Leads
 
   @483167 @ValidatePMusertheflowofNotyetqualifiedlead @P2_Grantee @EXE_Grantee @GRegression1
   Scenario Outline: Validate EXE user the flow of Not yet qualified lead
-    Given I login to "As a Grantee" app as "<User>" user
+    Given I login to "Grantee" app as "<User>" user
     And I navigate to "Opportunities" tab
     When I navigate to "Not Yet Qualified" content inside "Leads" subheader on left panel
     Then I softly see top right button "New" inside flex table "---grantee_tableId:-:LeadsNotYetQualified---"
@@ -1398,7 +1398,7 @@ Feature: Validate all scenarios for Leads
 
   @483181 @ValidatePMusertheflowofNotyetqualifiedlead @P2_Grantee @PO_Grantee @GRegression2
   Scenario Outline: Validate PO user the flow of Not yet qualified lead
-    Given I login to "As a Grantee" app as "<User>" user
+    Given I login to "Grantee" app as "<User>" user
     And I navigate to "Opportunities" tab
     When I navigate to "Not Yet Qualified" content inside "Leads" subheader on left panel
     Then I softly see top right button "New" inside flex table "---grantee_tableId:-:LeadsNotYetQualified---"
@@ -1533,12 +1533,12 @@ Feature: Validate all scenarios for Leads
     Then I softly see field "State" as "Posted"
     Then I can see top right button "Qualify Lead" in page detail
     Examples:
-      | User        |
-      | GRANTEE PO  |
+      | User       |
+      | GRANTEE PO |
 
   @488705 @VerifyAsFOusershouldnotseenewbuttonfornotyetqualifyleadandeditaccessonnotyetqualifyleads @P3_Grantee @FD_Grantee @GRegression4
   Scenario Outline: Verify As FD user should not see new button for not yet qualify lead and edit access on not yet qualify leads
-    Given I login to "As a Grantee" app as "GRANTEE EXE" user
+    Given I login to "Grantee" app as "GRANTEE EXE" user
     And I navigate to "Opportunities" tab
     When I navigate to "Not Yet Qualified" content inside "Leads" subheader on left panel
     Then I softly see top right button "New" inside flex table "---grantee_tableId:-:LeadsNotYetQualified---"
@@ -1555,7 +1555,7 @@ Feature: Validate all scenarios for Leads
     When I click modal button "OK"
     Then I softly see field "State" as "Posted"
     Then I can see top right button "Qualify Lead" in page detail
-    When I re-login to "As a Grantee" app as "<UserType>" user on "INTERNAL" portal
+    When I re-login to "Grantee" app as "<UserType>" user on "INTERNAL" portal
     And I navigate to "Opportunities" tab
     When I navigate to "Not Yet Qualified" content inside "Leads" subheader on left panel
     And I click toggle button to select "Leads Not Yet Qualified - All"
@@ -1570,12 +1570,12 @@ Feature: Validate all scenarios for Leads
     Then I softly <filter> top right button "New" inside flex table "---grantee_tableId:-:LeadsAttachmentTableId---"
     Then I softly cannot see top right button "Add Files" in flex table with id "---grantee_tableId:-:leadsAddFileTableId---"
     Examples:
-      | UserType        | filter     |
-      | GRANTEE FD      | see        |
+      | UserType   | filter |
+      | GRANTEE FD | see    |
 
   @488706 @VerifyAsFOusershouldnotseenewbuttonfornotyetqualifyleadandeditaccessonnotyetqualifyleads @P4_Grantee @Auditor_Grantee @GRegression1
   Scenario Outline: Verify As AUDITOR user should not see new button for not yet qualify lead and edit access on not yet qualify leads
-    Given I login to "As a Grantee" app as "GRANTEE EXE" user
+    Given I login to "Grantee" app as "GRANTEE EXE" user
     And I navigate to "Opportunities" tab
     When I navigate to "Not Yet Qualified" content inside "Leads" subheader on left panel
     Then I softly see top right button "New" inside flex table "---grantee_tableId:-:LeadsNotYetQualified---"
@@ -1592,7 +1592,7 @@ Feature: Validate all scenarios for Leads
     When I click modal button "OK"
     Then I softly see field "State" as "Posted"
     Then I can see top right button "Qualify Lead" in page detail
-    When I re-login to "As a Grantee" app as "<UserType>" user on "INTERNAL" portal
+    When I re-login to "Grantee" app as "<UserType>" user on "INTERNAL" portal
     And I navigate to "Opportunities" tab
     When I navigate to "Not Yet Qualified" content inside "Leads" subheader on left panel
     And I click toggle button to select "Leads Not Yet Qualified - All"
@@ -1612,7 +1612,7 @@ Feature: Validate all scenarios for Leads
 
   @488708 @VerifyAsFOusershouldnotseenewbuttonfornotyetqualifyleadandeditaccessonnotyetqualifyleads @P3_Grantee @ADMIN_Grantee @GRegression4
   Scenario Outline: Verify As ADMIN user should not see new button for not yet qualify lead and edit access on not yet qualify leads
-    Given I login to "As a Grantee" app as "GRANTEE EXE" user
+    Given I login to "Grantee" app as "GRANTEE EXE" user
     And I navigate to "Opportunities" tab
     When I navigate to "Not Yet Qualified" content inside "Leads" subheader on left panel
     Then I softly see top right button "New" inside flex table "---grantee_tableId:-:LeadsNotYetQualified---"
@@ -1629,7 +1629,7 @@ Feature: Validate all scenarios for Leads
     When I click modal button "OK"
     Then I softly see field "State" as "Posted"
     Then I can see top right button "Qualify Lead" in page detail
-    When I re-login to "As a Grantee" app as "<UserType>" user on "INTERNAL" portal
+    When I re-login to "Grantee" app as "<UserType>" user on "INTERNAL" portal
     And I navigate to "Opportunities" tab
     When I navigate to "Not Yet Qualified" content inside "Leads" subheader on left panel
     And I click toggle button to select "Leads Not Yet Qualified - All"
@@ -1644,5 +1644,50 @@ Feature: Validate all scenarios for Leads
     Then I softly <filter> top right button "New" inside flex table "---grantee_tableId:-:LeadsAttachmentTableId---"
     Then I softly cannot see top right button "Add Files" in flex table with id "---grantee_tableId:-:leadsAddFileTableId---"
     Examples:
-      | UserType        | filter     |
-      | GRANTEE ADMIN1  | see        |
+      | UserType       | filter |
+      | GRANTEE ADMIN1 | see    |
+
+  @462677 @ValidateEXEuserseevalidationmessageisdisplayforrequiredtosavefields @GRegression5 @P3_Grantee @EXE_Grantee
+  Scenario: Validate EXE user see validation message is display for required to save fields
+    Given I login to "Grantee" app as "GRANTEE EXE" user
+    And I navigate to "Opportunities" tab
+    When I navigate to "Not Yet Qualified" content inside "Leads" subheader on left panel
+    Then I softly see top right button "New" inside flex table "---grantee_tableId:-:LeadsNotYetQualified---"
+    And I click on top right button "New" in flex table with id "---grantee_tableId:-:LeadsNotYetQualified---"
+    And I wait for "2" seconds
+    And I click modal button "Save and Continue"
+    Then I softly see the following messages in the page details contains:
+      | To Save, Opportunity Title is required in the General Information section.                  |
+      | To Save, Opportunity Number is required in the General Information section.                 |
+      | To Save, Application Due Date is required in the General Information section.               |
+      | To Save, Funding Organization is required in the General Information section.               |
+      | To Save, Eligible Applicants is required in the Eligibility section.                        |
+      | To Save, Lead Description is required in the Additional Information section.                |
+      | To Save, Cost Sharing or Matching Requirement is required in the Financial Details section. |
+
+  @463541 @ValidateOpportunitiesNotconvertedafterdeletingopportunityOrganizationswhohavequalifiedtheleadcanconverttheleadtoopportunityagain @GRegression5 @P2_Grantee @PM_Grantee
+  Scenario: Validate Opportunities Not converted after deleting opportunity Organizations who have qualified the lead can convert the lead to opportunity again
+    Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
+    And I create "Grants.Gov" qualified lead for title "Automation Runtime award" and opportunity number "CAS-HHS0000660610" with properties "default-Product Admin user"
+    Given I login to "Grantee" app as "GRANTEE PM" user
+    And I navigate to "Opportunities" tab
+    When I navigate to "Qualified" content inside "Leads" subheader on left panel
+    And I click toggle button to select "Qualified Leads - All"
+    When I perform quick search for "{SavedValue:Automation Runtime award}" in "---grantee_tableId:-:qualifiedLeadTableId---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime award}" inside flex table with id "---grantee_tableId:-:qualifiedLeadTableId---" without waiting for record
+    When I click on "Convert to Opportunity" in the page details
+    And I save the field labeled "EGMS ID" as "opportunityEGMSID"
+    And I wait for "3" seconds
+    And I navigate to "Opportunities" tab
+    And I navigate to "Not Converted" content inside "Opportunities" subheader on left panel
+    When I click toggle button to select "Opportunities Not Converted to Application - All"
+    And I perform quick search for "{SavedValue:opportunityEGMSID}" in "---grantee_tableId:-:OpportunityNotConvertedToApplication---" panel
+    And I click on "Delete" icon for "{SavedValue:opportunityEGMSID}" inside flex table with id "---grantee_tableId:-:OpportunityNotConvertedToApplication---"
+    And I wait for "3" seconds
+    And I navigate to "Opportunities" tab
+    When I navigate to "Qualified" content inside "Leads" subheader on left panel
+    And I click toggle button to select "Qualified Leads - All"
+    When I perform quick search for "{SavedValue:Automation Runtime award}" in "---grantee_tableId:-:qualifiedLeadTableId---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime award}" inside flex table with id "---grantee_tableId:-:qualifiedLeadTableId---" without waiting for record
+    When I click on "Convert to Opportunity" in the page details
+    Then I softly see field "Status" as "Draft"

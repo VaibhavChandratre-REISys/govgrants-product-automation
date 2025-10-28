@@ -5,7 +5,7 @@ Feature: Validate all scenarios for Pre-Applications Grants Gov
   Scenario: Validate PreApp with PO profile Pre application page layout of grants gov lead
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberPM1User}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0001212745" with properties "default-Grantee PO user"
-    Given I login to "As a Grantee" app as "GRANTEE PM" user
+    Given I login to "Grantee" app as "GRANTEE PM" user
     And I navigate to "Opportunities" tab
     When I navigate to "Qualified" content inside "Leads" subheader on left panel
     And I click toggle button to select "Qualified Leads - All"
@@ -114,7 +114,7 @@ Feature: Validate all scenarios for Pre-Applications Grants Gov
       | Victor EXE    | Fiscal Reviewer | Automation Description | 5        | Yes                  |
     And I click on "Send for Review" icon for "Victor EXE" inside flex table with id "---grantee_tableId:-:preApplicationPeerReviewTableId---" without waiting for record
     And I pause execution for "3" seconds
-    When I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
+    When I re-login to "Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
     And I navigate to "Applications" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:preAppEGMSID}" in "---grantee_tableId:-:PendingTask---" panel
@@ -127,7 +127,7 @@ Feature: Validate all scenarios for Pre-Applications Grants Gov
     And I click on submit review
     And I wait for "3" seconds
     Then I softly see value "Submitted" for title "Status" against the value "Victor EXE" inside table "---grantee_tableId:-:preApplicationPeerReviewTableId---"
-    When I re-login to "As a Grantee" app as "GRANTEE PO" user on "INTERNAL" portal
+    When I re-login to "Grantee" app as "GRANTEE PO" user on "INTERNAL" portal
     And I navigate to "Applications" tab
     When I navigate to "Pre-Applications" content inside "Applications" subheader on left panel
     And I click toggle button to select "Pre-Applications - All"
@@ -164,13 +164,13 @@ Feature: Validate all scenarios for Pre-Applications Grants Gov
       | Pre-Application has been validated successfully. |
     And I click on "Submit For Approval" in the page details
     Then I softly see status in Progress-bar is "Submitted For Approval" and is "dark blue"
-    When I re-login to "As a Grantee" app as "GRANTEE FO" user on "INTERNAL" portal
+    When I re-login to "Grantee" app as "GRANTEE FO" user on "INTERNAL" portal
     When I navigate to "Applications" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:PreappEGMSID}" in "---grantee_tableId:-:PendingTask---" panel
     When I click on "Start" icon for "{SavedValue:PreappEGMSID}" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
     When I "Approve" in the approval decision
-    When I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
+    When I re-login to "Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
     When I navigate to "Applications" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:PreappEGMSID}" in "---grantee_tableId:-:PendingTask---" panel
@@ -178,7 +178,7 @@ Feature: Validate all scenarios for Pre-Applications Grants Gov
     When I "Approve" in the approval decision
     And I wait for "5" seconds
     Then I softly see field "Status" as "Approved"
-    When I re-login to "As a Grantee" app as "GRANTEE PO" user on "INTERNAL" portal
+    When I re-login to "Grantee" app as "GRANTEE PO" user on "INTERNAL" portal
     When I navigate to "Applications" tab
     And I navigate to "Pre-Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Pre-Applications - All"
@@ -207,7 +207,7 @@ Feature: Validate all scenarios for Pre-Applications Grants Gov
   Scenario: Validate PreApp with Admin profile Pre application page layout of grants.gov lead with Yes setting
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default"
-    When I login to "As a Grantee" app as "GRANTEE PM" user
+    When I login to "Grantee" app as "GRANTEE PM" user
     And I navigate to "Opportunities" tab
     When I navigate to "Qualified" content inside "Leads" subheader on left panel
     And I click toggle button to select "Qualified Leads - All"
@@ -216,7 +216,7 @@ Feature: Validate all scenarios for Pre-Applications Grants Gov
     When I click on "Convert to Opportunity" in the page details
     And I save the field labeled "EGMS ID" as "opportunityEGMSID"
     And I create opportunity with state "Approved" for opportunity number "CAS-HHS0000660610" with properties "PRE_APPLICATION_YES"
-    And I re-login to "As a Grantee" app as "GRANTEE ADMIN" user on "INTERNAL" portal
+    And I re-login to "Grantee" app as "GRANTEE ADMIN" user on "INTERNAL" portal
     And I navigate to "Opportunities" tab
     And I navigate to "Not Converted" content inside "Opportunities" subheader on left panel
     When I click toggle button to select "Opportunities Not Converted to Application - All"
@@ -301,7 +301,7 @@ Feature: Validate all scenarios for Pre-Applications Grants Gov
   Scenario: PreApp - Verify with PO Profile ,Overview Tab.
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default-Grantee PO user"
-    When I login to "As a Grantee" app as "GRANTEE PO" user
+    When I login to "Grantee" app as "GRANTEE PO" user
     And I navigate to "Opportunities" tab
     When I navigate to "Qualified" content inside "Leads" subheader on left panel
     And I click toggle button to select "Qualified Leads - All"
@@ -481,7 +481,7 @@ Feature: Validate all scenarios for Pre-Applications Grants Gov
   Scenario: PreApp - Verify With EXE , Summary Budget in Budget Tab.
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default"
-    When I login to "As a Grantee" app as "GRANTEE PM" user
+    When I login to "Grantee" app as "GRANTEE PM" user
     And I navigate to "Opportunities" tab
     When I navigate to "Qualified" content inside "Leads" subheader on left panel
     And I click toggle button to select "Qualified Leads - All"
@@ -505,7 +505,7 @@ Feature: Validate all scenarios for Pre-Applications Grants Gov
       | Focus Area Title                | Budget Request |
       | Automation Permanent Focus Area | 5000           |
     Then I softly see value "$5,000.00" for title "Budget Request" inside table "---grantee_tableId:-:preApplicationFocusAreaTableId---"
-    And I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
+    And I re-login to "Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
     And I navigate to "Applications" tab
     When I navigate to "Pre-Applications" content inside "Applications" subheader on left panel
     And I click toggle button to select "Pre-Applications - All"
@@ -564,7 +564,7 @@ Feature: Validate all scenarios for Pre-Applications Grants Gov
 
   @463448 @PreAppVerifywithPOProfilewhenpreapplicationduedateiscrossedforgrantsgovleadthenunabletoseethecreatepreapplicationbutton @P3_Grantee @PM_Grantee @GRegression1
   Scenario Outline: PreApp - Verify with PO Profile ,when preapplication due date is crossed for grants.gov lead then unable to see the create pre application button.
-    When I login to "As a Grantee" app as "<User>" user
+    When I login to "Grantee" app as "<User>" user
     And I navigate to "Opportunities" tab
     And I click toggle button to select "Opportunities - All"
     When I perform quick search for "{AUTOEnvData:AutomationPermanentLeadPreApplicationExpired}" in "---grantee_tableId:-:opportunitysGranteeTableId---" panel
@@ -577,7 +577,7 @@ Feature: Validate all scenarios for Pre-Applications Grants Gov
 
   @463449 @PreAppVerifywithPOProfilewhenpreapplicationduedateiscrossedforgrantsgovleadthenunabletoseethecreatepreapplicationbutton @PO_Grantee @P2_Grantee @GRegression2
   Scenario Outline: PreApp - Verify with PO Profile ,when preapplication due date is crossed for grants.gov lead then unable to see the create pre application button.
-    When I login to "As a Grantee" app as "<User>" user
+    When I login to "Grantee" app as "<User>" user
     And I navigate to "Opportunities" tab
     And I click toggle button to select "Opportunities - All"
     When I perform quick search for "{AUTOEnvData:AutomationPermanentLeadPreApplicationExpired}" in "---grantee_tableId:-:opportunitysGranteeTableId---" panel
@@ -592,7 +592,7 @@ Feature: Validate all scenarios for Pre-Applications Grants Gov
   Scenario: Verify with Auditor profile , Grants.Gov lead - pre application able see in View mode only.
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default"
-    When I login to "As a Grantee" app as "GRANTEE PM" user
+    When I login to "Grantee" app as "GRANTEE PM" user
     And I navigate to "Opportunities" tab
     When I navigate to "Qualified" content inside "Leads" subheader on left panel
     And I click toggle button to select "Qualified Leads - All"
@@ -609,7 +609,7 @@ Feature: Validate all scenarios for Pre-Applications Grants Gov
     And I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside flex table with id "---grantee_tableId:-:preApplicaltionTableId---" without waiting for record
     And I navigate to "Chatter" sub tab in split screen
     And I post the message "Automation Test1 Execution" inside chatter
-    When I re-login to "As a Grantee" app as "GRANTEE AUDITOR" user on "INTERNAL" portal
+    When I re-login to "Grantee" app as "GRANTEE AUDITOR" user on "INTERNAL" portal
     And I navigate to "Applications" tab
     When I navigate to "Pre-Applications" content inside "Applications" subheader on left panel
     And I click toggle button to select "Pre-Applications - All"
@@ -674,94 +674,11 @@ Feature: Validate all scenarios for Pre-Applications Grants Gov
     Then  I cannot see top right button "Add Files" in flex table with id "---grantee_tableId:-:preApplicationAddFileTableId---"
     Then  I cannot see top right button "New" in flex table with id "---grantee_tableId:-:preApplicationNoteTableId---"
 
-  @463453 @PreAppVerifyWithPMProfilePhaselevelListviewpageasperthefilterlistgettheresult @P4_Grantee @PM_Grantee @GRegression4
-  Scenario: PreApp - Verify With PM Profile , Phase level List view page as per the filter list get the result.
-    When I login to "As a Grantee" app as "GRANTEE PM" user
-    And I navigate to "Applications" tab
-    When I navigate to "Pre-Applications" content inside "Applications" subheader on left panel
-    Then I softly see toggle option "Pre-Applications - All" inside flex table id "---grantee_tableId:-:preApplicaltionTableId---"
-    Then I softly see toggle option "Pre-Applications - Draft" inside flex table id "---grantee_tableId:-:preApplicaltionTableId---"
-    Then I softly see toggle option "Pre-Applications - Submitted" inside flex table id "---grantee_tableId:-:preApplicaltionTableId---"
-    Then I softly see toggle option "Pre-Applications - Converted to Application" inside flex table id "---grantee_tableId:-:preApplicaltionTableId---"
-    Then I softly see toggle option "Pre-Applications - Expired" inside flex table id "---grantee_tableId:-:preApplicaltionTableId---"
-    Then I softly see toggle option "Pre-Applications - My Records" inside flex table id "---grantee_tableId:-:preApplicaltionTableId---"
-    And I click toggle button to select "Pre-Applications - All"
-    When I perform quick search for "created" in "---grantee_tableId:-:preApplicaltionTableId---" panel
-    Then I softly see value "created" for title "Status" inside table "---grantee_tableId:-:preApplicaltionTableId---"
-    When I perform quick search for "Submitted for Review" in "---grantee_tableId:-:preApplicaltionTableId---" panel
-    Then I softly see value "Submitted for Review" for title "Status" inside table "---grantee_tableId:-:preApplicaltionTableId---"
-    When I perform quick search for "Converted to Application" in "---grantee_tableId:-:preApplicaltionTableId---" panel
-    Then I softly see value "Converted to Application" for title "Status" inside table "---grantee_tableId:-:preApplicaltionTableId---"
-    When I perform quick search for "Submitted for Approval" in "---grantee_tableId:-:preApplicaltionTableId---" panel
-    Then I softly see value "Submitted for Approval" for title "Status" inside table "---grantee_tableId:-:preApplicaltionTableId---"
-    When I perform quick search for "Approved" in "---grantee_tableId:-:preApplicaltionTableId---" panel
-    Then I softly see value "Approved" for title "Status" inside table "---grantee_tableId:-:preApplicaltionTableId---"
-    When I perform quick search for "Rejected" in "---grantee_tableId:-:preApplicaltionTableId---" panel
-    Then I softly see value "Rejected" for title "Status" inside table "---grantee_tableId:-:preApplicaltionTableId---"
-    When I perform quick search for "Not Accepted" in "---grantee_tableId:-:preApplicaltionTableId---" panel
-    Then I softly see value "Not Accepted" for title "Status" inside table "---grantee_tableId:-:preApplicaltionTableId---"
-    When I perform quick search for "Reviewed" in "---grantee_tableId:-:preApplicaltionTableId---" panel
-    Then I softly see value "Reviewed" for title "Status" inside table "---grantee_tableId:-:preApplicaltionTableId---"
-    Then I softly see top right button "Advance Filter" inside flex table "---grantee_tableId:-:preApplicaltionTableId---"
-    Then I softly see button "Reset Table" inside flextable "---grantee_tableId:-:preApplicaltionTableId---"
-    When I click on parallel lines menu bar with data target value "Pre-Applications - All"
-    And I wait for "2" seconds
-    Then I see option "Refresh" present in parallel dropdown
-    Then I see option "Download as PDF" present in parallel dropdown
-    And I select "Download as PDF" from parallel lines dropdown of "Pre-Applications - All"
-    And I wait for "7" seconds
-    And I download the file
-    Then I softly see "Pre-Applications - All" on page "1" of "govgrants" pdf file
-    And I close the tab
-    When I click on parallel lines menu bar with data target value "Pre-Applications - All"
-    And I select "Refresh" from parallel lines dropdown of "Pre-Applications - All"
-    Then I see table is refreshing
-    And I click toggle button to select "Pre-Applications - Draft"
-    When I perform quick search for "Created" in "---grantee_tableId:-:preApplicaltionTableId---" panel
-    Then I softly see value "Created" for title "Status" inside table "---grantee_tableId:-:preApplicaltionTableId---"
-    When I perform quick search for "Submitted for Review" in "---grantee_tableId:-:preApplicaltionTableId---" panel
-    Then I softly see value "Submitted for Review" for title "Status" inside table "---grantee_tableId:-:preApplicaltionTableId---"
-    When I perform quick search for "Submitted for Approval" in "---grantee_tableId:-:preApplicaltionTableId---" panel
-    Then I softly see value "Submitted for Approval" for title "Status" inside table "---grantee_tableId:-:preApplicaltionTableId---"
-    When I perform quick search for "Approved" in "---grantee_tableId:-:preApplicaltionTableId---" panel
-    Then I softly see value "Approved" for title "Status" inside table "---grantee_tableId:-:preApplicaltionTableId---"
-    When I perform quick search for "Rejected" in "---grantee_tableId:-:preApplicaltionTableId---" panel
-    Then I softly see value "Rejected" for title "Status" inside table "---grantee_tableId:-:preApplicaltionTableId---"
-    When I perform quick search for "Reviewed" in "---grantee_tableId:-:preApplicaltionTableId---" panel
-    Then I softly see value "Reviewed" for title "Status" inside table "---grantee_tableId:-:preApplicaltionTableId---"
-    When I perform quick search for "Created" in "---grantee_tableId:-:preApplicaltionTableId---" panel
-    And I wait for "2" seconds
-    And I click toggle button to select "Pre-Applications - Submitted"
-    When I perform quick search for "Submit to Grantor" in "---grantee_tableId:-:preApplicaltionTableId---" panel
-    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:preApplicaltionTableId---"
-    When I perform quick search for "Not Accepted" in "---grantee_tableId:-:preApplicaltionTableId---" panel
-    Then I softly see value "Not Accepted" for title "Status" inside table "---grantee_tableId:-:preApplicaltionTableId---"
-    When I perform quick search for "Accepted" in "---grantee_tableId:-:preApplicaltionTableId---" panel
-    Then I softly see value "Accepted" for title "Status" inside table "---grantee_tableId:-:preApplicaltionTableId---"
-    And I wait for "2" seconds
-    And I click toggle button to select "Pre-Applications - Converted to Application"
-    When I perform quick search for "Converted to Application" in "---grantee_tableId:-:preApplicaltionTableId---" panel
-    Then I softly see value "Converted to Application" for title "Status" inside table "---grantee_tableId:-:preApplicaltionTableId---"
-    And I wait for "2" seconds
-    And I click toggle button to select "Pre-Applications - My Records"
-    When I perform quick search for "Created" in "---grantee_tableId:-:preApplicaltionTableId---" panel
-    Then I softly see value "Created" for title "EGMS ID" inside table "---grantee_tableId:-:preApplicaltionTableId---"
-    Then I softly can see row level action button "View" against "Created" in flex table with id "---grantee_tableId:-:preApplicaltionTableId---"
-    Then I softly can see row level action button "Edit" against "Created" in flex table with id "---grantee_tableId:-:preApplicaltionTableId---"
-    Then I softly see "Actions" in flex table header "---grantee_tableId:-:preApplicaltionTableId---"
-    Then I softly see "EGMS ID" in flex table header "---grantee_tableId:-:preApplicaltionTableId---"
-    Then I softly see "Opportunity Number" in flex table header "---grantee_tableId:-:preApplicaltionTableId---"
-    Then I softly see "Opportunity Title" in flex table header "---grantee_tableId:-:preApplicaltionTableId---"
-    Then I softly see "Pre-Application Title" in flex table header "---grantee_tableId:-:preApplicaltionTableId---"
-    Then I softly see "Funding Organization" in flex table header "---grantee_tableId:-:preApplicaltionTableId---"
-    Then I softly see "Due Date" in flex table header "---grantee_tableId:-:preApplicaltionTableId---"
-    Then I softly see "Status" in flex table header "---grantee_tableId:-:preApplicaltionTableId---"
-
   @463419 @ValidatePreAppwithPOprofilePreapplicationpagelayoutofgrantsgovlead @GRegression3
   Scenario: Validate PreApp with PO profile Pre application page layout of grants gov lead
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberPM1User}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0001212745" with properties "default-Grantee PO user"
-    Given I login to "As a Grantee" app as "GRANTEE PO" user
+    Given I login to "Grantee" app as "GRANTEE PO" user
     And I navigate to "Opportunities" tab
     When I navigate to "Qualified" content inside "Leads" subheader on left panel
     And I click toggle button to select "Qualified Leads - All"
@@ -870,7 +787,7 @@ Feature: Validate all scenarios for Pre-Applications Grants Gov
       | Victor EXE    | Fiscal Reviewer | Automation Description | 5        | Yes                  |
     And I click on "Send for Review" icon for "Victor EXE" inside flex table with id "---grantee_tableId:-:preApplicationPeerReviewTableId---" without waiting for record
     And I pause execution for "3" seconds
-    When I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
+    When I re-login to "Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
     And I navigate to "Applications" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:preAppEGMSID}" in "---grantee_tableId:-:PendingTask---" panel
@@ -883,7 +800,7 @@ Feature: Validate all scenarios for Pre-Applications Grants Gov
     And I click on submit review
     And I wait for "3" seconds
     Then I softly see value "Submitted" for title "Status" against the value "Victor EXE" inside table "---grantee_tableId:-:preApplicationPeerReviewTableId---"
-    When I re-login to "As a Grantee" app as "GRANTEE PO" user on "INTERNAL" portal
+    When I re-login to "Grantee" app as "GRANTEE PO" user on "INTERNAL" portal
     And I navigate to "Applications" tab
     When I navigate to "Pre-Applications" content inside "Applications" subheader on left panel
     And I click toggle button to select "Pre-Applications - All"
@@ -920,13 +837,13 @@ Feature: Validate all scenarios for Pre-Applications Grants Gov
       | Pre-Application has been validated successfully. |
     And I click on "Submit For Approval" in the page details
     Then I softly see status in Progress-bar is "Submitted For Approval" and is "dark blue"
-    When I re-login to "As a Grantee" app as "GRANTEE FO" user on "INTERNAL" portal
+    When I re-login to "Grantee" app as "GRANTEE FO" user on "INTERNAL" portal
     When I navigate to "Applications" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:PreappEGMSID}" in "---grantee_tableId:-:PendingTask---" panel
     When I click on "Start" icon for "{SavedValue:PreappEGMSID}" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
     When I "Approve" in the approval decision
-    When I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
+    When I re-login to "Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
     When I navigate to "Applications" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:PreappEGMSID}" in "---grantee_tableId:-:PendingTask---" panel
@@ -934,7 +851,7 @@ Feature: Validate all scenarios for Pre-Applications Grants Gov
     When I "Approve" in the approval decision
     And I wait for "5" seconds
     Then I softly see field "Status" as "Approved"
-    When I re-login to "As a Grantee" app as "GRANTEE PO" user on "INTERNAL" portal
+    When I re-login to "Grantee" app as "GRANTEE PO" user on "INTERNAL" portal
     When I navigate to "Applications" tab
     And I navigate to "Pre-Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Pre-Applications - All"
@@ -962,7 +879,7 @@ Feature: Validate all scenarios for Pre-Applications Grants Gov
   @476574 @ValidatePreAppwithAdminprofilePreapplicationpagelayoutofgrantsgovlead
   Scenario: Validate PreApp with Admin profile Pre application page layout of grants.gov lead
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberPM1User}"
-    Given I login to "As a Grantee" app as "GRANTEE PO" user
+    Given I login to "Grantee" app as "GRANTEE PO" user
     And I navigate to "Opportunities" tab
     When I navigate to "Not Yet Qualified" content inside "Leads" subheader on left panel
     Then I softly see top right button "New" inside flex table "---grantee_tableId:-:LeadsNotYetQualified---"
@@ -1020,14 +937,14 @@ Feature: Validate all scenarios for Pre-Applications Grants Gov
       | The Funding Opportunity has been validated successfully. |
     And I click on "Submit for Approval" in the page details
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
-    When I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
+    When I re-login to "Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
     And I navigate to "Opportunities" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:opportunityEGMSID}" in "---grantee_tableId:-:PendingTask---" panel
     When I click on "Start" icon for "{SavedValue:opportunityEGMSID}" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
     When I "Approve" in the approval decision
     Then I softly see status in Progress-bar is "Approved" and is "dark blue"
-    When I re-login to "As a Grantee" app as "GRANTEE PO" user on "INTERNAL" portal
+    When I re-login to "Grantee" app as "GRANTEE PO" user on "INTERNAL" portal
     And I navigate to "Opportunities" tab
     And I navigate to "Not Converted" content inside "Opportunities" subheader on left panel
     When I click toggle button to select "Opportunities Not Converted to Application - All"
@@ -1109,7 +1026,7 @@ Feature: Validate all scenarios for Pre-Applications Grants Gov
     When I enter the following values into flex table with id "---grantee_tableId:-:preApplicationNoteTableId---" by clicking "New" :
       | Title        | Description      |
       | Notes Record | Automation Notes |
-    When I re-login to "As a Grantee" app as "GRANTEE ADMIN" user on "INTERNAL" portal
+    When I re-login to "Grantee" app as "GRANTEE ADMIN" user on "INTERNAL" portal
     When I navigate to "Applications" tab
     And I navigate to "Pre-Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Pre-Application - All"
@@ -1185,7 +1102,7 @@ Feature: Validate all scenarios for Pre-Applications Grants Gov
   Scenario Outline: Opportunities converted to Pre-Application (Grants.gov) - Verify EXE user can navigate to Opportunity details page from Opportunities Converted to Pre-Application list view
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default"
-    When I login to "As a Grantee" app as "GRANTEE PM" user
+    When I login to "Grantee" app as "GRANTEE PM" user
     And I navigate to "Opportunities" tab
     When I navigate to "Qualified" content inside "Leads" subheader on left panel
     And I click toggle button to select "Qualified Leads - All"
@@ -1195,7 +1112,7 @@ Feature: Validate all scenarios for Pre-Applications Grants Gov
     And I save the field labeled "EGMS ID" as "opportunityEGMSID"
     And I create opportunity with state "Approved" for opportunity number "CAS-HHS0000660610" with properties "PRE_APPLICATION_YES"
     And I create Pre-application "{SavedValue:Automation Runtime Opportunity}" with state "Created" for opportunity number "CAS-HHS0000660610" with properties "default"
-    When I re-login to "Grantor" app as "<User>" user on "INTERNAL" portal
+    When I re-login to "Grantee" app as "<User>" user on "INTERNAL" portal
     And I navigate to "Opportunities" tab
     And I click toggle button to select "Opportunities - All"
     When I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:opportunitysGranteeTableId---" panel
@@ -1287,7 +1204,7 @@ Feature: Validate all scenarios for Pre-Applications Grants Gov
     And I save the field labeled "Last Modified By" as "LastModifiedBy"
     Then I softly see link "{SavedValue:LastModifiedBy}" inside Page block
     And I click on hyperlink containing value "{SavedValue:LastModifiedBy}"
-    Then I softly see the text containing "grantee.po@yopmail.com.qagrnteatm"
+    Then I softly see the text containing "grantee.po@yopmail.com.ggmergeqa2"
     And I click on back arrow
     And I navigate to "Evaluation" sub tab
     Then I softly see "Evaluation" page block displayed
@@ -1379,7 +1296,7 @@ Feature: Validate all scenarios for Pre-Applications Grants Gov
   Scenario Outline: Opportunities converted to Pre-Application (Grants.gov) - Verify FO user can navigate to Opportunity details page from Opportunities Converted to Pre-Application list view
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default"
-    When I login to "As a Grantee" app as "GRANTEE PM" user
+    When I login to "Grantee" app as "GRANTEE PM" user
     And I navigate to "Opportunities" tab
     When I navigate to "Qualified" content inside "Leads" subheader on left panel
     And I click toggle button to select "Qualified Leads - All"
@@ -1389,7 +1306,7 @@ Feature: Validate all scenarios for Pre-Applications Grants Gov
     And I save the field labeled "EGMS ID" as "opportunityEGMSID"
     And I create opportunity with state "Approved" for opportunity number "CAS-HHS0000660610" with properties "PRE_APPLICATION_YES"
     And I create Pre-application "{SavedValue:Automation Runtime Opportunity}" with state "Created" for opportunity number "CAS-HHS0000660610" with properties "default"
-    When I re-login to "Grantor" app as "<User>" user on "INTERNAL" portal
+    When I re-login to "Grantee" app as "<User>" user on "INTERNAL" portal
     And I navigate to "Opportunities" tab
     And I click toggle button to select "Opportunities - All"
     When I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:opportunitysGranteeTableId---" panel
@@ -1481,7 +1398,7 @@ Feature: Validate all scenarios for Pre-Applications Grants Gov
     And I save the field labeled "Last Modified By" as "LastModifiedBy"
     Then I softly see link "{SavedValue:LastModifiedBy}" inside Page block
     And I click on hyperlink containing value "{SavedValue:LastModifiedBy}"
-    Then I softly see the text containing "grantee.po@yopmail.com.qagrnteatm"
+    Then I softly see the text containing "grantee.po@yopmail.com.ggmergeqa2"
     And I click on back arrow
     And I navigate to "Evaluation" sub tab
     Then I softly see "Evaluation" page block displayed
@@ -1573,7 +1490,7 @@ Feature: Validate all scenarios for Pre-Applications Grants Gov
   Scenario Outline: Opportunities converted to Pre-Application (Grants.gov) - Verify FD user can navigate to Opportunity details page from Opportunities Converted to Pre-Application list view
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default"
-    When I login to "As a Grantee" app as "GRANTEE PM" user
+    When I login to "Grantee" app as "GRANTEE PM" user
     And I navigate to "Opportunities" tab
     When I navigate to "Qualified" content inside "Leads" subheader on left panel
     And I click toggle button to select "Qualified Leads - All"
@@ -1583,7 +1500,7 @@ Feature: Validate all scenarios for Pre-Applications Grants Gov
     And I save the field labeled "EGMS ID" as "opportunityEGMSID"
     And I create opportunity with state "Approved" for opportunity number "CAS-HHS0000660610" with properties "PRE_APPLICATION_YES"
     And I create Pre-application "{SavedValue:Automation Runtime Opportunity}" with state "Created" for opportunity number "CAS-HHS0000660610" with properties "default"
-    When I re-login to "Grantor" app as "<User>" user on "INTERNAL" portal
+    When I re-login to "Grantee" app as "<User>" user on "INTERNAL" portal
     And I navigate to "Opportunities" tab
     And I click toggle button to select "Opportunities - All"
     When I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:opportunitysGranteeTableId---" panel
@@ -1675,7 +1592,7 @@ Feature: Validate all scenarios for Pre-Applications Grants Gov
     And I save the field labeled "Last Modified By" as "LastModifiedBy"
     Then I softly see link "{SavedValue:LastModifiedBy}" inside Page block
     And I click on hyperlink containing value "{SavedValue:LastModifiedBy}"
-    Then I softly see the text containing "grantee.po@yopmail.com.qagrnteatm"
+    Then I softly see the text containing "grantee.po@yopmail.com.ggmergeqa2"
     And I click on back arrow
     And I navigate to "Evaluation" sub tab
     Then I softly see "Evaluation" page block displayed
@@ -1767,7 +1684,7 @@ Feature: Validate all scenarios for Pre-Applications Grants Gov
   Scenario Outline: Opportunities converted to Pre-Application (Grants.gov) - Verify AUDITOR user can navigate to Opportunity details page from Opportunities Converted to Pre-Application list view
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default"
-    When I login to "As a Grantee" app as "GRANTEE PM" user
+    When I login to "Grantee" app as "GRANTEE PM" user
     And I navigate to "Opportunities" tab
     When I navigate to "Qualified" content inside "Leads" subheader on left panel
     And I click toggle button to select "Qualified Leads - All"
@@ -1777,7 +1694,7 @@ Feature: Validate all scenarios for Pre-Applications Grants Gov
     And I save the field labeled "EGMS ID" as "opportunityEGMSID"
     And I create opportunity with state "Approved" for opportunity number "CAS-HHS0000660610" with properties "PRE_APPLICATION_YES"
     And I create Pre-application "{SavedValue:Automation Runtime Opportunity}" with state "Created" for opportunity number "CAS-HHS0000660610" with properties "default"
-    When I re-login to "Grantor" app as "<User>" user on "INTERNAL" portal
+    When I re-login to "Grantee" app as "<User>" user on "INTERNAL" portal
     And I navigate to "Opportunities" tab
     And I click toggle button to select "Opportunities - All"
     When I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:opportunitysGranteeTableId---" panel
@@ -1869,7 +1786,7 @@ Feature: Validate all scenarios for Pre-Applications Grants Gov
     And I save the field labeled "Last Modified By" as "LastModifiedBy"
     Then I softly see link "{SavedValue:LastModifiedBy}" inside Page block
     And I click on hyperlink containing value "{SavedValue:LastModifiedBy}"
-    Then I softly see the text containing "grantee.po@yopmail.com.qagrnteatm"
+    Then I softly see the text containing "grantee.po@yopmail.com.ggmergeqa2"
     And I click on back arrow
     And I navigate to "Evaluation" sub tab
     Then I softly see "Evaluation" page block displayed
@@ -1961,7 +1878,7 @@ Feature: Validate all scenarios for Pre-Applications Grants Gov
   Scenario Outline: Opportunities converted to Pre-Application (Grants.gov) - Verify ADMIN user can navigate to Opportunity details page from Opportunities Converted to Pre-Application list view
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default"
-    When I login to "As a Grantee" app as "GRANTEE PM" user
+    When I login to "Grantee" app as "GRANTEE PM" user
     And I navigate to "Opportunities" tab
     When I navigate to "Qualified" content inside "Leads" subheader on left panel
     And I click toggle button to select "Qualified Leads - All"
@@ -1971,7 +1888,7 @@ Feature: Validate all scenarios for Pre-Applications Grants Gov
     And I save the field labeled "EGMS ID" as "opportunityEGMSID"
     And I create opportunity with state "Approved" for opportunity number "CAS-HHS0000660610" with properties "PRE_APPLICATION_YES"
     And I create Pre-application "{SavedValue:Automation Runtime Opportunity}" with state "Created" for opportunity number "CAS-HHS0000660610" with properties "default"
-    When I re-login to "Grantor" app as "<User>" user on "INTERNAL" portal
+    When I re-login to "Grantee" app as "<User>" user on "INTERNAL" portal
     And I navigate to "Opportunities" tab
     And I click toggle button to select "Opportunities - All"
     When I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:opportunitysGranteeTableId---" panel
@@ -2063,7 +1980,7 @@ Feature: Validate all scenarios for Pre-Applications Grants Gov
     And I save the field labeled "Last Modified By" as "LastModifiedBy"
     Then I softly see link "{SavedValue:LastModifiedBy}" inside Page block
     And I click on hyperlink containing value "{SavedValue:LastModifiedBy}"
-    Then I softly see the text containing "grantee.po@yopmail.com.qagrnteatm"
+    Then I softly see the text containing "grantee.po@yopmail.com.ggmergeqa2"
     And I click on back arrow
     And I navigate to "Evaluation" sub tab
     Then I softly see "Evaluation" page block displayed
@@ -2155,7 +2072,7 @@ Feature: Validate all scenarios for Pre-Applications Grants Gov
   Scenario Outline: Opportunities converted to Pre-Application (Grants.gov) - Verify PO user can navigate to Opportunity details page from Opportunities Converted to Pre-Application list view
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default"
-    When I login to "As a Grantee" app as "GRANTEE PM" user
+    When I login to "Grantee" app as "GRANTEE PM" user
     And I navigate to "Opportunities" tab
     When I navigate to "Qualified" content inside "Leads" subheader on left panel
     And I click toggle button to select "Qualified Leads - All"
@@ -2165,7 +2082,7 @@ Feature: Validate all scenarios for Pre-Applications Grants Gov
     And I save the field labeled "EGMS ID" as "opportunityEGMSID"
     And I create opportunity with state "Approved" for opportunity number "CAS-HHS0000660610" with properties "PRE_APPLICATION_YES"
     And I create Pre-application "{SavedValue:Automation Runtime Opportunity}" with state "Created" for opportunity number "CAS-HHS0000660610" with properties "default"
-    When I re-login to "Grantor" app as "<User>" user on "INTERNAL" portal
+    When I re-login to "Grantee" app as "<User>" user on "INTERNAL" portal
     And I navigate to "Opportunities" tab
     And I click toggle button to select "Opportunities - All"
     When I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:opportunitysGranteeTableId---" panel
@@ -2257,7 +2174,7 @@ Feature: Validate all scenarios for Pre-Applications Grants Gov
     And I save the field labeled "Last Modified By" as "LastModifiedBy"
     Then I softly see link "{SavedValue:LastModifiedBy}" inside Page block
     And I click on hyperlink containing value "{SavedValue:LastModifiedBy}"
-    Then I softly see the text containing "grantee.po@yopmail.com.qagrnteatm"
+    Then I softly see the text containing "grantee.po@yopmail.com.ggmergeqa2"
     And I click on back arrow
     And I navigate to "Evaluation" sub tab
     Then I softly see "Evaluation" page block displayed
@@ -2349,7 +2266,7 @@ Feature: Validate all scenarios for Pre-Applications Grants Gov
   Scenario Outline: Validate Not Yet Converted Opportunity Grants.gov PM user can create Pre-Application from Opportunity if Pre-Application Required? is selected as Yes on Opportunity record
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberPM1User}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0001271854" with properties "default"
-    Given I login to "As a Grantee" app as "<userName>" user
+    Given I login to "Grantee" app as "<userName>" user
     And I navigate to "Opportunities" tab
     When I navigate to "Qualified" content inside "Leads" subheader on left panel
     And I click toggle button to select "Qualified Leads - All"
@@ -2379,7 +2296,7 @@ Feature: Validate all scenarios for Pre-Applications Grants Gov
   Scenario: Validate on click view action modal get open in view mode
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default"
-    When I login to "As a Grantee" app as "GRANTEE PM" user
+    When I login to "Grantee" app as "GRANTEE PM" user
     And I navigate to "Opportunities" tab
     When I navigate to "Qualified" content inside "Leads" subheader on left panel
     And I click toggle button to select "Qualified Leads - All"
@@ -2404,7 +2321,7 @@ Feature: Validate all scenarios for Pre-Applications Grants Gov
     Then I can see row level action button "Delete" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:preApplicationAddFileTableId---"
     Then I can see row level action button "View" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:preApplicationAddFileTableId---"
     Then I can see row level action button "Download" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:preApplicationAddFileTableId---"
-    When I re-login to "As a Grantee" app as "GRANTEE AUDITOR" user on "INTERNAL" portal
+    When I re-login to "Grantee" app as "GRANTEE AUDITOR" user on "INTERNAL" portal
     When I navigate to "Applications" tab
     And I navigate to "Pre-Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Pre-Applications - All"
