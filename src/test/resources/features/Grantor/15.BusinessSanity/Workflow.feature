@@ -1975,8 +1975,8 @@ Feature: Validate all scenarios of every modules flow
       | Funding Account | Encumbrance |
       | FA-FD-268       | 10000       |
     And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:subAwardBudgetTableId---" by clicking "Edit" :
-      | Budget Category | Award Amount | Cash Match | Non-Cash Match |
-      | Construction    | 90000        | 9000       | 9000           |
+      | Budget Category | Award Amount |
+      | Construction    | 90000        |
     And I navigate to "Terms" sub tab
     And I click on "Edit" icon for "Payment Request" inside flex table with id "---subAwardStandAlone:-:paymentRequestSchedulesTableId---" without waiting for record
     When I enter in modal "Payment Request Schedule" values from "Award_Field_Values.xlsx"
@@ -2065,8 +2065,8 @@ Feature: Validate all scenarios of every modules flow
       | Funding Account | Encumbrance |
       | FA-FD-270       | 90000       |
     And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:subAwardBudgetTableId---" by clicking "Edit" :
-      | Budget Category | Award Amount | Cash Match | Non-Cash Match |
-      | Construction    | 135000        | 13500       | 13500        |
+      | Budget Category | Award Amount |
+      | Construction    | 135000       |
     And I navigate to "Terms" sub tab
     And I click on "Edit" icon for "Payment Request" inside flex table with id "---subAwardStandAlone:-:paymentRequestSchedulesTableId---" without waiting for record
     When I enter in modal "Payment Request Schedule" values from "Award_Field_Values.xlsx"
@@ -2147,8 +2147,8 @@ Feature: Validate all scenarios of every modules flow
       | Funding Account | Encumbrance |
       | FA-FD-272       | 100000      |
     And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:subAwardBudgetTableId---" by clicking "Edit" :
-      | Budget Category | Award Amount | Cash Match | Non-Cash Match |
-      | Construction    | 100000       | 10000       | 10000         |
+      | Budget Category | Award Amount |
+      | Construction    | 100000       |
     And I navigate to "Terms" sub tab
     And I click on "Edit" icon for "Payment Request" inside flex table with id "---subAwardStandAlone:-:paymentRequestSchedulesTableId---" without waiting for record
     When I enter in modal "Payment Request Schedule" values from "Award_Field_Values.xlsx"
