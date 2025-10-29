@@ -2063,7 +2063,7 @@ Feature: Validate all scenarios of every modules flow
       | FA-FD-270       | 5000        |
     When I edit the following rows inline in flex table with id "---subAwardStandAlone:-:fundingAccountsTableId---" by clicking "Edit" :
       | Funding Account | Encumbrance |
-      | FA-FD-270       | 90000       |
+      | FA-FD-271       | 90000       |
     And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:subAwardBudgetTableId---" by clicking "Edit" :
       | Budget Category | Award Amount |
       | Construction    | 135000       |
