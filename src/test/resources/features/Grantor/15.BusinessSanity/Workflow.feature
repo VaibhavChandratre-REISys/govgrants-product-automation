@@ -2032,7 +2032,7 @@ Feature: Validate all scenarios of every modules flow
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:activeGrantsTableId---"
     And I wait for "2" seconds
-    And I enter "GrantsFFATA" values from "Award_Field_Values.xlsx"
+    And I enter "GrantsFFATA1" values from "Award_Field_Values.xlsx"
     And I click modal button "Continue"
     And I enter "Grant_Edition_FFATA" values from "Award_Field_Values.xlsx"
     When I click modal button "Save and Continue"
@@ -2122,7 +2122,7 @@ Feature: Validate all scenarios of every modules flow
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:activeGrantsTableId---"
     And I wait for "2" seconds
-    And I enter "GrantsFFATA" values from "Award_Field_Values.xlsx"
+    And I enter "GrantsFFATA2" values from "Award_Field_Values.xlsx"
     And I click modal button "Continue"
     And I enter "Grant_Edition_FFATA" values from "Award_Field_Values.xlsx"
     When I click modal button "Save and Continue"
