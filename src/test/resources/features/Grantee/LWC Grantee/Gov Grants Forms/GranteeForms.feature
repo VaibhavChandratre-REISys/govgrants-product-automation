@@ -2031,11 +2031,11 @@ Feature: Grantee Forms Scenario
       | To Save, 19. Is Application Subject to Review By State Under Executive Order 12372 Process? is required in the Application Review section.                                                            |
       | To Save, 20. Is the Applicant Delinquent On Any Federal Debt? (If "Yes," provide explanation in attachments. Add attachment from the Files section) is required in the Federal Debt (if any) section. |
       | To Save, I AGREE is required in the Agreement Details section.                                                                                                                                        |
-      | First Name is required to save.                                                                                                                                                                       |
-      | Last Name is required to save.                                                                                                                                                                        |
-      | Title is required to save.                                                                                                                                                                            |
-      | Telephone Number is required to save.                                                                                                                                                                 |
-      | Email is required to save.                                                                                                                                                                            |
+      | To Save, First Name is required in the Applicant Information section.                                                                                                                                                                       |
+      | To Save, Last Name is required in the Applicant Information section.                                                                                                                                                                        |
+      | To Save, Title is required in the Applicant Information section.                                                                                                                                                                            |
+      | To Save, Telephone Number is required in the Applicant Information section.                                                                                                                                                                 |
+      | To Save, Email is required in the Applicant Information section.                                                                                                                                                                            |
     When I click on "Cancel" in the page details without processing
     Then I softly see confirmation box with body "Are you sure you want to cancel?" is displayed
     When I click modal button "OK"
@@ -10296,10 +10296,10 @@ Feature: Grantee Forms Scenario
       | To Save, City is required in the Applicant Information section.                                                                                                                                       |
       | To Save, State is required in the Applicant Information section.                                                                                                                                      |
       | To Save, Zip / Postal Code is required in the Applicant Information section.                                                                                                                          |
-      | To Save, First Name is required in the Authorized Representative section.                                                                                                                             |
-      | To Save, Last Name is required in the Authorized Representative section.                                                                                                                              |
-      | To Save, Telephone Number is required in the Authorized Representative section.                                                                                                                       |
-      | To Save, Email is required in the Authorized Representative section.                                                                                                                                  |
+      | To Save, First Name is required in the Applicant Information section.                                                                                                                             |
+      | To Save, Last Name is required in the Applicant Information section.                                                                                                                              |
+      | To Save, Telephone Number is required in the Applicant Information section.                                                                                                                       |
+      | To Save, Email is required in the Applicant Information section.                                                                                                                                  |
       | To Save, Type of Applicant 1: Select Applicant Type is required in the Type of Applicant section.                                                                                                     |
       | To Save, 10. Name of Federal Agency is required in the Name Of Federal Agency section.                                                                                                                |
       | To Save, 11. Assistance Listing Number (Catalog of Federal Domestic Assistance Number) is required in the Assistance Listing # section.                                                               |
@@ -10319,11 +10319,11 @@ Feature: Grantee Forms Scenario
       | To Save, 19. Is Application Subject to Review By State Under Executive Order 12372 Process? is required in the Application Review section.                                                            |
       | To Save, 20. Is the Applicant Delinquent On Any Federal Debt? (If "Yes," provide explanation in attachments. Add attachment from the Files section) is required in the Federal Debt (if any) section. |
       | To Save, I AGREE is required in the Agreement Details section.                                                                                                                                        |
-      | To Save, First Name is required.                                                                                                                                                                      |
-      | To Save, Last Name is required.                                                                                                                                                                       |
-      | To Save, Title is required.                                                                                                                                                                           |
-      | To Save, Telephone Number is required.                                                                                                                                                                |
-      | To Save, Email is required.                                                                                                                                                                           |
+      | To Save, First Name is required in the Authorized Representative section.                                                                                                                                                                      |
+      | To Save, Last Name is required in the Authorized Representative section.                                                                                                                                                                       |
+      | To Save, Title is required in the Authorized Representative section.                                                                                                                                                                           |
+      | To Save, Telephone Number is required in the Authorized Representative section.                                                                                                                                                                |
+      | To Save, Email is required in the Authorized Representative section.                                                                                                                                                                           |
     When I click on "Cancel" in the split screen page details without processing
     Then I softly see confirmation box with body "Are you sure you want to cancel?" is displayed
     When I click modal button "OK"

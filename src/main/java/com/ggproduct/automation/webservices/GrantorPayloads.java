@@ -3241,9 +3241,43 @@ public class GrantorPayloads {
                 return payloadForDavidFoApprover(json, module);
             case "TWO_STEP_APPROVER":
                 return payloadForTwoStepApprover(json, module);
+            case "TWO_STEP_APPROVER_PO_OWNER":
+                return payloadForTwoStepApproverPOOwner(json, module);
             default:
                 return json;
         }
+    }
+
+    private JsonObject payloadForTwoStepApproverPOOwner(JsonObject json, String module) {
+        JsonObject preAPPData = json.getAsJsonArray("preAppAndAppData").get(0).getAsJsonObject();
+        JsonObject preAPPData1 = json.getAsJsonArray("preAppAndAppData").get(0).getAsJsonObject();
+        preAPPData1.addProperty("OwnerId", ProjectWebServices.getIdOf("User", "Grantee PO"));
+
+        JsonArray topLevelApprovers = new JsonArray();
+        JsonObject topLevelApprover = new JsonObject();
+        topLevelApprover.addProperty("name", ProjectWebServices.getIdOf("User", "Sarah PM"));
+        if(module.equalsIgnoreCase("Pre-application")){
+            topLevelApprover.addProperty("preApplication", "Step1");
+        }else{
+            topLevelApprover.addProperty("application", "Step1");
+        }
+        topLevelApprovers.add(topLevelApprover);
+
+        JsonObject topLevelApprover2 = new JsonObject();
+        topLevelApprover2.addProperty("name", ProjectWebServices.getIdOf("User", "Victor EXE"));
+        if(module.equalsIgnoreCase("Pre-application")){
+            topLevelApprover2.addProperty("preApplication", "Step2");
+        }else{
+            topLevelApprover2.addProperty("application", "Step2");
+        }
+        topLevelApprovers.add(topLevelApprover2);
+
+        preAPPData.add("approvers", topLevelApprovers);
+        JsonArray preAPPDataDataArray = new JsonArray();
+        preAPPDataDataArray.add(preAPPData);
+        preAPPDataDataArray.add(preAPPData1);
+        json.add("preAppAndAppData", preAPPDataDataArray);
+        return json;
     }
 
     private JsonObject payloadForLineItemBudget(JsonObject json) {

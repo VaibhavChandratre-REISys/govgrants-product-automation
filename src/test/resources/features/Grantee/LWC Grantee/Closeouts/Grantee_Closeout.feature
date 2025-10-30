@@ -2908,6 +2908,7 @@ Feature: Validate all scenarios for closeout
     When I click on button "resetIcon" in flex table with id "---grantee_tableId:-:phaseCloseoutTableId---"
     Then I softly see the following messages in the page details :
       | Table has been reset. |
+    And I click toggle button to select "Project Period Closeout  - All"
     And I select value inside table "---grantee_tableId:-:phaseCloseoutTableId---" is "5"
     When I click on button "resetIcon" in flex table with id "---grantee_tableId:-:phaseCloseoutTableId---"
     Then I softly see the following messages in the page details :

@@ -400,7 +400,7 @@ Feature: Validate all scenarios for Grants & Awards
     When I enter the following values into flex table with id "---grantee_tableId:-:awardLineItemsTableId---" by clicking "New" :
       | Title        | Narrative     | Award Budget |
       | Construction | The narrative | 5000         |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Award Line Items" modal by clicking the top right x button
     Then I softly do not see "Program Income" page block displayed
     Then I softly do not see "Indirect Rates" page block displayed
     And I navigate to "Responsibilities" sub tab
@@ -555,7 +555,7 @@ Feature: Validate all scenarios for Grants & Awards
     When I enter the following values into flex table with id "---grantee_tableId:-:awardLineItemsTableId---" by clicking "New" :
       | Title        | Narrative     | Award Budget |
       | Construction | The narrative | 5000         |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Award Line Items" modal by clicking the top right x button
     Then I softly do not see "Program Income" page block displayed
     Then I softly do not see "Indirect Rates" page block displayed
     And I navigate to "Responsibilities" sub tab
@@ -1379,7 +1379,7 @@ Feature: Validate all scenarios for Grants & Awards
       | Saved Successfully! |
     Then I softly can see row level action button "Edit" against "Construction" in flex table with id "---grantee_tableId:-:awardLineItemsTableId---"
     Then I softly can see row level action button "Delete" against "Construction" in flex table with id "---grantee_tableId:-:awardLineItemsTableId---"
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Award Line Items" modal by clicking the top right x button
     And I wait for "2" seconds
     When I click on parallel lines menu bar with data target value "Award Budget"
     And I wait for "2" seconds
@@ -1618,7 +1618,7 @@ Feature: Validate all scenarios for Grants & Awards
     When I enter the following values into flex table with id "---grantee_tableId:-:awardLineItemsTableId---" by clicking "New" :
       | Title        | Narrative     | Award Budget | Cash Match | Other Leverage |
       | Construction | The narrative | 5000         | 500        | 200            |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Award Line Items" modal by clicking the top right x button
     Then I softly see "Program Income" page block displayed
     Then I can see row level action button "Edit" against "Automation Permanent Focus Area" in flex table with id "---grantee_tableId:-:awardProgramIncomeTableId---"
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:awardProgramIncomeTableId---" by clicking "Edit" :
@@ -1736,7 +1736,9 @@ Feature: Validate all scenarios for Grants & Awards
     Then I softly see link "Sarah PM" inside Page block
     And I click on hyperlink containing value "Sarah PM"
     Then I softly see the text containing "sarah.pm@ggp.test8.ggmergeqa2"
+    And I wait for "2" seconds
     And I click on back arrow
+    And I wait for "2" seconds
     Then I softly see value "Owner" for title "Name" against the value "Sarah PM" inside table "---grantee_tableId:-:awardOwnerTableId---"
     And I click on hyperlink containing value "Sarah PM"
     Then I softly see the text containing "sarah.pm@ggp.test8.ggmergeqa2"
@@ -1782,15 +1784,14 @@ Feature: Validate all scenarios for Grants & Awards
     And I switch to tab number "1"
     And I download the file
     And I wait for "3" seconds
-#    Then I softly verify that the file "AttachmentTesting.pdf" is downloaded
+    Then I softly verify that the file "AttachmentTesting.pdf" is downloaded
     And I close the tab
     And I click on "Edit" icon for "Other" inside flex table with id "---grantee_tableId:-:awardAddFilesTableId---"
     And I wait for "2" seconds
     And I update title as "Automation.pdf" on upload file modal
     And I select Classification as "Interim Award Document" at upload file modal
     When I click modal button "Save"
-    And I click modal button "Close"
-    And I refresh the page
+#    And I click modal button "Close"
     And I wait for "2" seconds
     Then I softly see value "Automation.pdf" for title "Title" inside table "---grantee_tableId:-:awardAddFilesTableId---"
     Then I softly see value "Interim Award Document" for title "Classification" inside table "---grantee_tableId:-:awardAddFilesTableId---"
@@ -3046,7 +3047,7 @@ Feature: Validate all scenarios for Grants & Awards
     When I enter the following values into flex table with id "---grantee_tableId:-:awardLineItemsTableId---" by clicking "New" :
       | Title        | Narrative     | Award Budget | Cash Match | Other Leverage |
       | Construction | The narrative | 5000         | 500        | 200            |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Award Line Items" modal by clicking the top right x button
     And I wait for "3" seconds
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:awardProgramIncomeTableId---" by clicking "Edit" :
       | Focus Area Name                 | Projected Program Income ($) | Program Income Justification |

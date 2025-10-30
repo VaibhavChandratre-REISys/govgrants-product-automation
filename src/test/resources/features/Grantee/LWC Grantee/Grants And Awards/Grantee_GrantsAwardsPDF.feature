@@ -82,7 +82,7 @@ Feature: Validate all scenarios for Grants & Awards for PDF
     And I click on Menu icon present on top right corner of the page
     Then I see option "Download as PDF" present in parallel dropdown
     Then I see option "Take Snapshot" present in parallel dropdown
-    And I click on "Download As PDF" in the page details
+    And I click on "Download as PDF" in the page details
     And I wait for "8" seconds
     And I download the file
     Then I softly see "{SavedValue:GrantEGMSID}" on page "1" of "govgrants" pdf file
@@ -388,7 +388,7 @@ Feature: Validate all scenarios for Grants & Awards for PDF
     And I refresh the page
     And I wait for "3" seconds
     Then I softly see value "Automation Subject" for title "Subject" inside table "CommunicationHistory"
-    Then I softly see value "sarah.pm.23@yopmail.com" for title "From Address" inside table "CommunicationHistory"
+    Then I softly see value "sarah.pm.ggmergeqa2@yopmail.com" for title "From Address" inside table "CommunicationHistory"
     Then I softly see value "pm.automation@yopmail.com" for title "To Address" inside table "CommunicationHistory"
 
   @443816 @ValidateAwardWithPMProfileAfterclickonAwardphaseListviewpage @P2_Grantee @PM_Grantee @GRegression2
@@ -426,8 +426,10 @@ Feature: Validate all scenarios for Grants & Awards for PDF
     When I perform quick search for "Reviewed" in "---grantee_tableId:-:awardTableId---" panel
     Then I softly see value "Reviewed" for title "Status" inside table "---grantee_tableId:-:awardTableId---"
     When I click on button "resetIcon" in flex table with id "---grantee_tableId:-:awardTableId---"
+    And I wait for "1" seconds
     And I click on page navigation arrow "---grantee_tableId:-:awardTableId---" for table id "Next"
     When I click on button "resetIcon" in flex table with id "---grantee_tableId:-:awardTableId---"
+    And I wait for "1" seconds
     Then I softly see top right button "Advance Filter" inside flex table "---grantee_tableId:-:awardTableId---"
     And I click toggle button to select "Awards - All"
     When I click on parallel lines menu bar with data target value "Awards - All"

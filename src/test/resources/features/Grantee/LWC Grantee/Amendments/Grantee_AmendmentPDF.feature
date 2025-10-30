@@ -339,7 +339,7 @@ Feature: Validate all scenarios for Grantee Amendment Request for PDF
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---" by clicking "Edit" :
       | Title        | Narrative     | Awarded Budget | Cash Match |
       | Construction | The narrative | 4500           | 450        |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Amendment Line Items" modal by clicking the top right x button
     Then I softly see value "$4,500.00" for title "Revised Award Budget" against the value "Construction" inside table "---grantee_tableId:-:AmendmentBudgetTableId---"
     And I click on page navigation arrow "---grantee_tableId:-:AmendmentBudgetTableId---" for table id "Next"
     Then I softly see value "$5,000.00" for title "Award Budget" against the value "Construction" inside table "---grantee_tableId:-:AmendmentBudgetTableId---"
@@ -366,7 +366,7 @@ Feature: Validate all scenarios for Grantee Amendment Request for PDF
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---" by clicking "Edit" :
       | Title        | Narrative     | Awarded Budget | Cash Match |
       | Construction | The narrative | 4500           | 450        |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Amendment Line Items" modal by clicking the top right x button
     Then I softly see value "$4,500.00" for title "Revised Award Budget" against the value "Construction" inside table "---grantee_tableId:-:AmendmentBudgetTableId---"
     And I click on "Submit for Approval" in the page details
     And I wait for "3" seconds
@@ -628,7 +628,7 @@ Feature: Validate all scenarios for Grantee Amendment Request for PDF
       | Test  | The narrative | 5000           | 500        | 500            |
     And I click on "Delete" icon for "Test" inside flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---"
     Then I softly do not see value "Test" for title "Title" inside table "---grantee_tableId:-:amendmentLineItemsTableId---"
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Amendment Line Items" modal by clicking the top right x button
     Then I softly see "Title" in flex table header "---grantee_tableId:-:amendmentIndirectRateTableId---"
     Then I softly see "Effective from" in flex table header "---grantee_tableId:-:amendmentIndirectRateTableId---"
     Then I softly see "Effective until" in flex table header "---grantee_tableId:-:amendmentIndirectRateTableId---"
@@ -861,7 +861,7 @@ Feature: Validate all scenarios for Grantee Amendment Request for PDF
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---" by clicking "Edit" :
       | Title | Narrative     | Awarded Budget | Cash Match | Other Leverage |
       | Test  | The narrative | 3000           | 300        | 300            |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Amendment Line Items" modal by clicking the top right x button
     When I click on "Edit" in the page details
     When I enter values into fields
       | Value | Field                      |
@@ -871,7 +871,7 @@ Feature: Validate all scenarios for Grantee Amendment Request for PDF
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---" by clicking "Edit" :
       | Title | Narrative     | Awarded Budget | Cash Match | Other Leverage |
       | Test  | The narrative | 2000           | 200        | 200            |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Amendment Line Items" modal by clicking the top right x button
     And I click on "Submit for Approval" in the page details
     Then I softly see field "Status" as "Submitted for Approval"
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
@@ -1135,7 +1135,7 @@ Feature: Validate all scenarios for Grantee Amendment Request for PDF
       | Test  | The narrative | 5000           | 500        | 500            |
     And I click on "Delete" icon for "Test" inside flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---"
     Then I softly do not see value "Test" for title "Title" inside table "---grantee_tableId:-:amendmentLineItemsTableId---"
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Amendment Line Items" modal by clicking the top right x button
     Then I softly see "Title" in flex table header "---grantee_tableId:-:amendmentIndirectRateTableId---"
     Then I softly see "Effective from" in flex table header "---grantee_tableId:-:amendmentIndirectRateTableId---"
     Then I softly see "Effective until" in flex table header "---grantee_tableId:-:amendmentIndirectRateTableId---"
@@ -1368,7 +1368,7 @@ Feature: Validate all scenarios for Grantee Amendment Request for PDF
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---" by clicking "Edit" :
       | Title | Narrative     | Awarded Budget | Cash Match | Other Leverage |
       | Test  | The narrative | 3000           | 300        | 300            |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Amendment Line Items" modal by clicking the top right x button
     When I click on "Edit" in the page details
     When I enter values into fields
       | Value | Field                      |
@@ -1378,7 +1378,7 @@ Feature: Validate all scenarios for Grantee Amendment Request for PDF
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---" by clicking "Edit" :
       | Title | Narrative     | Awarded Budget | Cash Match | Other Leverage |
       | Test  | The narrative | 2000           | 200        | 200            |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Amendment Line Items" modal by clicking the top right x button
     And I click on "Submit for Approval" in the page details
     Then I softly see field "Status" as "Submitted for Approval"
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
@@ -2457,7 +2457,7 @@ Feature: Validate all scenarios for Grantee Amendment Request for PDF
     And I click on "Delete" icon for "Test" inside flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---"
     And I wait for "2" seconds
     Then I do not see value "Test" for title "Title" inside table "---grantee_tableId:-:amendmentLineItemsTableId---"
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Amendment Line Items" modal by clicking the top right x button
     Then I softly see "Title" in flex table header "---grantee_tableId:-:amendmentIndirectRateTableId---"
     Then I softly see "Effective from" in flex table header "---grantee_tableId:-:amendmentIndirectRateTableId---"
     Then I softly see "Effective until" in flex table header "---grantee_tableId:-:amendmentIndirectRateTableId---"
@@ -3084,7 +3084,7 @@ Feature: Validate all scenarios for Grantee Amendment Request for PDF
     And I click on "Delete" icon for "Test" inside flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---"
     And I wait for "2" seconds
     Then I do not see value "Test" for title "Title" inside table "---grantee_tableId:-:amendmentLineItemsTableId---"
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Amendment Line Items" modal by clicking the top right x button
     Then I softly see "Title" in flex table header "---grantee_tableId:-:amendmentIndirectRateTableId---"
     Then I softly see "Effective from" in flex table header "---grantee_tableId:-:amendmentIndirectRateTableId---"
     Then I softly see "Effective until" in flex table header "---grantee_tableId:-:amendmentIndirectRateTableId---"
