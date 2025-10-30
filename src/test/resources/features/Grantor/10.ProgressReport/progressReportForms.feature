@@ -204,7 +204,7 @@ Feature: Validate scenarios in Progress Report Forms
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:Record Id}" in "---progressReport:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "{SavedValue:Record Id}" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
-    And I wait for "2" seconds
+    And I wait for "4" seconds
     When I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "progID"
     And I click on "Edit" in the page details
@@ -279,6 +279,7 @@ Feature: Validate scenarios in Progress Report Forms
     Then I softly see field "City" as "{AUTOEnvData:StringOf35Chars}"
     When I click on "Edit" in the page details
     When I enter value "--None--" into field "CountrySF428__c"
+    And I wait for "2" seconds
     When I click on "Save" in the page details
     And I wait for "2" seconds
     #280216
@@ -7259,7 +7260,7 @@ Feature: Validate scenarios in Progress Report Forms
     Then I softly see field "Percentage of Physical Completion of Project - Functions" as "65.00%"
     Then I softly see field "Percentage of Physical Completion of Project - Activities" as "85.00%"
     Then I softly see field "Percentage of Physical Completion of Project - Total" as "55.00%"
-    Then I softly see field "Acknowledgement" as "checked"
+    Then I softly see field "Acknowledgement" as "True"
     Then I softly see field "Signature of Authorized Certifying Official" as "John Matthew"
     Then I softly see field "Date Report Submitted:" as "{SavedValue:DateReportSubmitted}"
     Then I softly see field "Prefix:" as "Mr."

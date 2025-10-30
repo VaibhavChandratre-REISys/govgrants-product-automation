@@ -2968,6 +2968,7 @@ Feature: Validate all scenarios in Progress Report with respect to Amendment Req
     When I click modal button "Close"
     And I wait for "2" seconds
     When I click on "Submit to Grantor" in the page details
+    Then I softly see field "Status" as "Submitted to Grantor"
     When I re-login to "Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -3033,6 +3034,7 @@ Feature: Validate all scenarios in Progress Report with respect to Amendment Req
       | Budget Category | Revised Award Amount | Cash Match |
       | Construction    | 1100                 | 110        |
     And I click on "Submit to Grantor" in the page details
+    Then I softly see field "Status" as "Submitted to Grantor"
     When I re-login to "Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -3050,6 +3052,7 @@ Feature: Validate all scenarios in Progress Report with respect to Amendment Req
       | {SavedValue:fundingAccount} | 1100                |
     And I click on "Submit for Approval" in the page details
     And I wait for "3" seconds
+    Then I softly see field "Status" as "Submitted for Approval"
     And I "Approve" in the approval decision
     When I re-login to "Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Grants" tab

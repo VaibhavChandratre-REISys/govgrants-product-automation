@@ -908,7 +908,7 @@ public final class GovGrantsAssertionObjects {
         if (uniqueColumnValue.equalsIgnoreCase("Record Id")) {
             columnValueUpdated = govgrants.perform().pageDetails().idOfRecord;
         }
-        WebElement ClickSelector = I.amPerforming().getElementReference().of(By.xpath("//h2//*[text()='" + tableId + "']/../parent::div/ancestor::div[contains(@class,'results')]//table//th//*[text()='" + columnValueUpdated + "']//ancestor::tr//td//a[@role='button']"));
+        WebElement ClickSelector = I.amPerforming().getElementReference().of(By.xpath("//h2//*[text()='" + tableId + "']/../parent::div/ancestor::div[contains(@class,'results')]//table//th//*[text()='" + columnValueUpdated + "']//ancestor::tr//td//a[@role='button'] | //h2//*[text()='" + tableId + "']/../parent::div/ancestor::div[contains(@class,'results')]//table//td//*[text()='" + columnValueUpdated + "']//ancestor::tr//td//a[@role='button']"));
 
         I.amPerforming().click().withJavaScript(ClickSelector);
         List<Elements> elements = I.amPerforming().getElementReference().forListOfElements().of(By.xpath("//div[@role='menu']//ul//li//*[text()='" + buttonName + "']"));
@@ -2098,19 +2098,20 @@ public final class GovGrantsAssertionObjects {
      */
     public void assertMailSubjectTexMatches(String mailportal, String subjectText) {
         if (mailportal.equals("maildrop")) {
-            By actualmMailSubjectLine = By.xpath("//div[contains(@class,'message')]//div[text()='" + subjectText + "']");
+            By actualMailSubjectLine = By.xpath("//div[contains(@class,'message')]//div[text()='" + subjectText + "']");
             try {
                 for (int i = 0; i < 60; i++) {
                     I.amPerforming().click().on(By.xpath("//button/span[text()='Refresh']"));
-                    if (I.amPerforming().checkToSee().IsElementPresentQuick(actualmMailSubjectLine)) {
-                        I.amPerforming().click().on(actualmMailSubjectLine);
+                    I.amPerforming().waitFor().makeThreadSleep(1000);
+                    if (I.amPerforming().checkToSee().IsElementPresentQuick(actualMailSubjectLine)) {
+                        I.amPerforming().click().on(actualMailSubjectLine);
                         I.amPerforming().waitFor().makeThreadSleep(5000);
                         I.amPerforming().assertionsTo().assertThat(I.amPerforming().actionToGet().text(By.xpath("//div[contains(@class,'ml-16')]//div[contains(@class,'lg')]//div[3]")))
                                 .isEqualToIgnoringWhitespace(subjectText);
                         break;
                     }
-                    I.amPerforming().waitFor().makeThreadSleep(4000);
-                    I.amPerforming().click().on(By.xpath("//button/span[text()='Refresh']"));
+//                    I.amPerforming().waitFor().makeThreadSleep(4000);
+//                    I.amPerforming().click().on(By.xpath("//button/span[text()='Refresh']"));
                 }
             } catch (Exception e) {
                 //unhandled exception

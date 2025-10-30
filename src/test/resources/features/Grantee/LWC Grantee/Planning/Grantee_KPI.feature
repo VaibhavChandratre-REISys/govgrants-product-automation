@@ -3,7 +3,7 @@ Feature: Validate all scenarios for KPI
 
   @455419 @KPIVerifyFDusershouldseefooternavigatorafteropentheKPI
   Scenario Outline:KPI_ Verify PM user should see footer navigator after open the KPI
-    When I login to "As a Grantee" app as "<User>" user
+    When I login to "Grantee" app as "<User>" user
     And I navigate to "Planning" tab
     When I navigate to "Key Performance Indicators (KPI)" content inside "Setup" subheader on left panel
     And I click toggle button to select "Key Performance Indicators (KPI) - All"
@@ -24,12 +24,12 @@ Feature: Validate all scenarios for KPI
     Then I see "Key Performance Indicators (KPI)" inside "Setup" is displayed
     Then I see "Focus Areas" inside "Setup" is displayed
     Examples:
-      | User        |
-      | GRANTEE PM  |
+      | User       |
+      | GRANTEE PM |
 
-  @455420 @455421 @KPIVerifyFDusershouldseefooternavigatorafteropentheKPI
+  @455420 @KPIVerifyFDusershouldseefooternavigatorafteropentheKPI
   Scenario Outline:KPI_ Verify EXE user should see footer navigator after open the KPI
-    When I login to "As a Grantee" app as "<User>" user
+    When I login to "Grantee" app as "<User>" user
     And I navigate to "Planning" tab
     When I navigate to "Key Performance Indicators (KPI)" content inside "Setup" subheader on left panel
     And I click toggle button to select "Key Performance Indicators (KPI) - All"
@@ -55,7 +55,7 @@ Feature: Validate all scenarios for KPI
 
   @455421 @KPIVerifyFDusershouldseefooternavigatorafteropentheKPI
   Scenario Outline:KPI_ Verify FD user should see footer navigator after open the KPI
-    When I login to "As a Grantee" app as "<User>" user
+    When I login to "Grantee" app as "<User>" user
     And I navigate to "Planning" tab
     When I navigate to "Key Performance Indicators (KPI)" content inside "Setup" subheader on left panel
     And I click toggle button to select "Key Performance Indicators (KPI) - All"
@@ -76,12 +76,12 @@ Feature: Validate all scenarios for KPI
     Then I see "Key Performance Indicators (KPI)" inside "Setup" is displayed
     Then I see "Focus Areas" inside "Setup" is displayed
     Examples:
-      | User        |
-      | GRANTEE FD  |
+      | User       |
+      | GRANTEE FD |
 
   @477639 @ValidatePOusershoulonlyviewaccessforKPI @P2_Grantee @PO_Grantee @GRegression2
   Scenario Outline: Validate PO user should only view access for KPI
-    When I login to "As a Grantee" app as "GRANTEE EXE" user
+    When I login to "Grantee" app as "GRANTEE EXE" user
     And I navigate to "Planning" tab
     When I navigate to "Key Performance Indicators (KPI)" content inside "Setup" subheader on left panel
     And I click toggle button to select "Key Performance Indicators (KPI) - Draft"
@@ -101,7 +101,7 @@ Feature: Validate all scenarios for KPI
     When I enter the following values into flex table with id "---grantee_tableId:-:KPINotesTableId---" by clicking "New" :
       | Title        | Description      |
       | Notes Record | Automation Notes |
-    And I re-login to "As a Grantee" app as "<userType>" user on "INTERNAL" portal
+    And I re-login to "Grantee" app as "<userType>" user on "INTERNAL" portal
     And I navigate to "Planning" tab
     When I navigate to "Key Performance Indicators (KPI)" content inside "Setup" subheader on left panel
     And I click toggle button to select "Key Performance Indicators (KPI) - Draft"
@@ -154,22 +154,22 @@ Feature: Validate all scenarios for KPI
     And I click on top right button "Send Email" in flex table with id "CommunicationHistory"
     And I send the email under collab tab with following details:
       | To                        | Subject            | Body            |
-      | pm.automation.qa2@yopmail.com | Automation Subject | Automation Body |
+      | pm.automation@yopmail.com | Automation Subject | Automation Body |
     When I click modal button "Close"
     And I refresh the page
     And I wait for "4" seconds
     Then I softly see value "Automation Subject" for title "Subject" inside table "CommunicationHistory"
     Then I softly see value "<EmailId>" for title "From Address" inside table "CommunicationHistory"
-    Then I softly see value "pm.automation.qa2@yopmail.com" for title "To Address" inside table "CommunicationHistory"
+    Then I softly see value "pm.automation@yopmail.com" for title "To Address" inside table "CommunicationHistory"
     And I navigate to "History" sub tab
     Then I softly see "No Records Found" inside snapshot history
     Examples:
-      | userType   | EmailId                     |
-      | GRANTEE PO | govgrantsuat@yopmail.com    |
+      | userType   | EmailId                  |
+      | GRANTEE PO | govgrantsuat@yopmail.com |
 
   @477642 @ValidatePOusershoulonlyviewaccessforKPI @P3_Grantee @FO_Grantee @GRegression2
   Scenario Outline: Validate FO user should only view access for KPI
-    When I login to "As a Grantee" app as "GRANTEE EXE" user
+    When I login to "Grantee" app as "GRANTEE EXE" user
     And I navigate to "Planning" tab
     When I navigate to "Key Performance Indicators (KPI)" content inside "Setup" subheader on left panel
     And I click toggle button to select "Key Performance Indicators (KPI) - Draft"
@@ -189,7 +189,7 @@ Feature: Validate all scenarios for KPI
     When I enter the following values into flex table with id "---grantee_tableId:-:KPINotesTableId---" by clicking "New" :
       | Title        | Description      |
       | Notes Record | Automation Notes |
-    And I re-login to "As a Grantee" app as "<userType>" user on "INTERNAL" portal
+    And I re-login to "Grantee" app as "<userType>" user on "INTERNAL" portal
     And I navigate to "Planning" tab
     When I navigate to "Key Performance Indicators (KPI)" content inside "Setup" subheader on left panel
     And I click toggle button to select "Key Performance Indicators (KPI) - Draft"
@@ -242,22 +242,22 @@ Feature: Validate all scenarios for KPI
     And I click on top right button "Send Email" in flex table with id "CommunicationHistory"
     And I send the email under collab tab with following details:
       | To                        | Subject            | Body            |
-      | pm.automation.qa2@yopmail.com | Automation Subject | Automation Body |
+      | pm.automation@yopmail.com | Automation Subject | Automation Body |
     When I click modal button "Close"
     And I refresh the page
     And I wait for "4" seconds
     Then I softly see value "Automation Subject" for title "Subject" inside table "CommunicationHistory"
     Then I softly see value "<EmailId>" for title "From Address" inside table "CommunicationHistory"
-    Then I softly see value "pm.automation.qa2@yopmail.com" for title "To Address" inside table "CommunicationHistory"
+    Then I softly see value "pm.automation@yopmail.com" for title "To Address" inside table "CommunicationHistory"
     And I navigate to "History" sub tab
     Then I softly see "No Records Found" inside snapshot history
     Examples:
-      | userType   | EmailId                     |
-      | GRANTEE FO | david.fo@yopmail.com        |
+      | userType   | EmailId              |
+      | GRANTEE FO | david.fo@yopmail.com |
 
   @477643 @ValidatePOusershoulonlyviewaccessforKPI @P3_Grantee @FD_Grantee @GRegression2
   Scenario Outline: Validate FD user should only view access for KPI
-    When I login to "As a Grantee" app as "GRANTEE EXE" user
+    When I login to "Grantee" app as "GRANTEE EXE" user
     And I navigate to "Planning" tab
     When I navigate to "Key Performance Indicators (KPI)" content inside "Setup" subheader on left panel
     And I click toggle button to select "Key Performance Indicators (KPI) - Draft"
@@ -277,7 +277,7 @@ Feature: Validate all scenarios for KPI
     When I enter the following values into flex table with id "---grantee_tableId:-:KPINotesTableId---" by clicking "New" :
       | Title        | Description      |
       | Notes Record | Automation Notes |
-    And I re-login to "As a Grantee" app as "<userType>" user on "INTERNAL" portal
+    And I re-login to "Grantee" app as "<userType>" user on "INTERNAL" portal
     And I navigate to "Planning" tab
     When I navigate to "Key Performance Indicators (KPI)" content inside "Setup" subheader on left panel
     And I click toggle button to select "Key Performance Indicators (KPI) - Draft"
@@ -330,35 +330,38 @@ Feature: Validate all scenarios for KPI
     And I click on top right button "Send Email" in flex table with id "CommunicationHistory"
     And I send the email under collab tab with following details:
       | To                        | Subject            | Body            |
-      | pm.automation.qa2@yopmail.com | Automation Subject | Automation Body |
+      | pm.automation@yopmail.com | Automation Subject | Automation Body |
     When I click modal button "Close"
     And I refresh the page
     And I wait for "4" seconds
     Then I softly see value "Automation Subject" for title "Subject" inside table "CommunicationHistory"
     Then I softly see value "<EmailId>" for title "From Address" inside table "CommunicationHistory"
-    Then I softly see value "pm.automation.qa2@yopmail.com" for title "To Address" inside table "CommunicationHistory"
+    Then I softly see value "pm.automation@yopmail.com" for title "To Address" inside table "CommunicationHistory"
     And I navigate to "History" sub tab
     Then I softly see "No Records Found" inside snapshot history
     Examples:
       | userType   | EmailId                     |
       | GRANTEE FD | danielle.garcia@yopmail.com |
 
-  @477629 @ValidatePMusershouldabletoseevalidationmessagesforrequiredtosavefiledonKPI
+  @477629 @ValidatePMusershouldabletoseevalidationmessagesforrequiredtosavefiledonKPI @P2_Grantee @EXE_Grantee @GRegression2
   Scenario Outline: Validate EXE user should able to see validation messages for required to save filed on KPI
-    When I login to "As a Grantee" app as "<userType>" user
+    When I login to "Grantee" app as "<userType>" user
     And I navigate to "Planning" tab
     When I navigate to "Key Performance Indicators (KPI)" content inside "Setup" subheader on left panel
     And I click toggle button to select "Key Performance Indicators (KPI) - Draft"
     And I click on top right button "New" in flex table with id "---grantee_tableId:-:KPITable---"
+    And I wait for "2" seconds
     And I click modal button "Save and Continue"
-    Then I softly see the following messages in the page details :
-      | Title is required to save.               |
-      | Domain is required to save.              |
-      | Measure is required to save.             |
-      | Unit of Measurement is required to save. |
-      | Indicator is required to save.           |
+    Then I softly see the following messages in the page details contains:
+      | To Save, Title is required.               |
+      | To Save, Domain is required.              |
+      | To Save, Measure is required.             |
+      | To Save, Unit of Measurement is required. |
+      | To Save, Indicator is required.           |
+    And I wait for "2" seconds
     And I enter "Grantee_Creation" values from "KPI_Field_Values.xlsx"
     And I click modal button "Save and Continue"
+    And I wait for "3" seconds
     When I clear the value from field "Description__c"
     When I clear the value from field "Title__c"
     When I enter value "--None--" into field "Unit__c"
@@ -366,32 +369,36 @@ Feature: Validate all scenarios for KPI
     When I enter value "--None--" into field "Domain__c"
     And I click on "Save" in the page details
     And I wait for "2" seconds
-    Then I softly see the following messages in the page details :
-      | Domain is required to save under Overview.              |
-      | Title is required to save under Overview.               |
-      | Measure is required to save under Overview.             |
-      | Unit of Measurement is required to save under Overview. |
-      | Indicator is required to save under Overview.           |
-    Examples:
-      | userType      |
-      | GRANTEE EXE   |
+    Then I softly see the following messages in the page details contains:
+      | To Save, Domain is required in the Overview tab under the Overview section.              |
+      | To Save, Title is required in the Overview tab under the Overview section.               |
+      | To Save, Measure is required in the Overview tab under the Overview section.             |
+      | To Save, Unit of Measurement is required in the Overview tab under the Overview section. |
+      | To Save, Indicator is required in the Overview tab under the Overview section.           |
 
-  @477630 @ValidatePMusershouldabletoseevalidationmessagesforrequiredtosavefiledonKPI
+    Examples:
+      | userType    |
+      | GRANTEE EXE |
+
+  @477630 @ValidatePMusershouldabletoseevalidationmessagesforrequiredtosavefiledonKPI @P2_Grantee @ADMIN_Grantee @GRegression2
   Scenario Outline: Validate ADMIN user should able to see validation messages for required to save filed on KPI
-    When I login to "As a Grantee" app as "<userType>" user
+    When I login to "Grantee" app as "<userType>" user
     And I navigate to "Planning" tab
     When I navigate to "Key Performance Indicators (KPI)" content inside "Setup" subheader on left panel
     And I click toggle button to select "Key Performance Indicators (KPI) - Draft"
     And I click on top right button "New" in flex table with id "---grantee_tableId:-:KPITable---"
+    And I wait for "2" seconds
     And I click modal button "Save and Continue"
-    Then I softly see the following messages in the page details :
-      | Title is required to save.               |
-      | Domain is required to save.              |
-      | Measure is required to save.             |
-      | Unit of Measurement is required to save. |
-      | Indicator is required to save.           |
+    Then I softly see the following messages in the page details contains:
+      | To Save, Title is required.               |
+      | To Save, Domain is required.              |
+      | To Save, Measure is required.             |
+      | To Save, Unit of Measurement is required. |
+      | To Save, Indicator is required.           |
+    And I wait for "2" seconds
     And I enter "Grantee_Creation" values from "KPI_Field_Values.xlsx"
     And I click modal button "Save and Continue"
+    And I wait for "3" seconds
     When I clear the value from field "Description__c"
     When I clear the value from field "Title__c"
     When I enter value "--None--" into field "Unit__c"
@@ -399,12 +406,144 @@ Feature: Validate all scenarios for KPI
     When I enter value "--None--" into field "Domain__c"
     And I click on "Save" in the page details
     And I wait for "2" seconds
-    Then I softly see the following messages in the page details :
-      | Domain is required to save under Overview.              |
-      | Title is required to save under Overview.               |
-      | Measure is required to save under Overview.             |
-      | Unit of Measurement is required to save under Overview. |
-      | Indicator is required to save under Overview.           |
+    Then I softly see the following messages in the page details contains:
+      | To Save, Domain is required in the Overview tab under the Overview section.              |
+      | To Save, Title is required in the Overview tab under the Overview section.               |
+      | To Save, Measure is required in the Overview tab under the Overview section.             |
+      | To Save, Unit of Measurement is required in the Overview tab under the Overview section. |
+      | To Save, Indicator is required in the Overview tab under the Overview section.           |
+
     Examples:
       | userType      |
       | GRANTEE ADMIN |
+
+  @439544 @KPI @validatepmusershouldabletocreateandactivatethekpi @duplicate
+  Scenario: Validate PM user should able to Create & Activate the KPI
+    When I login to "Grantee" app as "GRANTEE PM" user
+    And I navigate to "Planning" tab
+    When I navigate to "Key Performance Indicators (KPI)" content inside "Setup" subheader on left panel
+    And I click toggle button to select "Key Performance Indicators (KPI) - Draft"
+    And I click on top right button "New" in flex table with id "---grantee_tableId:-:KPITable---"
+    And I enter "Grantee_Creation" values from "KPI_Field_Values.xlsx"
+    And I click modal button "Save and Continue"
+    And I wait for "5" seconds
+    And I click on "Save" in the page details
+    And I wait for "2" seconds
+    When I navigate to "Overview" sub tab
+    Then I softly can see "Overview" sub tab at view detail page
+    Then I softly can see "Related Log" sub tab at view detail page
+    Then I softly can see "Files" sub tab at view detail page
+    Then I softly can see "History" sub tab at view detail page
+    Then I softly can see "Messages" sub tab at view detail page
+    And I save the field labeled "Domain" as "Domain"
+    And I save the field labeled "Title" as "KPITitle"
+    And I save the field labeled "Measure" as "Measure"
+    And I save the field labeled "Unit of Measurement" as "UnitofMeasurement"
+    And I save the field labeled "Indicator" as "Indicator"
+    Then I softly see field "Domain" as "{SavedValue:Domain}"
+    Then I softly see field "Title" as "{SavedValue:KPITitle}"
+    Then I softly see field "Measure" as "{SavedValue:Measure}"
+    Then I softly see field "Unit of Measurement" as "{SavedValue:UnitofMeasurement}"
+    Then I softly see field "Indicator" as "{SavedValue:Indicator}"
+    When I navigate to "Related Log" sub tab
+    Then I softly see "No Records Found" inside flex table with id "Goals"
+    Then I softly see "No Records Found" inside flex table with id "KPIsGranteeRelatedAwards"
+    When I navigate to "Files" sub tab
+    And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:KPIFilesTableId---"
+    And I upload attachment without random number "AttachmentTesting.pdf" of type "Other" from computer
+    When I click modal button "Close"
+    And I wait for "2" seconds
+    Then I see "AttachmentTesting.pdf" has been added in "KPI Files" flex table
+    And I click on "Edit" icon for "Other" inside flex table with id "---grantee_tableId:-:KPIFilesTableId---"
+    And I update title as "Automation.pdf" on upload file modal
+    And I select Classification as "Supporting Documents" at upload file modal
+    When I click modal button "Save"
+    And I click modal button "Close"
+    And I refresh the page
+    And I wait for "2" seconds
+    Then I softly see value "Automation.pdf" for title "Title" inside table "---grantee_tableId:-:KPIFilesTableId---"
+    Then I softly see value "Supporting Documents" for title "Classification" inside table "---grantee_tableId:-:KPIFilesTableId---"
+    And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:KPIFilesTableId---"
+    And I upload attachment without random number "Attachment.pdf" of type "Other" from computer
+    When I click modal button "Close"
+    And I wait for "2" seconds
+    Then I see "Attachment.pdf" has been added in "KPI Files" flex table
+    And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:KPIFilesTableId---"
+    And I upload attachment without random number "Attachment1.pdf" of type "Other" from computer
+    When I click modal button "Close"
+    And I wait for "2" seconds
+    Then I see "Attachment1.pdf" has been added in "KPI Files" flex table
+    And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:KPIFilesTableId---"
+    And I upload attachment without random number "sample.pdf" of type "Other" from computer
+    When I click modal button "Close"
+    And I wait for "2" seconds
+    Then I see "sample.pdf" has been added in "KPI Files" flex table
+    When I enter the following values into flex table with id "---grantee_tableId:-:KPINotesTableId---" by clicking "New" :
+      | Title        | Description      |
+      | Notes Record | Automation Notes |
+    When I enter the following values into flex table with id "---grantee_tableId:-:KPINotesTableId---" by clicking "New" :
+      | Title         | Description       |
+      | Notes Record1 | Automation Notes1 |
+    When I enter the following values into flex table with id "---grantee_tableId:-:KPINotesTableId---" by clicking "New" :
+      | Title         | Description       |
+      | Notes Record2 | Automation Notes2 |
+    When I enter the following values into flex table with id "---grantee_tableId:-:KPINotesTableId---" by clicking "New" :
+      | Title         | Description       |
+      | Notes Record3 | Automation Notes3 |
+    Then I softly see value "Notes Record" for title "Title" inside table "---grantee_tableId:-:KPINotesTableId---"
+    Then I softly see value "Notes Record1" for title "Title" inside table "---grantee_tableId:-:KPINotesTableId---"
+    Then I softly see value "Notes Record2" for title "Title" inside table "---grantee_tableId:-:KPINotesTableId---"
+    Then I softly see value "Notes Record3" for title "Title" inside table "---grantee_tableId:-:KPINotesTableId---"
+    And I navigate to "Messages" sub tab
+    And I click on top right button "Send Email" in flex table with id "CommunicationHistory"
+    And I send the email under collab tab with following details:
+      | To                        | Subject            | Body            |
+      | pm.automation@yopmail.com | Automation Subject | Automation Body |
+    When I click modal button "Close"
+    And I refresh the page
+    And I wait for "3" seconds
+    Then I softly see value "Automation Subject" for title "Subject" inside table "CommunicationHistory"
+    Then I softly see value "sarah.pm.23@yopmail.com" for title "From Address" inside table "CommunicationHistory"
+    Then I softly see value "pm.automation@yopmail.com" for title "To Address" inside table "CommunicationHistory"
+    When I click on "Activate" in the page details
+    Then I see status in Progress-bar is "Active" and is "dark blue"
+    When I navigate to "Related Log" sub tab
+    Then I softly see "No Records Found" inside flex table with id "Goals"
+    Then I softly see "No Records Found" inside flex table with id "KPIsGranteeRelatedAwards"
+
+  @443867 @ValidatePMusershouldabletoseerequiredfieldsvalidationonclickofSavebuttonondetailpagelayoutofKPIwhenIkeptrequiredfieldsareblank @GRegression5 @PM_Grantee @P3_Grantee
+  Scenario Outline: Validate PM user should able to see required fields validation on click of Save button on detail page layout of KPI when I kept required fields are blank
+    When I login to "Grantee" app as "<userType>" user
+    And I navigate to "Planning" tab
+    When I navigate to "Key Performance Indicators (KPI)" content inside "Setup" subheader on left panel
+    And I click toggle button to select "Key Performance Indicators (KPI) - Draft"
+    And I click on top right button "New" in flex table with id "---grantee_tableId:-:KPITable---"
+    And I wait for "2" seconds
+    And I click modal button "Save and Continue"
+    Then I softly see the following messages in the page details contains:
+      | To Save, Title is required.               |
+      | To Save, Domain is required.              |
+      | To Save, Measure is required.             |
+      | To Save, Unit of Measurement is required. |
+      | To Save, Indicator is required.           |
+    And I wait for "2" seconds
+    And I enter "Grantee_Creation" values from "KPI_Field_Values.xlsx"
+    And I click modal button "Save and Continue"
+    And I wait for "3" seconds
+    When I clear the value from field "Description__c"
+    When I clear the value from field "Title__c"
+    When I enter value "--None--" into field "Unit__c"
+    When I enter value "--None--" into field "Orientation__c"
+    When I enter value "--None--" into field "Domain__c"
+    And I click on "Save" in the page details
+    And I wait for "2" seconds
+    Then I softly see the following messages in the page details contains:
+      | To Save, Domain is required in the Overview tab under the Overview section.              |
+      | To Save, Title is required in the Overview tab under the Overview section.               |
+      | To Save, Measure is required in the Overview tab under the Overview section.             |
+      | To Save, Unit of Measurement is required in the Overview tab under the Overview section. |
+      | To Save, Indicator is required in the Overview tab under the Overview section.           |
+
+    Examples:
+      | userType    |
+      | GRANTEE PM  |
