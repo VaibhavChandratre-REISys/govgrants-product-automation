@@ -4490,7 +4490,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I enter in modal "Secondary_User" values from "SubrecipientOrganization_Field_Values.xlsx"
     And I generate the random maildropEmail and save as "uniqueEmailID1"
     And I enter in modal value "{SavedValue:uniqueEmailID1}" into field "Email"
-    When I click on "Save" in the page details
+    When I click modal button "Save"
     And I wait for "3" seconds
     And I click on "Send Invitation" icon for "{SavedValue:Automation Runtime} User" inside flex table with id "---home:-:userContactsTableId---" without waiting for record
     And I wait for "2" seconds
@@ -4518,7 +4518,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I navigate to "Home" tab
     When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
     Then I see the header is "Subrecipient Organization" in the page details
-    Then I see the sub-header is "{SavedValue:Automation Runtime} User" in the page details
+    Then I see the sub-header is "{SavedValue:Automation Runtime Organization}" in the page details
 
   @IndividualRegistration @ProdSan4
   Scenario: Scenario for Individual registration
@@ -4574,7 +4574,6 @@ Feature: Validate sanity testing of Complete Business Flow
     When I click on "Agree" in the page details
     And I enter "Edition" values from "PotentialReviewersContact_Field_Values.xlsx"
     And I click on "Save" in the page details
-    And I halt execution
     When I click on "Submit" in the page details
     And I pause execution for "5" seconds
     Then I see the following messages in the page details contains:

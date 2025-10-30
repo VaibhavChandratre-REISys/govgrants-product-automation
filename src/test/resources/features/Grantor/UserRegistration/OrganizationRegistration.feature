@@ -274,7 +274,7 @@ Feature: Validate all registration related scenarios
     When I click on "Save" in the page details
     When I click on "Submit" in the page details
     And I am on "INTERNAL" portal
-    And I login to "As a Grantor" app as "PM" user
+    And I login to "Grantor" app as "PM" user
     And I wait for "10" seconds
     When I navigate to "Pending Subrecipient Registrations" content inside "Organization" subheader on left panel
     When I perform quick search for "{SavedValue:Automation Runtime Organization}" in "{grantor_tableId:SubrecipientOrganization}" panel
@@ -569,7 +569,7 @@ Feature: Validate all registration related scenarios
     Then I can see top right button "Submit" in page detail
 
   @452464 @INDRegVerifyINDorgabletoseeinpendingIndividualsubrecipientregistration @sprint-16-US-416690
-  Scenario: IND Reg : Verify IND org able  to see in pending Individual subrecipient registration.
+  Scenario: IND Reg : Verify IND org able to see in pending Individual subrecipient registration.
     Given I begin "Individual" registration as "Register As Individual"
     When I click on "Agree" in the page details
     When I click on "Agree" in the page details
@@ -587,7 +587,7 @@ Feature: Validate all registration related scenarios
     Then I see the following messages in the page details contains:
       | Confirmation Message |
     And I am on "INTERNAL" portal
-    And I login to "As a Grantor" app as "SARAH PM" user
+    And I login to "Grantor" app as "PM" user
     When I navigate to "Pending Subrecipient Registrations" content inside "Organization" subheader on left panel
     When I perform quick search for "{SavedValue:uniqueEmailID1}" in "{grantor_tableId:SubrecipientIndRegistration}" panel
     And I save the value from row "1" for column name "Full Name" as "UserFullName" from flex table "{grantor_tableId:SubrecipientIndRegistration}"
@@ -617,9 +617,9 @@ Feature: Validate all registration related scenarios
     When I "Expanded" page block contaninig value "Description"
     Then I softly see fields "BillingCity" is visible
     When I "Collapse" page block contaninig value "Additional Information"
-    Then I softly do not see fields "PointOfContactUser__c" is visible
+    Then I softly do not see fields "PointofContactUser__c" is visible
     When I "Expanded" page block contaninig value "Additional Information"
-    Then I softly see fields "PointOfContactUser__c" is visible
+    Then I softly see fields "PointofContactUser__c" is visible
     When I "Collapse" page block contaninig value "Additional Address"
     Then I softly do not see fields "Name" is visible
 

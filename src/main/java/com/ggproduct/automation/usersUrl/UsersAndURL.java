@@ -151,16 +151,28 @@ public class UsersAndURL implements UsersController {
         String password;
         switch (userLevel.toUpperCase()) {
             case "GRANTEE ADMIN":
-                password = "Qaadmin@2030";
+                password = "QaTest@2025";
+                break;
+            case "GRANTEE ADMIN1":
+                password = "Dev@3030";
                 break;
             case "GRANTEE PM":
-                password = "Rei@2025";
+                password = "Merge@2025";
                 break;
             case "GRANTEE EXE":
-                password = "Rei@2026";
+                password = "Merge@2025";
                 break;
             case "GRANTEE FO":
-                password = "Rei@2025";
+                password = "Merge@2025";
+                break;
+            case "GRANTEE FD":
+                password = "Merge@2025";
+                break;
+            case "GRANTEE PO":
+                password = "Merge@2025";
+                break;
+            case "GRANTEE AUDITOR":
+                password = "Merge@2026";
                 break;
             case "SARAH PM":
                 password = "Merge@2025";
@@ -241,10 +253,10 @@ public class UsersAndURL implements UsersController {
                 password = "Salesforce@2034";
                 break;
             case "SPI3":
-                password = "Salesforce@2034";
+                password = "Salesforce@2025";
                 break;
             case "SARAH PM":
-                password = "Grants@2026";
+                password = "Rei@2029";
                 break;
             case "GRANTEE ADMIN":
                 password = "Rei@2025";
@@ -287,6 +299,9 @@ public class UsersAndURL implements UsersController {
                 break;
             case "GRANTEE PO1":
                 password = "Grantee@2030";
+                break;
+            case "ADMIN":
+                password = "Salesforce@2035";
                 break;
             default:
                 password = "Salesforce@2034";
@@ -437,14 +452,14 @@ public class UsersAndURL implements UsersController {
         username.put("SPI4", "spi4@yopmail.com.ggmergeqa2");
         username.put("SARAH PM", "sarah.pm@ggp.test8.ggmergeqa2");
 
-        username.put("GRANTEE ADMIN", "product.qa@ggp.test8.ggqa2");
-        username.put("GRANTEE ADMIN1", "qa.admin@ggp.test8.ggdev2");
-        username.put("GRANTEE PM", "sarah.pm@ggp.test8.ggqa2");
-        username.put("GRANTEE EXE", "victor.exe@ggp.test8.ggqa2");
-        username.put("GRANTEE FO", "david.fo@ggp.test8.ggqa2");
-        username.put("GRANTEE FD", "danielle.garcia@ggp.test8.ggdev2");
-        username.put("GRANTEE PO", "grantee.po@yopmail.com.ggdev2");
-        username.put("GRANTEE AUDITOR", "automationauditor@yopmail.com.ggdev2");
+        username.put("GRANTEE ADMIN", "demo.admin@ggp.test8.ggmergeqa2");
+        username.put("GRANTEE ADMIN1", "qa.admin.testing@ggp.test8.ggmergeqa2");
+        username.put("GRANTEE PM", "sarah.pm@ggp.test8.ggmergeqa2");
+        username.put("GRANTEE EXE", "victor.exe@ggp.test8.ggmergeqa2");
+        username.put("GRANTEE FO", "david.fo@ggp.test8.ggmergeqa2");
+        username.put("GRANTEE FD", "danielle.garcia@ggp.test8.ggmergeqa2");
+        username.put("GRANTEE PO", "grantee.po@yopmail.com.ggmergeqa2");
+        username.put("GRANTEE AUDITOR", "alex.auditor@yopmail.com.ggmergeqa2");
 
         if (userLevel.toUpperCase() != null) {
             return username.get(userLevel.toUpperCase());
@@ -505,7 +520,7 @@ public class UsersAndURL implements UsersController {
         username.put("PO1", "automationpo1@yopmail.com.qaorg");
         username.put("FO1", "fo1.automation@yopmail.com.qaorg");
         username.put("FD1", "automationfd1@yopmail.com.qaorg");
-        username.put("SPI3", "automationspi30@yopmail.com.qaorg");
+        username.put("SPI3", "danieljacks@yopmail.com");
         username.put("SPA", "spa.automation@yopmail.com");
         username.put("SA", "automationspi2@yopmail.com");
         username.put("IND", "ind2029.automation@yopmail.com");

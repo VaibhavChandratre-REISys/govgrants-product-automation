@@ -611,6 +611,8 @@ Feature: Validate scenarios in Progress Report Notes
     Then I softly see value "Automation Notes3" for title "Description" inside table "---progressreport:-:progressNotesTableId---"
     And I click on "Delete" icon for "Notes Record3" inside flex table with id "---progressreport:-:progressNotesTableId---" without waiting for record
     Then I softly do not see value "Notes Record3" for title "Title" inside table "---progressreport:-:progressNotesTableId---"
+    And I refresh the page
+    And I wait for "3" seconds
     And I "Approve" in the approval decision
     Then I softly see status in Progress-bar is "Approved" and is "dark blue"
     When I re-login to "Grantor" app as "ADMIN" user on "INTERNAL" portal

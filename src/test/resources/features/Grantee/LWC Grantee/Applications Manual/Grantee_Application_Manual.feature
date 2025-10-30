@@ -4,7 +4,7 @@ Feature: Validate all scenarios for Applications Manual
   @480702 @OpportunitiesconvertedtoApplicationManualVerifyEXEusercannavigatetoOpportunitydetailspageafterclickingonviewactionfortheOppprotunitywhichisconvertedtoPre-application @P2_Grantee @EXE_Grantee @GRegression1
   Scenario Outline: Opportunities converted to Application Manual EXE user can navigate to Opportunity details page after clicking on view action for the Oppprotunity which is converted to Pre-application
     And I create "Manual" qualified lead for title "Automation Runtime Opportunity" and opportunity number "Automation Runtime" with properties "default-Victor EXE user"
-    Given I login to "As a Grantee" app as "<User>" user
+    Given I login to "Grantee" app as "<User>" user
     And I navigate to "Opportunities" tab
     When I navigate to "Qualified" content inside "Leads" subheader on left panel
     And I click toggle button to select "Qualified Leads - All"
@@ -113,7 +113,7 @@ Feature: Validate all scenarios for Applications Manual
     Then I softly see link "{SavedValue:LastModifiedBy}" inside Page block
     And I click on hyperlink containing value "{SavedValue:LastModifiedBy}"
     And I wait for "2" seconds
-    Then I softly see the text containing "victor.exe@ggp.test8.qagrnteatm"
+    Then I softly see the text containing "victor.exe@ggp.test8.ggmergeqa2"
     And I wait for "2" seconds
     And I click on back arrow
     And I wait for "2" seconds
@@ -214,7 +214,7 @@ Feature: Validate all scenarios for Applications Manual
   @473233 @ValidateNotYetConvertedOpportunityManualEXEusercannotcreateApplicationfromOpportunityifPreApplicationRequiredisselectedasNoonOpportunityrecord @P3_Grantee @EXE_Grantee @GRegression1
   Scenario: Validate Not Yet Converted Opportunity (Manual) EXE user cannot create Application from Opportunity if Pre-Application Required? is selected as No on Opportunity record
     And I create "Manual" qualified lead for title "Automation Runtime Opportunity" and opportunity number "Automation Runtime" with properties "default-Victor EXE user"
-    Given I login to "As a Grantee" app as "GRANTEE EXE" user
+    Given I login to "Grantee" app as "GRANTEE EXE" user
     And I navigate to "Opportunities" tab
     When I navigate to "Qualified" content inside "Leads" subheader on left panel
     And I click toggle button to select "Qualified Leads - All"
@@ -236,7 +236,7 @@ Feature: Validate all scenarios for Applications Manual
   @482415 @POuserVerifyUsershouldabletoapprovetheAwardwith4stepapprover @P1_Grantee @GRegression1 @GranteeTBE
   Scenario:PO user User should able to approve the Award with 4 step approver
     And I create "Manual" qualified lead for title "Automation Runtime Opportunity" and opportunity number "Automation Runtime" with properties "default"
-    Given I login to "As a Grantee" app as "GRANTEE PM" user
+    Given I login to "Grantee" app as "GRANTEE PM" user
     And I navigate to "Opportunities" tab
     When I navigate to "Qualified" content inside "Leads" subheader on left panel
     And I click toggle button to select "Qualified Leads - All"
@@ -264,7 +264,7 @@ Feature: Validate all scenarios for Applications Manual
     When I click modal button "Close"
     And I click on "Submit For Approval" in the page details
     Then I softly see field "Status" as "Submitted for Approval"
-    When I re-login to "As a Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
+    When I re-login to "Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:AwardEGMSID}" in "---grantee_tableId:-:PendingTask---" panel
@@ -275,7 +275,7 @@ Feature: Validate all scenarios for Applications Manual
     When I navigate to "Completed Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:AwardEGMSID}" in "---grantee_tableId:-:grantCompletedTaskTableId---" panel
     Then I see that "Record Id" has been added in flextable with Id "---grantee_tableId:-:grantCompletedTaskTableId---"
-    When I re-login to "As a Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
+    When I re-login to "Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:AwardEGMSID}" in "---grantee_tableId:-:PendingTask---" panel
@@ -286,7 +286,7 @@ Feature: Validate all scenarios for Applications Manual
     When I navigate to "Completed Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:AwardEGMSID}" in "---grantee_tableId:-:grantCompletedTaskTableId---" panel
     Then I see that "{SavedValue:AwardEGMSID}" has been added in flextable with Id "---grantee_tableId:-:grantCompletedTaskTableId---"
-    When I re-login to "As a Grantee" app as "GRANTEE FO" user on "INTERNAL" portal
+    When I re-login to "Grantee" app as "GRANTEE FO" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:AwardEGMSID}" in "---grantee_tableId:-:PendingTask---" panel
@@ -297,7 +297,7 @@ Feature: Validate all scenarios for Applications Manual
     When I navigate to "Completed Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:AwardEGMSID}" in "---grantee_tableId:-:grantCompletedTaskTableId---" panel
     Then I see that "{SavedValue:AwardEGMSID}" has been added in flextable with Id "---grantee_tableId:-:grantCompletedTaskTableId---"
-    When I re-login to "As a Grantee" app as "GRANTEE PO" user on "INTERNAL" portal
+    When I re-login to "Grantee" app as "GRANTEE PO" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:AwardEGMSID}" in "---grantee_tableId:-:PendingTask---" panel
@@ -318,7 +318,7 @@ Feature: Validate all scenarios for Applications Manual
   @487157 @ValidateNotYetConvertedOpportunityManualAuditorusercannotcreateApplicationfromOpportunityifPreApplicationRequiredisselectedasNoonOpportunityrecord @P3_Grantee @AUDITOR_Grantee @GRegression2
   Scenario Outline: Validate Not Yet Converted Opportunity Manual Auditor user cannot create Application from Opportunity if Pre-Application Required? is selected as No on Opportunity record
     And I create "Manual" qualified lead for title "Automation Runtime Opportunity" and opportunity number "Automation Runtime" with properties "default-<filter>"
-    Given I login to "As a Grantee" app as "<userName>" user
+    Given I login to "Grantee" app as "<userName>" user
     And I navigate to "Opportunities" tab
     When I navigate to "Qualified" content inside "Leads" subheader on left panel
     And I click toggle button to select "Qualified Leads - All"
@@ -327,7 +327,7 @@ Feature: Validate all scenarios for Applications Manual
     When I click on "Convert to Opportunity" in the page details
     And I save the field labeled "EGMS ID" as "opportunityEGMSID"
     And I create opportunity with state "Approved" for opportunity number "{SavedValue:Automation Runtime}" with properties "default"
-    When I re-login to "As a Grantee" app as "<userType>" user on "INTERNAL" portal
+    When I re-login to "Grantee" app as "<userType>" user on "INTERNAL" portal
     And I navigate to "Opportunities" tab
     And I navigate to "Not Converted" content inside "Opportunities" subheader on left panel
     When I click toggle button to select "Opportunities Not Converted to Application - All"
@@ -344,7 +344,7 @@ Feature: Validate all scenarios for Applications Manual
   @487158 @ValidateNotYetConvertedOpportunityManualADMINusercannotcreateApplicationfromOpportunityifPreApplicationRequiredisselectedasNoonOpportunityrecord @P3_Grantee @ADMIN_Grantee @GRegression2
   Scenario Outline: Validate Not Yet Converted Opportunity Manual ADMIN user cannot create Application from Opportunity if Pre-Application Required? is selected as No on Opportunity record
     And I create "Manual" qualified lead for title "Automation Runtime Opportunity" and opportunity number "Automation Runtime" with properties "default-<filter>"
-    Given I login to "As a Grantee" app as "<userName>" user
+    Given I login to "Grantee" app as "<userName>" user
     And I navigate to "Opportunities" tab
     When I navigate to "Qualified" content inside "Leads" subheader on left panel
     And I click toggle button to select "Qualified Leads - All"
@@ -353,7 +353,7 @@ Feature: Validate all scenarios for Applications Manual
     When I click on "Convert to Opportunity" in the page details
     And I save the field labeled "EGMS ID" as "opportunityEGMSID"
     And I create opportunity with state "Approved" for opportunity number "{SavedValue:Automation Runtime}" with properties "default"
-    When I re-login to "As a Grantee" app as "<userType>" user on "INTERNAL" portal
+    When I re-login to "Grantee" app as "<userType>" user on "INTERNAL" portal
     And I navigate to "Opportunities" tab
     And I navigate to "Not Converted" content inside "Opportunities" subheader on left panel
     When I click toggle button to select "Opportunities Not Converted to Application - All"
@@ -370,7 +370,7 @@ Feature: Validate all scenarios for Applications Manual
   @472391 @Validatethatuserabletocreatetheapplicationfromthequalifiedleads @P2_Grantee @PM_Grantee @GRegression1
   Scenario: Validate that user able to create the application from the qualified leads
     And I create "Manual" qualified lead for title "Automation Runtime Opportunity" and opportunity number "Automation Runtime" with properties "default"
-    When I login to "As a Grantee" app as "GRANTEE PM" user
+    When I login to "Grantee" app as "GRANTEE PM" user
     And I navigate to "Opportunities" tab
     When I navigate to "Qualified" content inside "Leads" subheader on left panel
     And I click toggle button to select "Qualified Leads - All"

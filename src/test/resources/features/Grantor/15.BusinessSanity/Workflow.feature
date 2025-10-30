@@ -1592,7 +1592,7 @@ Feature: Validate all scenarios of every modules flow
       | Saved Successfully! |
     And I click on top right button "Send Email" in flex table with id "CommunicationHistory"
     And I send the email under collab tab with following details:
-      | To                        | Cc                         | Subject | Body            |
+      | To                            | Cc                             | Subject | Body            |
       | pm.automation.qa2@yopmail.com | exe.automation.qa2@yopmail.com | test    | Automation Test |
     Then I see the text "Email Sent Successfully." in modal
 
@@ -1600,7 +1600,7 @@ Feature: Validate all scenarios of every modules flow
   Scenario: Validate PM user should able to Create & Activate the KPI
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberPMUser}"
     And I create "Manual" qualified lead for title "Automation Runtime Opportunity" and opportunity number "Automation Runtime" with properties "default"
-    Given I login to "As a Grantee" app as "GRANTEE PM" user
+    Given I login to "Grantee" app as "GRANTEE PM" user
     And I navigate to "Opportunities" tab
     When I navigate to "Qualified" content inside "Leads" subheader on left panel
     And I click toggle button to select "Qualified Leads - All"
@@ -1627,7 +1627,7 @@ Feature: Validate all scenarios of every modules flow
 #    And I Created the schedule "Progress Report" for title "{SavedValue:Automation Runtime Award}" with properties "default"
 #    And I update the schedule "Financial Report" in "Approved" state for title "Automation Runtime Award115221" with properties "FINAL_PROGRESS_YES"
 #    And I "Approved" of type "Periodic Renewal" amendment request for title "{SavedValue:Automation Runtime Award}" with properties "default"
-#    When I login to "As a Grantee" app as "GRANTEE PM" user
+#    When I login to "Grantee" app as "GRANTEE PM" user
 #    And I navigate to "Grants" tab
 #    When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
 #    And I click toggle button to select "Grants - All"
@@ -1708,7 +1708,7 @@ Feature: Validate all scenarios of every modules flow
 #    And I "Created" award from application for opportunity "Automation Runtime1316489936" for title "Automation Runtime Opportunity65465" with properties "default-Grantee PO user"
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default"
-    Given I login to "As a Grantee" app as "GRANTEE PM" user
+    Given I login to "Grantee" app as "GRANTEE PM" user
     And I navigate to "Opportunities" tab
     When I navigate to "Qualified" content inside "Leads" subheader on left panel
     And I click toggle button to select "Qualified Leads - All"
@@ -1736,13 +1736,13 @@ Feature: Validate all scenarios of every modules flow
     Examples:
       | InternalUser    |
       | GRANTEE ADMIN   |
-#      | GRANTEE ADMIN1  |
-#      | GRANTEE EXE     |
-#      | GRANTEE PM      |
-#      | GRANTEE FO      |
-#      | GRANTEE PO      |
-#      | GRANTEE FD      |
-#      | GRANTEE AUDITOR |
+      | GRANTEE ADMIN1  |
+      | GRANTEE EXE     |
+      | GRANTEE PM      |
+      | GRANTEE FO      |
+      | GRANTEE PO      |
+      | GRANTEE FD      |
+      | GRANTEE AUDITOR |
 
   @InternalUserPwdCheckGrantor
   Scenario Outline: test
@@ -1792,30 +1792,30 @@ Feature: Validate all scenarios of every modules flow
       | SubrecipientUser |
       | SPI3             |
 
-    @TestIssue
-      Scenario:
-      When I login to "Grantor" app as "GRANTEE PM" user
-      When I navigate to "Home" tab
-      When I re-login to "Grantor" app as "GRANTEE EXE" user on "INTERNAL" portal
-      When I navigate to "Home" tab
+  @TestIssue
+  Scenario:
+    When I login to "Grantor" app as "GRANTEE PM" user
+    When I navigate to "Home" tab
+    When I re-login to "Grantor" app as "GRANTEE EXE" user on "INTERNAL" portal
+    When I navigate to "Home" tab
 
-    @APITest
-      Scenario:
-      And I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "default"
-      And I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
-      And I created approved FDM on application "{SavedValue:Automation Runtime FDM Announcement}"
-      Given I created award from approved FDM with announcement "{SavedValue:Automation Runtime FDM Announcement}"
-      And I activate award from FDM having application name "{SavedValue:Automation Runtime FDM Announcement}"
+  @APITest
+  Scenario:
+    And I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "default"
+    And I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
+    And I created approved FDM on application "{SavedValue:Automation Runtime FDM Announcement}"
+    Given I created award from approved FDM with announcement "{SavedValue:Automation Runtime FDM Announcement}"
+    And I activate award from FDM having application name "{SavedValue:Automation Runtime FDM Announcement}"
      # Direct Grant
-       Given I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
+    Given I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
      # Progress Report
-      Given I delete the record "{SavedValue:Automation Runtime Award}" from the object "Progress Report"
-      When I create a post award record "ProgressReport" for the Award "{SavedValue:Automation Runtime Award}" having object api name as "ProgressReports__c"
+    Given I delete the record "{SavedValue:Automation Runtime Award}" from the object "Progress Report"
+    When I create a post award record "ProgressReport" for the Award "{SavedValue:Automation Runtime Award}" having object api name as "ProgressReports__c"
      # Payment Request
-      Given I delete the record "{SavedValue:Automation Runtime Award}" from the object "Payment Request"
-      When I create a post award record "PaymentRequest" for the Award "{SavedValue:Automation Runtime Award}" having object api name as "PaymentRequest__c"
+    Given I delete the record "{SavedValue:Automation Runtime Award}" from the object "Payment Request"
+    When I create a post award record "PaymentRequest" for the Award "{SavedValue:Automation Runtime Award}" having object api name as "PaymentRequest__c"
      # Closeout
-      When I create a post award record "Closeout" for the Award "{SavedValue:Automation Runtime Award}" having object api name as "Closeout"
+    When I create a post award record "Closeout" for the Award "{SavedValue:Automation Runtime Award}" having object api name as "Closeout"
 
   @testchckAwards
   Scenario:
@@ -1927,9 +1927,604 @@ Feature: Validate all scenarios of every modules flow
     When I navigate to "Open Items" sub tab
     Then I softly see value "Force Closed" for title "Status" against the value "{SavedValue:progID}" inside table "---closeout:-:closeoutPendingProgressReportCloseoutTableId---"
 
-  @testChecking @debug
+  @testChecking
   Scenario:
-    When I login to "Grantor" app as "PM" user
-    When I navigate to "Planning" tab
-    And I navigate to "Funding Sources" content inside "Setup" subheader on left panel
-    And I click toggle button to select "External Funding Sources - All"
+#    And I published "Competitive" type announcement having name "Automation Test Record" and properties "default"
+#    And I initiated an application review for application "{SavedValue:Automation Test Record}" on announcement "{SavedValue:Automation Test Record}" with properties "default"
+#    Given I delete the record "Automation Permanent Organization for Risk Assessment" from the object "ORGANIZATION RISKASSESSMENT"
+    Given I login to "Grantor" app as "ADMIN" user
+    When I navigate to "Home" tab
+
+  @FFATAAward
+  Scenario: Create bulk data for FFATA awards with 3 funding accounts
+    When I login to "As a Grantor" app as "SARAH PM" user
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:activeGrantsTableId---"
+    And I wait for "2" seconds
+    And I enter "GrantsFFATA" values from "Award_Field_Values.xlsx"
+    And I click modal button "Continue"
+    And I enter "Grant_Edition_FFATA" values from "Award_Field_Values.xlsx"
+    When I click modal button "Save and Continue"
+    And I save the field labeled "EGMS ID" as "GrantEGMSID"
+    And I navigate to "Subawards" sub tab
+    And I click on "View" icon for "Created" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
+    And I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "AwardEGMSID"
+    And I navigate to "Overview" sub tab
+    And I click on "Edit" in the page details
+    When I enter "Edition_FFATA" values from "Award_Field_Values.xlsx"
+    And I enter value "90000" into field "NewObligation__c"
+    And I enter value "90000" into field "TotalCommitment__c"
+    And I click on "Save" in the page details
+    And I navigate to "Budget" sub tab
+    When I click on top right button "Associate" in flex table with id "---subAwardStandAlone:-:fundingAccountsTableId---"
+    When I click "Associate" after selection of "FA-FD-266" in the table "---subAwardStandAlone:-:awardFundingAccountsTableId---"
+    When I click "Associate" after selection of "FA-FD-267" in the table "---subAwardStandAlone:-:awardFundingAccountsTableId---"
+    When I click "Associate" after selection of "FA-FD-268" in the table "---subAwardStandAlone:-:awardFundingAccountsTableId---"
+    And I wait for "3" seconds
+    And I click modal button "Close"
+    And I wait for "3" seconds
+    When I edit the following rows inline in flex table with id "---subAwardStandAlone:-:fundingAccountsTableId---" by clicking "Edit" :
+      | Funding Account | Encumbrance |
+      | FA-FD-266       | 50000       |
+    When I edit the following rows inline in flex table with id "---subAwardStandAlone:-:fundingAccountsTableId---" by clicking "Edit" :
+      | Funding Account | Encumbrance |
+      | FA-FD-267       | 30000       |
+    When I edit the following rows inline in flex table with id "---subAwardStandAlone:-:fundingAccountsTableId---" by clicking "Edit" :
+      | Funding Account | Encumbrance |
+      | FA-FD-268       | 10000       |
+    And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:subAwardBudgetTableId---" by clicking "Edit" :
+      | Budget Category | Award Amount |
+      | Construction    | 90000        |
+    And I navigate to "Terms" sub tab
+    And I click on "Edit" icon for "Payment Request" inside flex table with id "---subAwardStandAlone:-:paymentRequestSchedulesTableId---" without waiting for record
+    When I enter in modal "Payment Request Schedule" values from "Award_Field_Values.xlsx"
+    And I wait for "3" seconds
+    And I click modal button "Save"
+    And I wait for "3" seconds
+    And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardStandAlone:-:progressReportScheduleTableId---" without waiting for record
+    When I enter in modal "Progress Report Schedule" values from "Award_Field_Values.xlsx"
+    And I wait for "3" seconds
+    And I click modal button "Save"
+    Then I refresh the page
+    When I navigate to "Overview" sub tab
+    And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:associatedContactsTableId---" by clicking "Edit" :
+      | Name         | Project Role             | Is Key Personnel |
+      | Daniel Jacks | Project Director/Manager | Checked          |
+    When I navigate to "Responsibilities" sub tab
+    When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
+      | Name     | Award  |
+      | Sarah PM | Step 1 |
+    And I wait for "3" seconds
+    When I navigate to "Terms" sub tab
+    When I click on top right button "Associate Mandatory Terms and Conditions" in flex table with id "---subAwardStandAlone:-:termsndConditionsTableId---"
+    And I pause execution for "3" seconds
+    And I click on "Submit for Approval" in the page details
+    Then I see status in Progress-bar is "Submitted for Approval" and is "dark blue"
+    And I "Approve" in the approval decision
+    And I wait for "2" seconds
+    And I click on "Send to Subrecipient" in the page details
+    And I wait for "2" seconds
+    When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
+    And I navigate to "Grants" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "Record Id" in "---subAwardStandAlone:-:subrecipientPendingtaskTableId---" panel
+    When I click on "Start" icon for "Record Id" inside flex table with id "---subAwardStandAlone:-:subrecipientPendingtaskTableId---" without waiting for record
+    And I click on "Accept after Approval" in the page details
+    And I wait for "2" seconds
+    When I re-login to "Grantor" app as "SARAH PM" user on "INTERNAL" portal
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click toggle button to select "Grants - All"
+    When I perform quick search for "{SavedValue:GrantEGMSID}" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
+    And I click on "View" icon for "{SavedValue:GrantEGMSID}" inside table
+    When I navigate to "Subawards" sub tab
+    And I click on "View" icon for "{SavedValue:AwardEGMSID}" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
+    And I click on "Activate" in the page details
+    And I wait for "3" seconds
+    Then I see that "Subaward" is in "Activated" status
+
+  @FFATAAward1
+  Scenario: Create bulk data for FFATA awards with 3 funding accounts
+    When I login to "As a Grantor" app as "SARAH PM" user
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:activeGrantsTableId---"
+    And I wait for "2" seconds
+    And I enter "GrantsFFATA1" values from "Award_Field_Values.xlsx"
+    And I click modal button "Continue"
+    And I enter "Grant_Edition_FFATA" values from "Award_Field_Values.xlsx"
+    When I click modal button "Save and Continue"
+    And I save the field labeled "EGMS ID" as "GrantEGMSID"
+    And I navigate to "Subawards" sub tab
+    And I click on "View" icon for "Created" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
+    And I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "AwardEGMSID"
+    And I navigate to "Overview" sub tab
+    And I click on "Edit" in the page details
+    When I enter "Edition_FFATA" values from "Award_Field_Values.xlsx"
+    And I enter value "135000" into field "NewObligation__c"
+    And I enter value "135000" into field "TotalCommitment__c"
+    And I click on "Save" in the page details
+    And I navigate to "Budget" sub tab
+    When I click on top right button "Associate" in flex table with id "---subAwardStandAlone:-:fundingAccountsTableId---"
+    When I click "Associate" after selection of "FA-FD-270" in the table "---subAwardStandAlone:-:awardFundingAccountsTableId---"
+    When I click "Associate" after selection of "FA-FD-269" in the table "---subAwardStandAlone:-:awardFundingAccountsTableId---"
+    When I click "Associate" after selection of "FA-FD-271" in the table "---subAwardStandAlone:-:awardFundingAccountsTableId---"
+    And I wait for "3" seconds
+    And I click modal button "Close"
+    And I wait for "3" seconds
+    When I edit the following rows inline in flex table with id "---subAwardStandAlone:-:fundingAccountsTableId---" by clicking "Edit" :
+      | Funding Account | Encumbrance |
+      | FA-FD-269       | 40000       |
+    When I edit the following rows inline in flex table with id "---subAwardStandAlone:-:fundingAccountsTableId---" by clicking "Edit" :
+      | Funding Account | Encumbrance |
+      | FA-FD-270       | 5000        |
+    When I edit the following rows inline in flex table with id "---subAwardStandAlone:-:fundingAccountsTableId---" by clicking "Edit" :
+      | Funding Account | Encumbrance |
+      | FA-FD-271       | 90000       |
+    And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:subAwardBudgetTableId---" by clicking "Edit" :
+      | Budget Category | Award Amount |
+      | Construction    | 135000       |
+    And I navigate to "Terms" sub tab
+    And I click on "Edit" icon for "Payment Request" inside flex table with id "---subAwardStandAlone:-:paymentRequestSchedulesTableId---" without waiting for record
+    When I enter in modal "Payment Request Schedule" values from "Award_Field_Values.xlsx"
+    And I wait for "3" seconds
+    And I click modal button "Save"
+    And I wait for "3" seconds
+    And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardStandAlone:-:progressReportScheduleTableId---" without waiting for record
+    When I enter in modal "Progress Report Schedule" values from "Award_Field_Values.xlsx"
+    And I wait for "3" seconds
+    And I click modal button "Save"
+    Then I refresh the page
+    When I navigate to "Overview" sub tab
+    And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:associatedContactsTableId---" by clicking "Edit" :
+      | Name         | Project Role             | Is Key Personnel |
+      | Daniel Jacks | Project Director/Manager | Checked          |
+    When I navigate to "Responsibilities" sub tab
+    When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
+      | Name     | Award  |
+      | Sarah PM | Step 1 |
+    And I wait for "3" seconds
+    When I navigate to "Terms" sub tab
+    When I click on top right button "Associate Mandatory Terms and Conditions" in flex table with id "---subAwardStandAlone:-:termsndConditionsTableId---"
+    And I pause execution for "3" seconds
+    And I click on "Submit for Approval" in the page details
+    Then I see status in Progress-bar is "Submitted for Approval" and is "dark blue"
+    And I "Approve" in the approval decision
+    And I wait for "2" seconds
+    And I click on "Send to Subrecipient" in the page details
+    And I wait for "2" seconds
+    When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
+    And I navigate to "Grants" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "Record Id" in "---subAwardStandAlone:-:subrecipientPendingtaskTableId---" panel
+    When I click on "Start" icon for "Record Id" inside flex table with id "---subAwardStandAlone:-:subrecipientPendingtaskTableId---" without waiting for record
+    And I click on "Accept after Approval" in the page details
+    And I wait for "2" seconds
+    When I re-login to "Grantor" app as "SARAH PM" user on "INTERNAL" portal
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click toggle button to select "Grants - All"
+    When I perform quick search for "{SavedValue:GrantEGMSID}" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
+    And I click on "View" icon for "{SavedValue:GrantEGMSID}" inside table
+    When I navigate to "Subawards" sub tab
+    And I click on "View" icon for "{SavedValue:AwardEGMSID}" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
+    And I click on "Activate" in the page details
+    And I wait for "3" seconds
+    Then I see that "Subaward" is in "Activated" status
+
+  @FFATAAward2
+  Scenario: Create bulk data for FFATA awards with 1 funding accounts
+    When I login to "As a Grantor" app as "SARAH PM" user
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:activeGrantsTableId---"
+    And I wait for "2" seconds
+    And I enter "GrantsFFATA2" values from "Award_Field_Values.xlsx"
+    And I click modal button "Continue"
+    And I enter "Grant_Edition_FFATA" values from "Award_Field_Values.xlsx"
+    When I click modal button "Save and Continue"
+    And I save the field labeled "EGMS ID" as "GrantEGMSID"
+    And I navigate to "Subawards" sub tab
+    And I click on "View" icon for "Created" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
+    And I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "AwardEGMSID"
+    And I navigate to "Overview" sub tab
+    And I click on "Edit" in the page details
+    When I enter "Edition_FFATA" values from "Award_Field_Values.xlsx"
+    And I enter value "100000" into field "NewObligation__c"
+    And I enter value "100000" into field "TotalCommitment__c"
+    And I click on "Save" in the page details
+    And I navigate to "Budget" sub tab
+    When I click on top right button "Associate" in flex table with id "---subAwardStandAlone:-:fundingAccountsTableId---"
+    When I click "Associate" after selection of "FA-FD-272" in the table "---subAwardStandAlone:-:awardFundingAccountsTableId---"
+    And I wait for "3" seconds
+    And I click modal button "Close"
+    And I wait for "3" seconds
+    When I edit the following rows inline in flex table with id "---subAwardStandAlone:-:fundingAccountsTableId---" by clicking "Edit" :
+      | Funding Account | Encumbrance |
+      | FA-FD-272       | 100000      |
+    And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:subAwardBudgetTableId---" by clicking "Edit" :
+      | Budget Category | Award Amount |
+      | Construction    | 100000       |
+    And I navigate to "Terms" sub tab
+    And I click on "Edit" icon for "Payment Request" inside flex table with id "---subAwardStandAlone:-:paymentRequestSchedulesTableId---" without waiting for record
+    When I enter in modal "Payment Request Schedule" values from "Award_Field_Values.xlsx"
+    And I wait for "3" seconds
+    And I click modal button "Save"
+    And I wait for "3" seconds
+    And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardStandAlone:-:progressReportScheduleTableId---" without waiting for record
+    When I enter in modal "Progress Report Schedule" values from "Award_Field_Values.xlsx"
+    And I wait for "3" seconds
+    And I click modal button "Save"
+    Then I refresh the page
+    When I navigate to "Overview" sub tab
+    And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:associatedContactsTableId---" by clicking "Edit" :
+      | Name         | Project Role             | Is Key Personnel |
+      | Daniel Jacks | Project Director/Manager | Checked          |
+    When I navigate to "Responsibilities" sub tab
+    When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
+      | Name     | Award  |
+      | Sarah PM | Step 1 |
+    And I wait for "3" seconds
+    When I navigate to "Terms" sub tab
+    When I click on top right button "Associate Mandatory Terms and Conditions" in flex table with id "---subAwardStandAlone:-:termsndConditionsTableId---"
+    And I pause execution for "3" seconds
+    And I click on "Submit for Approval" in the page details
+    Then I see status in Progress-bar is "Submitted for Approval" and is "dark blue"
+    And I "Approve" in the approval decision
+    And I wait for "2" seconds
+    And I click on "Send to Subrecipient" in the page details
+    And I wait for "2" seconds
+    When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
+    And I navigate to "Grants" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "Record Id" in "---subAwardStandAlone:-:subrecipientPendingtaskTableId---" panel
+    When I click on "Start" icon for "Record Id" inside flex table with id "---subAwardStandAlone:-:subrecipientPendingtaskTableId---" without waiting for record
+    And I click on "Accept after Approval" in the page details
+    And I wait for "2" seconds
+    When I re-login to "Grantor" app as "SARAH PM" user on "INTERNAL" portal
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click toggle button to select "Grants - All"
+    When I perform quick search for "{SavedValue:GrantEGMSID}" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
+    And I click on "View" icon for "{SavedValue:GrantEGMSID}" inside table
+    When I navigate to "Subawards" sub tab
+    And I click on "View" icon for "{SavedValue:AwardEGMSID}" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
+    And I click on "Activate" in the page details
+    And I wait for "3" seconds
+    Then I see that "Subaward" is in "Activated" status
+
+  @FFATAAward3 @FFATAExecution
+  Scenario: Create bulk data for FFATA awards with internal funding source with 1 funding accounts
+    When I login to "As a Grantor" app as "SARAH PM" user
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:activeGrantsTableId---"
+    And I wait for "2" seconds
+    And I enter "GrantsFFATA" values from "Award_Field_Values.xlsx"
+    And I enter in modal value "Automation Runtime FFATA Awards with Internal Funding Source" into field "ProjectTitle__c"
+    And I click modal button "Continue"
+    And I enter "Grant_Edition_FFATA" values from "Award_Field_Values.xlsx"
+    When I click modal button "Save and Continue"
+    And I save the field labeled "EGMS ID" as "GrantEGMSID"
+    And I navigate to "Subawards" sub tab
+    And I click on "View" icon for "Created" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
+    And I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "AwardEGMSID"
+    And I navigate to "Overview" sub tab
+    And I click on "Edit" in the page details
+    When I enter "Edition_FFATA" values from "Award_Field_Values.xlsx"
+    And I enter value "30000" into field "NewObligation__c"
+    And I enter value "30000" into field "TotalCommitment__c"
+    And I click on "Save" in the page details
+    And I navigate to "Budget" sub tab
+    When I click on top right button "Associate" in flex table with id "---subAwardStandAlone:-:fundingAccountsTableId---"
+    When I click "Associate" after selection of "FA-ST-402" in the table "---subAwardStandAlone:-:awardFundingAccountsTableId---"
+    And I wait for "3" seconds
+    And I click modal button "Close"
+    And I wait for "3" seconds
+    When I edit the following rows inline in flex table with id "---subAwardStandAlone:-:fundingAccountsTableId---" by clicking "Edit" :
+      | Funding Account | Encumbrance |
+      | FA-ST-402       | 30000       |
+    And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:subAwardBudgetTableId---" by clicking "Edit" :
+      | Budget Category | Award Amount |
+      | Construction    | 30000        |
+    And I navigate to "Terms" sub tab
+    And I click on "Edit" icon for "Payment Request" inside flex table with id "---subAwardStandAlone:-:paymentRequestSchedulesTableId---" without waiting for record
+    When I enter in modal "Payment Request Schedule" values from "Award_Field_Values.xlsx"
+    And I wait for "3" seconds
+    And I click modal button "Save"
+    And I wait for "3" seconds
+    And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardStandAlone:-:progressReportScheduleTableId---" without waiting for record
+    When I enter in modal "Progress Report Schedule" values from "Award_Field_Values.xlsx"
+    And I wait for "3" seconds
+    And I click modal button "Save"
+    Then I refresh the page
+    When I navigate to "Overview" sub tab
+    And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:associatedContactsTableId---" by clicking "Edit" :
+      | Name         | Project Role             | Is Key Personnel |
+      | Daniel Jacks | Project Director/Manager | Checked          |
+    When I navigate to "Responsibilities" sub tab
+    When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
+      | Name     | Award  |
+      | Sarah PM | Step 1 |
+    And I wait for "3" seconds
+    When I navigate to "Terms" sub tab
+    When I click on top right button "Associate Mandatory Terms and Conditions" in flex table with id "---subAwardStandAlone:-:termsndConditionsTableId---"
+    And I pause execution for "3" seconds
+    And I click on "Submit for Approval" in the page details
+    Then I see status in Progress-bar is "Submitted for Approval" and is "dark blue"
+    And I "Approve" in the approval decision
+    And I wait for "2" seconds
+    And I click on "Send to Subrecipient" in the page details
+    And I wait for "2" seconds
+    When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
+    And I navigate to "Grants" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "Record Id" in "---subAwardStandAlone:-:subrecipientPendingtaskTableId---" panel
+    When I click on "Start" icon for "Record Id" inside flex table with id "---subAwardStandAlone:-:subrecipientPendingtaskTableId---" without waiting for record
+    And I click on "Accept after Approval" in the page details
+    And I wait for "2" seconds
+    When I re-login to "Grantor" app as "SARAH PM" user on "INTERNAL" portal
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click toggle button to select "Grants - All"
+    When I perform quick search for "{SavedValue:GrantEGMSID}" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
+    And I click on "View" icon for "{SavedValue:GrantEGMSID}" inside table
+    When I navigate to "Subawards" sub tab
+    And I click on "View" icon for "{SavedValue:AwardEGMSID}" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
+    And I click on "Activate" in the page details
+    And I wait for "3" seconds
+    Then I see that "Subaward" is in "Activated" status
+
+  @FFATAAward4 @FFATAExecution
+  Scenario: Create bulk data for FFATA awards with external funding source with 1 funding accounts with invalid agency code
+    When I login to "As a Grantor" app as "SARAH PM" user
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:activeGrantsTableId---"
+    And I wait for "2" seconds
+    And I enter "GrantsFFATA" values from "Award_Field_Values.xlsx"
+    And I enter in modal value "Automation Runtime FFATA Awards with Invalid Agency Code" into field "ProjectTitle__c"
+    And I click modal button "Continue"
+    And I enter "Grant_Edition_FFATA" values from "Award_Field_Values.xlsx"
+    When I click modal button "Save and Continue"
+    And I save the field labeled "EGMS ID" as "GrantEGMSID"
+    And I navigate to "Subawards" sub tab
+    And I click on "View" icon for "Created" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
+    And I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "AwardEGMSID"
+    And I navigate to "Overview" sub tab
+    And I click on "Edit" in the page details
+    When I enter "Edition_FFATA" values from "Award_Field_Values.xlsx"
+    And I enter value "40000" into field "NewObligation__c"
+    And I enter value "40000" into field "TotalCommitment__c"
+    And I click on "Save" in the page details
+    And I navigate to "Budget" sub tab
+    When I click on top right button "Associate" in flex table with id "---subAwardStandAlone:-:fundingAccountsTableId---"
+    When I click "Associate" after selection of "FA-FD-261" in the table "---subAwardStandAlone:-:awardFundingAccountsTableId---"
+    And I wait for "3" seconds
+    And I click modal button "Close"
+    And I wait for "3" seconds
+    When I edit the following rows inline in flex table with id "---subAwardStandAlone:-:fundingAccountsTableId---" by clicking "Edit" :
+      | Funding Account | Encumbrance |
+      | FA-FD-261       | 40000       |
+    And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:subAwardBudgetTableId---" by clicking "Edit" :
+      | Budget Category | Award Amount |
+      | Construction    | 40000        |
+    And I navigate to "Terms" sub tab
+    And I click on "Edit" icon for "Payment Request" inside flex table with id "---subAwardStandAlone:-:paymentRequestSchedulesTableId---" without waiting for record
+    When I enter in modal "Payment Request Schedule" values from "Award_Field_Values.xlsx"
+    And I wait for "3" seconds
+    And I click modal button "Save"
+    And I wait for "3" seconds
+    And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardStandAlone:-:progressReportScheduleTableId---" without waiting for record
+    When I enter in modal "Progress Report Schedule" values from "Award_Field_Values.xlsx"
+    And I wait for "3" seconds
+    And I click modal button "Save"
+    Then I refresh the page
+    When I navigate to "Overview" sub tab
+    And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:associatedContactsTableId---" by clicking "Edit" :
+      | Name         | Project Role             | Is Key Personnel |
+      | Daniel Jacks | Project Director/Manager | Checked          |
+    When I navigate to "Responsibilities" sub tab
+    When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
+      | Name     | Award  |
+      | Sarah PM | Step 1 |
+    And I wait for "3" seconds
+    When I navigate to "Terms" sub tab
+    When I click on top right button "Associate Mandatory Terms and Conditions" in flex table with id "---subAwardStandAlone:-:termsndConditionsTableId---"
+    And I pause execution for "3" seconds
+    And I click on "Submit for Approval" in the page details
+    Then I see status in Progress-bar is "Submitted for Approval" and is "dark blue"
+    And I "Approve" in the approval decision
+    And I wait for "2" seconds
+    And I click on "Send to Subrecipient" in the page details
+    And I wait for "2" seconds
+    When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
+    And I navigate to "Grants" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "Record Id" in "---subAwardStandAlone:-:subrecipientPendingtaskTableId---" panel
+    When I click on "Start" icon for "Record Id" inside flex table with id "---subAwardStandAlone:-:subrecipientPendingtaskTableId---" without waiting for record
+    And I click on "Accept after Approval" in the page details
+    And I wait for "2" seconds
+    When I re-login to "Grantor" app as "SARAH PM" user on "INTERNAL" portal
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click toggle button to select "Grants - All"
+    When I perform quick search for "{SavedValue:GrantEGMSID}" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
+    And I click on "View" icon for "{SavedValue:GrantEGMSID}" inside table
+    When I navigate to "Subawards" sub tab
+    And I click on "View" icon for "{SavedValue:AwardEGMSID}" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
+    And I click on "Activate" in the page details
+    And I wait for "3" seconds
+    Then I see that "Subaward" is in "Activated" status
+
+  @FFATAAward5 @FFATAExecution
+  Scenario: Create bulk data for FFATA awards with external funding source with 1 funding accounts with invalid FAIN no
+    When I login to "As a Grantor" app as "SARAH PM" user
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:activeGrantsTableId---"
+    And I wait for "2" seconds
+    And I enter "GrantsFFATA" values from "Award_Field_Values.xlsx"
+    And I enter in modal value "Automation Runtime FFATA Awards with Invalid FAIN No" into field "ProjectTitle__c"
+    And I click modal button "Continue"
+    And I enter "Grant_Edition_FFATA" values from "Award_Field_Values.xlsx"
+    When I click modal button "Save and Continue"
+    And I save the field labeled "EGMS ID" as "GrantEGMSID"
+    And I navigate to "Subawards" sub tab
+    And I click on "View" icon for "Created" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
+    And I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "AwardEGMSID"
+    And I navigate to "Overview" sub tab
+    And I click on "Edit" in the page details
+    When I enter "Edition_FFATA" values from "Award_Field_Values.xlsx"
+    And I enter value "60000" into field "NewObligation__c"
+    And I enter value "60000" into field "TotalCommitment__c"
+    And I click on "Save" in the page details
+    And I navigate to "Budget" sub tab
+    When I click on top right button "Associate" in flex table with id "---subAwardStandAlone:-:fundingAccountsTableId---"
+    When I click "Associate" after selection of "FA-FD-262" in the table "---subAwardStandAlone:-:awardFundingAccountsTableId---"
+    And I wait for "3" seconds
+    And I click modal button "Close"
+    And I wait for "3" seconds
+    When I edit the following rows inline in flex table with id "---subAwardStandAlone:-:fundingAccountsTableId---" by clicking "Edit" :
+      | Funding Account | Encumbrance |
+      | FA-FD-262       | 60000       |
+    And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:subAwardBudgetTableId---" by clicking "Edit" :
+      | Budget Category | Award Amount |
+      | Construction    | 60000        |
+    And I navigate to "Terms" sub tab
+    And I click on "Edit" icon for "Payment Request" inside flex table with id "---subAwardStandAlone:-:paymentRequestSchedulesTableId---" without waiting for record
+    When I enter in modal "Payment Request Schedule" values from "Award_Field_Values.xlsx"
+    And I wait for "3" seconds
+    And I click modal button "Save"
+    And I wait for "3" seconds
+    And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardStandAlone:-:progressReportScheduleTableId---" without waiting for record
+    When I enter in modal "Progress Report Schedule" values from "Award_Field_Values.xlsx"
+    And I wait for "3" seconds
+    And I click modal button "Save"
+    Then I refresh the page
+    When I navigate to "Overview" sub tab
+    And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:associatedContactsTableId---" by clicking "Edit" :
+      | Name         | Project Role             | Is Key Personnel |
+      | Daniel Jacks | Project Director/Manager | Checked          |
+    When I navigate to "Responsibilities" sub tab
+    When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
+      | Name     | Award  |
+      | Sarah PM | Step 1 |
+    And I wait for "3" seconds
+    When I navigate to "Terms" sub tab
+    When I click on top right button "Associate Mandatory Terms and Conditions" in flex table with id "---subAwardStandAlone:-:termsndConditionsTableId---"
+    And I pause execution for "3" seconds
+    And I click on "Submit for Approval" in the page details
+    Then I see status in Progress-bar is "Submitted for Approval" and is "dark blue"
+    And I "Approve" in the approval decision
+    And I wait for "2" seconds
+    And I click on "Send to Subrecipient" in the page details
+    And I wait for "2" seconds
+    When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
+    And I navigate to "Grants" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "Record Id" in "---subAwardStandAlone:-:subrecipientPendingtaskTableId---" panel
+    When I click on "Start" icon for "Record Id" inside flex table with id "---subAwardStandAlone:-:subrecipientPendingtaskTableId---" without waiting for record
+    And I click on "Accept after Approval" in the page details
+    And I wait for "2" seconds
+    When I re-login to "Grantor" app as "SARAH PM" user on "INTERNAL" portal
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click toggle button to select "Grants - All"
+    When I perform quick search for "{SavedValue:GrantEGMSID}" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
+    And I click on "View" icon for "{SavedValue:GrantEGMSID}" inside table
+    When I navigate to "Subawards" sub tab
+    And I click on "View" icon for "{SavedValue:AwardEGMSID}" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
+    And I click on "Activate" in the page details
+    And I wait for "3" seconds
+    Then I see that "Subaward" is in "Activated" status
+
+  @FFATAAward6 @FFATAExecution
+  Scenario: Create bulk data for FFATA awards with external funding source with 1 funding accounts
+    When I login to "As a Grantor" app as "SARAH PM" user
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:activeGrantsTableId---"
+    And I wait for "2" seconds
+    And I enter "GrantsFFATA" values from "Award_Field_Values.xlsx"
+    And I click modal button "Continue"
+    And I enter "Grant_Edition_FFATA" values from "Award_Field_Values.xlsx"
+    And I enter in modal value "Automation Runtime FFATA Awards with new FAIN No" into field "ProjectTitle__c"
+    When I click modal button "Save and Continue"
+    And I save the field labeled "EGMS ID" as "GrantEGMSID"
+    And I navigate to "Subawards" sub tab
+    And I click on "View" icon for "Created" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
+    And I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "AwardEGMSID"
+    And I navigate to "Overview" sub tab
+    And I click on "Edit" in the page details
+    When I enter "Edition_FFATA" values from "Award_Field_Values.xlsx"
+    And I enter value "29000" into field "NewObligation__c"
+    And I enter value "29000" into field "TotalCommitment__c"
+    And I click on "Save" in the page details
+    And I navigate to "Budget" sub tab
+    When I click on top right button "Associate" in flex table with id "---subAwardStandAlone:-:fundingAccountsTableId---"
+    When I click "Associate" after selection of "FA-FD-274" in the table "---subAwardStandAlone:-:awardFundingAccountsTableId---"
+    And I wait for "3" seconds
+    And I click modal button "Close"
+    And I wait for "3" seconds
+    When I edit the following rows inline in flex table with id "---subAwardStandAlone:-:fundingAccountsTableId---" by clicking "Edit" :
+      | Funding Account | Encumbrance |
+      | FA-FD-274       | 29000       |
+    And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:subAwardBudgetTableId---" by clicking "Edit" :
+      | Budget Category | Award Amount |
+      | Construction    | 29000        |
+    And I navigate to "Terms" sub tab
+    And I click on "Edit" icon for "Payment Request" inside flex table with id "---subAwardStandAlone:-:paymentRequestSchedulesTableId---" without waiting for record
+    When I enter in modal "Payment Request Schedule" values from "Award_Field_Values.xlsx"
+    And I wait for "3" seconds
+    And I click modal button "Save"
+    And I wait for "3" seconds
+    And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardStandAlone:-:progressReportScheduleTableId---" without waiting for record
+    When I enter in modal "Progress Report Schedule" values from "Award_Field_Values.xlsx"
+    And I wait for "3" seconds
+    And I click modal button "Save"
+    Then I refresh the page
+    When I navigate to "Overview" sub tab
+    And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:associatedContactsTableId---" by clicking "Edit" :
+      | Name         | Project Role             | Is Key Personnel |
+      | Daniel Jacks | Project Director/Manager | Checked          |
+    When I navigate to "Responsibilities" sub tab
+    When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
+      | Name     | Award  |
+      | Sarah PM | Step 1 |
+    And I wait for "3" seconds
+    When I navigate to "Terms" sub tab
+    When I click on top right button "Associate Mandatory Terms and Conditions" in flex table with id "---subAwardStandAlone:-:termsndConditionsTableId---"
+    And I pause execution for "3" seconds
+    And I click on "Submit for Approval" in the page details
+    Then I see status in Progress-bar is "Submitted for Approval" and is "dark blue"
+    And I "Approve" in the approval decision
+    And I wait for "2" seconds
+    And I click on "Send to Subrecipient" in the page details
+    And I wait for "2" seconds
+    When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
+    And I navigate to "Grants" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "Record Id" in "---subAwardStandAlone:-:subrecipientPendingtaskTableId---" panel
+    When I click on "Start" icon for "Record Id" inside flex table with id "---subAwardStandAlone:-:subrecipientPendingtaskTableId---" without waiting for record
+    And I click on "Accept after Approval" in the page details
+    And I wait for "2" seconds
+    When I re-login to "Grantor" app as "SARAH PM" user on "INTERNAL" portal
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click toggle button to select "Grants - All"
+    When I perform quick search for "{SavedValue:GrantEGMSID}" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
+    And I click on "View" icon for "{SavedValue:GrantEGMSID}" inside table
+    When I navigate to "Subawards" sub tab
+    And I click on "View" icon for "{SavedValue:AwardEGMSID}" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
+    And I click on "Activate" in the page details
+    And I wait for "3" seconds
+    Then I see that "Subaward" is in "Activated" status

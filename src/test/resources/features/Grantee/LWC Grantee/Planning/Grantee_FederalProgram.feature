@@ -3,7 +3,7 @@ Feature: Validate all scenarios for Federal Program
 
   @476625 @ValidateFederalprogramPMusercanviewFederalProgram @GRegression1 @PM_Grantee @P1_Grantee @GranteeTBE
   Scenario Outline: Validate Federal program PM user can view Federal Program
-    When I login to "As a Grantee" app as "<userType>" user
+    When I login to "Grantee" app as "<userType>" user
     And I navigate to "Planning" tab
     When I navigate to "External" content inside "Programs" subheader on left panel
     And I wait for "10" seconds
@@ -68,7 +68,7 @@ Feature: Validate all scenarios for Federal Program
 
   @476626 @ValidateFederalprogramPMusercanviewFederalProgram @PO_Grantee @P1_Grantee @GRegression2 @GranteeTBE
   Scenario Outline: Validate Federal program PO user can view Federal Program
-    When I login to "As a Grantee" app as "<userType>" user
+    When I login to "Grantee" app as "<userType>" user
     And I navigate to "Planning" tab
     When I navigate to "External" content inside "Programs" subheader on left panel
     And I wait for "10" seconds
@@ -133,7 +133,7 @@ Feature: Validate all scenarios for Federal Program
 
   @476627 @ValidateFederalprogramPMusercanviewFederalProgram @P3_Grantee @EXE_Grantee @GRegression1 @GranteeTBE
   Scenario Outline: Validate Federal program EXE user can view Federal Program
-    When I login to "As a Grantee" app as "<userType>" user
+    When I login to "Grantee" app as "<userType>" user
     And I navigate to "Planning" tab
     When I navigate to "External" content inside "Programs" subheader on left panel
     And I wait for "10" seconds
@@ -198,7 +198,7 @@ Feature: Validate all scenarios for Federal Program
 
   @476628 @ValidateFederalprogramPMusercanviewFederalProgram @FO_Grantee @P3_Grantee @GRegression2 @GranteeTBE
   Scenario Outline: Validate Federal program FO user can view Federal Program
-    When I login to "As a Grantee" app as "<userType>" user
+    When I login to "Grantee" app as "<userType>" user
     And I navigate to "Planning" tab
     When I navigate to "External" content inside "Programs" subheader on left panel
     And I wait for "10" seconds
@@ -263,7 +263,7 @@ Feature: Validate all scenarios for Federal Program
 
   @476629 @ValidateFederalprogramPMusercanviewFederalProgram @FD_Grantee @P3_Grantee @GRegression1 @GranteeTBE
   Scenario Outline: Validate Federal program FD user can view Federal Program
-    When I login to "As a Grantee" app as "<userType>" user
+    When I login to "Grantee" app as "<userType>" user
     And I navigate to "Planning" tab
     When I navigate to "External" content inside "Programs" subheader on left panel
     And I wait for "10" seconds
@@ -328,7 +328,7 @@ Feature: Validate all scenarios for Federal Program
 
   @476630 @ValidateFederalprogramPMusercanviewFederalProgram @P3_Grantee @ADMIN_Grantee @GRegression2 @GranteeTBE
   Scenario Outline: Validate Federal program ADMIN user can view Federal Program
-    When I login to "As a Grantee" app as "<userType>" user
+    When I login to "Grantee" app as "<userType>" user
     And I navigate to "Planning" tab
     When I navigate to "External" content inside "Programs" subheader on left panel
     And I wait for "10" seconds
@@ -393,7 +393,7 @@ Feature: Validate all scenarios for Federal Program
 
   @476631 @ValidateFederalprogramPMusercanviewFederalProgram @AUDITOR_Grantee @P4_Grantee @GRegression4 @GranteeTBE
   Scenario Outline: Validate Federal program AUDITOR user can view Federal Program
-    When I login to "As a Grantee" app as "<userType>" user
+    When I login to "Grantee" app as "<userType>" user
     And I navigate to "Planning" tab
     When I navigate to "External" content inside "Programs" subheader on left panel
     And I wait for "10" seconds

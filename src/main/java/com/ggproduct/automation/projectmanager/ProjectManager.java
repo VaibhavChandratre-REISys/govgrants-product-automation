@@ -92,7 +92,7 @@ public class ProjectManager extends ProjectWebServices {
      * @author- vaibhav.chandratre
      */
     public void assertTextOnPage(String desiredText) {
-        Assert.assertTrue(I.amPerforming().getElementReference().of(By.xpath("//div[@class='tab-instructions slds-m-left_medium']//div"))
+        Assert.assertTrue(I.amPerforming().getElementReference().of(By.xpath("//c-review-access-redirect//div[@class='slds-p-horizontal_medium'] | //div[@class='tab-instructions slds-m-left_medium']//div"))
                 .getAttribute("innerText").contains(desiredText));
     }
 

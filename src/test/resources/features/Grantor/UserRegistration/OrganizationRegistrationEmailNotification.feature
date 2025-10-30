@@ -49,7 +49,7 @@ Feature: Validate all registration related scenarios for Email Notification
     When I click on "Save" in the page details
     When I click on "Submit" in the page details
     And I am on "INTERNAL" portal
-    And I login to "As a Grantor" app as "PM" user
+    And I login to "Grantor" app as "PM" user
     When I navigate to "Pending Subrecipient Registrations" content inside "Organization" subheader on left panel
     When I perform quick search for "{SavedValue:Automation Runtime Organization}" in "{grantor_tableId:SubrecipientOrganization}" panel
     When I click on "Start" icon for "{SavedValue:Automation Runtime Organization}" inside flex table with id "{grantor_tableId:SubrecipientOrganization}"
@@ -77,6 +77,7 @@ Feature: Validate all registration related scenarios for Email Notification
     And I enter value "Yes" into field "SameAsOrganizationAddress__c"
     When I click on "Save" in the page details
     When I click on "Submit" in the page details
+    And I wait for "5" seconds
     Then I softly see the following messages in the page details contains:
       | Confirmation Message |
     And I am on "INTERNAL" portal
@@ -113,7 +114,7 @@ Feature: Validate all registration related scenarios for Email Notification
     When I click on "Save" in the page details
     When I click on "Submit" in the page details
     And I am on "INTERNAL" portal
-    And I login to "As a Grantor" app as "PM" user
+    And I login to "Grantor" app as "PM" user
     When I navigate to "Pending Subrecipient Registrations" content inside "Organization" subheader on left panel
     When I perform quick search for "{SavedValue:Automation Runtime Organization}" in "{grantor_tableId:SubrecipientOrganization}" panel
     When I click on "Start" icon for "{SavedValue:Automation Runtime Organization}" inside flex table with id "{grantor_tableId:SubrecipientOrganization}"
@@ -182,7 +183,7 @@ Feature: Validate all registration related scenarios for Email Notification
     When I click on "Save" in the page details
     When I click on "Submit" in the page details
     And I am on "INTERNAL" portal
-    And I login to "As a Grantor" app as "PM" user
+    And I login to "Grantor" app as "PM" user
     When I navigate to "Pending Subrecipient Registrations" content inside "Organization" subheader on left panel
     When I perform quick search for "{SavedValue:Automation Runtime Organization}" in "{grantor_tableId:SubrecipientOrganization}" panel
     When I click on "Start" icon for "{SavedValue:Automation Runtime Organization}" inside flex table with id "{grantor_tableId:SubrecipientOrganization}"
@@ -205,12 +206,14 @@ Feature: Validate all registration related scenarios for Email Notification
     And I click on "Send Invitation" icon for "{SavedValue:Automation Runtime} User" inside flex table with id "---home:-:userContactsTableId---"
     And I wait for "5" seconds
     #83533 #monu
-    And I wait for "3" seconds
     And I click "Send" button in modal
+    And I wait for "3" seconds
     Then I see the text "Email Sent Successfully." in modal
     When I click modal button "Close"
     And I wait for "2" seconds
     Then I softly see value "Invitation Sent" for title "Status" inside table "---home:-:userContactsTableId---"
+    And I logout
+    And I wait for "2" seconds
     And I checkout to maildrop with mailid "{SavedValue:uniqueEmailID1}"
     And I navigate to maildrop portal for "{SavedValue:uniqueEmailID1}" with subject "Sandbox: Notification: Invitation to be a user of EGMS"
     And I wait for "2" seconds
@@ -235,7 +238,7 @@ Feature: Validate all registration related scenarios for Email Notification
     When I click on "Save" in the page details
     When I click on "Submit" in the page details
     And I am on "INTERNAL" portal
-    And I login to "As a Grantor" app as "PM" user
+    And I login to "Grantor" app as "PM" user
     When I navigate to "Pending Subrecipient Registrations" content inside "Organization" subheader on left panel
     When I perform quick search for "{SavedValue:Automation Runtime Organization}" in "{grantor_tableId:SubrecipientOrganization}" panel
     When I click on "Start" icon for "{SavedValue:Automation Runtime Organization}" inside flex table with id "{grantor_tableId:SubrecipientOrganization}"
@@ -296,7 +299,7 @@ Feature: Validate all registration related scenarios for Email Notification
     When I click on "Save" in the page details
     When I click on "Submit" in the page details
     And I am on "INTERNAL" portal
-    And I login to "As a Grantor" app as "PM" user
+    And I login to "Grantor" app as "PM" user
     When I navigate to "Pending Subrecipient Registrations" content inside "Organization" subheader on left panel
     When I perform quick search for "{SavedValue:Automation Runtime Organization}" in "{grantor_tableId:SubrecipientOrganization}" panel
     When I click on "Start" icon for "{SavedValue:Automation Runtime Organization}" inside flex table with id "{grantor_tableId:SubrecipientOrganization}"
@@ -330,7 +333,7 @@ Feature: Validate all registration related scenarios for Email Notification
     When I click on "Save" in the page details
     When I click on "Submit" in the page details
     And I am on "INTERNAL" portal
-    And I login to "As a Grantor" app as "PM" user
+    And I login to "Grantor" app as "PM" user
     When I navigate to "Pending Subrecipient Registrations" content inside "Organization" subheader on left panel
     When I perform quick search for "{SavedValue:Automation Runtime Organization}" in "{grantor_tableId:SubrecipientOrganization}" panel
     When I click on "Start" icon for "{SavedValue:Automation Runtime Organization}" inside flex table with id "{grantor_tableId:SubrecipientOrganization}"
@@ -387,7 +390,7 @@ Feature: Validate all registration related scenarios for Email Notification
     And I pause execution for "5" seconds
     Then I softly see the text containing "Confirmation Message"
     And I am on "INTERNAL" portal
-    And I login to "As a Grantor" app as "PM" user
+    And I login to "Grantor" app as "PM" user
     When I navigate to "Pending Subrecipient Registrations" content inside "Organization" subheader on left panel
     When I perform quick search for "{SavedValue:Automation Runtime Organization}" in "{grantor_tableId:SubrecipientOrganization}" panel
     When I click on "Start" icon for "{SavedValue:Automation Runtime Organization}" inside flex table with id "{grantor_tableId:SubrecipientOrganization}"

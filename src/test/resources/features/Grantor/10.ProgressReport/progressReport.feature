@@ -18,7 +18,7 @@ Feature: Validate all scenarios in Progress Report
     And I click modal button "Close"
     When I get the "EGMS ID"
 
- @51097 @51098 @51099 @51100 @51102 @51124 @51101 @51103 @51105 @51106 @51107 @51108 @51109 @59048 @51113 @51111 @51114 @51115 @51116 @51117 @51120 @editKPIProgressReportformFilling @FieldHistoryExclude @NewProgressFinal
+  @51097 @51098 @51099 @51100 @51102 @51124 @51101 @51103 @51105 @51106 @51107 @51108 @51109 @59048 @51113 @51111 @51114 @51115 @51116 @51117 @51120 @editKPIProgressReportformFilling @FieldHistoryExclude @NewProgressFinal
   Scenario: To edit KPI in Progress Report | To fill and complete the form in Progress Report | To validate KPI for progress report are not editable post submission of prog report to grantor.
   To submit Progress Report to Grantor | To validate Submitted Progress Report Table is updated post report is submitted to Grantor.
     Then I softly see field "Status" as "Created"
@@ -55,7 +55,9 @@ Feature: Validate all scenarios in Progress Report
     And I navigate to "Performance" sub tab
     Then I softly cannot see row level action button "Edit" against "Automation Permanent KPI" in flex table with id "---progressReport:-:kpiTableId---"
     When I navigate to "Monitoring" tab
+    And I wait for "2" seconds
     And I navigate to "Progress Reports" content inside "Monitoring Activities" subheader on left panel
+    And I wait for "2" seconds
     When I click toggle button to select "Progress Reports - Submitted"
     And I perform quick search for "{SavedValue:Record Id}" in "---progressReport:-:progressReportFlexTableId---" panel
     Then I softly see value "{SavedValue:Record Id}" for title "EGMS ID" inside table "---progressReport:-:progressReportFlexTableId---"
@@ -105,7 +107,7 @@ Feature: Validate all scenarios in Progress Report
     When I perform quick search for "{SavedValue:Record Id}" in "---progressReport:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "{SavedValue:Record Id}" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
     When I "Send to Owner" in the approval decision
-    And I wait for "10" seconds
+    And I wait for "100" seconds
     And I refresh the page
     And I wait for "3" seconds
     Then I softly see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
@@ -130,6 +132,7 @@ Feature: Validate all scenarios in Progress Report
     And I perform quick search for "{SavedValue:Record Id}" in "---progressReport:-:internalProgressReportFlexTableId---" panel
     And I click on "View" icon for "{SavedValue:Record Id}" inside flex table with id "---progressReport:-:internalProgressReportFlexTableId---" without waiting for record
     When I click on "Submit for Approval" in the page details
+    Then I softly see field "Status" as "Submitted for Approval"
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -179,7 +182,7 @@ Feature: Validate all scenarios in Progress Report
     And I navigate to "Terms" sub tab
     Then I softly cannot see row level action button "Edit" against "Progress Report" in flex table with id "---progressreport:-:progressReportsScheduleId---"
 
-@51118 @51119 @51121 @59678 @51122 @51123 @51125 @58887 @sendBacktoOwnerOfProgressReportbyFiscalApprover @smoke @FieldHistoryExclude
+  @51118 @51119 @51121 @59678 @51122 @51123 @51125 @58887 @sendBacktoOwnerOfProgressReportbyFiscalApprover @smoke @FieldHistoryExclude
   Scenario: To validate Progress Report send back to owner functionality by Fiscal approver. |  To validate progress report are not editable post submission of progress report to grantor.
   To validate  field history update post Progress Report is send back to owner by Fiscal approver.
     And I click on "Edit" in the page details
@@ -225,7 +228,7 @@ Feature: Validate all scenarios in Progress Report
     When I perform quick search for "{SavedValue:Record Id}" in "---progressReport:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "{SavedValue:Record Id}" inside table
     When I "Send to Owner" in the approval decision
-    And I wait for "10" seconds
+    And I wait for "100" seconds
     And I refresh the page
     And I wait for "5" seconds
     Then I softly see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
@@ -245,6 +248,7 @@ Feature: Validate all scenarios in Progress Report
     And I perform quick search for "{SavedValue:Record Id}" in "---progressReport:-:internalProgressReportFlexTableId---" panel
     And I click on "View" icon for "{SavedValue:Record Id}" inside flex table with id "---progressReport:-:internalProgressReportFlexTableId---" without waiting for record
     Given I click on "Submit for Approval" in the page details
+    Then I softly see field "Status" as "Submitted for Approval"
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -288,7 +292,7 @@ Feature: Validate all scenarios in Progress Report
       | Grant Name                            |
       | {SavedValue:Automation Runtime award} |
 
- @57646 @57690 @verifyProgressReportTablUpdatedWithStatusSubmittedForApprovalAtSubPortal  @NewProgressFinal
+  @57646 @57690 @verifyProgressReportTablUpdatedWithStatusSubmittedForApprovalAtSubPortal  @NewProgressFinal
   Scenario Outline: Verify Progress report table get updated with status Submitted for Approval at grantee portal | To edit Progress Report
     And I click on "Edit" in the page details
     When I enter "Edition" values from "ProgressReport_Field_Values.xlsx"
@@ -435,7 +439,7 @@ Feature: Validate all scenarios in Progress Report
     And I perform quick search for "{SavedValue:Record Id}" in "---progressReport:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "{SavedValue:Record Id}" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
     And I "Send to Owner" in the approval decision
-    And I wait for "5" seconds
+    And I wait for "100" seconds
     And I refresh the page
     Then I softly see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
 
@@ -815,7 +819,7 @@ Feature: Validate all scenarios in Progress Report
     And I perform quick search for "{SavedValue:Record Id}" in "---progressReport:-:internalProgressReportFlexTableId---" panel
     Then I see value "{SavedValue:Record Id}" for title "EGMS ID" inside table "---progressReport:-:internalProgressReportFlexTableId---"
 
- @58884 @SeeSendBackToSubrecipientPROnActiveAwardByInternalUser
+  @58884 @SeeSendBackToSubrecipientPROnActiveAwardByInternalUser
   Scenario: Verify that Internal User will be able to see Send back to Sub-recipient Progress Report record on active award by using List View .
     And I click on "Edit" in the page details
     When I enter "Edition" values from "ProgressReport_Field_Values.xlsx"
@@ -1044,11 +1048,11 @@ Feature: Validate all scenarios in Progress Report
     And I wait for "3" seconds
     Then I softly see status in Progress-bar is "Sent Back to Subrecipient" and is "dark blue"
 
-   @59773 @59774 @59776 @59777 @validateSRUserEntersKPIActualValue
+  @59773 @59774 @59776 @59777 @validateSRUserEntersKPIActualValue
   Scenario: Validate SR user is able to enter Actual field value at KPI under performance tab at Progress report | Validate SR user is able to select Reported Date field at KPI under performance tab at Progress report
   Validate SR user is able to enter Actual field value at KPI under performance tab more than the Target Value at Progress report | Validate SR user is able to enter Actual field value at KPI under performance tab less than the Target Value at Progress repor
-     And I wait for "3" seconds
-     When I navigate to "Performance" sub tab
+    And I wait for "3" seconds
+    When I navigate to "Performance" sub tab
     And I edit the following rows inline in flex table with id "---progressReport:-:kpiTableId---" by clicking "Edit" :
       | Title                    | Reported Date | Actual |
       | Automation Permanent KPI | 7             | 10     |
@@ -1223,7 +1227,7 @@ Feature: Validate all scenarios in Progress Report
       | Grant Name                            |
       | {SavedValue:Automation Runtime award} |
 
- @59901 @validateSubmittedForApprovalProgressReportsAtManagementTabOnGrantAtInternalSide
+  @59901 @validateSubmittedForApprovalProgressReportsAtManagementTabOnGrantAtInternalSide
   Scenario Outline: Validate Progress Reports at Management tab on Grant overview is getting updated with Progress report whose status is submitted for approval at Award owner End
     And I click on "Edit" in the page details
     When I enter "Edition" values from "ProgressReport_Field_Values.xlsx"
@@ -1370,7 +1374,7 @@ Feature: Validate all scenarios in Progress Report
     And I navigate to "Performance" sub tab
     Then I softly cannot see row level action button "Edit" against "Automation Permanent KPI" in flex table with id "---progressreport:-:kpiTableId---"
 
-@60024 @59835 @59838 @TWOPRKPIValueSameCheck @jitendra
+  @60024 @59835 @59838 @TWOPRKPIValueSameCheck @jitendra
   Scenario Outline: Validate Previous Actual field on KPI table under Performance tab at Progress report overview is getting updated with reference to the recently approved Progress report.
   Validate Final Report? field under Report Overview table at overview tab on Progress report is present | Validate Previous Date field on KPI table under Performance tab at Progress report overview is getting updated with reference to the recently approved Progress report
     When I navigate to "Overview" sub tab
@@ -1409,7 +1413,7 @@ Feature: Validate all scenarios in Progress Report
     When I perform quick search for "{SavedValue:Record Id}" in "---progressReport:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "{SavedValue:Record Id}" inside table
     When I "Send to Owner" in the approval decision
-    And I wait for "30" seconds
+    And I wait for "50" seconds
     When I re-login to "Grantor" app as "dynamicUser" user on "INTERNAL" portal
     When I navigate to "Monitoring" tab
     And I navigate to "Progress Reports" content inside "Monitoring Activities" subheader on left panel
@@ -1417,6 +1421,7 @@ Feature: Validate all scenarios in Progress Report
     When I perform quick search for "{SavedValue:Record Id}" in "---progressReport:-:internalProgressReportFlexTableId---" panel
     And I click on "View" icon for "{SavedValue:Record Id}" inside flex table with id "---progressReport:-:internalProgressReportFlexTableId---" without waiting for record
     When I click on "Submit for Approval" in the page details
+    Then I softly see field "Status" as "Submitted for Approval"
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -1704,7 +1709,7 @@ Feature: Validate all scenarios in Progress Report
     And I navigate to "Management" sub tab
     Then I see value "Sent Back to Subrecipient" for title "Status" inside table "---progressReport:-:recipientGrantProgressReportTableId---"
 
- @59905 @validateProgressReportsTableAtManagementTabWithStatusIsSubmittedToGrantor
+  @59905 @validateProgressReportsTableAtManagementTabWithStatusIsSubmittedToGrantor
   Scenario: Validate Progress Reports Table at Management tab on Grant overview is getting updated with Progress report whose status is Submitted to Grantor at SR User End
     And I click on "Edit" in the page details
     When I enter "Edition" values from "ProgressReport_Field_Values.xlsx"
@@ -1852,7 +1857,7 @@ Feature: Validate all scenarios in Progress Report
     When I navigate to "Management" sub tab
     When I click on "View" icon for "{SavedValue:Automation Runtime award}" inside flex table with id "---progressReport:-:grantorGrantProgressReportTableId---"
     And I navigate to "Overview" sub tab
-    Then I softly see that "IsFinalReport__c" rendered in view mode only
+    Then I softly see that "Final Report?" rendered in view mode only
 
   @60572 @60571 @validateSubmissionOfReview
   Scenario: Validate Peer reviewer can submit the review for the assigned progress report | Validate Peer reviewer can Edit the Entered review before Submitting it to Award owner for Progress report
@@ -1928,7 +1933,7 @@ Feature: Validate all scenarios in Progress Report
     And I perform quick search for "{SavedValue:Record Id}" in "---progressReport:-:pendingTaskTableId---" panel
     Then I do not see value "{SavedValue:Record Id}" for title "EGMS ID" inside table "---progressReport:-:pendingTaskTableId---"
 
- @60569 @60573 @ReviewIsUpdatedAtAwardownerafterPeerReviewSubmitted
+  @60569 @60573 @ReviewIsUpdatedAtAwardownerafterPeerReviewSubmitted
   Scenario: Validate Once Peer reviewer submit the review to award owner, the review is updated at Award owner end also. | Validate Award owner can send Progress report for Peer Reviewer When Progress report status is Submitted for Grantor.
     And I click on "Edit" in the page details
     When I enter "Edition" values from "ProgressReport_Field_Values.xlsx"
@@ -2050,7 +2055,7 @@ Feature: Validate all scenarios in Progress Report
     And I perform quick search for "Record Id" in "---progressReport:-:pendingTaskTableId---" panel
     Then I see value "{SavedValue:Record Id}" for title "EGMS ID" inside table "---progressReport:-:pendingTaskTableId---"
 
- @60576 @PendingTaskSubmitToReview @jitendra
+  @60576 @PendingTaskSubmitToReview @jitendra
   Scenario: Validate Pending Task is created for Fiscal Approver When Progress report status is Submitted for Review from Peer Reviewer table.
     And I click on "Edit" in the page details
     When I enter "Edition" values from "ProgressReport_Field_Values.xlsx"

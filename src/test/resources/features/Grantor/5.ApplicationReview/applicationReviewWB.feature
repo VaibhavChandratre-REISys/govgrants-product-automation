@@ -7305,6 +7305,7 @@ Feature: Validate all scenarios in the Application Review without background
     Then I softly see multiple selected options in "multiSelectPicklistCell":
       | Files: Forms |
     When I click on "Save" in the page details
+    And I wait for "2" seconds
     #134182
     Then I softly see field "Details" as "Negotiation Initiated"
     And I edit the following rows inline in flex table with id "---negotiation:-:NegotiationFormsTableId---" by clicking "Edit" :
@@ -8132,10 +8133,14 @@ Feature: Validate all scenarios in the Application Review without background
     Then I softly cannot see row level action button "Edit" against "Standard Assurances Form" in flex table with id "---negotiation:-:filesFormsTableId---"
     Then I softly cannot see row level action button "Edit" against "Program Application Form" in flex table with id "---negotiation:-:filesFormsTableId---"
     And I click on "View" icon for "Program Application Form" inside flex table with id "---negotiation:-:negotiationFilesFormTableId---"
+    And I switch to tab number "2"
     Then I softly cannot see top right button "Edit" in page detail
+    And I close the tab
 #    When I click on "Back" in the page details
     And I click on "View" icon for "Standard Assurances Form" inside flex table with id "---negotiation:-:negotiationFilesFormTableId---"
+    And I switch to tab number "2"
     Then I softly cannot see top right button "Edit" in page detail
+    And I close the tab
     #134406
 #    When I click on "Back" in the page details
     When I click on "Request Negotiations" in the page details
@@ -10195,13 +10200,12 @@ Feature: Validate all scenarios in the Application Review without background
     And I click modal button "Continue"
     When I enter "Creation Second Negotiation" values from "Announcement_Field_Values.xlsx"
     And I click modal button "Save and Continue"
-    When I click on "Save" in the page details
+    And I enter "Edition" values from "Announcement_Field_Values.xlsx"
+    And I click on "Save" in the page details
+    And I navigate to "Overview" sub tab
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "AnnEGMSID"
     And I save the field labeled "Announcement Name" as "Automation Runtime Announcement Application Review"
-    When I click on "Edit" in the page details
-    And I enter "Edition" values from "Announcement_Field_Values.xlsx"
-    And I click on "Save" in the page details
     When I navigate to "Financials" sub tab
     And I click on top right button "Associate" in flex table with id "---announcement:-:fundingAccountsTableId---"
     When I click "Associate" after selection of "{SavedValue:fundingAccount}" by showing entries "All" in flex table with id "---announcement:-:fundingAccTableId---"
@@ -13410,8 +13414,10 @@ Feature: Validate all scenarios in the Application Review without background
     When I expand nested table containing column value "<Application Name>"
     And I click on "Automation PM: Review Completed - Recommended" icon for "Pre-Screen" inside flex table with id "---applicationReview:-:reviewFormsTableId---" with wait for record
     Then I see the page contains text "Only the announcement record owner or the assigned reviewer can view the reviewer's response. If you need access to the reviewer's response, please contact technical support."
+    And I close the tab
     And I click on "Automation EXE: Review Completed - Recommended" icon for "Pre-Screen" inside flex table with id "---applicationReview:-:reviewFormsTableId---" with wait for record
     And I wait for "3" seconds
+    And I close the tab
 #    Then I softly see that "Reviewer" is in "Automation EXE" status
     #236830
     Then I softly do not see "Average Score" in flex table header "---applicationReview:-:reviewFormsTableId---"
@@ -13421,7 +13427,7 @@ Feature: Validate all scenarios in the Application Review without background
       | Announcement Name                                        | Application Name                                         |
       | {SavedValue:Automation Runtime Competitive Announcement} | {SavedValue:Automation Runtime Competitive Announcement} |
 
-  @236831  @sprint-14-US-236321  @reassignment @bug-412783
+  @236831  @sprint-14-US-236321  @reassignment
   Scenario Outline: Validate old user should not see the average weighted score column on application
     When I login to "Grantor" app as "PM" user
     And I navigate to "Planning" tab
@@ -18460,14 +18466,12 @@ Feature: Validate all scenarios in the Application Review without background
     And I click modal button "Continue"
     When I enter "Creation Second Modal1" values from "Announcement_Field_Values.xlsx"
     And I click modal button "Save and Continue"
-    When I click on "Save" in the page details
+    And I enter "Edition1" values from "Announcement_Field_Values.xlsx"
+    And I click on "Save" in the page details
+    And I navigate to "Overview" sub tab
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "AnnEGMSID"
     And I save the field labeled "Announcement Name" as "Automation Runtime FDM Announcement"
-    When I click on "Edit" in the page details
-    And I wait for "5" seconds
-    And I enter "Edition1" values from "Announcement_Field_Values.xlsx"
-    And I click on "Save" in the page details
     When I navigate to "Financials" sub tab
     And I click on top right button "Associate" in flex table with id "---announcement:-:fundingAccountsTableId---"
     When I click "Associate" after selection of "{SavedValue:fundingAccount}" by showing entries "All" in flex table with id "---announcement:-:fundingAccTableId---"
