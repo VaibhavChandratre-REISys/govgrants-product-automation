@@ -2197,7 +2197,7 @@ Feature: Validate all scenarios of every modules flow
     And I wait for "3" seconds
     Then I see that "Subaward" is in "Activated" status
 
-  @FFATAAward3
+  @FFATAAward3 @FFATAExecution
   Scenario: Create bulk data for FFATA awards with internal funding source with 1 funding accounts
     When I login to "As a Grantor" app as "SARAH PM" user
     And I navigate to "Grants" tab
@@ -2205,6 +2205,7 @@ Feature: Validate all scenarios of every modules flow
     And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:activeGrantsTableId---"
     And I wait for "2" seconds
     And I enter "GrantsFFATA" values from "Award_Field_Values.xlsx"
+    And I enter in modal value "Automation Runtime FFATA Awards with Internal Funding Source" into field "ProjectTitle__c"
     And I click modal button "Continue"
     And I enter "Grant_Edition_FFATA" values from "Award_Field_Values.xlsx"
     When I click modal button "Save and Continue"
@@ -2279,7 +2280,7 @@ Feature: Validate all scenarios of every modules flow
     And I wait for "3" seconds
     Then I see that "Subaward" is in "Activated" status
 
-  @FFATAAward4
+  @FFATAAward4 @FFATAExecution
   Scenario: Create bulk data for FFATA awards with external funding source with 1 funding accounts with invalid agency code
     When I login to "As a Grantor" app as "SARAH PM" user
     And I navigate to "Grants" tab
@@ -2287,6 +2288,7 @@ Feature: Validate all scenarios of every modules flow
     And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:activeGrantsTableId---"
     And I wait for "2" seconds
     And I enter "GrantsFFATA" values from "Award_Field_Values.xlsx"
+    And I enter in modal value "Automation Runtime FFATA Awards with Invalid Agency Code" into field "ProjectTitle__c"
     And I click modal button "Continue"
     And I enter "Grant_Edition_FFATA" values from "Award_Field_Values.xlsx"
     When I click modal button "Save and Continue"
@@ -2361,7 +2363,7 @@ Feature: Validate all scenarios of every modules flow
     And I wait for "3" seconds
     Then I see that "Subaward" is in "Activated" status
 
-  @FFATAAward5
+  @FFATAAward5 @FFATAExecution
   Scenario: Create bulk data for FFATA awards with external funding source with 1 funding accounts with invalid FAIN no
     When I login to "As a Grantor" app as "SARAH PM" user
     And I navigate to "Grants" tab
@@ -2369,6 +2371,7 @@ Feature: Validate all scenarios of every modules flow
     And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:activeGrantsTableId---"
     And I wait for "2" seconds
     And I enter "GrantsFFATA" values from "Award_Field_Values.xlsx"
+    And I enter in modal value "Automation Runtime FFATA Awards with Invalid FAIN No" into field "ProjectTitle__c"
     And I click modal button "Continue"
     And I enter "Grant_Edition_FFATA" values from "Award_Field_Values.xlsx"
     When I click modal button "Save and Continue"
@@ -2443,7 +2446,7 @@ Feature: Validate all scenarios of every modules flow
     And I wait for "3" seconds
     Then I see that "Subaward" is in "Activated" status
 
-  @FFATAAward6
+  @FFATAAward6 @FFATAExecution
   Scenario: Create bulk data for FFATA awards with external funding source with 1 funding accounts
     When I login to "As a Grantor" app as "SARAH PM" user
     And I navigate to "Grants" tab
@@ -2453,6 +2456,7 @@ Feature: Validate all scenarios of every modules flow
     And I enter "GrantsFFATA" values from "Award_Field_Values.xlsx"
     And I click modal button "Continue"
     And I enter "Grant_Edition_FFATA" values from "Award_Field_Values.xlsx"
+    And I enter in modal value "Automation Runtime FFATA Awards with new FAIN No" into field "ProjectTitle__c"
     When I click modal button "Save and Continue"
     And I save the field labeled "EGMS ID" as "GrantEGMSID"
     And I navigate to "Subawards" sub tab

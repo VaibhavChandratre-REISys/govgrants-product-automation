@@ -172,7 +172,7 @@ public class UsersAndURL implements UsersController {
                 password = "Merge@2025";
                 break;
             case "GRANTEE AUDITOR":
-                password = "Auto@2021";
+                password = "Merge@2026";
                 break;
             case "SARAH PM":
                 password = "Merge@2025";
@@ -459,7 +459,7 @@ public class UsersAndURL implements UsersController {
         username.put("GRANTEE FO", "david.fo@ggp.test8.ggmergeqa2");
         username.put("GRANTEE FD", "danielle.garcia@ggp.test8.ggmergeqa2");
         username.put("GRANTEE PO", "grantee.po@yopmail.com.ggmergeqa2");
-        username.put("GRANTEE AUDITOR", "automationauditor@yopmail.com.ggmergeqa2");
+        username.put("GRANTEE AUDITOR", "alex.auditor@yopmail.com.ggmergeqa2");
 
         if (userLevel.toUpperCase() != null) {
             return username.get(userLevel.toUpperCase());
