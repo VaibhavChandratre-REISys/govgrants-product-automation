@@ -2033,7 +2033,6 @@ Feature: Grantee Forms Scenario
       | To Save, I AGREE is required in the Agreement Details section.                                                                                                                                        |
       | To Save, First Name is required in the Applicant Information section.                                                                                                                                                                       |
       | To Save, Last Name is required in the Applicant Information section.                                                                                                                                                                        |
-      | To Save, Title is required in the Applicant Information section.                                                                                                                                                                            |
       | To Save, Telephone Number is required in the Applicant Information section.                                                                                                                                                                 |
       | To Save, Email is required in the Applicant Information section.                                                                                                                                                                            |
     When I click on "Cancel" in the page details without processing
@@ -10330,7 +10329,10 @@ Feature: Grantee Forms Scenario
     Then I softly can see top right button "Validate" in the split screen page details
     Then I softly can see top right button "Edit" in the split screen page details
     And I click on "Edit" in the split screen page details
-    And I enter "SF424_FORM" values from "Application_Field_Values.xlsx"
+    And I enter "SF424_FORM1" values from "Application_Field_Values.xlsx"
+    And I enter the value "VA" for the field "City__c" inside page block "Applicant Information"
+    And I enter the value "AL" for the field "State__c" inside page block "Applicant Information"
+    And I enter the value "USA: UNITED STATES" for the field "Country__c" inside page block "Applicant Information"
     And I wait for "2" seconds
     And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
     And I upload attachment without random number "AttachmentTesting.pdf" of type "Delinquent Federal Debt" from computer
