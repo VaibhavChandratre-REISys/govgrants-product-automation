@@ -4092,10 +4092,8 @@ Feature: Validate all scenarios for Grantee Progress Report
     Then I softly see new tab is opened
     And I switch to tab number "1"
     Then I softly can see top right button "Edit" in page detail
+    And I close the tab
     When I navigate to "Forms and Files" sub tab
-    And I wait for "3" seconds
-    And I refresh the page
-    And I wait for "7" seconds
     And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:progressReportFileTableId---"
     And I wait for "7" seconds
     And I select Classification as "Progress Report" at upload file modal
