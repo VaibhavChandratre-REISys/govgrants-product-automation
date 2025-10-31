@@ -553,7 +553,7 @@ Feature: Validate all scenarios for Grants & Awards for PDF
     When I perform quick search for "Activated" in "---grantee_tableId:-:awardTableId---" panel
     Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:awardTableId---"
     When I perform quick search for "Submitted for Review" in "---grantee_tableId:-:awardTableId---" panel
-    Then I softly see value "Submitted for Review" for title "Status" inside table "---grantee_tableId:-:awardTableId---"
+    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:awardTableId---"
     When I perform quick search for "Submitted for Approval" in "---grantee_tableId:-:awardTableId---" panel
     Then I softly see value "Submitted for Approval" for title "Status" inside table "---grantee_tableId:-:awardTableId---"
     When I perform quick search for "Closed" in "---grantee_tableId:-:awardTableId---" panel
