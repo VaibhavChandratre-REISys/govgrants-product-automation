@@ -99,7 +99,7 @@ Feature: Validate all scenarios for Pre-Applications Grants Gov
     When I enter the following values into flex table with id "---grantee_tableId:-:PreApplicationDetailsLineItemTableId---" by clicking "New" :
       | Title        | Narrative     | Award Budget | Cash Match | Non-Cash Match |
       | Construction | The narrative | 5000         | 500        | 500            |
-    When I close "Budget Category Line Item" modal by clicking the top right x button
+    When I close "Pre-App Line Items" modal by clicking the top right x button
     And I refresh the page
     And I wait for "2" seconds
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:preApplicationProgramIncomeTableId---" by clicking "Edit" :
@@ -772,7 +772,7 @@ Feature: Validate all scenarios for Pre-Applications Grants Gov
     When I enter the following values into flex table with id "---grantee_tableId:-:PreApplicationDetailsLineItemTableId---" by clicking "New" :
       | Title        | Narrative     | Award Budget | Cash Match | Non-Cash Match |
       | Construction | The narrative | 5000         | 500        | 500            |
-    When I close "Budget Category Line Item" modal by clicking the top right x button
+    When I close "Pre-App Line Items" modal by clicking the top right x button
     And I refresh the page
     And I wait for "2" seconds
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:preApplicationProgramIncomeTableId---" by clicking "Edit" :
@@ -1009,7 +1009,7 @@ Feature: Validate all scenarios for Pre-Applications Grants Gov
     When I enter the following values into flex table with id "---grantee_tableId:-:PreApplicationDetailsLineItemTableId---" by clicking "New" :
       | Title        | Narrative     | Award Budget | Cash Match | Non-Cash Match |
       | Construction | The narrative | 5000         | 500        | 500            |
-    When I close "Budget Category Line Item" modal by clicking the top right x button
+    When I close "Pre-App Line Items" modal by clicking the top right x button
     And I refresh the page
     And I wait for "2" seconds
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:preApplicationProgramIncomeTableId---" by clicking "Edit" :
@@ -1078,7 +1078,7 @@ Feature: Validate all scenarios for Pre-Applications Grants Gov
     Then I softly cannot see top right button "New" in flex table with id "---grantee_tableId:-:PreApplicationDetailsLineItemTableId---"
     Then I softly cannot see row level action button "Edit" against "Construction" in flex table with id "---grantee_tableId:-:PreApplicationDetailsLineItemTableId---"
     Then I softly cannot see row level action button "Delete" against "Construction" in flex table with id "---grantee_tableId:-:PreApplicationDetailsLineItemTableId---"
-    When I close "Budget Category Line Item" modal by clicking the top right x button
+    When I close "Pre-App Line Items" modal by clicking the top right x button
     And I refresh the page
     And I wait for "2" seconds
     Then I cannot see row level action button "Edit" against "Automation Permanent Focus Area" in flex table with id "---grantee_tableId:-:preApplicationProgramIncomeTableId---"
