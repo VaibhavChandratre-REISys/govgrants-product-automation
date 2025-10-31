@@ -4101,7 +4101,7 @@ Feature: Validate all scenarios for Grantee Progress Report
     When I click modal button "Close"
     And I wait for "2" seconds
     And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:progressReportFileTableId---"
-    And I upload attachment without random number "Attachment.pdf" of type "Other" from computer
+    And I upload attachment without random number "Attachment.pdf" of type "Progress Report" from computer
     When I click modal button "Close"
     And I refresh the page
     And I wait for "2" seconds

@@ -503,6 +503,7 @@ Feature: Validate all scenarios for Financial Report
     And I enter a review as "Passed"
     When I click modal button "Save"
     And I click on submit review
+    And I halt execution
     Then I softly see value "Submitted" for title "Status" against the value "Fiscal Reviewer" inside table "---grantee_tableId:-:financialReportPeerReviewTableId---"
     Then I softly cannot see row level action button "Enter Review" against "Fiscal Reviewer" in flex table with id "---grantee_tableId:-:financialReportPeerReviewTableId---"
     And I expand nested table containing column value "Fiscal Reviewer"
