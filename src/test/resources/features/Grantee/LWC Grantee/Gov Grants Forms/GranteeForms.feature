@@ -11878,6 +11878,7 @@ Feature: Grantee Forms Scenario
     And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
     Then I softly see "Add File" opens in overLay window
     And I upload attachment without random number "AttachmentTesting.pdf" of type "Mandatory Other Attachment" from computer
+    And I wait for "3" seconds
     When I click modal button "Close"
     And I wait for "2" seconds
     Then I see "AttachmentTesting.pdf" has been added in "Files" flex table
@@ -11888,6 +11889,9 @@ Feature: Grantee Forms Scenario
     And I close the tab
     And I wait for "2" seconds
     When I click on "Splitview" icon for "Other Attachments Forms" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    And I wait for "2" seconds
+    And I refresh the page
+    And I wait for "2" seconds
     Then I can see top right button "Edit" in the split screen page details
     Then I can see top right button "Validate" in the split screen page details
     Then I softly see top right button "Add Files" inside flex table "---grantee_tableId:-:applicationFormAddFileTableId---"
