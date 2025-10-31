@@ -27548,13 +27548,13 @@ Feature: Validate all scenarios for Grantee Amendment Request
           And I edit the following rows inline in flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---" by clicking "Edit" :
             | Title          | Narrative     | Awarded Budget | Cash Match | Other Leverage |
             | Construction   | The narrative | 3000           | 400        | 400            |
-          When I close "Add Line Items" modal by clicking the top right x button
+          When I close "Amendment Line Items" modal by clicking the top right x button
           And I wait for "3" seconds
           When I click on "Add Line Items" icon for "Architectural and engineering fees" inside flex table with id "---grantee_tableId:-:AmendmentBudgetTableId---" with wait for record
           When I enter the following values into flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---" by clicking "New" :
             | Title                              | Narrative     | Awarded Budget | Cash Match | Other Leverage |
             | Architectural and engineering fees | The narrative | 1000           | 100        | 100            |
-          When I close "Add Line Items" modal by clicking the top right x button
+          When I close "Amendment Line Items" modal by clicking the top right x button
           And I wait for "3" seconds
           And I click on top right button "New" in flex table with id "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
           When I enter in modal value "CFTermsCondition" into field "Title__c"
