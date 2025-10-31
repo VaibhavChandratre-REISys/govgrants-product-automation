@@ -549,13 +549,13 @@ Feature: Validate all scenarios for Grants & Awards
     Then I softly see top right button "New" inside flex table "---grantee_tableId:-:awardLineItemsTableId---"
     Then I softly can see row level action button "Edit" against "Construction" in flex table with id "---grantee_tableId:-:awardLineItemsTableId---"
     Then I softly can see row level action button "Delete" against "Construction" in flex table with id "---grantee_tableId:-:awardLineItemsTableId---"
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Award Line Items" modal by clicking the top right x button
     And I click on page navigation arrow "---grantee_tableId:-:AwardBudgetTableId---" for table id "Next"
     When I click on "Add Line Items" icon for "Construction" inside flex table with id "---grantee_tableId:-:AwardBudgetTableId---" with wait for record
     When I enter the following values into flex table with id "---grantee_tableId:-:awardLineItemsTableId---" by clicking "New" :
       | Title        | Narrative     | Award Budget |
       | Construction | The narrative | 5000         |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Award Line Items" modal by clicking the top right x button
     Then I softly do not see "Program Income" page block displayed
     Then I softly do not see "Indirect Rates" page block displayed
     And I navigate to "Responsibilities" sub tab
@@ -3046,7 +3046,7 @@ Feature: Validate all scenarios for Grants & Awards
     When I enter the following values into flex table with id "---grantee_tableId:-:awardLineItemsTableId---" by clicking "New" :
       | Title        | Narrative     | Award Budget | Cash Match | Other Leverage |
       | Construction | The narrative | 5000         | 500        | 200            |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Award Line Items" modal by clicking the top right x button
     And I wait for "3" seconds
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:awardProgramIncomeTableId---" by clicking "Edit" :
       | Focus Area Name                 | Projected Program Income ($) | Program Income Justification |
@@ -5059,8 +5059,8 @@ Feature: Validate all scenarios for Grants & Awards
     And I "Created" standalone subaward "Automation Runtime award" with properties "default-Grantee PO user"
     And I updated direct grant award for title "{SavedValue:Automation Runtime award}" with properties "default"
     And I activate the award for title "{SavedValue:Automation Runtime award}"
-    And I "Created" the "Financial Report" for title "{SavedValue:Automation Runtime award}" with properties "PO_OWNER"
     When I login to "Grantee" app as "GRANTEE PO" user
+    And I "Created" the "Financial Report" for title "{SavedValue:Automation Runtime award}" with properties "PO_OWNER"
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
     And I click toggle button to select "Grants - All"
@@ -5161,6 +5161,7 @@ Feature: Validate all scenarios for Grants & Awards
     And I navigate to "Management" sub tab
     Then I softly see value "{SavedValue:financialEGMSID3}" for title "EGMS ID" inside table "---grantee_tableId:-:FinancialsReportTableId---"
     Then I softly see value "{SavedValue:AwardEGMSID}" for title "Award EGMS ID" against the value "{SavedValue:financialEGMSID3}" inside table "---grantee_tableId:-:FinancialsReportTableId---"
+
    @443799 @validateWithPMProfileHistoryTabofGrantpagelayout @P2_Grantee @PM_Grantee @Gregression2
    Scenario: Validate With PM Profile History Tab of Grant page layout.
      And I "Created" standalone subaward "Automation Runtime award" with properties "default"
