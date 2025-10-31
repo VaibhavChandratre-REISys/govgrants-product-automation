@@ -1,4 +1,4 @@
-@GranteeFocusArea
+@GranteeFocusArea @GranteePreAwardRegression
 Feature: Validate all scenarios for Focus Areas
 
   @440216 @FocusAreaVerifyOnlyPOFOFDprofilenotabletoseetheNEWbuttontocreatetheFocusareas @PO_Grantee @FO_Grantee @FD_Grantee @GRegression1

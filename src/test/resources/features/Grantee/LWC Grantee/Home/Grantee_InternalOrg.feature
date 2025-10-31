@@ -1,4 +1,4 @@
-@GranteeInternalOrg
+@GranteeInternalOrg @GranteePreAwardRegression
 Feature: Validate all scenarios for Internal Org
 
   @482129 @ValidatetheAuditoruserinternalOrganizationallsectionandfields @P4_Grantee @AUDITOR_Grantee @GRegression4

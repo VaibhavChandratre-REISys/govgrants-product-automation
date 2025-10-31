@@ -1,4 +1,4 @@
-@GranteeLeads
+@GranteeLeads @GranteePreAwardRegression
 Feature: Validate all scenarios for Leads
 
   @482115 @482331 @ValidateFOusershouldhaveviewaccessonlyonthequalifiedlead @FO_Grantee @P3_Grantee @GRegression2

@@ -1,4 +1,4 @@
-@GranteeOpportunity
+@GranteeOpportunity @GranteePreAwardRegression
 Feature: Validate all scenarios for Opportunity
 
   @477695 @477697 @477702 @ValidatethedependentfieldforPMuserforsectionEvaluationunderevaluationtabonopportunity @P3_Grantee @PM_Grantee @GRegression1

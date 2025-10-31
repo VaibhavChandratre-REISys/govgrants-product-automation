@@ -1,4 +1,4 @@
-@GranteeNonFederalOrgamization
+@GranteeNonFederalOrgamization @GranteePreAwardRegression
 Feature: Validate all scenarios for Non Federal Organization
 
   @460982 @ValidateNonFederalAuditorprofileusershouldseeallfieldsandsectiononNonfederalOrglayoutinreadonlyViewonlyAccess @P4_Grantee @AUDITOR_Grantee @GRegression2

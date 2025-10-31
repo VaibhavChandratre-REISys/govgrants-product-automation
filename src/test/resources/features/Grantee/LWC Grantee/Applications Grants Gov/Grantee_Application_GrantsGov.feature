@@ -1,4 +1,4 @@
-@GranteeApplicationsGrantsGov
+@GranteeApplicationsGrantsGov @GranteePreAwardRegression
 Feature: Validate all scenarios for Applications Grants Gov
 
   @480684 @ValidateOpportunitiesconvertedtoApplicationGrantsgovPOusercannavigatetoOpportunitydetailspagefromOpportunitiesConvertedtoApplicationlistview @P3_Grantee @PO_Grantee @GRegression2

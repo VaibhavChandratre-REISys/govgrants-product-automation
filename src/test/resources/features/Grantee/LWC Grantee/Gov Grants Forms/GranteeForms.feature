@@ -1,4 +1,4 @@
-@GranteeForms
+@GranteeForms @GranteePreAwardRegression
 Feature: Grantee Forms Scenario
 
   @485407 @485428 @ValidateProjectNarrativeAttachmentFOuserasaReviewershouldabletoedittheformifeditaccessisYes @GRegression3 @P3_Grantee @PM_Grantee

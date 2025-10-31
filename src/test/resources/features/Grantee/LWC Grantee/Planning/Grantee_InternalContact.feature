@@ -1,4 +1,4 @@
-@GranteeInternalContact
+@GranteeInternalContact @GranteePreAwardRegression
 Feature: Validate all scenarios for Internal Contact
 
   @482136 @ValidateAuditorusershouldhaveonlyviewaccess @P4_Grantee @AUDITOR_Grantee @GRegression1
