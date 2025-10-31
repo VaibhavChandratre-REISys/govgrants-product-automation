@@ -347,7 +347,7 @@ Feature: Validate all scenarios for Grantee Amendment Request for PDF
     When I enter the following values into flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---" by clicking "New" :
       | Title     | Narrative     | Awarded Budget | Cash Match |
       | Site work | The narrative | 500            | 50         |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Amendment Line Items" modal by clicking the top right x button
     Then I softly see value "$500.00" for title "Revised Award Budget" against the value "Site work" inside table "---grantee_tableId:-:AmendmentBudgetTableId---"
     And I click on "Submit for Approval" in the page details
     And I wait for "2" seconds
@@ -359,7 +359,7 @@ Feature: Validate all scenarios for Grantee Amendment Request for PDF
     When I enter the following values into flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---" by clicking "New" :
       | Title     | Narrative     | Awarded Budget | Cash Match |
       | Site work | The narrative | 500            | 50         |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Amendment Line Items" modal by clicking the top right x button
     Then I softly see value "$500.00" for title "Revised Award Budget" against the value "Site work" inside table "---grantee_tableId:-:AmendmentBudgetTableId---"
     And I click on page navigation arrow "---grantee_tableId:-:AmendmentBudgetTableId---" for table id "Next"
     When I click on "Add Line Items" icon for "Construction" inside flex table with id "---grantee_tableId:-:AmendmentBudgetTableId---" with wait for record
@@ -847,7 +847,7 @@ Feature: Validate all scenarios for Grantee Amendment Request for PDF
     When I enter the following values into flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---" by clicking "New" :
       | Title | Narrative     | Awarded Budget | Cash Match | Other Leverage |
       | Test  | The narrative | 2000           | 200        | 200            |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Amendment Line Items" modal by clicking the top right x button
     And I click on "Submit for Approval" in the page details
     Then I softly see the following messages in the page details contains:
       | Overview Tab - You have a requested a change of $2000.0, but the required change is $0.00.                |
@@ -1354,7 +1354,7 @@ Feature: Validate all scenarios for Grantee Amendment Request for PDF
     When I enter the following values into flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---" by clicking "New" :
       | Title | Narrative     | Awarded Budget | Cash Match | Other Leverage |
       | Test  | The narrative | 2000           | 200        | 200            |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Amendment Line Items" modal by clicking the top right x button
     And I click on "Submit for Approval" in the page details
     Then I softly see the following messages in the page details contains:
       | Overview Tab - You have a requested a change of $2000.0, but the required change is $0.00.                |
@@ -2673,7 +2673,7 @@ Feature: Validate all scenarios for Grantee Amendment Request for PDF
     When I enter the following values into flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---" by clicking "New" :
       | Title | Narrative     | Awarded Budget | Cash Match | Other Leverage |
       | Test  | The narrative | 2000           | 200        | 200            |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Amendment Line Items" modal by clicking the top right x button
     And I click on "Submit for Approval" in the page details
     Then I softly see the following messages in the page details contains:
       | Overview Tab - You have a requested a change of $2000.0, but the required change is $0.00.                |
@@ -3300,7 +3300,7 @@ Feature: Validate all scenarios for Grantee Amendment Request for PDF
     When I enter the following values into flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---" by clicking "New" :
       | Title | Narrative     | Awarded Budget | Cash Match | Other Leverage |
       | Test  | The narrative | 2000           | 200        | 200            |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Amendment Line Items" modal by clicking the top right x button
     And I click on "Submit for Approval" in the page details
     Then I softly see the following messages in the page details contains:
       | Overview Tab - You have a requested a change of $2000.0, but the required change is $0.00.                |

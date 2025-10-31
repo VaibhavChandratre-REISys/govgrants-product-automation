@@ -1309,7 +1309,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
     When I enter the following values into flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---" by clicking "New" :
       | Title     | Narrative     | Awarded Budget | Cash Match |
       | Site work | The narrative | 50             | 5          |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Amendment Line Items" modal by clicking the top right x button
     Then I softly see value "$50.00" for title "Revised Award Budget" against the value "Site work" inside table "---grantee_tableId:-:AmendmentBudgetTableId---"
     And I click on "Submit for Approval" in the page details
     Then I softly see the following messages in the page details contains:
@@ -1320,7 +1320,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
     When I enter the following values into flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---" by clicking "New" :
       | Title     | Narrative     | Awarded Budget | Cash Match |
       | Site work | The narrative | 50             | 5          |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Amendment Line Items" modal by clicking the top right x button
     Then I softly see value "$50.00" for title "Revised Award Budget" against the value "Site work" inside table "---grantee_tableId:-:AmendmentBudgetTableId---"
     And I click on page navigation arrow "---grantee_tableId:-:AmendmentBudgetTableId---" for table id "Next"
     When I click on "Add Line Items" icon for "Construction" inside flex table with id "---grantee_tableId:-:AmendmentBudgetTableId---" with wait for record
@@ -1374,7 +1374,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
     When I enter the following values into flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---" by clicking "New" :
       | Title     | Narrative     | Awarded Budget | Cash Match |
       | Site work | The narrative | 500            | 50         |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Amendment Line Items" modal by clicking the top right x button
     Then I softly see value "$500.00" for title "Revised Award Budget" against the value "Site work" inside table "---grantee_tableId:-:AmendmentBudgetTableId---"
     And I click on "Submit for Approval" in the page details
     Then I softly cannot see the following messages in the page details contains:
@@ -1445,7 +1445,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
     When I enter the following values into flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---" by clicking "New" :
       | Title     | Narrative     | Awarded Budget | Cash Match |
       | Site work | The narrative | 500            | 50         |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Amendment Line Items" modal by clicking the top right x button
     Then I softly see value "$500.00" for title "Revised Award Budget" against the value "Site work" inside table "---grantee_tableId:-:AmendmentBudgetTableId---"
     And I click on "Submit for Approval" in the page details
     Then I softly see field "Status" as "Submitted for Approval"
@@ -1573,7 +1573,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
     When I enter the following values into flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---" by clicking "New" :
       | Title     | Narrative     | Awarded Budget |
       | Site work | The narrative | 500            |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Amendment Line Items" modal by clicking the top right x button
     Then I softly see value "$500.00" for title "Revised Award Budget" against the value "Site work" inside table "---grantee_tableId:-:AmendmentBudgetTableId---"
     And I click on page navigation arrow "---grantee_tableId:-:AmendmentBudgetTableId---" for table id "Next"
     When I click on "Add Line Items" icon for "Construction" inside flex table with id "---grantee_tableId:-:AmendmentBudgetTableId---" with wait for record
@@ -1586,7 +1586,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
     When I enter the following values into flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---" by clicking "New" :
       | Title     | Narrative     | Awarded Budget |
       | Site work | The narrative | 500            |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Amendment Line Items" modal by clicking the top right x button
     Then I softly see value "$500.00" for title "Revised Award Budget" against the value "Site work" inside table "---grantee_tableId:-:AmendmentBudgetTableId---"
     And I click on page navigation arrow "---grantee_tableId:-:AmendmentBudgetTableId---" for table id "Next"
     And I click on page navigation arrow "---grantee_tableId:-:AmendmentBudgetTableId---" for table id "Next"
@@ -1600,7 +1600,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
     When I enter the following values into flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---" by clicking "New" :
       | Title     | Narrative     | Awarded Budget |
       | Site work | The narrative | 500            |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Amendment Line Items" modal by clicking the top right x button
     Then I softly see value "$500.00" for title "Revised Award Budget" against the value "Site work" inside table "---grantee_tableId:-:AmendmentBudgetTableId---"
     And I click on "Submit for Approval" in the page details
     Then I see field "Status" as "Submitted for Approval"
@@ -2879,7 +2879,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
     When I enter the following values into flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---" by clicking "New" :
       | Title          | Narrative     | Awarded Budget | Cash Match | Other Leverage |
       | Indirect costs | The narrative | 2000           | 200        | 200            |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Amendment Line Items" modal by clicking the top right x button
     And I wait for "2" seconds
     And I save the field labeled "New Budget Period End Date" as "NewBudgetPeriodEndDate"
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:amendmentFocusAreaTableId---" by clicking "Edit" :
@@ -3116,7 +3116,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
     When I enter the following values into flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---" by clicking "New" :
       | Title          | Narrative     | Awarded Budget | Cash Match | Other Leverage |
       | Indirect costs | The narrative | 2000           | 200        | 200            |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Amendment Line Items" modal by clicking the top right x button
     And I wait for "2" seconds
     And I save the field labeled "New Budget Period End Date" as "NewBudgetPeriodEndDate"
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:amendmentFocusAreaTableId---" by clicking "Edit" :
@@ -3353,7 +3353,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
     When I enter the following values into flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---" by clicking "New" :
       | Title          | Narrative     | Awarded Budget | Cash Match | Other Leverage |
       | Indirect costs | The narrative | 2000           | 200        | 200            |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Amendment Line Items" modal by clicking the top right x button
     And I wait for "2" seconds
     And I save the field labeled "New Budget Period End Date" as "NewBudgetPeriodEndDate"
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:amendmentFocusAreaTableId---" by clicking "Edit" :
@@ -3590,7 +3590,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
     When I enter the following values into flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---" by clicking "New" :
       | Title          | Narrative     | Awarded Budget | Cash Match | Other Leverage |
       | Indirect costs | The narrative | 2000           | 200        | 200            |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Amendment Line Items" modal by clicking the top right x button
     And I wait for "2" seconds
     And I save the field labeled "New Budget Period End Date" as "NewBudgetPeriodEndDate"
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:amendmentFocusAreaTableId---" by clicking "Edit" :
@@ -3827,7 +3827,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
     When I enter the following values into flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---" by clicking "New" :
       | Title          | Narrative     | Awarded Budget | Cash Match | Other Leverage |
       | Indirect costs | The narrative | 2000           | 200        | 200            |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Amendment Line Items" modal by clicking the top right x button
     And I wait for "2" seconds
     And I save the field labeled "New Budget Period End Date" as "NewBudgetPeriodEndDate"
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:amendmentFocusAreaTableId---" by clicking "Edit" :
@@ -4064,7 +4064,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
     When I enter the following values into flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---" by clicking "New" :
       | Title          | Narrative     | Awarded Budget | Cash Match | Other Leverage |
       | Indirect costs | The narrative | 2000           | 200        | 200            |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Amendment Line Items" modal by clicking the top right x button
     And I wait for "2" seconds
     And I save the field labeled "New Budget Period End Date" as "NewBudgetPeriodEndDate"
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:amendmentFocusAreaTableId---" by clicking "Edit" :
@@ -5221,7 +5221,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
     When I enter the following values into flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---" by clicking "New" :
       | Title          | Narrative     | Awarded Budget | Cash Match | Other Leverage |
       | Indirect costs | The narrative | 2000           | 200        | 200            |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Amendment Line Items" modal by clicking the top right x button
     And I wait for "2" seconds
     And I save the field labeled "New Budget Period End Date" as "NewBudgetPeriodEndDate"
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:amendmentFocusAreaTableId---" by clicking "Edit" :
@@ -8114,7 +8114,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
     When I enter the following values into flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---" by clicking "New" :
       | Title          | Narrative     | Awarded Budget | Cash Match |
       | Indirect costs | The narrative | 500            | 50         |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Amendment Line Items" modal by clicking the top right x button
     When I click on top right button "Associate" in flex table with id "---grantee_tableId:-:amendmentContactTableId---"
     When I click "Associate" after selection of "David FO" in the table "---grantee_tableId:-:amendmentAssociateContactTableId---"
     And I wait for "3" seconds
@@ -8305,7 +8305,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
     When I enter the following values into flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---" by clicking "New" :
       | Title          | Narrative     | Awarded Budget | Cash Match | Other Leverage |
       | Indirect costs | The narrative | 2000           | 200        | 200            |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Amendment Line Items" modal by clicking the top right x button
     And I wait for "2" seconds
     And I save the field labeled "New Budget Period End Date" as "NewBudgetPeriodEndDate"
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:amendmentFocusAreaTableId---" by clicking "Edit" :
@@ -9791,7 +9791,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
     When I enter the following values into flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---" by clicking "New" :
       | Title          | Narrative     | Awarded Budget | Cash Match | Other Leverage |
       | Indirect costs | The narrative | 2000           | 200        | 200            |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Amendment Line Items" modal by clicking the top right x button
     And I wait for "3" seconds
     And I save the field labeled "New Budget Period End Date" as "NewBudgetPeriodEndDate"
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:amendmentFocusAreaTableId---" by clicking "Edit" :
@@ -10161,7 +10161,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
     When I enter the following values into flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---" by clicking "New" :
       | Title          | Narrative     | Awarded Budget | Cash Match | Other Leverage |
       | Indirect costs | The narrative | 2000           | 200        | 200            |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Amendment Line Items" modal by clicking the top right x button
     And I wait for "3" seconds
     And I save the field labeled "New Budget Period End Date" as "NewBudgetPeriodEndDate"
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:amendmentFocusAreaTableId---" by clicking "Edit" :
@@ -10531,7 +10531,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
     When I enter the following values into flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---" by clicking "New" :
       | Title          | Narrative     | Awarded Budget | Cash Match | Other Leverage |
       | Indirect costs | The narrative | 2000           | 200        | 200            |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Amendment Line Items" modal by clicking the top right x button
     And I wait for "3" seconds
     And I save the field labeled "New Budget Period End Date" as "NewBudgetPeriodEndDate"
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:amendmentFocusAreaTableId---" by clicking "Edit" :
@@ -11390,7 +11390,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
     When I enter the following values into flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---" by clicking "New" :
       | Title          | Narrative     | Awarded Budget | Cash Match |
       | Indirect costs | The narrative | 500            | 50         |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Amendment Line Items" modal by clicking the top right x button
     When I navigate to "Overview" sub tab
     Then I softly see "Details" page block displayed
     Then I softly see "Key Personnel Change" page block displayed
@@ -11755,7 +11755,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
     When I enter the following values into flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---" by clicking "New" :
       | Title          | Narrative     | Awarded Budget | Cash Match |
       | Indirect costs | The narrative | 500            | 50         |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Amendment Line Items" modal by clicking the top right x button
     When I navigate to "Overview" sub tab
     Then I softly see "Details" page block displayed
     Then I softly see "Key Personnel Change" page block displayed
@@ -12120,7 +12120,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
     When I enter the following values into flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---" by clicking "New" :
       | Title          | Narrative     | Awarded Budget | Cash Match |
       | Indirect costs | The narrative | 500            | 50         |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Amendment Line Items" modal by clicking the top right x button
     When I navigate to "Overview" sub tab
     Then I softly see "Details" page block displayed
     Then I softly see "Key Personnel Change" page block displayed
@@ -12486,7 +12486,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
     When I enter the following values into flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---" by clicking "New" :
       | Title          | Narrative     | Awarded Budget | Cash Match |
       | Indirect costs | The narrative | 500            | 50         |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Amendment Line Items" modal by clicking the top right x button
     When I navigate to "Overview" sub tab
     Then I softly see "Details" page block displayed
     Then I softly see "Key Personnel Change" page block displayed
@@ -12851,7 +12851,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
     When I enter the following values into flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---" by clicking "New" :
       | Title          | Narrative     | Awarded Budget | Cash Match |
       | Indirect costs | The narrative | 500            | 50         |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Amendment Line Items" modal by clicking the top right x button
     When I navigate to "Overview" sub tab
     Then I softly see "Details" page block displayed
     Then I softly see "Key Personnel Change" page block displayed
@@ -13210,7 +13210,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
     When I enter the following values into flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---" by clicking "New" :
       | Title        | Narrative     | Awarded Budget | Cash Match |
       | Extra Salary | The narrative | 600            | 60         |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Amendment Line Items" modal by clicking the top right x button
     And I click on "Submit for Approval" in the page details
     Then I softly see the following messages in the page details contains:
       | Overview Tab - The Budgeted Amount cannot be increased or decreased during a Budget Redirection.                                                                         |
@@ -13267,7 +13267,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
     When I enter the following values into flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---" by clicking "New" :
       | Title        | Narrative     | Awarded Budget | Cash Match |
       | Extra Salary | The narrative | 600            | 60         |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Amendment Line Items" modal by clicking the top right x button
     And I click on "Submit for Approval" in the page details
     Then I softly see the following messages in the page details contains:
       | Overview Tab - The Budgeted Amount cannot be increased or decreased during a Budget Redirection.                                                                         |
@@ -13626,7 +13626,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
     When I enter the following values into flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---" by clicking "New" :
       | Title     | Narrative     | Awarded Budget | Cash Match |
       | Site work | The narrative | 500            | 50         |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Amendment Line Items" modal by clicking the top right x button
     Then I softly see value "$4,500.00" for title "Revised Award Budget" against the value "Construction" inside table "---grantee_tableId:-:AmendmentBudgetTableId---"
     Then I softly see value "$500.00" for title "Revised Award Budget" against the value "Site work" inside table "---grantee_tableId:-:AmendmentBudgetTableId---"
     And I click on page navigation arrow "---grantee_tableId:-:AmendmentBudgetTableId---" for table id "Next"
@@ -13640,7 +13640,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
     When I enter the following values into flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---" by clicking "New" :
       | Title     | Narrative     | Awarded Budget | Cash Match |
       | Site work | The narrative | 500            | 50         |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Amendment Line Items" modal by clicking the top right x button
     Then I softly see value "$4,500.00" for title "Revised Award Budget" against the value "Construction" inside table "---grantee_tableId:-:AmendmentBudgetTableId---"
     Then I softly see value "$500.00" for title "Revised Award Budget" against the value "Site work" inside table "---grantee_tableId:-:AmendmentBudgetTableId---"
     And I click on "Submit for Approval" in the page details
@@ -14182,8 +14182,8 @@ Feature: Validate all scenarios for Grantee Amendment Request
     And I update title as "Automation.pdf" on upload file modal
     And I select Classification as "Notice of Award" at upload file modal
     When I click modal button "Save"
-    And I click modal button "Close"
-    And I refresh the page
+#    And I click modal button "Close"
+    And I wait for "2" seconds
     Then I softly see "Notice of Award" has been added in "Amendment Files" flex table
     And I click on "Delete" icon for "Notice of Award" inside flex table with id "---grantee_tableId:-:amendmentRequestAddFile---" without waiting for record
     Then I softly do not see value "Notice of Award" for title "Title" inside table "---grantee_tableId:-:amendmentRequestAddFile---"
@@ -14229,7 +14229,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
     When I enter the following values into flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---" by clicking "New" :
       | Title     | Narrative     | Awarded Budget | Cash Match |
       | Site work | The narrative | 500            | 50         |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Amendment Line Items" modal by clicking the top right x button
     Then I softly see value "$4,500.00" for title "Revised Award Budget" against the value "Construction" inside table "---grantee_tableId:-:AmendmentBudgetTableId---"
     Then I softly see value "$500.00" for title "Revised Award Budget" against the value "Site work" inside table "---grantee_tableId:-:AmendmentBudgetTableId---"
     And I click on page navigation arrow "---grantee_tableId:-:AmendmentBudgetTableId---" for table id "Next"
@@ -14243,7 +14243,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
     When I enter the following values into flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---" by clicking "New" :
       | Title     | Narrative     | Awarded Budget | Cash Match |
       | Site work | The narrative | 500            | 50         |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Amendment Line Items" modal by clicking the top right x button
     Then I softly see value "$4,500.00" for title "Revised Award Budget" against the value "Construction" inside table "---grantee_tableId:-:AmendmentBudgetTableId---"
     Then I softly see value "$500.00" for title "Revised Award Budget" against the value "Site work" inside table "---grantee_tableId:-:AmendmentBudgetTableId---"
     And I click on "Submit for Approval" in the page details
@@ -14831,7 +14831,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
     When I enter the following values into flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---" by clicking "New" :
       | Title     | Narrative     | Awarded Budget | Cash Match |
       | Site work | The narrative | 500            | 50         |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Amendment Line Items" modal by clicking the top right x button
     Then I softly see value "$4,500.00" for title "Revised Award Budget" against the value "Construction" inside table "---grantee_tableId:-:AmendmentBudgetTableId---"
     Then I softly see value "$500.00" for title "Revised Award Budget" against the value "Site work" inside table "---grantee_tableId:-:AmendmentBudgetTableId---"
     And I click on page navigation arrow "---grantee_tableId:-:AmendmentBudgetTableId---" for table id "Next"
@@ -14845,7 +14845,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
     When I enter the following values into flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---" by clicking "New" :
       | Title     | Narrative     | Awarded Budget | Cash Match |
       | Site work | The narrative | 500            | 50         |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Amendment Line Items" modal by clicking the top right x button
     Then I softly see value "$4,500.00" for title "Revised Award Budget" against the value "Construction" inside table "---grantee_tableId:-:AmendmentBudgetTableId---"
     Then I softly see value "$500.00" for title "Revised Award Budget" against the value "Site work" inside table "---grantee_tableId:-:AmendmentBudgetTableId---"
     And I click on "Submit for Approval" in the page details
@@ -15387,8 +15387,8 @@ Feature: Validate all scenarios for Grantee Amendment Request
     And I update title as "Automation.pdf" on upload file modal
     And I select Classification as "Notice of Award" at upload file modal
     When I click modal button "Save"
-    And I click modal button "Close"
-    And I refresh the page
+#    And I click modal button "Close"
+    And I wait for "2" seconds
     Then I softly see "Notice of Award" has been added in "Amendment Files" flex table
     And I click on "Delete" icon for "Notice of Award" inside flex table with id "---grantee_tableId:-:amendmentRequestAddFile---" without waiting for record
     Then I softly do not see value "Notice of Award" for title "Title" inside table "---grantee_tableId:-:amendmentRequestAddFile---"
@@ -15434,7 +15434,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
     When I enter the following values into flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---" by clicking "New" :
       | Title     | Narrative     | Awarded Budget | Cash Match |
       | Site work | The narrative | 500            | 50         |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Amendment Line Items" modal by clicking the top right x button
     Then I softly see value "$4,500.00" for title "Revised Award Budget" against the value "Construction" inside table "---grantee_tableId:-:AmendmentBudgetTableId---"
     Then I softly see value "$500.00" for title "Revised Award Budget" against the value "Site work" inside table "---grantee_tableId:-:AmendmentBudgetTableId---"
     And I click on page navigation arrow "---grantee_tableId:-:AmendmentBudgetTableId---" for table id "Next"
@@ -15448,7 +15448,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
     When I enter the following values into flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---" by clicking "New" :
       | Title     | Narrative     | Awarded Budget | Cash Match |
       | Site work | The narrative | 500            | 50         |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Amendment Line Items" modal by clicking the top right x button
     Then I softly see value "$4,500.00" for title "Revised Award Budget" against the value "Construction" inside table "---grantee_tableId:-:AmendmentBudgetTableId---"
     Then I softly see value "$500.00" for title "Revised Award Budget" against the value "Site work" inside table "---grantee_tableId:-:AmendmentBudgetTableId---"
     And I click on "Submit for Approval" in the page details
@@ -16036,7 +16036,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
     When I enter the following values into flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---" by clicking "New" :
       | Title     | Narrative     | Awarded Budget | Cash Match |
       | Site work | The narrative | 500            | 50         |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Amendment Line Items" modal by clicking the top right x button
     Then I softly see value "$4,500.00" for title "Revised Award Budget" against the value "Construction" inside table "---grantee_tableId:-:AmendmentBudgetTableId---"
     Then I softly see value "$500.00" for title "Revised Award Budget" against the value "Site work" inside table "---grantee_tableId:-:AmendmentBudgetTableId---"
     And I click on page navigation arrow "---grantee_tableId:-:AmendmentBudgetTableId---" for table id "Next"
@@ -16050,7 +16050,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
     When I enter the following values into flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---" by clicking "New" :
       | Title     | Narrative     | Awarded Budget | Cash Match |
       | Site work | The narrative | 500            | 50         |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Amendment Line Items" modal by clicking the top right x button
     Then I softly see value "$4,500.00" for title "Revised Award Budget" against the value "Construction" inside table "---grantee_tableId:-:AmendmentBudgetTableId---"
     Then I softly see value "$500.00" for title "Revised Award Budget" against the value "Site work" inside table "---grantee_tableId:-:AmendmentBudgetTableId---"
     And I click on "Submit for Approval" in the page details
@@ -16638,7 +16638,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
     When I enter the following values into flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---" by clicking "New" :
       | Title     | Narrative     | Awarded Budget | Cash Match |
       | Site work | The narrative | 500            | 50         |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Amendment Line Items" modal by clicking the top right x button
     Then I softly see value "$4,500.00" for title "Revised Award Budget" against the value "Construction" inside table "---grantee_tableId:-:AmendmentBudgetTableId---"
     Then I softly see value "$500.00" for title "Revised Award Budget" against the value "Site work" inside table "---grantee_tableId:-:AmendmentBudgetTableId---"
     And I click on page navigation arrow "---grantee_tableId:-:AmendmentBudgetTableId---" for table id "Next"
@@ -16652,7 +16652,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
     When I enter the following values into flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---" by clicking "New" :
       | Title     | Narrative     | Awarded Budget | Cash Match |
       | Site work | The narrative | 500            | 50         |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Amendment Line Items" modal by clicking the top right x button
     Then I softly see value "$4,500.00" for title "Revised Award Budget" against the value "Construction" inside table "---grantee_tableId:-:AmendmentBudgetTableId---"
     Then I softly see value "$500.00" for title "Revised Award Budget" against the value "Site work" inside table "---grantee_tableId:-:AmendmentBudgetTableId---"
     And I click on "Submit for Approval" in the page details
@@ -17240,7 +17240,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
     When I enter the following values into flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---" by clicking "New" :
       | Title     | Narrative     | Awarded Budget | Cash Match |
       | Site work | The narrative | 500            | 50         |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Amendment Line Items" modal by clicking the top right x button
     Then I softly see value "$4,500.00" for title "Revised Award Budget" against the value "Construction" inside table "---grantee_tableId:-:AmendmentBudgetTableId---"
     Then I softly see value "$500.00" for title "Revised Award Budget" against the value "Site work" inside table "---grantee_tableId:-:AmendmentBudgetTableId---"
     And I click on page navigation arrow "---grantee_tableId:-:AmendmentBudgetTableId---" for table id "Next"
@@ -17254,7 +17254,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
     When I enter the following values into flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---" by clicking "New" :
       | Title     | Narrative     | Awarded Budget | Cash Match |
       | Site work | The narrative | 500            | 50         |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Amendment Line Items" modal by clicking the top right x button
     Then I softly see value "$4,500.00" for title "Revised Award Budget" against the value "Construction" inside table "---grantee_tableId:-:AmendmentBudgetTableId---"
     Then I softly see value "$500.00" for title "Revised Award Budget" against the value "Site work" inside table "---grantee_tableId:-:AmendmentBudgetTableId---"
     And I click on "Submit for Approval" in the page details
@@ -20100,7 +20100,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
     When I enter the following values into flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---" by clicking "New" :
       | Title          | Narrative     | Awarded Budget | Cash Match | Other Leverage |
       | Indirect costs | The narrative | 2000           | 200        | 200            |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Amendment Line Items" modal by clicking the top right x button
     And I wait for "3" seconds
     And I save the field labeled "New Budget Period End Date" as "NewBudgetPeriodEndDate"
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:amendmentFocusAreaTableId---" by clicking "Edit" :
@@ -20247,7 +20247,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
     When I enter the following values into flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---" by clicking "New" :
       | Title          | Narrative     | Awarded Budget | Cash Match |
       | Indirect costs | The narrative | 500            | 50         |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Amendment Line Items" modal by clicking the top right x button
     When I navigate to "Overview" sub tab
     Then I softly see "Details" page block displayed
     Then I softly see "Key Personnel Change" page block displayed
@@ -20598,7 +20598,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
     When I enter the following values into flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---" by clicking "New" :
       | Title          | Narrative     | Awarded Budget | Cash Match |
       | Indirect costs | The narrative | 500            | 50         |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Amendment Line Items" modal by clicking the top right x button
     When I navigate to "Overview" sub tab
     Then I softly see "Details" page block displayed
     Then I softly see "Key Personnel Change" page block displayed
@@ -21172,7 +21172,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
     When I enter the following values into flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---" by clicking "New" :
       | Title | Narrative     | Awarded Budget | Cash Match | Other Leverage |
       | Test  | The narrative | 2000           | 200        | 200            |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Amendment Line Items" modal by clicking the top right x button
     And I click on "Submit for Approval" in the page details
     Then I softly see the following messages in the page details contains:
       | Overview Tab - You have a requested a change of $2000.0, but the required change is $0.00.                |
@@ -22267,7 +22267,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
     When I enter the following values into flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---" by clicking "New" :
       | Title        | Narrative     | Awarded Budget | Cash Match |
       | Extra Salary | The narrative | 600            | 60         |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Amendment Line Items" modal by clicking the top right x button
     And I click on "Submit for Approval" in the page details
     Then I softly see the following messages in the page details contains:
       | Overview Tab - The Budgeted Amount cannot be increased or decreased during a Budget Redirection.                                                                         |
@@ -22337,7 +22337,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
     When I enter the following values into flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---" by clicking "New" :
       | Title        | Narrative     | Awarded Budget | Cash Match |
       | Extra Salary | The narrative | 2000           | 80         |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Amendment Line Items" modal by clicking the top right x button
     And I click on "Submit for Approval" in the page details
     Then I softly see the following messages in the page details contains:
       | Overview Tab - The Budgeted Amount cannot be increased or decreased during a Budget Redirection.                                                                         |
@@ -22454,7 +22454,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
     When I enter the following values into flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---" by clicking "New" :
       | Title     | Narrative     | Awarded Budget | Cash Match |
       | Site work | The narrative | 500            | 50         |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Amendment Line Items" modal by clicking the top right x button
     Then I softly see value "$500.00" for title "Revised Award Budget" against the value "Site work" inside table "---grantee_tableId:-:AmendmentBudgetTableId---"
     And I click on "Submit for Approval" in the page details
     Then I softly see field "Status" as "Submitted for Approval"
@@ -22607,7 +22607,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
     When I enter the following values into flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---" by clicking "New" :
       | Title     | Narrative     | Awarded Budget | Cash Match |
       | Site work | The narrative | 500            | 50         |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Amendment Line Items" modal by clicking the top right x button
     Then I softly see value "$500.00" for title "Revised Award Budget" against the value "Site work" inside table "---grantee_tableId:-:AmendmentBudgetTableId---"
     And I click on "Submit for Approval" in the page details
     Then I softly see field "Status" as "Submitted for Approval"
@@ -22695,7 +22695,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
     When I enter the following values into flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---" by clicking "New" :
       | Title     | Narrative     | Awarded Budget | Cash Match |
       | Site work | The narrative | 500            | 50         |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Amendment Line Items" modal by clicking the top right x button
     Then I softly see value "$500.00" for title "Revised Award Budget" against the value "Site work" inside table "---grantee_tableId:-:AmendmentBudgetTableId---"
     And I click on "Submit for Approval" in the page details
     Then I softly see field "Status" as "Submitted for Approval"
@@ -22835,7 +22835,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
     When I enter the following values into flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---" by clicking "New" :
       | Title     | Narrative     | Awarded Budget | Cash Match |
       | Site work | The narrative | 500            | 50         |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Amendment Line Items" modal by clicking the top right x button
     Then I softly see value "$500.00" for title "Revised Award Budget" against the value "Site work" inside table "---grantee_tableId:-:AmendmentBudgetTableId---"
     And I click on "Submit for Approval" in the page details
     Then I softly see field "Status" as "Submitted for Approval"
@@ -23075,13 +23075,13 @@ Feature: Validate all scenarios for Grantee Amendment Request
     When I enter the following values into flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---" by clicking "New" :
       | Title | Narrative     | Awarded Budget | Cash Match | Other Leverage |
       | Test  | The narrative | 5000           | 800        | 200            |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Amendment Line Items" modal by clicking the top right x button
          #496200
     When I click on "Add Line Items" icon for "Site work" inside flex table with id "---grantee_tableId:-:AmendmentBudgetTableId---" with wait for record
     When I enter the following values into flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---" by clicking "New" :
       | Title | Narrative     | Awarded Budget | Cash Match | Other Leverage |
       | Test  | The narrative | 5000           | 200        | 200            |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Amendment Line Items" modal by clicking the top right x button
     And I click on "Edit" in the page details
     When I enter values into fields
       | Value | Field                      |
@@ -23444,7 +23444,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
     When I enter the following values into flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---" by clicking "New" :
       | Title | Narrative     | Awarded Budget | Cash Match | Other Leverage |
       | Test  | The narrative | 3500           | 500        | 200            |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Amendment Line Items" modal by clicking the top right x button
     And I click on "Edit" in the page details
     When I enter values into fields
       | Value | Field                      |
@@ -24083,7 +24083,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
     When I enter the following values into flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---" by clicking "New" :
       | Title | Narrative     | Awarded Budget | Cash Match | Other Leverage |
       | Test  | The narrative | 3500           | 500        | 200            |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Amendment Line Items" modal by clicking the top right x button
     And I click on "Edit" in the page details
     When I enter values into fields
       | Value | Field                      |
@@ -24611,7 +24611,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
     When I enter the following values into flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---" by clicking "New" :
       | Title     | Narrative     | Awarded Budget | Cash Match |
       | Site work | The narrative | 1000            | 100         |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Amendment Line Items" modal by clicking the top right x button
     Then I softly see value "$4,000.00" for title "Revised Award Budget" against the value "Construction" inside table "---grantee_tableId:-:AmendmentBudgetTableId---"
     Then I softly see value "$1,000.00" for title "Revised Award Budget" against the value "Site work" inside table "---grantee_tableId:-:AmendmentBudgetTableId---"
     And I click on page navigation arrow "---grantee_tableId:-:AmendmentBudgetTableId---" for table id "Next"
@@ -24625,7 +24625,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
     When I enter the following values into flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---" by clicking "New" :
       | Title     | Narrative     | Awarded Budget | Cash Match |
       | Site work | The narrative | 1000            | 100         |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Amendment Line Items" modal by clicking the top right x button
     Then I softly see value "$4,000.00" for title "Revised Award Budget" against the value "Construction" inside table "---grantee_tableId:-:AmendmentBudgetTableId---"
     Then I softly see value "$1,000.00" for title "Revised Award Budget" against the value "Site work" inside table "---grantee_tableId:-:AmendmentBudgetTableId---"
     And I click on "Submit for Approval" in the page details
@@ -25938,7 +25938,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
       When I enter the following values into flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---" by clicking "New" :
           | Title          | Narrative     | Awarded Budget | Cash Match | Other Leverage |
           | Indirect costs | The narrative | 2000           | 200        | 200            |
-      When I close "Add Line Items" modal by clicking the top right x button
+      When I close "Amendment Line Items" modal by clicking the top right x button
       And I wait for "3" seconds
       And I save the field labeled "New Budget Period End Date" as "NewBudgetPeriodEndDate"
       And I edit the following rows inline in flex table with id "---grantee_tableId:-:amendmentFocusAreaTableId---" by clicking "Edit" :
@@ -26344,7 +26344,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
       When I enter the following values into flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---" by clicking "New" :
         | Title          | Narrative     | Awarded Budget | Cash Match | Other Leverage |
         | Indirect costs | The narrative | 2000           | 200        | 200            |
-      When I close "Add Line Items" modal by clicking the top right x button
+      When I close "Amendment Line Items" modal by clicking the top right x button
       And I wait for "3" seconds
       And I save the field labeled "New Budget Period End Date" as "NewBudgetPeriodEndDate"
       And I edit the following rows inline in flex table with id "---grantee_tableId:-:amendmentFocusAreaTableId---" by clicking "Edit" :
@@ -26870,12 +26870,12 @@ Feature: Validate all scenarios for Grantee Amendment Request
         When I enter the following values into flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---" by clicking "New" :
             | Title | Narrative     | Awarded Budget | Cash Match | Other Leverage |
             | Test  | The narrative | 5000           | 800        | 200            |
-        When I close "Add Line Items" modal by clicking the top right x button
+        When I close "Amendment Line Items" modal by clicking the top right x button
         When I click on "Add Line Items" icon for "Site work" inside flex table with id "---grantee_tableId:-:AmendmentBudgetTableId---" with wait for record
         When I enter the following values into flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---" by clicking "New" :
             | Title | Narrative     | Awarded Budget | Cash Match | Other Leverage |
             | Test  | The narrative | 5000           | 200        | 200            |
-        When I close "Add Line Items" modal by clicking the top right x button
+        When I close "Amendment Line Items" modal by clicking the top right x button
         And I click on "Edit" in the page details
         When I enter values into fields
             | Value | Field                      |
@@ -26909,7 +26909,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
         Then I softly do not see top right button "New" inside flex table "---grantee_tableId:-:amendmentLineItemsTableId---"
         Then I softly cannot see row level action button "Edit" against "Test" in flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---"
         Then I softly cannot see row level action button "Delete" against "Test" in flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---"
-        When I close "Add Line Items" modal by clicking the top right x button
+        When I close "Amendment Line Items" modal by clicking the top right x button
         Then I softly see "Title" in flex table header "---grantee_tableId:-:amendmentIndirectRateTableId---"
         Then I softly see "Effective from" in flex table header "---grantee_tableId:-:amendmentIndirectRateTableId---"
         Then I softly see "Effective until" in flex table header "---grantee_tableId:-:amendmentIndirectRateTableId---"
@@ -26985,7 +26985,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
         Then I softly do not see top right button "New" inside flex table "---grantee_tableId:-:amendmentLineItemsTableId---"
         Then I softly cannot see row level action button "Edit" against "Test" in flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---"
         Then I softly cannot see row level action button "Delete" against "Test" in flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---"
-        When I close "Add Line Items" modal by clicking the top right x button
+        When I close "Amendment Line Items" modal by clicking the top right x button
         Then I softly see "Title" in flex table header "---grantee_tableId:-:amendmentIndirectRateTableId---"
         Then I softly see "Effective from" in flex table header "---grantee_tableId:-:amendmentIndirectRateTableId---"
         Then I softly see "Effective until" in flex table header "---grantee_tableId:-:amendmentIndirectRateTableId---"
@@ -27054,7 +27054,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
         Then I softly do not see top right button "New" inside flex table "---grantee_tableId:-:amendmentLineItemsTableId---"
         Then I softly cannot see row level action button "Edit" against "Test" in flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---"
         Then I softly cannot see row level action button "Delete" against "Test" in flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---"
-        When I close "Add Line Items" modal by clicking the top right x button
+        When I close "Amendment Line Items" modal by clicking the top right x button
         Then I softly see "Title" in flex table header "---grantee_tableId:-:amendmentIndirectRateTableId---"
         Then I softly see "Effective from" in flex table header "---grantee_tableId:-:amendmentIndirectRateTableId---"
         Then I softly see "Effective until" in flex table header "---grantee_tableId:-:amendmentIndirectRateTableId---"
@@ -27126,7 +27126,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
         Then I softly do not see top right button "New" inside flex table "---grantee_tableId:-:amendmentLineItemsTableId---"
         Then I softly cannot see row level action button "Edit" against "Test" in flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---"
         Then I softly cannot see row level action button "Delete" against "Test" in flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---"
-        When I close "Add Line Items" modal by clicking the top right x button
+        When I close "Amendment Line Items" modal by clicking the top right x button
         Then I softly see "Title" in flex table header "---grantee_tableId:-:amendmentIndirectRateTableId---"
         Then I softly see "Effective from" in flex table header "---grantee_tableId:-:amendmentIndirectRateTableId---"
         Then I softly see "Effective until" in flex table header "---grantee_tableId:-:amendmentIndirectRateTableId---"
@@ -27381,12 +27381,12 @@ Feature: Validate all scenarios for Grantee Amendment Request
         When I enter the following values into flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---" by clicking "New" :
             | Title | Narrative     | Awarded Budget | Cash Match | Other Leverage |
             | Test  | The narrative | 5000           | 800        | 200            |
-        When I close "Add Line Items" modal by clicking the top right x button
+        When I close "Amendment Line Items" modal by clicking the top right x button
         When I click on "Add Line Items" icon for "Site work" inside flex table with id "---grantee_tableId:-:AmendmentBudgetTableId---" with wait for record
         When I enter the following values into flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---" by clicking "New" :
             | Title | Narrative     | Awarded Budget | Cash Match | Other Leverage |
             | Test  | The narrative | 5000           | 200        | 200            |
-        When I close "Add Line Items" modal by clicking the top right x button
+        When I close "Amendment Line Items" modal by clicking the top right x button
         And I click on "Edit" in the page details
         When I enter values into fields
             | Value | Field                      |
@@ -27434,7 +27434,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
         Then I softly do not see top right button "New" inside flex table "---grantee_tableId:-:amendmentLineItemsTableId---"
         Then I softly cannot see row level action button "Edit" against "Test" in flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---"
         Then I softly cannot see row level action button "Delete" against "Test" in flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---"
-        When I close "Add Line Items" modal by clicking the top right x button
+        When I close "Amendment Line Items" modal by clicking the top right x button
         Then I softly see "Title" in flex table header "---grantee_tableId:-:amendmentIndirectRateTableId---"
         Then I softly see "Effective from" in flex table header "---grantee_tableId:-:amendmentIndirectRateTableId---"
         Then I softly see "Effective until" in flex table header "---grantee_tableId:-:amendmentIndirectRateTableId---"
@@ -27556,7 +27556,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
           When I enter the following values into flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---" by clicking "New" :
             | Title                              | Narrative     | Awarded Budget | Cash Match | Other Leverage |
             | Architectural and engineering fees | The narrative | 1000           | 100        | 100            |
-          When I close "Add Line Items" modal by clicking the top right x button
+          When I close "Amendment Line Items" modal by clicking the top right x button
           And I wait for "3" seconds
           And I click on top right button "New" in flex table with id "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
           When I enter in modal value "CFTermsCondition" into field "Title__c"
@@ -28173,7 +28173,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
       When I enter the following values into flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---" by clicking "New" :
         | Title          | Narrative     | Awarded Budget | Cash Match |
         | Indirect costs | The narrative | 2000            | 50         |
-      When I close "Add Line Items" modal by clicking the top right x button
+      When I close "Amendment Line Items" modal by clicking the top right x button
       When I click on top right button "Associate" in flex table with id "---grantee_tableId:-:amendmentContactTableId---"
       When I click "Associate" after selection of "David FO" in the table "---grantee_tableId:-:amendmentAssociateContactTableId---"
       And I wait for "2" seconds
@@ -28326,7 +28326,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
         When I enter the following values into flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---" by clicking "New" :
           | Title | Narrative     | Awarded Budget | Cash Match | Other Leverage |
           | Test  | The narrative | 2000           | 200        | 200            |
-        When I close "Add Line Items" modal by clicking the top right x button
+        When I close "Amendment Line Items" modal by clicking the top right x button
         And I click on "Edit" in the page details
         When I enter values into fields
           | Value | Field                      |
@@ -28467,7 +28467,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
         When I enter the following values into flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---" by clicking "New" :
           | Title | Narrative     | Awarded Budget | Cash Match | Other Leverage |
           | Test  | The narrative | 2000           | 200        | 200            |
-        When I close "Add Line Items" modal by clicking the top right x button
+        When I close "Amendment Line Items" modal by clicking the top right x button
         And I click on "Edit" in the page details
         When I enter values into fields
           | Value | Field                      |

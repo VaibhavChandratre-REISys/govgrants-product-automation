@@ -5553,7 +5553,7 @@ Feature: Validate all scenarios for Grantee Award from Application
     Then I softly see top right button "New" inside flex table "---grantee_tableId:-:awardLineItemsTableId---"
     Then I softly can see row level action button "Edit" against "Construction" in flex table with id "---grantee_tableId:-:awardLineItemsTableId---"
     Then I softly can see row level action button "Delete" against "Construction" in flex table with id "---grantee_tableId:-:awardLineItemsTableId---"
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Award Line Items" modal by clicking the top right x button
     Then I softly see "Program Income" page block displayed
     Then I softly see "Focus Area Name" in flex table header "---grantee_tableId:-:awardProgramIncomeTableId---"
     Then I softly see "Projected Program Income ($)" in flex table header "---grantee_tableId:-:awardProgramIncomeTableId---"
@@ -6209,7 +6209,7 @@ Feature: Validate all scenarios for Grantee Award from Application
     Then I softly see top right button "New" inside flex table "---grantee_tableId:-:awardLineItemsTableId---"
     Then I softly can see row level action button "Edit" against "Construction" in flex table with id "---grantee_tableId:-:awardLineItemsTableId---"
     Then I softly can see row level action button "Delete" against "Construction" in flex table with id "---grantee_tableId:-:awardLineItemsTableId---"
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Award Line Items" modal by clicking the top right x button
     Then I softly see "Program Income" page block displayed
     Then I softly see "Focus Area Name" in flex table header "---grantee_tableId:-:awardProgramIncomeTableId---"
     Then I softly see "Projected Program Income ($)" in flex table header "---grantee_tableId:-:awardProgramIncomeTableId---"
@@ -6503,7 +6503,7 @@ Feature: Validate all scenarios for Grantee Award from Application
     Then I softly see top right button "New" inside flex table "---grantee_tableId:-:awardLineItemsTableId---"
     Then I softly can see row level action button "Edit" against "Construction" in flex table with id "---grantee_tableId:-:awardLineItemsTableId---"
     Then I softly can see row level action button "Delete" against "Construction" in flex table with id "---grantee_tableId:-:awardLineItemsTableId---"
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Award Line Items" modal by clicking the top right x button
     Then I softly see "Program Income" page block displayed
     Then I softly see "Focus Area Name" in flex table header "---grantee_tableId:-:awardProgramIncomeTableId---"
     Then I softly see "Projected Program Income ($)" in flex table header "---grantee_tableId:-:awardProgramIncomeTableId---"
@@ -6816,7 +6816,7 @@ Feature: Validate all scenarios for Grantee Award from Application
     Then I softly see top right button "New" inside flex table "---grantee_tableId:-:awardLineItemsTableId---"
     Then I softly can see row level action button "Edit" against "Construction" in flex table with id "---grantee_tableId:-:awardLineItemsTableId---"
     Then I softly can see row level action button "Delete" against "Construction" in flex table with id "---grantee_tableId:-:awardLineItemsTableId---"
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Award Line Items" modal by clicking the top right x button
     Then I softly see "Program Income" page block displayed
     Then I softly see "Focus Area Name" in flex table header "---grantee_tableId:-:awardProgramIncomeTableId---"
     Then I softly see "Projected Program Income ($)" in flex table header "---grantee_tableId:-:awardProgramIncomeTableId---"

@@ -2914,7 +2914,7 @@ Feature: Validate all scenarios for closeout
     Then I softly see the following messages in the page details :
       | Table has been reset. |
     And I click toggle button to select "Project Period Closeout - Submitted"
-    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:phaseCloseoutTableId---"
+    Then I softly see value "Submitted to Grantor" for title "Status" inside table "---grantee_tableId:-:phaseCloseoutTableId---"
     And I click toggle button to select "Project Period Closeout - Completed"
     When I perform quick search for "Completed" in "---grantee_tableId:-:phaseCloseoutTableId---" panel
     Then I softly see value "Completed" for title "Status" inside table "---grantee_tableId:-:phaseCloseoutTableId---"
@@ -2924,7 +2924,7 @@ Feature: Validate all scenarios for closeout
     When I perform quick search for "Created" in "---grantee_tableId:-:phaseCloseoutTableId---" panel
     Then I softly see value "Created" for title "Status" inside table "---grantee_tableId:-:phaseCloseoutTableId---"
     When I perform quick search for "Submitted for Approval" in "---grantee_tableId:-:phaseCloseoutTableId---" panel
-    Then I softly see value "Submitted for Approval" for title "Status" inside table "---grantee_tableId:-:phaseCloseoutTableId---"
+    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:phaseCloseoutTableId---"
 
   @446139 @ValidateGPCloseoutwithPMProfileIfCloseoutisinOverridestatethenabletoseetheaccessofsection @PM_Grantee @GRegression5 @P2_Grantee
   Scenario: Validate GP Closeout with PM Profile If Closeout is in Override state then able to see the access of section
