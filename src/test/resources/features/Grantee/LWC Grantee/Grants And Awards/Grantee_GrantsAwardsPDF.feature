@@ -82,7 +82,7 @@ Feature: Validate all scenarios for Grants & Awards for PDF
     And I click on Menu icon present on top right corner of the page
     Then I see option "Download as PDF" present in parallel dropdown
     Then I see option "Take Snapshot" present in parallel dropdown
-    And I click on "Download As PDF" in the page details
+    And I click on "Download as PDF" in the page details
     And I wait for "8" seconds
     And I download the file
     Then I softly see "{SavedValue:GrantEGMSID}" on page "1" of "govgrants" pdf file
