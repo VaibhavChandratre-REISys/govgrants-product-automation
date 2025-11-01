@@ -1,4 +1,4 @@
-@GranteeLeads
+@GranteeLeads @GranteePreAwardRegression
 Feature: Validate all scenarios for Leads
 
   @482115 @482331 @ValidateFOusershouldhaveviewaccessonlyonthequalifiedlead @FO_Grantee @P3_Grantee @GRegression2
@@ -1668,7 +1668,7 @@ Feature: Validate all scenarios for Leads
   @463541 @ValidateOpportunitiesNotconvertedafterdeletingopportunityOrganizationswhohavequalifiedtheleadcanconverttheleadtoopportunityagain @GRegression5 @P2_Grantee @PM_Grantee
   Scenario: Validate Opportunities Not converted after deleting opportunity Organizations who have qualified the lead can convert the lead to opportunity again
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
-    And I create "Grants.Gov" qualified lead for title "Automation Runtime award" and opportunity number "CAS-HHS0000660610" with properties "default-Product Admin user"
+    And I create "Grants.Gov" qualified lead for title "Automation Runtime award" and opportunity number "CAS-HHS0000660610" with properties "default"
     Given I login to "Grantee" app as "GRANTEE PM" user
     And I navigate to "Opportunities" tab
     When I navigate to "Qualified" content inside "Leads" subheader on left panel

@@ -1,4 +1,4 @@
-@GranteePreApplicationsGrantsGov
+@GranteePreApplicationsGrantsGov @GranteePreAwardRegression
 Feature: Validate all scenarios for Pre-Applications Grants Gov
 
   @476909 @ValidatePreAppwithAdminprofilePreapplicationpagelayoutofgrantsgovleadwithYessetting @ADMIN_Grantee @P2_Grantee @GRegression1

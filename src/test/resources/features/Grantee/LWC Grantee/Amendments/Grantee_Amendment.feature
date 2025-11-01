@@ -7333,7 +7333,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
     Then I softly see "Start Date" in flex table header "---grantee_tableId:-:amendmentFocusAreaTableId---"
     Then I softly see "End Date" in flex table header "---grantee_tableId:-:amendmentFocusAreaTableId---"
     #@485586
-    Then I softly see that "GeneralConditionChanged__c" rendered in view mode only
+    Then I softly see that "General Condition Changed?" rendered in view mode only
     Then I softly do not see fields "AreTCspartofNGAAttachments__c" is visible
     Then I softly do not see fields "FederalTCLink__c" is visible
     And I click on "Edit" in the page details
@@ -27680,14 +27680,14 @@ Feature: Validate all scenarios for Grantee Amendment Request
           When I click on "View" icon for "{SavedValue:AwardEGMSID2}" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---"
           And I navigate to "Projections" sub tab
           And I wait for "2" seconds
-          Then I softly see value "$3,000.00" for title "Awarded Budget" against the value "Construction" inside table "---grantee_tableId:-:grantBudgetCategoryTableId---"
-          Then I softly see value "$400.00" for title "Cash Match" against the value "Construction" inside table "---grantee_tableId:-:grantBudgetCategoryTableId---"
-          Then I softly see value "$400.00" for title "Other Leverage" against the value "Construction" inside table "---grantee_tableId:-:grantBudgetCategoryTableId---"
-          Then I softly see value "$3,800.00" for title "Total Project Cost" against the value "Construction" inside table "---grantee_tableId:-:grantBudgetCategoryTableId---"
-          Then I softly see value "$1,000.00" for title "Awarded Budget" against the value "Architectural and engineering fees" inside table "---grantee_tableId:-:grantBudgetCategoryTableId---"
-          Then I softly see value "$100.00" for title "Cash Match" against the value "Architectural and engineering fees" inside table "---grantee_tableId:-:grantBudgetCategoryTableId---"
-          Then I softly see value "$100.00" for title "Other Leverage" against the value "Architectural and engineering fees" inside table "---grantee_tableId:-:grantBudgetCategoryTableId---"
-          Then I softly see value "$1,200.00" for title "Total Project Cost" against the value "Architectural and engineering fees" inside table "---grantee_tableId:-:grantBudgetCategoryTableId---"
+          Then I softly see value "$3,000.00" for title "Award  Budget" against the value "Construction" inside table "---grantee_tableId:-:AwardBudgetTableId---"
+          Then I softly see value "$400.00" for title "Cash Match" against the value "Construction" inside table "---grantee_tableId:-:AwardBudgetTableId---"
+          Then I softly see value "$400.00" for title "Other Leverage" against the value "Construction" inside table "---grantee_tableId:-:AwardBudgetTableId---"
+          Then I softly see value "$3,800.00" for title "Total Project Cost" against the value "Construction" inside table "---grantee_tableId:-:AwardBudgetTableId---"
+          Then I softly see value "$1,000.00" for title "Award  Budget" against the value "Architectural and engineering fees" inside table "---grantee_tableId:-:AwardBudgetTableId---"
+          Then I softly see value "$100.00" for title "Cash Match" against the value "Architectural and engineering fees" inside table "---grantee_tableId:-:AwardBudgetTableId---"
+          Then I softly see value "$100.00" for title "Other Leverage" against the value "Architectural and engineering fees" inside table "---grantee_tableId:-:AwardBudgetTableId---"
+          Then I softly see value "$1,200.00" for title "Total Project Cost" against the value "Architectural and engineering fees" inside table "---grantee_tableId:-:AwardBudgetTableId---"
           When I navigate to "Actuals" sub tab
           When I save the field labeled "Grant Amount" as "GrantAmount"
           Then I softly see field "Grant Amount" as "{SavedValue:GrantAmount}"

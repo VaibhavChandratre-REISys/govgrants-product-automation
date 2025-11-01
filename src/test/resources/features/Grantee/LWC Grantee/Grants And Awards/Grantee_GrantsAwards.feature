@@ -590,7 +590,7 @@ Feature: Validate all scenarios for Grants & Awards
     And I update title as "Automation.pdf" on upload file modal
     And I select Classification as "Interim Award Document" at upload file modal
     When I click modal button "Save"
-    And I click modal button "Close"
+#    And I click modal button "Close"
     And I refresh the page
     And I wait for "3" seconds
     Then I softly see value "Automation.pdf" for title "Title" inside table "---grantee_tableId:-:awardAddFilesTableId---"
@@ -1743,7 +1743,7 @@ Feature: Validate all scenarios for Grants & Awards
     And I click on hyperlink containing value "Sarah PM"
     Then I softly see the text containing "sarah.pm@ggp.test8.ggmergeqa2"
 
-  @443833 @AwardVerifywithPMprofileMonitioringTabofAwardPagelayout
+  @443833 @AwardVerifywithPMprofileFilesTabofAwardPagelayout
   Scenario:  Award  with PM profile Files Tab of AwardPagelayout
     When I login to "Grantee" app as "GRANTEE PM" user
     And I navigate to "Grants" tab
@@ -5059,8 +5059,8 @@ Feature: Validate all scenarios for Grants & Awards
     And I "Created" standalone subaward "Automation Runtime award" with properties "default-Grantee PO user"
     And I updated direct grant award for title "{SavedValue:Automation Runtime award}" with properties "default"
     And I activate the award for title "{SavedValue:Automation Runtime award}"
-    And I "Created" the "Financial Report" for title "{SavedValue:Automation Runtime award}" with properties "PO_OWNER"
     When I login to "Grantee" app as "GRANTEE PO" user
+    And I "Created" the "Financial Report" for title "{SavedValue:Automation Runtime award}" with properties "PO_OWNER"
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
     And I click toggle button to select "Grants - All"
@@ -5077,8 +5077,8 @@ Feature: Validate all scenarios for Grants & Awards
     And I save the field labeled "EGMS ID" as "financialEGMSID2"
     And I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---grantee_tableId:-:financialReportApproverTableId---" by clicking "New" :
-      | Name     | Financial Report |
-      | Sarah PM | Step 1           |
+      | Name       | Financial Report |
+      | Grantee PO | Step 1           |
     And I click on "Submit for Approval" in the page details
     Then I softly see field "Status" as "Submitted for Approval"
     And I "Submitted to Grantor" the "Financial Report" for title "{SavedValue:Automation Runtime award}" with properties "PO_OWNER"
@@ -5161,6 +5161,7 @@ Feature: Validate all scenarios for Grants & Awards
     And I navigate to "Management" sub tab
     Then I softly see value "{SavedValue:financialEGMSID3}" for title "EGMS ID" inside table "---grantee_tableId:-:FinancialsReportTableId---"
     Then I softly see value "{SavedValue:AwardEGMSID}" for title "Award EGMS ID" against the value "{SavedValue:financialEGMSID3}" inside table "---grantee_tableId:-:FinancialsReportTableId---"
+
    @443799 @validateWithPMProfileHistoryTabofGrantpagelayout @P2_Grantee @PM_Grantee @Gregression2
    Scenario: Validate With PM Profile History Tab of Grant page layout.
      And I "Created" standalone subaward "Automation Runtime award" with properties "default"

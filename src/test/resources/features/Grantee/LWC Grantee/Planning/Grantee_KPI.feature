@@ -1,4 +1,4 @@
-@GranteeKPI
+@GranteeKPI @GranteePreAwardRegression
 Feature: Validate all scenarios for KPI
 
   @455419 @KPIVerifyFDusershouldseefooternavigatorafteropentheKPI

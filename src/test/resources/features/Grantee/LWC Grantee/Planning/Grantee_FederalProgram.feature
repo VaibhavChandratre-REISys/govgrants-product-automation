@@ -1,4 +1,4 @@
-@GranteeFederalProgram
+@GranteeFederalProgram @GranteePreAwardRegression
 Feature: Validate all scenarios for Federal Program
 
   @476625 @ValidateFederalprogramPMusercanviewFederalProgram @GRegression1 @PM_Grantee @P1_Grantee @GranteeTBE

@@ -1,4 +1,4 @@
-@GranteeForms
+@GranteeForms @GranteePreAwardRegression
 Feature: Grantee Forms Scenario
 
   @485407 @485428 @ValidateProjectNarrativeAttachmentFOuserasaReviewershouldabletoedittheformifeditaccessisYes @GRegression3 @P3_Grantee @PM_Grantee
@@ -157,6 +157,7 @@ Feature: Grantee Forms Scenario
     And I close the tab
     And I click on "Edit" icon for "Application for Federal Assistance (SF-424)" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
     And I switch to tab number "1"
+    And I wait for "2" seconds
     And I enter "SF424_FORM" values from "Application_Field_Values.xlsx"
     And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
     And I wait for "2" seconds

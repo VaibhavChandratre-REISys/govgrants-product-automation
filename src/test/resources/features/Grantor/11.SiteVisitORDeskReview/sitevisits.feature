@@ -1117,6 +1117,7 @@ Feature: Validate all scenarios in the Site Visit
     And I navigate to "Monitoring" tab
     When I navigate to "Site Visits" content inside "Monitoring Activities" subheader on left panel
     When I perform quick search for "Record Id" in "---sitevisits:-:manageSiteVisitTableId---" panel
+    And I click toggle button to select "Site Visit Reports - All"
     And I click on "View" icon for "Record Id" inside flex table with id "---sitevisits:-:manageSiteVisitTableId---"
     And I click on Menu icon present on top right corner of the page
     And I wait for "3" seconds

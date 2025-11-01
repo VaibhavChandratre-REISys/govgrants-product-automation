@@ -10391,7 +10391,7 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     Then I softly see value "{SavedValue:SitevVisitId1}" for title "EGMS ID" inside table "---sitevisits:-:manageSiteVisitTableId---"
     And I click on "View" icon for "{SavedValue:SitevVisitId1}" inside flex table with id "---sitevisits:-:manageSiteVisitTableId---"
     Then I softly can see top right button "Edit" in page detail
-    Then I softly can see top right button "Submit for Approval" in page detail
+    Then I softly can see top right button "Notify" in page detail
     And I navigate to "Responsibilities" sub tab
     Then I see value "Automation FO" for title "Name" inside table "---sitevisits:-:siteVisitOwnerTableId---"
     And I navigate to "Responsibilities" sub tab

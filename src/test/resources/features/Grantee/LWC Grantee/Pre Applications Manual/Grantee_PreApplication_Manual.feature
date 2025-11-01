@@ -1,4 +1,4 @@
-@GranteePreApplicationsManual
+@GranteePreApplicationsManual @GranteePreAwardRegression
 Feature: Validate all scenarios for Pre-Applications Manual
 
   @463425 @PreAppVerifywithPMproofileLineItemBudgetinBudgetTab @P1_Grantee @PM_Grantee @GRegression1
