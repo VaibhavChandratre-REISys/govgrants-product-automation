@@ -159,6 +159,59 @@ public final class InputForms {
     }
 
     /**
+     * @param fieldApiName The Salesforce Api name of the field to be entered. Can be found
+     *                     in the Edit page's HTML in a div surrounding the input field with
+     *                     the id "field" + fieldApiName.
+     * @param fieldValue   The value to be entered in the field. Note: "Date" and "Date/Time"
+     *                     inputs accept an integer offset (possibly negative) from the
+     *                     current day, as well as a hard-coded date in the format
+     *                     "MM/dd/YYYY" and "MM/dd/YYYY hh:mm a", respectively. "Checkbox"
+     *                     inputs accept the case-insensitive values "Checked" and
+     *                     "Unchecked". "MultiSelect" inputs accept lists in the form "value
+     *                     1;value 2;..." (without the quotes).
+     * @param  pageBlockName Value is provided of page block name
+     * @author vaibhav.chandratre
+     * if we are having the same fieldApiName for two different fields both on modal and page details with page block name
+     * Added the if condition for Automation Runtime Record (12/18/2020)
+     */
+    public void inputFormDataByFieldApiNameWithpageBlock(String fieldApiName, String fieldValue, String pageBlockName, boolean isModal) {
+
+        if (fieldValue.startsWith("Automation Runtime") && (!fieldValue.matches(".*\\d+.*"))) {
+            var newFieldValue = fieldValue + I.amPerforming().addOnsTo().getStringRandomNumber();
+            I.amPerforming().propertiesFileOperationsTo().saveValue(fieldValue, newFieldValue);
+            fieldValue = newFieldValue;
+        }
+
+        govgrants.perform().mainPage().waitForNavigationLogoToDisappear();
+        By fieldWrapperLocator;
+        if (isModal) {
+            fieldWrapperLocator = By.xpath("//div[contains(@class,'modal__container')]//span[text()='" + pageBlockName + "']/ancestor::c-page-block-section//div[@data-field_api_name='" + fieldApiName + "']");
+            I.amPerforming().waitFor().ElementToBePresent(fieldWrapperLocator);
+        } else {
+            fieldWrapperLocator = By.xpath("//span[text()='" + pageBlockName + "']/ancestor::c-page-block-section//div[@data-field_api_name='" + fieldApiName + "']");
+            int size = I.amPerforming().getElementReference().forListOfElements().of(fieldWrapperLocator).size();
+            if (size > 2) {
+                fieldWrapperLocator = By.xpath("//span[text()='" + pageBlockName + "']/ancestor::c-page-block-section//div[@data-field_api_name='" + fieldApiName + "']");
+                size = I.amPerforming().getElementReference().forListOfElements().of(fieldWrapperLocator).size();
+                if (size > 1) {
+                    fieldWrapperLocator = By.xpath("//span[text()='" + pageBlockName + "']/ancestor::c-page-block-section//div[@data-field_api_name='" + fieldApiName + "']");
+                }
+
+            }
+        }
+//        I.amPerforming().waitFor().ElementToBePresent(fieldWrapperLocator);
+        I.amPerforming().waitFor().ElementToBeVisible(fieldWrapperLocator);
+        WebElement fieldWrapper = I.amPerforming().getElementReference().of(fieldWrapperLocator);
+//        I.amPerforming().scroll().withMouseToElement(fieldWrapperLocator);
+        I.amPerforming().scroll().toMoveToElement(fieldWrapperLocator);
+        if ("".equalsIgnoreCase(fieldValue)) {
+            handleClearingFormDataInputs(fieldWrapper);
+        } else {
+            handleFormDataInputsWithPageBlock(fieldWrapper,pageBlockName, fieldValue);
+        }
+    }
+
+    /**
      * @param pageBlock Page block name on form page
      * @param table     table contains field and value
      * @author aashish.pardeshi
@@ -602,6 +655,68 @@ public final class InputForms {
         }
     }
 
+    /******* "Private methods with limited functonality - Private" **************/
+
+    /**
+     * Chooses the correct data input method based on the contents of the
+     * fieldWrapper parameter The order of the if statements is important, so do not
+     * change without verifying that all types of input still work as expected.
+     *
+     * @param fieldWrapper
+     * @param fieldValue
+     * @param
+     * @author john.phillips
+     * @modifier nauman.shahid : Modified date strategy. Still in progress. To Remove : Commented lines and all corresponding methods
+     * @modifier ashwini.mahore : Modified xpath to get radio buttons having multiple values aligned vertically
+     */
+    private void handleFormDataInputsWithPageBlock(WebElement fieldWrapper, String pageBlockName, String fieldValue) {
+        int counter = 0;
+        while (counter < 5) {
+            govgrants.perform().mainPage().waitForNavigationLogoToDisappear();
+            if (I.amPerforming().getElementReference().forListOfElements().ofNested(fieldWrapper, By.xpath(".//span[@class='slds-radio_faux']")).size() > 0) {
+                handleRadioButtonInput(fieldWrapper, fieldValue);
+                break;
+            } else if (I.amPerforming().getElementReference().forListOfElements().ofNested(fieldWrapper, By.xpath(".//input[@type='checkbox']")).size() > 0) {
+                handleCheckBoxInput(fieldWrapper, fieldValue);
+                break;
+            } else if (I.amPerforming().getElementReference().forListOfElements().ofNested(fieldWrapper, By.xpath(".//div[contains(@class,'text-area')] | .//div[contains(@class,'textarea')]//textarea")).size() > 0) {
+                handleRichTextAreaInputWithPageBlockName(fieldWrapper, pageBlockName, fieldValue);
+                break;
+            } else if (I.amPerforming().getElementReference().forListOfElements().ofNested(fieldWrapper,
+                            By.xpath(".//input[@type='text'] | .//textarea[not(@warningchar)]"))
+                    .size() > 0) {
+                /*if (I.amPerforming().getElementReference().forListOfElements().ofNested(fieldWrapper, By.xpath(".//*[contains(@class, 'datetimepicker')]")).size() > 0) {
+                    handleDatePickerInput(fieldWrapper, fieldValue);
+                } else */
+                if (I.amPerforming().getElementReference().forListOfElements().ofNested(fieldWrapper, By.xpath(".//lightning-datepicker")).size() > 0) {
+                    handleDateInputWithpageBlock(fieldWrapper, pageBlockName, fieldValue, false);
+                } else if (I.amPerforming().getElementReference().forListOfElements().ofNested(fieldWrapper, By.xpath(".//*[contains(@class, 'lookupInput')]")).size() > 0) {
+                    handleLookUpInput(fieldWrapper, fieldValue);
+                } else {
+                    handleTextInput(fieldWrapper, fieldValue);
+                }
+                break;
+            }  else if (I.amPerforming().getElementReference().forListOfElements().ofNested(fieldWrapper, By.xpath(".//ul//li[contains(@class,'listbox__item')]")).size() > 0) {
+                handleMultiSelectInput(fieldWrapper, fieldValue.split(";"));
+                break;
+            } else if (I.amPerforming().getElementReference().forListOfElements().ofNested(fieldWrapper, By.xpath(".//button[contains(@id,'combobox-button')]")).size() > 0) {
+                handleDropdownInput(fieldWrapper, fieldValue);
+                break;
+            } else if (I.amPerforming().getElementReference().forListOfElements().ofNested(fieldWrapper, By.xpath(".//c-lwc-flex-table//input[@type='checkbox']")).size() > 0) {
+                handleCheckBoxInputForTable(fieldWrapper, fieldValue);
+                break;
+            } else if (I.amPerforming().getElementReference().forListOfElements().ofNested(fieldWrapper, By.xpath("//input[@type='text'] | .//textarea[not(@warningchar)]")).size() > 0) {
+                if (I.amPerforming().getElementReference().forListOfElements().ofNested(fieldWrapper, By.xpath("//lightning-datepicker")).size() > 0) {
+                    handleDateInputWithpageBlock(fieldWrapper, pageBlockName, fieldValue, false);
+                } else {
+                    handleTextInput(fieldWrapper, fieldValue);
+                }
+                break;
+            }
+            counter++;
+        }
+    }
+
     /**
      * @param fieldWrapper
      * @author john.phillips
@@ -652,6 +767,29 @@ public final class InputForms {
             I.amPerforming().textInput().in(inputBox, fieldValue);
         } else {
             By inputBox = By.xpath("//div[@data-field_api_name='" + field + "']//input[@type='text'] | //div[@data-field_api_name='" + field + "']//div[contains(@class,'text-area')] | //div[@data-field_api_name='" + field + "']//div[contains(@class,'textarea')]//textarea");
+            I.amPerforming().click().withJavaScript(inputBox);
+            I.amPerforming().textInput().toClear(inputBox);
+            I.amPerforming().textInput().in(inputBox, fieldValue);
+        }
+    }
+
+    /**
+     * @param fieldWrapper
+     * @author john.phillips
+     * @modified nauman.shahid : update xpath on line for inputBoxSelector. Turn off frame switch and Commented part to be removed once everything looks stable
+     * @modifier tejal.gadewar : Created new overloaded method with one additional parameter. By default parameter is false then it will clear rich text box content and if it is true then it will not clear rich text box content
+     */
+
+    private void handleRichTextAreaInputWithPageBlockName(WebElement fieldWrapper, String pageBlockName, String fieldValue) {
+        String field = fieldWrapper.toString().split("//")[1].split("\'")[1];
+        if(field.contains("modal__container")){
+            String field1 = fieldWrapper.toString().split("//")[2].split("\'")[1];
+            By inputBox = By.xpath("//span[text()='" + pageBlockName + "']/ancestor::c-page-block-section//div[@data-field_api_name='" + field1 + "']//input[@type='text'] | //div[@data-field_api_name='" + field1 + "']//div[contains(@class,'text-area')] | //div[@data-field_api_name='" + field1 + "']//div[contains(@class,'textarea')]//textarea");
+            I.amPerforming().click().withJavaScript(inputBox);
+            I.amPerforming().textInput().toClear(inputBox);
+            I.amPerforming().textInput().in(inputBox, fieldValue);
+        } else {
+            By inputBox = By.xpath("//span[text()='" + pageBlockName + "']/ancestor::c-page-block-section//div[@data-field_api_name='" + field + "']//input[@type='text'] | //div[@data-field_api_name='" + field + "']//div[contains(@class,'text-area')] | //div[@data-field_api_name='" + field + "']//div[contains(@class,'textarea')]//textarea");
             I.amPerforming().click().withJavaScript(inputBox);
             I.amPerforming().textInput().toClear(inputBox);
             I.amPerforming().textInput().in(inputBox, fieldValue);
@@ -817,6 +955,48 @@ public final class InputForms {
             I.amPerforming().addOnsTo().getKeyBoard().keyPress(Keys.TAB);
         } else {
             WebElement inputBox = I.amPerforming().getElementReference().of(By.xpath("//div[@data-field_api_name='" + field + "']//input[@type='text']"));
+            DateTimeFormatter formatter = getDateInputFormat(inputBox, isDateTime);
+            String inputValue = parseDateFieldValue(fieldValue, formatter);
+            try {
+                SimpleDateFormat dt = new SimpleDateFormat("MM/dd/yyyy");
+                Date date = dt.parse(inputValue);
+                SimpleDateFormat dt1 = new SimpleDateFormat("MMM dd, yyyy");
+                inputValue = dt1.format(date);
+            } catch (Exception e) {
+            }
+            I.amPerforming().textInput().toClear(inputBox);
+            I.amPerforming().textInput().in(inputBox, inputValue);
+            I.amPerforming().addOnsTo().getKeyBoard().keyPress(Keys.TAB);
+        }
+
+    }   //makeCalendarPopupDisappear(inputBox);
+
+    /**
+     * @param fieldWrapper
+     * @param fieldValue
+     * @param isDateTime
+     * @author john.phillips
+     * @modified nauman.shahid: replaced regular text input with input with JS & commented pupupDisappear to support old projects like DC,LCTCS. 10/12/2020
+     */
+    public void handleDateInputWithpageBlock(WebElement fieldWrapper, String pageBlockName, String fieldValue, boolean isDateTime) {
+        String field = fieldWrapper.toString().split("//")[1].split("\'")[1];
+        if(field.contains("modal__container")) {
+            String field1 = fieldWrapper.toString().split("//")[2].split("\'")[1];
+            WebElement inputBox = I.amPerforming().getElementReference().of(By.xpath("//span[text()='" + pageBlockName + "']/ancestor::c-page-block-section//div[@data-field_api_name='" + field1 + "']//input[@type='text']"));
+            DateTimeFormatter formatter = getDateInputFormat(inputBox, isDateTime);
+            String inputValue = parseDateFieldValue(fieldValue, formatter);
+            try {
+                SimpleDateFormat dt = new SimpleDateFormat("MM/dd/yyyy");
+                Date date = dt.parse(inputValue);
+                SimpleDateFormat dt1 = new SimpleDateFormat("MMM dd, yyyy");
+                inputValue = dt1.format(date);
+            } catch (Exception e) {
+            }
+            I.amPerforming().textInput().toClear(inputBox);
+            I.amPerforming().textInput().in(inputBox, inputValue);
+            I.amPerforming().addOnsTo().getKeyBoard().keyPress(Keys.TAB);
+        } else {
+            WebElement inputBox = I.amPerforming().getElementReference().of(By.xpath("//span[text()='" + pageBlockName + "']/ancestor::c-page-block-section//div[@data-field_api_name='" + field + "']//input[@type='text']"));
             DateTimeFormatter formatter = getDateInputFormat(inputBox, isDateTime);
             String inputValue = parseDateFieldValue(fieldValue, formatter);
             try {

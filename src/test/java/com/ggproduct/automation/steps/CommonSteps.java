@@ -170,6 +170,16 @@ public class CommonSteps {
         File targetDir = new File(System.getProperty("user.dir") + File.separator + "target");
         I.amPerforming().waitFor().makeThreadSleep(2000);
     }
+
+    @And("^I (enter|enter in modal) the value \"([^\"]*)\" for the field \"([^\"]*)\" inside page block \"([^\"]*)\"$")
+    public void iEnterTheValueForTheFieldInsidePageBlock(String usage,String fieldValue, String fieldApiName, String pageBlockName) {
+        govgrants.perform().inputForms().inputFormDataByFieldApiNameWithpageBlock(
+                fieldApiName,
+                fieldValue,
+                pageBlockName,
+                usage.contains("modal")
+        );
+    }
 }
 
 

@@ -388,7 +388,7 @@ Feature: Validate all scenarios for Grants & Awards for PDF
     And I refresh the page
     And I wait for "3" seconds
     Then I softly see value "Automation Subject" for title "Subject" inside table "CommunicationHistory"
-    Then I softly see value "sarah.pm.23@yopmail.com" for title "From Address" inside table "CommunicationHistory"
+    Then I softly see value "sarah.pm.ggmergeqa2@yopmail.com" for title "From Address" inside table "CommunicationHistory"
     Then I softly see value "pm.automation@yopmail.com" for title "To Address" inside table "CommunicationHistory"
 
   @443816 @ValidateAwardWithPMProfileAfterclickonAwardphaseListviewpage @P2_Grantee @PM_Grantee @GRegression2
@@ -426,8 +426,10 @@ Feature: Validate all scenarios for Grants & Awards for PDF
     When I perform quick search for "Reviewed" in "---grantee_tableId:-:awardTableId---" panel
     Then I softly see value "Reviewed" for title "Status" inside table "---grantee_tableId:-:awardTableId---"
     When I click on button "resetIcon" in flex table with id "---grantee_tableId:-:awardTableId---"
+    And I wait for "1" seconds
     And I click on page navigation arrow "---grantee_tableId:-:awardTableId---" for table id "Next"
     When I click on button "resetIcon" in flex table with id "---grantee_tableId:-:awardTableId---"
+    And I wait for "1" seconds
     Then I softly see top right button "Advance Filter" inside flex table "---grantee_tableId:-:awardTableId---"
     And I click toggle button to select "Awards - All"
     When I click on parallel lines menu bar with data target value "Awards - All"
@@ -451,7 +453,7 @@ Feature: Validate all scenarios for Grants & Awards for PDF
     When I perform quick search for "Submitted for Review" in "---grantee_tableId:-:awardTableId---" panel
     Then I softly see value "Submitted for Review" for title "Status" inside table "---grantee_tableId:-:awardTableId---"
     When I perform quick search for "Submitted for Approval" in "---grantee_tableId:-:awardTableId---" panel
-    Then I softly see value "Submitted for Approval" for title "Status" inside table "---grantee_tableId:-:awardTableId---"
+    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:awardTableId---"
     When I perform quick search for "Closed" in "---grantee_tableId:-:awardTableId---" panel
     Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:awardTableId---"
     When I perform quick search for "Rejected" in "---grantee_tableId:-:awardTableId---" panel
@@ -462,9 +464,11 @@ Feature: Validate all scenarios for Grants & Awards for PDF
     Then I softly see value "Reviewed" for title "Status" inside table "---grantee_tableId:-:awardTableId---"
     When I perform quick search for "Pending Closeout" in "---grantee_tableId:-:awardTableId---" panel
     Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:awardTableId---"
+    And I click toggle button to select "Awards - My Records"
     When I perform quick search for "Created" in "---grantee_tableId:-:awardTableId---" panel
     And I wait for "2" seconds
     And I save the value from row "1" for column name "EGMS ID" as "EGMSID" from flex table "---grantee_tableId:-:awardTableId---"
+    And I click toggle button to select "Awards - Draft"
     When I perform quick search for "{SavedValue:EGMSID}" in "---grantee_tableId:-:awardTableId---" panel
     Then I softly see value "{SavedValue:EGMSID}" for title "EGMS ID" inside table "---grantee_tableId:-:awardTableId---"
     Then I softly can see row level action button "View" against "{SavedValue:EGMSID}" in flex table with id "---grantee_tableId:-:awardTableId---"
@@ -549,9 +553,9 @@ Feature: Validate all scenarios for Grants & Awards for PDF
     When I perform quick search for "Activated" in "---grantee_tableId:-:awardTableId---" panel
     Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:awardTableId---"
     When I perform quick search for "Submitted for Review" in "---grantee_tableId:-:awardTableId---" panel
-    Then I softly see value "Submitted for Review" for title "Status" inside table "---grantee_tableId:-:awardTableId---"
-    When I perform quick search for "Submitted for Approval" in "---grantee_tableId:-:awardTableId---" panel
     Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:awardTableId---"
+    When I perform quick search for "Submitted for Approval" in "---grantee_tableId:-:awardTableId---" panel
+    Then I softly see value "Submitted for Approval" for title "Status" inside table "---grantee_tableId:-:awardTableId---"
     When I perform quick search for "Closed" in "---grantee_tableId:-:awardTableId---" panel
     Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:awardTableId---"
     When I perform quick search for "Rejected" in "---grantee_tableId:-:awardTableId---" panel

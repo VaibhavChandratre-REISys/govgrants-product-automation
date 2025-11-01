@@ -2528,3 +2528,11 @@ Feature: Validate all scenarios of every modules flow
     And I click on "Activate" in the page details
     And I wait for "3" seconds
     Then I see that "Subaward" is in "Activated" status
+
+  @testgranteesf
+  Scenario:
+    When I login to "Grantee" app as "GRANTEE PM" user
+    And I halt execution
+    And I enter the value "VA" for the field "City__c" inside page block "Applicant Information"
+    And I enter the value "AL" for the field "State__c" inside page block "Applicant Information"
+    And I enter the value "USA: UNITED STATES" for the field "Country__c" inside page block "Applicant Information"

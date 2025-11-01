@@ -1906,6 +1906,7 @@ Feature: Validate all scenarios for Applications Grants Gov
     Then I softly see fields "Zip4__c" is in edit mode
     Then I softly see fields "ZipCode4Extension__c" is in edit mode
     And I click on "Save" in the page details
+    And I wait for "2" seconds
     Then I can see top right button "Associate" in flex table with id "---grantee_tableId:-:ApplicationExternalProgramsTableId---"
     Then I can see top right button "New" in flex table with id "---grantee_tableId:-:ContactTableIdApplication---"
     Then I can see top right button "Associate" in flex table with id "---grantee_tableId:-:ContactTableIdApplication---"
@@ -1926,6 +1927,7 @@ Feature: Validate all scenarios for Applications Grants Gov
     Then I softly see fields "TrainingCertificationComments__c" is in edit mode
     Then I softly see fields "SpecialAwardConditions__c" is in edit mode
     And I click on "Save" in the page details
+    And I wait for "2" seconds
     When I navigate to "Forms and Files" sub tab
     Then I can see top right button "Add Files" in flex table with id "---grantee_tableId:-:AddFilesApplicationTableID---"
     And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:AddFilesApplicationTableID---"
