@@ -1,4 +1,4 @@
-@GranteeFederalOrgamization
+@GranteeFederalOrgamization @GranteePreAwardRegression
 Feature: Validate all scenarios for Federal Organization
 
   @460983 @ValidateFederalOrgAuditorprofileusershouldseeallfieldsandsectionreadonlyonfederalOrglayoutViewonlyaccess @P4_Grantee @AUDITOR_Grantee @GRegression2

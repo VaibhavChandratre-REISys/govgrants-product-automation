@@ -1,4 +1,4 @@
-@GranteeStrategicPlan
+@GranteeStrategicPlan @GranteePreAwardRegression
 Feature: Validate all scenarios for Strategic Plan
 
   @476591 @validateAdminusercandeactivateactivestrategicplancreatedbyEXEuserfromsameinternalorganization @P2_Grantee @ADMIN_Grantee @GRegression2

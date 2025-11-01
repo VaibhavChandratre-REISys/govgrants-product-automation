@@ -1567,26 +1567,26 @@ Feature: Validate all scenarios for Grantee Amendment Request
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---" by clicking "Edit" :
       | Title        | Narrative     | Awarded Budget |
       | Construction | The narrative | 4500           |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Amendment Line Items" modal by clicking the top right x button
     Then I softly see value "$4,500.00" for title "Revised Award Budget" against the value "Construction" inside table "---grantee_tableId:-:AmendmentBudgetTableId---"
     When I click on "Add Line Items" icon for "Site work" inside flex table with id "---grantee_tableId:-:AmendmentBudgetTableId---" with wait for record
     When I enter the following values into flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---" by clicking "New" :
       | Title     | Narrative     | Awarded Budget |
       | Site work | The narrative | 500            |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Amendment Line Items" modal by clicking the top right x button
     Then I softly see value "$500.00" for title "Revised Award Budget" against the value "Site work" inside table "---grantee_tableId:-:AmendmentBudgetTableId---"
     And I click on page navigation arrow "---grantee_tableId:-:AmendmentBudgetTableId---" for table id "Next"
     When I click on "Add Line Items" icon for "Construction" inside flex table with id "---grantee_tableId:-:AmendmentBudgetTableId---" with wait for record
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---" by clicking "Edit" :
       | Title        | Narrative     | Awarded Budget |
       | Construction | The narrative | 4500           |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Amendment Line Items" modal by clicking the top right x button
     Then I softly see value "$4,500.00" for title "Revised Award Budget" against the value "Construction" inside table "---grantee_tableId:-:AmendmentBudgetTableId---"
     When I click on "Add Line Items" icon for "Site work" inside flex table with id "---grantee_tableId:-:AmendmentBudgetTableId---" with wait for record
     When I enter the following values into flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---" by clicking "New" :
       | Title     | Narrative     | Awarded Budget |
       | Site work | The narrative | 500            |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Amendment Line Items" modal by clicking the top right x button
     Then I softly see value "$500.00" for title "Revised Award Budget" against the value "Site work" inside table "---grantee_tableId:-:AmendmentBudgetTableId---"
     And I click on page navigation arrow "---grantee_tableId:-:AmendmentBudgetTableId---" for table id "Next"
     And I click on page navigation arrow "---grantee_tableId:-:AmendmentBudgetTableId---" for table id "Next"
@@ -1594,13 +1594,13 @@ Feature: Validate all scenarios for Grantee Amendment Request
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---" by clicking "Edit" :
       | Title        | Narrative     | Awarded Budget |
       | Construction | The narrative | 4500           |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Amendment Line Items" modal by clicking the top right x button
     Then I softly see value "$4,500.00" for title "Revised Award Budget" against the value "Construction" inside table "---grantee_tableId:-:AmendmentBudgetTableId---"
     When I click on "Add Line Items" icon for "Site work" inside flex table with id "---grantee_tableId:-:AmendmentBudgetTableId---" with wait for record
     When I enter the following values into flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---" by clicking "New" :
       | Title     | Narrative     | Awarded Budget |
       | Site work | The narrative | 500            |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Amendment Line Items" modal by clicking the top right x button
     Then I softly see value "$500.00" for title "Revised Award Budget" against the value "Site work" inside table "---grantee_tableId:-:AmendmentBudgetTableId---"
     And I click on "Submit for Approval" in the page details
     Then I see field "Status" as "Submitted for Approval"
@@ -7272,7 +7272,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
     And I update title as "Automation.pdf" on upload file modal
     And I select Classification as "Interim Award Document" at upload file modal
     When I click modal button "Save"
-    And I click modal button "Close"
+#    And I click modal button "Close"
     And I refresh the page
     And I wait for "2" seconds
     Then I softly see value "Automation.pdf" for title "Title" inside table "---grantee_tableId:-:awardAddFilesTableId---"
@@ -7335,7 +7335,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
     Then I softly see "Start Date" in flex table header "---grantee_tableId:-:amendmentFocusAreaTableId---"
     Then I softly see "End Date" in flex table header "---grantee_tableId:-:amendmentFocusAreaTableId---"
     #@485586
-    Then I softly see that "GeneralConditionChanged__c" rendered in view mode only
+    Then I softly see that "General Condition Changed?" rendered in view mode only
     Then I softly do not see fields "AreTCspartofNGAAttachments__c" is visible
     Then I softly do not see fields "FederalTCLink__c" is visible
     And I click on "Edit" in the page details
@@ -22330,12 +22330,12 @@ Feature: Validate all scenarios for Grantee Amendment Request
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---" by clicking "Edit" :
       | Title        | Narrative     | Awarded Budget | Cash Match |
       | Construction | The narrative | 2000           | 400        |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Amendment Line Items" modal by clicking the top right x button
     When I click on "Add Line Items" icon for "Site work" inside flex table with id "---grantee_tableId:-:AmendmentBudgetTableId---"
     When I enter the following values into flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---" by clicking "New" :
       | Title        | Narrative     | Awarded Budget | Cash Match |
       | Extra Salary | The narrative | 2000           | 80         |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Amendment Line Items" modal by clicking the top right x button
     And I click on "Submit for Approval" in the page details
     Then I softly see the following messages in the page details contains:
       | Overview Tab - The Budgeted Amount cannot be increased or decreased during a Budget Redirection.                                                                         |
@@ -24081,7 +24081,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
     When I enter the following values into flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---" by clicking "New" :
       | Title | Narrative     | Awarded Budget | Cash Match | Other Leverage |
       | Test  | The narrative | 3500           | 500        | 200            |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Amendment Line Items" modal by clicking the top right x button
     And I click on "Edit" in the page details
     When I enter values into fields
       | Value | Field                      |
@@ -27548,13 +27548,13 @@ Feature: Validate all scenarios for Grantee Amendment Request
           And I edit the following rows inline in flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---" by clicking "Edit" :
             | Title          | Narrative     | Awarded Budget | Cash Match | Other Leverage |
             | Construction   | The narrative | 3000           | 400        | 400            |
-          When I close "Add Line Items" modal by clicking the top right x button
+          When I close "Amendment Line Items" modal by clicking the top right x button
           And I wait for "3" seconds
           When I click on "Add Line Items" icon for "Architectural and engineering fees" inside flex table with id "---grantee_tableId:-:AmendmentBudgetTableId---" with wait for record
           When I enter the following values into flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---" by clicking "New" :
             | Title                              | Narrative     | Awarded Budget | Cash Match | Other Leverage |
             | Architectural and engineering fees | The narrative | 1000           | 100        | 100            |
-          When I close "Add Line Items" modal by clicking the top right x button
+          When I close "Amendment Line Items" modal by clicking the top right x button
           And I wait for "3" seconds
           And I click on top right button "New" in flex table with id "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
           When I enter in modal value "CFTermsCondition" into field "Title__c"
@@ -27683,14 +27683,14 @@ Feature: Validate all scenarios for Grantee Amendment Request
           When I click on "View" icon for "{SavedValue:AwardEGMSID2}" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---"
           And I navigate to "Projections" sub tab
           And I wait for "2" seconds
-          Then I softly see value "$3,000.00" for title "Awarded Budget" against the value "Construction" inside table "---grantee_tableId:-:grantBudgetCategoryTableId---"
-          Then I softly see value "$400.00" for title "Cash Match" against the value "Construction" inside table "---grantee_tableId:-:grantBudgetCategoryTableId---"
-          Then I softly see value "$400.00" for title "Other Leverage" against the value "Construction" inside table "---grantee_tableId:-:grantBudgetCategoryTableId---"
-          Then I softly see value "$3,800.00" for title "Total Project Cost" against the value "Construction" inside table "---grantee_tableId:-:grantBudgetCategoryTableId---"
-          Then I softly see value "$1,000.00" for title "Awarded Budget" against the value "Architectural and engineering fees" inside table "---grantee_tableId:-:grantBudgetCategoryTableId---"
-          Then I softly see value "$100.00" for title "Cash Match" against the value "Architectural and engineering fees" inside table "---grantee_tableId:-:grantBudgetCategoryTableId---"
-          Then I softly see value "$100.00" for title "Other Leverage" against the value "Architectural and engineering fees" inside table "---grantee_tableId:-:grantBudgetCategoryTableId---"
-          Then I softly see value "$1,200.00" for title "Total Project Cost" against the value "Architectural and engineering fees" inside table "---grantee_tableId:-:grantBudgetCategoryTableId---"
+          Then I softly see value "$3,000.00" for title "Award  Budget" against the value "Construction" inside table "---grantee_tableId:-:AwardBudgetTableId---"
+          Then I softly see value "$400.00" for title "Cash Match" against the value "Construction" inside table "---grantee_tableId:-:AwardBudgetTableId---"
+          Then I softly see value "$400.00" for title "Other Leverage" against the value "Construction" inside table "---grantee_tableId:-:AwardBudgetTableId---"
+          Then I softly see value "$3,800.00" for title "Total Project Cost" against the value "Construction" inside table "---grantee_tableId:-:AwardBudgetTableId---"
+          Then I softly see value "$1,000.00" for title "Award  Budget" against the value "Architectural and engineering fees" inside table "---grantee_tableId:-:AwardBudgetTableId---"
+          Then I softly see value "$100.00" for title "Cash Match" against the value "Architectural and engineering fees" inside table "---grantee_tableId:-:AwardBudgetTableId---"
+          Then I softly see value "$100.00" for title "Other Leverage" against the value "Architectural and engineering fees" inside table "---grantee_tableId:-:AwardBudgetTableId---"
+          Then I softly see value "$1,200.00" for title "Total Project Cost" against the value "Architectural and engineering fees" inside table "---grantee_tableId:-:AwardBudgetTableId---"
           When I navigate to "Actuals" sub tab
           When I save the field labeled "Grant Amount" as "GrantAmount"
           Then I softly see field "Grant Amount" as "{SavedValue:GrantAmount}"
@@ -27965,7 +27965,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
       And I edit the following rows inline in flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---" by clicking "Edit" :
         | Title          | Narrative     | Awarded Budget | Cash Match | Other Leverage |
         | Construction   | The narrative | 7000           | 700        | 400            |
-      When I close "Add Line Items" modal by clicking the top right x button
+      When I close "Amendment Line Items" modal by clicking the top right x button
       And I wait for "3" seconds
       And I click on top right button "New" in flex table with id "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
       When I enter in modal value "CFTermsCondition" into field "Title__c"

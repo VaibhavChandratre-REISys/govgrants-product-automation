@@ -1,4 +1,4 @@
-@GranteeNonFederalProgram
+@GranteeNonFederalProgram @GranteePreAwardRegression
 Feature: Validate all scenarios for Non Federal Program
 
   @476976 @NonFederalprogramVerifyvalidationsdisplayedtoPOuseronNonFederalprogram @P3_Grantee @Po_Grantee @GRegression1

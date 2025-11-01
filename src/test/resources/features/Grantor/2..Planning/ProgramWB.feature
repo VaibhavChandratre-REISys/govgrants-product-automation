@@ -3024,7 +3024,7 @@ Feature: Validate all scenarios for program
     Then I softly see field "Status" as "Reviewed"
     Then I can see top right button "Submit For Approval" in page detail
 
-  @197527 @ValidatereassignedtaskownerPMuserisabletoactivatetheexternalprogramifadmintransferstaskofthetasktypeActivateNGOProgramwhenstatusoftaskisNotStarted @sprint-12-US-226646  @reassignment
+  @197527 @ValidatereassignedtaskownerPMuserisabletoactivatetheexternalprogramifadmintransferstaskofthetasktypeActivateNGOProgramwhenstatusoftaskisNotStarted @sprint-12-US-226646  @reassignment @
   Scenario: Validate reassigned task owner PM user is able to activate the external program if admin transfers task of the task type Activate NGO Program when status of task is Not Started
     When I login to "Grantor" app as "PM" user
     And I navigate to "Planning" tab

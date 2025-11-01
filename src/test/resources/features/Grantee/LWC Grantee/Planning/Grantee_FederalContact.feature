@@ -1,4 +1,4 @@
-@GranteeFederalContact
+@GranteeFederalContact @GranteePreAwardRegression
 Feature: Validate all scenarios for Federal Contact
 
   @482122 @ValidateFederalContactAuditorusershouldnotcreatenewfederalcontactandshouldhaveonlyviewaccessonalreadycreatedcontact @P4_Grantee @AUDITOR_Grantee @GRegression1

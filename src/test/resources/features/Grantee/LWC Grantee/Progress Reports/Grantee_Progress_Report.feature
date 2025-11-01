@@ -3128,7 +3128,7 @@ Feature: Validate all scenarios for Grantee Progress Report
     @487105 @validatepmuser(awardowner)canabletocreatescheduledprogressreport&abletosubmitprogressreporttograntor  @P1_Grantee @PM_Grantee @GRegression1 @sprint15
     Scenario: Validate PM user (Award Owner)can able to create Scheduled Progress Report & able to submit Progress Report to Grantor
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
-    And I create "Grants.Gov" qualified lead for title "Automation Runtime award" and opportunity number "CAS-HHS0000660610" with properties "default-Product Admin user"
+    And I create "Grants.Gov" qualified lead for title "Automation Runtime award" and opportunity number "CAS-HHS0000660610" with properties "default"
     Given I login to "Grantee" app as "GRANTEE PM" user
     And I navigate to "Opportunities" tab
     When I navigate to "Qualified" content inside "Leads" subheader on left panel

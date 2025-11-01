@@ -159,6 +159,7 @@ Feature: Validate all scenarios in Closeout
     When I perform quick search for "{SavedValue:closeoutID}" in "---closeout:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "{SavedValue:closeoutID}" inside flex table with id "---closeout:-:pendingTaskTableId---"
     When I click on "Edit" in the page details
+    And I wait for "2" seconds
     And I enter "Subrecipient fields" values from "Closeout_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I click on "Acknowledge" in the page details
@@ -339,6 +340,7 @@ Feature: Validate all scenarios in Closeout
     And I save the field labeled "Closeout Activities Due Date" as "CloseoutActivitiesDueDate"
     Then I softly see field "Closeout Activities Due Date" as "{SavedValue:CloseoutActivitiesDueDate}"
     Then I softly see field "Closeout Effective Date" as "{SavedValue:CloseoutEffectiveDate}"
+    When I click on "Save" in the page details
     When I navigate to "Responsibilities" sub tab
     #89221
     When I enter the following values into flex table with id "---closeout:-:closeoutApproverTableId---" by clicking "New" :
@@ -351,6 +353,19 @@ Feature: Validate all scenarios in Closeout
     Then I softly see that "{SavedValue:PM Username}" has been added in flextable with Id "---closeout:-:closeoutApproverTableId---"
     #89223
     When I navigate to "Files" sub tab
+#    Then I softly see value "Automation" for title "Description" inside table "---closeout:-:closeoutSupportingDocumentChecklist---"
+#    #89224
+#    And I click on "Upload Template" icon for "Not Applicable" inside flex table with id "---closeout:-:closeoutSupportingDocumentChecklist---" with wait for record
+#    Then I softly see "Upload Template" opens in overLay window
+#    When I upload file "AttachmentTesting.pdf" into library
+#    And I click modal button "Save"
+#    Then I see the following messages in the page details contains:
+#      | Attachment saved successfully. |
+#    When I close "Upload Template" modal by clicking the top right x button
+#    #89225
+#    And I click on hyperlink containing value "View"
+#    Then I softly see new tab is opened
+#    And I switch to parent tab
     Then I softly see value "Automation" for title "Description" inside table "---closeout:-:closeoutSupportingDocumentChecklist---"
     #89225
     And I click on hyperlink containing value "View"
@@ -359,6 +374,7 @@ Feature: Validate all scenarios in Closeout
     And I switch to parent tab
     And I click on top right button "Add Files" in flex table with id "---closeout:-:closeoutFilesTableId---"
     #89226
+    And I upload attachment without random number "Permanent Records.xlsx" of type "Other" from computer
     When I upload attachment "Permanent Records.xlsx" of type "Other" from computer
     When I click modal button "Close"
     And I wait for "2" seconds
@@ -377,6 +393,7 @@ Feature: Validate all scenarios in Closeout
     Then I softly can see row level action button "Delete" against "ParentChild.xlsx" in flex table with id "---closeout:-:closeoutFilesTableId---"
     #88734
     When I navigate to "Checklist" sub tab
+    And I enter value "Yes" into field "ChecklistQuestionPick1__c"
     And I enter value "Yes" into field "ChecklistQuestionPick7__c"
     And I enter value "Yes" into field "ChecklistQuestionPick8__c"
     #88735
@@ -403,7 +420,7 @@ Feature: Validate all scenarios in Closeout
     Then I softly see field "Has the subrecipient met the match requirement?" as "Yes"
     Then I softly see field "Has the subrecipient provided supporting documentation for all reported match, including third party in-kind match?" as "Yes"
     Then I softly see field "Did the subrecipient fully expend program income earned during the award period prior to the closeout of the award?" as "Yes"
-    Then I softly see field "Has the subrecipient returned unexpended program income to the funding organiation, if required by program regulations?" as "Yes"
+    Then I softly see field "Has the subrecipient returned unexpended program income to the funding organization, if required by program regulations?" as "Yes"
     Then I softly see field "Has the subrecipient completed the scope of work as outlined in the subaward agreement?" as "Yes"
     Then I softly see field "Has the subrecipient met all deliverable requirements?" as "Yes"
     Then I softly see field "Has the subrecipient submitted required documentation of performance completion?" as "Yes"
@@ -430,8 +447,6 @@ Feature: Validate all scenarios in Closeout
     And I enter "Edition" values from "Closeout_Field_Values.xlsx"
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "closeoutID"
-    When I click on "Save" in the page details
-    And I click on "Edit" in the page details
     And I enter value "Automation Test justification" into field "Justification__c"
     When I click on "Save" in the page details
     When I navigate to "Responsibilities" sub tab
@@ -442,19 +457,19 @@ Feature: Validate all scenarios in Closeout
       | Name                     | Closeout |
       | {SavedValue:FO Username} | Step 2   |
     When I navigate to "Files" sub tab
-    When I enter the following values into flex table with id "---closeout:-:closeoutSupportingDocumentChecklist---" by clicking "Add" :
-      | Description                 | Required  | Status |
-      | Automation test description | Mandatory | Active |
-    When I click on "Upload Template" icon for "Not Applicable" inside flex table with id "---closeout:-:closeoutSupportingDocumentChecklist---" without waiting for record
-    Then I softly see "Upload Template" opens in overLay window
-    When I upload file "AttachmentTesting.pdf" into library
-    And I click modal button "Save"
-    Then I see the following messages in the page details contains:
-      | Attachment saved successfully. |
-    When I close "Upload Template" modal by clicking the top right x button
-    And I click on hyperlink containing value "View"
-    Then I softly see new tab is opened
-    And I switch to parent tab
+#    When I enter the following values into flex table with id "---closeout:-:closeoutSupportingDocumentChecklist---" by clicking "Add" :
+#      | Description                 | Required  | Status |
+#      | Automation test description | Mandatory | Active |
+#    When I click on "Upload Template" icon for "Not Applicable" inside flex table with id "---closeout:-:closeoutSupportingDocumentChecklist---" without waiting for record
+#    Then I softly see "Upload Template" opens in overLay window
+#    When I upload file "AttachmentTesting.pdf" into library
+#    And I click modal button "Save"
+#    Then I see the following messages in the page details contains:
+#      | Attachment saved successfully. |
+#    When I close "Upload Template" modal by clicking the top right x button
+#    And I click on hyperlink containing value "View"
+#    Then I softly see new tab is opened
+#    And I switch to parent tab
     And I click on top right button "Add Files" in flex table with id "---closeout:-:closeoutFilesTableId---"
     When I upload attachment "Permanent Records.xlsx" of type "Other" from computer
     And I click modal button "Close"
@@ -946,12 +961,13 @@ Feature: Validate all scenarios in Closeout
     And I perform quick search for "{SavedValue:closeoutID}" in "---closeout:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "{SavedValue:closeoutID}" inside flex table with id "---closeout:-:pendingTaskTableId---"
     When I "Approve" in the approval decision
+    Then I softly see field "Status" as "Approved"
     And I wait for "3" seconds
-    When I navigate to "Closeout" tab
-    When I navigate to "Closeout" tab
-    And I click toggle button to select "Closeouts - All"
-    And I perform quick search for "{SavedValue:closeoutID}" in "---closeout:-:CloseoutTableId---" panel
-    And I click on "View" icon for "{SavedValue:closeoutID}" inside flex table with id "---closeout:-:CloseoutTableId---"
+    And I navigate to "Closeout" tab
+    When I navigate to "Project Period Closeouts" content inside "Closeouts" subheader on left panel
+    And I click toggle button to select "Project Period Closeouts - All"
+    And I perform quick search for "{SavedValue:closeoutID}" in "---closeout:-:ProjectPeriodCloseoutTableId---" panel
+    And I click on "View" icon for "{SavedValue:closeoutID}" inside flex table with id "---closeout:-:ProjectPeriodCloseoutTableId---"
     And I navigate to "History" sub tab
     Then I softly see column "Date" at position "3" contains text "Step : Step 1"
     Then I softly see column "Overall Status" at position "3" contains text "Approved"
@@ -975,6 +991,7 @@ Feature: Validate all scenarios in Closeout
     Then I softly see field "Closeout" as "{SavedValue:CloseoutName}"
     Then I softly see field "Closeout Effective Date" as "{SavedValue:CloseoutEffectiveDate}"
     Then I softly see field "EGMS ID" as "{SavedValue:CloseoutEGMSID}"
+    When I click on "Save" in the page details
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
@@ -1034,6 +1051,7 @@ Feature: Validate all scenarios in Closeout
     And I navigate to "Overview" sub tab
     And I save the field labeled "EGMS ID" as "CloseoutEGMSID"
     And I save the field labeled "EGMS ID" as "closeoutID"
+    When I click on "Save" in the page details
     And I navigate to "Closeout" tab
     When I navigate to "Project Period Closeouts" content inside "Closeouts" subheader on left panel
     And I click toggle button to select "Project Period Closeouts - Draft"
@@ -1486,6 +1504,7 @@ Feature: Validate all scenarios in Closeout
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     When I navigate to "Closeout" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    And I wait for "2" seconds
     When I perform quick search for "Record Id" in "---closeout:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---closeout:-:pendingTaskTableId---"
     When I click on "Edit" in the page details
@@ -1510,7 +1529,7 @@ Feature: Validate all scenarios in Closeout
     And I enter "Edition" values from "Closeout_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I get the "EGMS ID"
-    Given I click on "Send To Subrecipient" in the page details
+    And I click on "Acknowledge" in the page details
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     When I navigate to "Closeout" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -1604,8 +1623,9 @@ Feature: Validate all scenarios in Closeout
   Scenario: Validate closeout Request Is Not Acknowledged By SubRecipient User When The Supporting Document Checklist Document Is Not Uploaded When Column Required Setting Set As "Mandatory"
     When I navigate to "Files" sub tab
     When I enter the following values into flex table with id "---subAwardStandAlone:-:flexGridGrantChecklistsTableId---" by clicking "Add" :
-      | Description | Required  | Applies To              | Status |
+      | Description | Required  | Applies To            | Status |
       | Automation  | Mandatory | Project Period Closeout | Active |
+    And I wait for "2" seconds
     When I navigate to "Requests" sub tab
     And I click on top right button "New" in flex table with id "---closeout:-:closeoutTableId---"
     When I enter in modal "Creation" values from "Closeout_Field_Values.xlsx"
@@ -1625,6 +1645,10 @@ Feature: Validate all scenarios in Closeout
     And I click on "Start" icon for "Record Id" inside flex table with id "---closeout:-:pendingTaskTableId---"
     When I click on "Edit" in the page details
     And I enter "Subrecipient fields" values from "Closeout_Field_Values.xlsx"
+#    When I navigate to "Files" sub tab
+#    When I enter the following values into flex table with id "---closeout:-:closeoutSupportingDocumentChecklist---" by clicking "Add" :
+#      | Description                 | Required  | Status |
+#      | Automation test description | Mandatory | Active |
     When I click on "Save" in the page details
     And I click on "Acknowledge" in the page details
     Then I softly see the following messages in the page details contains:

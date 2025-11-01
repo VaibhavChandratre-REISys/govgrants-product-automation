@@ -1,4 +1,4 @@
-@GranteeApplicationsManual
+@GranteeApplicationsManual @GranteePreAwardRegression
 Feature: Validate all scenarios for Applications Manual
 
   @480702 @OpportunitiesconvertedtoApplicationManualVerifyEXEusercannavigatetoOpportunitydetailspageafterclickingonviewactionfortheOppprotunitywhichisconvertedtoPre-application @P2_Grantee @EXE_Grantee @GRegression1
