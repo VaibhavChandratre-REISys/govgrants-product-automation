@@ -1,4 +1,4 @@
-@GranteeFederalContact @GranteeFederalContactPDF @skipOnJenkins
+@GranteeFederalContact @GranteeFederalContactPDF @GranteePreAwardRegression
 Feature: Validate all scenarios for Federal Contact for PDF
 
   @477592 @ValidateFederalContactAdminusershouldcreatenewfederalcontact @P3_Grantee @ADMIN_Grantee @GRegression3
