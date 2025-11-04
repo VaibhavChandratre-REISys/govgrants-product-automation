@@ -90,8 +90,8 @@ Feature: Validate all scenarios for Strategic Plan
     And I click on "View" icon for "<RecordId>" inside table
     Then I cannot see top right button "Deactivate" in page detail
     Examples:
-      | User            | RecordId                            |
-      | GRANTEE FO      | Automation Permanent Strategic Plan |
+      | User       | RecordId                            |
+      | GRANTEE FO | Automation Permanent Strategic Plan |
 
   @476621 @VerifyFDusercannotDeactivateactiveStrategicplan @P3_Grantee @FD_Grantee @GRegression2
   Scenario Outline: Verify FD user cannot Deactivate active Strategic plan
@@ -103,8 +103,8 @@ Feature: Validate all scenarios for Strategic Plan
     And I click on "View" icon for "<RecordId>" inside table
     Then I cannot see top right button "Deactivate" in page detail
     Examples:
-      | User            | RecordId                            |
-      | GRANTEE FD      | Automation Permanent Strategic Plan |
+      | User       | RecordId                            |
+      | GRANTEE FD | Automation Permanent Strategic Plan |
 
   @476622 @VerifyFDusercannotDeactivateactiveStrategicplan @P3_Grantee @PO_Grantee @GRegression2
   Scenario Outline: Verify PO user cannot Deactivate active Strategic plan
@@ -116,8 +116,8 @@ Feature: Validate all scenarios for Strategic Plan
     And I click on "View" icon for "<RecordId>" inside table
     Then I cannot see top right button "Deactivate" in page detail
     Examples:
-      | User            | RecordId                            |
-      | GRANTEE PO      | Automation Permanent Strategic Plan |
+      | User       | RecordId                            |
+      | GRANTEE PO | Automation Permanent Strategic Plan |
 
   @476623 @VerifyFDusercannotDeactivateactiveStrategicplan @P4_Grantee @AUDITOR_Grantee @GRegression2
   Scenario Outline: Verify FD user cannot Deactivate active Strategic plan
@@ -384,8 +384,8 @@ Feature: Validate all scenarios for Strategic Plan
     Then I see option "Refresh" present in parallel dropdown
     Then I see option "Download as PDF" present in parallel dropdown
     Examples:
-      | User          | RecordId                            |
-      | GRANTEE PO    | Automation Permanent Strategic Plan |
+      | User       | RecordId                            |
+      | GRANTEE PO | Automation Permanent Strategic Plan |
 
   @476595 @StrategicPlanVerifyPOasNonownerusercannoteditanydataonStrategicplanrecordcreatedbyPMuserwhenSPisinCreatedActivestate @PM_Grantee @P3_Grantee @GRegression3
   Scenario Outline: Strategic Plan - Verify PM as Non owner user cannot edit any data on Strategic plan record created by PM user when SP is in Created, Active state
@@ -639,8 +639,8 @@ Feature: Validate all scenarios for Strategic Plan
     Then I see option "Refresh" present in parallel dropdown
     Then I see option "Download as PDF" present in parallel dropdown
     Examples:
-      | User          | RecordId                            |
-      | GRANTEE PM    | Automation Permanent Strategic Plan |
+      | User       | RecordId                            |
+      | GRANTEE PM | Automation Permanent Strategic Plan |
 
   @476596 @StrategicPlanVerifyPOasNonownerusercannoteditanydataonStrategicplanrecordcreatedbyPMuserwhenSPisinCreatedActivestate @FO_Grantee @P3_Grantee @GRegression3
   Scenario Outline: Strategic Plan - Verify FO as Non owner user cannot edit any data on Strategic plan record created by PM user when SP is in Created, Active state
@@ -894,8 +894,8 @@ Feature: Validate all scenarios for Strategic Plan
     Then I see option "Refresh" present in parallel dropdown
     Then I see option "Download as PDF" present in parallel dropdown
     Examples:
-      | User          | RecordId                            |
-      | GRANTEE FO    | Automation Permanent Strategic Plan |
+      | User       | RecordId                            |
+      | GRANTEE FO | Automation Permanent Strategic Plan |
 
   @476597 @StrategicPlanVerifyPOasNonownerusercannoteditanydataonStrategicplanrecordcreatedbyPMuserwhenSPisinCreatedActivestate @ADMIN_Grantee @P3_Grantee @GRegression3
   Scenario Outline: Strategic Plan - Verify ADMIN as Non owner user cannot edit any data on Strategic plan record created by PM user when SP is in Created, Active state
@@ -1159,8 +1159,8 @@ Feature: Validate all scenarios for Strategic Plan
     When I navigate to "Strategic Plans" content inside "Setup" subheader on left panel
     Then I softly do not see top right button "New" inside flex table "---grantee_tableId:-:StrategicPlans---"
     Examples:
-      | userType        |
-      | GRANTEE FO      |
+      | userType   |
+      | GRANTEE FO |
 
   @476613 @ValidateStrategicPlanFOusercannotcreateStrategicPlan @P3_Grantee @FD_Grantee @GRegression2
   Scenario Outline: Validate Strategic Plan FD user cannot create Strategic Plan
@@ -1169,8 +1169,8 @@ Feature: Validate all scenarios for Strategic Plan
     When I navigate to "Strategic Plans" content inside "Setup" subheader on left panel
     Then I softly do not see top right button "New" inside flex table "---grantee_tableId:-:StrategicPlans---"
     Examples:
-      | userType        |
-      | GRANTEE FD      |
+      | userType   |
+      | GRANTEE FD |
 
   @476615 @ValidateStrategicPlanFOusercannotcreateStrategicPlan @P4_Grantee @AUDITOR_Grantee @GRegression2
   Scenario Outline: Validate Strategic Plan AUDITOR user cannot create Strategic Plan
@@ -1189,8 +1189,8 @@ Feature: Validate all scenarios for Strategic Plan
     When I navigate to "Strategic Plans" content inside "Setup" subheader on left panel
     Then I softly do not see top right button "New" inside flex table "---grantee_tableId:-:StrategicPlans---"
     Examples:
-      | userType        |
-      | GRANTEE PO      |
+      | userType   |
+      | GRANTEE PO |
 
   @476278 @ValidatePMusercancreateandActivateStrategicplan
   Scenario Outline: Validate PM user can create and Activate Strategic plan
@@ -1359,8 +1359,8 @@ Feature: Validate all scenarios for Strategic Plan
     When I expand nested table containing column value "Automation Strategic Goal"
     Then I softly see value "Automation Strategic Objective" for title "Objective" inside table "---grantee_tableId:-:StrategicObjectivesChild---"
     Examples:
-      | userType    | emailIdFrom                     | emailIdTo                       |
-      | GRANTEE EXE | victor.exeqagrantee@yopmail.com | sarah.pm.23@yopmail.com         |
+      | userType    | emailIdFrom                       | emailIdTo               |
+      | GRANTEE EXE | victor.exe.ggmergeqa2@yopmail.com | sarah.pm.23@yopmail.com |
 
   @476619 @ValidateEXEusercanDeactivateactiveStrategicplancreatedbyPMuserfromsameinternalorganization @P2_Grantee @EXE_Grantee @GRegression2
   Scenario: Validate EXE user can Deactivate active Strategic plan created by PM  user from same internal organization
@@ -1613,12 +1613,12 @@ Feature: Validate all scenarios for Strategic Plan
     When I expand nested table containing column value "Automation Strategic Goal"
     Then I softly see value "Automation Strategic Objective" for title "Objective" inside table "---grantee_tableId:-:StrategicObjectivesChild---"
     Examples:
-      | userType       | emailIdFrom                     | emailIdTo                       |
-      | GRANTEE Admin  | product.qa@yopmail.com          | victor.exeqagrantee@yopmail.com |
+      | userType      | emailIdFrom            | emailIdTo                       |
+      | GRANTEE Admin | product.qa@yopmail.com | victor.exeqagrantee@yopmail.com |
 
   @445782 @vaildatePM/EXEusercanviewStrategicplanrecordinCreated,Active,Inactivestate @P2_Grantee @PM_Grantee @Gregression2
   Scenario Outline:Validate PM/ EXE user can view Strategic plan record in Created, Active, Inactive state
-   When I login to "Grantee" app as "GRANTEE EXE1" user
+    When I login to "Grantee" app as "GRANTEE EXE1" user
     And I navigate to "Planning" tab
     When I navigate to "{grantee_sidebar:StrategicPlanLinkName}" content inside "{grantee_sidebar:SetUpSubheaderName}" subheader on left panel
     And I click on top right button "New" in flex table with id "{grantee_tableId:StrategicPlans}"
@@ -1637,16 +1637,16 @@ Feature: Validate all scenarios for Strategic Plan
     When I enter the following values into flex table with id "---grantee_tableId:-:strategicPlansNotesTableId---" by clicking "New" :
       | Title        | Description      |
       | Notes Record | Automation Notes |
-   When I enter the following values into flex table with id "---grantee_tableId:-:strategicPlansNotesTableId---" by clicking "New" :
+    When I enter the following values into flex table with id "---grantee_tableId:-:strategicPlansNotesTableId---" by clicking "New" :
       | Title         | Description       |
       | Notes Record1 | Automation Notes1 |
-   Then I softly see value "Notes Record" for title "Title" inside table "---grantee_tableId:-:strategicPlansNotesTableId---"
-   Then I softly see value "Notes Record1" for title "Title" inside table "---grantee_tableId:-:strategicPlansNotesTableId---"
-   And I navigate to "Messages" sub tab
-   And I click on top right button "Send Email" in flex table with id "CommunicationHistory"
+    Then I softly see value "Notes Record" for title "Title" inside table "---grantee_tableId:-:strategicPlansNotesTableId---"
+    Then I softly see value "Notes Record1" for title "Title" inside table "---grantee_tableId:-:strategicPlansNotesTableId---"
+    And I navigate to "Messages" sub tab
+    And I click on top right button "Send Email" in flex table with id "CommunicationHistory"
     And I send the email under collab tab with following details:
-      | To                        | Subject            | Body            |
-      | sarah.pm.23@yopmail.com   | Automation Subject | Automation Body |
+      | To                      | Subject            | Body            |
+      | sarah.pm.23@yopmail.com | Automation Subject | Automation Body |
     When I click modal button "Close"
     And I refresh the page
     And I wait for "3" seconds
@@ -1692,8 +1692,8 @@ Feature: Validate all scenarios for Strategic Plan
     And I navigate to "Messages" sub tab
     And I click on top right button "Send Email" in flex table with id "CommunicationHistory"
     And I send the email under collab tab with following details:
-      | To                        | Subject            | Body            |
-      | sarah.pm.23@yopmail.com   | Automation Subject | Automation Body |
+      | To                      | Subject            | Body            |
+      | sarah.pm.23@yopmail.com | Automation Subject | Automation Body |
     When I click modal button "Close"
     And I refresh the page
     And I wait for "3" seconds
@@ -1747,7 +1747,7 @@ Feature: Validate all scenarios for Strategic Plan
     And I navigate to "Messages" sub tab
     And I click on top right button "Send Email" in flex table with id "CommunicationHistory"
     And I send the email under collab tab with following details:
-      | To                        | Subject            | Body            |
+      | To                      | Subject            | Body            |
       | sarah.pm.23@yopmail.com | Automation Subject | Automation Body |
     When I click modal button "Close"
     And I refresh the page
@@ -1984,8 +1984,8 @@ Feature: Validate all scenarios for Strategic Plan
     Then I see option "Refresh" present in parallel dropdown
     Then I see option "Download as PDF" present in parallel dropdown
     Examples:
-      | User          | RecordId                            |
-      | GRANTEE PM1   | Automation Permanent Strategic Plan |
+      | User        | RecordId                            |
+      | GRANTEE PM1 | Automation Permanent Strategic Plan |
 
 
   @445795 @StrategicPlanVerifyPOasNonownerusercannoteditanydataonStrategicplanrecordcreatedbyPMuserwhenSPisinCreatedActivestate @PO_Grantee @P3_Grantee @GRegression3
@@ -2226,8 +2226,8 @@ Feature: Validate all scenarios for Strategic Plan
     Then I see option "Refresh" present in parallel dropdown
     Then I see option "Download as PDF" present in parallel dropdown
     Examples:
-      | User          | RecordId                            |
-      | GRANTEE EXE   | Automation Permanent Strategic Plan |
+      | User        | RecordId                            |
+      | GRANTEE EXE | Automation Permanent Strategic Plan |
 
   @476591 @validateAdminusercandeactivateactivestrategicplancreatedbyEXEuserfromsameinternalorganization @P2_Grantee @ADMIN_Grantee @GRegression2
   Scenario: Validate Admin user can Deactivate active Strategic plan created by EXE user from same internal organization
