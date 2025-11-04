@@ -1215,8 +1215,7 @@ Feature: Validate all scenarios for Strategic Plan
     And I update title as "Automation.pdf" on upload file modal
     And I select Classification as "Strategic Plan" at upload file modal
     When I click modal button "Save"
-    And I click modal button "Close"
-    And I refresh the page
+#    And I click modal button "Close"
     And I wait for "2" seconds
     Then I softly see value "Automation.pdf" for title "Title" inside table "---grantee_tableId:-:strategicPlansFilesTableId---"
     Then I softly see value "Strategic Plan" for title "Classification" inside table "---grantee_tableId:-:strategicPlansFilesTableId---"
@@ -1262,8 +1261,7 @@ Feature: Validate all scenarios for Strategic Plan
     And I update title as "Automation.pdf" on upload file modal
     And I select Classification as "Strategic Goal" at upload file modal
     When I click modal button "Save"
-    And I click modal button "Close"
-    And I refresh the page
+#    And I click modal button "Close"
     And I wait for "2" seconds
     Then I softly see value "Automation.pdf" for title "Title" inside table "---grantee_tableId:-:strategicGoalsFilesTableId---"
     Then I softly see value "Strategic Goal" for title "Classification" inside table "---grantee_tableId:-:strategicGoalsFilesTableId---"
@@ -1317,8 +1315,7 @@ Feature: Validate all scenarios for Strategic Plan
     And I update title as "Automation.pdf" on upload file modal
     And I select Classification as "Objective" at upload file modal
     When I click modal button "Save"
-    And I click modal button "Close"
-    And I refresh the page
+#    And I click modal button "Close"
     And I wait for "2" seconds
     Then I softly see value "Automation.pdf" for title "Title" inside table "---grantee_tableId:-:objectivesAddFilesTableId---"
     Then I softly see value "Objective" for title "Classification" inside table "---grantee_tableId:-:objectivesAddFilesTableId---"
@@ -1444,7 +1441,6 @@ Feature: Validate all scenarios for Strategic Plan
     When I click modal button "OK"
     Then I softly see field "Status" as "Inactive"
 
-
   @476590 @Validateadminusercancreateandactivatestrategicplan  @P1_Grantee @GRegression1 @ADMIN_Grantee @sprint15
   Scenario Outline: Validate Admin user can create and Activate Strategic plan
     When I login to "Grantee" app as "<userType>" user
@@ -1468,8 +1464,7 @@ Feature: Validate all scenarios for Strategic Plan
     And I update title as "Automation.pdf" on upload file modal
     And I select Classification as "Strategic Plan" at upload file modal
     When I click modal button "Save"
-    And I click modal button "Close"
-    And I refresh the page
+#    And I click modal button "Close"
     And I wait for "2" seconds
     Then I softly see value "Automation.pdf" for title "Title" inside table "---grantee_tableId:-:strategicPlansFilesTableId---"
     Then I softly see value "Strategic Plan" for title "Classification" inside table "---grantee_tableId:-:strategicPlansFilesTableId---"
@@ -1515,8 +1510,7 @@ Feature: Validate all scenarios for Strategic Plan
     And I update title as "Automation.pdf" on upload file modal
     And I select Classification as "Strategic Goal" at upload file modal
     When I click modal button "Save"
-    And I click modal button "Close"
-    And I refresh the page
+#    And I click modal button "Close"
     And I wait for "2" seconds
     Then I softly see value "Automation.pdf" for title "Title" inside table "---grantee_tableId:-:strategicGoalsFilesTableId---"
     Then I softly see value "Strategic Goal" for title "Classification" inside table "---grantee_tableId:-:strategicGoalsFilesTableId---"
@@ -1570,8 +1564,7 @@ Feature: Validate all scenarios for Strategic Plan
     And I update title as "Automation.pdf" on upload file modal
     And I select Classification as "Objective" at upload file modal
     When I click modal button "Save"
-    And I click modal button "Close"
-    And I refresh the page
+#    And I click modal button "Close"
     And I wait for "2" seconds
     Then I softly see value "Automation.pdf" for title "Title" inside table "---grantee_tableId:-:objectivesAddFilesTableId---"
     Then I softly see value "Objective" for title "Classification" inside table "---grantee_tableId:-:objectivesAddFilesTableId---"
@@ -1734,8 +1727,7 @@ Feature: Validate all scenarios for Strategic Plan
     And I update title as "Automation.pdf" on upload file modal
     And I select Classification as "Objective" at upload file modal
     When I click modal button "Save"
-    And I click modal button "Close"
-    And I refresh the page
+#    And I click modal button "Close"
     And I wait for "2" seconds
     Then I softly see value "Automation.pdf" for title "Title" inside table "---grantee_tableId:-:objectivesAddFilesTableId---"
     Then I softly see value "Objective" for title "Classification" inside table "---grantee_tableId:-:objectivesAddFilesTableId---"
@@ -2019,8 +2011,7 @@ Feature: Validate all scenarios for Strategic Plan
     And I update title as "Automation.pdf" on upload file modal
     And I select Classification as "Strategic Plan" at upload file modal
     When I click modal button "Save"
-    And I click modal button "Close"
-    And I refresh the page
+#    And I click modal button "Close"
     And I wait for "2" seconds
     Then I softly see value "Automation.pdf" for title "Title" inside table "---grantee_tableId:-:strategicPlansFilesTableId---"
     Then I softly see value "Strategic Plan" for title "Classification" inside table "---grantee_tableId:-:strategicPlansFilesTableId---"
@@ -2063,8 +2054,7 @@ Feature: Validate all scenarios for Strategic Plan
     And I update title as "Automation.pdf" on upload file modal
     And I select Classification as "Strategic Goal" at upload file modal
     When I click modal button "Save"
-    And I click modal button "Close"
-    And I refresh the page
+#    And I click modal button "Close"
     And I wait for "2" seconds
     Then I softly see value "Automation.pdf" for title "Title" inside table "---grantee_tableId:-:strategicGoalsFilesTableId---"
     Then I softly see value "Strategic Goal" for title "Classification" inside table "---grantee_tableId:-:strategicGoalsFilesTableId---"
@@ -2115,8 +2105,7 @@ Feature: Validate all scenarios for Strategic Plan
     And I update title as "Automation.pdf" on upload file modal
     And I select Classification as "Objective" at upload file modal
     When I click modal button "Save"
-    And I click modal button "Close"
-    And I refresh the page
+#    And I click modal button "Close"
     And I wait for "2" seconds
     Then I softly see value "Automation.pdf" for title "Title" inside table "---grantee_tableId:-:objectivesAddFilesTableId---"
     Then I softly see value "Objective" for title "Classification" inside table "---grantee_tableId:-:objectivesAddFilesTableId---"
