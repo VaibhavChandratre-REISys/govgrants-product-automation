@@ -69,6 +69,8 @@ public class UsersAndURL implements UsersController {
             userName = getNYLwcEnvironmentUser(setUpUserLevel(userLevel));
         }else if ((EnvironmentFactory.getEnvironmentName() != null) && (EnvironmentFactory.getEnvironmentName().contains("WASHINGTON"))) {
             userName = getWashingtonEnvironmentUser(setUpUserLevel(userLevel));
+        } else if ((EnvironmentFactory.getEnvironmentName() != null) && (EnvironmentFactory.getEnvironmentName().contains("FWLWC"))) {
+            userName = getFwLwcEnvironmentUser(setUpUserLevel(userLevel));
         }else {
             userName = getAUTOEnvironmentUser(setUpUserLevel(userLevel));
         }
@@ -88,6 +90,8 @@ public class UsersAndURL implements UsersController {
             password = getNYLwcEnvironmentPassword(setUpUserLevel(userLevel));
         }else if (EnvironmentFactory.getEnvironmentName().contains("WASHINGTON")) {
             password = getWashingtonEnvironmentPassword(setUpUserLevel(userLevel));
+        } else if (EnvironmentFactory.getEnvironmentName().contains("FWLWC")) {
+            password = getFwLwcEnvironmentPassword(setUpUserLevel(userLevel));
         }else
             password = getAUTOEnvironmentPassword(setUpUserLevel(userLevel));
         return password;
@@ -497,6 +501,56 @@ public class UsersAndURL implements UsersController {
             return username.get(userLevel.toUpperCase());
         } else {
             return username.get("ADMIN");
+        }
+    }
+
+    private String getFwLwcEnvironmentUser(String userLevel) {
+        Map<String, String> username = new HashMap<>();
+        username.put("ADMIN", "govgrantsautomation@yopmail.com.frwklwcaut");
+        username.put("EXE", "test@gmaildemo.com.frwklwcaut");
+        username.put("ADMIN1", "manu.admin@ggp.test8.frwklwcaut");
+        username.put("PM", "donald_pm@ggp.test7.atm.frwklwcaut");
+        username.put("FO", "auto.fm@auto.com.frwklwcaut");
+        username.put("SPI3", "aspi3@grants.gov.frwklwcaut");
+        username.put("PM1", "pm1.automation@yopmail.com.frwklwcaut");
+        username.put("Automation PM", "automationpm@ggp.test8.frwklwcaut");
+        username.put("SA", "asa@grants.gov.frwklwcaut");
+        username.put("PO", "automationpo@yopmail.com.frwklwcaut");
+        username.put("IND", "ind12.automation@yopmail.com.frwklwcaut");
+        username.put("FD", "automationfd@yopmail.com.frwklwcaut");
+        username.put("AUDITOR", "automationauditor@yopmail.com.frwklwcaut");
+        username.put("FO1", "fo1.automation@yopmail.com.frwklwcaut");
+        username.put("PO1", "automationpo1@yopmail.com.frwklwcaut");
+        username.put("EXE1", "exe1.automation@yopmail.com.frwklwcaut");
+        if (userLevel.toUpperCase() != null) {
+            return username.get(userLevel.toUpperCase());
+        } else {
+            return username.get("ADMIN");
+        }
+    }
+
+    private String getFwLwcEnvironmentPassword(String userType) {
+        Map<String, String> password = new HashMap<>();
+        password.put("ADMIN", "Jupiter@2026");
+        password.put("ADMIN1", "Jupiter@2026");
+        password.put("EXE", "Jupiter@2026");
+        password.put("PM", "Jupiter@2026");
+        password.put("FO", "Jupiter@2026");
+        password.put("SPI3", "Jupiter@2026");
+        password.put("PM1", "Jupiter@2026");
+        password.put("Automation PM", "Jupiter@2026");
+        password.put("SA", "Jupiter@2026");
+        password.put("PO", "Jupiter@2026");
+        password.put("IND", "Jupiter@2026");
+        password.put("FD", "Jupiter@2026");
+        password.put("AUDITOR", "Jupiter@2026");
+        password.put("FO1", "Jupiter@2026");
+        password.put("PO1", "Jupiter@2026");
+        password.put("EXE1", "Jupiter@2026");
+        if (userType.toUpperCase() != null) {
+            return password.get(userType.toUpperCase());
+        } else {
+            return password.get("ADMIN");
         }
     }
 
