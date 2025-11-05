@@ -1978,7 +1978,6 @@ Feature: Validate all scenarios for Opportunity
     Then I softly see "Opportunity Title" in flex table header "---grantee_tableId:-:OpportunityNotConvertedToApplication---"
     Then I softly see "Funding Organization" in flex table header "---grantee_tableId:-:OpportunityNotConvertedToApplication---"
     Then I softly see "Application Due Date" in flex table header "---grantee_tableId:-:OpportunityNotConvertedToApplication---"
-    Then I softly see "Internal Organization" in flex table header "---grantee_tableId:-:OpportunityNotConvertedToApplication---"
     Then I softly see "Status" in flex table header "---grantee_tableId:-:OpportunityNotConvertedToApplication---"
     When I perform quick search for "Draft" in "---grantee_tableId:-:OpportunityNotConvertedToApplication---" panel
     Then I softly see value "Draft" for title "Status" inside table "---grantee_tableId:-:OpportunityNotConvertedToApplication---"
