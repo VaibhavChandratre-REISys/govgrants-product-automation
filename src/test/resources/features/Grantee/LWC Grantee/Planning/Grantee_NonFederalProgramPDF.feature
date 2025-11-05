@@ -19,10 +19,10 @@ Feature: Validate all scenarios for Non Federal Program for PDF
     Then I see option "Refresh" present in parallel dropdown
     Then I see option "Download as PDF" present in parallel dropdown
     Then I see option "Download as CSV" present in parallel dropdown
-    And I select "Download as PDF" from parallel lines dropdown of "Non-Federal Programs- All"
+    And I select "Download as PDF" from parallel lines dropdown of "Non-Federal Programs - All"
     And I wait for "8" seconds
     And I download the file
-    Then I see "Non-Federal Programs- All" on page "1" of "govgrants" pdf file
+    Then I see "Non-Federal Programs - All" on page "1" of "govgrants" pdf file
     And I switch to parent tab
     And I select "Refresh" from parallel lines dropdown of "Non-Federal Programs - All"
     Then I see table is refreshing
@@ -137,7 +137,7 @@ Feature: Validate all scenarios for Non Federal Program for PDF
     And I select "Download as PDF" from parallel lines dropdown of "Non-Federal Contacts"
     And I wait for "7" seconds
     And I download the file
-    Then I see "Non-Federal Contacts" on page "1" of "govgrants" pdf file
+    Then I softly see "Non-Federal Contacts" on page "1" of "govgrants" pdf file
     And I switch to parent tab
     Then I softly can see top right button "New" in flex table with id "---grantee_tableId:-:nonFedContactTableId---"
     And I click on top right button "New" in flex table with id "---grantee_tableId:-:nonFedContactTableId---"
@@ -283,7 +283,7 @@ Feature: Validate all scenarios for Non Federal Program for PDF
     And I select "Download as PDF" from parallel lines dropdown of "Non-Federal Contacts"
     And I wait for "7" seconds
     And I download the file
-    Then I see "Non-Federal Contacts" on page "1" of "govgrants" pdf file
+    Then I softly see "Non-Federal Contacts" on page "1" of "govgrants" pdf file
     And I switch to parent tab
     Then I softly can see top right button "New" in flex table with id "---grantee_tableId:-:nonFedContactTableId---"
     And I click on top right button "New" in flex table with id "---grantee_tableId:-:nonFedContactTableId---"
@@ -428,7 +428,7 @@ Feature: Validate all scenarios for Non Federal Program for PDF
     And I select "Download as PDF" from parallel lines dropdown of "Non-Federal Contacts"
     And I wait for "7" seconds
     And I download the file
-    Then I see "Non-Federal Contacts" on page "1" of "govgrants" pdf file
+    Then I softly see "Non-Federal Contacts" on page "1" of "govgrants" pdf file
     And I switch to parent tab
     Then I softly can see top right button "New" in flex table with id "---grantee_tableId:-:nonFedContactTableId---"
     And I click on top right button "New" in flex table with id "---grantee_tableId:-:nonFedContactTableId---"
@@ -574,7 +574,7 @@ Feature: Validate all scenarios for Non Federal Program for PDF
     And I select "Download as PDF" from parallel lines dropdown of "Non-Federal Contacts"
     And I wait for "7" seconds
     And I download the file
-    Then I see "Non-Federal Contacts" on page "1" of "govgrants" pdf file
+    Then I softly see "Non-Federal Contacts" on page "1" of "govgrants" pdf file
     And I switch to parent tab
     Then I softly can see top right button "New" in flex table with id "---grantee_tableId:-:nonFedContactTableId---"
     And I click on top right button "New" in flex table with id "---grantee_tableId:-:nonFedContactTableId---"
@@ -719,7 +719,7 @@ Feature: Validate all scenarios for Non Federal Program for PDF
     And I select "Download as PDF" from parallel lines dropdown of "Non-Federal Contacts"
     And I wait for "7" seconds
     And I download the file
-    Then I see "Non-Federal Contacts" on page "1" of "govgrants" pdf file
+    Then I softly see "Non-Federal Contacts" on page "1" of "govgrants" pdf file
     And I switch to parent tab
     Then I softly can see top right button "New" in flex table with id "---grantee_tableId:-:nonFedContactTableId---"
     And I click on top right button "New" in flex table with id "---grantee_tableId:-:nonFedContactTableId---"

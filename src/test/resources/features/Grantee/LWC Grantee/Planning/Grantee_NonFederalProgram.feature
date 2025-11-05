@@ -69,7 +69,7 @@ Feature: Validate all scenarios for Non Federal Program
     Then I softly can see top right button "Edit" in page detail
     And I click on "Activate" in the page details
     Then I softly see the following messages in the page details contains:
-      | To Submit , Applicant Eligibility is required in the Overview tab under the Eligibility Requirements section. |
+      | To Submit, Applicant Eligibility is required in the Overview tab under the Eligibility Requirements section. |
     Examples:
       | User       |
       | GRANTEE PO |
@@ -142,7 +142,7 @@ Feature: Validate all scenarios for Non Federal Program
     Then I softly can see top right button "Edit" in page detail
     And I click on "Activate" in the page details
     Then I softly see the following messages in the page details contains:
-      | To Submit , Applicant Eligibility is required in the Overview tab under the Eligibility Requirements section. |
+      | To Submit, Applicant Eligibility is required in the Overview tab under the Eligibility Requirements section. |
     Examples:
       | User       |
       | GRANTEE PM |

@@ -149,7 +149,7 @@ Feature: Validate all scenarios for Non Federal Organization
     Then I see field "Last Name" as "{SavedValue:LastName}" on modal
     Then I see field "Phone" as "{SavedValue:Phone}" on modal
     Then I see field "Mobile Phone" as "{SavedValue:MobilePhone}" on modal
-    Then I see field "Email" as " {SavedValue:Email}" on modal
+    Then I see field "Email" as "{SavedValue:Email}" on modal
     Then I see field "Address Line 1" as "{SavedValue:AddressLine1}" on modal
     Then I see field "Address Line 2" as "{SavedValue:AddressLine2}" on modal
     Then I see field "State" as "{SavedValue:State}" on modal
@@ -1197,10 +1197,13 @@ Feature: Validate all scenarios for Non Federal Organization
     When I enter in modal value "vegas" into field "County__c"
     And I click modal button "Save and Continue"
     Then I softly see the following messages in the page details contains:
-      | City is required to save.     |
-      | State is required to save.    |
-      | Country is required to save.  |
-      | Zip Code is required to save. |
+      | To Save, Organization Name is required.                  |
+      | To Save, Non-Federal Organization Type is required.      |
+      | To Save, Address Line 1 is required.                     |
+      | To Save, City is required.                               |
+      | To Save, State is required.                              |
+      | To Save, Country is required.                            |
+      | To Save, Zip Code is required.                           |
     And I wait for "2" seconds
     When I enter in modal value "Automation Runtime Organization" into field "Name"
     When I enter in modal value "NGO" into field "NonFederalOrganizationType__c"
@@ -1216,7 +1219,7 @@ Feature: Validate all scenarios for Non Federal Organization
     Then I see the sub-header is "Automation Runtime Organization" in the page details
     Then I softly see field "Parent Organization" as "NA"
     And I click on Menu icon present on top right corner of the page
-    Then I see option "Download As PDF" present in parallel dropdown
+    Then I see option "Download as PDF" present in parallel dropdown
     Then I see option "Take Snapshot" present in parallel dropdown
     Then I softly can see "Overview" sub tab at view detail page
     Then I softly can see "Related Log" sub tab at view detail page

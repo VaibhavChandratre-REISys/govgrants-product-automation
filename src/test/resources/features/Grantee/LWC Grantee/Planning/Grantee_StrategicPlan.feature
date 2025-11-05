@@ -155,7 +155,7 @@ Feature: Validate all scenarios for Strategic Plan
     And I update title as "Automation.pdf" on upload file modal
     And I select Classification as "Strategic Plan" at upload file modal
     When I click modal button "Save"
-    And I click modal button "Close"
+#    And I click modal button "Close"
     And I refresh the page
     And I wait for "2" seconds
     Then I softly see value "Automation.pdf" for title "Title" inside table "---grantee_tableId:-:strategicPlansFilesTableId---"
@@ -202,7 +202,7 @@ Feature: Validate all scenarios for Strategic Plan
     And I update title as "Automation.pdf" on upload file modal
     And I select Classification as "Strategic Goal" at upload file modal
     When I click modal button "Save"
-    And I click modal button "Close"
+#    And I click modal button "Close"
     And I refresh the page
     And I wait for "2" seconds
     Then I softly see value "Automation.pdf" for title "Title" inside table "---grantee_tableId:-:strategicGoalsFilesTableId---"
@@ -257,7 +257,7 @@ Feature: Validate all scenarios for Strategic Plan
     And I update title as "Automation.pdf" on upload file modal
     And I select Classification as "Objective" at upload file modal
     When I click modal button "Save"
-    And I click modal button "Close"
+#    And I click modal button "Close"
     And I refresh the page
     And I wait for "2" seconds
     Then I softly see value "Automation.pdf" for title "Title" inside table "---grantee_tableId:-:objectivesAddFilesTableId---"
@@ -410,7 +410,7 @@ Feature: Validate all scenarios for Strategic Plan
     And I update title as "Automation.pdf" on upload file modal
     And I select Classification as "Strategic Plan" at upload file modal
     When I click modal button "Save"
-    And I click modal button "Close"
+#    And I click modal button "Close"
     And I refresh the page
     And I wait for "2" seconds
     Then I softly see value "Automation.pdf" for title "Title" inside table "---grantee_tableId:-:strategicPlansFilesTableId---"
@@ -457,7 +457,7 @@ Feature: Validate all scenarios for Strategic Plan
     And I update title as "Automation.pdf" on upload file modal
     And I select Classification as "Strategic Goal" at upload file modal
     When I click modal button "Save"
-    And I click modal button "Close"
+#    And I click modal button "Close"
     And I refresh the page
     And I wait for "2" seconds
     Then I softly see value "Automation.pdf" for title "Title" inside table "---grantee_tableId:-:strategicGoalsFilesTableId---"
@@ -512,7 +512,7 @@ Feature: Validate all scenarios for Strategic Plan
     And I update title as "Automation.pdf" on upload file modal
     And I select Classification as "Objective" at upload file modal
     When I click modal button "Save"
-    And I click modal button "Close"
+#    And I click modal button "Close"
     And I refresh the page
     And I wait for "2" seconds
     Then I softly see value "Automation.pdf" for title "Title" inside table "---grantee_tableId:-:objectivesAddFilesTableId---"
@@ -665,7 +665,7 @@ Feature: Validate all scenarios for Strategic Plan
     And I update title as "Automation.pdf" on upload file modal
     And I select Classification as "Strategic Plan" at upload file modal
     When I click modal button "Save"
-    And I click modal button "Close"
+#    And I click modal button "Close"
     And I refresh the page
     And I wait for "2" seconds
     Then I softly see value "Automation.pdf" for title "Title" inside table "---grantee_tableId:-:strategicPlansFilesTableId---"
@@ -712,7 +712,7 @@ Feature: Validate all scenarios for Strategic Plan
     And I update title as "Automation.pdf" on upload file modal
     And I select Classification as "Strategic Goal" at upload file modal
     When I click modal button "Save"
-    And I click modal button "Close"
+#    And I click modal button "Close"
     And I refresh the page
     And I wait for "2" seconds
     Then I softly see value "Automation.pdf" for title "Title" inside table "---grantee_tableId:-:strategicGoalsFilesTableId---"
@@ -767,7 +767,7 @@ Feature: Validate all scenarios for Strategic Plan
     And I update title as "Automation.pdf" on upload file modal
     And I select Classification as "Objective" at upload file modal
     When I click modal button "Save"
-    And I click modal button "Close"
+#    And I click modal button "Close"
     And I refresh the page
     And I wait for "2" seconds
     Then I softly see value "Automation.pdf" for title "Title" inside table "---grantee_tableId:-:objectivesAddFilesTableId---"
@@ -920,7 +920,7 @@ Feature: Validate all scenarios for Strategic Plan
     And I update title as "Automation.pdf" on upload file modal
     And I select Classification as "Strategic Plan" at upload file modal
     When I click modal button "Save"
-    And I click modal button "Close"
+#    And I click modal button "Close"
     And I refresh the page
     And I wait for "2" seconds
     Then I softly see value "Automation.pdf" for title "Title" inside table "---grantee_tableId:-:strategicPlansFilesTableId---"
@@ -967,7 +967,7 @@ Feature: Validate all scenarios for Strategic Plan
     And I update title as "Automation.pdf" on upload file modal
     And I select Classification as "Strategic Goal" at upload file modal
     When I click modal button "Save"
-    And I click modal button "Close"
+#    And I click modal button "Close"
     And I refresh the page
     And I wait for "2" seconds
     Then I softly see value "Automation.pdf" for title "Title" inside table "---grantee_tableId:-:strategicGoalsFilesTableId---"
@@ -1022,7 +1022,7 @@ Feature: Validate all scenarios for Strategic Plan
     And I update title as "Automation.pdf" on upload file modal
     And I select Classification as "Objective" at upload file modal
     When I click modal button "Save"
-    And I click modal button "Close"
+#    And I click modal button "Close"
     And I refresh the page
     And I wait for "2" seconds
     Then I softly see value "Automation.pdf" for title "Title" inside table "---grantee_tableId:-:objectivesAddFilesTableId---"

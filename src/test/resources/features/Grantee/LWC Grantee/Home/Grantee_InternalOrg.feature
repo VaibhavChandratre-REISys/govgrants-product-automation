@@ -645,6 +645,7 @@ Feature: Validate all scenarios for Internal Org
     Then I softly see "Description" in flex table header "---grantee_tableId:-:internalOrgFilesTableId---"
     Then I softly see "Created Date" in flex table header "---grantee_tableId:-:internalOrgFilesTableId---"
     And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:internalOrgFilesTableId---"
+    And I wait for "2" seconds
     Then I see only the following ordered options in dropdown field "Classification" :
       | Select file classification | Indirect Cost Rate Letter | Supporting Documents | Others |
     And I upload attachment without random number "Attachment.pdf" of type "Indirect Cost Rate Letter" from computer

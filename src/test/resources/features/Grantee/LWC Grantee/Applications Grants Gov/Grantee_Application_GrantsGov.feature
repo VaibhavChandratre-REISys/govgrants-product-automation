@@ -1237,6 +1237,7 @@ Feature: Validate all scenarios for Applications Grants Gov
     And I enter a review as "Passed"
     When I click modal button "Save"
     And I click on submit review
+    And I wait for "3" seconds
     Then I softly see value "Submitted" for title "Status" against the value "David FO" inside table "---grantee_tableId:-:OpportunityPeerReviewers---"
     Then I softly cannot see row level action button "Enter Review" against "David FO" in flex table with id "---grantee_tableId:-:OpportunityPeerReviewers---"
     Then I softly cannot see row level action button "Edit" against "David FO" in flex table with id "---grantee_tableId:-:OpportunityPeerReviewers---"
@@ -1259,6 +1260,7 @@ Feature: Validate all scenarios for Applications Grants Gov
     And I enter a review as "Passed"
     When I click modal button "Save"
     And I click on submit review
+    And I wait for "3" seconds
     Then I softly see value "Submitted" for title "Status" against the value "Danielle FD Garcia" inside table "---grantee_tableId:-:OpportunityPeerReviewers---"
     Then I softly cannot see row level action button "Enter Review" against "Danielle FD Garcia" in flex table with id "---grantee_tableId:-:OpportunityPeerReviewers---"
     Then I softly cannot see row level action button "Edit" against "Danielle FD Garcia" in flex table with id "---grantee_tableId:-:OpportunityPeerReviewers---"

@@ -239,7 +239,9 @@ Feature: Validate all scenarios for KPI
     Then I can see row level action button "Delete" against "Notes Record Test" in flex table with id "---grantee_tableId:-:KPINotesTableId---"
     Then I can see row level action button "Edit" against "Notes Record Test" in flex table with id "---grantee_tableId:-:KPINotesTableId---"
     And I navigate to "Messages" sub tab
+    And I wait for "3" seconds
     And I click on top right button "Send Email" in flex table with id "CommunicationHistory"
+    And I wait for "2" seconds
     And I send the email under collab tab with following details:
       | To                        | Subject            | Body            |
       | pm.automation@yopmail.com | Automation Subject | Automation Body |
@@ -341,7 +343,7 @@ Feature: Validate all scenarios for KPI
     Then I softly see "No Records Found" inside snapshot history
     Examples:
       | userType   | EmailId                     |
-      | GRANTEE FD | danielle.garcia@yopmail.com |
+      | GRANTEE FD | danielle.garcia.ggmergeqa2@yopmail.com |
 
   @477629 @ValidatePMusershouldabletoseevalidationmessagesforrequiredtosavefiledonKPI @P2_Grantee @EXE_Grantee @GRegression2
   Scenario Outline: Validate EXE user should able to see validation messages for required to save filed on KPI
