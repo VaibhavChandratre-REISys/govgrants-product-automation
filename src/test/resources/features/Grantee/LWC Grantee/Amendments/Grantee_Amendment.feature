@@ -1,4 +1,4 @@
-@GranteeAmendment
+@GranteeAmendment @GranteeAmendmentRegression
 Feature: Validate all scenarios for Grantee Amendment Request
 
   @489010 @ValidateCFFDuserAROwnercanabletoSubmitARforApprovalApprovedfromassigned4stepapprovercandoSendtoOwnerForwardApproveactionsseeSubmittoGrantorbuttononceApprovedtheBPCARRecord @P2_Grantee @FD_Grantee @GRegression2

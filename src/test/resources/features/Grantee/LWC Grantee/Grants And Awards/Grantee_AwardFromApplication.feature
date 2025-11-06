@@ -1,4 +1,4 @@
-@GranteeAwardFromApplication
+@GranteeAwardFromApplication @GranteeGrantAwardRegression
 Feature: Validate all scenarios for Grantee Award from Application
 
   @482394 @PMUserVerifythepeerreviewfunctionalityforaward @P2_Grantee @GRegression1 @GranteeTBE
