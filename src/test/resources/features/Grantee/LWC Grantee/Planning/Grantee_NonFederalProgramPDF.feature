@@ -85,12 +85,13 @@ Feature: Validate all scenarios for Non Federal Program for PDF
     Then I softly see value "Automation.pdf" for title "Classification" inside table "---grantee_tableId:-:nonFedAddFilesTableId---"
     Then I softly see value "Other Artifacts" for title "Classification" inside table "---grantee_tableId:-:nonFedAddFilesTableId---"
     And I click on "Download" icon for "Other Artifacts" inside flex table with id "---grantee_tableId:-:nonFedAddFilesTableId---" without waiting for record
-    And I switch to tab number "1"
+#    And I switch to tab number "1"
     And I download the file
     And I wait for "3" seconds
     Then I softly verify that the file "govgrant.pdf" is downloaded
     And I close the tab
-    And I click on "Delete" icon for "Other Artifacts" inside flex table with id "---grantee_tableId:-:nonFedAddFilesTableId---" without waiting for record
+    And I wait for "2" seconds
+    And I click on "Delete" icon for "Automation.pdf" inside flex table with id "---grantee_tableId:-:nonFedAddFilesTableId---" without waiting for record
     Then I softly do not see value "Automation.pdf" for title "Title" inside table "---grantee_tableId:-:nonFedAddFilesTableId---"
     When I enter the following values into flex table with id "---grantee_tableId:-:nonFedNotesTableId---" by clicking "New" :
       | Title        | Description      |
@@ -137,7 +138,7 @@ Feature: Validate all scenarios for Non Federal Program for PDF
     And I select "Download as PDF" from parallel lines dropdown of "Non-Federal Contacts"
     And I wait for "7" seconds
     And I download the file
-    Then I softly see "Non-Federal Contacts" on page "1" of "govgrants" pdf file
+    Then I see "Non-Federal Contacts" on page "1" of "govgrants" pdf file
     And I switch to parent tab
     Then I softly can see top right button "New" in flex table with id "---grantee_tableId:-:nonFedContactTableId---"
     And I click on top right button "New" in flex table with id "---grantee_tableId:-:nonFedContactTableId---"
@@ -283,7 +284,7 @@ Feature: Validate all scenarios for Non Federal Program for PDF
     And I select "Download as PDF" from parallel lines dropdown of "Non-Federal Contacts"
     And I wait for "7" seconds
     And I download the file
-    Then I softly see "Non-Federal Contacts" on page "1" of "govgrants" pdf file
+    Then I see "Non-Federal Contacts" on page "1" of "govgrants" pdf file
     And I switch to parent tab
     Then I softly can see top right button "New" in flex table with id "---grantee_tableId:-:nonFedContactTableId---"
     And I click on top right button "New" in flex table with id "---grantee_tableId:-:nonFedContactTableId---"
@@ -428,7 +429,7 @@ Feature: Validate all scenarios for Non Federal Program for PDF
     And I select "Download as PDF" from parallel lines dropdown of "Non-Federal Contacts"
     And I wait for "7" seconds
     And I download the file
-    Then I softly see "Non-Federal Contacts" on page "1" of "govgrants" pdf file
+    Then I see "Non-Federal Contacts" on page "1" of "govgrants" pdf file
     And I switch to parent tab
     Then I softly can see top right button "New" in flex table with id "---grantee_tableId:-:nonFedContactTableId---"
     And I click on top right button "New" in flex table with id "---grantee_tableId:-:nonFedContactTableId---"
@@ -574,7 +575,7 @@ Feature: Validate all scenarios for Non Federal Program for PDF
     And I select "Download as PDF" from parallel lines dropdown of "Non-Federal Contacts"
     And I wait for "7" seconds
     And I download the file
-    Then I softly see "Non-Federal Contacts" on page "1" of "govgrants" pdf file
+    Then I see "Non-Federal Contacts" on page "1" of "govgrants" pdf file
     And I switch to parent tab
     Then I softly can see top right button "New" in flex table with id "---grantee_tableId:-:nonFedContactTableId---"
     And I click on top right button "New" in flex table with id "---grantee_tableId:-:nonFedContactTableId---"
@@ -719,7 +720,7 @@ Feature: Validate all scenarios for Non Federal Program for PDF
     And I select "Download as PDF" from parallel lines dropdown of "Non-Federal Contacts"
     And I wait for "7" seconds
     And I download the file
-    Then I softly see "Non-Federal Contacts" on page "1" of "govgrants" pdf file
+    Then I see "Non-Federal Contacts" on page "1" of "govgrants" pdf file
     And I switch to parent tab
     Then I softly can see top right button "New" in flex table with id "---grantee_tableId:-:nonFedContactTableId---"
     And I click on top right button "New" in flex table with id "---grantee_tableId:-:nonFedContactTableId---"

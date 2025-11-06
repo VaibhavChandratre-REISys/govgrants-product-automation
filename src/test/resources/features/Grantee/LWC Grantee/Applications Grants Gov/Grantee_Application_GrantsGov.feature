@@ -1207,7 +1207,10 @@ Feature: Validate all scenarios for Applications Grants Gov
     And I click toggle button to select "Qualified Leads - All"
     When I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:qualifiedLeadTableId---" panel
     And I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside flex table with id "---grantee_tableId:-:qualifiedLeadTableId---" without waiting for record
+    And I wait for "2" seconds
     When I click on "Convert to Opportunity" in the page details
+    And I wait for "2" seconds
+    Then I softly see field "Status" as "Draft"
     And I save the field labeled "EGMS ID" as "opportunityEGMSID"
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---grantee_tableId:-:OpportunityPeerReviewers---" by clicking "New" :
@@ -1278,7 +1281,6 @@ Feature: Validate all scenarios for Applications Grants Gov
     When I click on "Complete Review" in the page details
     Then I softly see field "Status" as "Reviewed"
     Then I softly see value "Submitted" for title "Status" against the value "David FO" inside table "---grantee_tableId:-:OpportunityPeerReviewers---"
-
     Examples:
       | UserName | UserType   |
       | Sarah PM | GRANTEE PM |

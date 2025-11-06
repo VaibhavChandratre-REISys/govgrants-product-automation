@@ -648,21 +648,21 @@ Feature: Validate all scenarios for Internal Org
     And I wait for "2" seconds
     Then I see only the following ordered options in dropdown field "Classification" :
       | Select file classification | Indirect Cost Rate Letter | Supporting Documents | Others |
-    And I upload attachment without random number "Attachment.pdf" of type "Indirect Cost Rate Letter" from computer
+    And I upload attachment without random number "AttachmentTesting.pdf" of type "Indirect Cost Rate Letter" from computer
     When I click modal button "Close"
     And I wait for "2" seconds
     And I refresh the page
     And I wait for "3" seconds
-    Then I see "Attachment.pdf" has been added in "Organization Files" flex table
-    Then I can see row level action button "View" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:internalOrgFilesTableId---"
-    Then I can see row level action button "Delete" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:internalOrgFilesTableId---"
-    Then I can see row level action button "Edit" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:internalOrgFilesTableId---"
-    Then I can see row level action button "Download" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:internalOrgFilesTableId---"
-    Then I softly see value "Attachment.pdf" for title "Title" inside table "---grantee_tableId:-:internalOrgFilesTableId---"
+    Then I see "AttachmentTesting.pdf" has been added in "Organization Files" flex table
+    Then I can see row level action button "View" against "AttachmentTesting.pdf" in flex table with id "---grantee_tableId:-:internalOrgFilesTableId---"
+    Then I can see row level action button "Delete" against "AttachmentTesting.pdf" in flex table with id "---grantee_tableId:-:internalOrgFilesTableId---"
+    Then I can see row level action button "Edit" against "AttachmentTesting.pdf" in flex table with id "---grantee_tableId:-:internalOrgFilesTableId---"
+    Then I can see row level action button "Download" against "AttachmentTesting.pdf" in flex table with id "---grantee_tableId:-:internalOrgFilesTableId---"
+    Then I softly see value "AttachmentTesting.pdf" for title "Title" inside table "---grantee_tableId:-:internalOrgFilesTableId---"
     Then I softly see value "Indirect Cost Rate Letter" for title "Classification" inside table "---grantee_tableId:-:internalOrgFilesTableId---"
     Then I softly see "Created Date" in flex table header "---grantee_tableId:-:internalOrgFilesTableId---"
-    And I click on "Delete" icon for "Attachment.pdf" inside flex table with id "---grantee_tableId:-:internalOrgFilesTableId---" without waiting for record
-    Then I softly do not see value "Attachment.pdf" for title "Title" inside table "---grantee_tableId:-:internalOrgFilesTableId---"
+    And I click on "Delete" icon for "AttachmentTesting.pdf" inside flex table with id "---grantee_tableId:-:internalOrgFilesTableId---" without waiting for record
+    Then I softly do not see value "AttachmentTesting.pdf" for title "Title" inside table "---grantee_tableId:-:internalOrgFilesTableId---"
     When I click on parallel lines menu bar with data target value "Organization Files"
     Then I see option "Refresh" present in parallel dropdown
     Then I softly see top right button "New" inside flex table "---grantee_tableId:-:internalOrgNotesTableId---"

@@ -254,8 +254,8 @@ Feature: Validate all scenarios for KPI
     And I navigate to "History" sub tab
     Then I softly see "No Records Found" inside snapshot history
     Examples:
-      | userType   | EmailId              |
-      | GRANTEE FO | david.fo@yopmail.com |
+      | userType   | EmailId                         |
+      | GRANTEE FO | david.fo.ggmergeqa2@yopmail.com |
 
   @477643 @ValidatePOusershoulonlyviewaccessforKPI @P3_Grantee @FD_Grantee @GRegression2
   Scenario Outline: Validate FD user should only view access for KPI
