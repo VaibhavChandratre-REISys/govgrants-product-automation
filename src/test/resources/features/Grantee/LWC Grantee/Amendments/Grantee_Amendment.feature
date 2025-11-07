@@ -14484,7 +14484,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
       | Owner      | OwnerType       | UserType   | emailIdTo                         | CreatedBy  | Assertion     |
       | GRANTEE PO | Grantee PO user | GRANTEE PO | grantee.po@yopmail.com.ggmergeqa2 | Grantee PO | softly cannot |
 
-  @486586 @BudgetRedirectionAREXEusershouldabletoactivatenewawardthroughBRAR @P3_Grantee @ADMIN_Grantee @GRegression4
+  @449409 @486586 @BudgetRedirectionAREXEusershouldabletoactivatenewawardthroughBRAR @P3_Grantee @ADMIN_Grantee @GRegression4
   Scenario Outline: Budget Redirection AR- EXE user should able to activate new award through BR AR
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default-<OwnerType>"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "SECOND_FOCUS_WITH_BUDGET"
@@ -15083,8 +15083,9 @@ Feature: Validate all scenarios for Grantee Amendment Request
     Then I softly see value "{SavedValue:AwardEGMSID1}" for title "Original Value" inside field history table
 
     Examples:
-      | Owner          | OwnerType          | UserType       | emailIdTo                | CreatedBy     | Assertion     |
-      | GRANTEE ADMIN1 | Product Admin user | GRANTEE ADMIN1 | productadmin@yopmail.com | Product Admin | softly cannot |
+      | Owner          | OwnerType          | UserType       | emailIdTo                         | CreatedBy     | Assertion     |
+      | GRANTEE ADMIN1 | Product Admin user | GRANTEE ADMIN1 | productadmin@yopmail.com          | Product Admin | softly cannot |
+      | GRANTEE EXE    | Victor EXE user    | GRANTEE EXE    | victor.exe.ggmergeqa2@yopmail.com | Victor EXE    | softly cannot |
 
   @486592 @BudgetRedirectionAREXEusershouldabletoactivatenewawardthroughBRAR @P3_Grantee @FO_Grantee @GRegression4
   Scenario Outline: Budget Redirection AR- FO user should able to activate new award through BR AR

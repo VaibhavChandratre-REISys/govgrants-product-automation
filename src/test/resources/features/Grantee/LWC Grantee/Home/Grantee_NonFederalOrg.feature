@@ -1167,7 +1167,7 @@ Feature: Validate all scenarios for Non Federal Organization
       | userType   | attachment     | Notes        | userName           | userProfile | NotesProfile         | updatedTitle                        |
       | GRANTEE PM | Attachment.pdf | Notes Record | Victor EXE         | GRANTEE EXE | Notes Record for EXE | Notes Record for Victor EXE         |
 
-  @477510 @NonFederalVerifyusershouldseeallfieldsandsectiononNonfederalOrg
+   @443729 @477510 @NonFederalVerifyusershouldseeallfieldsandsectiononNonfederalOrg
   Scenario Outline: Non Federal Verify user should see all fields and section on Non federal Org
     When I login to "Grantee" app as "<userType>" user
     When I navigate to "Home" tab
@@ -1375,8 +1375,9 @@ Feature: Validate all scenarios for Non Federal Organization
     Then I softly see "Snapshot History" page block displayed
 
     Examples:
-      | userType      | attachment     | Notes           | userName   | Title |
-      | GRANTEE ADMIN | Attachment.pdf | Notes for ADMIN | DEMO ADMIN | Test2 |
+      | userType      | attachment     | Notes            | userName   | Title |
+      | GRANTEE ADMIN | Attachment.pdf | Notes for ADMIN  | DEMO ADMIN | Test2 |
+      | GRANTEE PM    | Attachment.pdf | Notes for PM     | Sarah PM   | Test2 |
 
   @443741 @ValidateNonFederalusershouldnotdeletetheparentOrgwhohavechildOrg @GRegression5 @PM_Grantee @P2_Grantee
     Scenario: Validate Non Federal user should not delete the parent Org who have child Org
