@@ -394,13 +394,13 @@ Feature: Validate all scenarios for Grants & Awards
     Then I softly see top right button "New" inside flex table "---grantee_tableId:-:awardLineItemsTableId---"
     Then I softly can see row level action button "Edit" against "Construction" in flex table with id "---grantee_tableId:-:awardLineItemsTableId---"
     Then I softly can see row level action button "Delete" against "Construction" in flex table with id "---grantee_tableId:-:awardLineItemsTableId---"
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Award Line Items" modal by clicking the top right x button
     And I click on page navigation arrow "---grantee_tableId:-:AwardBudgetTableId---" for table id "Next"
     When I click on "Add Line Items" icon for "Construction" inside flex table with id "---grantee_tableId:-:AwardBudgetTableId---" with wait for record
     When I enter the following values into flex table with id "---grantee_tableId:-:awardLineItemsTableId---" by clicking "New" :
       | Title        | Narrative     | Award Budget |
       | Construction | The narrative | 5000         |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Award Line Items" modal by clicking the top right x button
     Then I softly do not see "Program Income" page block displayed
     Then I softly do not see "Indirect Rates" page block displayed
     And I navigate to "Responsibilities" sub tab
@@ -1025,7 +1025,7 @@ Feature: Validate all scenarios for Grants & Awards
     And I update title as "Automation.pdf" on upload file modal
     And I select Classification as "Award Documents" at upload file modal
     When I click modal button "Save"
-    And I click modal button "Close"
+#    And I click modal button "Close"
     And I refresh the page
     And I wait for "2" seconds
     Then I softly see value "Automation.pdf" for title "Title" inside table "---grantee_tableId:-:grantAddFilesTableId---"
@@ -1119,7 +1119,7 @@ Feature: Validate all scenarios for Grants & Awards
     Then I softly do not see top right button "New" inside flex table "---grantee_tableId:-:awardLineItemsTableId---"
     Then I softly cannot see row level action button "Edit" against "Construction" in flex table with id "---grantee_tableId:-:awardLineItemsTableId---"
     Then I softly cannot see row level action button "View" against "Construction" in flex table with id "---grantee_tableId:-:awardLineItemsTableId---"
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Award Line Items" modal by clicking the top right x button
     And I wait for "1" seconds
     And I save the value from row "1" for column name "Focus Area Name" as "FocusAreaName" from flex table "---grantee_tableId:-:awardProgramIncomeTableId---"
     Then I softly cannot see row level action button "Edit" against "{SavedValue:FocusAreaName}" in flex table with id "---grantee_tableId:-:awardProgramIncomeTableId---"
@@ -1238,6 +1238,29 @@ Feature: Validate all scenarios for Grants & Awards
     Then I softly see that "Created Date" rendered in view mode only
     Then I softly see that "Last Modified by" rendered in view mode only
     Then I softly see that "Last Modified Date" rendered in view mode only
+    And I navigate to "Projections" sub tab
+    Then I softly see fields "BudgetRedirectionThreshhold__c" is in edit mode
+    Then I softly see fields "BudgetPeriodEndDate__c" is in edit mode
+    Then I softly see fields "ApprovedIndirectCostRate__c" is in edit mode
+    Then I softly see fields "ProgramIncomeType__c" is in edit mode
+    Then I softly see that "Project Period End Date" rendered in view mode only
+    Then I softly see that "Award Amount to Date" rendered in view mode only
+    Then I softly see that "Budget Period Start Date" rendered in view mode only
+    And I click on "Save" in the page details
+    Then I softly see the following messages in the page details contains:
+      | To Save, Award Issue Date is required in the Overview tab under the Details section.                               |
+      | To Save, Funder Payment System is required in the Overview tab under the Details section.                          |
+      | To Save, Congressional District is required in the Overview tab under the Primary Place of Performance section.    |
+      | To Save, Program Income Treatment Type is required in the Projections tab under the Budget Period Details section. |
+    When I enter "Grantee_Award_Edition" values from "Award_Field_Values.xlsx"
+    And I click on "Save" in the page details
+    And I navigate to "Overview" sub tab
+    Then I softly see link "{SavedValue:GrantEGMSID}" inside Page block
+    And I click on hyperlink containing value "{SavedValue:GrantEGMSID}"
+    Then I see the header is "Grant" in the page details
+    Then I softly see field "EGMS ID" as "{SavedValue:GrantEGMSID}"
+    And I click on back arrow
+    And I wait for "2" seconds
     And I save the field labeled "Funding Organization" as "FundingOrganization"
     Then I softly see link "{SavedValue:FundingOrganization}" inside Page block
     And I click on hyperlink containing value "{SavedValue:FundingOrganization}"
@@ -1260,29 +1283,6 @@ Feature: Validate all scenarios for Grants & Awards
     And I save the field labeled "Last Modified by" as "LastModifiedby"
     And I click on hyperlink containing value "{SavedValue:LastModifiedby}"
     Then I softly see the text containing "Sarah PM"
-    And I click on back arrow
-    And I wait for "2" seconds
-    And I navigate to "Projections" sub tab
-    Then I softly see fields "BudgetRedirectionThreshhold__c" is in edit mode
-    Then I softly see fields "BudgetPeriodEndDate__c" is in edit mode
-    Then I softly see fields "ApprovedIndirectCostRate__c" is in edit mode
-    Then I softly see fields "ProgramIncomeType__c" is in edit mode
-    Then I softly see that "Project Period End Date" rendered in view mode only
-    Then I softly see that "Award Amount to Date" rendered in view mode only
-    Then I softly see that "Budget Period Start Date" rendered in view mode only
-    And I click on "Save" in the page details
-    Then I softly see the following messages in the page details contains:
-      | To Save, Award Issue Date is required in the Overview tab under the Details section.                               |
-      | To Save, Funder Payment System is required in the Overview tab under the Details section.                          |
-      | To Save, Congressional District is required in the Overview tab under the Primary Place of Performance section.    |
-      | To Save, Program Income Treatment Type is required in the Projections tab under the Budget Period Details section. |
-    When I enter "Grantee_Award_Edition" values from "Award_Field_Values.xlsx"
-    And I click on "Save" in the page details
-    And I navigate to "Overview" sub tab
-    Then I softly see link "{SavedValue:GrantEGMSID}" inside Page block
-    And I click on hyperlink containing value "{SavedValue:GrantEGMSID}"
-    Then I see the header is "Grant" in the page details
-    Then I softly see field "EGMS ID" as "{SavedValue:GrantEGMSID}"
     And I click on back arrow
     And I wait for "2" seconds
     And I click on Menu icon present on top right corner of the page
@@ -1379,7 +1379,7 @@ Feature: Validate all scenarios for Grants & Awards
       | Saved Successfully! |
     Then I softly can see row level action button "Edit" against "Construction" in flex table with id "---grantee_tableId:-:awardLineItemsTableId---"
     Then I softly can see row level action button "Delete" against "Construction" in flex table with id "---grantee_tableId:-:awardLineItemsTableId---"
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Award Line Items" modal by clicking the top right x button
     And I wait for "2" seconds
     When I click on parallel lines menu bar with data target value "Award Budget"
     And I wait for "2" seconds
@@ -1618,7 +1618,7 @@ Feature: Validate all scenarios for Grants & Awards
     When I enter the following values into flex table with id "---grantee_tableId:-:awardLineItemsTableId---" by clicking "New" :
       | Title        | Narrative     | Award Budget | Cash Match | Other Leverage |
       | Construction | The narrative | 5000         | 500        | 200            |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Award Line Items" modal by clicking the top right x button
     Then I softly see "Program Income" page block displayed
     Then I can see row level action button "Edit" against "Automation Permanent Focus Area" in flex table with id "---grantee_tableId:-:awardProgramIncomeTableId---"
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:awardProgramIncomeTableId---" by clicking "Edit" :
@@ -1736,6 +1736,7 @@ Feature: Validate all scenarios for Grants & Awards
     Then I softly see link "Sarah PM" inside Page block
     And I click on hyperlink containing value "Sarah PM"
     Then I softly see the text containing "sarah.pm@ggp.test8.ggmergeqa2"
+    And I wait for "2" seconds
     And I click on back arrow
     Then I softly see value "Owner" for title "Name" against the value "Sarah PM" inside table "---grantee_tableId:-:awardOwnerTableId---"
     And I click on hyperlink containing value "Sarah PM"
@@ -1789,7 +1790,7 @@ Feature: Validate all scenarios for Grants & Awards
     And I update title as "Automation.pdf" on upload file modal
     And I select Classification as "Interim Award Document" at upload file modal
     When I click modal button "Save"
-    And I click modal button "Close"
+#    And I click modal button "Close"
     And I refresh the page
     And I wait for "2" seconds
     Then I softly see value "Automation.pdf" for title "Title" inside table "---grantee_tableId:-:awardAddFilesTableId---"
@@ -3626,7 +3627,7 @@ Feature: Validate all scenarios for Grants & Awards
     When I enter the following values into flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---" by clicking "New" :
       | Title        | Narrative     | Awarded Budget | Cash Match | Other Leverage |
       | Construction | The narrative | 2000           | 200        | 200            |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Amendment Line Items" modal by clicking the top right x button
     And I wait for "3" seconds
     And I save the field labeled "New Budget Period End Date" as "NewBudgetPeriodEndDate"
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:amendmentFocusAreaTableId---" by clicking "Edit" :
