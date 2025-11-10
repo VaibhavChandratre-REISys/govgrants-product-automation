@@ -2205,7 +2205,7 @@ Feature: Validate all scenarios of every modules flow
     And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:activeGrantsTableId---"
     And I wait for "2" seconds
     And I enter "GrantsFFATA" values from "Award_Field_Values.xlsx"
-    And I enter in modal value "Automation Runtime FFATA Awards with Internal Funding Source" into field "ProjectTitle__c"
+    And I enter in modal value "Enhanced Tuition Award" into field "ProjectTitle__c"
     And I click modal button "Continue"
     And I enter "Grant_Edition_FFATA" values from "Award_Field_Values.xlsx"
     When I click modal button "Save and Continue"
@@ -2288,7 +2288,7 @@ Feature: Validate all scenarios of every modules flow
     And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:activeGrantsTableId---"
     And I wait for "2" seconds
     And I enter "GrantsFFATA" values from "Award_Field_Values.xlsx"
-    And I enter in modal value "Automation Runtime FFATA Awards with Invalid Agency Code" into field "ProjectTitle__c"
+    And I enter in modal value "Art & Music Teacher Salary Reimbursement" into field "ProjectTitle__c"
     And I click modal button "Continue"
     And I enter "Grant_Edition_FFATA" values from "Award_Field_Values.xlsx"
     When I click modal button "Save and Continue"
@@ -2371,7 +2371,7 @@ Feature: Validate all scenarios of every modules flow
     And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:activeGrantsTableId---"
     And I wait for "2" seconds
     And I enter "GrantsFFATA" values from "Award_Field_Values.xlsx"
-    And I enter in modal value "Automation Runtime FFATA Awards with Invalid FAIN No" into field "ProjectTitle__c"
+    And I enter in modal value "Teacher Development Program Grants" into field "ProjectTitle__c"
     And I click modal button "Continue"
     And I enter "Grant_Edition_FFATA" values from "Award_Field_Values.xlsx"
     When I click modal button "Save and Continue"
@@ -2456,7 +2456,7 @@ Feature: Validate all scenarios of every modules flow
     And I enter "GrantsFFATA" values from "Award_Field_Values.xlsx"
     And I click modal button "Continue"
     And I enter "Grant_Edition_FFATA" values from "Award_Field_Values.xlsx"
-    And I enter in modal value "Automation Runtime FFATA Awards with new FAIN No" into field "ProjectTitle__c"
+    And I enter in modal value "4201 Capital Grant Program" into field "ProjectTitle__c"
     When I click modal button "Save and Continue"
     And I save the field labeled "EGMS ID" as "GrantEGMSID"
     And I navigate to "Subawards" sub tab

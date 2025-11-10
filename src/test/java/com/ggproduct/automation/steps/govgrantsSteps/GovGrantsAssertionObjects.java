@@ -944,9 +944,9 @@ public final class GovGrantsAssertionObjects {
      */
     public void getSubTabsInsideMainDetailPage(String desiredSubTab, boolean assertCan, boolean isSoftly) {
         By allSubTabsLocator = By.xpath("//div[@class='layout']//ul//li//a[@data-label] | //div[@class='slds-tabs_default']//ul//li//a[@data-label] | //div[contains(@class,'slds-tabs_default')]//ul//li//a[@data-label]");
-        I.amPerforming().waitFor().ElementToBePresent(By.xpath("//div[@class='layout']//ul//li//a[@data-label]"));
         List<String> allSubTabNames;
         try {
+            I.amPerforming().waitFor().ElementToBePresent(By.xpath("//div[@class='layout']//ul//li//a[@data-label]  | //div[@class='slds-tabs_default']//ul//li//a[@data-label]"));
             allSubTabNames = I.amPerforming().getElementReference().forListOfElements().of(allSubTabsLocator)
                     .stream().map(el -> el.getAttributes("data-label")).map(StringUtils::normalizeSpace).collect(Collectors.toList());
         } catch (StaleElementReferenceException e) {
@@ -4330,5 +4330,28 @@ public final class GovGrantsAssertionObjects {
             Assert.assertEquals(checkifpresent, govgrants.perform().flexTable().assertCoulmnValueAgainstColumnTitleForGlobalSearch(columnValueUpdated, columnTitle,
                     flexTableDivId));
         }
+    }
+
+    public void assertalueValueSelectedAsDefaultForTheDropDownField(String usage, String fieldValue, String fieldAPIName) {
+        if (usage.equalsIgnoreCase("see")) {
+            Assert.assertTrue(isValueSelectedAsDefaultForTheDropDownField(fieldValue, fieldAPIName));
+        } else if (usage.equalsIgnoreCase("softly see")) {
+            I.amPerforming().assertionsTo().assertThat(isValueSelectedAsDefaultForTheDropDownField(fieldValue, fieldAPIName)).isTrue();
+        } else if (usage.equalsIgnoreCase("do not see")) {
+            Assert.assertFalse(isValueSelectedAsDefaultForTheDropDownField(fieldValue, fieldAPIName));
+        } else {
+            I.amPerforming().assertionsTo().assertThat(isValueSelectedAsDefaultForTheDropDownField(fieldValue, fieldAPIName)).isFalse();
+        }
+    }
+
+    private Boolean isValueSelectedAsDefaultForTheDropDownField(String fieldValue, String fieldAPIName) {
+        boolean flag = false;
+        try {
+            if (I.amPerforming().checkToSee().isDisplayed(By.xpath("//div[contains(@class,'modal__container')]//div[@data-field_api_name='" + fieldAPIName +"']//button[@aria-haspopup='listbox' and @data-value='" + fieldValue +"'] | //div[@data-field_api_name='" + fieldAPIName +"']//button[@aria-haspopup='listbox' and @data-value='" + fieldValue +"']"))) {
+                flag = true;
+            }
+        } catch (Exception e) {
+        }
+        return flag;
     }
 }

@@ -156,11 +156,17 @@ public class UsersAndURL implements UsersController {
             case "GRANTEE ADMIN1":
                 password = "Dev@3030";
                 break;
+            case "GRANTEE ADMIN2":
+                password = "Auto@2020";
+                break;
             case "GRANTEE PM":
                 password = "Merge@2025";
                 break;
             case "GRANTEE EXE":
                 password = "Merge@2025";
+                break;
+            case "GRANTEE EXE1":
+                password = "Auto@2020";
                 break;
             case "GRANTEE FO":
                 password = "Merge@2025";
@@ -256,7 +262,7 @@ public class UsersAndURL implements UsersController {
                 password = "Salesforce@2025";
                 break;
             case "SARAH PM":
-                password = "Rei@2029";
+                password = "Rei@2031";
                 break;
             case "GRANTEE ADMIN":
                 password = "Rei@2025";
@@ -454,8 +460,10 @@ public class UsersAndURL implements UsersController {
 
         username.put("GRANTEE ADMIN", "demo.admin@ggp.test8.ggmergeqa2");
         username.put("GRANTEE ADMIN1", "qa.admin.testing@ggp.test8.ggmergeqa2");
+        username.put("GRANTEE ADMIN2", "govgrantsauto@yopmail.com.ggmergeqa2");
         username.put("GRANTEE PM", "sarah.pm@ggp.test8.ggmergeqa2");
         username.put("GRANTEE EXE", "victor.exe@ggp.test8.ggmergeqa2");
+        username.put("GRANTEE EXE1", "exe1.automation@yopmail.com.ggmergeqa2");
         username.put("GRANTEE FO", "david.fo@ggp.test8.ggmergeqa2");
         username.put("GRANTEE FD", "danielle.garcia@ggp.test8.ggmergeqa2");
         username.put("GRANTEE PO", "grantee.po@yopmail.com.ggmergeqa2");

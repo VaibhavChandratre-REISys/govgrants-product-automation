@@ -1249,8 +1249,8 @@ Feature: Validate all scenarios for Internal Org
     Then I softly cannot see row level action button "Edit" against "GMS Administrator" in flex table with id "---grantee_tableId:-:InternalOrganizations---"
     And I expand nested table containing column value "GMS Administrator"
     And I wait for "2" seconds
-    Then I softly can see row level action button "View" against "Department of Product" in flex table with id "---grantee_tableId:-:InternalOrgDivisionTableId---"
-    Then I softly cannot see row level action button "Edit" against "Department of Product" in flex table with id "---grantee_tableId:-:InternalOrgDivisionTableId---"
+    Then I softly can see row level action button "View" against "Department of Product clone" in flex table with id "---grantee_tableId:-:InternalOrgDivisionTableId---"
+    Then I softly cannot see row level action button "Edit" against "Department of Product clone" in flex table with id "---grantee_tableId:-:InternalOrgDivisionTableId---"
 #   Federal Org
     And I navigate to "External" content inside "Organizations" subheader on left panel
     When I perform quick search for "Agency For International Development" in "---grantee_tableId:-:fedOrgTableId---" panel

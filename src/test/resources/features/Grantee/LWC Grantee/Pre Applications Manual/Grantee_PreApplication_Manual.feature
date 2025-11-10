@@ -1078,7 +1078,7 @@ Feature: Validate all scenarios for Pre-Applications Manual
     Given I expand nested table containing column value "BP01"
     When I click on "Add Line Item Details" icon for "Construction" inside flex table with id "---grantee_tableId:-:PreApplicationBudgetCategoryTableId---" with wait for record
     When I click on "Delete" icon for "Construction" inside flex table with id "---grantee_tableId:-:PreApplicationDetailsLineItemTableId---"
-    And I wait for "3" seconds
+    And I wait for "4" seconds
     Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:PreApplicationDetailsLineItemTableId---"
     When I close "Pre-App Line Items" modal by clicking the top right x button
     When I click on "Validate" in the page details

@@ -1348,7 +1348,7 @@ Feature: Validate all scenarios for Grantee Award from Application
 
     Examples:
       | UserName      | OwnerType  | UserType   | emailIdFrom             | emailIdTo                       | CreatedBy |
-      | Sarah PM user | GRANTEE PM | GRANTEE PM | sarah.pm.23@yopmail.com | victor.exeqagrantee@yopmail.com | Sarah PM  |
+      | Sarah PM user | GRANTEE PM | GRANTEE PM | sarah.pm.ggmergeqa2@yopmail.com | victor.exeqagrantee@yopmail.com | Sarah PM  |
 
   @486518 @OtherTypeARVerifyADMINusershouldabletoapprovedtheAR&shouldabletocreate&activatenewaward
   Scenario Outline: Other Type AR -Verify ADMIN user should able to approved the AR & should able to create & activate new award
@@ -1884,7 +1884,7 @@ Feature: Validate all scenarios for Grantee Award from Application
     Then I softly see value "{SavedValue:AwardEGMSID}" for title "Original Value" inside field history table
     Examples:
       | UserName        | OwnerType  | UserType       | emailIdFrom             | emailIdTo                       | CreatedBy     |
-      | Grantee PO user | GRANTEE PO | GRANTEE ADMIN1 | sarah.pm.23@yopmail.com | victor.exeqagrantee@yopmail.com | Product Admin |
+      | Grantee PO user | GRANTEE PO | GRANTEE ADMIN1 | sarah.pm.ggmergeqa2@yopmail.com | victor.exeqagrantee@yopmail.com | Product Admin |
 
   @486535 @OtherTypeARVerifyEXEusershouldabletoapprovedtheAR&shouldabletocreate&activatenewaward
   Scenario Outline: Other Type AR -Verify EXE user should able to approved the AR & should able to create & activate new award
@@ -2438,7 +2438,7 @@ Feature: Validate all scenarios for Grantee Award from Application
 
     Examples:
       | UserName        | OwnerType  | UserType    | emailIdFrom             | emailIdTo                       | CreatedBy  |
-      | Grantee PO user | GRANTEE PO | GRANTEE EXE | sarah.pm.23@yopmail.com | victor.exeqagrantee@yopmail.com | Victor EXE |
+      | Grantee PO user | GRANTEE PO | GRANTEE EXE | sarah.pm.ggmergeqa2@yopmail.com | victor.exeqagrantee@yopmail.com | Victor EXE |
 
   @486536 @OtherTypeARVerifyFDusershouldabletoapprovedtheAR&shouldabletocreate&activatenewaward
   Scenario Outline: Other Type AR -Verify FD user should able to approved the AR & should able to create & activate new award
@@ -2993,7 +2993,7 @@ Feature: Validate all scenarios for Grantee Award from Application
 
     Examples:
       | UserName      | OwnerType  | UserType   | emailIdFrom             | emailIdTo                       | CreatedBy          |
-      | Sarah PM user | GRANTEE PM | GRANTEE FD | sarah.pm.23@yopmail.com | victor.exeqagrantee@yopmail.com | Danielle FD Garcia |
+      | Sarah PM user | GRANTEE PM | GRANTEE FD | sarah.pm.ggmergeqa2@yopmail.com | victor.exeqagrantee@yopmail.com | Danielle FD Garcia |
 
   @486538 @OtherTypeARVerifyPMusershouldabletoapprovedtheAR&shouldabletocreate&activatenewaward @P1_Grantee @FO_Grantee @GRegression1
   Scenario Outline: Other Type AR -Verify PM user should able to approved the AR & should able to create & activate new award
@@ -3550,7 +3550,7 @@ Feature: Validate all scenarios for Grantee Award from Application
 
     Examples:
       | UserName      | OwnerType  | UserType   | emailIdFrom             | emailIdTo                       | CreatedBy |
-      | Sarah PM user | GRANTEE PM | GRANTEE FO | sarah.pm.23@yopmail.com | victor.exeqagrantee@yopmail.com | David FO  |
+      | Sarah PM user | GRANTEE PM | GRANTEE FO | sarah.pm.ggmergeqa2@yopmail.com | victor.exeqagrantee@yopmail.com | David FO  |
 
   @486539 @OtherTypeARVerifyPMusershouldabletoapprovedtheAR&shouldabletocreate&activatenewaward
   Scenario Outline: Other Type AR -Verify PM user should able to approved the AR & should able to create & activate new award
@@ -4106,7 +4106,7 @@ Feature: Validate all scenarios for Grantee Award from Application
 
     Examples:
       | UserName        | OwnerType  | UserType   | emailIdFrom             | emailIdTo                       | CreatedBy  |
-      | Grantee PO user | GRANTEE PO | GRANTEE PO | sarah.pm.23@yopmail.com | victor.exeqagrantee@yopmail.com | Grantee PO |
+      | Grantee PO user | GRANTEE PO | GRANTEE PO | sarah.pm.ggmergeqa2@yopmail.com | victor.exeqagrantee@yopmail.com | Grantee PO |
 
   @482343 @482351 @482352 @482356 @482359 @482361 @482363 @482368 @482400 @ValidatePMUsertheoverviewtabofaward @P2_Grantee @PM_Grantee @GRegression1 @GRegression4
   Scenario: Validate PM User the overview tab of award

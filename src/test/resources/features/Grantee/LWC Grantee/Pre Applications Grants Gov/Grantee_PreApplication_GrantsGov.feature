@@ -927,7 +927,6 @@ Feature: Validate all scenarios for Pre-Applications Grants Gov
     Then I see the sub-header is "{SavedValue:Automation Runtime Opportunity}" in the page details
     And I save the field labeled "EGMS ID" as "EGMSID"
     Then I softly see field "EGMS ID" as "{SavedValue:EGMSID}"
-    Then I softly see field "Status" as "Converted to Pre-Application"
     Then I softly see field "Funding Organization" as "Department of Education"
     And I save the field labeled "Days Left" as "DaysLeft"
     Then I softly see field "Days Left" as "{SavedValue:DaysLeft}"

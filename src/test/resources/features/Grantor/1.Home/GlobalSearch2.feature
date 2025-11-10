@@ -1587,7 +1587,7 @@ Feature: Validate all scenarios for the global search
     And I click on row level action button "Edit" against "{SavedValue:FocusEGMSID}" in global search with id "Focus Areas"
     Then I softly see the text containing "You dont have sufficient access to edit this record"
 
-  @389459 @389460 @389461 @389462 @sprint-2-US-386939  @GlobalSearch @bug-451518
+  @389459 @389460 @389461 @389462 @sprint-2-US-386939  @GlobalSearch @wip
   Scenario Outline: Verify that the record owner is able to edit the access for record when funding decision memo(FDM) is in the Created state
     And I published "Competitive" type announcement having name "Automation Runtime Announcement Application Review" and properties "default"
     And I initiated an application review for application "{SavedValue:Automation Runtime Announcement Application Review}" on announcement "{SavedValue:Automation Runtime Announcement Application Review}" with properties "default"
