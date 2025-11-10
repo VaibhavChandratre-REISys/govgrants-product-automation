@@ -4331,4 +4331,27 @@ public final class GovGrantsAssertionObjects {
                     flexTableDivId));
         }
     }
+
+    public void assertalueValueSelectedAsDefaultForTheDropDownField(String usage, String fieldValue, String fieldAPIName) {
+        if (usage.equalsIgnoreCase("see")) {
+            Assert.assertTrue(isValueSelectedAsDefaultForTheDropDownField(fieldValue, fieldAPIName));
+        } else if (usage.equalsIgnoreCase("softly see")) {
+            I.amPerforming().assertionsTo().assertThat(isValueSelectedAsDefaultForTheDropDownField(fieldValue, fieldAPIName)).isTrue();
+        } else if (usage.equalsIgnoreCase("do not see")) {
+            Assert.assertFalse(isValueSelectedAsDefaultForTheDropDownField(fieldValue, fieldAPIName));
+        } else {
+            I.amPerforming().assertionsTo().assertThat(isValueSelectedAsDefaultForTheDropDownField(fieldValue, fieldAPIName)).isFalse();
+        }
+    }
+
+    private Boolean isValueSelectedAsDefaultForTheDropDownField(String fieldValue, String fieldAPIName) {
+        boolean flag = false;
+        try {
+            if (I.amPerforming().checkToSee().isDisplayed(By.xpath("//div[contains(@class,'modal__container')]//div[@data-field_api_name='" + fieldAPIName +"']//button[@aria-haspopup='listbox' and @data-value='" + fieldValue +"'] | //div[@data-field_api_name='" + fieldAPIName +"']//button[@aria-haspopup='listbox' and @data-value='" + fieldValue +"']"))) {
+                flag = true;
+            }
+        } catch (Exception e) {
+        }
+        return flag;
+    }
 }
