@@ -1,7 +1,7 @@
 @plumbingCases @grantor-regression
 Feature: Validate all scenarios for Plumbing Cases
 
-  @545520 @ValidateEXEusercreationofanewFundingSourcefromFinancialtabonceusernavigatetoactiveGranteegrants @debug
+  @545520 @ValidateEXEusercreationofanewFundingSourcefromFinancialtabonceusernavigatetoactiveGranteegrants @Plumbing_P1
   Scenario: Validate EXE user creation of a new Funding Source from Financial tab once user navigate to active Grantee grants
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default-Victor EXE user"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
@@ -62,7 +62,7 @@ Feature: Validate all scenarios for Plumbing Cases
     Then I softly cannot see row level action button "Delete" against "{SavedValue:fundingSourceID}" in flex table with id "---grantee_tableId:-:grantExternalSourceTableId---"
     Then I softly cannot see row level action button "Edit" against "{SavedValue:fundingSourceID}" in flex table with id "---grantee_tableId:-:grantExternalSourceTableId---"
 
-  @545526 @ValidateAdminuserbelowvalidationonclickofsavebuttonwhenusereditappropriationamountnotfollowtheappropriateconditionwhenFundingAccountisincreatedstate
+  @545526 @ValidateAdminuserbelowvalidationonclickofsavebuttonwhenusereditappropriationamountnotfollowtheappropriateconditionwhenFundingAccountisincreatedstate @Plumbing_P1
   Scenario: Validate Admin user below validation on click of save button when user edit appropriation amount & not follow the appropriate condition when Funding Account is in created state
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default-DEMO ADMIN user"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
@@ -79,19 +79,20 @@ Feature: Validate all scenarios for Plumbing Cases
     And I click on top right button "New" in flex table with id "---grantee_tableId:-:grantExternalSourceTableId---"
     And I enter in modal value "Automation Runtime External Source" into field "Title__c"
     And I click modal button "Save and Continue"
+    And I wait for "2" seconds
     Then I softly see status in Progress-bar is "Created" and is "dark blue"
     And I click on "Save" in the page details
     And I wait for "2" seconds
     And I save the field labeled "EGMS ID" as "fundingSourceID"
     And I click on top right button "New" in flex table with id "---grantee_tableId:-:fundingaccountTableId---"
     And I enter in modal "Funding Account Creation" values from "FundingSource_Field_Values.xlsx"
-    When I enter in modal value "9000" into field "AppropriationBalance__c"
+    When I enter in modal value "4000" into field "AppropriationBalance__c"
     When I click modal button "Save and Continue"
     And I wait for "2" seconds
     Then I softly see the following messages in the page details contains:
       | Total of appropriation amount cannot be less than the Award Amount to Date on Grant. |
 
-  @545529 @ValidateEXEusercanabletocreateactivateFundingSourceFundingAccountFromactivegrantlayout
+  @545529 @ValidateEXEusercanabletocreateactivateFundingSourceFundingAccountFromactivegrantlayout @Plumbing_P1
   Scenario: Validate EXE user can able to create & activate Funding Source & Funding Account From active grant layout
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default-Victor EXE user"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
@@ -132,9 +133,11 @@ Feature: Validate all scenarios for Plumbing Cases
     Then I softly see value "{SavedValue:fundingSourceID}" for title "EGMS ID" inside table "---grantee_tableId:-:grantExternalSourceTableId---"
     Then I softly see value "$60,000.00" for title "Appropriation Amount" against the value "{SavedValue:fundingSourceID}" inside table "---grantee_tableId:-:grantExternalSourceTableId---"
     Then I softly see value "Active" for title "Status" against the value "{SavedValue:fundingSourceID}" inside table "---grantee_tableId:-:grantExternalSourceTableId---"
+    And I wait for "2" seconds
     And I navigate to "Grants" tab
+    And I wait for "2" seconds
     When I navigate to "Funding Sources" content inside "Setup" subheader on left panel
-    And I click toggle button to select "External Funding Sources - Draft"
+    And I click toggle button to select "External Funding Sources - All"
     When I perform quick search for "{SavedValue:fundingSourceID}" in "---grantee_tableId:-:fundingSourceGrantExternalTableId---" panel
     Then I softly see value "$60,000.00" for title "Appropriation Amount" against the value "{SavedValue:fundingSourceID}" inside table "---grantee_tableId:-:fundingSourceGrantExternalTableId---"
     Then I softly see value "Active" for title "Status" against the value "{SavedValue:fundingSourceID}" inside table "---grantee_tableId:-:fundingSourceGrantExternalTableId---"

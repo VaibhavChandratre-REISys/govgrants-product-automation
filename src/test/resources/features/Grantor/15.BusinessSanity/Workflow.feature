@@ -2531,8 +2531,11 @@ Feature: Validate all scenarios of every modules flow
 
   @testgranteesf
   Scenario:
-    When I login to "Grantee" app as "GRANTEE PM" user
+    When I login to "Grantee" app as "GRANTEE EXE" user
     And I halt execution
-    And I enter the value "VA" for the field "City__c" inside page block "Applicant Information"
-    And I enter the value "AL" for the field "State__c" inside page block "Applicant Information"
-    And I enter the value "USA: UNITED STATES" for the field "Country__c" inside page block "Applicant Information"
+    And I navigate to "Grants" tab
+    When I navigate to "Funding Sources" content inside "Setup" subheader on left panel
+    And I click toggle button to select "External Funding Sources - All"
+    When I perform quick search for "FS-NGO-066" in "---grantee_tableId:-:fundingSourceGrantExternalTableId---" panel
+    Then I softly see value "$60,000.00" for title "Appropriation Amount" against the value "FS-NGO-066" inside table "---grantee_tableId:-:fundingSourceGrantExternalTableId---"
+    Then I softly see value "Active" for title "Status" against the value "FS-NGO-066" inside table "---grantee_tableId:-:fundingSourceGrantExternalTableId---"
