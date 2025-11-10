@@ -49,7 +49,7 @@ Feature: Validate all scenarios for Plumbing Cases
     And I enter in modal "Funding Account Creation" values from "FundingSource_Field_Values.xlsx"
     When I click modal button "Save and Continue"
     And I enter "Funding Account Edition" values from "FundingSource_Field_Values.xlsx"
-    When I enter in modal value "{SavedValue:PPST}" into field "StartDate__c"
+    When I enter value "{SavedValue:PPST}" into field "StartDate__c"
     When I click on "Save" in the page details
     And I click on "Activate" in the page details
     Then I softly see status in Progress-bar is "Active" and is "dark blue"
@@ -90,3 +90,51 @@ Feature: Validate all scenarios for Plumbing Cases
     And I wait for "2" seconds
     Then I softly see the following messages in the page details contains:
       | Total of appropriation amount cannot be less than the Award Amount to Date on Grant. |
+
+  @545529 @ValidateEXEusercanabletocreateactivateFundingSourceFundingAccountFromactivegrantlayout
+  Scenario: Validate EXE user can able to create & activate Funding Source & Funding Account From active grant layout
+    And I "Created" standalone subaward "Automation Runtime Award" with properties "default-Victor EXE user"
+    And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
+    And I activate the award for title "{SavedValue:Automation Runtime Award}"
+    When I login to "Grantee" app as "GRANTEE EXE" user
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+    And I click toggle button to select "Grants - All"
+    When I perform quick search for "{SavedValue:Automation Runtime Award}" in "---grantee_tableId:-:GrantsTable---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
+    Then I softly see field "Status" as "Active"
+    And I save the field labeled "EGMS ID" as "GrantEGMSID"
+    And I navigate to "Overview" sub tab
+    And I save the field labeled "Project Period Start Date" as "PPST"
+    And I navigate to "Financials" sub tab
+    And I click on top right button "New" in flex table with id "---grantee_tableId:-:grantExternalSourceTableId---"
+    And I enter in modal value "Automation Runtime External Source" into field "Title__c"
+    Then I softly see value "External" selected as default for the dropdown field "Type__c"
+    Then I softly see value "{SavedValue:GrantEGMSID}" for the edit mode field "Grant__c"
+    And I click modal button "Save and Continue"
+    Then I softly see status in Progress-bar is "Created" and is "dark blue"
+    And I click on "Save" in the page details
+    And I wait for "2" seconds
+    And I save the field labeled "EGMS ID" as "fundingSourceID"
+    And I click on top right button "New" in flex table with id "---grantee_tableId:-:fundingaccountTableId---"
+    And I enter in modal "Funding Account Creation" values from "FundingSource_Field_Values.xlsx"
+    When I enter in modal value "60000" into field "AppropriationBalance__c"
+    When I click modal button "Save and Continue"
+    And I enter "Funding Account Edition" values from "FundingSource_Field_Values.xlsx"
+    When I enter value "{SavedValue:PPST}" into field "StartDate__c"
+    When I click on "Save" in the page details
+    And I click on "Activate" in the page details
+    Then I softly see status in Progress-bar is "Active" and is "dark blue"
+    And I click on hyperlink containing value "{SavedValue:fundingSourceID}"
+    And I wait for "2" seconds
+    And I click on hyperlink containing value "{SavedValue:GrantEGMSID}"
+    And I navigate to "Financials" sub tab
+    Then I softly see value "{SavedValue:fundingSourceID}" for title "EGMS ID" inside table "---grantee_tableId:-:grantExternalSourceTableId---"
+    Then I softly see value "$60,000.00" for title "Appropriation Amount" against the value "{SavedValue:fundingSourceID}" inside table "---grantee_tableId:-:grantExternalSourceTableId---"
+    Then I softly see value "Active" for title "Status" against the value "{SavedValue:fundingSourceID}" inside table "---grantee_tableId:-:grantExternalSourceTableId---"
+    And I navigate to "Grants" tab
+    When I navigate to "Funding Sources" content inside "Setup" subheader on left panel
+    And I click toggle button to select "External Funding Sources - Draft"
+    When I perform quick search for "{SavedValue:fundingSourceID}" in "---grantee_tableId:-:fundingSourceGrantExternalTableId---" panel
+    Then I softly see value "$60,000.00" for title "Appropriation Amount" against the value "{SavedValue:fundingSourceID}" inside table "---grantee_tableId:-:fundingSourceGrantExternalTableId---"
+    Then I softly see value "Active" for title "Status" against the value "{SavedValue:fundingSourceID}" inside table "---grantee_tableId:-:fundingSourceGrantExternalTableId---"
