@@ -13645,7 +13645,7 @@ Feature: Grantee Smoke scenarios
 
     Examples:
       | userName      | notesUser  |
-      | GRANTEE ADMIN | Product QA |
+      | GRANTEE ADMIN | DEMO ADMIN |
       | GRANTEE PM    | Sarah PM   |
       | GRANTEE EXE   | Victor EXE |
 

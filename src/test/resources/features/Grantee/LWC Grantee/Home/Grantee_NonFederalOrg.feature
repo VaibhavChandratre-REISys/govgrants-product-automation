@@ -1373,7 +1373,7 @@ Feature: Validate all scenarios for Non Federal Organization
 
     Examples:
       | userType      | attachment     | Notes           | userName   | Title |
-      | GRANTEE ADMIN | Attachment.pdf | Notes for ADMIN | Product QA | Test2 |
+      | GRANTEE ADMIN | Attachment.pdf | Notes for ADMIN | DEMO ADMIN | Test2 |
 
   @443741 @ValidateNonFederalusershouldnotdeletetheparentOrgwhohavechildOrg @GRegression5 @PM_Grantee @P2_Grantee
     Scenario: Validate Non Federal user should not delete the parent Org who have child Org
