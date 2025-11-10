@@ -426,8 +426,7 @@ public final class PageDetails {
      */
     public boolean isHelpTextDisplayedwithQuotes(String helpText) {
         boolean flag = false;
-        String helpText1 = helpText.replaceAll("\"", "");
-      if (I.amPerforming().actionToGet().text(textInsideHelpText).contains(helpText1) || I.amPerforming().actionToGet().text(textInsideHelpText).equalsIgnoreCase(helpText1) || I.amPerforming().actionToGet().attribute(textInsideHelpText, "title").equalsIgnoreCase(helpText1))
+      if (I.amPerforming().actionToGet().text(textInsideHelpText).contains(helpText) || I.amPerforming().actionToGet().text(textInsideHelpText).equalsIgnoreCase(helpText) || I.amPerforming().actionToGet().attribute(textInsideHelpText, "title").equalsIgnoreCase(helpText))
             flag = true;
         I.amPerforming().updatingOfReportWith().write(LogLevel.BUSINESS_LAYER_INFO, String.format("actual Text--->", I.amPerforming().actionToGet().text(textInsideHelpText)));
         return flag;
