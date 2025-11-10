@@ -2747,3 +2747,13 @@ Feature: Validate all scenarios for Financial Report
     And I click modal button "Save and Continue"
     And I wait for "2" seconds
     Then I softly see field "Status" as "Created"
+
+  @451429 @Validatewhenpmuserlogoutthepmuserthepageshouldredirectstotheloginpage
+  Scenario: Validate when PM user logout the pm user the page should redirects to the login page
+    Given I login to "Grantee" app as "GRANTEE PM" user
+    And I logout
+    Then I softly see field "Username" inside page block
+    Then I softly see field "Password" inside page block
+    Then I softly see button "Log In to Sandbox" on login page
+
+
