@@ -837,7 +837,7 @@ public class GrantorPayloads {
         JsonObject awardFundingAccount = new JsonObject();
         JsonArray awardFundingAccountArray = new JsonArray();
         awardFundingAccount.addProperty("FundingAccount", ProjectWebServices.getIdOf("FundingAccount__c", I.amPerforming().propertiesFileOperationsTo()
-                .getValue("fundingAccount")));
+                .getValue("Automation Runtime External Source")));
         awardFundingAccount.addProperty("PreEncumbranceAmount", "2000");
         awardFundingAccountArray.add(awardFundingAccount);
         parent.add("AwardFundingAccount", awardFundingAccountArray);

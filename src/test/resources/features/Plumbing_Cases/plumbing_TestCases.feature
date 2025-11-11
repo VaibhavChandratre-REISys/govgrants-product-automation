@@ -144,10 +144,10 @@ Feature: Validate all scenarios for Plumbing Cases
 
   @545532 @ValidatePOusercanabletoseebelowvalidationonupdatedAwardAmounttoDatefieldongranteeGrants @Plumbing_P1
   Scenario: Validate PO user can able to see below validation on updated Award Amount to Date field on grantee Grants
-    And I "Created" standalone subaward "Automation Runtime Award" with properties "default-Grantee PO"
+    And I "Created" standalone subaward "Automation Runtime Award" with properties "default-Grantee PO user"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
     And I activate the award for title "{SavedValue:Automation Runtime Award}"
-    And I "Approved" of type "Funding Change" amendment request for title "{SavedValue:Automation Runtime Award}" with properties "default-Grantee PO"
+    And I "Approved" of type "Funding Change" amendment request for title "{SavedValue:Automation Runtime Award}" with properties "default-Grantee PO user"
     When I login to "Grantee" app as "GRANTEE PO" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
