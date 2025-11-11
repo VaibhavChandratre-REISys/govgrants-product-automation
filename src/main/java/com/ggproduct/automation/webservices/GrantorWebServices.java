@@ -178,6 +178,13 @@ public class GrantorWebServices extends ProjectWebServices {
         approveDFMPostCall(projectApis.defaultRequestPayroleForApprovedDFM(), applicationName);
     }
 
+    /**
+     * @param applicationName name of application for Plumbing cases
+     */
+    public void approveDFMForPlumbingcases(String applicationName) {
+        approveDFMPostCall(projectApis.defaultRequestPayroleForApprovedDFMForPlumbingcases(), applicationName);
+    }
+
     public void reviewedApplication(String applicationName) {
         reviewApplicationPostCall(projectApis.defaultPayloadReviewApplication(), applicationName);
     }

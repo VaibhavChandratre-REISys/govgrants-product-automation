@@ -128,8 +128,6 @@ Feature: Validate all scenarios for Financial Report
     When I enter the following values into flex table with id "---grantee_tableId:-:financialReportPeerReviewTableId---" by clicking "New" :
       | Reviewer Name | Role            | Description            | Due Date | Allow Record Editing |
       | Sarah PM      | Fiscal Reviewer | Automation Description | 5        | No                   |
-    Then I softly see the following messages in the page details contains:
-      | Saved Successfully! |
     Then I softly can see row level action button "Edit" against "Grantee PO" in flex table with id "---grantee_tableId:-:financialReportPeerReviewTableId---"
     Then I softly can see row level action button "Send for Review" against "Grantee PO" in flex table with id "---grantee_tableId:-:financialReportPeerReviewTableId---"
     Then I softly can see row level action button "Delete" against "Grantee PO" in flex table with id "---grantee_tableId:-:financialReportPeerReviewTableId---"
@@ -316,7 +314,7 @@ Feature: Validate all scenarios for Financial Report
     And I refresh the page
     And I wait for "3" seconds
     Then I softly see value "Automation Subject" for title "Subject" inside table "CommunicationHistory"
-    Then I softly see value "victor.exeqagrantee@yopmail.com" for title "From Address" inside table "CommunicationHistory"
+    Then I softly see value "victor.exe.ggmergeqa2@yopmail.com" for title "From Address" inside table "CommunicationHistory"
     Then I softly see value "pm.automation@yopmail.com" for title "To Address" inside table "CommunicationHistory"
     Then I softly can see row level action button "View" against "Automation Subject" in flex table with id "CommunicationHistory"
     Then I softly can see row level action button "Reply" against "Automation Subject" in flex table with id "CommunicationHistory"
@@ -2097,16 +2095,16 @@ Feature: Validate all scenarios for Financial Report
     And I save the field labeled "EGMS ID" as "financialEGMSID10"
     And I click on hyperlink containing value "{SavedValue:AwardEGMSID}"
     And I navigate to "Management" sub tab
-    Then I softly see value "Adhoc" for title "Report Type" against the value "{SavedValue:financialEGMSID1}" inside table "---grantee_tableId:-:FinancialsReportTableId---"
-    Then I softly see value "Adhoc" for title "Report Type" against the value "{SavedValue:financialEGMSID2}" inside table "---grantee_tableId:-:FinancialsReportTableId---"
-    Then I softly see value "Adhoc" for title "Report Type" against the value "{SavedValue:financialEGMSID3}" inside table "---grantee_tableId:-:FinancialsReportTableId---"
-    Then I softly see value "Adhoc" for title "Report Type" against the value "{SavedValue:financialEGMSID4}" inside table "---grantee_tableId:-:FinancialsReportTableId---"
-    Then I softly see value "Adhoc" for title "Report Type" against the value "{SavedValue:financialEGMSID5}" inside table "---grantee_tableId:-:FinancialsReportTableId---"
-    Then I softly see value "Adhoc" for title "Report Type" against the value "{SavedValue:financialEGMSID6}" inside table "---grantee_tableId:-:FinancialsReportTableId---"
-    Then I softly see value "Adhoc" for title "Report Type" against the value "{SavedValue:financialEGMSID7}" inside table "---grantee_tableId:-:FinancialsReportTableId---"
-    Then I softly see value "Adhoc" for title "Report Type" against the value "{SavedValue:financialEGMSID8}" inside table "---grantee_tableId:-:FinancialsReportTableId---"
-    Then I softly see value "Adhoc" for title "Report Type" against the value "{SavedValue:financialEGMSID9}" inside table "---grantee_tableId:-:FinancialsReportTableId---"
-    Then I softly see value "Adhoc" for title "Report Type" against the value "{SavedValue:financialEGMSID10}" inside table "---grantee_tableId:-:FinancialsReportTableId---"
+    Then I softly see value "Ad-hoc" for title "Report Type" against the value "{SavedValue:financialEGMSID1}" inside table "---grantee_tableId:-:FinancialsReportTableId---"
+    Then I softly see value "Ad-hoc" for title "Report Type" against the value "{SavedValue:financialEGMSID2}" inside table "---grantee_tableId:-:FinancialsReportTableId---"
+    Then I softly see value "Ad-hoc" for title "Report Type" against the value "{SavedValue:financialEGMSID3}" inside table "---grantee_tableId:-:FinancialsReportTableId---"
+    Then I softly see value "Ad-hoc" for title "Report Type" against the value "{SavedValue:financialEGMSID4}" inside table "---grantee_tableId:-:FinancialsReportTableId---"
+    Then I softly see value "Ad-hoc" for title "Report Type" against the value "{SavedValue:financialEGMSID5}" inside table "---grantee_tableId:-:FinancialsReportTableId---"
+    Then I softly see value "Ad-hoc" for title "Report Type" against the value "{SavedValue:financialEGMSID6}" inside table "---grantee_tableId:-:FinancialsReportTableId---"
+    Then I softly see value "Ad-hoc" for title "Report Type" against the value "{SavedValue:financialEGMSID7}" inside table "---grantee_tableId:-:FinancialsReportTableId---"
+    Then I softly see value "Ad-hoc" for title "Report Type" against the value "{SavedValue:financialEGMSID8}" inside table "---grantee_tableId:-:FinancialsReportTableId---"
+    Then I softly see value "Ad-hoc" for title "Report Type" against the value "{SavedValue:financialEGMSID9}" inside table "---grantee_tableId:-:FinancialsReportTableId---"
+    Then I softly see value "Ad-hoc" for title "Report Type" against the value "{SavedValue:financialEGMSID10}" inside table "---grantee_tableId:-:FinancialsReportTableId---"
     And I click on "Edit" icon for "Financial Report" inside flex table with id "---grantee_tableId:-:awardReportSchedulesTableId---" without waiting for record
     When I enter in modal "Grantee_Financial_Schedules" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"

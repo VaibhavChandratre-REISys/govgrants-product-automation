@@ -49,9 +49,67 @@ public class GrantorPayloads {
                 break;
             case "KEYOUTCOME":
                 break;
+            case "PLUMBING_CASE":
+                return updatePlumbingCase(defaultJson,announcementName,applicationName);
             default:
                 return defaultJson;
         }
+        return defaultJson;
+    }
+
+    private JsonObject updatePlumbingCase(JsonObject defaultJson, String announcementName, String applicationName) {
+        String ownerName = "Automation SPI3";
+        String contactName = "Automation SPI3";
+        String kpiName = "Automation Runtime KPI";
+
+        JsonObject parent = new JsonObject();
+
+        JsonObject application = new JsonObject();
+        JsonArray applicationArray = new JsonArray();
+        application.addProperty("Title", applicationName);
+        application.addProperty("AddressLine1", "3 Capitol Hill Blvd");
+        application.addProperty("City", "Montana");
+        application.addProperty("County", "RI");
+        application.addProperty("State", "UT");
+        application.addProperty("ZipCode", "02908");
+        application.addProperty("ProjectAbstract", "Test");
+        application.addProperty("Justification", "this is Justification");
+        application.addProperty("Announcement", ProjectWebServices.getIdOf("Announcement__c", announcementName));
+        application.add("PreApplication", JsonNull.INSTANCE);
+        application.addProperty("RecordTypeId", ProjectWebServices.getRecordTypeId("Application__c", "Grantor"));
+        application.addProperty("OwnerId", ProjectWebServices.getIdOf("User", ownerName));
+        application.addProperty("ApproachMethodology", "Approch methodology test");
+        application.addProperty("Capacity", "Capacity test");
+        application.addProperty("Qualifications", "Qualifications test");
+        applicationArray.add(application);
+        parent.add("Application", applicationArray);
+
+        JsonObject budgetCategory = new JsonObject();
+        JsonArray budgetCategoryArray = new JsonArray();
+        budgetCategory.addProperty("BudgetCategory", "Construction");
+        budgetCategory.addProperty("BudgetRequest", 2000);
+        budgetCategory.addProperty("CashMatch", 200);
+        budgetCategory.add("NonCashMatch", JsonNull.INSTANCE);
+        budgetCategory.add("OtherLeverageOptional", JsonNull.INSTANCE);
+        budgetCategory.addProperty("ServiceAreaTitle", "Automation Permanent Focus Area");
+        budgetCategoryArray.add(budgetCategory);
+        parent.add("BudgetCategory", budgetCategoryArray);
+
+        JsonObject keyContacts = new JsonObject();
+        JsonArray keyContactsArray = new JsonArray();
+        keyContacts.addProperty("ProjectRole", "Project Director/Manager");
+        keyContacts.addProperty("Contact", ProjectWebServices.getIdOf("Contact", contactName)); // Automation SPI id
+        keyContacts.addProperty("IsKeyContact", true);
+        keyContactsArray.add(keyContacts);
+        parent.add("KeyContact", keyContactsArray);
+
+        JsonObject keyOutcome = new JsonObject();
+        JsonArray keyOutcomeArray = new JsonArray();
+        keyOutcome.addProperty("MasterKPI", ProjectWebServices.getIdOf("MasterKPI__c", kpiName)); // KPI id
+        keyOutcome.addProperty("Target", "10");
+        keyOutcomeArray.add(keyOutcome);
+        parent.add("KeyOutcome", keyOutcomeArray);
+
         return defaultJson;
     }
 
@@ -318,6 +376,57 @@ public class GrantorPayloads {
         FDM.addProperty("RecommendedForAward", "Yes");
         FDM.addProperty("RecommendedAmount", 1000);
         FDM.addProperty("TotalCommitmentAmount",1000);
+        FDMArray.add(FDM);
+
+        parent.add("FDM", FDMArray);
+
+        return parent;
+    }
+
+    public JsonObject defaultRequestPayroleForApprovedDFMForPlumbingcases() {
+        Map<String, String> map = ProjectWebServices.getMultipleIds(getIdsOfUsers(Arrays.asList("Victor EXE", "David FO", "Sarah PM")));
+        JsonObject parent = new JsonObject();
+
+        JsonArray reviewStepsArray = new JsonArray();
+        JsonObject complianceReview = new JsonObject();
+        complianceReview.addProperty("Reviewer", map.get("Victor EXE"));
+        complianceReview.addProperty("FormName", "Compliance Review");
+        complianceReview.addProperty("DueInDays", 7);
+
+        JsonObject programReview = new JsonObject();
+        programReview.addProperty("Reviewer", map.get("Sarah PM"));
+        programReview.addProperty("FormName", "Program Review");
+        programReview.addProperty("DueInDays", 7);
+
+        JsonObject fiscalReview = new JsonObject();
+        fiscalReview.addProperty("Reviewer", map.get("David FO"));
+        fiscalReview.addProperty("FormName", "Fiscal Review");
+        fiscalReview.addProperty("DueInDays", 7);
+
+        JsonObject managementReview = new JsonObject();
+        managementReview.addProperty("Reviewer", map.get("Sarah PM"));
+        managementReview.addProperty("FormName", "Management Review");
+        managementReview.addProperty("DueInDays", 7);
+
+        JsonObject preScreen = new JsonObject();
+        preScreen.addProperty("Reviewer", map.get("Sarah PM"));
+        preScreen.addProperty("FormName", "Pre-Screen");
+        preScreen.addProperty("DueInDays", 7);
+
+        reviewStepsArray.add(complianceReview);
+        reviewStepsArray.add(programReview);
+        reviewStepsArray.add(fiscalReview);
+        reviewStepsArray.add(managementReview);
+        reviewStepsArray.add(preScreen);
+
+        parent.add("ReviewSteps", reviewStepsArray);
+
+        JsonObject FDM = new JsonObject();
+        JsonArray FDMArray = new JsonArray();
+        FDM.addProperty("SubawardAbbreviation", "AWD");
+        FDM.addProperty("RecommendedForAward", "Yes");
+        FDM.addProperty("RecommendedAmount", 2000);
+        FDM.addProperty("TotalCommitmentAmount",2000);
         FDMArray.add(FDM);
 
         parent.add("FDM", FDMArray);
@@ -605,9 +714,101 @@ public class GrantorPayloads {
                 return updateApplicationWithProgramSuppDocYes(json);
             case "BY_APPLICANT_DETAILS_BUDGET_YES_RISK_NO":
                 return updateAnnouncementWithByAppDetailBudgetYes(json);
+            case "PLUMBING_CASE":
+                return updateAnnouncementForPlumbingCase(json,annType, annName);
             default:
                 return json;
         }
+    }
+
+    private JsonObject updateAnnouncementForPlumbingCase(JsonObject json, String annType, String annName) {
+        String program = "Automation Permanent Internal Program";
+        JsonObject parent = new JsonObject();
+
+        JsonObject ann = new JsonObject();
+        JsonArray annA = new JsonArray();
+
+        ann.addProperty("name", annName);
+        ann.addProperty("AnnouncementType", annType);
+        ann.addProperty("Program", ProjectWebServices.getIdOf("Program__c", program));
+        ann.addProperty("BudgetType", "Construction");
+        ann.addProperty("MaxApplicationsAllowed", 500);
+        ann.addProperty("IsMatchRequired", "Yes");
+        ann.addProperty("GranteeMatch", 10);
+        ann.addProperty("IsProgramIncomeAnticipated", "Yes");
+        ann.addProperty("LaverageAllowed", "Yes");
+        ann.addProperty("PreApplicationNeeded", "No");
+        ann.addProperty("PreApplicationDueDate", I.amPerforming()
+                .dateOperationsToGet().currentDateWithOffsetInDesiredFormat(10, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
+        ann.addProperty("ApplicationDueDate", I.amPerforming()
+                .dateOperationsToGet().currentDateWithOffsetInDesiredFormat(10, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
+        ann.addProperty("FocusAreaRequired", "Yes");
+        ann.addProperty("IsGoalsRequired", "Yes");
+        ann.addProperty("Allocationlevel", "N/A");
+        ann.addProperty("KPIsRequired", "Yes");
+        ann.addProperty("WBSRequired", "No");
+        ann.addProperty("RiskAssessment_Required", "Yes");
+        ann.addProperty("AreExpensesBuildIUpLevel", "No");
+        ann.addProperty("IsAdvancePermitted", "No");
+        ann.addProperty("IsNegotiationsAllowed", "Yes");
+        ann.addProperty("EligibleApplicantTypes", "04;05");
+        ann.addProperty("DetailedBudgetingRequired", "No");
+        ann.addProperty("AwardFloor", 2000);
+        ann.addProperty("AwardCeiling", 10000);
+        ann.addProperty("EstimatedFundingAmount", 10000);
+        ann.addProperty("OwnerId", ProjectWebServices.getIdOf("User", "Sarah PM"));
+        ann.addProperty("RecordTypeId", ProjectWebServices.getRecordTypeId("Announcement__c", "Grantor"));
+
+        annA.add(ann);
+        parent.add("Announcement", annA);
+
+        JsonObject serviceArea = new JsonObject();
+        JsonArray serviceAreaA = new JsonArray();
+        serviceArea.add("ServiceArea", JsonNull.INSTANCE);
+        //   serviceArea.addProperty("ServiceArea",ProjectWebServices.getIdOf("ServiceArea__c","Automation Permanent Focus Area"));
+        serviceAreaA.add(serviceArea);
+        parent.add("AnnouncementServiceArea", serviceAreaA);
+
+        JsonObject awardFundingAccount = new JsonObject();
+        JsonArray awardFundingAccountArray = new JsonArray();
+        awardFundingAccount.addProperty("FundingAccount", ProjectWebServices.getIdOf("FundingAccount__c", I.amPerforming().propertiesFileOperationsTo()
+                .getValue("fundingAccount")));
+        awardFundingAccount.addProperty("PreEncumbranceAmount", "2000");
+        awardFundingAccountArray.add(awardFundingAccount);
+        parent.add("AwardFundingAccount", awardFundingAccountArray);
+
+        JsonObject kpiGoalsObjectives = new JsonObject();
+        JsonArray kpiGoalsObjectivesArrays = new JsonArray();
+        kpiGoalsObjectives.add("StrategicPlan", JsonNull.INSTANCE);
+        kpiGoalsObjectivesArrays.add(kpiGoalsObjectives);
+        parent.add("KPIGoalsObjectives", kpiGoalsObjectivesArrays);
+
+
+        JsonObject keyOutcome = new JsonObject();
+        JsonArray keyOutcomeArray = new JsonArray();
+        keyOutcome.add("MasterKPI", JsonNull.INSTANCE);
+        keyOutcomeArray.add(keyOutcome);
+        parent.add("KeyOutcome", keyOutcomeArray);
+
+
+        JsonObject budgetPeriod = new JsonObject();
+        JsonArray budgetPeriodArray = new JsonArray();
+
+        budgetPeriod.addProperty("BudgetStartDate", I.amPerforming()
+                .dateOperationsToGet().currentDateWithOffsetInDesiredFormat(50, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
+        budgetPeriod.addProperty("BudgetEndDate", I.amPerforming()
+                .dateOperationsToGet().currentDateWithOffsetInDesiredFormat(150, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
+        budgetPeriodArray.add(budgetPeriod);
+        parent.add("BudgetPeriod", budgetPeriodArray);
+
+        JsonObject invApp = new JsonObject();
+        JsonArray invAppA = new JsonArray();
+        invApp.addProperty("Organization", ProjectWebServices.getIdOf("Account", "SAN DIEGO ELECTRICAL TRAINING TRUST"));
+        invApp.addProperty("AllocatedAmount", 1000);
+        invAppA.add(invApp);
+        parent.add("InvitedApplicant", invAppA);
+
+        return json;
     }
 
     private JsonObject invitedIndUserOrganizationbyApplicantTwoFocusAreaRiskNo(JsonObject json) {
