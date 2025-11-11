@@ -183,19 +183,19 @@ Feature: Validate all scenarios for Focus Areas
     Then I softly see value "Automation Permanent Focus Area2" for title "Title" inside table "---grantee_tableId:-:ProjectTableId---"
     And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:ProjectTableId---"
     When I click "Associate" after selection of "Test Focus Area1" in the table "---grantee_tableId:-:selectAwardFocusAreaTableId---"
-    When I click "Associate" after selection of "test sanity PM" in the table "---grantee_tableId:-:selectAwardFocusAreaTableId---"
-    When I click "Associate" after selection of "Gauri FA" in the table "---grantee_tableId:-:selectAwardFocusAreaTableId---"
+    When I click "Associate" after selection of "Grantee -Focus Area1" in the table "---grantee_tableId:-:selectAwardFocusAreaTableId---"
+    When I click "Associate" after selection of "MI_Grantee Focus Area" in the table "---grantee_tableId:-:selectAwardFocusAreaTableId---"
     And I click modal button "Close"
     And I refresh the page
     And I wait for "3" seconds
     Then I softly see value "Test Focus Area1" for title "Title" inside table "---grantee_tableId:-:ProjectTableId---"
-    Then I softly see value "test sanity PM" for title "Title" inside table "---grantee_tableId:-:ProjectTableId---"
-    Then I softly see value "Gauri FA" for title "Title" inside table "---grantee_tableId:-:ProjectTableId---"
-    When I click on "Remove" icon for "Gauri FA" inside flex table with id "---grantee_tableId:-:ProjectTableId---" without waiting for record
+    Then I softly see value "Grantee -Focus Area1" for title "Title" inside table "---grantee_tableId:-:ProjectTableId---"
+    Then I softly see value "MI_Grantee Focus Area" for title "Title" inside table "---grantee_tableId:-:ProjectTableId---"
+    When I click on "Remove" icon for "MI_Grantee Focus Area" inside flex table with id "---grantee_tableId:-:ProjectTableId---" without waiting for record
     And I wait for "2" seconds
     Then I softly see the following messages in the page details :
       | Record removed successfully. |
-    Then I softly do not see value "Gauri FA" for title "Title" inside table "---grantee_tableId:-:ProjectTableId---"
+    Then I softly do not see value "MI_Grantee Focus Area" for title "Title" inside table "---grantee_tableId:-:ProjectTableId---"
     Examples:
       | userType    | Approver   |
       | GRANTEE EXE | Victor EXE |
@@ -221,8 +221,7 @@ Feature: Validate all scenarios for Focus Areas
     And I update title as "Automation.pdf" on upload file modal
     And I select Classification as "supporting documents" at upload file modal
     When I click modal button "Save"
-    And I click modal button "Close"
-    And I refresh the page
+#    And I click modal button "Close"
     And I wait for "2" seconds
     Then I softly see value "Automation.pdf" for title "Title" inside table "---grantee_tableId:-:focusAreaAddFilesTableId---"
     Then I softly see value "supporting documents" for title "Classification" inside table "---grantee_tableId:-:focusAreaAddFilesTableId---"
@@ -248,7 +247,7 @@ Feature: Validate all scenarios for Focus Areas
     And I refresh the page
     And I wait for "3" seconds
     Then I softly see value "Automation Subject" for title "Subject" inside table "CommunicationHistory"
-    Then I softly see value "product.qa@yopmail.com" for title "From Address" inside table "CommunicationHistory"
+    Then I softly see value "demo.admin.merge@yopmail.com" for title "From Address" inside table "CommunicationHistory"
     Then I softly see value "pm.automation@yopmail.com" for title "To Address" inside table "CommunicationHistory"
     When I click on "Activate" in the page details
     Then I see status in Progress-bar is "Active" and is "dark blue"

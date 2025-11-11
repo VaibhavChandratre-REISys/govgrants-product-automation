@@ -1,4 +1,4 @@
-@GranteePreApplicationsGrantsGov @GranteePreApplicationsGrantsGovPDF @skipOnJenkins
+@GranteePreApplicationsGrantsGov @GranteePreApplicationsGrantsGovPDF
 Feature: Validate all scenarios for Pre-Applications Grants Gov for PDF
 
   @463453 @PreAppVerifyWithPMProfilePhaselevelListviewpageasperthefilterlistgettheresult @P4_Grantee @PM_Grantee @GRegression4

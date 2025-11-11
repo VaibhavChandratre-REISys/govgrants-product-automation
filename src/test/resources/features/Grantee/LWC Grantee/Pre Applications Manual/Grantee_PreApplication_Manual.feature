@@ -834,7 +834,7 @@ Feature: Validate all scenarios for Pre-Applications Manual
       | Construction | The narrative | 5000         | 500        | 500            |
     Then I softly can see row level action button "Edit" against "Construction" in flex table with id "---grantee_tableId:-:PreApplicationDetailsLineItemTableId---"
     Then I softly can see row level action button "Delete" against "Construction" in flex table with id "---grantee_tableId:-:PreApplicationDetailsLineItemTableId---"
-    When I close "Budget Category Line Item" modal by clicking the top right x button
+    When I close "Pre-App Line Items" modal by clicking the top right x button
     And I refresh the page
     And I wait for "2" seconds
     Then I can see row level action button "Edit" against "Automation Permanent Focus Area2" in flex table with id "---grantee_tableId:-:preApplicationProgramIncomeTableId---"
@@ -1078,9 +1078,9 @@ Feature: Validate all scenarios for Pre-Applications Manual
     Given I expand nested table containing column value "BP01"
     When I click on "Add Line Item Details" icon for "Construction" inside flex table with id "---grantee_tableId:-:PreApplicationBudgetCategoryTableId---" with wait for record
     When I click on "Delete" icon for "Construction" inside flex table with id "---grantee_tableId:-:PreApplicationDetailsLineItemTableId---"
-    And I wait for "3" seconds
+    And I wait for "4" seconds
     Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:PreApplicationDetailsLineItemTableId---"
-    When I close "Budget Category Line Item" modal by clicking the top right x button
+    When I close "Pre-App Line Items" modal by clicking the top right x button
     When I click on "Validate" in the page details
     And I wait for "3" seconds
     Then I softly see the following messages in the page details contains:
@@ -1089,7 +1089,7 @@ Feature: Validate all scenarios for Pre-Applications Manual
     When I enter the following values into flex table with id "---grantee_tableId:-:PreApplicationDetailsLineItemTableId---" by clicking "New" :
       | Title        | Narrative     | Award Budget | Cash Match | Non-Cash Match |
       | Construction | The narrative | 5000         | 500        | 500            |
-    When I close "Budget Category Line Item" modal by clicking the top right x button
+    When I close "Pre-App Line Items" modal by clicking the top right x button
     And I wait for "2" seconds
     When I click on "Validate" in the page details
     And I wait for "3" seconds

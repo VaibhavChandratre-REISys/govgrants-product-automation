@@ -929,4 +929,14 @@ public final class GovGrantsAssertionSteps {
                 seeornotsee.contains("softly")
         );
     }
+
+    @Then("^I (softly see|see|do not see|softly do not see) value \"([^\"]*)\" selected as default for the dropdown field \"([^\"]*)\"$")
+    public void iSoftlySeeValueSelectedAsDefaultForTheDropDownField(String usage, String fieldValue, String fieldAPIName) {
+        ggAssertionObjects.assertalueValueSelectedAsDefaultForTheDropDownField(usage, fieldValue, fieldAPIName);
+    }
+
+    @Then("^I (softly see|see|do not see|softly do not see) with quotes \"(.*?)\" shown as help text$")
+    public void iSoftlySeeWithQuotesShownAsHelpText(String usage, String helpText) {
+        govgrants.perform().pageDetails().assertHelpTextAtPageBlockwithQuotes(usage, helpText);
+    }
 }

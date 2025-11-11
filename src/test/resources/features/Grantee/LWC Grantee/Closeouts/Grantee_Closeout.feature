@@ -345,7 +345,7 @@ Feature: Validate all scenarios for closeout
     And I refresh the page
     And I wait for "4" seconds
     Then I softly see value "Automation Subject" for title "Subject" inside table "CommunicationHistory"
-    Then I softly see value "sarah.pm.23@yopmail.com" for title "From Address" inside table "CommunicationHistory"
+    Then I softly see value "sarah.pm.ggmergeqa2@yopmail.com" for title "From Address" inside table "CommunicationHistory"
     Then I softly see value "pm.automation@yopmail.com" for title "To Address" inside table "CommunicationHistory"
     When I re-login to "Grantee" app as "GRANTEE PO" user on "INTERNAL" portal
     And I navigate to "Closeout" tab
@@ -1312,7 +1312,7 @@ Feature: Validate all scenarios for closeout
     And I refresh the page
     And I wait for "4" seconds
     Then I softly see value "Automation Subject" for title "Subject" inside table "CommunicationHistory"
-    Then I softly see value "sarah.pm.23@yopmail.com" for title "From Address" inside table "CommunicationHistory"
+    Then I softly see value "sarah.pm.ggmergeqa2@yopmail.com" for title "From Address" inside table "CommunicationHistory"
     Then I softly see value "pm.automation@yopmail.com" for title "To Address" inside table "CommunicationHistory"
 
   @484063 @ValidateFromAppGPCloseoutwithPMProfileabletocreateProjectperiodcloseoutandabletocompletethecloseout @GRegression1
@@ -2908,12 +2908,13 @@ Feature: Validate all scenarios for closeout
     When I click on button "resetIcon" in flex table with id "---grantee_tableId:-:phaseCloseoutTableId---"
     Then I softly see the following messages in the page details :
       | Table has been reset. |
+    And I click toggle button to select "Project Period Closeout  - All"
     And I select value inside table "---grantee_tableId:-:phaseCloseoutTableId---" is "5"
     When I click on button "resetIcon" in flex table with id "---grantee_tableId:-:phaseCloseoutTableId---"
     Then I softly see the following messages in the page details :
       | Table has been reset. |
     And I click toggle button to select "Project Period Closeout - Submitted"
-    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:phaseCloseoutTableId---"
+    Then I softly see value "Submitted to Grantor" for title "Status" inside table "---grantee_tableId:-:phaseCloseoutTableId---"
     And I click toggle button to select "Project Period Closeout - Completed"
     When I perform quick search for "Completed" in "---grantee_tableId:-:phaseCloseoutTableId---" panel
     Then I softly see value "Completed" for title "Status" inside table "---grantee_tableId:-:phaseCloseoutTableId---"
@@ -2923,7 +2924,7 @@ Feature: Validate all scenarios for closeout
     When I perform quick search for "Created" in "---grantee_tableId:-:phaseCloseoutTableId---" panel
     Then I softly see value "Created" for title "Status" inside table "---grantee_tableId:-:phaseCloseoutTableId---"
     When I perform quick search for "Submitted for Approval" in "---grantee_tableId:-:phaseCloseoutTableId---" panel
-    Then I softly see value "Submitted for Approval" for title "Status" inside table "---grantee_tableId:-:phaseCloseoutTableId---"
+    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:phaseCloseoutTableId---"
 
   @446139 @ValidateGPCloseoutwithPMProfileIfCloseoutisinOverridestatethenabletoseetheaccessofsection @PM_Grantee @GRegression5 @P2_Grantee
   Scenario: Validate GP Closeout with PM Profile If Closeout is in Override state then able to see the access of section

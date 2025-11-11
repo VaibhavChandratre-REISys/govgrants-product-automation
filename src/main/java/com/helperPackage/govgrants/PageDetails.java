@@ -419,6 +419,20 @@ public final class PageDetails {
     }
 
     /**
+     * return true if help text is displayed
+     *
+     * @param helpText
+     * @return
+     */
+    public boolean isHelpTextDisplayedwithQuotes(String helpText) {
+        boolean flag = false;
+      if (I.amPerforming().actionToGet().text(textInsideHelpText).contains(helpText) || I.amPerforming().actionToGet().text(textInsideHelpText).equalsIgnoreCase(helpText) || I.amPerforming().actionToGet().attribute(textInsideHelpText, "title").equalsIgnoreCase(helpText))
+            flag = true;
+        I.amPerforming().updatingOfReportWith().write(LogLevel.BUSINESS_LAYER_INFO, String.format("actual Text--->", I.amPerforming().actionToGet().text(textInsideHelpText)));
+        return flag;
+    }
+
+    /**
      * get any item from drop down of parallel lines
      *
      * @param itemName
@@ -874,6 +888,20 @@ public final class PageDetails {
             I.amPerforming().assertionsTo().assertThat(isHelpTextDisplayed(helptext)).isTrue();
         } else if (usage.equalsIgnoreCase("see")) {
             Assert.assertTrue(isHelpTextDisplayed(helptext));
+        }
+    }
+
+    /**
+     * assert true if mentioned help text displayed
+     *
+     * @param helptext
+     * @author vaibhav.chandratre
+     */
+    public void assertHelpTextAtPageBlockwithQuotes(String usage, String helptext) {
+        if (usage.equalsIgnoreCase("softly see")) {
+            I.amPerforming().assertionsTo().assertThat(isHelpTextDisplayedwithQuotes(helptext)).isTrue();
+        } else if (usage.equalsIgnoreCase("see")) {
+            Assert.assertTrue(isHelpTextDisplayedwithQuotes(helptext));
         }
     }
 

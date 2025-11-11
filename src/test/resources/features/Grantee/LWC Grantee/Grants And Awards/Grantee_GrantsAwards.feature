@@ -1,4 +1,4 @@
-@GranteeGrantsAwards @GranteeGrantAwardRegression
+@GranteeGrantsAwards
 Feature: Validate all scenarios for Grants & Awards
 
   @456238 @ValidateGrantPOFOFDthePhasewiselevellistviewforGrant @P3_Grantee @PO_Grantee @GRegression2
@@ -1025,7 +1025,7 @@ Feature: Validate all scenarios for Grants & Awards
     And I update title as "Automation.pdf" on upload file modal
     And I select Classification as "Award Documents" at upload file modal
     When I click modal button "Save"
-#    And I click modal button "Close"
+    And I click modal button "Close"
     And I refresh the page
     And I wait for "2" seconds
     Then I softly see value "Automation.pdf" for title "Title" inside table "---grantee_tableId:-:grantAddFilesTableId---"
@@ -1285,6 +1285,29 @@ Feature: Validate all scenarios for Grants & Awards
     Then I softly see the text containing "Sarah PM"
     And I click on back arrow
     And I wait for "2" seconds
+    And I navigate to "Projections" sub tab
+    Then I softly see fields "BudgetRedirectionThreshhold__c" is in edit mode
+    Then I softly see fields "BudgetPeriodEndDate__c" is in edit mode
+    Then I softly see fields "ApprovedIndirectCostRate__c" is in edit mode
+    Then I softly see fields "ProgramIncomeType__c" is in edit mode
+    Then I softly see that "Project Period End Date" rendered in view mode only
+    Then I softly see that "Award Amount to Date" rendered in view mode only
+    Then I softly see that "Budget Period Start Date" rendered in view mode only
+    And I click on "Save" in the page details
+    Then I softly see the following messages in the page details contains:
+      | To Save, Award Issue Date is required in the Overview tab under the Details section.                               |
+      | To Save, Funder Payment System is required in the Overview tab under the Details section.                          |
+      | To Save, Congressional District is required in the Overview tab under the Primary Place of Performance section.    |
+      | To Save, Program Income Treatment Type is required in the Projections tab under the Budget Period Details section. |
+    When I enter "Grantee_Award_Edition" values from "Award_Field_Values.xlsx"
+    And I click on "Save" in the page details
+    And I navigate to "Overview" sub tab
+    Then I softly see link "{SavedValue:GrantEGMSID}" inside Page block
+    And I click on hyperlink containing value "{SavedValue:GrantEGMSID}"
+    Then I see the header is "Grant" in the page details
+    Then I softly see field "EGMS ID" as "{SavedValue:GrantEGMSID}"
+    And I click on back arrow
+    And I wait for "2" seconds
     And I click on Menu icon present on top right corner of the page
     Then I see option "Download as PDF" present in parallel dropdown
     Then I see option "Take Snapshot" present in parallel dropdown
@@ -1527,7 +1550,7 @@ Feature: Validate all scenarios for Grants & Awards
     And I refresh the page
     And I wait for "3" seconds
     Then I softly see value "Automation Subject" for title "Subject" inside table "CommunicationHistory"
-    Then I softly see value "sarah.pm.23@yopmail.com" for title "From Address" inside table "CommunicationHistory"
+    Then I softly see value "sarah.pm.ggmergeqa2@yopmail.com" for title "From Address" inside table "CommunicationHistory"
     Then I softly see value "pm.automation@yopmail.com" for title "To Address" inside table "CommunicationHistory"
     When I click on "Validate" in the page details
     And I wait for "5" seconds
@@ -1738,6 +1761,7 @@ Feature: Validate all scenarios for Grants & Awards
     Then I softly see the text containing "sarah.pm@ggp.test8.ggmergeqa2"
     And I wait for "2" seconds
     And I click on back arrow
+    And I wait for "2" seconds
     Then I softly see value "Owner" for title "Name" against the value "Sarah PM" inside table "---grantee_tableId:-:awardOwnerTableId---"
     And I click on hyperlink containing value "Sarah PM"
     Then I softly see the text containing "sarah.pm@ggp.test8.ggmergeqa2"
@@ -1781,9 +1805,9 @@ Feature: Validate all scenarios for Grants & Awards
     And I click on "Close" button for view files page
     And I click on "Download" icon for "Other" inside flex table with id "---grantee_tableId:-:awardAddFilesTableId---"
     And I switch to tab number "1"
-    And I download the file
+    And I download the file without rename
     And I wait for "3" seconds
-#    Then I softly verify that the file "AttachmentTesting.pdf" is downloaded
+    Then I softly verify that the file "AttachmentTesting.pdf" is downloaded
     And I close the tab
     And I click on "Edit" icon for "Other" inside flex table with id "---grantee_tableId:-:awardAddFilesTableId---"
     And I wait for "2" seconds
@@ -1791,7 +1815,6 @@ Feature: Validate all scenarios for Grants & Awards
     And I select Classification as "Interim Award Document" at upload file modal
     When I click modal button "Save"
 #    And I click modal button "Close"
-    And I refresh the page
     And I wait for "2" seconds
     Then I softly see value "Automation.pdf" for title "Title" inside table "---grantee_tableId:-:awardAddFilesTableId---"
     Then I softly see value "Interim Award Document" for title "Classification" inside table "---grantee_tableId:-:awardAddFilesTableId---"
@@ -3290,7 +3313,6 @@ Feature: Validate all scenarios for Grants & Awards
     And I select Classification as "Interim Award Document" at upload file modal
     When I click modal button "Save"
 #    And I click modal button "Close"
-    And I refresh the page
     And I wait for "2" seconds
     Then I softly see value "Automation.pdf" for title "Title" inside table "---grantee_tableId:-:awardAddFilesTableId---"
     Then I softly see value "Interim Award Document" for title "Classification" inside table "---grantee_tableId:-:awardAddFilesTableId---"
@@ -5583,7 +5605,8 @@ Feature: Validate all scenarios for Grants & Awards
       Then I softly see value "Active Grant Summary by Agency" for title "Report Name" inside table "Reports"
       Then I softly can see row level action button "Run" against "Active Grant Summary by Agency" in global search with id "Reports"
       And I click on row level action button "Run" against "Active Grant Summary by Agency" in global search with id "Reports"
-      Then I softly see page title contains as "Active Grant Summary by Agency"
+      Then I see the header is "Active Grant Summary by Agency" in the page details
+      Then I see the sub-header is "This report provides a consolidated view of all active grants associated with each Funding Organization." in the page details
 
       @459803 @VerifyforNotesection"Add"isReplacewith"New"button.
       Scenario: Verify for Note section "Add" is Replace with "New" button.
