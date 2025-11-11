@@ -147,6 +147,7 @@ Feature: Validate all scenarios for Plumbing Cases
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default-Grantee PO user"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
     And I activate the award for title "{SavedValue:Automation Runtime Award}"
+    And I wait for "2" seconds
     And I "Approved" of type "Funding Change" amendment request for title "{SavedValue:Automation Runtime Award}" with properties "FUNDING_CHANGE_PO_OWNER-Grantee PO user"
     When I login to "Grantee" app as "GRANTEE PO" user
     And I navigate to "Grants" tab
