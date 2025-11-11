@@ -2137,18 +2137,21 @@ Feature: Validate all scenarios for Financial Report
     And I wait for "220" seconds
     And I refresh the page
     And I wait for "3" seconds
-    And I save the value from row "1" for column name "EGMS ID" as "financialEGMSID1" from flex table "---grantee_tableId:-:FinancialsReportTableId---"
-    Then I softly see value "Scheduled" for title "Report Type" against the value "{SavedValue:financialEGMSID1}" inside table "---grantee_tableId:-:FinancialsReportTableId---"
-    And I save the value from row "2" for column name "EGMS ID" as "financialEGMSID2" from flex table "---grantee_tableId:-:FinancialsReportTableId---"
-    Then I softly see value "Scheduled" for title "Report Type" against the value "{SavedValue:financialEGMSID2}" inside table "---grantee_tableId:-:FinancialsReportTableId---"
-    And I save the value from row "3" for column name "EGMS ID" as "financialEGMSID3" from flex table "---grantee_tableId:-:FinancialsReportTableId---"
-    Then I softly see value "Scheduled" for title "Report Type" against the value "{SavedValue:financialEGMSID3}" inside table "---grantee_tableId:-:FinancialsReportTableId---"
-    And I save the value from row "4" for column name "EGMS ID" as "financialEGMSID4" from flex table "---grantee_tableId:-:FinancialsReportTableId---"
-    Then I softly see value "Scheduled" for title "Report Type" against the value "{SavedValue:financialEGMSID4}" inside table "---grantee_tableId:-:FinancialsReportTableId---"
-    And I save the value from row "5" for column name "EGMS ID" as "financialEGMSID5" from flex table "---grantee_tableId:-:FinancialsReportTableId---"
-    Then I softly see value "Scheduled" for title "Report Type" against the value "{SavedValue:financialEGMSID5}" inside table "---grantee_tableId:-:FinancialsReportTableId---"
-    And I save the value from row "6" for column name "EGMS ID" as "financialEGMSID6" from flex table "---grantee_tableId:-:FinancialsReportTableId---"
-    Then I softly see value "Scheduled" for title "Report Type" against the value "{SavedValue:financialEGMSID6}" inside table "---grantee_tableId:-:FinancialsReportTableId---"
+    When I click on "EGMS ID" column header inside table with id "---grantee_tableId:-:FinancialsReportTableId---"
+    And I wait for "1" seconds
+    When I click on "EGMS ID" column header inside table with id "---grantee_tableId:-:FinancialsReportTableId---"
+    And I save the value from row "1" for column name "EGMS ID" as "financialEGMSID11" from flex table "---grantee_tableId:-:FinancialsReportTableId---"
+    Then I softly see value "Scheduled" for title "Report Type" against the value "{SavedValue:financialEGMSID11}" inside table "---grantee_tableId:-:FinancialsReportTableId---"
+    And I save the value from row "2" for column name "EGMS ID" as "financialEGMSID12" from flex table "---grantee_tableId:-:FinancialsReportTableId---"
+    Then I softly see value "Scheduled" for title "Report Type" against the value "{SavedValue:financialEGMSID12}" inside table "---grantee_tableId:-:FinancialsReportTableId---"
+    And I save the value from row "3" for column name "EGMS ID" as "financialEGMSID13" from flex table "---grantee_tableId:-:FinancialsReportTableId---"
+    Then I softly see value "Scheduled" for title "Report Type" against the value "{SavedValue:financialEGMSID13}" inside table "---grantee_tableId:-:FinancialsReportTableId---"
+    And I save the value from row "4" for column name "EGMS ID" as "financialEGMSID14" from flex table "---grantee_tableId:-:FinancialsReportTableId---"
+    Then I softly see value "Scheduled" for title "Report Type" against the value "{SavedValue:financialEGMSID14}" inside table "---grantee_tableId:-:FinancialsReportTableId---"
+    And I save the value from row "5" for column name "EGMS ID" as "financialEGMSID15" from flex table "---grantee_tableId:-:FinancialsReportTableId---"
+    Then I softly see value "Scheduled" for title "Report Type" against the value "{SavedValue:financialEGMSID15}" inside table "---grantee_tableId:-:FinancialsReportTableId---"
+    And I save the value from row "6" for column name "EGMS ID" as "financialEGMSID16" from flex table "---grantee_tableId:-:FinancialsReportTableId---"
+    Then I softly see value "Scheduled" for title "Report Type" against the value "{SavedValue:financialEGMSID16}" inside table "---grantee_tableId:-:FinancialsReportTableId---"
 
   @443594 @ValidateReviewedthefinancialreportbyassignedReviewerwithallowrecordeditingYes @P2_Grantee @EXE_Grantee @GRegression5
   Scenario:Validate Reviewed the financial reportby assigned Reviewer with allow record editing Yes

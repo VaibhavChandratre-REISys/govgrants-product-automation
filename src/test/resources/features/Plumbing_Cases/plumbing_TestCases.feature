@@ -270,5 +270,5 @@ Feature: Validate all scenarios for Plumbing Cases
     And I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "PLUMBING_CASE"
     And I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "PLUMBING_CASE"
     And I created approved FDM on application "{SavedValue:Automation Runtime FDM Announcement}" for Plumbing Cases
-    Given I created award from approved FDM with announcement "{SavedValue:Automation Runtime FDM Announcement}"
+    Given I created award from approved FDM with announcement "{SavedValue:Automation Runtime FDM Announcement}" for plumbing cases
     And I activate award from FDM having application name "{SavedValue:Automation Runtime FDM Announcement}"

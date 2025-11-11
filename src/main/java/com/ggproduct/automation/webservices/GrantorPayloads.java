@@ -538,6 +538,71 @@ public class GrantorPayloads {
         return parent;
     }
 
+    public JsonObject defaultPayloadCreateAwardFromFDMForPlumbingCases(String announcementName) {
+        JsonObject parent = new JsonObject();
+        Map<String, String> map = ProjectWebServices.getMultipleIds(getIdsForCreateAwardFromFDM(announcementName));
+
+        JsonObject grant = new JsonObject();
+        JsonArray grantArray = new JsonArray();
+        grant.addProperty("FDM", map.get(announcementName));
+        grant.addProperty("RecordTypeId", ProjectWebServices.getRecordTypeId("Grant__c", "Grantor"));
+        grant.addProperty("OwnerId", map.get("Sarah PM"));
+        grantArray.add(grant);
+        parent.add("Grant", grantArray);
+
+        JsonObject award = new JsonObject();
+        JsonArray awardArray = new JsonArray();
+        award.addProperty("GrantAwardDescription", "Award Created From Automation API");
+        award.addProperty("BudgetPeriodEndDate", I.amPerforming()
+                .dateOperationsToGet().currentDateWithOffsetInDesiredFormat(150, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
+        award.addProperty("BudgetRedirectionThreshhold", 10);
+        award.addProperty("PM", ProjectWebServices.getIdOf("User", "Sarah PM"));
+        award.addProperty("FO", ProjectWebServices.getIdOf("User", "David FO"));
+        award.addProperty("EXE", ProjectWebServices.getIdOf("User", "Victor EXE"));
+        awardArray.add(award);
+        parent.add("Award", awardArray);
+
+        JsonObject awardFundingAccount = new JsonObject();
+        JsonArray awardFundingAccountArray = new JsonArray();
+        awardFundingAccount.addProperty("PreEncumbranceAmount", "2000");
+        awardFundingAccountArray.add(awardFundingAccount);
+        parent.add("AwardFundingAccount", awardFundingAccountArray);
+
+
+        JsonObject awardServiceArea = new JsonObject();
+        JsonArray awardServiceAreaArray = new JsonArray();
+        awardServiceArea.addProperty("ServiceArea", map.get("Automation Permanent Focus Area"));
+        awardServiceArea.addProperty("GATStartDate", I.amPerforming()
+                .dateOperationsToGet().currentDateWithOffsetInDesiredFormat(50, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
+        awardServiceArea.addProperty("GATEndDate", I.amPerforming()
+                .dateOperationsToGet().currentDateWithOffsetInDesiredFormat(150, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
+        awardServiceAreaArray.add(awardServiceArea);
+        parent.add("AwardServiceArea", awardServiceAreaArray);
+
+        JsonObject kpiGoalsObjectives = new JsonObject();
+        JsonArray kpiGoalsObjectivesArrays = new JsonArray();
+        kpiGoalsObjectives.addProperty("StrategicPlan", map.get("PN_ETE Strategic Plan"));
+        kpiGoalsObjectivesArrays.add(kpiGoalsObjectives);
+        parent.add("KPIGoalsObjectives", kpiGoalsObjectivesArrays);
+
+        JsonObject keyOutcome = new JsonObject();
+        JsonArray keyOutcomeArray = new JsonArray();
+        keyOutcome.addProperty("MasterKPI", map.get("Automation Runtime KPI"));
+        keyOutcome.addProperty("Target", "10");
+        keyOutcomeArray.add(keyOutcome);
+        parent.add("KeyOutcome", keyOutcomeArray);
+
+        JsonObject keyContacts = new JsonObject();
+        JsonArray keyContactsArray = new JsonArray();
+        keyContacts.addProperty("ProjectRole", "Project Director/Manager");
+        keyContacts.addProperty("Contact", map.get("Automation SPI3"));
+        keyContacts.addProperty("IsKeyContact", true);
+        keyContactsArray.add(keyContacts);
+        parent.add("KeyContacts", keyContactsArray);
+
+        return parent;
+    }
+
     /**
      * @return
      */

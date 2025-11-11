@@ -196,6 +196,13 @@ public class GrantorWebServices extends ProjectWebServices {
         createAwardFromFDMPostCall(projectApis.defaultPayloadCreateAwardFromFDM(announcementName));
     }
 
+    /**
+     * @param announcementName name of announcement on which application is created with same name as announcement for Plumbing cases
+     */
+    public void createAwardFromFDMForPlumbingCases(String announcementName) {
+        createAwardFromFDMPostCall(projectApis.defaultPayloadCreateAwardFromFDMForPlumbingCases(announcementName));
+    }
+
     public void createAwardFromFDM(String announcementName, String... Type ) {
         if(Type.length>0)
             createAwardFromFDMPostCall(projectApis.PayloadCreateAwardFromFDM(announcementName,Type[0]));

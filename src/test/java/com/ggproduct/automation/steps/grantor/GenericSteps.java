@@ -502,6 +502,11 @@ public class GenericSteps {
         grantorWebServices.createAwardFromFDM(announcementName);
     }
 
+    @Given("I created award from approved FDM with announcement {string} for plumbing cases")
+    public void iCreatedAwardFromApprovedFDMWithAnnouncementForPlumbingCases(String announcementName) {
+        grantorWebServices.createAwardFromFDMForPlumbingCases(announcementName);
+    }
+
     @Given("I created award from approved FDM with announcement {string} and properties {string}")
     public void iCreatedAwardFromApprovedFDMWithAnnouncement(String announcementName, String Type) {
         grantorWebServices.createAwardFromFDM(announcementName, Type);
