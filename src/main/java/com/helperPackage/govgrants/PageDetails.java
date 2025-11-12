@@ -1054,8 +1054,8 @@ public final class PageDetails {
     }
 
     public void getNotificationIcon() {
-        I.amPerforming().waitFor().ElementToBeVisible(By.xpath("//div[@class='headerButtonBody']//lightning-icon"));
-        I.amPerforming().click().withJavaScript(By.xpath("//div[@class='headerButtonBody']//lightning-icon"));
+        I.amPerforming().waitFor().ElementToBeVisible(By.xpath("//div[@class='headerButtonBody']//lightning-icon | //div[@class='forceHeaderButton']//div//div//lightning-icon"));
+        I.amPerforming().click().withJavaScript(By.xpath("//div[@class='headerButtonBody']//lightning-icon | //div[@class='forceHeaderButton']//div//div//lightning-icon"));
     }
 
     public void getHelpTextAtPageBlockDetailForInvisibleElement(String pageBlockDetailTitle) {

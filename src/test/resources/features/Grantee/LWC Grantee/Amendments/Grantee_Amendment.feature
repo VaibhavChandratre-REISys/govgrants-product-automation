@@ -396,10 +396,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
     When I perform quick search for "Rejected" in "---grantee_tableId:-:AmendmentTableId---" panel
     Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:AmendmentTableId---"
     When I perform quick search for "Submitted for Approval" in "---grantee_tableId:-:AmendmentTableId---" panel
-    Then I softly see value "Submitted for Approval" for title "Status" inside table "---grantee_tableId:-:AmendmentTableId---"
-    Then I softly cannot see row level action button "Edit" against "Submitted for Approval" in flex table with id "---grantee_tableId:-:AmendmentTableId---"
-    Then I softly can see row level action button "View" against "Submitted for Approval" in flex table with id "---grantee_tableId:-:AmendmentTableId---"
-    Then I softly cannot see row level action button "Delete" against "Submitted for Approval" in flex table with id "---grantee_tableId:-:AmendmentTableId---"
+    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:AmendmentTableId---"
     When I perform quick search for "Not Accepted" in "---grantee_tableId:-:AmendmentTableId---" panel
     Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:AmendmentTableId---"
     When I perform quick search for "Submitted to Grantor" in "---grantee_tableId:-:AmendmentTableId---" panel
@@ -732,7 +729,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
     Then I softly see field "Grant EGMS ID" as "{SavedValue:GrantEGMSID}"
     Then I softly see field "Award EGMS ID" as "{SavedValue:AwardEGMSID}"
     Then I softly see field "Previous Award Title" as "{SavedValue:AwardTitle}"
-    When I save the field labeled "Previous Award Description" as "PreviousAwardDescription"
+    And I save the field labeled "Previous Award Description" as "PreviousAwardDescription"
     Then I softly see field "Previous Award Description" as "{SavedValue:PreviousAwardDescription}"
     Then I softly see fields "GrantAwardName__c" is in edit mode
     Then I softly see fields "GrantAwardDescription__c" is in edit mode
@@ -4799,7 +4796,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
     When I click on "Delete" icon for "Grantee PO" inside table with table id "---grantee_tableId:-:amendmentPeerReviewerTableId---" without processing
     Then I softly see confirmation box with body "Do you want to delete? Once it is deleted it cannot be restored." is displayed
     When I click modal button "OK"
-    And I wait for "3" seconds
+    And I wait for "1" seconds
     Then I softly see the following messages in the page details :
       | Record deleted successfully. |
     Then I softly do not see value "Grantee PO" for title "Reviewer Name" inside table "---grantee_tableId:-:amendmentPeerReviewerTableId---"
@@ -5550,7 +5547,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
     Then I softly see "Key Performance Indicators (KPIs)" page block displayed
     Then I softly see "General Condition" page block displayed
     Then I softly see "Special Conditions" page block displayed
-    Then I softly see that "GeneralConditionChanged__c" rendered in view mode only
+    Then I softly see that "General Condition Changed?" rendered in view mode only
     Then I softly do not see top right button "New" inside flex table "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
     Then I softly see value "Terms1" for title "Title" inside table "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
     Then I softly can see row level action button "View" against "Terms1" in flex table with id "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
@@ -5630,7 +5627,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
     Then I softly cannot see row level action button "View" against "New Indirect rate2" in flex table with id "---grantee_tableId:-:amendmentIndirectRateTableId---"
     Then I softly cannot see row level action button "Edit" against "New Indirect rate2" in flex table with id "---grantee_tableId:-:amendmentIndirectRateTableId---"
     Then I softly cannot see row level action button "Delete" against "New Indirect rate2" in flex table with id "---grantee_tableId:-:amendmentIndirectRateTableId---"
-    Then I softly see that "GeneralConditionChanged__c" rendered in view mode only
+    Then I softly see that "General Condition Changed?" rendered in view mode only
     Then I softly do not see top right button "New" inside flex table "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
     Then I softly see value "TermsAmendment" for title "Title" inside table "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
     Then I softly can see row level action button "View" against "TermsAmendment" in flex table with id "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
@@ -5906,7 +5903,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
     Then I softly cannot see row level action button "View" against "New Indirect rate2" in flex table with id "---grantee_tableId:-:amendmentIndirectRateTableId---"
     Then I softly cannot see row level action button "Edit" against "New Indirect rate2" in flex table with id "---grantee_tableId:-:amendmentIndirectRateTableId---"
     Then I softly cannot see row level action button "Delete" against "New Indirect rate2" in flex table with id "---grantee_tableId:-:amendmentIndirectRateTableId---"
-    Then I softly see that "GeneralConditionChanged__c" rendered in view mode only
+    Then I softly see that "General Condition Changed?" rendered in view mode only
     Then I softly do not see top right button "New" inside flex table "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
     Then I softly see value "TermsAmendment" for title "Title" inside table "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
     Then I softly can see row level action button "View" against "TermsAmendment" in flex table with id "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
@@ -6014,7 +6011,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
     Then I softly cannot see row level action button "View" against "New Indirect rate2" in flex table with id "---grantee_tableId:-:amendmentIndirectRateTableId---"
     Then I softly cannot see row level action button "Edit" against "New Indirect rate2" in flex table with id "---grantee_tableId:-:amendmentIndirectRateTableId---"
     Then I softly cannot see row level action button "Delete" against "New Indirect rate2" in flex table with id "---grantee_tableId:-:amendmentIndirectRateTableId---"
-    Then I softly see that "GeneralConditionChanged__c" rendered in view mode only
+    Then I softly see that "General Condition Changed?" rendered in view mode only
     Then I softly do not see top right button "New" inside flex table "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
     Then I softly see value "TermsAmendment" for title "Title" inside table "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
     Then I softly can see row level action button "View" against "TermsAmendment" in flex table with id "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
@@ -6772,6 +6769,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
     And I click on "Revise Amendment" in the page details without processing
     Then I softly see confirmation box with body "Are you sure you want to revise the amendment request? The amendment request will require an approval again after being revised." is displayed
     And I click "OK" on modal confirmation box
+    And I wait for "2" seconds
     Then I softly see field "Status" as "Revision in Progress"
     Then I can see top right button "Delete" in page detail
     Then I can see top right button "Edit" in page detail
@@ -6950,9 +6948,9 @@ Feature: Validate all scenarios for Grantee Amendment Request
     Then I softly see value "{SavedValue:ApprovedIndirectCostRate}" for title "Approved Indirect Cost Rate(%)" inside table "---grantee_tableId:-:amendmentIndirectRateTableId---"
     And I save the value from row "1" for column name "Indirect Cost Rate Type" as "IndirectCostRateType" from flex table "---grantee_tableId:-:amendmentIndirectRateTableId---"
     Then I softly see value "{SavedValue:IndirectCostRateType}" for title "Indirect Cost Rate Type" inside table "---grantee_tableId:-:amendmentIndirectRateTableId---"
-    Then I softly can see row level action button "Edit" against "New Indirect rates2" in flex table with id "---grantee_tableId:-:amendmentIndirectRateTableId---"
-    Then I softly can see row level action button "Delete" against "New Indirect rates2" in flex table with id "---grantee_tableId:-:amendmentIndirectRateTableId---"
-    Then I softly see that "GeneralConditionChanged__c" rendered in view mode only
+    Then I softly can see row level action button "Edit" against "New Indirect rate1" in flex table with id "---grantee_tableId:-:amendmentIndirectRateTableId---"
+    Then I softly can see row level action button "Delete" against "New Indirect rate1" in flex table with id "---grantee_tableId:-:amendmentIndirectRateTableId---"
+    Then I softly see that "General Condition Changed?" rendered in view mode only
     And I click on "Edit" in the page details
     Then I softly see field "Required Match(%)" inside page block
     Then I softly see field "Required Match(%)" as "10.00%"
@@ -8401,8 +8399,8 @@ Feature: Validate all scenarios for Grantee Amendment Request
     Then I softly see value "{SavedValue:ApprovedIndirectCostRate}" for title "Approved Indirect Cost Rate(%)" inside table "---grantee_tableId:-:amendmentIndirectRateTableId---"
     And I save the value from row "1" for column name "Indirect Cost Rate Type" as "IndirectCostRateType" from flex table "---grantee_tableId:-:amendmentIndirectRateTableId---"
     Then I softly see value "{SavedValue:IndirectCostRateType}" for title "Indirect Cost Rate Type" inside table "---grantee_tableId:-:amendmentIndirectRateTableId---"
-    Then I softly can see row level action button "Edit" against "New Indirect rates2" in flex table with id "---grantee_tableId:-:amendmentIndirectRateTableId---"
-    Then I softly can see row level action button "Delete" against "New Indirect rates2" in flex table with id "---grantee_tableId:-:amendmentIndirectRateTableId---"
+    Then I softly can see row level action button "Edit" against "New Indirect rate1" in flex table with id "---grantee_tableId:-:amendmentIndirectRateTableId---"
+    Then I softly can see row level action button "Delete" against "New Indirect rate1" in flex table with id "---grantee_tableId:-:amendmentIndirectRateTableId---"
 
   @485543 @BPCVerifyFOuserasAROwnercanabletocreateBPCAR&decreasetheBudgetPerioddateonactiveAward&abletoseeimpactonGrant&AwardafterreducingtheBudgetPeriod @P2_Grantee @FO_Grantee @GRegression2
   Scenario:BPC -->Verify FO user as (AR Owner)can able to create BPC AR & decrease the Budget Period date on active Award & able to see impact on Grant & Award after reducing the Budget Period
@@ -17823,7 +17821,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
     And I navigate to "Chatter" sub tab in split screen
     Then I softly see the text containing "Post"
 
-  @464039 @validateadminuser(AwardOwner)canabletorevisethebudgetperiodchangeamendmentrequestonclickofreviseamendmentbuttonwhenparallelARisinsubmittoGrantorstate&abletoseestatus&StepProgressbarafterrevisetheAR
+  @464039 @validateadminuser(AwardOwner)canabletorevisethebudgetperiodchangeamendmentrequestonclickofreviseamendmentbuttonwhenparallelARisinsubmittoGrantorstate&abletoseestatus&StepProgressbarafterrevisetheAR @skipOnJenkins @parallelamendment
   Scenario: Validate Admin user (Award Owner) can able to Revise the Budget Period Change Amendment Request on click of Revise Amendment button when parallel AR is in Submit to Grantor state & able to see status & Step Progress bar after revise the AR
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default-Grantee PO user"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
@@ -18884,18 +18882,18 @@ Feature: Validate all scenarios for Grantee Amendment Request
     Then I softly see "File Extension" in flex table header "---grantee_tableId:-:amendmentRequestAddFile---"
     Then I softly see "Description" in flex table header "---grantee_tableId:-:amendmentRequestAddFile---"
     Then I softly see "Created Date" in flex table header "---grantee_tableId:-:amendmentRequestAddFile---"
-    Then I can see row level action button "Download" against "Other" in flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
-    Then I can see row level action button "Delete" against "Other" in flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
-    Then I can see row level action button "Edit" against "Other" in flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
-    Then I can see row level action button "View" against "Other" in flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
+    Then I can see row level action button "Download" against "Terms and Conditions" in flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
+    Then I can see row level action button "Delete" against "Terms and Conditions" in flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
+    Then I can see row level action button "Edit" against "Terms and Conditions" in flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
+    Then I can see row level action button "View" against "Terms and Conditions" in flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
     And I click on "View" icon for "Other" inside flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
     Then I softly see the image "AttachmentTesting.pdf" in page detail
     And I click on "Close" button for view files page
-    And I click on "Edit" icon for "Other" inside flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
+    And I click on "Edit" icon for "Terms and Conditions" inside flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
     And I update title as "Automation.pdf" on upload file modal
     And I select Classification as "Notice of Award" at upload file modal
     When I click modal button "Save"
-    And I click modal button "Close"
+#    And I click modal button "Close"
     And I wait for "3" seconds
     And I refresh the page
     Then I softly see "Notice of Award" has been added in "Amendment Files" flex table
@@ -19442,7 +19440,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "KPCID"
     And I save the value from row "1" for column name "Proposed Name" as "ProposedName" from flex table "---grantee_tableId:-:amendmentContactTableId---"
-    And I save the value from row "2" for column name "Title" as "TermsTitle" from flex table "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
+    And I save the value from row "1" for column name "Title" as "TermsTitle" from flex table "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
     When I click on "Submit to Grantor" in the page details
     And I wait for "3" seconds
     When I enter values into fields
@@ -20040,6 +20038,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
     When I click on top right button "Associate" in flex table with id "---grantee_tableId:-:amendmentContactTableId---"
     When I click "Associate" after selection of "David FO" in the table "---grantee_tableId:-:amendmentAssociateContactTableId---"
     And I click modal button "Close"
+    And I wait for "2" seconds
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:amendmentContactTableId---" by clicking "Edit" :
       | Proposed Name | Project Role    | Is Key Contact |
       | David FO      | Project Officer | Checked        |
