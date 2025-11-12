@@ -403,3 +403,118 @@ Feature: Validate all scenarios for Plumbing Cases
     Then I softly see "Appropriation Amount" in flex table header "---grantee_tableId:-:grantExternalSourceTableId---"
     Then I softly see "Created By ID" in flex table header "---grantee_tableId:-:grantExternalSourceTableId---"
     Then I softly see "Status" in flex table header "---grantee_tableId:-:grantExternalSourceTableId---"
+
+  @545522 @ValidateFOuserFieldsonCreateExternalFundingSourcemodalwhenuserclickonNewbuttonvalidationwhenwekeptrequiredfieldsareblank
+  Scenario: Validate FO user Fields on Create External Funding Source modal when user click on New button & validation when we kept required fields are blank
+    And I "Created" standalone subaward "Automation Runtime Award" with properties "default"
+    And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
+    And I activate the award for title "{SavedValue:Automation Runtime Award}"
+    When I login to "Grantee" app as "GRANTEE FO" user
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+    And I click toggle button to select "Grants - All"
+    When I perform quick search for "{SavedValue:Automation Runtime Award}" in "---grantee_tableId:-:GrantsTable---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
+    Then I softly see field "Status" as "Active"
+    And I save the field labeled "EGMS ID" as "GrantEGMSID"
+    And I navigate to "Overview" sub tab
+    And I save the field labeled "Project Period Start Date" as "PPST"
+    And I navigate to "Grants" tab
+    When I navigate to "Funding Sources" content inside "Setup" subheader on left panel
+    And I click on top right button "New" in flex table with id "---grantee_tableId:-:fundingSourceGrantExternalTableId---"
+    And I enter in modal value "--None--" into field "Type__c"
+    Then I softly see value "--None--" selected as default for the dropdown field "Type__c"
+    And I click modal button "Save and Continue"
+    And I wait for "2" seconds
+    Then I softly see the following messages in the page details contains:
+      | To Save, Title is required.               |
+      | To Save, Funding Source Type is required. |
+
+  @545524 @ValidateFOuserFieldsonCreateFundingAccountmodalwhenuserclickonNewbuttonvalidationwhenwekeptrequiredfieldsareblank
+  Scenario: Validate FO user Fields on Create Funding Account modal when user click on New button & validation when we kept required fields are blank
+    And I "Created" standalone subaward "Automation Runtime Award" with properties "default"
+    And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
+    And I activate the award for title "{SavedValue:Automation Runtime Award}"
+    When I login to "Grantee" app as "GRANTEE FO" user
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+    And I click toggle button to select "Grants - All"
+    When I perform quick search for "{SavedValue:Automation Runtime Award}" in "---grantee_tableId:-:GrantsTable---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
+    Then I softly see field "Status" as "Active"
+    And I save the field labeled "EGMS ID" as "GrantEGMSID"
+    And I navigate to "Financials" sub tab
+    And I click on top right button "New" in flex table with id "---grantee_tableId:-:grantExternalSourceTableId---"
+    And I enter in modal value "Automation Runtime External Source" into field "Title__c"
+    And I click modal button "Save and Continue"
+    And I wait for "2" seconds
+    Then I softly see status in Progress-bar is "Created" and is "dark blue"
+    And I click on "Save" in the page details
+    And I wait for "2" seconds
+    And I save the field labeled "EGMS ID" as "fundingSourceID"
+    And I click on top right button "New" in flex table with id "---grantee_tableId:-:fundingaccountTableId---"
+    And I wait for "2" seconds
+    When I click modal button "Save and Continue"
+    And I wait for "2" seconds
+    Then I softly see the following messages in the page details contains:
+      | To Save, Title is required.                |
+      | To Save, Appropriation Amount is required. |
+
+  @545523 @ValidateEXEusercreationofanewFundingAccountfromdetailpagelayoutofFundingSource
+  Scenario: Validate EXE user creation of a new Funding Account from detail page layout of Funding Source
+    And I "Created" standalone subaward "Automation Runtime Award" with properties "default-Grantee PO user"
+    And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
+    And I activate the award for title "{SavedValue:Automation Runtime Award}"
+    When I login to "Grantee" app as "GRANTEE PO" user
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+    And I click toggle button to select "Grants - All"
+    When I perform quick search for "{SavedValue:Automation Runtime Award}" in "---grantee_tableId:-:GrantsTable---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
+    Then I softly see field "Status" as "Active"
+    And I save the field labeled "EGMS ID" as "GrantEGMSID"
+    And I navigate to "Financials" sub tab
+    And I click on top right button "New" in flex table with id "---grantee_tableId:-:grantExternalSourceTableId---"
+    And I enter in modal value "Automation Runtime External Source" into field "Title__c"
+    And I click modal button "Save and Continue"
+    And I wait for "2" seconds
+    Then I softly see status in Progress-bar is "Created" and is "dark blue"
+    And I click on "Save" in the page details
+    And I wait for "2" seconds
+    And I save the field labeled "EGMS ID" as "fundingSourceID"
+    And I click on top right button "New" in flex table with id "---grantee_tableId:-:fundingaccountTableId---"
+    And I enter in modal "Funding Account Creation" values from "FundingSource_Field_Values.xlsx"
+    When I enter in modal value "10000" into field "AppropriationBalance__c"
+    When I click modal button "Save and Continue"
+    And I wait for "2" seconds
+    And I enter "Funding Account Edition" values from "FundingSource_Field_Values.xlsx"
+    When I enter value "{SavedValue:PPST}" into field "StartDate__c"
+    When I click on "Save" in the page details
+    And I wait for "2" seconds
+    Then I softly see field "Status" as "Created"
+    Then I softly can see top right button "Edit" in page detail
+    Then I softly can see top right button "Activate" in page detail
+    And I click on hyperlink containing value "{SavedValue:fundingSourceID}"
+    And I save the value from row "1" for column name "EGMS ID" as "fundingAccountId" from flex table "---grantee_tableId:-:fundingaccountTableId---"
+    Then I softly see value "{SavedValue:fundingAccountId}" for title "EGMS ID" inside table "---grantee_tableId:-:fundingaccountTableId---"
+    Then I softly can see row level action button "View" against "{SavedValue:fundingAccountId}" in flex table with id "---grantee_tableId:-:fundingaccountTableId---"
+    Then I softly can see row level action button "Edit" against "{SavedValue:fundingAccountId}" in flex table with id "---grantee_tableId:-:fundingaccountTableId---"
+    Then I softly can see row level action button "Delete" against "{SavedValue:fundingAccountId}" in flex table with id "---grantee_tableId:-:fundingaccountTableId---"
+    And I click on "View" icon for "{SavedValue:fundingAccountId}" inside flex table with id "---grantee_tableId:-:fundingaccountTableId---" without waiting for record
+    And I click on "Activate" in the page details
+    Then I softly see status in Progress-bar is "Active" and is "dark blue"
+    Then I softly can see top right button "Edit" in page detail
+    Then I softly can see top right button "Deactivate" in page detail
+    And I click on hyperlink containing value "{SavedValue:fundingSourceID}"
+    And I save the value from row "1" for column name "EGMS ID" as "fundingAccountId" from flex table "---grantee_tableId:-:fundingaccountTableId---"
+    Then I softly see value "{SavedValue:fundingAccountId}" for title "EGMS ID" inside table "---grantee_tableId:-:fundingaccountTableId---"
+    Then I softly can see row level action button "View" against "{SavedValue:fundingAccountId}" in flex table with id "---grantee_tableId:-:fundingaccountTableId---"
+    Then I softly can see row level action button "Edit" against "{SavedValue:fundingAccountId}" in flex table with id "---grantee_tableId:-:fundingaccountTableId---"
+    Then I softly cannot see row level action button "Delete" against "{SavedValue:fundingAccountId}" in flex table with id "---grantee_tableId:-:fundingaccountTableId---"
+    And I click on hyperlink containing value "{SavedValue:GrantEGMSID}"
+    And I navigate to "Financials" sub tab
+    Then I softly see "External Funding Sources" page block displayed
+    Then I softly see value "{SavedValue:fundingSourceID}" for title "EGMS ID" inside table "---grantee_tableId:-:grantExternalSourceTableId---"
+    Then I softly can see row level action button "View" against "{SavedValue:fundingSourceID}" in flex table with id "---grantee_tableId:-:grantExternalSourceTableId---"
+    Then I softly cannot see row level action button "Delete" against "{SavedValue:fundingSourceID}" in flex table with id "---grantee_tableId:-:grantExternalSourceTableId---"
+    Then I softly cannot see row level action button "Edit" against "{SavedValue:fundingSourceID}" in flex table with id "---grantee_tableId:-:grantExternalSourceTableId---"
