@@ -4326,7 +4326,7 @@ Feature: Validate all scenarios for Grantee Progress Report
     Then I softly see "Owner" page block displayed
     When I enter the following values into flex table with id "---grantee_tableId:-:progressReportApprovers---" by clicking "New" :
       | Name       | Progress Report |
-      | Grantee PM | Step 1          |
+      | Sarah PM   | Step 1          |
     When I navigate to "Forms and Files" sub tab
     Then I softly see "Forms" page block displayed
     Then I softly see "Progress Report Files" page block displayed
@@ -4504,7 +4504,7 @@ Feature: Validate all scenarios for Grantee Progress Report
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:progressEGMSID}" in "---grantee_tableId:-:PendingTask---" panel
     Then I softly see value "Review Grantee Progress Report" for title "Task Type" against the value "{SavedValue:progressEGMSID}" inside table "---grantee_tableId:-:PendingTask---"
-    When I re-login to "Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
+    When I re-login to "Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Progress Reports" content inside "Monitoring" subheader on left panel
     And I click toggle button to select "Progress Reports - All"
