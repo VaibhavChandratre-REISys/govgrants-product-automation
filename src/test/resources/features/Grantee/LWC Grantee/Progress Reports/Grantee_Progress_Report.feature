@@ -4534,6 +4534,7 @@ Feature: Validate all scenarios for Grantee Progress Report
     When I enter the following values into flex table with id "---grantee_tableId:-:progressReportApprovers---" by clicking "New" :
       | Name       | Progress Report |
       | Grantee PO | Step 1          |
+    When I navigate to "Forms and Files" sub tab
     And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:progressReportFileTableId---"
     And I upload attachment without random number "Attachment.pdf" of type "Progress Report" from computer
     When I click modal button "Close"

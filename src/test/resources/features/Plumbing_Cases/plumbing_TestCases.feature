@@ -382,3 +382,24 @@ Feature: Validate all scenarios for Plumbing Cases
     And I wait for "2" seconds
     Then I softly see the following messages in the page details contains:
       | Total of appropriation amount cannot be less than the Award Amount to Date on Grant. |
+
+  @545517 @ValidateAdminuserNewbuttononFundingSourcesectionunderFinancialtabofGrantlayoutshouldnotvisiblewhenGrantisinDraftstate
+  Scenario: Validate Admin user, New button on Funding Source section under Financial tab of Grant layout should not visible when Grant is in Draft state
+    And I "Created" standalone subaward "Automation Runtime Award" with properties "default-DEMO ADMIN user"
+    And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
+    When I login to "Grantee" app as "GRANTEE ADMIN" user
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+    And I click toggle button to select "Grants - All"
+    When I perform quick search for "{SavedValue:Automation Runtime Award}" in "---grantee_tableId:-:GrantsTable---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
+    Then I softly see field "Status" as "Draft"
+    And I save the field labeled "EGMS ID" as "GrantEGMSID"
+    And I navigate to "Financials" sub tab
+    Then I softly do not see top right button "New" inside flex table "---grantee_tableId:-:grantExternalSourceTableId---"
+    Then I softly see "EGMS ID" in flex table header "---grantee_tableId:-:grantExternalSourceTableId---"
+    Then I softly see "Title" in flex table header "---grantee_tableId:-:grantExternalSourceTableId---"
+    Then I softly see "Funding Source Type" in flex table header "---grantee_tableId:-:grantExternalSourceTableId---"
+    Then I softly see "Appropriation Amount" in flex table header "---grantee_tableId:-:grantExternalSourceTableId---"
+    Then I softly see "Created By ID" in flex table header "---grantee_tableId:-:grantExternalSourceTableId---"
+    Then I softly see "Status" in flex table header "---grantee_tableId:-:grantExternalSourceTableId---"
