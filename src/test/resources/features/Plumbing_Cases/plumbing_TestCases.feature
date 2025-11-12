@@ -355,6 +355,8 @@ Feature: Validate all scenarios for Plumbing Cases
     And I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
     Then I softly see field "Status" as "Active"
     And I save the field labeled "EGMS ID" as "GrantEGMSID"
+    And I navigate to "Overview" sub tab
+    And I save the field labeled "Project Period Start Date" as "PPST"
     And I navigate to "Financials" sub tab
     And I click on top right button "New" in flex table with id "---grantee_tableId:-:grantExternalSourceTableId---"
     And I enter in modal value "Automation Runtime External Source" into field "Title__c"
@@ -473,6 +475,8 @@ Feature: Validate all scenarios for Plumbing Cases
     And I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
     Then I softly see field "Status" as "Active"
     And I save the field labeled "EGMS ID" as "GrantEGMSID"
+    And I navigate to "Overview" sub tab
+    And I save the field labeled "Project Period Start Date" as "PPST"
     And I navigate to "Financials" sub tab
     And I click on top right button "New" in flex table with id "---grantee_tableId:-:grantExternalSourceTableId---"
     And I enter in modal value "Automation Runtime External Source" into field "Title__c"
