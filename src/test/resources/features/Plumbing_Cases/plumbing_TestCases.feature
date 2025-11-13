@@ -207,7 +207,7 @@ Feature: Validate all scenarios for Plumbing Cases
     Then I softly see the following messages in the page details contains:
       | Total of appropriation amount cannot be less than the Award Amount to Date on Grant. |
 
-  @545539 @ValidatePMusercanabletocreateFundingSourceFundingAccountonclickofFundingSourcelinkfromplanningphase
+  @545539 @ValidatePMusercanabletocreateFundingSourceFundingAccountonclickofFundingSourcelinkfromplanningphase @Plumbing_P1
   Scenario: Validate PM user can able to create Funding Source & Funding Account on click of Funding Source link from planning phase
     When I login to "Grantor" app as "PM" user
     And I navigate to "Planning" tab
@@ -235,7 +235,7 @@ Feature: Validate all scenarios for Plumbing Cases
     Then I softly can see row level action button "View" against "Active" in flex table with id "---fundingsource:-:fundingAccountTableId---"
     Then I softly can see row level action button "Edit" against "Active" in flex table with id "---fundingsource:-:fundingAccountTableId---"
 
-  @545540 @ValidatePOusercanabletocreateFundingSourceFundingAccountonclickofFundingSourcelinkfromplanningphase
+  @545540 @ValidatePOusercanabletocreateFundingSourceFundingAccountonclickofFundingSourcelinkfromplanningphase @Plumbing_P2
   Scenario: Validate PO user can able to create Funding Source & Funding Account on click of Funding Source link from planning phase
     When I login to "Grantor" app as "PO" user
     And I navigate to "Planning" tab
@@ -263,7 +263,7 @@ Feature: Validate all scenarios for Plumbing Cases
     Then I softly can see row level action button "View" against "Active" in flex table with id "---fundingsource:-:fundingAccountTableId---"
     Then I softly can see row level action button "Edit" against "Active" in flex table with id "---fundingsource:-:fundingAccountTableId---"
 
-  @545590 @ValidateFOuserFieldsonCreateFundingSourcemodalwhenuserclickonNewbuttonvalidationwhenwekeptrequiredfieldsareblank
+  @545590 @ValidateFOuserFieldsonCreateFundingSourcemodalwhenuserclickonNewbuttonvalidationwhenwekeptrequiredfieldsareblank @Plumbing_P2
   Scenario: Validate FO user Fields on Create Funding Source modal when user click on New button & validation when we kept required fields are blank
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default-Victor EXE user"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
@@ -293,7 +293,7 @@ Feature: Validate all scenarios for Plumbing Cases
     And I wait for "1" seconds
     Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:grantExternalSourceTableId---"
 
-  @545537 @ValidatePMrecordownercanabletoseeViewEditDeleteactionsacrosscreatedstateofFundingSourceEditactiononFundingAccountrecord
+  @545537 @ValidatePMrecordownercanabletoseeViewEditDeleteactionsacrosscreatedstateofFundingSourceEditactiononFundingAccountrecord @Plumbing_P2
   Scenario: Validate PM record owner can able to see View Edit Delete actions across created state of Funding Source & Edit action on Funding Account record
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
@@ -342,7 +342,7 @@ Feature: Validate all scenarios for Plumbing Cases
     Then I softly can see row level action button "Edit" against "{SavedValue:fundingAccountId}" in flex table with id "---grantee_tableId:-:fundingaccountTableId---"
     Then I softly can see row level action button "Delete" against "{SavedValue:fundingAccountId}" in flex table with id "---grantee_tableId:-:fundingaccountTableId---"
 
-  @545527 @ValidatePOuserbelowvalidationwhenusereditappropriationamountwhenFundingAccountisinActivestate
+  @545527 @ValidatePOuserbelowvalidationwhenusereditappropriationamountwhenFundingAccountisinActivestate @Plumbing_P2
   Scenario: Validate PO user below validation when user edit appropriation amount when Funding Account is in Active state
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default-Grantee PO user"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
@@ -385,7 +385,7 @@ Feature: Validate all scenarios for Plumbing Cases
     Then I softly see the following messages in the page details contains:
       | Total of appropriation amount cannot be less than the Award Amount to Date on Grant. |
 
-  @545517 @ValidateAdminuserNewbuttononFundingSourcesectionunderFinancialtabofGrantlayoutshouldnotvisiblewhenGrantisinDraftstate
+  @545517 @ValidateAdminuserNewbuttononFundingSourcesectionunderFinancialtabofGrantlayoutshouldnotvisiblewhenGrantisinDraftstate @Plumbing_P2
   Scenario: Validate Admin user, New button on Funding Source section under Financial tab of Grant layout should not visible when Grant is in Draft state
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default-DEMO ADMIN user"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
@@ -406,7 +406,7 @@ Feature: Validate all scenarios for Plumbing Cases
     Then I softly see "Created By ID" in flex table header "---grantee_tableId:-:grantExternalSourceTableId---"
     Then I softly see "Status" in flex table header "---grantee_tableId:-:grantExternalSourceTableId---"
 
-  @545522 @ValidateFOuserFieldsonCreateExternalFundingSourcemodalwhenuserclickonNewbuttonvalidationwhenwekeptrequiredfieldsareblank
+  @545522 @ValidateFOuserFieldsonCreateExternalFundingSourcemodalwhenuserclickonNewbuttonvalidationwhenwekeptrequiredfieldsareblank @Plumbing_P2
   Scenario: Validate FO user Fields on Create External Funding Source modal when user click on New button & validation when we kept required fields are blank
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
@@ -432,7 +432,7 @@ Feature: Validate all scenarios for Plumbing Cases
       | To Save, Title is required.               |
       | To Save, Funding Source Type is required. |
 
-  @545524 @ValidateFOuserFieldsonCreateFundingAccountmodalwhenuserclickonNewbuttonvalidationwhenwekeptrequiredfieldsareblank
+  @545524 @ValidateFOuserFieldsonCreateFundingAccountmodalwhenuserclickonNewbuttonvalidationwhenwekeptrequiredfieldsareblank @Plumbing_P2
   Scenario: Validate FO user Fields on Create Funding Account modal when user click on New button & validation when we kept required fields are blank
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
@@ -462,7 +462,7 @@ Feature: Validate all scenarios for Plumbing Cases
       | To Save, Title is required.                |
       | To Save, Appropriation Amount is required. |
 
-  @545523 @ValidateEXEusercreationofanewFundingAccountfromdetailpagelayoutofFundingSource
+  @545523 @ValidateEXEusercreationofanewFundingAccountfromdetailpagelayoutofFundingSource @Plumbing_P2
   Scenario: Validate EXE user creation of a new Funding Account from detail page layout of Funding Source
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default-Grantee PO user"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
