@@ -465,6 +465,37 @@ public class GrantorPayloads {
         return ids;
     }
 
+    public JsonObject getIdsForCreateAwardFromFDMForPlumbingcases(String annName) {
+
+        JsonObject ids = new JsonObject();
+
+        JsonArray fdmA = new JsonArray();
+        fdmA.add(annName);
+        ids.add("ReviewStep__c", fdmA);
+
+        JsonArray user = new JsonArray();
+        user.add("Automation PM");
+        ids.add("User", user);
+
+        JsonArray service_area = new JsonArray();
+        service_area.add("Automation Permanent Focus Area");
+        ids.add("ServiceArea__c", service_area);
+
+        JsonArray strategic_plan = new JsonArray();
+        strategic_plan.add("PN_ETE Strategic Plan");
+        ids.add("StrategicPlan__c", strategic_plan);
+
+        JsonArray kpi = new JsonArray();
+        kpi.add("Automation Runtime KPI");
+        ids.add("MasterKPI__c", kpi);
+
+        JsonArray contact = new JsonArray();
+        contact.add("Automation SPI3");
+        ids.add("Contact", contact);
+
+        return ids;
+    }
+
     public JsonObject defaultPayloadCreateAwardFromFDM(String announcementName) {
         JsonObject parent = new JsonObject();
         Map<String, String> map = ProjectWebServices.getMultipleIds(getIdsForCreateAwardFromFDM(announcementName));
@@ -540,7 +571,8 @@ public class GrantorPayloads {
 
     public JsonObject defaultPayloadCreateAwardFromFDMForPlumbingCases(String announcementName) {
         JsonObject parent = new JsonObject();
-        Map<String, String> map = ProjectWebServices.getMultipleIds(getIdsForCreateAwardFromFDM(announcementName));
+        Map<String, String> map = ProjectWebServices.getMultipleIds(getIdsForCreateAwardFromFDMForPlumbingcases(announcementName));
+
 
         JsonObject grant = new JsonObject();
         JsonArray grantArray = new JsonArray();

@@ -522,3 +522,90 @@ Feature: Validate all scenarios for Plumbing Cases
     Then I softly can see row level action button "View" against "{SavedValue:fundingSourceID}" in flex table with id "---grantee_tableId:-:grantExternalSourceTableId---"
     Then I softly cannot see row level action button "Delete" against "{SavedValue:fundingSourceID}" in flex table with id "---grantee_tableId:-:grantExternalSourceTableId---"
     Then I softly cannot see row level action button "Edit" against "{SavedValue:fundingSourceID}" in flex table with id "---grantee_tableId:-:grantExternalSourceTableId---"
+
+  @545533 @ValidatePMusercanabletocreateAwardongrantorsidebyusingFundingSourceFundingAccountcreatedatgranteesidecreateReimpaymentrequestonsameawardcheckdollarvaluesonbelowfieldsavailableonFundingAccount
+  Scenario: Validate PM user can able to create Award on grantor side by using Funding Source Funding Account created at grantee side  & create Reim payment request on same award & check dollar values on below fields available on Funding Account
+    And I "Created" standalone subaward "Automation Runtime Award" with properties "default"
+    And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
+    And I activate the award for title "{SavedValue:Automation Runtime Award}"
+    When I login to "Grantee" app as "GRANTEE PM" user
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+    And I click toggle button to select "Grants - All"
+    When I perform quick search for "{SavedValue:Automation Runtime Award}" in "---grantee_tableId:-:GrantsTable---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
+    Then I softly see field "Status" as "Active"
+    And I save the field labeled "EGMS ID" as "GrantEGMSID"
+    And I navigate to "Overview" sub tab
+    And I save the field labeled "Project Period Start Date" as "PPST"
+    And I navigate to "Financials" sub tab
+    And I click on top right button "New" in flex table with id "---grantee_tableId:-:grantExternalSourceTableId---"
+    And I enter in modal value "Automation Runtime External Source" into field "Title__c"
+    And I click modal button "Save and Continue"
+    Then I softly see status in Progress-bar is "Created" and is "dark blue"
+    And I click on "Save" in the page details
+    And I wait for "2" seconds
+    And I save the field labeled "EGMS ID" as "fundingSourceID"
+    And I click on top right button "New" in flex table with id "---grantee_tableId:-:fundingaccountTableId---"
+    And I enter in modal "Funding Account Creation" values from "FundingSource_Field_Values.xlsx"
+    When I enter in modal value "5000" into field "AppropriationBalance__c"
+    When I click modal button "Save and Continue"
+    And I enter "Funding Account Edition" values from "FundingSource_Field_Values.xlsx"
+    When I enter value "{SavedValue:PPST}" into field "StartDate__c"
+    When I click on "Save" in the page details
+    And I click on "Activate" in the page details
+    Then I softly see status in Progress-bar is "Active" and is "dark blue"
+    And I halt execution
+    When I re-login to "Grantor" app as "GRANTEE PM" user on "INTERNAL" portal
+    And I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "PLUMBING_CASE"
+    And I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "PLUMBING_CASE"
+    And I created approved FDM on application "{SavedValue:Automation Runtime FDM Announcement}" for Plumbing Cases
+    Given I created award from approved FDM with announcement "{SavedValue:Automation Runtime FDM Announcement}" for plumbing cases
+    And I activate award from FDM having application name "{SavedValue:Automation Runtime FDM Announcement}"
+    When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click toggle button to select "Grants - Active"
+    When I perform quick search for "{SavedValue:Automation Runtime award}" in "---paymentRequest:-:recipientGrantTableId---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime award}" inside flex table with id "---paymentRequest:-:recipientGrantTableId---" without waiting for record
+    When I navigate to "Subawards" sub tab
+    And I click on "View" icon for "{SavedValue:Automation Runtime award}" inside flex table with id "---paymentRequest:-:recipientAwardTableId---" without waiting for record
+    When I navigate to "Actuals" sub tab
+    And I click on top right button "Reimbursement Request" in flex table with id "---paymentRequest:-:paymentRequestTableId---"
+    When I enter value "Automation Runtime Payment Request" into field "Title__c"
+    And I click modal button "Save and Continue"
+    When I enter "Edition" values from "PaymentRequest_Field_Values.xlsx"
+    When I click on "Save" in the page details
+    And I save the field labeled "EGMS ID" as "PayreqId"
+    And I navigate to "Financials" sub tab
+    When I click on "Show line items" icon for "Construction" inside flex table with id "---paymentRequest:-:paymentRequestBudgetTableId---" with wait for record
+    When I enter the following values into flex table with id "---paymentRequest:-:paymentLineItemsTableId---" by clicking "New" :
+      | Title        | Narrative     | Unit Price | Quantity | Measurement |
+      | Extra Salary | The narrative | 500        | 1        | Feet        |
+    When I close "Payment Line Items" modal by clicking the top right x button
+    And I click on "Submit to Grantor" in the page details
+    When I re-login to "Grantor" app as "GRANTEE PM" user on "INTERNAL" portal
+    And I navigate to "Monitoring" tab
+    And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    When I perform quick search for "{SavedValue:PayreqId}" in "---paymentRequest:-:pendingTaskTableId---" panel
+    And I click on "Start" icon for "{SavedValue:PayreqId}" inside flex table with id "---paymentRequest:-:pendingTaskTableId---" without waiting for record
+    And I navigate to "Financials" sub tab
+    And I save the value from row "1" for column name "Funding Account" as "fundingAccountPlumbing" from flex table "---paymentRequest:-:fundingAccountTableId---"
+    And I edit the following rows inline in flex table with id "---paymentRequest:-:fundingAccountTableId---" by clicking "Edit" :
+      | Funding Account                     | Net Spent This Action |
+      | {SavedValue:fundingAccountPlumbing} | 500                   |
+    When I navigate to "Responsibilities" sub tab
+    When I enter the following values into flex table with id "---paymentRequest:-:ReimbursmentApproverTableId---" by clicking "New" :
+      | Name     | Reimbursement |
+      | Sarah PM | Step 1        |
+    When I get the "EGMS ID"
+    When I click on "Submit for Approval" in the page details
+    Then I softly see field "Status" as "Submitted for Approval"
+    And I "Approve" in the approval decision
+    Then I softly see field "Status" as "Approved"
+    When I click on "Mark As Paid" in the page details
+    And I enter in modal "Paid Details" values from "PaymentRequest_Field_Values.xlsx"
+    When I click modal button "Save"
+    And I pause execution for "2" seconds
+    When I click modal button "Close"
+    Then I see status in Progress-bar is "Paid" and is "dark blue"
