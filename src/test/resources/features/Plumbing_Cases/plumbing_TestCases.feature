@@ -523,7 +523,7 @@ Feature: Validate all scenarios for Plumbing Cases
     Then I softly cannot see row level action button "Delete" against "{SavedValue:fundingSourceID}" in flex table with id "---grantee_tableId:-:grantExternalSourceTableId---"
     Then I softly cannot see row level action button "Edit" against "{SavedValue:fundingSourceID}" in flex table with id "---grantee_tableId:-:grantExternalSourceTableId---"
 
-  @545533 @ValidatePMusercanabletocreateAwardongrantorsidebyusingFundingSourceFundingAccountcreatedatgranteesidecreateReimpaymentrequestonsameawardcheckdollarvaluesonbelowfieldsavailableonFundingAccount
+  @545533 @ValidatePMusercanabletocreateAwardongrantorsidebyusingFundingSourceFundingAccountcreatedatgranteesidecreateReimpaymentrequestonsameawardcheckdollarvaluesonbelowfieldsavailableonFundingAccount @Plumbing_P1
   Scenario: Validate PM user can able to create Award on grantor side by using Funding Source Funding Account created at grantee side  & create Reim payment request on same award & check dollar values on below fields available on Funding Account
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
@@ -697,7 +697,7 @@ Feature: Validate all scenarios for Plumbing Cases
     And I wait for "2" seconds
     Then I see the header is "Funding Account" in the page details
     Then I softly see field "Pre-Encumbrance" as "$0.00"
-    Then I softly see field "Encumbrance" as "$2,000.00" in "Financials" pageblock
+    Then I softly see field "Encumbrance" as "$1,500.00" in "Financials" pageblock
     And I save the field labeled "Spent" as "SpentFundingAcc"
     Then I softly see value "{SavedValue:NetSpentThisAction}" is "Equals to" the value "{SavedValue:SpentFundingAcc}"
     Then I softly see field "Spent" as "$500.00"
@@ -708,7 +708,7 @@ Feature: Validate all scenarios for Plumbing Cases
     And I wait for "2" seconds
     Then I see the header is "External Funding Source" in the page details
     Then I softly see field "Pre-Encumbrance" as "$0.00"
-    Then I softly see field "Encumbrance" as "$2,000.00" in "Funding Information" pageblock
+    Then I softly see field "Encumbrance" as "$1,500.00" in "Funding Information" pageblock
     And I save the field labeled "Spent" as "SpentFundingSource"
     Then I softly see value "{SavedValue:NetSpentThisAction}" is "Equals to" the value "{SavedValue:SpentFundingSource}"
     Then I softly see field "Spent" as "$500.00"
