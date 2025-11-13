@@ -916,8 +916,7 @@ Feature: Validate all scenarios for closeout
     And I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
     #484028
     Then I softly see field "Status" as "Draft"
-    When I navigate to "Closeout" sub tab
-    Then I softly do not see top right button "New" inside flex table "---grantee_tableId:-:GrantsProjectPeriodCloseoutTableId---"
+    Then I softly cannot see "Closeout" sub tab at view detail page
     And I activate the award for title "{SavedValue:Automation Runtime Opportunity}"
     And I refresh the page
     And I wait for "2" seconds
