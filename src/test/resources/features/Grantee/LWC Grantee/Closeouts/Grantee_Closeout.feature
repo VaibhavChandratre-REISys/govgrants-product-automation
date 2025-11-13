@@ -994,7 +994,7 @@ Feature: Validate all scenarios for closeout
     When I enter the following values into flex table with id "---grantee_tableId:-:ApplicationBudgetCategoryTableId---" by clicking "New" :
       | Title        | Narrative     | Award Budget | Cash Match | Non-Cash Match |
       | Construction | The narrative | 5000         | 500        | 500            |
-    When I close "Add Line Item Details" modal by clicking the top right x button
+    When I close "App Line Items" modal by clicking the top right x button
     And I refresh the page
     And I wait for "2" seconds
     When I navigate to "Responsibilities" sub tab
@@ -1074,6 +1074,9 @@ Feature: Validate all scenarios for closeout
     When I click "Associate" after selection of "Automation Runtime KPI" in the table "---grantee_tableId:-:selectAwardKPITableId---"
     And I click modal button "Close"
     And I wait for "3" seconds
+    And I edit the following rows inline in flex table with id "---grantee_tableId:-:KeyPerformanceIndicatorTableId---" by clicking "Edit" :
+      | Title                  | Target | Current Value | Current Value As Of |
+      | Automation Runtime KPI | 10     | 10            | 0                   |
     And I click on top right button "New" in flex table with id "---grantee_tableId:-:SpecialConditionTableId---"
     When I enter in modal value "Terms" into field "Title__c"
     When I enter in modal value "Terms Description" into field "Description__c"
@@ -2357,7 +2360,7 @@ Feature: Validate all scenarios for closeout
     And I perform quick search for "{SavedValue:closeoutID}" in "---grantee_tableId:-:HomePendingTask---" panel
     When I click on "Start" icon for "{SavedValue:closeoutID}" inside flex table with id "---grantee_tableId:-:HomePendingTask---" without waiting for record
     Then I see only the following ordered radio buttons in the approval decision :
-      | Approve | Forward | Send to Owner |
+      | Approve | Reject | Forward | Send to Owner |
     When I select radio button "Forward" in the approval decision
     And I select user "David FO" in the approval decision
     When I enter comment "Automation testing" in the approval decision
@@ -2974,6 +2977,7 @@ Feature: Validate all scenarios for closeout
     When I click on "Override" in the page details without processing
     Then I softly see confirmation box with body "The status of all open items will be changed to Forced Closed. Are you sure, you want to override and proceed with the closeout?" is displayed
     And I click "OK" on modal confirmation box
+    And I wait for "2" seconds
     Then I softly see field "Status" as "Overridden"
     When I navigate to "Open  Items" sub tab
     Then I softly see value "Force Closed" for title "Status" against the value "{SavedValue:AmendEGMSID}" inside table "---grantee_tableId:-:pendingAmendmentCloseoutTableId---"
@@ -3138,6 +3142,7 @@ Feature: Validate all scenarios for closeout
     When I click on "Override" in the page details without processing
     Then I softly see confirmation box with body "The status of all open items will be changed to Forced Closed. Are you sure, you want to override and proceed with the closeout?" is displayed
     And I click "OK" on modal confirmation box
+    And I wait for "2" seconds
     Then I softly see field "Status" as "Overridden"
     When I navigate to "Open  Items" sub tab
     Then I softly see value "Force Closed" for title "Status" against the value "{SavedValue:AmendEGMSID}" inside table "---grantee_tableId:-:pendingAmendmentCloseoutTableId---"
@@ -3347,6 +3352,8 @@ Feature: Validate all scenarios for closeout
       | {SavedValue:PPST} | CloseoutDate__c |
     And I click modal button "Save and Continue"
     And I wait for "5" seconds
+     And I click on "Save" in the page details
+     And I wait for "2" seconds
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "closeoutID"
     Then I softly see status in Progress-bar is "Created" and is "dark blue"
@@ -3364,6 +3371,7 @@ Feature: Validate all scenarios for closeout
       | Victor EXE | Step 1   |
     Then I softly see the following messages in the page details contains:
       | Saved Successfully! |
+    And I navigate to "Grants" tab
     When I navigate to "Amendment Requests" content inside "Grants, Awards & Amendment Requests" subheader on left panel
     And I click toggle button to select "Amendment Requests - All"
     When I perform quick search for "{SavedValue:amendmentEGMSID}" in "---grantee_tableId:-:AmendmentTableId---" panel
