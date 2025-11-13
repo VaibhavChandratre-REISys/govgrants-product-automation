@@ -520,6 +520,14 @@ public class GenericSteps {
         grantorWebServices.publishAnnouncment(annType, annName, filter);
     }
 
+    @And("I published {string} type announcement having name {string} and properties {string} for plumbing cases")
+    public void iPublishedTypeAnnouncementHavingNameAndPropertiesForPlumbingCases(String annType, String annName, String filter) {
+        String newAnnName = annName + I.amPerforming().addOnsTo().getRandomNumber();
+        I.amPerforming().propertiesFileOperationsTo().saveValue(annName, newAnnName);
+        annName = newAnnName;
+        grantorWebServices.publishAnnouncmentForPlumbingCases(annType, annName, filter);
+    }
+
     @And("I activated standalone subaward {string} with properties {string}")
     public void iActivatedStandaloneSubawardWithProperties(String grantName, String filter) {
         String newGrantName = grantName + I.amPerforming().addOnsTo().getRandomNumber();

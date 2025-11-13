@@ -231,6 +231,17 @@ public class GrantorWebServices extends ProjectWebServices {
     }
 
     /**
+     * @param annType type of announcement such as Formula, Competitive, Directed
+     * @param annName name of announcement
+     * @param filter  if we want to change anything from default payload then we can create
+     *                our own filter in publishAnnPayload(String, String) method
+     * @see GrantorPayloads#publishAnnPayload(String, String, String)
+     */
+    public void publishAnnouncmentForPlumbingCases(String annType, String annName, String filter) {
+        publishAnnouncementPostCall(projectApis.publishAnnPayloadForPlumbingCases(annType, annName, filter));
+    }
+
+    /**
      * @param grantName name of award
      * @param filter    if we want to change anything from default payload then we can create
      *                  our own filter in payloadForCreateStandaloneAward(String, String) method

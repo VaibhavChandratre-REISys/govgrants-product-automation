@@ -555,13 +555,94 @@ Feature: Validate all scenarios for Plumbing Cases
     When I click on "Save" in the page details
     And I click on "Activate" in the page details
     Then I softly see status in Progress-bar is "Active" and is "dark blue"
-    And I halt execution
+    Then I see the header is "Funding Account" in the page details
+    Then I softly see field "Pre-Encumbrance" as "$0.00"
+    Then I softly see field "Encumbrance" as "$0.00" in "Financials" pageblock
+    Then I softly see field "Spent" as "$0.00"
+    Then I softly see field "Total Obligation" as "$0.00"
+    Then I softly see field "Available Balance" as "$5,000.00"
+    Then I softly see field "Appropriation Amount" as "$5,000.00"
+    And I click on hyperlink containing value "{SavedValue:fundingSourceID}"
+    And I wait for "2" seconds
+    Then I see the header is "External Funding Source" in the page details
+    Then I softly see field "Pre-Encumbrance" as "$0.00"
+    Then I softly see field "Encumbrance" as "$0.00" in "Funding Information" pageblock
+    Then I softly see field "Spent" as "$0.00"
+    Then I softly see field "Total Obligation" as "$0.00"
+    Then I softly see field "Available Balance" as "$5,000.00"
+    Then I softly see field "Appropriation Amount" as "$5,000.00"
+    And I save the value from row "1" for column name "EGMS ID" as "fundingAccountId" from flex table "---grantee_tableId:-:fundingaccountTableId---"
+    And I re-login to "Grantor" app as "ADMIN" user on "INTERNAL" portal
+    And I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "default" for plumbing cases
     When I re-login to "Grantor" app as "GRANTEE PM" user on "INTERNAL" portal
-    And I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "PLUMBING_CASE"
+    And I navigate to "Announcements" tab
+    When I navigate to "Competitive" content inside "Announcements" subheader on left panel
+    When I click toggle button to select "Published Competitive Announcements"
+    And I perform quick search for "{SavedValue:Automation Runtime FDM Announcement}" in "---announcement:-:competitiveAnnouncementTableId---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime FDM Announcement}" inside flex table with id "---announcement:-:competitiveAnnouncementTableId---"
+    And I navigate to "Financials" sub tab
+    And I save the value from row "1" for column name "Pre-Encumbrance" as "PreEncumbrance" from flex table "---announcement:-:fundingAccountsTableId---"
+    Then I softly see value "{SavedValue:fundingAccountId}" for title "Funding Account" inside table "---announcement:-:fundingAccountsTableId---"
+    Then I softly see value "{SavedValue:PreEncumbrance}" for title "Encumbrance" inside table "---announcement:-:fundingAccountsTableId---"
+    And I click on hyperlink containing value "{SavedValue:fundingAccountId}"
+    And I wait for "2" seconds
+    Then I see the header is "Funding Account" in the page details
+    Then I softly see field "Pre-Encumbrance" as "$2,000.00"
+    And I save the field labeled "Pre-Encumbrance" as "PreEncumbranceFundingAcc"
+    Then I softly see value "{SavedValue:PreEncumbrance}" is "Equals to" the value "{SavedValue:PreEncumbranceFundingAcc}"
+    Then I softly see field "Encumbrance" as "$0.00" in "Financials" pageblock
+    Then I softly see field "Spent" as "$0.00"
+    Then I softly see field "Total Obligation" as "$2,000.00"
+    Then I softly see field "Available Balance" as "$3,000.00"
+    Then I softly see field "Appropriation Amount" as "$5,000.00"
+    And I click on hyperlink containing value "{SavedValue:fundingSourceID}"
+    And I wait for "2" seconds
+    Then I see the header is "External Funding Source" in the page details
+    Then I softly see field "Pre-Encumbrance" as "$2,000.00"
+    And I save the field labeled "Pre-Encumbrance" as "PreEncumbranceFundingSource"
+    Then I softly see value "{SavedValue:PreEncumbrance}" is "Equals to" the value "{SavedValue:PreEncumbranceFundingSource}"
+    Then I softly see field "Encumbrance" as "$0.00" in "Funding Information" pageblock
+    Then I softly see field "Spent" as "$0.00"
+    Then I softly see field "Total Obligation" as "$2,000.00"
+    Then I softly see field "Available Balance" as "$3,000.00"
+    Then I softly see field "Appropriation Amount" as "$5,000.00"
     And I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "PLUMBING_CASE"
     And I created approved FDM on application "{SavedValue:Automation Runtime FDM Announcement}" for Plumbing Cases
     Given I created award from approved FDM with announcement "{SavedValue:Automation Runtime FDM Announcement}" for plumbing cases
     And I activate award from FDM having application name "{SavedValue:Automation Runtime FDM Announcement}"
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click toggle button to select "Grants - Active"
+    When I perform quick search for "{SavedValue:Automation Runtime FDM Announcement}" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime FDM Announcement}" inside flex table with id "---subAwardStandAlone:-:activeGrantsTableId---" without waiting for record
+    When I navigate to "Subawards" sub tab
+    And I click on "View" icon for "{SavedValue:Automation Runtime FDM Announcement}" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
+    And I navigate to "Budget" sub tab
+    And I save the value from row "1" for column name "Encumbrance" as "Encumbrance" from flex table "---subAwardStandAlone:-:fundingAccountsTableId---"
+    Then I softly see value "{SavedValue:fundingAccountId}" for title "Funding Account" inside table "---subAwardStandAlone:-:fundingAccountsTableId---"
+    Then I softly see value "{SavedValue:Encumbrance}" for title "Encumbrance" inside table "---subAwardStandAlone:-:fundingAccountsTableId---"
+    And I click on hyperlink containing value "{SavedValue:fundingAccountId}"
+    And I wait for "2" seconds
+    Then I see the header is "Funding Account" in the page details
+    Then I softly see field "Pre-Encumbrance" as "$0.00"
+    Then I softly see field "Encumbrance" as "$2,000.00" in "Financials" pageblock
+    And I save the field labeled "Encumbrance" as "EncumbranceFundingAcc"
+    Then I softly see value "{SavedValue:Encumbrance}" is "Equals to" the value "{SavedValue:EncumbranceFundingAcc}"
+    Then I softly see field "Spent" as "$0.00"
+    Then I softly see field "Total Obligation" as "$2,000.00"
+    Then I softly see field "Available Balance" as "$3,000.00"
+    Then I softly see field "Appropriation Amount" as "$5,000.00"
+    And I click on hyperlink containing value "{SavedValue:fundingSourceID}"
+    And I wait for "2" seconds
+    Then I see the header is "External Funding Source" in the page details
+    Then I softly see field "Pre-Encumbrance" as "$0.00"
+    Then I softly see field "Encumbrance" as "$2,000.00" in "Funding Information" pageblock
+    And I save the field labeled "Encumbrance" as "EncumbranceFundingSource"
+    Then I softly see value "{SavedValue:Encumbrance}" is "Equals to" the value "{SavedValue:EncumbranceFundingSource}"
+    Then I softly see field "Spent" as "$0.00"
+    Then I softly see field "Total Obligation" as "$2,000.00"
+    Then I softly see field "Available Balance" as "$3,000.00"
+    Then I softly see field "Appropriation Amount" as "$5,000.00"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
@@ -590,10 +671,9 @@ Feature: Validate all scenarios for Plumbing Cases
     When I perform quick search for "{SavedValue:PayreqId}" in "---paymentRequest:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "{SavedValue:PayreqId}" inside flex table with id "---paymentRequest:-:pendingTaskTableId---" without waiting for record
     And I navigate to "Financials" sub tab
-    And I save the value from row "1" for column name "Funding Account" as "fundingAccountPlumbing" from flex table "---paymentRequest:-:fundingAccountTableId---"
     And I edit the following rows inline in flex table with id "---paymentRequest:-:fundingAccountTableId---" by clicking "Edit" :
-      | Funding Account                     | Net Spent This Action |
-      | {SavedValue:fundingAccountPlumbing} | 500                   |
+      | Funding Account               | Net Spent This Action |
+      | {SavedValue:fundingAccountId} | 500                   |
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---paymentRequest:-:ReimbursmentApproverTableId---" by clicking "New" :
       | Name     | Reimbursement |
@@ -609,3 +689,29 @@ Feature: Validate all scenarios for Plumbing Cases
     And I pause execution for "2" seconds
     When I click modal button "Close"
     Then I see status in Progress-bar is "Paid" and is "dark blue"
+    And I navigate to "Financials" sub tab
+    And I save the value from row "1" for column name "Net Spent This Action" as "NetSpentThisAction" from flex table "---paymentRequest:-:fundingAccountTableId---"
+    Then I softly see value "{SavedValue:fundingAccountId}" for title "Funding Account" inside table "---paymentRequest:-:fundingAccountTableId---"
+    Then I softly see value "{SavedValue:NetSpentThisAction}" for title "Net Spent This Action" inside table "---paymentRequest:-:fundingAccountTableId---"
+    And I click on hyperlink containing value "{SavedValue:fundingAccountId}"
+    And I wait for "2" seconds
+    Then I see the header is "Funding Account" in the page details
+    Then I softly see field "Pre-Encumbrance" as "$0.00"
+    Then I softly see field "Encumbrance" as "$2,000.00" in "Financials" pageblock
+    And I save the field labeled "Spent" as "SpentFundingAcc"
+    Then I softly see value "{SavedValue:NetSpentThisAction}" is "Equals to" the value "{SavedValue:SpentFundingAcc}"
+    Then I softly see field "Spent" as "$500.00"
+    Then I softly see field "Total Obligation" as "$2,000.00"
+    Then I softly see field "Available Balance" as "$3,000.00"
+    Then I softly see field "Appropriation Amount" as "$5,000.00"
+    And I click on hyperlink containing value "{SavedValue:fundingSourceID}"
+    And I wait for "2" seconds
+    Then I see the header is "External Funding Source" in the page details
+    Then I softly see field "Pre-Encumbrance" as "$0.00"
+    Then I softly see field "Encumbrance" as "$2,000.00" in "Funding Information" pageblock
+    And I save the field labeled "Spent" as "SpentFundingSource"
+    Then I softly see value "{SavedValue:NetSpentThisAction}" is "Equals to" the value "{SavedValue:SpentFundingSource}"
+    Then I softly see field "Spent" as "$500.00"
+    Then I softly see field "Total Obligation" as "$2,000.00"
+    Then I softly see field "Available Balance" as "$3,000.00"
+    Then I softly see field "Appropriation Amount" as "$5,000.00"
