@@ -1058,7 +1058,7 @@ Feature: Validate all scenarios for Grants & Awards
     And I refresh the page
     And I wait for "4" seconds
     Then I softly see value "Automation Subject" for title "Subject" inside table "CommunicationHistory"
-    Then I softly see value "victor.exeqagrantee@yopmail.com" for title "From Address" inside table "CommunicationHistory"
+    Then I softly see value "victor.exe.ggmergeqa2@yopmail.com" for title "From Address" inside table "CommunicationHistory"
     Then I softly see value "pm.automation@yopmail.com" for title "To Address" inside table "CommunicationHistory"
     And I navigate to "Management" sub tab
     Then I softly cannot see top right button "New" in flex table with id "---grantee_tableId:-:GrantsAmendmentRequestsTableId---"
