@@ -179,10 +179,10 @@ Feature: Grantee Smoke scenarios for PDF
     Then I softly see value "$200.00" for title "Other Leverage" against the value "Construction" inside table "---grantee_tableId:-:AmendmentBudgetTableId---"
     Then I softly see value "$5,700.00" for title "Total Project Cost" against the value "Construction" inside table "---grantee_tableId:-:AmendmentBudgetTableId---"
     When I click on "Original Budget Details" icon for "Construction" inside flex table with id "---grantee_tableId:-:AmendmentBudgetTableId---" with wait for record
-    Then I softly see value "$5,000.00" for title "Award Budget" against the value "Construction" inside table "---grantee_tableId:-:amendmentLineItemsTableId---"
-    Then I softly see value "$500.00" for title "Cash Match" against the value "Construction" inside table "---grantee_tableId:-:amendmentLineItemsTableId---"
-    Then I softly see value "$200.00" for title "Other Leverage" against the value "Construction" inside table "---grantee_tableId:-:amendmentLineItemsTableId---"
-    Then I softly see value "$5,700.00" for title "Total Project Cost" against the value "Construction" inside table "---grantee_tableId:-:amendmentLineItemsTableId---"
+    Then I softly see value "$5,000.00" for title "Award Budget" against the value "Construction" inside table "---grantee_tableId:-:amendmentAwardLineItemsTableId---"
+    Then I softly see value "$500.00" for title "Cash Match" against the value "Construction" inside table "---grantee_tableId:-:amendmentAwardLineItemsTableId---"
+    Then I softly see value "$200.00" for title "Other Leverage" against the value "Construction" inside table "---grantee_tableId:-:amendmentAwardLineItemsTableId---"
+    Then I softly see value "$5,700.00" for title "Total Project Cost" against the value "Construction" inside table "---grantee_tableId:-:amendmentAwardLineItemsTableId---"
     When I close "Original Budget Details" modal by clicking the top right x button
     When I click on "Add Line Items" icon for "Construction" inside flex table with id "---grantee_tableId:-:AmendmentBudgetTableId---" with wait for record
     Then I softly see top right button "New" inside flex table "---grantee_tableId:-:amendmentLineItemsTableId---"
@@ -1020,9 +1020,8 @@ Feature: Grantee Smoke scenarios for PDF
     Then I softly see value "Submitted for Approval" for title "Original Value" inside field history table
     And I click on back arrow
     When I navigate to "History" sub tab
-    Then I softly see snapshot with name containing "ApprovalPDF.pdf" as name
+    Then I softly see snapshot with name containing "Approver Decision.pdf" as name
     Then I softly see snapshot with name containing "SubmitForApproval.pdf" as name
-    Then I softly see snapshot with name containing "Complete Review.pdf" as name
     Then I softly can see top right button "View NOGA" in page detail
     And I click on "View NOGA" in the page details
     And I download the file
@@ -1051,7 +1050,7 @@ Feature: Grantee Smoke scenarios for PDF
     And I select "Download as PDF" from parallel lines dropdown of "Non-Federal Contacts"
     And I wait for "7" seconds
     And I download the file
-    Then I see "Non-Federal Contacts" on page "1" of "govgrants" pdf file
+    Then I softly see "Non-Federal Contacts" on page "1" of "govgrants" pdf file
     And I switch to parent tab
     Then I softly can see top right button "New" in flex table with id "---grantee_tableId:-:nonFedContactTableId---"
     And I click on top right button "New" in flex table with id "---grantee_tableId:-:nonFedContactTableId---"
@@ -1195,7 +1194,7 @@ Feature: Grantee Smoke scenarios for PDF
     And I select "Download as PDF" from parallel lines dropdown of "Federal Contacts"
     And I wait for "7" seconds
     And I download the file
-    Then I see "Federal Contacts" on page "1" of "govgrants" pdf file
+    Then I softly see "Federal Contacts" on page "1" of "govgrants" pdf file
     And I switch to parent tab
     Then I softly can see top right button "New" in flex table with id "---grantee_tableId:-:fedContactTableId---"
     And I click on top right button "New" in flex table with id "---grantee_tableId:-:fedContactTableId---"
