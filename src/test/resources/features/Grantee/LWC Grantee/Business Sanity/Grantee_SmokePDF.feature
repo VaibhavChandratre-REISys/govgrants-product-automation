@@ -184,7 +184,9 @@ Feature: Grantee Smoke scenarios for PDF
     Then I softly see value "$200.00" for title "Other Leverage" against the value "Construction" inside table "---grantee_tableId:-:amendmentAwardLineItemsTableId---"
     Then I softly see value "$5,700.00" for title "Total Project Cost" against the value "Construction" inside table "---grantee_tableId:-:amendmentAwardLineItemsTableId---"
     When I close "Original Budget Details" modal by clicking the top right x button
+    And I wait for "2" seconds
     When I click on "Add Line Items" icon for "Construction" inside flex table with id "---grantee_tableId:-:AmendmentBudgetTableId---" with wait for record
+    And I wait for "3" seconds
     Then I softly see top right button "New" inside flex table "---grantee_tableId:-:amendmentLineItemsTableId---"
     Then I softly see "Title" in flex table header "---grantee_tableId:-:amendmentLineItemsTableId---"
     Then I softly see "Narrative" in flex table header "---grantee_tableId:-:amendmentLineItemsTableId---"
