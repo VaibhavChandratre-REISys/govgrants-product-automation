@@ -1893,7 +1893,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I navigate to "Risk Assessment" sub tab
     And I perform quick search for "Active" in "---orgRiskAssessment:-:orgRiskAssessmentTableId---" panel
     When I click on "View" icon for "Active" inside flex table with id "---orgRiskAssessment:-:orgRiskAssessmentTableId---" without waiting for record
-    Then I softly see field "State" as "Active"
+    Then I softly see field "Status" as "Active"
 
   @72349 @adhocReimbursementHappyPath @ProdSan1
   Scenario: Validate the Reimbursement Payment Request happy path and the status changes to 'Paid'
@@ -4574,3 +4574,26 @@ Feature: Validate sanity testing of Complete Business Flow
     And I navigate to "Home" tab
     And I select "My Profile" from user dropdown
     Then I see the header is "{SavedValue:Automation Runtime} Contact" in the page details
+
+  @checkpassword
+  Scenario: in this scenario we are test all password are working
+    When I login to "As a Grantor" app as "ADMIN" user
+    When I navigate to "Planning" tab
+    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+    When I navigate to "Planning" tab
+    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    When I navigate to "Planning" tab
+    When I re-login to "As a Grantor" app as "PM1" user on "INTERNAL" portal
+    When I navigate to "Planning" tab
+    When I re-login to "As a Grantor" app as "DYNAMICUSER" user on "INTERNAL" portal
+    When I navigate to "Planning" tab
+    When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
+    When I navigate to "Planning" tab
+    When I re-login to "As a Grantor" app as "ADMIN1" user on "INTERNAL" portal
+    When I navigate to "Planning" tab
+    When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
+    When I navigate to "Grants" tab
+    When I re-login to "Grants Portal" app as "SA" user on "SUBPORTAL" portal
+    When I navigate to "Home" tab
+    When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
+    When I navigate to "Home" tab
