@@ -11109,5 +11109,6 @@ Feature: Validate all scenarios of grants and award without background
     And I perform quick search for "Record Id" in "---subAwardStandAlone:-:subrecipientPendingtaskTableId---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---subAwardStandAlone:-:subrecipientPendingtaskTableId---" without waiting for record
     Then I softly see field "Status" as "Sent to Subrecipient after Approval"
+    And I navigate to "Budget" sub tab
     Then I softly see that "Budget Redirection Threshold %" rendered in view mode only
     Then I softly see field "Budget Redirection Threshold %" as "10.00%" in "Budget Summary" pageblock

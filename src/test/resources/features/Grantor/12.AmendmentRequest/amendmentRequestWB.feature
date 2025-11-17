@@ -25636,7 +25636,7 @@ Feature: Amendment Request scenarios without background
 
   @536946 @Validategrantorsubrecipientusershouldabletoseethedetailedbudgetlineitemmodalnameshouldbecorrect
   Scenario: Validate grantor subrecipient user should able to see the detailed budget line item modal name should be correct
-    And I published "Competitive" type announcement having name "Automation Runtime Announcement Application" and properties "DETAILE_BUDGET_YES-Automation PM user"
+    And I published "Competitive" type announcement having name "Automation Runtime Announcement Application" and properties "DETAILE_BUDGET_YES"
     When I am on "SUBPORTAL" portal
     And I login to "Grants Portal" app as "SPI3" user
     And I navigate to "Opportunities" tab
@@ -25656,6 +25656,8 @@ Feature: Amendment Request scenarios without background
     When I expand nested table containing column value "BP01"
     When I click on "Add Line Item Details" icon for "Construction" inside flex table with id "---applicationReview:-:budgetTableId---"
     Then I softly see "App Line Items" opens in overLay window
+    When I click modal button "Close"
+    And I wait for "2" seconds
     # Award Validation
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
@@ -25686,6 +25688,8 @@ Feature: Amendment Request scenarios without background
       | {SavedValue:fundingAccount} | 1000        |
     When I click on "Add Line Items" icon for "Administrative and legal expenses" inside flex table with id "---subAwardStandAlone:-:subAwardBudgetTableId---" without waiting for record
     Then I softly see "Subaward Line Items" opens in overLay window
+    When I click modal button "Close"
+    And I wait for "2" seconds
     # Amendment Validation
     And I activated standalone subaward "Automation Runtime Amendment Award" with properties "AMENDMENT_REQUEST" of type "Competitive"
     And I navigate to "Grants" tab
