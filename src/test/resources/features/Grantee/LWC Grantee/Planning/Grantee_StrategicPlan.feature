@@ -201,8 +201,7 @@ Feature: Validate all scenarios for Strategic Plan
     And I update title as "Automation.pdf" on upload file modal
     And I select Classification as "Strategic Goal" at upload file modal
     When I click modal button "Save"
-    And I click modal button "Close"
-    And I refresh the page
+#    And I click modal button "Close"
     And I wait for "2" seconds
     Then I softly see value "Automation.pdf" for title "Title" inside table "---grantee_tableId:-:strategicGoalsFilesTableId---"
     Then I softly see value "Strategic Goal" for title "Classification" inside table "---grantee_tableId:-:strategicGoalsFilesTableId---"

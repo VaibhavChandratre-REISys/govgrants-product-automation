@@ -25460,7 +25460,7 @@ Feature: Amendment Request scenarios without background
     And I click modal button "Save"
     When I navigate to "Overview" sub tab
     And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:associatedContactsTableId---" by clicking "Edit" :
-      | Name                      | Project Role             | Is Key Personnel |
+      | Name                       | Project Role             | Is Key Personnel |
       | {SavedValue:SPI3 Username} | Project Director/Manager | Checked          |
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
@@ -25633,3 +25633,89 @@ Feature: Amendment Request scenarios without background
     When I perform quick search for "{SavedValue:RAEGMSID}" in "---riskassessment:-:organizationprofileviewTableId---" panel
     When I click on "View" icon for "{SavedValue:RAEGMSID}" inside flex table with id "---riskassessment:-:organizationprofileviewTableId---" without waiting for record
     Then I softly see field "Overall Risk" as "{SavedValue:OverAllRisk}"
+
+  @536946 @Validategrantorsubrecipientusershouldabletoseethedetailedbudgetlineitemmodalnameshouldbecorrect
+  Scenario: Validate grantor subrecipient user should able to see the detailed budget line item modal name should be correct
+    And I published "Competitive" type announcement having name "Automation Runtime Announcement Application" and properties "DETAILE_BUDGET_YES-Automation PM user"
+    When I am on "SUBPORTAL" portal
+    And I login to "Grants Portal" app as "SPI3" user
+    And I navigate to "Opportunities" tab
+    When I navigate to "Not Yet Qualified" content inside "Opportunities" subheader on left panel
+    When I click toggle button to select "Not Yet Qualified Opportunities - All"
+    And I perform quick search for "{SavedValue:Automation Runtime Announcement Application}" in "---applicationReview:-:reviewsTableId---" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement Application}" inside flex table with id "---applicationReview:-:reviewsTableId---"
+    And I navigate to "Financials" sub tab
+    When I click on "Qualify" in the page details
+    When I click on "Create Application" in the page details
+    And I wait for "5" seconds
+    And I click modal button "Save and Continue"
+    When I navigate to "Budget" sub tab
+    When I enter "Edition" values from "Application_Field_Values.xlsx"
+    When I click on "Save" in the page details
+    And I navigate to "Budget" sub tab
+    When I expand nested table containing column value "BP01"
+    When I click on "Add Line Item Details" icon for "Construction" inside flex table with id "---applicationReview:-:budgetTableId---"
+    Then I softly see "App Line Items" opens in overLay window
+    # Award Validation
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:activeGrantsTableId---"
+    And I enter "Grant_Creation" values from "Award_Field_Values.xlsx"
+    And I click modal button "Continue"
+    And I enter "GrantEditionYes" values from "Award_Field_Values.xlsx"
+    When I click modal button "Save and Continue"
+    And I navigate to "Subawards" sub tab
+    And I click on "View" icon for "Created" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
+    And I click on "Edit" in the page details
+    When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
+    And I click on "Save" in the page details
+    And I navigate to "Budget" sub tab
+    When I click on top right button "Associate" in flex table with id "---subAwardStandAlone:-:fundingAccountsTableId---"
+    When I perform quick search for "Automation Permanent Funding Account" in "---subAwardStandAlone:-:awardFundingAccountsTableId---" panel
+    And I wait for "3" seconds
+    When I click "Associate" after selection of "Automation Permanent Funding Account" in the table "---subAwardStandAlone:-:awardFundingAccountsTableId---"
+    And I click modal button "Close"
+    And I refresh the page
+    And I navigate to "Budget" sub tab
+    And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:focusAreaTableId---" by clicking "Edit" :
+      | Title                           | Start Date | End Date |
+      | Automation Permanent Focus Area | 0          | 3650     |
+    When I edit the following rows inline in flex table with id "---subAwardStandAlone:-:fundingAccountsTableId---" by clicking "Edit" :
+      | Funding Account             | Encumbrance |
+      | {SavedValue:fundingAccount} | 1000        |
+    When I click on "Add Line Items" icon for "Administrative and legal expenses" inside flex table with id "---subAwardStandAlone:-:subAwardBudgetTableId---" without waiting for record
+    Then I softly see "Subaward Line Items" opens in overLay window
+    # Amendment Validation
+    And I activated standalone subaward "Automation Runtime Amendment Award" with properties "AMENDMENT_REQUEST" of type "Competitive"
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click toggle button to select "Grants - Active"
+    When I perform quick search for "{SavedValue:Automation Runtime Amendment Award}" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Amendment Award}" inside table
+    When I navigate to "Subawards" sub tab
+    And I click on "View" icon for "{SavedValue:Automation Runtime Amendment Award}" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
+    When I navigate to "Management" sub tab
+    And I click on top right button "New" in flex table with id "---amendment:-:amendmentRequestTableId---"
+    When I enter "FundingChange_Creation" values from "AmendmentRequest_Field_Values.xlsx"
+    And I click modal button "Save and Continue"
+    When I enter values into fields
+      | Value                       | Field                         |
+      | Automation Test Description | FundingChangeJustification__c |
+      | 2000                        | RequestedChangeInBudget__c    |
+    And I click on "Save" in the page details
+    When I navigate to "Responsibilities" sub tab
+    When I enter the following values into flex table with id "---amendment:-:fundingChangeApproversTableId---" by clicking "New" :
+      | Name                     | Amendment Request |
+      | {SavedValue:PM Username} | Step 1            |
+    When I get the "EGMS ID"
+    And I click on "Send to Subrecipient" in the page details
+    And I wait for "3" seconds
+    When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
+    And I navigate to "Grants" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    When I perform quick search for "Record Id" in "---amendment:-:pendingTaskTableId---" panel
+    And I click on "Start" icon for "Record Id" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
+    And I click on page navigation arrow "---amendment:-:budgetChangeTableId---" for table id "Next"
+    When I click on "Add Line Items" icon for "Site work" inside flex table with id "---amendment:-:budgetChangeTableId---"
+    Then I softly see "Amendment Line Items" opens in overLay window
