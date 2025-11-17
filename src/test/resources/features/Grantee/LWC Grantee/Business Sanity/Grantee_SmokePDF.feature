@@ -499,6 +499,7 @@ Feature: Grantee Smoke scenarios for PDF
     And I click on "Delete" in the page details without processing
     Then I softly see confirmation box with body "Are you sure you want to delete this subaward?" is displayed
     And I click "OK" on modal confirmation box
+    And I wait for "2" seconds
     Then I softly see field "Status" as "Submitted to Grantor"
     Then I softly see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
     And I navigate to "Field Audit" sub tab in split screen

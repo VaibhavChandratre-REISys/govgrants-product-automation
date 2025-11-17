@@ -228,8 +228,8 @@ Feature: Validate all scenarios for Non Federal Organization
     Then I softly see "Snapshot History" page block displayed
 
     Examples:
-      | userType   | attachment     | Notes        |  userAuditor     |
-      | GRANTEE PM | Attachment.pdf | Notes Record |  GRANTEE AUDITOR |
+      | userType   | attachment     | Notes        | userAuditor     |
+      | GRANTEE PM | Attachment.pdf | Notes Record | GRANTEE AUDITOR |
 
   @461000 @NonFederalVerifyusershouldseeallfieldsandsectiononNonfederalOrg @P3_Grantee @PO_Grantee @GRegression3
   Scenario Outline: Non Federal Verify user should see all fields and section on Non federal Org
@@ -423,8 +423,8 @@ Feature: Validate all scenarios for Non Federal Organization
     When I navigate to "History" sub tab
     Then I softly see "Snapshot History" page block displayed
     Examples:
-      | userType    | Notes         | userName           | Title |
-      | GRANTEE PO  | Notes for PO  | Grantee PO         | Test1 |
+      | userType   | Notes        | userName   | Title |
+      | GRANTEE PO | Notes for PO | Grantee PO | Test1 |
 
   @482144 @ValidateNonFederalFOprofileusershouldseeallfieldsandsectiononNonfederalOrglayoutinreadonlyViewonlyAccess @P3_Grantee @FO_Grantee @GRegression4
   Scenario Outline: Validate Non Federal FO profile user should see all fields and section on Non federal Org layout in readonly View only Access
@@ -670,8 +670,8 @@ Feature: Validate all scenarios for Non Federal Organization
     Then I softly see "Snapshot History" page block displayed
 
     Examples:
-      | userType   | attachment     | Notes        | userName           | userProfile | NotesProfile         | updatedTitle                        |
-      | GRANTEE PM | Attachment.pdf | Notes Record | David FO           | GRANTEE FO  | Notes Record for FO  | Notes Record for David FO           |
+      | userType   | attachment     | Notes        | userName | userProfile | NotesProfile        | updatedTitle              |
+      | GRANTEE PM | Attachment.pdf | Notes Record | David FO | GRANTEE FO  | Notes Record for FO | Notes Record for David FO |
 
   @482146 @ValidateNonFederalFOprofileusershouldseeallfieldsandsectiononNonfederalOrglayoutinreadonlyViewonlyAccess @P2_Grantee @FD_Grantee @GRegression4
   Scenario Outline: Validate Non Federal FD profile user should see all fields and section on Non federal Org layout in readonly View only Access
@@ -917,8 +917,8 @@ Feature: Validate all scenarios for Non Federal Organization
     Then I softly see "Snapshot History" page block displayed
 
     Examples:
-      | userType   | attachment     | Notes        | userName           | userProfile | NotesProfile         | updatedTitle                        |
-      | GRANTEE PM | Attachment.pdf | Notes Record | Danielle FD Garcia | GRANTEE FD  | Notes Record for FD  | Notes Record for Danielle FD Garcia |
+      | userType   | attachment     | Notes        | userName           | userProfile | NotesProfile        | updatedTitle                        |
+      | GRANTEE PM | Attachment.pdf | Notes Record | Danielle FD Garcia | GRANTEE FD  | Notes Record for FD | Notes Record for Danielle FD Garcia |
 
   @482149 @ValidateNonFederalEXEprofileusershouldseeallfieldsandsectiononNonfederalOrglayoutinreadonlyViewonlyAccess @P1_Grantee @EXE_Grantee @GRegression1
   Scenario Outline: Validate Non Federal EXE profile user should see all fields and section on Non federal Org layout in readonly View only Access
@@ -1164,8 +1164,8 @@ Feature: Validate all scenarios for Non Federal Organization
     Then I softly see "Snapshot History" page block displayed
 
     Examples:
-      | userType   | attachment     | Notes        | userName           | userProfile | NotesProfile         | updatedTitle                        |
-      | GRANTEE PM | Attachment.pdf | Notes Record | Victor EXE         | GRANTEE EXE | Notes Record for EXE | Notes Record for Victor EXE         |
+      | userType   | attachment     | Notes        | userName   | userProfile | NotesProfile         | updatedTitle                |
+      | GRANTEE PM | Attachment.pdf | Notes Record | Victor EXE | GRANTEE EXE | Notes Record for EXE | Notes Record for Victor EXE |
 
   @477510 @NonFederalVerifyusershouldseeallfieldsandsectiononNonfederalOrg
   Scenario Outline: Non Federal Verify user should see all fields and section on Non federal Org
@@ -1197,10 +1197,10 @@ Feature: Validate all scenarios for Non Federal Organization
     When I enter in modal value "vegas" into field "County__c"
     And I click modal button "Save and Continue"
     Then I softly see the following messages in the page details contains:
-      | City is required to save.     |
-      | State is required to save.    |
-      | Country is required to save.  |
-      | Zip Code is required to save. |
+      | To Save, City is required.     |
+      | To Save, State is required.    |
+      | To Save, Country is required.  |
+      | To Save, Zip Code is required. |
     And I wait for "2" seconds
     When I enter in modal value "Automation Runtime Organization" into field "Name"
     When I enter in modal value "NGO" into field "NonFederalOrganizationType__c"
@@ -1216,7 +1216,7 @@ Feature: Validate all scenarios for Non Federal Organization
     Then I see the sub-header is "Automation Runtime Organization" in the page details
     Then I softly see field "Parent Organization" as "NA"
     And I click on Menu icon present on top right corner of the page
-    Then I see option "Download As PDF" present in parallel dropdown
+    Then I see option "Download as PDF" present in parallel dropdown
     Then I see option "Take Snapshot" present in parallel dropdown
     Then I softly can see "Overview" sub tab at view detail page
     Then I softly can see "Related Log" sub tab at view detail page
@@ -1376,7 +1376,7 @@ Feature: Validate all scenarios for Non Federal Organization
       | GRANTEE ADMIN | Attachment.pdf | Notes for ADMIN | DEMO ADMIN | Test2 |
 
   @443741 @ValidateNonFederalusershouldnotdeletetheparentOrgwhohavechildOrg @GRegression5 @PM_Grantee @P2_Grantee
-    Scenario: Validate Non Federal user should not delete the parent Org who have child Org
+  Scenario: Validate Non Federal user should not delete the parent Org who have child Org
     When I login to "Grantee" app as "GRANTEE PM" user
     When I navigate to "Home" tab
     And I navigate to "External" content inside "Organizations" subheader on left panel

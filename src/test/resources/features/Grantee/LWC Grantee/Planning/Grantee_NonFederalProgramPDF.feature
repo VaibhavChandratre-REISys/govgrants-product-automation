@@ -19,7 +19,7 @@ Feature: Validate all scenarios for Non Federal Program for PDF
     Then I see option "Refresh" present in parallel dropdown
     Then I see option "Download as PDF" present in parallel dropdown
     Then I see option "Download as CSV" present in parallel dropdown
-    And I select "Download as PDF" from parallel lines dropdown of "Non-Federal Programs- All"
+    And I select "Download as PDF" from parallel lines dropdown of "Non-Federal Programs - All"
     And I wait for "8" seconds
     And I download the file
     Then I see "Non-Federal Programs- All" on page "1" of "govgrants" pdf file
