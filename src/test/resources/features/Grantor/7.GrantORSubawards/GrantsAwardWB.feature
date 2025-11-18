@@ -11033,7 +11033,7 @@ Feature: Validate all scenarios of grants and award without background
     And I navigate to "Budget" sub tab
     Then I softly see field "Budget Redirection Threshold %" as "0.00%" in "Budget Summary" pageblock
     And I click on "Edit" in the page details
-    Then I softly see fields "Budget Redirection Threshold %" is in edit mode
+    Then I softly see fields "BudgetRedirectionThreshhold__c" is in edit mode
 
   @543810 @ValidatethatBudgetRedirectionThresholdfieldisnoteditableonceSendtoSRstate
   Scenario: Validate that Budget Redirection Threshold field is not editable once Send to SR state
@@ -11092,7 +11092,7 @@ Feature: Validate all scenarios of grants and award without background
       | {SavedValue:SPI3 Username} | Project Director/Manager | Checked          |
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
-      | Name                      | Award  |
+      | Name                     | Award  |
       | {SavedValue:PM Username} | Step 1 |
     When I navigate to "Terms" sub tab
     When I click on top right button "Associate Mandatory Terms and Conditions" in flex table with id "---subAwardStandAlone:-:termsndConditionsTableId---"
@@ -11112,3 +11112,67 @@ Feature: Validate all scenarios of grants and award without background
     And I navigate to "Budget" sub tab
     Then I softly see that "Budget Redirection Threshold %" rendered in view mode only
     Then I softly see field "Budget Redirection Threshold %" as "10.00%" in "Budget Summary" pageblock
+
+  @543812 @ValidateThresholdfieldshouldnoteditabletononAwardOwner
+  Scenario: Validate Threshold field should not editable to non Award Owner
+    When I login to "Grantor" app as "PM" user
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:activeGrantsTableId---"
+    And I wait for "2" seconds
+    And I enter "GrantFields1" values from "Award_Field_Values.xlsx"
+    And I click modal button "Continue"
+    And I enter "Grant_Edition1" values from "Award_Field_Values.xlsx"
+    When I click modal button "Save and Continue"
+    And I save the field labeled "EGMS ID" as "GrantEGMSID"
+    And I navigate to "Subawards" sub tab
+    And I click on "View" icon for "Created" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
+    And I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "AwardEGMSID"
+    And I navigate to "Overview" sub tab
+    And I save the field labeled "Subaward Title" as "Automation Runtime award"
+    And I click on "Edit" in the page details
+    When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
+    And I click on "Save" in the page details
+    And I wait for "2" seconds
+    When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click toggle button to select "Grants - All"
+    When I perform quick search for "{SavedValue:GrantEGMSID}" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
+    And I click on "View" icon for "{SavedValue:GrantEGMSID}" inside table
+    When I navigate to "Subawards" sub tab
+    And I click on "View" icon for "{SavedValue:AwardEGMSID}" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
+    And I navigate to "Budget" sub tab
+    Then I softly cannot see top right button "Edit" in page detail
+    Then I softly see field "Budget Redirection Threshold %" as "10.00%" in "Budget Summary" pageblock
+    Then I softly see that "Budget Redirection Threshold %" rendered in view mode only
+
+  @543818 @ValidateErrorMessageforExceedingBudgetRedirectionThresholdonAward
+  Scenario: Validate Error Message for Exceeding Budget Redirection Threshold on Award
+    When I login to "Grantor" app as "EXE" user
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:activeGrantsTableId---"
+    And I wait for "2" seconds
+    And I enter "GrantFields1" values from "Award_Field_Values.xlsx"
+    And I click modal button "Continue"
+    And I enter "Grant_Edition1" values from "Award_Field_Values.xlsx"
+    When I click modal button "Save and Continue"
+    And I save the field labeled "EGMS ID" as "GrantEGMSID"
+    And I navigate to "Subawards" sub tab
+    And I click on "View" icon for "Created" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
+    And I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "AwardEGMSID"
+    And I navigate to "Overview" sub tab
+    And I save the field labeled "Subaward Title" as "Automation Runtime award"
+    And I click on "Edit" in the page details
+    When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
+    And I enter value "120" into field "BudgetRedirectionThreshhold__c"
+    And I click on "Save" in the page details
+    And I wait for "2" seconds
+    And I click on "Submit for Approval" in the page details
+    And I wait for "2" seconds
+    Then I softly see the following messages in the page details contains:
+      | Budget Redirection Threshold must be between 0% and 100%. Please enter a valid value. |
+
