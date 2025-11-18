@@ -25727,6 +25727,7 @@ Feature: Amendment Request scenarios without background
   @543813 @ValidateThresholdCopyfromOldtoNewAwardonAmendment
   Scenario: Validate Threshold Copy from Old to New Award on Amendment
     And I activated standalone subaward "Automation Runtime Award" with properties "BUDGE_REDIRECTION_FIFTEEN_PERCENT-Automation EXE user" of type "Competitive"
+    And I halt execution
     Given I am on "SUBPORTAL" portal
     When I login to "Grants Portal" app as "SPI3" user
     And I navigate to "Grants" tab
@@ -25756,7 +25757,7 @@ Feature: Amendment Request scenarios without background
       | Category Name  | Revised Award Amount |
       | Indirect costs | 75                   |
     And I click on "Submit to Grantor" in the page details
-    And I wait for "2" seconds
+    Then I see field "Status" as "Submitted to Grantor"
     When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -25790,7 +25791,7 @@ Feature: Amendment Request scenarios without background
     Then I softly see field "Budget Redirection Threshold %" as "15.00%" in "Budget Summary" pageblock
     Then I softly see field "Budget Redirection Threshold %" as "{SavedValue:BudgetRedirectionThreshold%}"
 
-  @543822 @ValidatePeriodicRenewalThresholdFieldshouldbeeditableabletoseevalidationifexceeds100
+  @545379 @ValidatePeriodicRenewalThresholdFieldshouldbeeditableabletoseevalidationifexceeds100
   Scenario: Valdate Periodic Renewal Threshold Field should be editable & able to see validation if exceeds 100%
     And I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     When I login to "Grantor" app as "PM" user
@@ -25848,5 +25849,121 @@ Feature: Amendment Request scenarios without background
     And I click on "Submit to Grantor" in the page details
     And I wait for "2" seconds
     Then I softly see the following messages in the page details contains:
-      | Overview Tab - The Budgeted Amount cannot be increased or decreased during a Budget Redirection.                                                                         |
-      | Overview Tab - The budget redirection threshold for each focus area cannot exceed the budget redirection threshold 10.00%                                                |
+      | Overview Tab - The Budgeted Amount cannot be increased or decreased during a Budget Redirection.                                               |
+      | Overview Tab - The budget redirection threshold for each budget category in a focus area cannot exceed the budget redirection threshold 10.00% |
+
+  @545377 @ValidateDirectedGrantValidateThresholdfiledvalueshouldbecopiedtoPeriodicRenewalfromAwardlayout
+  Scenario: Validate Directed Grant Threshold filed value should be copied to Periodic Renewal from Award layout
+    And I activated standalone subaward "Automation Runtime Award" with properties "default-Automation EXE " of type "Competitive"
+    When I login to "Grantor" app as "EXE" user
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click toggle button to select "Grants - All"
+    When I perform quick search for "{SavedValue:Automation Runtime Award}" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside table
+    When I navigate to "Subawards" sub tab
+    And I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
+    And I save the field labeled "EGMS ID" as "AwardEGMSID"
+    And I navigate to "Management" sub tab
+    And I click on top right button "New" in flex table with id "---amendment:-:amendmentRequestTableId---"
+    When I enter "Periodic Renewal" values from "AmendmentRequest_Field_Values.xlsx"
+    And I click modal button "Save and Continue"
+    And I enter "Periodic Renewal Edition" values from "AmendmentRequest_Field_Values.xlsx"
+    And I enter value "20" into field "BudgetRedirectionThreshhold__c"
+    When I click on "Save" in the page details
+    And I wait for "3" seconds
+    And I save the field labeled "Budget Redirection Threshold %" as "BudgetRedirectionThreshold%"
+    And I save the field labeled "EGMS ID" as "SOWAMENDMENTREQUEST"
+    And I save the field labeled "Proposed Budget Period Start Date" as "PBPSD"
+    And I save the field labeled "Proposed Budget Period End Date" as "PBPED"
+    And I edit the following rows inline in flex table with id "---amendment:-:FundingChangeFocusAreaTableId---" by clicking "Edit" :
+      | Title                           | Start Date         | End Date           |
+      | Automation Permanent Focus Area | {SavedValue:PBPSD} | {SavedValue:PBPED} |
+    And I edit the following rows inline in flex table with id "---amendment:-:amendmentFundingAccountsTableId---" by clicking "Edit" :
+      | Title                       | Revised Encumbrance |
+      | {SavedValue:fundingAccount} | 1000                |
+    When I navigate to "Responsibilities" sub tab
+    When I enter the following values into flex table with id "---amendment:-:approversTableId---" by clicking "New" :
+      | Name           | Amendment Request |
+      | Automation EXE | Step 1            |
+    And I click on "Send to Subrecipient" in the page details
+    And I wait for "3" seconds
+    Then I see field "Status" as "Sent to Subrecipient"
+    When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
+    And I navigate to "Grants" tab
+    And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    When I perform quick search for "Record Id" in "---amendment:-:pendingTaskTableId---" panel
+    And I click on "Start" icon for "Record Id" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
+    And I click on "Submit to Grantor" in the page details
+    When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
+    And I navigate to "Grants" tab
+    And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    When I perform quick search for "Record Id" in "---amendment:-:pendingTaskTableId---" panel
+    And I click on "Start" icon for "Record Id" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
+    And I click on "Submit for Approval" in the page details
+    And I pause execution for "3" seconds
+    And I "Approve" in the approval decision
+    And I pause execution for "3" seconds
+    And I click on "Amend Subaward" in the page details
+    And I pause execution for "2" seconds
+    Then I softly see status in Progress-bar is "Pending Activation" and is "dark blue"
+    And I save the field labeled "EGMS ID" as "AwardEGMSID1"
+    And I click on "Activate" in the page details
+    And I wait for "3" seconds
+    Then I softly see field "Status" as "Activated"
+    And I navigate to "Budget" sub tab
+    Then I softly see field "Budget Redirection Threshold %" as "20.00%" in "Budget Summary" pageblock
+    Then I softly see field "Budget Redirection Threshold %" as "{SavedValue:BudgetRedirectionThreshold%}"
+
+  @543822 @ValidatethatusershouldseevalidationifenterExceeding100valueinBudgetRedirectionthresholdfield
+  Scenario: Validate that user should see validation if enter Exceeding 100% value in Budget Redirection threshold field
+    And I activated standalone subaward "Automation Runtime Award" with properties "default-Automation EXE user" of type "Competitive"
+    When I login to "Grantor" app as "EXE" user
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click toggle button to select "Grants - All"
+    When I perform quick search for "{SavedValue:Automation Runtime Award}" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside table
+    When I navigate to "Subawards" sub tab
+    And I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
+    And I save the field labeled "EGMS ID" as "AwardEGMSID"
+    And I navigate to "Management" sub tab
+    And I click on top right button "New" in flex table with id "---amendment:-:amendmentRequestTableId---"
+    When I enter "Periodic Renewal" values from "AmendmentRequest_Field_Values.xlsx"
+    And I click modal button "Save and Continue"
+    And I enter "Periodic Renewal Edition" values from "AmendmentRequest_Field_Values.xlsx"
+    When I click on "Save" in the page details
+    And I wait for "3" seconds
+    And I save the field labeled "EGMS ID" as "SOWAMENDMENTREQUEST"
+    And I save the field labeled "Proposed Budget Period Start Date" as "PBPSD"
+    And I save the field labeled "Proposed Budget Period End Date" as "PBPED"
+    And I edit the following rows inline in flex table with id "---amendment:-:FundingChangeFocusAreaTableId---" by clicking "Edit" :
+      | Title                           | Start Date         | End Date           |
+      | Automation Permanent Focus Area | {SavedValue:PBPSD} | {SavedValue:PBPED} |
+    And I edit the following rows inline in flex table with id "---amendment:-:amendmentFundingAccountsTableId---" by clicking "Edit" :
+      | Title                       | Revised Encumbrance |
+      | {SavedValue:fundingAccount} | 1000                |
+    When I navigate to "Responsibilities" sub tab
+    When I enter the following values into flex table with id "---amendment:-:approversTableId---" by clicking "New" :
+      | Name           | Amendment Request |
+      | Automation EXE | Step 1            |
+    And I click on "Send to Subrecipient" in the page details
+    And I wait for "3" seconds
+    Then I see field "Status" as "Sent to Subrecipient"
+    When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
+    And I navigate to "Grants" tab
+    And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    When I perform quick search for "Record Id" in "---amendment:-:pendingTaskTableId---" panel
+    And I click on "Start" icon for "Record Id" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
+    And I click on "Submit to Grantor" in the page details
+    When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
+    And I navigate to "Grants" tab
+    And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    When I perform quick search for "Record Id" in "---amendment:-:pendingTaskTableId---" panel
+    And I click on "Start" icon for "Record Id" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
+    When I click on "Edit" in the page details
+    And I enter value "120" into field "BudgetRedirectionThreshhold__c"
+    When I click on "Save" in the page details
+    And I wait for "3" seconds
+    Then I softly see the following messages in the page details contains:
+      | Budget Redirection Threshold must be between 0% and 100%. Please enter a valid value. |

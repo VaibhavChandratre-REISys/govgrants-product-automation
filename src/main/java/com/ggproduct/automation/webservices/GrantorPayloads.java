@@ -2081,7 +2081,7 @@ public class GrantorPayloads {
     private JsonObject createAwardWithBudgetRedirectionFifteen(JsonObject json) {
         JsonObject award = json.getAsJsonArray("Award").get(0).getAsJsonObject();
         JsonArray newA = new JsonArray();
-        award.addProperty("BudgetRedirectionThreshold", 15);
+        award.addProperty("BudgetRedirectionThreshhold", 15);
         newA.add(award);
         json.add("Award", newA);
         return json;
