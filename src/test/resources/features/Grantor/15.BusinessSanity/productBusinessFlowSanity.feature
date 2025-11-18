@@ -63,6 +63,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click modal button "Save and Continue"
     When I enter value "Automation Test Description" into field "StrategyDescription__c"
     And I click on "Save" in the page details
+    And I pause execution for "5" seconds
     And I click on top right button "New" in flex table with id "---strategicplan:-:strategicGoalObjectivesTableId---"
     When I enter in modal value "Automation Strategic Goal" into field "StrategyTitle__c"
     When I click modal button "Save and Continue"
@@ -76,7 +77,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I navigate to "Related Log" sub tab
     And I click on top right button "Associate" in flex table with id "---strategicplan:-:ObjectivesKPITableId---"
     When I click "Add" after selection of "Automation Permanent KPI" in the table "---strategicplan:-:ListOfActiveKPITableId---"
-    And I close "Associate KPIs" modal by clicking the top right x button
+   # And I close "Associate KPIs" modal by clicking the top right x button
     Then I see that "Automation Permanent KPI" has been added in flextable with Id "---strategicplan:-:ObjectivesKPITableId---"
     Then I softly see field "Status" as "Draft"
     And I click on "Back To Strategic Goal" in the page details
@@ -294,7 +295,8 @@ Feature: Validate sanity testing of Complete Business Flow
     When I click modal button "Save"
     And I click on submit review
     And I pause execution for "2" seconds
-#    When I close "Enter Review" modal by clicking the top right x button
+    # To do - remove comment for package execution
+    When I close "Enter Review" modal by clicking the top right x button
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Announcements" tab
     When I navigate to "Competitive" content inside "Announcements" subheader on left panel
@@ -560,6 +562,8 @@ Feature: Validate sanity testing of Complete Business Flow
     When I click modal button "Save"
     And I wait for "2" seconds
     When I click on submit review
+    #To do - Remove comment for package execution
+    When I close "Enter Review" modal by clicking the top right x button
     And I wait for "2" seconds
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Announcements" tab
@@ -825,6 +829,8 @@ Feature: Validate sanity testing of Complete Business Flow
     When I click modal button "Save"
     And I wait for "2" seconds
     When I click on submit review
+    #To do - Remove comment for package execution
+    When I close "Enter Review" modal by clicking the top right x button
     And I wait for "2" seconds
     And I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     When I navigate to "Announcements" tab
@@ -1156,6 +1162,7 @@ Feature: Validate sanity testing of Complete Business Flow
 #    To Do:- Button is not display hence commented also added below step for now
 #    And I click on "Back" in the page details
     When I click on "Submit to Grantor" in the page details
+    And I pause execution for "5" seconds
     Then I softly see field "Status" as "Submitted to Grantor"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Home" tab
@@ -1163,6 +1170,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I perform quick search for "Record Id" in "---home:-:internalHomePendingTaskTableId---" panel
     And I click on "Start" icon for "Record Id" inside flex table with id "---home:-:internalHomePendingTaskTableId---"
     When I click on "Accept" in the page details
+    And I refresh the page
     Then I see status in Progress-bar is "Accepted" and is "dark blue"
 
   @72345 @submitApplication @ProdSan1
@@ -1201,6 +1209,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I navigate to "Quickview" sub tab in split screen
     And I click on "Splitview" icon for "Standard Assurances Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
     And I click on "Edit" in the split screen page details
+    And I pause execution for "10" seconds
     When I enter "Form Fields 1" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
     And I wait for "3" seconds
@@ -1210,6 +1219,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click on "Splitview" icon for "Program Application Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
     And I click on "Edit" in the split screen page details
     And I wait for "2" seconds
+    And I pause execution for "10" seconds
     When I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
     And I wait for "3" seconds
@@ -1557,6 +1567,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I click modal button "Save"
     And I click on submit review
     And I wait for "1" seconds
+    #To do - Remove comment for package execution
 #    When I click modal button "Close"
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Grants" tab
@@ -1751,6 +1762,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:activeGrantsTableId---"
     And I enter "Grant_Creation1" values from "Award_Field_Values.xlsx"
     And I click modal button "Continue"
+    And I pause execution for "4" seconds
     And I enter "Grant_Edition" values from "Award_Field_Values.xlsx"
     When I click modal button "Save and Continue"
     And I navigate to "Subawards" sub tab
@@ -1797,6 +1809,8 @@ Feature: Validate sanity testing of Complete Business Flow
     When I click modal button "Save"
     And I pause execution for "5" seconds
     And I click on submit review
+    #To do remove comment for package execution
+    When I close "Enter Review" modal by clicking the top right x button
 #    When I click modal button "Close"
     When I re-login to "As a Grantor" app as "DynamicUser" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -2094,6 +2108,7 @@ Feature: Validate sanity testing of Complete Business Flow
   Scenario Outline: Validate the Scheduled Payment Request happy path and the status changes to 'Paid' and is green
     And I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Formula_By_Applicant"
     Given I delete the record "<Award Name>" from the object "Payment Request"
+    Given I delete the record "<Award Name>" from the object "Payment Request"
     When I create a post award record "PaymentRequest" for the Award "<Award Name>" having object api name as "PaymentRequest__c"
     And I am on "SUBPORTAL" portal
     When I login to "Grants Portal" app as "SPI3" user
@@ -2113,6 +2128,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I close "Add Line Items" modal by clicking the top right x button
     And I click on "Submit to Grantor" in the page details
     And I wait for "2" seconds
+    And I pause execution for "4" seconds
     Then I softly see field "Status" as "Submitted to Grantor"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -2148,6 +2164,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I click modal button "Save"
     And I pause execution for "2" seconds
     When I click modal button "Close"
+    And I refresh the page
     Then I see status in Progress-bar is "Paid" and is "dark blue"
     Examples:
       | Award Name                            | Grant Name                            |
@@ -2185,6 +2202,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click on "Save" in the split screen page details
 #    And I click on "Back" in the page details
     When I click on "Submit to Grantor" in the page details
+    And I pause execution for "5" seconds
     Then I softly see field "Status" as "Submitted to Grantor"
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -2562,6 +2580,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I collapse nested table containing column value "Automation Finding"
     When I click on "Submit to Grantor" in the page details
     And I wait for "3" seconds
+    And I pause execution for "4" seconds
     Then I softly see field "Status" as "Submitted to Grantor"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -3012,6 +3031,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I close "Associate Contacts" modal by clicking the top right x button
     When I click on "Submit to Grantor" in the page details
     And I wait for "3" seconds
+    And I pause execution for "4" seconds
     Then I softly see field "Status" as "Submitted to Grantor"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
@@ -3249,6 +3269,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I wait for "3" seconds
     And I save the field labeled "New Budget Period End Date" as "updatedBudgetPeriodDate"
     And I click on "Submit to Grantor" in the page details
+    And I pause execution for "5" seconds
     Then I softly see field "Status" as "Submitted to Grantor"
     When I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
     And I navigate to "Grants" tab
@@ -3320,6 +3341,8 @@ Feature: Validate sanity testing of Complete Business Flow
       | {SavedValue:PM Username} | Step 1            |
     When I get the "EGMS ID"
     And I click on "Send to Subrecipient" in the page details
+    And I refresh the page
+    And I pause execution for "5" seconds
     Then I softly see field "Status" as "Sent to Subrecipient"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
@@ -3435,6 +3458,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I close "Add Line Items" modal by clicking the top right x button
     And I wait for "2" seconds
     And I click on "Submit to Grantor" in the page details
+    And I pause execution for "5" seconds
     Then I softly see field "Status" as "Submitted to Grantor"
     When I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
     And I navigate to "Grants" tab
@@ -4029,6 +4053,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I close the tab
     And I wait for "2" seconds
     When I click on "Submit to Grantor" in the page details
+    And I pause execution for "5" seconds
     Then I softly see field "Status" as "Submitted to Grantor"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Home" tab
