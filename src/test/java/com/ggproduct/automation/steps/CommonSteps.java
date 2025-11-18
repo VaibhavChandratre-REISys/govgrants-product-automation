@@ -2,7 +2,9 @@ package com.ggproduct.automation.steps;
 
 import com.ggproduct.automation.projectmanager.ProjectManager;
 import com.ggproduct.automation.webservices.ProjectWebServices;
+import com.helperPackage.controller.DeviceBucket;
 import com.helperPackage.handlers.govgrants;
+import com.helperPackage.objects.InstanceRecording;
 import com.helperPackage.register.I;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
@@ -165,6 +167,11 @@ public class CommonSteps {
         projectManager.clickOnHyperlinkForTheFieldContainingValue(fieldAPIName, Value);
     }
 
+    @And("I get current URL")
+    public void iGetCurrentURL() {
+        String currentURL = (InstanceRecording.getInstance(DeviceBucket.class)).getDriver().getCurrentUrl();
+        System.out.println("current URL : " + currentURL);
+    }
 }
 
 
