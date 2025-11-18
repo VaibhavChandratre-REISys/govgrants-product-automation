@@ -25727,7 +25727,6 @@ Feature: Amendment Request scenarios without background
   @543813 @ValidateThresholdCopyfromOldtoNewAwardonAmendment
   Scenario: Validate Threshold Copy from Old to New Award on Amendment
     And I activated standalone subaward "Automation Runtime Award" with properties "BUDGE_REDIRECTION_FIFTEEN_PERCENT-Automation EXE user" of type "Competitive"
-    And I halt execution
     Given I am on "SUBPORTAL" portal
     When I login to "Grants Portal" app as "SPI3" user
     And I navigate to "Grants" tab
