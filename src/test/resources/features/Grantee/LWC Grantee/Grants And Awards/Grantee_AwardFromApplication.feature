@@ -6990,3 +6990,100 @@ Feature: Validate all scenarios for Grantee Award from Application
       | To                        | Subject            | Body            |
       | pm.automation@yopmail.com | Automation Subject | Automation Body |
     When I click modal button "Close"
+
+ @482430 @validatewithpouserwhenuseractivatetheawardthenusershouldabletoseethecorrectvaluesongrant&Award
+ Scenario: Verify as PO user when user activate the award then user should able to see the correct values on grant & Award
+   And I create "Manual" qualified lead for title "Automation Runtime Opportunity" and opportunity number "Automation Runtime" with properties "default-Grantee PO user"
+   When I login to "Grantee" app as "GRANTEE PO" user
+   And I navigate to "Opportunities" tab
+   When I navigate to "Qualified" content inside "Leads" subheader on left panel
+   And I click toggle button to select "Qualified Leads - All"
+   When I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:qualifiedLeadTableId---" panel
+   And I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside flex table with id "---grantee_tableId:-:qualifiedLeadTableId---" without waiting for record
+   When I click on "Convert to Opportunity" in the page details
+   And I save the field labeled "EGMS ID" as "opportunityEGMSID"
+   And I create opportunity with state "Approved" for opportunity number "{SavedValue:Automation Runtime}" with properties "default-Grantee PO user"
+   And I create Application "{SavedValue:Automation Runtime}" with state "Submitted to Grantor" for opportunity number "{SavedValue:Automation Runtime}" with properties "default-Grantee PO user"
+   And I "Created" award from application for opportunity "{SavedValue:Automation Runtime}" for title "{SavedValue:Automation Runtime Opportunity}" with properties "default-Grantee PO user"
+   And I updated award from application for title "{SavedValue:Automation Runtime Opportunity}" with properties "default"
+   And I navigate to "Grants" tab
+   When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+   And I click toggle button to select "Grants - All"
+   When I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:GrantsTable---" panel
+   And I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
+   When I navigate to "Awards" sub tab
+   And I click on "View" icon for "Created" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
+   And I navigate to "Overview" sub tab
+   And I save the field labeled "Budget Period" as "BudgetPeriod"
+   And I save the field labeled "Award Issue Date" as "AwardIssueDate"
+   And I save the field labeled "Grant Award Number" as "GrantAwardNumber"
+   And I save the field labeled "EGMS ID" as "AwardEGMSID"
+   And I navigate to "Projections" sub tab
+   And I save the field labeled "Project Period Start Date" as "ProjectPeriodStartDate"
+   And I save the field labeled "Project Period End Date" as "ProjectPeriodEndDate"
+   And I save the field labeled "Budget Period Start Date" as "BudgetPeriodStartDate"
+   And I save the field labeled "Budget Period End Date" as "BudgetPeriodEndDate"
+   And I wait for "2" seconds
+   When I navigate to "Files" sub tab
+   And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:awardAddFilesTableId---"
+   And I upload attachment without random number "Attachment.pdf" of type "Interim Award Document" from computer
+   When I click modal button "Close"
+   And I activate the award for title "{SavedValue:Automation Runtime Opportunity}"
+   When I re-login to "Grantee" app as "GRANTEE PO" user on "INTERNAL" portal
+   And I navigate to "Grants" tab
+   When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+   And I click toggle button to select "Grants - All"
+   When I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:GrantsTable---" panel
+   And I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
+   And I save the field labeled "EGMS ID" as "GrantEGMSID"
+   And I save the field labeled "Grant Number" as "GrantNumber"
+   When I navigate to "Awards" sub tab
+   And I click on "View" icon for "Activated" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
+   And I navigate to "Projections" sub tab
+   And I wait for "3" seconds
+   Then I softly see "Project Period Details" page block displayed
+   Then I softly see "Budget Period Details" page block displayed
+   Then I softly see "Focus Area" page block displayed
+   Then I softly see "Award Budget" page block displayed
+   Then I softly see "Program Income" page block displayed
+   Then I softly see "Indirect Rates" page block displayed
+   Then I softly see field "Project Period Start Date" as "{SavedValue:ProjectPeriodStartDate}"
+   Then I softly see field "Project Period End Date" as "{SavedValue:ProjectPeriodEndDate}"
+   Then I softly see field "Budget Period Start Date" as "{SavedValue:BudgetPeriodStartDate}"
+   Then I softly see field "Budget Period End Date" as "{SavedValue:BudgetPeriodEndDate}"
+   Then I softly see value "Automation Permanent Focus Area" for title "Title" inside table "---grantee_tableId:-:ProjectTableId---"
+   Then I softly see "Award  Budget" in flex table header "---grantee_tableId:-:AwardBudgetTableId---"
+   Then I softly see "Cash Match" in flex table header "---grantee_tableId:-:AwardBudgetTableId---"
+   Then I softly see "Other Leverage" in flex table header "---grantee_tableId:-:AwardBudgetTableId---"
+   Then I softly see "Total Project Cost" in flex table header "---grantee_tableId:-:AwardBudgetTableId---"
+   Then I softly see value "$6,000.00" for title "Award  Budget" against the value "Construction" inside table "---grantee_tableId:-:AwardBudgetTableId---"
+   Then I softly see value "$600.00" for title "Cash Match" against the value "Construction" inside table "---grantee_tableId:-:AwardBudgetTableId---"
+   Then I softly see value "$500.00" for title "Non-Cash Match" against the value "Construction" inside table "---grantee_tableId:-:AwardBudgetTableId---"
+   Then I softly see value "$1,100.00" for title "Total Match" against the value "Construction" inside table "---grantee_tableId:-:AwardBudgetTableId---"
+   Then I softly see value "$100.00" for title "Other Leverage" against the value "Construction" inside table "---grantee_tableId:-:AwardBudgetTableId---"
+   Then I softly see value "$7,200.00" for title "Total Project Cost" against the value "Construction" inside table "---grantee_tableId:-:AwardBudgetTableId---"
+   When I navigate to "Actuals" sub tab
+   Then I softly see "Financials Summary" page block displayed
+   Then I softly see "Expenditure Detail" page block displayed
+   Then I softly see "Program Income Revenue by Focus Area" page block displayed
+   Then I softly see "Drawdown By Award" page block displayed
+   Then I softly see value "$6,000.00" for title "Award Budget" against the value "Construction" inside table "---grantee_tableId:-:ExpenditureDetailsTableId---"
+   Then I softly see value "$0.00" for title "Spent to Date" against the value "Construction" inside table "---grantee_tableId:-:ExpenditureDetailsTableId---"
+   Then I softly see value "$0.00" for title "Carry-Forward" against the value "Construction" inside table "---grantee_tableId:-:ExpenditureDetailsTableId---"
+   Then I softly see value "$6,000.00" for title "Remaining Budget" against the value "Construction" inside table "---grantee_tableId:-:ExpenditureDetailsTableId---"
+   Then I softly see value "$0.00" for title "Cash Match" against the value "Construction" inside table "---grantee_tableId:-:ExpenditureDetailsTableId---"
+   Then I softly see value "$0.00" for title "Program Income Expenditures" against the value "Construction" inside table "---grantee_tableId:-:ExpenditureDetailsTableId---"
+   When I navigate to "Overview" sub tab
+   And I click on hyperlink containing value "{SavedValue:GrantEGMSID}"
+   And I wait for "2" seconds
+   Then I softly see field "Grant Number" as "{SavedValue:GrantNumber}"
+   And I navigate to "Financials" sub tab
+   Given I expand nested table containing column value "BP01"
+   Then I softly see value "$6,000.00" for title "Awarded Budget" against the value "Construction" inside table "---grantee_tableId:-:grantBudgetCategoryTableId---"
+   Then I softly see value "$600.00" for title "Cash Match" against the value "Construction" inside table "---grantee_tableId:-:grantBudgetCategoryTableId---"
+   Then I softly see value "$500.00" for title "Non-Cash Match" against the value "Construction" inside table "---grantee_tableId:-:grantBudgetCategoryTableId---"
+   Then I softly see value "$1,100.00" for title "Total Match" against the value "Construction" inside table "---grantee_tableId:-:grantBudgetCategoryTableId---"
+   Then I softly see value "$100.00" for title "Other Leverage" against the value "Construction" inside table "---grantee_tableId:-:grantBudgetCategoryTableId---"
+   Then I softly see value "$7,200.00" for title "Total Project Cost" against the value "Construction" inside table "---grantee_tableId:-:grantBudgetCategoryTableId---"
+   When I navigate to "Awards" sub tab
+   Then I softly see value "Activated" for title "Status" against the value "{SavedValue:AwardEGMSID}" inside table "---grantee_tableId:-:GrantsAwardsRevisionTableId---"

@@ -3243,6 +3243,8 @@ public class GrantorPayloads {
                 return payloadForTwoStepApprover(json, module);
             case "TWO_STEP_APPROVER_PO_OWNER":
                 return payloadForTwoStepApproverPOOwner(json, module);
+            case "PREAPPLICATION_FOUR_FOCUS_AREA":
+                return payloadForPreApplicationFourFocusArea(json);
             default:
                 return json;
         }
@@ -3285,6 +3287,17 @@ public class GrantorPayloads {
         JsonArray pre = new JsonArray();
         pre_application.addProperty("BudgetLevel", "Line Item Budget");
         pre.add(pre_application);
+        json.add("preAppAndAppData", pre);
+        return json;
+    }
+    private JsonObject payloadForPreApplicationFourFocusArea(JsonObject json) {
+        JsonObject pre_application = json.getAsJsonArray("preAppAndAppData").get(0).getAsJsonObject();
+        JsonArray pre = new JsonArray();
+        JsonArray focusAreas = new JsonArray();
+        focusAreas.add("Automation Permanent Focus Area2");
+        focusAreas.add("Automation Permanent Focus Area3");
+        focusAreas.add("Automation Permanent Focus Area4");
+        pre_application.add("focusAreas", focusAreas);
         json.add("preAppAndAppData", pre);
         return json;
     }

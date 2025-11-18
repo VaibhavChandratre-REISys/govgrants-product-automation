@@ -2133,4 +2133,51 @@ Feature: Validate all scenarios for Pre-Applications Grants Gov
     And I click on "View" icon for "Attachment.pdf" inside flex table with id "---grantee_tableId:-:preApplicationAddFileTableId---"
     Then I softly see the image "Attachment.pdf" in page detail
 
-
+  @472431_1 @validatethatPM(RecordOwner)userseeCreateApplicationbuttonagaininthesameorganizationontherelatedopportunity/Preapplicationonceapplicationisdeleted
+  Scenario: Validate that PM(Record Owner) user see Create Application button again in the same organization on the related opportunity/Preapplication once application is deleted
+    Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityWithAllFormMendatory}"
+    And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default"
+    Given I login to "Grantee" app as "GRANTEE PM" user
+    And I navigate to "Opportunities" tab
+    When I navigate to "Qualified" content inside "Leads" subheader on left panel
+    And I click toggle button to select "Qualified Leads - All"
+    When I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:qualifiedLeadTableId---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside flex table with id "---grantee_tableId:-:qualifiedLeadTableId---" without waiting for record
+    When I click on "Convert to Opportunity" in the page details
+    And I save the field labeled "EGMS ID" as "opportunityEGMSID"
+    And I create opportunity with state "Approved" for opportunity number "CAS-HHS0000660610" with properties "PRE_APPLICATION_YES"
+    When I re-login to "Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
+    And I navigate to "Opportunities" tab
+    And I navigate to "Not Converted" content inside "Opportunities" subheader on left panel
+    When I click toggle button to select "Opportunities Not Converted to Application - All"
+    And I perform quick search for "{SavedValue:opportunityEGMSID}" in "---grantee_tableId:-:OpportunityNotConvertedToApplication---" panel
+    When I click on "View" icon for "{SavedValue:opportunityEGMSID}" inside table
+    Then I softly can see top right button "Create Pre-Application" in page detail
+    When I click on "Create Pre-Application" in the page details
+    And I wait for "2" seconds
+    And I click modal button "Save and Continue"
+    And I navigate to "Overview" sub tab
+    And I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "PreappEGMSID"
+    When I navigate to "Applications" tab
+    And I navigate to "Pre-Applications" content inside "Applications" subheader on left panel
+    When I click toggle button to select "Pre-Applications - All"
+    And I perform quick search for "{SavedValue:PreappEGMSID}" in "---grantee_tableId:-:PreApplication---" panel
+    When I click on "Delete" icon for "{SavedValue:PreappEGMSID}" inside table
+    Then I softly see confirmation box with body "Are you sure you want to permanently delete the draft pre-application?" is displayed
+    When I click modal button "OK"
+    And I wait for "3" seconds
+    When I perform quick search for "{SavedValue:PreappEGMSID}" in "---grantee_tableId:-:PreApplication---" panel
+    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:PreApplication---"
+    And I navigate to "Opportunities" tab
+    And I navigate to "Not Converted" content inside "Opportunities" subheader on left panel
+    When I click toggle button to select "Opportunities Not Converted to Application - All"
+    And I perform quick search for "{SavedValue:opportunityEGMSID}" in "---grantee_tableId:-:OpportunityNotConvertedToApplication---" panel
+    When I click on "View" icon for "{SavedValue:opportunityEGMSID}" inside table
+    Then I softly can see top right button "Create Pre-Application" in page detail
+    When I click on "Create Pre-Application" in the page details
+    And I wait for "2" seconds
+    And I click modal button "Save and Continue"
+    And I navigate to "Overview" sub tab
+    And I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "PreappEGMSID"
