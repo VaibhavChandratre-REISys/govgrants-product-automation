@@ -25751,10 +25751,10 @@ Feature: Amendment Request scenarios without background
     And I save the field labeled "EGMS ID" as "BUDGETREDIRECTIONID"
     And I edit the following rows inline in flex table with id "---amendment:-:budgetChangeTableId---" by clicking "Edit" :
       | Category Name | Revised Award Amount |
-      | Construction  | 425                  |
+      | Construction  | 850                  |
     And I edit the following rows inline in flex table with id "---amendment:-:budgetChangeTableId---" by clicking "Edit" :
       | Category Name  | Revised Award Amount |
-      | Indirect costs | 75                   |
+      | Indirect costs | 150                  |
     And I click on "Submit to Grantor" in the page details
     Then I see field "Status" as "Submitted to Grantor"
     When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
@@ -25871,7 +25871,7 @@ Feature: Amendment Request scenarios without background
     And I enter value "20" into field "BudgetRedirectionThreshhold__c"
     When I click on "Save" in the page details
     And I wait for "3" seconds
-    And I save the field labeled "Budget Redirection Threshold %" as "BudgetRedirectionThreshold%"
+    And I save the field labeled "Budget Redirection Threshold" as "BudgetRedirectionThreshold%"
     And I save the field labeled "EGMS ID" as "SOWAMENDMENTREQUEST"
     And I save the field labeled "Proposed Budget Period Start Date" as "PBPSD"
     And I save the field labeled "Proposed Budget Period End Date" as "PBPED"
