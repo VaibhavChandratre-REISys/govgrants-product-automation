@@ -11148,7 +11148,7 @@ Feature: Validate all scenarios of grants and award without background
     Then I softly see field "Budget Redirection Threshold %" as "10.00%" in "Budget Summary" pageblock
     Then I softly see that "Budget Redirection Threshold %" rendered in view mode only
 
-  @543818 @ValidateErrorMessageforExceedingBudgetRedirectionThresholdonAward
+  @543818 @543825 @ValidateErrorMessageforExceedingBudgetRedirectionThresholdonAward
   Scenario: Validate Error Message for Exceeding Budget Redirection Threshold on Award
     When I login to "Grantor" app as "EXE" user
     And I navigate to "Grants" tab
@@ -11176,3 +11176,14 @@ Feature: Validate all scenarios of grants and award without background
     Then I softly see the following messages in the page details contains:
       | Budget Redirection Threshold must be between 0% and 100%. Please enter a valid value. |
 
+  @543831 @ValidateBudgetRedirectionThresholdFieldHiddenonGrantLayout
+  Scenario: Validate Budget Redirection Threshold % Field Hidden on Grant Layout
+    When I login to "Grantor" app as "EXE" user
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:activeGrantsTableId---"
+    And I wait for "2" seconds
+    And I enter "GrantFields1" values from "Award_Field_Values.xlsx"
+    And I click modal button "Continue"
+    And I wait for "2" seconds
+    Then I softly see field on modal "Budget Redirection Threshold (%)" inside page block
