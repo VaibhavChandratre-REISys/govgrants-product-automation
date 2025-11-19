@@ -2531,11 +2531,8 @@ Feature: Validate all scenarios of every modules flow
 
   @testgranteesf
   Scenario:
-    When I login to "Grantee" app as "GRANTEE EXE" user
+    And I published "Competitive" type announcement having name "Automation Runtime Announcement Application Review" and properties "default"
+    And I initiated an application review for application "{SavedValue:Automation Runtime Announcement Application Review}" on announcement "{SavedValue:Automation Runtime Announcement Application Review}" with properties "default"
+    Given I created award from approved FDM with announcement "{SavedValue:Automation Runtime Announcement Application Review}" and properties "NO_BUDGET_REDIRECTION_THRESHOLD"
+    And I activate award from FDM having application name "{SavedValue:Automation Runtime Announcement Application Review}"
     And I halt execution
-    And I navigate to "Grants" tab
-    When I navigate to "Funding Sources" content inside "Setup" subheader on left panel
-    And I click toggle button to select "External Funding Sources - All"
-    When I perform quick search for "FS-NGO-066" in "---grantee_tableId:-:fundingSourceGrantExternalTableId---" panel
-    Then I softly see value "$60,000.00" for title "Appropriation Amount" against the value "FS-NGO-066" inside table "---grantee_tableId:-:fundingSourceGrantExternalTableId---"
-    Then I softly see value "Active" for title "Status" against the value "FS-NGO-066" inside table "---grantee_tableId:-:fundingSourceGrantExternalTableId---"

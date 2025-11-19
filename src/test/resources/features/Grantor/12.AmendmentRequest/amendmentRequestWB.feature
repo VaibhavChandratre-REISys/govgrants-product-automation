@@ -25873,7 +25873,7 @@ Feature: Amendment Request scenarios without background
     When I click on "Save" in the page details
     And I wait for "3" seconds
     Then I softly see field "Budget Redirection Threshold" as "15.00%"
-    Then I softly see field "Budget Redirection Threshold" as "{SavedValue:BudgetRedirectionThresholdAward%}"
+    Then I softly see field "Budget Redirection Threshold" as "{SavedValue:BudgetRedirectionThresholdAward}"
 
   @543822 @ValidatethatusershouldseevalidationifenterExceeding100valueinBudgetRedirectionthresholdfield
   Scenario: Validate that user should see validation if enter Exceeding 100% value in Budget Redirection threshold field
@@ -25930,7 +25930,7 @@ Feature: Amendment Request scenarios without background
 
   @545383 @ValidateAwardfromFDMValidateThresholdfiledvalueshouldbecopiedtoPeriodicRenewalfromFDMlayout
   Scenario Outline: Validate Award from FDM Threshold filed value should be copied to Periodic Renewal from FDM layout
-    And I published "Competitive" type announcement having name "Automation Runtime Announcement Application Review" and properties "default-Automation EXE user"
+    And I published "Competitive" type announcement having name "Automation Runtime Announcement Application Review" and properties "NO_RISK_ASSESSMENT-Automation EXE user"
     And I initiated an application review for application "{SavedValue:Automation Runtime Announcement Application Review}" on announcement "{SavedValue:Automation Runtime Announcement Application Review}" with properties "default"
     And I login to "Grantor" app as "EXE" user
     When I navigate to "Applications" tab
@@ -26147,8 +26147,8 @@ Feature: Amendment Request scenarios without background
     And I save the field labeled "Budget Redirection Threshold %" as "BudgetRedirectionThreshold%"
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "GrantorReviewStepRolesandResponsibilities" by clicking "New" :
-      | Name                         | FDM    |
-      | {SavedValue:EXE Username}    | Step 1 |
+      | Name                      | FDM    |
+      | {SavedValue:EXE Username} | Step 1 |
     And I navigate to "Funding Decision Memo" sub tab
     And I edit the following rows inline in flex table with id "FundingDecisionMemoApplications" by clicking "Edit" :
       | Application Title   | Recommended Budget | Total Commitment Amount | Recommend for Funding | Comments    |
@@ -26159,15 +26159,64 @@ Feature: Amendment Request scenarios without background
     And I "Approve" in the approval decision
     And I wait for "3" seconds
     Then I softly see field "Status" as "Approved"
-    Given I created award from approved FDM with announcement "<Announcement Name>"
-    And I activate award from FDM having application name "<Announcement Name>"
+    And I click on "Create Subaward" icon for "<Announcement Name>" inside flex table with id "---subAwardFromFDM:-:recommendedAppTableId---" without waiting for record
+    And I enter value "Automation Test Description" into field "GrantAwardDescription__c"
+    And I enter "Edition" values from "Award_Field_Values.xlsx"
+    And I click on "Save" in the page details
+    And I get the "EGMS ID"
+    And I navigate to "Budget" sub tab
+    When I edit the following rows inline in flex table with id "---subAwardFromFDM:-:AwardFundingAccountTableId---" by clicking "Edit" :
+      | Funding Account             | Encumbrance |
+      | {SavedValue:fundingAccount} | 1000        |
+    When I navigate to "Performance" sub tab
+    And I edit the following rows inline in flex table with id "---subAwardFromFDM:-:kpiTableId---" by clicking "Edit" :
+      | Title                    | Target |
+      | Automation Permanent KPI | 10     |
+    And I navigate to "Terms" sub tab
+    And I click on "Edit" icon for "Payment Request" inside flex table with id "---subAwardFromFDM:-:paymentRequestSchedulesTableId---" without waiting for record
+    And I enter in modal "Payment Request Schedule_FDM" values from "Award_Field_Values.xlsx"
+    And I click modal button "Save"
+    And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardFromFDM:-:progressReportSchedulesTableId---" without waiting for record
+    And I enter in modal "Progress Report Schedule_FDM" values from "Award_Field_Values.xlsx"
+    And I click modal button "Save"
+    And I navigate to "Responsibilities" sub tab
+    When I enter the following values into flex table with id "---subAwardFromFDM:-:awardApproverTableId---" by clicking "New" :
+      | Name                      | Award  |
+      | {SavedValue:EXE Username} | Step 1 |
+    And I navigate to "Budget" sub tab
+    When I click on top right button "Associate" in flex table with id "---subAwardStandAlone:-:fundingAccountsTableId---"
+    When I click "Associate" after selection of "Automation Permanent Funding Account" in the table "---subAwardStandAlone:-:awardFundingAccountsTableId---"
+    When I close "Associate Funding Accounts" modal by clicking the top right x button
+    And I refresh the page
+    And I navigate to "Budget" sub tab
+    When I edit the following rows inline in flex table with id "---subAwardStandAlone:-:fundingAccountsTableId---" by clicking "Edit" :
+      | Funding Account             | Encumbrance |
+      | {SavedValue:fundingAccount} | 1000        |
+    When I navigate to "Terms" sub tab
+    When I click on top right button "Associate Mandatory Terms and Conditions" in flex table with id "---subAwardStandAlone:-:termsndConditionsTableId---"
+    And I click on "Submit for Approval" in the page details
+    Then I see field "Status" as "Submitted for Approval"
+    When I "Approve" in the approval decision
+    And I wait for "3" seconds
+    When I click on "Send to Subrecipient" in the page details
+    And I wait for "3" seconds
+    When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
+    And I navigate to "Grants" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "Record Id" in "---subAwardFromFDM:-:pendingTaskTableId---" panel
+    When I click on "Start" icon for "Record Id" inside table
+    And I click on "Accept after Approval" in the page details
+    And I wait for "3" seconds
+    When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - All"
-    When I perform quick search for "{SavedValue:Automation Runtime Award}" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
-    And I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside table
+    When I perform quick search for "<Announcement Name>" in "---subAwardFromFDM:-:grantsTableId---" panel
+    And I click on "View" icon for "<Announcement Name>" inside flex table with id "---subAwardFromFDM:-:grantsTableId---" without waiting for record
     When I navigate to "Subawards" sub tab
-    And I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
+    And I click on "View" icon for "<Announcement Name>" inside flex table with id "---subAwardFromFDM:-:subawardsTableId---" without waiting for record
+    And I click on "Activate" in the page details
+    And I wait for "3" seconds
     And I save the field labeled "EGMS ID" as "AwardEGMSID"
     And I navigate to "Management" sub tab
     And I click on top right button "New" in flex table with id "---amendment:-:amendmentRequestTableId---"
