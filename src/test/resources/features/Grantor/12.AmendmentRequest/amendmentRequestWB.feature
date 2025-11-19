@@ -26299,7 +26299,7 @@ Feature: Amendment Request scenarios without background
     Then I softly see field "Budget Redirection Threshold" as "20.00%"
     Then I softly see field "Budget Redirection Threshold" as "{SavedValue:BudgetRedirectionThreshold%}"
 
-  @543819 @ValidateVisibilityofBudgetRedirectionThresholdforSubrecipients
+  @543819 @543814 @ValidateVisibilityofBudgetRedirectionThresholdforSubrecipients
   Scenario: Validate Visibility of Budget Redirection Threshold for Subrecipients
     And I activated standalone subaward "Automation Runtime Award" with properties "default-Automation EXE user" of type "Competitive"
     Given I am on "SUBPORTAL" portal
