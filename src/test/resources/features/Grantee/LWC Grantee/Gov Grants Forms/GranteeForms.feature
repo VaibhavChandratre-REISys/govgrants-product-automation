@@ -13867,7 +13867,6 @@ Feature: Grantee Forms Scenario
     When I click on "Convert to Opportunity" in the page details
     And I save the field labeled "EGMS ID" as "opportunityEGMSID"
     And I create opportunity with state "Approved" for opportunity number "CAS-HHS0000660610" with properties "default-Sarah PM"
-    When I re-login to "Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
     And I create Application "{SavedValue:Automation Runtime Opportunity}" with state "Created" for opportunity number "CAS-HHS0000660610" with properties "DAVID_FO_APPROVER"
     When I navigate to "Applications" tab
     And I navigate to "Applications" content inside "Applications" subheader on left panel
