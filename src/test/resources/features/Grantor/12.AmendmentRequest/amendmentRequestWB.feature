@@ -26326,3 +26326,31 @@ Feature: Amendment Request scenarios without background
     And I save the field labeled "EGMS ID" as "BUDGETREDIRECTIONID"
     Then I softly see "Budget Redirection Threshold" inside page block detail
     Then I softly see field "Budget Redirection Threshold (%)" as "10.00%"
+
+  @545402 @ValidateRecordowneriseditableBudgetRedirectionThresholdonPeriodicRenewal
+  Scenario: Validate Record owner is editable Budget Redirection Threshold on Periodic Renewal
+    And I activated standalone subaward "Automation Runtime Award" with properties "default-Automation EXE user" of type "Competitive"
+    When I login to "Grantor" app as "EXE" user
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click toggle button to select "Grants - All"
+    When I perform quick search for "{SavedValue:Automation Runtime Award}" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside table
+    When I navigate to "Subawards" sub tab
+    And I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
+    And I save the field labeled "EGMS ID" as "AwardEGMSID"
+    And I navigate to "Budget" sub tab
+    Then I softly see field "Budget Redirection Threshold %" as "10.00%" in "Budget Summary" pageblock
+    And I navigate to "Management" sub tab
+    And I click on top right button "New" in flex table with id "---amendment:-:amendmentRequestTableId---"
+    When I enter "Periodic Renewal" values from "AmendmentRequest_Field_Values.xlsx"
+    And I click modal button "Save and Continue"
+    And I enter "Periodic Renewal Edition" values from "AmendmentRequest_Field_Values.xlsx"
+    Then I softly see fields "BudgetRedirectionThreshhold__c" is in edit mode
+    And I enter value "20" into field "BudgetRedirectionThreshhold__c"
+    When I click on "Save" in the page details
+    And I wait for "3" seconds
+    And I save the field labeled "EGMS ID" as "SOWAMENDMENTREQUEST"
+    Then I softly see that "Budget Redirection Threshold" rendered in view mode only
+    Then I softly see field "Budget Redirection Threshold" as "20.00%"
+    Then I softly see field "Budget Redirection Threshold" as "{SavedValue:BudgetRedirectionThreshold%}"
