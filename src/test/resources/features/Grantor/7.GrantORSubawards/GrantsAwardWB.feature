@@ -11186,11 +11186,10 @@ Feature: Validate all scenarios of grants and award without background
     And I enter "GrantFields1" values from "Award_Field_Values.xlsx"
     And I click modal button "Continue"
     And I wait for "2" seconds
-    Then I softly see field on modal "Budget Redirection Threshold (%)" inside page block
+    Then I softly cannot see field on modal "Budget Redirection Threshold (%)" inside page block
 
   @543817 @ValidateOverrideofBudgetRedirectionThresholdatAwardLevel
   Scenario Outline: Validate Override of Budget Redirection Threshold at Award Level
-    When I login to "Grantor" app as "EXE" user
     And I published "Competitive" type announcement having name "Automation Runtime Announcement Application Review" and properties "NO_RISK_ASSESSMENT-Automation EXE user"
     And I initiated an application review for application "{SavedValue:Automation Runtime Announcement Application Review}" on announcement "{SavedValue:Automation Runtime Announcement Application Review}" with properties "default"
     And I login to "Grantor" app as "EXE" user

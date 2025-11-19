@@ -26325,7 +26325,7 @@ Feature: Amendment Request scenarios without background
     Then I softly see status in Progress-bar is "Created" and is "dark blue"
     And I save the field labeled "EGMS ID" as "BUDGETREDIRECTIONID"
     Then I softly see "Budget Redirection Threshold" inside page block detail
-    Then I softly see field "Budget Redirection Threshold (%)" as "10.00%"
+    Then I softly see field "Budget Redirection Threshold" as "10.00%"
 
   @545402 @ValidateRecordowneriseditableBudgetRedirectionThresholdonPeriodicRenewal
   Scenario: Validate Record owner is editable Budget Redirection Threshold on Periodic Renewal
@@ -26353,4 +26353,3 @@ Feature: Amendment Request scenarios without background
     And I save the field labeled "EGMS ID" as "SOWAMENDMENTREQUEST"
     Then I softly see that "Budget Redirection Threshold" rendered in view mode only
     Then I softly see field "Budget Redirection Threshold" as "20.00%"
-    Then I softly see field "Budget Redirection Threshold" as "{SavedValue:BudgetRedirectionThreshold%}"

@@ -1825,7 +1825,7 @@ public class GrantorPayloads {
      */
     public JsonObject getDefaultPayloadPublishAnnForPlumbingCases(String annType, String annName) {
 
-        String program = "Automation Permanent Internal Program";
+        String program = "Automation Permanent Internal Program for Department of Product";
         JsonObject parent = new JsonObject();
 
         JsonObject ann = new JsonObject();
