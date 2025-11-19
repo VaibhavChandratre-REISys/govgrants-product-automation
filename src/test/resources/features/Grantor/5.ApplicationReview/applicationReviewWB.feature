@@ -22743,6 +22743,8 @@ Feature: Validate all scenarios in the Application Review without background
     When I enter value "-20" into field "BudgetRedirectionThreshhold__c"
     And I click on "Save" in the page details
     And I wait for "2" seconds
+    When I click on "Submit for Approval" in the page details
+    And I wait for "2" seconds
     Then I softly see the following messages in the page details contains:
       | Budget Redirection Threshold must be between 0% and 100%. Please enter a valid value. |
 
