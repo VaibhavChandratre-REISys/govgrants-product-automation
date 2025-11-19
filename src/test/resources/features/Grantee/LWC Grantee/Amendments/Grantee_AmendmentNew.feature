@@ -4038,7 +4038,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
     When I click on "Add Line Items" icon for "Site work" inside flex table with id "---grantee_tableId:-:AmendmentBudgetTableId---" with wait for record
     When I enter the following values into flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---" by clicking "New" :
       | Title     | Narrative     | Awarded Budget | Cash Match |
-      | Site work | The narrative | 1000            | 100         |
+      | Site work | The narrative | 1000           | 100        |
     When I close "Amendment Line Items" modal by clicking the top right x button
     Then I softly see value "$4,000.00" for title "Revised Award Budget" against the value "Construction" inside table "---grantee_tableId:-:AmendmentBudgetTableId---"
     Then I softly see value "$1,000.00" for title "Revised Award Budget" against the value "Site work" inside table "---grantee_tableId:-:AmendmentBudgetTableId---"
@@ -4052,7 +4052,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
     When I click on "Add Line Items" icon for "Site work" inside flex table with id "---grantee_tableId:-:AmendmentBudgetTableId---" with wait for record
     When I enter the following values into flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---" by clicking "New" :
       | Title     | Narrative     | Awarded Budget | Cash Match |
-      | Site work | The narrative | 1000            | 100         |
+      | Site work | The narrative | 1000           | 100        |
     When I close "Amendment Line Items" modal by clicking the top right x button
     Then I softly see value "$4,000.00" for title "Revised Award Budget" against the value "Construction" inside table "---grantee_tableId:-:AmendmentBudgetTableId---"
     Then I softly see value "$1,000.00" for title "Revised Award Budget" against the value "Site work" inside table "---grantee_tableId:-:AmendmentBudgetTableId---"
@@ -4292,8 +4292,8 @@ Feature: Validate all scenarios for Grantee Amendment Request
     Then I softly see value "{SavedValue:AwardEGMSID1}" for title "Original Value" inside field history table
 
     Examples:
-      | Owner          | OwnerType          | UserType       | emailIdTo                         | CreatedBy          | Assertion     |
-      | GRANTEE EXE    | Victor EXE user    | GRANTEE EXE    | victor.exeqagrantee@yopmail.com   | Victor EXE         | softly cannot |
+      | Owner       | OwnerType       | UserType    | emailIdTo                       | CreatedBy  | Assertion     |
+      | GRANTEE EXE | Victor EXE user | GRANTEE EXE | victor.exeqagrantee@yopmail.com | Victor EXE | softly cannot |
 
   @486564 @ValidateKPCTypeARPOusershouldabletoapprovedtheAR&shouldabletocreate&verifyactivatenewaward
   Scenario: Validate KPC Type AR PO user should able to approved the AR & should able to create & verify activate new award
@@ -4531,8 +4531,8 @@ Feature: Validate all scenarios for Grantee Amendment Request
     Then I softly see "Previous Project Cost" in flex table header "---grantee_tableId:-:amendmentLineItemsTableId---"
     Then I softly see "Total Project Cost" in flex table header "---grantee_tableId:-:amendmentLineItemsTableId---"
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---" by clicking "Edit" :
-      | Title        | Narrative     |  Awarded Budget   | Cash Match     | Other Leverage |
-      | Construction | The narrative |   4000            | 400            | 400            |
+      | Title        | Narrative     | Awarded Budget | Cash Match | Other Leverage |
+      | Construction | The narrative | 4000           | 400        | 400            |
     When I close "Amendment Line Items" modal by clicking the top right x button
     Then I softly see "Title" in flex table header "---grantee_tableId:-:amendmentIndirectRateTableId---"
     Then I softly see "Effective from" in flex table header "---grantee_tableId:-:amendmentIndirectRateTableId---"
@@ -4612,7 +4612,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
     And I enter value "10" into field "ApprovedIndirectCostRate__c"
     When I enter values into fields
       | Value | Field                      |
-      | -1000  | RequestedChangeInBudget__c |
+      | -1000 | RequestedChangeInBudget__c |
     When I click on "Save" in the page details
     And I wait for "1" seconds
     And I get the "EGMS ID"
@@ -5155,14 +5155,14 @@ Feature: Validate all scenarios for Grantee Amendment Request
     Then I softly see "Name" in flex table header "---grantee_tableId:-:AmendmentApproverRolesTableId---"
     Then I softly see "Amendment Request" in flex table header "---grantee_tableId:-:AmendmentApproverRolesTableId---"
     When I enter the following values into flex table with id "---grantee_tableId:-:AmendmentApproverRolesTableId---" by clicking "New" :
-      | Name         | Amendment Request |
-      | Sarah PM     | Step 1            |
+      | Name     | Amendment Request |
+      | Sarah PM | Step 1            |
     When I enter the following values into flex table with id "---grantee_tableId:-:AmendmentApproverRolesTableId---" by clicking "New" :
-      | Name        | Amendment Request    |
-      | Victor EXE  | Step 2               |
+      | Name       | Amendment Request |
+      | Victor EXE | Step 2            |
     When I enter the following values into flex table with id "---grantee_tableId:-:AmendmentApproverRolesTableId---" by clicking "New" :
-      | Name          | Amendment Request   |
-      | Grantee PO    | Step 3              |
+      | Name       | Amendment Request |
+      | Grantee PO | Step 3            |
     When I enter the following values into flex table with id "---grantee_tableId:-:AmendmentApproverRolesTableId---" by clicking "New" :
       | Name               | Amendment Request |
       | Danielle FD Garcia | Step 4            |
@@ -5629,8 +5629,8 @@ Feature: Validate all scenarios for Grantee Amendment Request
     Then I softly see value "{SavedValue:AwardEGMSID2}" for title "New Value" inside field history table
     Then I softly see value "{SavedValue:AwardEGMSID}" for title "Original Value" inside field history table
     Examples:
-      | User           | filter             | Owner          |
-      | GRANTEE EXE    | Victor EXE user    | GRANTEE EXE    |
+      | User        | filter          | Owner       |
+      | GRANTEE EXE | Victor EXE user | GRANTEE EXE |
 
   @500061 @ValidateuserabletoIncreasethebudgetinbudgetchangesectiononPeriodicRenewalAmendmentRequest  @P2_Grantee @Gregression2 @PM_Grantee
   Scenario: Validate PM user able to Increase the budget in Budget  change section on Periodic Renewal Amendment Request
@@ -5800,8 +5800,8 @@ Feature: Validate all scenarios for Grantee Amendment Request
     Then I softly see value "{SavedValue:Classification}" for title "Classification" inside table "---grantee_tableId:-:amendmentRequestAddFile---"
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---grantee_tableId:-:AmendmentApproverRolesTableId---" by clicking "New" :
-      | Name       | Amendment Request |
-      | Sarah PM   | Step 1            |
+      | Name     | Amendment Request |
+      | Sarah PM | Step 1            |
     When I enter the following values into flex table with id "---grantee_tableId:-:AmendmentApproverRolesTableId---" by clicking "New" :
       | Name       | Amendment Request |
       | Victor EXE | Step 2            |
@@ -6066,8 +6066,8 @@ Feature: Validate all scenarios for Grantee Amendment Request
     Then I softly see value "{SavedValue:AwardEGMSID2}" for title "New Value" inside field history table
     Then I softly see value "{SavedValue:AwardEGMSID}" for title "Original Value" inside field history table
     Examples:
-      | User        |
-      | GRANTEE PM  |
+      | User       |
+      | GRANTEE PM |
 
   @485272 @validatePOuser(ARrecordowner)cannoteditthefieldsonFundingChangeARisinSubmitforApproval,Approved,SubmittoGrantor,Accepted,NotAccepted,Rejected
   Scenario:Validate PO user (AR record owner) cannot edit the fields on Funding Change AR is in Submit for Approval, Approved, Submit to Grantor, Accepted, Not Accepted, Rejected
@@ -6307,7 +6307,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
     And I click on "Edit" in the page details
     When I enter values into fields
       | Value | Field                      |
-      | 10000  | RequestedChangeInBudget__c |
+      | 10000 | RequestedChangeInBudget__c |
     When I click on "Save" in the page details
     And I wait for "1" seconds
     And I click on "Submit for Approval" in the page details
@@ -6818,7 +6818,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
     And I click on "Edit" in the page details
     When I enter values into fields
       | Value | Field                      |
-      | 10000  | RequestedChangeInBudget__c |
+      | 10000 | RequestedChangeInBudget__c |
     When I click on "Save" in the page details
     And I wait for "1" seconds
     And I click on "Submit for Approval" in the page details
@@ -6976,8 +6976,8 @@ Feature: Validate all scenarios for Grantee Amendment Request
       | Construction  | 2000          |
     When I click on "Add Line Items" icon for "Construction" inside flex table with id "---grantee_tableId:-:AmendmentBudgetTableId---" with wait for record
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---" by clicking "Edit" :
-      | Title          | Narrative     | Awarded Budget | Cash Match | Other Leverage |
-      | Construction   | The narrative | 3000           | 400        | 400            |
+      | Title        | Narrative     | Awarded Budget | Cash Match | Other Leverage |
+      | Construction | The narrative | 3000           | 400        | 400            |
     When I close "Amendment Line Items" modal by clicking the top right x button
     And I wait for "3" seconds
     When I click on "Add Line Items" icon for "Architectural and engineering fees" inside flex table with id "---grantee_tableId:-:AmendmentBudgetTableId---" with wait for record
@@ -7226,8 +7226,8 @@ Feature: Validate all scenarios for Grantee Amendment Request
       | Construction  | 2000          |
     When I click on "Add Line Items" icon for "Construction" inside flex table with id "---grantee_tableId:-:AmendmentBudgetTableId---" with wait for record
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---" by clicking "Edit" :
-      | Title          | Narrative     | Awarded Budget | Cash Match | Other Leverage |
-      | Construction   | The narrative | 0               |     0      |      0       |
+      | Title        | Narrative     | Awarded Budget | Cash Match | Other Leverage |
+      | Construction | The narrative | 0              | 0          | 0              |
     When I close "Amendment Line Items" modal by clicking the top right x button
     And I wait for "3" seconds
     And I click on top right button "New" in flex table with id "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
@@ -7242,7 +7242,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
     And I save the value from row "1" for column name "Title" as "CFTermsCondition" from flex table "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
     When I enter the following values into flex table with id "---grantee_tableId:-:amendmentIndirectRateTableId---" by clicking "New" :
       | Title | Effective from | Effective until | Approved Indirect Cost Rate(%) | Indirect Cost Rate Type |
-      | Rate2 | 30             | 12              | 100                             | Final                   |
+      | Rate2 | 30             | 12              | 100                            | Final                   |
     Then I softly see the following messages in the page details contains:
       | 'Effective from' date should be earlier than 'Effective until' date. |
     When I enter the following values into flex table with id "---grantee_tableId:-:amendmentIndirectRateTableId---" by clicking "New" :
@@ -7252,9 +7252,9 @@ Feature: Validate all scenarios for Grantee Amendment Request
       | The approved indirect cost rate cannot be greater than 100%. |
     When I enter the following values into flex table with id "---grantee_tableId:-:amendmentIndirectRateTableId---" by clicking "New" :
       | Title | Effective from | Effective until | Approved Indirect Cost Rate(%) | Indirect Cost Rate Type |
-      |       |                |                 |                                |                     |
+      |       |                |                 |                                |                         |
     Then I softly see the following messages in the page details contains:
-      | Required fields missing  |
+      | Required fields missing |
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---grantee_tableId:-:AmendmentApproverRolesTableId---" by clicking "New" :
       | Name       | Amendment Request |
@@ -7262,19 +7262,19 @@ Feature: Validate all scenarios for Grantee Amendment Request
     And I click on "Submit for Approval" in the page details
     Then I softly see the following messages in the page details contains:
       | Files Tab- Provide attachment in Files section with classification "Terms and Conditions" if 'Separate Attachment for Terms and Conditions' in Overview tab is selected. |
-      | Overview Tab - Awarded Budget must be greater than $0.  |
-      |  Responsibilities - At least one approver is required   |
+      | Overview Tab - Awarded Budget must be greater than $0.                                                                                                                   |
+      | Responsibilities - At least one approver is required                                                                                                                     |
     When I navigate to "Overview" sub tab
     When I click on "Add Line Items" icon for "Construction" inside flex table with id "---grantee_tableId:-:AmendmentBudgetTableId---" with wait for record
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---" by clicking "Edit" :
-      | Title          | Narrative     | Awarded Budget | Cash Match | Other Leverage |
-      | Construction   | The narrative | 6000           |   10        |     20        |
+      | Title        | Narrative     | Awarded Budget | Cash Match | Other Leverage |
+      | Construction | The narrative | 6000           | 10         | 20             |
     When I close "Amendment Line Items" modal by clicking the top right x button
     And I wait for "3" seconds
     And I click on "Submit for Approval" in the page details
     Then I softly see the following messages in the page details contains:
       | Overview Tab - Carry Forward Amount in the Budget Periods section must be equal to the Difference Amount in Budget Change section. |
-      | Overview Tab - Insufficient match $10.00. The required match for the current budget is $400.00.  |
+      | Overview Tab - Insufficient match $10.00. The required match for the current budget is $400.00.                                    |
 
   @491701 @validateaspmuserimpactofdrawdownbyaward,awardwhichiscreatedthroughCarryforwardamendment(NonConstruction-Withdrawdown/WithoutSpent)
   Scenario: Validate as PM user impact of drawdown By Award, Award which is created through Carry forward amendment (Non Construction - With drawdown /Without Spent) .
@@ -7393,8 +7393,8 @@ Feature: Validate all scenarios for Grantee Amendment Request
       | Construction  | 0             |
     When I click on "Add Line Items" icon for "Construction" inside flex table with id "---grantee_tableId:-:AmendmentBudgetTableId---" with wait for record
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---" by clicking "Edit" :
-      | Title          | Narrative     | Awarded Budget | Cash Match | Other Leverage |
-      | Construction   | The narrative | 7000           | 700        | 400            |
+      | Title        | Narrative     | Awarded Budget | Cash Match | Other Leverage |
+      | Construction | The narrative | 7000           | 700        | 400            |
     When I close "Amendment Line Items" modal by clicking the top right x button
     And I wait for "3" seconds
     And I click on top right button "New" in flex table with id "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
@@ -7600,7 +7600,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
     When I click on "Add Line Items" icon for "Indirect costs" inside flex table with id "---grantee_tableId:-:AmendmentBudgetTableId---" with wait for record
     When I enter the following values into flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---" by clicking "New" :
       | Title          | Narrative     | Awarded Budget | Cash Match |
-      | Indirect costs | The narrative | 2000            | 50         |
+      | Indirect costs | The narrative | 2000           | 50         |
     When I close "Amendment Line Items" modal by clicking the top right x button
     When I click on top right button "Associate" in flex table with id "---grantee_tableId:-:amendmentContactTableId---"
     When I click "Associate" after selection of "David FO" in the table "---grantee_tableId:-:amendmentAssociateContactTableId---"
@@ -7652,12 +7652,12 @@ Feature: Validate all scenarios for Grantee Amendment Request
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---grantee_tableId:-:AmendmentApproverRolesTableId---" by clicking "New" :
       | Name     | Amendment Request |
-      | Sarah PM | NA          |
+      | Sarah PM | NA                |
     When I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "AmendEGMSID"
     And I click on "Submit for Approval" in the page details
     Then I softly see the following messages in the page details contains:
-      | Overview Tab: Provide 'Current Value As Of' for the KPI.   |
+      | Overview Tab: Provide 'Current Value As Of' for the KPI.                                                                                                                 |
       | Overview Tab - The Budgeted Amount cannot be increased or decreased during a Budget Redirection.                                                                         |
       | Overview Tab - Original Awarded budget and Revised budget difference for each focus area must be zero.                                                                   |
       | Overview Tab - The budget redirection threshold for each focus area cannot exceed the budget redirection threshold 10.00%                                                |
@@ -7665,8 +7665,8 @@ Feature: Validate all scenarios for Grantee Amendment Request
       | Files Tab- Provide attachment in Files section with classification "Terms and Conditions" if 'Separate Attachment for Terms and Conditions' in Overview tab is selected. |
       | Responsibilities - At least one approver is required.                                                                                                                    |
     Examples:
-      | UserName         |
-      | Victor EXE user  |
+      | UserName        |
+      | Victor EXE user |
 
   @491723 @491469 @validateusingadminprofileaddedamountfordrawdownandspentchecktheimpactifRecorddecisionselectNotAccepted.
   Scenario Outline: Admin Profile Verify if added amount for drawdown and spent check the impact if Record decision select Not Accepted.
@@ -7975,11 +7975,11 @@ Feature: Validate all scenarios for Grantee Amendment Request
     When I navigate to "Amendments" sub tab
     Then I do not see value "Record Id" for title "{SavedValue:AmendEGMSID1}" inside table "---grantee_tableId:-:AmendmentRequestTableId---"
     Examples:
-      | userName   |
+      | userName      |
       | GRANTEE ADMIN |
 
   @463584 @Verifytheaffectofothertypeamendmentongrants&award
-  Scenario Outline:Other AR - Verify the Affect on grants & Award
+  Scenario:Other AR - Verify the Affect on grants & Award
     And I "Created" standalone subaward "Automation Runtime award" with properties "default"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "THREE_FOCUS_WITH_BUDGET"
     Given I login to "Grantee" app as "GRANTEE PM" user
