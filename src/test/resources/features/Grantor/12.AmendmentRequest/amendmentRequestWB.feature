@@ -25814,7 +25814,7 @@ Feature: Amendment Request scenarios without background
     Then I softly see the following messages in the page details contains:
       | Budget Redirection Threshold must be between 0% and 100%. Please enter a valid value. |
 
-  @543830 @ValidateCheckErrorMessageforThresholdExceedingmorethan10onAmendmentaftersetting10onAward
+  @543830 @543821 @ValidateCheckErrorMessageforThresholdExceedingmorethan10onAmendmentaftersetting10onAward
   Scenario: Validate Check Error Message for Threshold Exceeding more than 10% on Amendment after setting 10% on Award
     And I activated standalone subaward "Automation Runtime Award" with properties "default-Automation EXE user" of type "Competitive"
     Given I am on "SUBPORTAL" portal
@@ -26159,11 +26159,6 @@ Feature: Amendment Request scenarios without background
       | Name                      | Award  |
       | {SavedValue:EXE Username} | Step 1 |
     And I navigate to "Budget" sub tab
-    When I click on top right button "Associate" in flex table with id "---subAwardStandAlone:-:fundingAccountsTableId---"
-    When I click "Associate" after selection of "Automation Permanent Funding Account" in the table "---subAwardStandAlone:-:awardFundingAccountsTableId---"
-    When I close "Associate Funding Accounts" modal by clicking the top right x button
-    And I refresh the page
-    And I navigate to "Budget" sub tab
     When I edit the following rows inline in flex table with id "---subAwardStandAlone:-:fundingAccountsTableId---" by clicking "Edit" :
       | Funding Account             | Encumbrance |
       | {SavedValue:fundingAccount} | 1000        |
@@ -26272,3 +26267,62 @@ Feature: Amendment Request scenarios without background
 
   @543828 @ValidatethatnonrecordownerdonothaveeditaccessofBudgetRedirectionThresholdfield
   Scenario: Validate that non record owner do not have edit access of Budget Redirection Threshold field
+    And I activated standalone subaward "Automation Runtime Award" with properties "default-Automation EXE user" of type "Competitive"
+    When I login to "Grantor" app as "EXE" user
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click toggle button to select "Grants - All"
+    When I perform quick search for "{SavedValue:Automation Runtime Award}" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside table
+    When I navigate to "Subawards" sub tab
+    And I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
+    And I save the field labeled "EGMS ID" as "AwardEGMSID"
+    And I navigate to "Management" sub tab
+    And I click on top right button "New" in flex table with id "---amendment:-:amendmentRequestTableId---"
+    When I enter "Periodic Renewal" values from "AmendmentRequest_Field_Values.xlsx"
+    And I click modal button "Save and Continue"
+    And I enter "Periodic Renewal Edition" values from "AmendmentRequest_Field_Values.xlsx"
+    And I enter value "20" into field "BudgetRedirectionThreshhold__c"
+    When I click on "Save" in the page details
+    And I wait for "3" seconds
+    And I save the field labeled "Budget Redirection Threshold" as "BudgetRedirectionThreshold%"
+    And I save the field labeled "EGMS ID" as "SOWAMENDMENTREQUEST"
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
+    And I navigate to "Grants" tab
+    When I navigate to "Amendment Requests" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click toggle button to select "Amendment Requests - All"
+    When I perform quick search for "{SavedValue:SOWAMENDMENTREQUEST}" in "---amendment:-:grantorAmendmentRequestsTableId---" panel
+    And I click on "View" icon for "{SavedValue:SOWAMENDMENTREQUEST}" inside flex table with id "---amendment:-:grantorAmendmentRequestsTableId---" without waiting for record
+    When I navigate to "Overview" sub tab
+    Then I cannot see top right button "Edit" in page detail
+    Then I softly see that "Budget Redirection Threshold" rendered in view mode only
+    Then I softly see field "Budget Redirection Threshold" as "20.00%"
+    Then I softly see field "Budget Redirection Threshold" as "{SavedValue:BudgetRedirectionThreshold%}"
+
+  @543819 @ValidateVisibilityofBudgetRedirectionThresholdforSubrecipients
+  Scenario: Validate Visibility of Budget Redirection Threshold for Subrecipients
+    And I activated standalone subaward "Automation Runtime Award" with properties "default-Automation EXE user" of type "Competitive"
+    Given I am on "SUBPORTAL" portal
+    When I login to "Grants Portal" app as "SPI3" user
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click toggle button to select "Grants - All"
+    When I perform quick search for "{SavedValue:Automation Runtime Award}" in "---subAwardFromFDM:-:RecipientGrantsTableId---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside table
+    When I navigate to "Subawards" sub tab
+    And I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside flex table with id "---subAwardFromFDM:-:RecipientSubAwardTableId---" without waiting for record
+    And I save the field labeled "EGMS ID" as "AwardEGMSID"
+    And I save the field labeled "Grant ID" as "GrantEGMSID"
+    And I navigate to "Budget" sub tab
+    And I save the field labeled "Budget Redirection Threshold %" as "BudgetRedirectionThreshold%"
+    Given I navigate to "Management" sub tab
+    And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:recipientAwardAmendmentRequestTableId---"
+    When I enter "Subrecipient_BRedirection" values from "AmendmentRequest_Field_Values.xlsx"
+    And I click modal button "Save and Continue"
+    And I enter value "Automation Justification" into field "Justification__c"
+    And I wait for "3" seconds
+    When I click on "Save" in the page details
+    Then I softly see status in Progress-bar is "Created" and is "dark blue"
+    And I save the field labeled "EGMS ID" as "BUDGETREDIRECTIONID"
+    Then I softly see "Budget Redirection Threshold" inside page block detail
+    Then I softly see field "Budget Redirection Threshold (%)" as "10.00%"
