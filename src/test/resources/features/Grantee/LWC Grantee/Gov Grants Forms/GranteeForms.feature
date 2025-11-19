@@ -11006,7 +11006,7 @@ Feature: Grantee Forms Scenario
     Then I softly can see row level action button "View" against "Mandatory Budget Narrative" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
     Then I softly can see row level action button "Edit" against "Mandatory Budget Narrative" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
     Then I softly can see row level action button "Delete" against "Mandatory Budget Narrative" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
-    When I click on "Validate" in the page details
+    And I click on "Validate" in the split screen page details
     Then I softly see the following messages in the page details contains:
       | Form Validated Successfully. |
     And I click on "Submit For Approval" in the page details
