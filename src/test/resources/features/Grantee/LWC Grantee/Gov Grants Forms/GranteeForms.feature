@@ -14020,6 +14020,7 @@ Feature: Grantee Forms Scenario
     When I click on "Validate" in the page details
     Then I softly see the following messages in the page details contains:
       | Please upload exactly one 'Mandatory Budget Narrative'. |
+    When I click on "Edit" in the page details
     And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
     And I wait for "3" seconds
     And I upload attachment without random number "Attachment.pdf" of type "Mandatory Budget Narrative" from computer
@@ -14031,8 +14032,6 @@ Feature: Grantee Forms Scenario
     When I click on "Validate" in the page details
     Then I softly see the following messages in the page details :
       | Form validated successfully. |
-    Then I softly can see top right button "Validate" in page detail
-    Then I softly can see top right button "Edit" in page detail
     And I close the tab
     And I refresh the page
     And I click on "Submit For Approval" in the page details

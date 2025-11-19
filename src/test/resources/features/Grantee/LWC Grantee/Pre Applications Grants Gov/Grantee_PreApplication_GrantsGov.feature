@@ -2162,8 +2162,8 @@ Feature: Validate all scenarios for Pre-Applications Grants Gov
     When I navigate to "Applications" tab
     And I navigate to "Pre-Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Pre-Applications - All"
-    And I perform quick search for "{SavedValue:PreappEGMSID}" in "---grantee_tableId:-:PreApplication---" panel
-    When I click on "Delete" icon for "{SavedValue:PreappEGMSID}" inside table
+    And I perform quick search for "{SavedValue:PreappEGMSID}" in "---grantee_tableId:-:ApplicationTableId---" panel
+    When I click on "Delete" icon for "{SavedValue:PreappEGMSID}" inside table with table id "---grantee_tableId:-:PreApplication---" without processing
     Then I softly see confirmation box with body "Are you sure you want to permanently delete the draft pre-application?" is displayed
     When I click modal button "OK"
     And I wait for "3" seconds

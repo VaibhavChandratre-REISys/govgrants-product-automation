@@ -1825,7 +1825,7 @@ Feature: Validate all scenarios for Leads
     And I re-login to "Grantee" app as "<NonOwner>" user on "INTERNAL" portal
     And I perform quick search inside global search "{SavedValue:LeadsEGMSID}"
     And I click on row level action button "Edit" against "{SavedValue:LeadsEGMSID}" in global search with id "FOA Leads"
-    Then I softly see field "Status" as "Forecasted"
+    Then I softly see field "State" as "Forecasted"
     Then I cannot see top right button "Save" in page detail
     Then I cannot see top right button "Cancel" in page detail
     Then I softly see the text containing "You dont have sufficient access to edit this record"
@@ -1884,16 +1884,17 @@ Feature: Validate all scenarios for Leads
     And I click on "View" icon for "{SavedValue:LeadsEGMSID}" inside flex table with id "---grantee_tableId:-:LeadsNotYetQualified---" without waiting for record
     Then I cannot see top right button "Qualify Lead" in page detail
     Then I cannot see top right button "Edit" in page detail
-    Then I softly see field "Status" as "Posted"
+    Then I softly see field "State" as "Posted"
     And I re-login to "Grantee" app as "<Owner>" user on "INTERNAL" portal
     And I navigate to "Opportunities" tab
     When I navigate to "Not Yet Qualified" content inside "Leads" subheader on left panel
     And I click toggle button to select "Leads Not Yet Qualified - My Records"
+    And I wait for "2" seconds
     When I perform quick search for "{SavedValue:LeadsEGMSID}" in "---grantee_tableId:-:LeadsNotYetQualified---" panel
     And I click on "View" icon for "{SavedValue:LeadsEGMSID}" inside flex table with id "---grantee_tableId:-:LeadsNotYetQualified---" without waiting for record
     Then I can see top right button "Qualify Lead" in page detail
     And I click on "Qualify Lead" in the page details
-    Then I softly see field "Status" as "Qualified Lead"
+    Then I softly see field "State" as "Qualified Lead"
     And I save the field labeled "EGMS ID" as "QualifiedLeadEGMSID"
     Then I softly see field "EGMS ID" as "{SavedValue:QualifiedLeadEGMSID}"
     Then I can see top right button "Edit" in page detail

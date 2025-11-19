@@ -2500,7 +2500,6 @@ Feature: Validate all scenarios for Applications Grants Gov
      When I click on "Convert to Opportunity" in the page details
      And I save the field labeled "EGMS ID" as "opportunityEGMSID"
      And I create opportunity with state "Approved" for opportunity number "CAS-HHS0001212745" with properties "default-Grantee PO user"
-     When I re-login to "Grantee" app as "GRANTEE PO" user on "INTERNAL" portal
      And I navigate to "Opportunities" tab
      And I navigate to "Not Converted" content inside "Opportunities" subheader on left panel
      When I click toggle button to select "Opportunities Not Converted to Application - All"
@@ -2517,8 +2516,8 @@ Feature: Validate all scenarios for Applications Grants Gov
      And I navigate to "Applications" content inside "Applications" subheader on left panel
      When I click toggle button to select "Applications - All"
      And I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:ApplicationTableId---" panel
-     When I click on "Delete" icon for "{SavedValue:Automation Runtime Opportunity}" inside table
-     Then I softly see confirmation box with body "Are you sure you want to permanently delete the draft            application?" is displayed
+     When I click on "Delete" icon for "{SavedValue:appEGMSID}" inside table with table id "---grantee_tableId:-:ApplicationTableId---" without processing
+     Then I softly see confirmation box with body "Are you sure you want to permanently delete the draft application?" is displayed
      When I click modal button "OK"
      And I wait for "3" seconds
      When I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:ApplicationTableId---" panel

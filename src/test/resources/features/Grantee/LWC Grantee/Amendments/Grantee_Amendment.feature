@@ -15076,9 +15076,9 @@ Feature: Validate all scenarios for Grantee Amendment Request
     Then I softly see value "{SavedValue:AwardEGMSID1}" for title "Original Value" inside field history table
 
     Examples:
-      | Owner          | OwnerType          | UserType       | emailIdTo                         | CreatedBy     | Assertion     |
-      | GRANTEE ADMIN1 | Product Admin user | GRANTEE ADMIN1 | productadmin@yopmail.com          | Product Admin | softly cannot |
-      | GRANTEE EXE    | Victor EXE user    | GRANTEE EXE    | victor.exe.ggmergeqa2@yopmail.com | Victor EXE    | softly cannot |
+      | Owner          | OwnerType          | UserType        | emailIdTo                         | CreatedBy     | Assertion     |
+      | GRANTEE ADMIN | Product Admin user  | GRANTEE ADMIN   | demo.admin.merge@yopmail.com      | DEMO ADMIN      | softly cannot |
+      | GRANTEE EXE    | Victor EXE user    | GRANTEE EXE     | victor.exe.ggmergeqa2@yopmail.com | Victor EXE    | softly cannot |
 
   @486592 @BudgetRedirectionAREXEusershouldabletoactivatenewawardthroughBRAR @P3_Grantee @FO_Grantee @GRegression4
   Scenario Outline: Budget Redirection AR- FO user should able to activate new award through BR AR

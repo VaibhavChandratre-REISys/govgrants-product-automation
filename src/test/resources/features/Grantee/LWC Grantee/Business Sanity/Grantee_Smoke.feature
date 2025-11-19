@@ -13645,10 +13645,9 @@ Feature: Grantee Smoke scenarios
 
     Examples:
       | userName      | notesUser  |
-      | GRANTEE ADMIN | Product QA |
+      | GRANTEE ADMIN | DEMO ADMIN |
       | GRANTEE PM    | Sarah PM   |
       | GRANTEE EXE   | Victor EXE |
-
 
   @477571 @ValidateAttachmentsformPMusercanaddfilesinAttachmentsforminViewmodeandsuccessfullysubmitapplicationtograntsgov @Grantee_Smoke1
   Scenario: Validate Attachments form PM user can add files in Attachments form in View mode and successfully submit application to grants gov
