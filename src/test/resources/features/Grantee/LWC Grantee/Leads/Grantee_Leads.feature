@@ -1692,7 +1692,7 @@ Feature: Validate all scenarios for Leads
     When I click on "Convert to Opportunity" in the page details
     Then I softly see field "Status" as "Draft"
 
-  @494991 @Validatethemanuallead&verifythefunctionality
+  @494991 @Validatethemanualleadverifythefunctionality
   Scenario Outline: Validate the manual lead & verify the functionality
     Given I login to "Grantee" app as "<Owner>" user
     And I navigate to "Opportunities" tab
@@ -1900,7 +1900,7 @@ Feature: Validate all scenarios for Leads
     Then I can see top right button "Validate" in page detail
     Then I can see top right button "Convert to Opportunity" in page detail
     Examples:
-      | Owner       | NonOwner       |
-      | GRANTEE PM  | GRANTEE FO     |
-      | GRANTEE PO  | GRANTEE FD     |
+      | Owner        | NonOwner       |
+      | GRANTEE PM   | GRANTEE FO     |
+      | GRANTEE PO   | GRANTEE FD     |
       | GRANTEE EXE  | GRANTEE ADMIN  |
