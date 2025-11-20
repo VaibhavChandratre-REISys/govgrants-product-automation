@@ -14180,6 +14180,212 @@ Feature: Grantee Forms Scenario
 #    Then I softly see value "Sarah PM" for title "Last Modified By Name" against the value "Attachments" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
     Then I softly see value "Sarah PM" for title "Last Modified By Name" against the value "Project Narrative Attachment Form" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
 
+  @473964 @validatetheallfieldsofSF-424[V4.0]formgrants.govapplication
+  Scenario: Validate the all fields of SF-424[V4.0] form Grants.gov Application
+    Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
+    And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default"
+    Given I login to "Grantee" app as "GRANTEE PM" user
+    And I navigate to "Opportunities" tab
+    When I navigate to "Qualified" content inside "Leads" subheader on left panel
+    And I click toggle button to select "Qualified Leads - All"
+    When I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:qualifiedLeadTableId---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside flex table with id "---grantee_tableId:-:qualifiedLeadTableId---" without waiting for record
+    When I click on "Convert to Opportunity" in the page details
+    And I save the field labeled "EGMS ID" as "opportunityEGMSID"
+    And I create opportunity with state "Approved" for opportunity number "CAS-HHS0000660610" with properties "default-Sarah PM"
+    And I create Application "{SavedValue:Automation Runtime Opportunity}" with state "Created" for opportunity number "CAS-HHS0000660610" with properties "DAVID_FO_APPROVER"
+    When I navigate to "Applications" tab
+    And I navigate to "Applications" content inside "Applications" subheader on left panel
+    When I click toggle button to select "Applications - All"
+    And I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:ApplicationTableId---" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside table
+    Then I softly see field "Status" as "Created"
+    Then I can see top right button "Edit" in page detail
+    When I click on "Edit" in the page details
+    When I navigate to "Overview" sub tab
+    And I enter value "123" into field "CongressionalDistrict1__c"
+    When I click on "Save" in the page details
+    And I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "appEGMSID"
+    When I navigate to "Forms and Files" sub tab
+    Then I softly see value "Application for Federal Assistance (SF-424)" for title "Form Name" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
+    When I click on "View" icon for "Application for Federal Assistance (SF-424)" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    And I switch to tab number "1"
+    And I click on "Edit" in the page details
+    Then I softly can see top right button "Cancel" in page detail
+    Then I softly can see top right button "Save" in page detail
+    And I click on Menu icon present on top right corner of the page
+    Then I see option "Download as PDF" present in parallel dropdown
+    Then I see the header is "Application for Federal Assistance (SF-424)" in the page details
+    Then I softly see the field "Agency Owner :" as "Grants.gov" on forms
+    Then I softly see the field "OMB Number :" as "4040-0004" on forms
+    Then I softly see the field "Version :" as "4.0" on forms
+    Then I softly see the field "OMB Expiration Date :" as "11/30/2025" on forms
+    Then I softly see the text containing "When filling out the data within this form, please adhere to the character limits for each field as specified within the information icon for the field."
+    Then I softly can see "Form" sub tab at view detail page
+    Then I softly see "Application for Federal Assistance SF-424" page block displayed
+    Then I softly see field "Type of Submission" inside page block
+    Then I softly see asterisk mark on "Type of Submission"
+    When I hovering mouse on help text icon inside page block detail "Type of Submission"
+    Then I softly see "Select one type of submission in accordance with agency instructions. One selection is required." shown as help text
+    Then I softly see radio button "Preapplication" in view mode for form sections
+    Then I softly see radio button "Application" in view mode for form sections
+    Then I softly see radio button "Changed/Corrected Application" in view mode for form sections
+    Then I softly see field "Type of Application" inside page block
+    Then I softly see asterisk mark on "Type of Application"
+    When I hovering mouse on help text icon inside page block detail "Type of Application"
+    Then I softly see "Select one type of application in accordance with agency instructions. One selection is required." shown as help text
+    Then I softly see radio button "New" in view mode for form sections
+    Then I softly see radio button "Continuation" in view mode for form sections
+    Then I softly see radio button "Revision" in view mode for form sections
+    Then I softly see field "If Revision, select appropriate letter" inside page block
+    When I hovering mouse on help text icon inside page block detail "If Revision, select appropriate letter"
+    Then I softly see "Select a revision type from the list provided. A selection is required if Type of Application is Revision." shown as help text
+    Then I softly see field "Date Received" inside page block
+    When I hovering mouse on help text icon inside page block detail "Date Received"
+    Then I softly see "Completed by Grants.gov upon submission." shown as help text
+    Then I softly see field "Applicant Identifier" inside page block
+    When I hovering mouse on help text icon inside page block detail "Applicant Identifier"
+    Then I softly see "Enter the applicant's control number, if applicable. Max character limit for this field is 30." shown as help text
+    Then I softly see field "Federal Entity Identifier" inside page block
+    When I hovering mouse on help text icon inside page block detail "Federal Entity Identifier"
+    Then I softly see "Enter the number assigned to your organization by the Federal agency. Max character limit for this field is 30." shown as help text
+    Then I softly see field "Federal Award Identifier" inside page block
+    When I hovering mouse on help text icon inside page block detail "Federal Award Identifier"
+    Then I softly see "For new applications leave blank. For a continuation or revision to an existing award, enter the previously assigned Federal award identifier number. If a changed/corrected application, enter the Federal Identifier in accordance with agency instructions. Max character limit for this field is 25." shown as help text
+    Then I softly see "State Use Only" page block displayed
+    Then I softly see field "Date Received by State" inside page block
+    Then I softly do not see asterisk mark on "Date Received by State"
+    When I hovering mouse on help text icon inside page block detail "Date Received by State"
+    Then I softly see "Enter the date received by the State, if applicable. Enter in the format mm/dd/yyyy." shown as help text
+    Then I softly see field "State Application Identifier" inside page block
+    Then I softly do not see asterisk mark on "State Application Identifier"
+    When I hovering mouse on help text icon inside page block detail "State Application Identifier"
+    Then I softly see "Enter the identifier assigned by the State, if applicable. Max character limit for this field is 30." shown as help text
+    Then I softly see "Applicant Information" page block displayed
+    Then I softly see field "Legal Name" inside page block
+    Then I softly see asterisk mark on "Legal Name"
+    When I hovering mouse on help text icon inside page block detail "Legal Name"
+    Then I softly see "Enter the legal name of the applicant that will undertake the assistance activity. This field is required. Max character limit for this field is 60." shown as help text
+    Then I softly see field "Employer/Taxpayer Identification Number (EIN/TIN)" inside page block
+    Then I softly do not see asterisk mark on "Employer/Taxpayer Identification Number (EIN/TIN)"
+    When I hovering mouse on help text icon inside page block detail "Employer/Taxpayer Identification Number (EIN/TIN)"
+    Then I softly see "Enter either TIN or EIN as assigned by the Internal Revenue Service. If your organization is not in the US, enter 44-4444444. This field is required. Max character limit for this field is 30." shown as help text
+    Then I softly see field "UEI" inside page block
+    Then I softly see asterisk mark on "UEI"
+    When I hovering mouse on help text icon inside page block detail "UEI"
+    Then I softly see "Enter the UEI of the applicant organization. This field is required. Max character limit for this field is 12." shown as help text
+    Then I softly see field "d. Address" inside page block
+    Then I softly see field "Street1" inside page block
+    Then I softly see asterisk mark on "Street1"
+    When I hovering mouse on help text icon inside page block detail "Street1"
+    Then I softly see "Enter the first line of the Street Address. This field is required. Max character limit for this field is 55." shown as help text
+    Then I softly see field "Street2" inside page block
+    Then I softly do not see asterisk mark on "Street2"
+    When I hovering mouse on help text icon inside page block detail "Street2"
+    Then I softly see "Enter the second line of the Street Address. Max character limit for this field is 60." shown as help text
+    Then I softly see field "City" inside page block
+    Then I softly see asterisk mark on "City"
+    When I hovering mouse on help text icon inside page block detail "City"
+    Then I softly see "Enter the City. This field is required. Max character limit for this field is 35." shown as help text
+    Then I softly see field "County/Parish" inside page block
+    Then I softly do not see asterisk mark on "County/Parish"
+    When I hovering mouse on help text icon inside page block detail "County/Parish"
+    Then I softly see "Enter the County/Parish. Max character limit for this field is 35." shown as help text
+    Then I softly see field "State" inside page block
+    Then I softly see asterisk mark on "State"
+    When I hovering mouse on help text icon inside page block detail "State"
+    Then I softly see "Select the state, US possession or military code from the provided list. This field is required if Country is the United States. Max character limit for this field is 55." shown as help text
+    Then I softly see field "Province" inside page block
+    Then I softly do not see asterisk mark on "Province"
+    When I hovering mouse on help text icon inside page block detail "Province"
+    Then I softly see "Enter the Province. Max character limit for this field is 30." shown as help text
+    Then I softly see field "Country" inside page block
+    Then I softly see asterisk mark on "Country"
+    When I hovering mouse on help text icon inside page block detail "Country"
+    Then I softly see "Select the Country from the provided list. This field is required. Max character limit for this field is 49." shown as help text
+    Then I softly see field "Zip / Postal Code" inside page block
+    Then I softly see asterisk mark on "Zip / Postal Code"
+    When I hovering mouse on help text icon inside page block detail "Zip / Postal Code"
+    Then I softly see "Enter the nine-digit Postal Code (e.g., ZIP code). This field is required if the country is the United States. Max character limit for this field is 10." shown as help text
+
+
+
+    Then I softly see "Organization" page block displayed with quotes
+    Then I softly see "Printed Name And Title Of Authorized Representative" page block displayed
+    Then I softly see "Signature And Date" page block displayed
+    Then I softly see the text containing " Required to Save | "
+    Then I softly see the text containing " Required to Submit"
+    Then I softly see the text containing "Certification for Contracts, Grants, Loans, and Cooperative Agreements"
+    Then I softly see the field "Certification for Contracts, Grants, Loans, and Cooperative Agreements" as "The undersigned certifies, to the best of his or her knowledge and belief, that:" on forms
+    Then I softly see the field "Certification for Contracts, Grants, Loans, and Cooperative Agreements" as "(1) No Federal appropriated funds have been paid or will be paid, by or on behalf of the undersigned, to any person for influencing or attempting to influence an officer or employee of an agency, a Member of Congress, an officer or employee of Congress, or an employee of a Member of Congress in connection with the awarding of any Federal contract, the making of any Federal grant, the making of any Federal loan, the entering into of any cooperative agreement, and the extension, continuation, renewal, amendment, or modification of any Federal contract, grant, loan, or cooperative agreement." on forms
+    Then I softly see the field "Certification for Contracts, Grants, Loans, and Cooperative Agreements" as "(2) If any funds other than Federal appropriated funds have been paid or will be paid to any person for influencing or attempting to influence an officer or employee of any agency" on forms
+    Then I softly see the field "Certification for Contracts, Grants, Loans, and Cooperative Agreements" as "(3) The undersigned shall require that the language of this certification be included in the award documents for all subawards at all tiers (including subcontracts, subgrants, and contracts under grants, loans, and cooperative agreements)" on forms
+    Then I softly see the field "Certification for Contracts, Grants, Loans, and Cooperative Agreements" as "Statement for Loan Guarantees and Loan Insurance" on forms
+    Then I softly see the field "Certification for Contracts, Grants, Loans, and Cooperative Agreements" as "The undersigned states, to the best of his or her knowledge and belief, that:" on forms
+    Then I softly see the field "Certification for Contracts, Grants, Loans, and Cooperative Agreements" as "If any funds have been paid or will be paid to any person for influencing or attempting to influence an officer or employee of any agency" on forms
+    Then I softly see the field "Certification for Contracts, Grants, Loans, and Cooperative Agreements" as "Statement for Loan Guarantees and Loan Insurance" on forms
+    Then I softly see field with quotes "APPLICANT'S ORGANIZATION" inside page block
+    Then I softly see asterisk mark on "ApplicantsOrganization__c"
+    When I hovering mouse on help text icon inside page block detail "ORGANIZATION"
+    Then I softly see "This is the legal name of the organization that will undertake the assistance activity. This should normally be the name under which the organization has registered with the Business Partner Network. Max character limit for this field is 60." shown as help text
+    Then I softly see field "Prefix" inside page block
+    Then I softly do not see asterisk mark on "Prefix"
+    When I hovering mouse on help text icon inside page block detail "Prefix"
+    Then I softly see "This is the prefix (e.g., Mr., Mrs., Rev.) for the name of the Authorized Representative." shown as help text
+    And I click on "Edit" in the page details
+    Then I see only the following ordered options in dropdown field "AOR_Prefix__c" :
+      | --None-- | Mr. | Mrs. | Miss | Ms. | Dr. | Rev. | Prof. |
+    Then I softly see field "First Name" inside page block
+    Then I softly see asterisk mark on "First Name"
+    When I hovering mouse on help text icon inside page block detail "First Name"
+    Then I softly see "This is the first (given) name of the Authorized Representative who is signing this form. Max character limit for this field is 35." shown as help text
+    Then I softly see field "Middle Name" inside page block
+    Then I softly do not see asterisk mark on "Middle Name"
+    When I hovering mouse on help text icon inside page block detail "Middle Name"
+    Then I softly see "This is the middle name of the Authorized Representative. Max character limit for this field is 25." shown as help text
+    Then I softly see field "Last Name" inside page block
+    Then I softly see asterisk mark on "Last Name"
+    Then I softly see field "Suffix" inside page block
+    Then I softly do not see asterisk mark on "Suffix"
+    When I hovering mouse on help text icon inside page block detail "Suffix"
+    Then I softly see "This is the suffix (e.g., Jr, Sr, PhD) for the name of the Authorized Representative." shown as help text
+    Then I see only the following ordered options in dropdown field "AOR_Suffix__c" :
+      | --None-- | Jr. | Sr. | M.D. | Ph.D |
+    Then I softly see field "Title" inside page block
+    Then I softly see asterisk mark on "Title"
+    When I hovering mouse on help text icon inside page block detail "Title"
+    Then I softly see "This is the title of the Authorized Representative who is signing this form. Max character limit for this field is 45." shown as help text
+    Then I softly see field "SIGNATURE:" inside page block
+    Then I softly do not see asterisk mark on "SIGNATURE:"
+    When I hovering mouse on help text icon inside page block detail "SIGNATURE:"
+    Then I softly see "It is the organization's responsibility to assure that only properly authorized individuals sign in this capacity and/or submit the application to Grants.gov. If this application is submitted through Grants.gov leave blank. If a hard copy is submitted, the AOR must sign this block." shown as help text
+    Then I softly see field "DATE:" inside page block
+    Then I softly do not see asterisk mark on "DATE:"
+    Then I can see top right button "Save" in page detail
+    Then I can see top right button "Cancel" in page detail
+    When I click on "Cancel" in the page details without processing
+    Then I softly see confirmation box with body "Are you sure you want to cancel?" is displayed
+    When I click modal button "OK"
+    Then I can see top right button "Edit" in page detail
+    And I click on "Edit" in the page details
+    And I enter "Lobbying_Form" values from "Application_Field_Values.xlsx"
+    When I click on "Save" in the page details
+    And I wait for "1" seconds
+    And I close the tab
+    When I click on "Edit" icon for "Grants.gov Lobbying Form" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    And I switch to tab number "1"
+    When I click on "Save" in the page details
+    And I close the tab
+    And I refresh the page
+    And I wait for "2" seconds
+    Then I softly see value "100.00%" for title "Percentage" against the value "Grants.gov Lobbying Form" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
+    Then I softly see value "No" for title "Validated" against the value "Grants.gov Lobbying Form" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
+    When I click on "Validate" in the page details
+    And I wait for "3" seconds
+    Then I softly see the following messages in the page details contains:
+      | Please validate the Forms by clicking validate button. |
+
   @492397 @Validatetheerrormessageshouldnotbedisplayifusernotedit&validatetheoptionalform
   Scenario: Validate the error message should not be display if user not edit & validate the optional form
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
@@ -14273,8 +14479,8 @@ Feature: Grantee Forms Scenario
     Then I softly see value "Validated" for title "Grants.Gov Status" against the value "{SavedValue:TrackingNumber}" inside table "---grantee_tableId:-:submissionHistoryTableId---"
     Then I softly see value "SUCCESS" for title "Status" against the value "{SavedValue:TrackingNumber}" inside table "---grantee_tableId:-:submissionHistoryTableId---"
 
-  @492397 @Validatetheerrormessageshouldnotbedisplayifusernotedit&validatetheoptionalform
-  Scenario: Validate the error message should not be display if user not edit & validate the optional form
+  @492490 @Validatethevalidationonprojectnarrativeattachmentform
+  Scenario: Validate the validation on project narrative attachment form
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default"
     Given I login to "Grantee" app as "GRANTEE PM" user
@@ -14327,8 +14533,6 @@ Feature: Grantee Forms Scenario
     And I click on "View" icon for "Project Narrative Attachment Form" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
     And I switch to tab number "1"
     Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
-    When I click on "View" icon for "Project Narrative Attachment Form" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
-    And I switch to tab number "1"
     Then I softly can see top right button "Validate" in page detail
     Then I softly can see top right button "Edit" in page detail
     When I click on "Validate" in the page details
@@ -14447,7 +14651,6 @@ Feature: Grantee Forms Scenario
     When I click modal button "Close"
     And I wait for "2" seconds
     Then I softly see value "Attachment1.pdf" for title "Title" inside table "---grantee_tableId:-:applicationFormAddFileTableId---"
-    When I click modal button "Close"
     And I close the tab
     And I refresh the page
     When I navigate to "Responsibilities" sub tab

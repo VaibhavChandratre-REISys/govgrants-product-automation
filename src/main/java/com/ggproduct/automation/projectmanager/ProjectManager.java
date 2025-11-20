@@ -212,6 +212,15 @@ public class ProjectManager extends ProjectWebServices {
         }
     }
 
+    public void assertformSectionInViewMode(String radioButtonName, boolean isSoftly) {
+        By pageBlockFields = By.xpath("*//div//span//input[@type='radio'][@value='" + radioButtonName + "' and @disabled] | *//span//input[@type='radio'][@value='" + radioButtonName + "' and @disabled]");
+        if (isSoftly) {
+            I.amPerforming().assertionsTo().assertThat(I.amPerforming().checkToSee().isDisplayed(pageBlockFields)).isTrue();
+        } else {
+            Assert.assertTrue(I.amPerforming().checkToSee().isDisplayed(pageBlockFields));
+        }
+    }
+
     public void assertNotificationValues(String usage, String messageTitle, String messageValue) {
         if (usage.equalsIgnoreCase("softly see")) {
             I.amPerforming().assertionsTo().assertThat(assertNotificationWithValue(messageTitle, messageValue)).isTrue();

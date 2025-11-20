@@ -107,6 +107,11 @@ public class CommonSteps {
         projectManager.assertCOISectionInViewMode(radioButtonName, usage.contains("softly"));
     }
 
+    @Then("I (see|softly see) radio button \"([^\"]*)\" in view mode for form sections$")
+    public void iSeeRadioButtonInViewModeForFormSections(String usage, String radioButtonName) {
+        projectManager.assertformSectionInViewMode(radioButtonName, usage.contains("softly"));
+    }
+
     @And("I click on {string} icon for {string} inside flex table with id {string} without Split")
     public void iClickOnIconForInsideFlexTableWithIdWithQuotes(String actionIcon, String anyUniqueColumnValues, String flexTableId) {
             govgrants.perform().flexTable().clickTableActionIcon(flexTableId, actionIcon, anyUniqueColumnValues);
