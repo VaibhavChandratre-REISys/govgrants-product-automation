@@ -2752,5 +2752,6 @@ Feature: Validate all scenarios for Financial Report
   @451429 @Validatewhenpmuserlogoutthepmuserthepageshouldredirectstotheloginpage
   Scenario: Validate when PM user logout the pm user the page should redirects to the login page
     Given I login to "Grantee" app as "GRANTEE PM" user
+    And I navigate to "Home" tab
     And I logout
-    When I re-login to "Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
+    Given I login to "Grantee" app as "GRANTEE PM" user
