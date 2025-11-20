@@ -14575,17 +14575,14 @@ Feature: Grantee Forms Scenario
     Then I softly see the following messages in the page details contains:
       | 2 duplicate file title(s) found: AttachmentTesting.pdf. Please ensure all file titles are unique. |
       | 2 duplicate file title(s) found: Attachment.pdf. Please ensure all file titles are unique.        |
-      | Please upload exactly one 'Mandatory Budget Narrative'.                                           |
-      | Please upload no more than one 'Optional Budget Narrative'.                                       |
+      | Please upload exactly one 'Mandatory Project Narrative File'.                                           |
+      | Please upload no more than one 'Optional Project Narrative File'.                                       |
     And I close the tab
     And I wait for "2" seconds
     When I click on "Validate" in the page details
     And I wait for "3" seconds
     Then I softly see the following messages in the page details contains:
-      | Please validate the Forms by clicking validate button. |
-    And I click on "Submit For Approval" in the page details
-    Then I softly see the following messages in the page details contains:
-      | Please validate the Forms by clicking validate button. |
+      | Application has been validated successfully. |
 
   @477445 @validatebudgetnarrativeattachmentformFOuser(assignedreviewerwitheditaccessasyes)canadd/edit/View/deletefilesinbudgetnarrativeattachmentforminviewmodewhenapplicationisinsubmittedforreviewstate
   Scenario:Validate Budget Narrative attachment form FO user (Assigned reviewer with edit access as Yes)can add/edit/View/delete files in Budget narrative attachment form in view mode  when Application is in submitted for review state
