@@ -14060,9 +14060,6 @@ Feature: Grantee Forms Scenario
     Then I can see top right button "Revise" in page detail
     When I click on "Revise" in the page details
     Then I softly see field "Status" as "Revision In Progress"
-    And I click on "Edit" in the page details
-    And I enter value "123" into field "CongressionalDistrict1__c"
-    When I click on "Save" in the page details
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "appEGMSID"
     When I navigate to "Forms and Files" sub tab
