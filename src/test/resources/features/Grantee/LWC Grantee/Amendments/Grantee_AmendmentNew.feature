@@ -8187,7 +8187,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
     And I click on "Download" icon for "Other" inside flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
     And I wait for "2" seconds
     And I download the file
-#    Then I see "Welcome to Smallpdf" on page "1" of "govgrants" pdf file
+    Then I softly see "Welcome to Smallpdf" on page "1" of "govgrants" pdf file
     And I switch to parent tab
     And I click on "View" icon for "Other" inside flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
     Then I softly see the image "AttachmentTesting.pdf" in page detail
@@ -8196,7 +8196,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
     And I update title as "Automation.pdf" on upload file modal
     And I select Classification as "Notice of Award" at upload file modal
     When I click modal button "Save"
-    And I click modal button "Close"
+#    And I click modal button "Close"
     And I wait for "3" seconds
     And I refresh the page
     Then I softly see "Notice of Award" has been added in "Amendment Files" flex table
