@@ -7979,7 +7979,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
       | GRANTEE ADMIN |
 
   @463584 @Verifytheaffectofothertypeamendmentongrants&award
-  Scenario:Other AR - Verify the Affect on grants & Award
+  Scenario: Other AR - Verify the Affect on grants & Award
     And I "Created" standalone subaward "Automation Runtime award" with properties "default"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "THREE_FOCUS_WITH_BUDGET"
     Given I login to "Grantee" app as "GRANTEE PM" user
@@ -8216,11 +8216,11 @@ Feature: Validate all scenarios for Grantee Amendment Request
     Then I softly can see row level action button "Delete" against "Notes Record" in flex table with id "---grantee_tableId:-:amendmentRequestNotesTableId---"
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:amendmentRequestNotesTableId---" by clicking "Edit" :
       | Created By | Title         | Description       |
-      | David FO   | Notes Record1 | Automation Notes1 |
+      | Victor EXE | Notes Record1 | Automation Notes1 |
     And I wait for "2" seconds
     Then I softly see value "Notes Record1" for title "Title" inside table "---grantee_tableId:-:amendmentRequestNotesTableId---"
     And I click on "Delete" icon for "Notes Record1" inside flex table with id "---grantee_tableId:-:amendmentRequestNotesTableId---" without waiting for record
-    Then I softly do not see value "Notes Recor1" for title "Title" inside table "---grantee_tableId:-:amendmentRequestNotesTableId---"
+    Then I softly do not see value "Notes Record1" for title "Title" inside table "---grantee_tableId:-:amendmentRequestNotesTableId---"
     And I navigate to "History" sub tab
     Then I softly see "Approval History" page block displayed
     Then I softly see "Snapshot History" page block displayed
