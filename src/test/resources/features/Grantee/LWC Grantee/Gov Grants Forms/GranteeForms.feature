@@ -14572,7 +14572,7 @@ Feature: Grantee Forms Scenario
     Then I softly see the following messages in the page details contains:
       | Application has been validated successfully. |
 
-  @477445 @validatebudgetnarrativeattachmentformFOuser(assignedreviewerwitheditaccessasyes)canadd/edit/View/deletefilesinbudgetnarrativeattachmentforminviewmodewhenapplicationisinsubmittedforreviewstate @GranteeP_Q4
+  @495934 @477445 @validatebudgetnarrativeattachmentformFOuser(assignedreviewerwitheditaccessasyes)canadd/edit/View/deletefilesinbudgetnarrativeattachmentforminviewmodewhenapplicationisinsubmittedforreviewstate @GranteeP_Q4
   Scenario:Validate Budget Narrative attachment form FO user (Assigned reviewer with edit access as Yes)can add/edit/View/delete files in Budget narrative attachment form in view mode  when Application is in submitted for review state
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default"
