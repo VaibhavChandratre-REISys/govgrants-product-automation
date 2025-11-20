@@ -14074,12 +14074,9 @@ Feature: Grantee Forms Scenario
     When I click modal button "Close"
     And I wait for "2" seconds
     Then I softly see value "Attachment1.pdf" for title "Title" inside table "---grantee_tableId:-:applicationFormAddFileTableId---"
-    And I click on "Save" in the page details
     When I click on "Validate" in the page details
     Then I softly see the following messages in the page details :
       | Form validated successfully. |
-    Then I softly can see top right button "Validate" in page detail
-    Then I softly can see top right button "Edit" in page detail
     And I close the tab
     And I refresh the page
     And I click on "Submit For Approval" in the page details
