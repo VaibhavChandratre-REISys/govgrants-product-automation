@@ -3395,3 +3395,215 @@ Feature: Validate all scenarios for closeout
     When I navigate to "Awards" sub tab
     And I click on "View" icon for "{SavedValue:AwardEGMSID}" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
     Then I softly see field "Status" as "Closed"
+
+  @536823 @ValidateGranteedeleteactionisnotdisplayedtoPMuserCloseoutrequestownerwhencloseoutrequestissentbackfromapproval
+  Scenario: Validate Grantee delete action is not displayed to PM user Closeout request owner when closeout request is sent back from approval
+    And I "Created" standalone subaward "Automation Runtime award" with properties "default"
+    And I updated direct grant award for title "{SavedValue:Automation Runtime award}" with properties "default"
+    And I activate the award for title "{SavedValue:Automation Runtime award}"
+    When I login to "Grantee" app as "GRANTEE PM" user
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+    And I click toggle button to select "Grants - All"
+    When I perform quick search for "{SavedValue:Automation Runtime award}" in "---grantee_tableId:-:GrantsTable---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime award}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
+    And I navigate to "Overview" sub tab
+    And I save the field labeled "EGMS ID" as "GrantEGMSID"
+    And I save the field labeled "Grant Number" as "GrantNumber"
+    And I save the field labeled "Project Period Start Date" as "PPST"
+    When I navigate to "Closeout" sub tab
+    And I click on top right button "New" in flex table with id "---grantee_tableId:-:GrantsProjectPeriodCloseoutTableId---"
+    When I enter in modal "Grantee_Creation" values from "Closeout_Field_Values.xlsx"
+    When I enter values into fields
+      | Value             | Field           |
+      | {SavedValue:PPST} | CloseoutDate__c |
+    And I click modal button "Save and Continue"
+    And I enter "Grantee_Edition" values from "Closeout_Field_Values.xlsx"
+    When I click on "Save" in the page details
+    And I wait for "2" seconds
+    And I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "closeoutID"
+    Then I softly see status in Progress-bar is "Created" and is "dark blue"
+    Then I softly see field "Status" as "Created"
+    When I navigate to "Responsibilities" sub tab
+    When I enter the following values into flex table with id "---grantee_tableId:-:closeoutApproverTableId---" by clicking "New" :
+      | Name     | Closeout |
+      | Sarah PM | Step 1   |
+    When I click on "Override" in the page details
+    Then I softly see field "Status" as "Overridden"
+    When I click on "Validate" in the page details
+    Then I softly see the following messages in the page details contains:
+      | Closeout has been validated successfully. Please proceed. |
+    When I click on "Submit for Approval" in the page details
+    Then I see field "Status" as "Submitted for Approval"
+    Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
+    When I "Send to Owner" in the approval decision
+    Then I softly see field "Status" as "Created"
+    And I wait for "100" seconds
+    And I navigate to "Closeout" tab
+    When I navigate to "Project Period Closeouts" content inside "Closeouts" subheader on left panel
+    And I click toggle button to select "Project Period Closeout - All"
+    And I perform quick search for "{SavedValue:closeoutID}" in "---grantee_tableId:-:ProjectPeriodCloseout---" panel
+    Then I softly see value "Created" for title "Status" inside table "---grantee_tableId:-:ProjectPeriodCloseout---"
+    Then I softly cannot see row level action button "Delete" against "{SavedValue:closeoutID}" in flex table with id "---grantee_tableId:-:ProjectPeriodCloseout---"
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+    And I click toggle button to select "Grants - All"
+    When I perform quick search for "{SavedValue:Automation Runtime award}" in "---grantee_tableId:-:GrantsTable---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime award}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
+    When I navigate to "Closeout" sub tab
+    And I perform quick search for "{SavedValue:closeoutID}" in "---grantee_tableId:-:GrantsProjectPeriodCloseoutTableId---" panel
+    Then I softly see value "Created" for title "Status" inside table "---grantee_tableId:-:GrantsProjectPeriodCloseoutTableId---"
+    Then I softly cannot see row level action button "Delete" against "{SavedValue:closeoutID}" in flex table with id "---grantee_tableId:-:GrantsProjectPeriodCloseoutTableId---"
+
+  @536824 @ValidateGranteedeleteactionisnotdisplayedtoPMuserCloseoutrequestownerwhencloseoutrequestisRejectedfromapproval
+  Scenario: Validate Grantee delete action is not displayed to PM user Closeout request owner when closeout request is Rejected from approval
+    And I "Created" standalone subaward "Automation Runtime award" with properties "default"
+    And I updated direct grant award for title "{SavedValue:Automation Runtime award}" with properties "default"
+    And I activate the award for title "{SavedValue:Automation Runtime award}"
+    When I login to "Grantee" app as "GRANTEE PM" user
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+    And I click toggle button to select "Grants - All"
+    When I perform quick search for "{SavedValue:Automation Runtime award}" in "---grantee_tableId:-:GrantsTable---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime award}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
+    And I navigate to "Overview" sub tab
+    And I save the field labeled "EGMS ID" as "GrantEGMSID"
+    And I save the field labeled "Grant Number" as "GrantNumber"
+    And I save the field labeled "Project Period Start Date" as "PPST"
+    When I navigate to "Closeout" sub tab
+    And I click on top right button "New" in flex table with id "---grantee_tableId:-:GrantsProjectPeriodCloseoutTableId---"
+    When I enter in modal "Grantee_Creation" values from "Closeout_Field_Values.xlsx"
+    When I enter values into fields
+      | Value             | Field           |
+      | {SavedValue:PPST} | CloseoutDate__c |
+    And I click modal button "Save and Continue"
+    And I enter "Grantee_Edition" values from "Closeout_Field_Values.xlsx"
+    When I click on "Save" in the page details
+    And I wait for "2" seconds
+    And I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "closeoutID"
+    Then I softly see status in Progress-bar is "Created" and is "dark blue"
+    Then I softly see field "Status" as "Created"
+    When I navigate to "Responsibilities" sub tab
+    When I enter the following values into flex table with id "---grantee_tableId:-:closeoutApproverTableId---" by clicking "New" :
+      | Name     | Closeout |
+      | Sarah PM | Step 1   |
+    When I click on "Override" in the page details
+    Then I softly see field "Status" as "Overridden"
+    When I click on "Validate" in the page details
+    Then I softly see the following messages in the page details contains:
+      | Closeout has been validated successfully. Please proceed. |
+    When I click on "Submit for Approval" in the page details
+    Then I see field "Status" as "Submitted for Approval"
+    Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
+    When I "Reject" in the approval decision
+    Then I softly see field "Status" as "Rejected"
+    And I navigate to "Closeout" tab
+    When I navigate to "Project Period Closeouts" content inside "Closeouts" subheader on left panel
+    And I click toggle button to select "Project Period Closeout - All"
+    And I perform quick search for "{SavedValue:closeoutID}" in "---grantee_tableId:-:ProjectPeriodCloseout---" panel
+    Then I softly see value "Rejected" for title "Status" inside table "---grantee_tableId:-:ProjectPeriodCloseout---"
+    Then I softly cannot see row level action button "Delete" against "{SavedValue:closeoutID}" in flex table with id "---grantee_tableId:-:ProjectPeriodCloseout---"
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+    And I click toggle button to select "Grants - All"
+    When I perform quick search for "{SavedValue:Automation Runtime award}" in "---grantee_tableId:-:GrantsTable---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime award}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
+    When I navigate to "Closeout" sub tab
+    And I perform quick search for "{SavedValue:closeoutID}" in "---grantee_tableId:-:GrantsProjectPeriodCloseoutTableId---" panel
+    Then I softly see value "Rejected" for title "Status" inside table "---grantee_tableId:-:GrantsProjectPeriodCloseoutTableId---"
+    Then I softly cannot see row level action button "Delete" against "{SavedValue:closeoutID}" in flex table with id "---grantee_tableId:-:GrantsProjectPeriodCloseoutTableId---"
+
+  @536825 @536826 @ValidateGranteedeleteactionisdisplayedtoPMuserCloseoutrequestownerwhencloseoutrequestisincreatedstate
+  Scenario: Validate Grantee delete action is displayed to PM user Closeout request owner when closeout request is in created state
+    And I "Created" standalone subaward "Automation Runtime award" with properties "default"
+    And I updated direct grant award for title "{SavedValue:Automation Runtime award}" with properties "default"
+    And I activate the award for title "{SavedValue:Automation Runtime award}"
+    When I login to "Grantee" app as "GRANTEE PM" user
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+    And I click toggle button to select "Grants - All"
+    When I perform quick search for "{SavedValue:Automation Runtime award}" in "---grantee_tableId:-:GrantsTable---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime award}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
+    And I navigate to "Overview" sub tab
+    And I save the field labeled "EGMS ID" as "GrantEGMSID"
+    And I save the field labeled "Grant Number" as "GrantNumber"
+    And I save the field labeled "Project Period Start Date" as "PPST"
+    When I navigate to "Closeout" sub tab
+    And I click on top right button "New" in flex table with id "---grantee_tableId:-:GrantsProjectPeriodCloseoutTableId---"
+    When I enter in modal "Grantee_Creation" values from "Closeout_Field_Values.xlsx"
+    When I enter values into fields
+      | Value             | Field           |
+      | {SavedValue:PPST} | CloseoutDate__c |
+    And I click modal button "Save and Continue"
+    And I enter "Grantee_Edition" values from "Closeout_Field_Values.xlsx"
+    When I click on "Save" in the page details
+    And I wait for "2" seconds
+    And I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "closeoutID"
+    Then I softly see field "Status" as "Created"
+    And I navigate to "Closeout" tab
+    When I navigate to "Project Period Closeouts" content inside "Closeouts" subheader on left panel
+    And I click toggle button to select "Project Period Closeout - All"
+    And I perform quick search for "{SavedValue:closeoutID}" in "---grantee_tableId:-:ProjectPeriodCloseout---" panel
+    Then I softly see value "Created" for title "Status" inside table "---grantee_tableId:-:ProjectPeriodCloseout---"
+    Then I softly cannot see row level action button "Delete" against "{SavedValue:closeoutID}" in flex table with id "---grantee_tableId:-:ProjectPeriodCloseout---"
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+    And I click toggle button to select "Grants - All"
+    When I perform quick search for "{SavedValue:Automation Runtime award}" in "---grantee_tableId:-:GrantsTable---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime award}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
+    When I navigate to "Closeout" sub tab
+    And I perform quick search for "{SavedValue:closeoutID}" in "---grantee_tableId:-:GrantsProjectPeriodCloseoutTableId---" panel
+    Then I softly see value "Created" for title "Status" inside table "---grantee_tableId:-:GrantsProjectPeriodCloseoutTableId---"
+    Then I softly cannot see row level action button "Delete" against "{SavedValue:closeoutID}" in flex table with id "---grantee_tableId:-:GrantsProjectPeriodCloseoutTableId---"
+    #536826
+    When I re-login to "Grantee" app as "GRANTEE PO" user on "INTERNAL" portal
+    And I navigate to "Closeout" tab
+    When I navigate to "Project Period Closeouts" content inside "Closeouts" subheader on left panel
+    And I click toggle button to select "Project Period Closeout - All"
+    And I perform quick search for "{SavedValue:closeoutID}" in "---grantee_tableId:-:ProjectPeriodCloseout---" panel
+    Then I softly see value "Created" for title "Status" inside table "---grantee_tableId:-:ProjectPeriodCloseout---"
+    Then I softly cannot see row level action button "Delete" against "{SavedValue:closeoutID}" in flex table with id "---grantee_tableId:-:ProjectPeriodCloseout---"
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+    And I click toggle button to select "Grants - All"
+    When I perform quick search for "{SavedValue:Automation Runtime award}" in "---grantee_tableId:-:GrantsTable---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime award}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
+    When I navigate to "Closeout" sub tab
+    And I perform quick search for "{SavedValue:closeoutID}" in "---grantee_tableId:-:GrantsProjectPeriodCloseoutTableId---" panel
+    Then I softly see value "Created" for title "Status" inside table "---grantee_tableId:-:GrantsProjectPeriodCloseoutTableId---"
+    Then I softly cannot see row level action button "Delete" against "{SavedValue:closeoutID}" in flex table with id "---grantee_tableId:-:GrantsProjectPeriodCloseoutTableId---"
+    When I re-login to "Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
+    And I navigate to "Closeout" tab
+    When I navigate to "Project Period Closeouts" content inside "Closeouts" subheader on left panel
+    And I click toggle button to select "Project Period Closeout - All"
+    And I perform quick search for "{SavedValue:closeoutID}" in "---grantee_tableId:-:ProjectPeriodCloseout---" panel
+    Then I softly see value "Created" for title "Status" inside table "---grantee_tableId:-:ProjectPeriodCloseout---"
+    Then I softly cannot see row level action button "Delete" against "{SavedValue:closeoutID}" in flex table with id "---grantee_tableId:-:ProjectPeriodCloseout---"
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+    And I click toggle button to select "Grants - All"
+    When I perform quick search for "{SavedValue:Automation Runtime award}" in "---grantee_tableId:-:GrantsTable---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime award}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
+    When I navigate to "Closeout" sub tab
+    And I perform quick search for "{SavedValue:closeoutID}" in "---grantee_tableId:-:GrantsProjectPeriodCloseoutTableId---" panel
+    Then I softly see value "Created" for title "Status" inside table "---grantee_tableId:-:GrantsProjectPeriodCloseoutTableId---"
+    Then I softly cannot see row level action button "Delete" against "{SavedValue:closeoutID}" in flex table with id "---grantee_tableId:-:GrantsProjectPeriodCloseoutTableId---"
+    When I re-login to "Grantee" app as "GRANTEE ADMIN1" user on "INTERNAL" portal
+    And I navigate to "Closeout" tab
+    When I navigate to "Project Period Closeouts" content inside "Closeouts" subheader on left panel
+    And I click toggle button to select "Project Period Closeout - All"
+    And I perform quick search for "{SavedValue:closeoutID}" in "---grantee_tableId:-:ProjectPeriodCloseout---" panel
+    Then I softly see value "Created" for title "Status" inside table "---grantee_tableId:-:ProjectPeriodCloseout---"
+    Then I softly cannot see row level action button "Delete" against "{SavedValue:closeoutID}" in flex table with id "---grantee_tableId:-:ProjectPeriodCloseout---"
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+    And I click toggle button to select "Grants - All"
+    When I perform quick search for "{SavedValue:Automation Runtime award}" in "---grantee_tableId:-:GrantsTable---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime award}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
+    When I navigate to "Closeout" sub tab
+    And I perform quick search for "{SavedValue:closeoutID}" in "---grantee_tableId:-:GrantsProjectPeriodCloseoutTableId---" panel
+    Then I softly see value "Created" for title "Status" inside table "---grantee_tableId:-:GrantsProjectPeriodCloseoutTableId---"
+    Then I softly cannot see row level action button "Delete" against "{SavedValue:closeoutID}" in flex table with id "---grantee_tableId:-:GrantsProjectPeriodCloseoutTableId---"

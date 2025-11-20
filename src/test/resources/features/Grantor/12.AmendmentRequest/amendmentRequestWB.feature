@@ -26490,6 +26490,8 @@ Feature: Amendment Request scenarios without background
     And I pause execution for "3" seconds
     And I click on "Submit for Approval" in the page details
     Then I see status in Progress-bar is "Submitted for Approval" and is "dark blue"
+    When I "Approve" in the approval decision
+    Then I softly see field "Status" as "Approved"
     And I click on "Send to Subrecipient" in the page details
     And I wait for "2" seconds
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
@@ -26605,6 +26607,8 @@ Feature: Amendment Request scenarios without background
     And I pause execution for "3" seconds
     And I click on "Submit for Approval" in the page details
     Then I see status in Progress-bar is "Submitted for Approval" and is "dark blue"
+    When I "Approve" in the approval decision
+    Then I softly see field "Status" as "Approved"
     And I click on "Send to Subrecipient" in the page details
     And I wait for "2" seconds
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
