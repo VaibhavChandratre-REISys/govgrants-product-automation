@@ -3569,7 +3569,6 @@ Feature: Validate all scenarios for closeout
     When I perform quick search for "{SavedValue:Automation Runtime award}" in "---grantee_tableId:-:GrantsTable---" panel
     And I click on "View" icon for "{SavedValue:Automation Runtime award}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
     When I navigate to "Closeout" sub tab
-    And I perform quick search for "{SavedValue:closeoutID}" in "---grantee_tableId:-:GrantsProjectPeriodCloseoutTableId---" panel
     Then I softly see value "Created" for title "Status" inside table "---grantee_tableId:-:GrantsProjectPeriodCloseoutTableId---"
     Then I softly cannot see row level action button "Delete" against "{SavedValue:closeoutID}" in flex table with id "---grantee_tableId:-:GrantsProjectPeriodCloseoutTableId---"
     When I re-login to "Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
@@ -3585,7 +3584,6 @@ Feature: Validate all scenarios for closeout
     When I perform quick search for "{SavedValue:Automation Runtime award}" in "---grantee_tableId:-:GrantsTable---" panel
     And I click on "View" icon for "{SavedValue:Automation Runtime award}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
     When I navigate to "Closeout" sub tab
-    And I perform quick search for "{SavedValue:closeoutID}" in "---grantee_tableId:-:GrantsProjectPeriodCloseoutTableId---" panel
     Then I softly see value "Created" for title "Status" inside table "---grantee_tableId:-:GrantsProjectPeriodCloseoutTableId---"
     Then I softly cannot see row level action button "Delete" against "{SavedValue:closeoutID}" in flex table with id "---grantee_tableId:-:GrantsProjectPeriodCloseoutTableId---"
     When I re-login to "Grantee" app as "GRANTEE ADMIN1" user on "INTERNAL" portal
