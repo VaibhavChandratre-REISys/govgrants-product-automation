@@ -13926,7 +13926,7 @@ Feature: Grantee Forms Scenario
     And I select value inside table "---grantee_tableId:-:applicationBusinessFormTableId---" is "All"
     Then I can see row level action button "Preview" against "Project Abstract Summary" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
     Then I can see row level action button "View" against "Project Abstract Summary" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
-    Then I cannot see row level action button "Edit" against "Project Abstract Summary" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    Then I can see row level action button "Edit" against "Project Abstract Summary" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
     Then I can see row level action button "SplitView" against "Project Abstract Summary" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
     Then I softly see value "0.00%" for title "Percentage" against the value "Project Abstract Summary" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
     And I click on "Submit For Approval" in the page details
@@ -13981,9 +13981,6 @@ Feature: Grantee Forms Scenario
     Then I can see top right button "Revise" in page detail
     When I click on "Revise" in the page details
     Then I softly see field "Status" as "Revision In Progress"
-    And I click on "Edit" in the page details
-    And I enter value "123" into field "CongressionalDistrict1__c"
-    When I click on "Save" in the page details
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "appEGMSID"
     When I navigate to "Forms and Files" sub tab
