@@ -2009,6 +2009,10 @@ public class GrantorPayloads {
                 return createAwarForSPIUser(json);
             case "BUDGE_REDIRECTION_FIFTEEN_PERCENT":
                 return createAwardWithBudgetRedirectionFifteen(json);
+            case "BUDGE_REDIRECTION_POINT_FIVE_PERCENT":
+                return createAwardWithBudgetRedirectionPointFivePercent(json);
+            case "BR_NINETY_NINE_POINT_FIVE_PERCENT":
+                return createAwardWithBudgetRedirectionNinetyNinePointFivePercent(json);
             case "AWARD_NO_SUPPORTINGDOC_PROGRAM":
                 return awardWithNoSupportingDocProgram(json);
             case "SECOND_FOCUS_AREA":
@@ -2076,6 +2080,24 @@ public class GrantorPayloads {
             default:
                 return json;
         }
+    }
+
+    private JsonObject createAwardWithBudgetRedirectionPointFivePercent(JsonObject json) {
+        JsonObject award = json.getAsJsonArray("Award").get(0).getAsJsonObject();
+        JsonArray newA = new JsonArray();
+        award.addProperty("BudgetRedirectionThreshhold", 0.5);
+        newA.add(award);
+        json.add("Award", newA);
+        return json;
+    }
+
+    private JsonObject createAwardWithBudgetRedirectionNinetyNinePointFivePercent(JsonObject json) {
+        JsonObject award = json.getAsJsonArray("Award").get(0).getAsJsonObject();
+        JsonArray newA = new JsonArray();
+        award.addProperty("BudgetRedirectionThreshhold", 99.5);
+        newA.add(award);
+        json.add("Award", newA);
+        return json;
     }
 
     private JsonObject createAwardWithBudgetRedirectionFifteen(JsonObject json) {
