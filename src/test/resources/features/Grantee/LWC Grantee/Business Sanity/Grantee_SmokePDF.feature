@@ -1033,7 +1033,7 @@ Feature: Grantee Smoke scenarios for PDF
     And I download the file
     Then I softly see "{SavedValue:GrantEGMSID}" on page "1" of "govgrants" pdf file
 
-  @443687 @443676 @495305 @ValidateNonfederalPOusershouldseeallfieldsandsectionfornonfederalcontacts @Grantee_Smoke3 @Grantee_Smoke2
+  @443676 @495305 @ValidateNonfederalPOusershouldseeallfieldsandsectionfornonfederalcontacts @Grantee_Smoke3 @Grantee_Smoke2
   Scenario Outline: Validate Non federal PM user should see all fields and section for non federal contact's
     When I login to "Grantee" app as "<User>" user
     When I navigate to "Home" tab

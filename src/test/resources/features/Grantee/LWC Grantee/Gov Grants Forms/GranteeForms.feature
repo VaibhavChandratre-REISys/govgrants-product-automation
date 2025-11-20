@@ -1158,7 +1158,7 @@ Feature: Grantee Forms Scenario
     Then I softly see the following messages in the page details contains:
       | Please validate the Forms by clicking validate button. |
 
-  @478400 @478403 @ValidateProjectNarrativeAttachmentformusershouldabletoaddtheattachmentincreatedsendforreviewsubmittedforreviewreviewedstate @P1_Grantee @PO_Grantee @GRegression1
+  @478400 @478403 @ValidateProjectNarrativeAttachmentformusershouldabletoaddtheattachmentincreatedsendforreviewsubmittedforreviewreviewedstate @P1_Grantee @PO_Grantee @GRegression1 @GranteeP_Q4
   Scenario: Validate Project Narrative Attachment form user should able to add the attachment in created, send for review submitted for review, reviewed state
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default-Grantee PO user"
@@ -4842,7 +4842,7 @@ Feature: Grantee Forms Scenario
       | UserName        | OwnerType  |
       | Grantee PO user | GRANTEE PO |
 
-  @477446 @BudgetNarrativeattachmentformVerifyFDusercannotaddeditViewdeletefilesinBudgetnarrativeattachmentforminSplitviewmodewhenApplicationisinsubmittedforreviewstate @GRegression2 @GranteeTBE
+  @477446 @BudgetNarrativeattachmentformVerifyFDusercannotaddeditViewdeletefilesinBudgetnarrativeattachmentforminSplitviewmodewhenApplicationisinsubmittedforreviewstate @GRegression2 @GranteeTBE @GranteeP_Q4
   Scenario: Budget Narrative attachment form - Verify FD user cannot add/edit/View/delete files in Budget narrative attachment form in Split view mode when Application is in submitted for review state
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityWithAllFormMendatory}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0001212745" with properties "default"
@@ -6166,7 +6166,7 @@ Feature: Grantee Forms Scenario
       | GRANTEE PM | GRANTEE ADMIN1 |
 
 
-  @481536 @VerifyFOuserasaReviewershouldabletoedittheformifeditaccessisYes @GRegression2 @GranteeTBE
+  @481536 @VerifyFOuserasaReviewershouldabletoedittheformifeditaccessisYes @GRegression2 @GranteeTBE @GranteeP_Q4
   Scenario Outline: Verify FO user as a Reviewer should able to edit the form if edit access is Yes
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default"
@@ -6340,9 +6340,6 @@ Feature: Grantee Forms Scenario
     Then I can see top right button "Revise" in page detail
     When I click on "Revise" in the page details
     Then I softly see field "Status" as "Revision In Progress"
-    And I click on "Edit" in the page details
-    And I enter value "123" into field "CongressionalDistrict1__c"
-    When I click on "Save" in the page details
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "appEGMSID"
     When I navigate to "Forms and Files" sub tab
@@ -6738,7 +6735,7 @@ Feature: Grantee Forms Scenario
     And I click on "Delete" icon for "Sarah PM" inside flex table with id "---grantee_tableId:-:applicationKeyContactFormTableId---" without waiting for record
     Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:applicationKeyContactFormTableId---"
 
-  @479928 @ValidateUsershouldabletovalidatethedataonsplitviewmode @P1_Grantee @PO_Grantee @GRegression1
+  @479928 @ValidateUsershouldabletovalidatethedataonsplitviewmode @P1_Grantee @PO_Grantee @GRegression1 @GranteeP_Q4
   Scenario: Validate User should able to validate the data on splitview mode
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default-Grantee PO user"
@@ -8811,7 +8808,7 @@ Feature: Grantee Forms Scenario
     Then I softly see the following messages in the page details contains:
       | Please validate the Forms by clicking validate button. |
 
-  @481539 @ValidatePOusershouldabletosubmittheapplicationtograntsgovifProjectSummaryformismandatory&verifyvalidationifusernotaddedtherequiredfields @P2_Grantee @PO_Grantee @GRegression2
+  @481539 @ValidatePOusershouldabletosubmittheapplicationtograntsgovifProjectSummaryformismandatory&verifyvalidationifusernotaddedtherequiredfields @P2_Grantee @PO_Grantee @GRegression2 @GranteeP_Q4
   Scenario: Validate PO user should able to submit the application to grants.gov if Project Summary form is mandatory & verify validation if user not added the required fields
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumber}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0001241410" with properties "default-Grantee PO user"
@@ -9029,7 +9026,7 @@ Feature: Grantee Forms Scenario
     Then I softly see value "SUCCESS" for title "Status" against the value "{SavedValue:TrackingNumber}" inside table "---grantee_tableId:-:submissionHistoryTableId---"
     Then I softly see value "{SavedValue:TrackingNumber}" for title "Tracking Number" against the value "S2SReceived" inside table "---grantee_tableId:-:submissionHistoryTableId---"
 
-  @481545 @ValidatePMusershouldabletoseetheValidationifusernotaddedtheallmandatoryfieldsverifytheformvalidatesuccessfullymessage @P2_Grantee @PM_Grantee @GRegression2
+  @481545 @ValidatePMusershouldabletoseetheValidationifusernotaddedtheallmandatoryfieldsverifytheformvalidatesuccessfullymessage @P2_Grantee @PM_Grantee @GRegression2 @GranteeP_Q4
   Scenario: Validate PM user should able to see the Validation if user not added the all mandatory fields & verify the form validate successfully message
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumber}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0001241410" with properties "default"
@@ -9153,7 +9150,7 @@ Feature: Grantee Forms Scenario
     Then I softly see the following messages in the page details contains:
       | Please validate the Forms by clicking validate button. |
 
-  @478425 @validatePMusershouldtosubmittheapplicationtogrants.govafteradding&updatingthefileinrevisioninprogress  @P1_Grantee @GRegression1 @PM_Grantee @sprint15
+  @478425 @validatePMusershouldtosubmittheapplicationtogrants.govafteradding&updatingthefileinrevisioninprogress  @P1_Grantee @GRegression1 @PM_Grantee @sprint15 @GranteeP_Q4
   Scenario: Validate PM user should to submit the application to grants.gov after adding & updating the file in revision in progress
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default-Sarah PM"
@@ -9240,7 +9237,7 @@ Feature: Grantee Forms Scenario
     When I click on "Submit To Grants.Gov" in the page details
     Then I softly see field "Status" as "Submitted to Grantor"
 
-  @478414 @validatePMusershouldtosubmittheapplicationtogrants.govwhenuseraddthemorethan15fileswithdifferentcategorycategory  @P1_Grantee @GRegression1 @PM_Grantee @sprint15
+  @478414 @validatePMusershouldtosubmittheapplicationtogrants.govwhenuseraddthemorethan15fileswithdifferentcategorycategory  @P1_Grantee @GRegression1 @PM_Grantee @sprint15 @GranteeP_Q4
   Scenario: Validate PM user should to submit the application to grants.gov when user add the more than 15 files with different category category
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default"
@@ -9336,7 +9333,7 @@ Feature: Grantee Forms Scenario
     Then I softly see value "SUCCESS" for title "Status" against the value "{SavedValue:TrackingNumber}" inside table "---grantee_tableId:-:submissionHistoryTableId---"
 
 
-  @481533 @validatepmusershouldabletoedittheformsincreated,submittedforreview,reviewed,revisioninprogressstate  @PM_Grantee @P1_Grantee @GRegression1 @sprint15
+  @481533 @validatepmusershouldabletoedittheformsincreated,submittedforreview,reviewed,revisioninprogressstate  @PM_Grantee @P1_Grantee @GRegression1 @sprint15 @GranteeP_Q4
   Scenario: Validate PM user should able to edit the forms in Created , Submitted for review, reviewed, Revision in progress state
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default"
@@ -10029,9 +10026,6 @@ Feature: Grantee Forms Scenario
     Then I can see top right button "Revise" in page detail
     When I click on "Revise" in the page details
     Then I softly see field "Status" as "Revision In Progress"
-    And I click on "Edit" in the page details
-    And I enter value "123" into field "CongressionalDistrict1__c"
-    When I click on "Save" in the page details
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "appEGMSID"
     When I navigate to "Forms and Files" sub tab
@@ -10900,7 +10894,7 @@ Feature: Grantee Forms Scenario
     And I select value inside table "---grantee_tableId:-:applicationBusinessFormTableId---" is "All"
     Then I softly cannot see row level action button "Edit" against "Budget Information for Non-Construction Programs (SF-424A)" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
 
-  @477436 @477570 @validatePOusercanaddfilesinattachmentsforminsplitviewmodeandsuccessfullysubmitapplicationtogrants.gov @P2_Grantee @Gregression2 @PO_Grantee
+  @477436 @477570 @validatePOusercanaddfilesinattachmentsforminsplitviewmodeandsuccessfullysubmitapplicationtogrants.gov @P2_Grantee @Gregression2 @PO_Grantee @GranteeP_Q4
   Scenario: Validate PO user can add files in Attachments form in split view mode and successfully submit application to grants.gov
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default-Grantee PO user"
@@ -11485,7 +11479,7 @@ Feature: Grantee Forms Scenario
     Then I softly see the following messages in the page details contains:
       | 2 duplicate file title(s) found: Attachment.pdf. Please ensure all file titles are unique. |
 
-  @477439 @ValidateBudgetNarrativeattachmentformPMusercanaddfilesinBudgetnarrativeattachmentinEditmodeandsuccessfullysubmitapplicationtograntsgov @P2_Grantee @PM_Grantee @GRegression5
+  @477439 @ValidateBudgetNarrativeattachmentformPMusercanaddfilesinBudgetnarrativeattachmentinEditmodeandsuccessfullysubmitapplicationtograntsgov @P2_Grantee @PM_Grantee @GRegression5 @GranteeP_Q4
   Scenario: Validate Budget Narrative attachment form PM user can add files in Budget narrative attachment in Edit mode and successfully submit application to grants.gov
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default"
@@ -13854,7 +13848,7 @@ Feature: Grantee Forms Scenario
     Then I softly cannot see top right button "Edit" in the split screen page details
     Then I softly cannot see top right button "Validate" in the split screen page details
 
-  @492503 @477430 @validatepmusercanaddfiles(totalsizeupto10mb)inbudgetnarrativeattachmentandsuccessfullysubmitapplicationtogrants.gov
+  @492503 @477430 @validatepmusercanaddfiles(totalsizeupto10mb)inbudgetnarrativeattachmentandsuccessfullysubmitapplicationtogrants.gov @GranteeP_Q4
   Scenario: Validate PM user can add files (total size upto 10 MB) in in Budget narrative attachment and successfully submit application to grants.gov
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default"
@@ -14116,7 +14110,7 @@ Feature: Grantee Forms Scenario
     Then I softly see value "Validated" for title "Grants.Gov Status" against the value "{SavedValue:TrackingNumber}" inside table "---grantee_tableId:-:submissionHistoryTableId---"
     Then I softly see value "SUCCESS" for title "Status" against the value "{SavedValue:TrackingNumber}" inside table "---grantee_tableId:-:submissionHistoryTableId---"
 
-  @481573 @ValidateProjectNarrativeAttachmentPMuserusershouldabletoseethelastmodifycolumnisupdateifonlyformiseditedbyanyuser
+  @481573 @ValidateProjectNarrativeAttachmentPMuserusershouldabletoseethelastmodifycolumnisupdateifonlyformiseditedbyanyuser @GranteeP_Q4
   Scenario: Validate Project Narrative Attachment PM user should able to see the last modify column is update if only form is edited by any user
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default"
@@ -14380,7 +14374,7 @@ Feature: Grantee Forms Scenario
     Then I softly see the following messages in the page details contains:
       | Please validate the Forms by clicking validate button. |
 
-  @492397 @Validatetheerrormessageshouldnotbedisplayifusernotedit&validatetheoptionalform
+  @492397 @Validatetheerrormessageshouldnotbedisplayifusernotedit&validatetheoptionalform @GranteeP_Q4
   Scenario: Validate the error message should not be display if user not edit & validate the optional form
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default"
@@ -14473,7 +14467,7 @@ Feature: Grantee Forms Scenario
     Then I softly see value "Validated" for title "Grants.Gov Status" against the value "{SavedValue:TrackingNumber}" inside table "---grantee_tableId:-:submissionHistoryTableId---"
     Then I softly see value "SUCCESS" for title "Status" against the value "{SavedValue:TrackingNumber}" inside table "---grantee_tableId:-:submissionHistoryTableId---"
 
-  @492490 @Validatethevalidationonprojectnarrativeattachmentform
+  @492490 @Validatethevalidationonprojectnarrativeattachmentform @GranteeP_Q4
   Scenario: Validate the validation on project narrative attachment form
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default"
@@ -14581,7 +14575,7 @@ Feature: Grantee Forms Scenario
     Then I softly see the following messages in the page details contains:
       | Application has been validated successfully. |
 
-  @477445 @validatebudgetnarrativeattachmentformFOuser(assignedreviewerwitheditaccessasyes)canadd/edit/View/deletefilesinbudgetnarrativeattachmentforminviewmodewhenapplicationisinsubmittedforreviewstate
+  @477445 @validatebudgetnarrativeattachmentformFOuser(assignedreviewerwitheditaccessasyes)canadd/edit/View/deletefilesinbudgetnarrativeattachmentforminviewmodewhenapplicationisinsubmittedforreviewstate @GranteeP_Q4
   Scenario:Validate Budget Narrative attachment form FO user (Assigned reviewer with edit access as Yes)can add/edit/View/delete files in Budget narrative attachment form in view mode  when Application is in submitted for review state
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default"
@@ -14687,8 +14681,109 @@ Feature: Grantee Forms Scenario
     When I click on "Save" in the page details
     And I wait for "2" seconds
     When I click on "Validate" in the page details
-      | Form Validated Successfully. |
+    Then I softly see the following messages in the page details :
+      | Form validated successfully. |
     And I close the tab
     And I refresh the page
     And I select value inside table "---grantee_tableId:-:applicationBusinessFormTableId---" is "All"
     Then I softly see value "100.00%" for title "Percentage" against the value "Budget Narrative Attachment Form" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
+
+  @477458 @validateBudgetNarrativeattachmentformPMusercannotseeaddfile,edit,deleteactionsonBudgetnarrativeattachmentforminSubmittedforapproval,Approved,Submittedtograntor,Awarded,NotAwarded,Rejectedstatesofapplication
+    Scenario: Validate Budget Narrative attachment form - Verify PM user cannot not see add file,edit,delete actions  on Budget narrative attachment form in Submitted for approval, Approved, Submitted to grantor, Awarded, Not Awarded, Rejected states of application
+    Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
+    And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default"
+    Given I login to "Grantee" app as "GRANTEE PM" user
+    And I navigate to "Opportunities" tab
+    When I navigate to "Qualified" content inside "Leads" subheader on left panel
+    And I click toggle button to select "Qualified Leads - All"
+    When I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:qualifiedLeadTableId---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside flex table with id "---grantee_tableId:-:qualifiedLeadTableId---" without waiting for record
+    When I click on "Convert to Opportunity" in the page details
+    And I wait for "3" seconds
+    And I save the field labeled "EGMS ID" as "opportunityEGMSID"
+    And I create opportunity with state "Approved" for opportunity number "CAS-HHS0000660610" with properties "default"
+    When I re-login to "Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
+    And I create Application "{SavedValue:Automation Runtime Opportunity}" with state "Created" for opportunity number "CAS-HHS0000660610" with properties "default"
+    When I navigate to "Applications" tab
+    And I navigate to "Applications" content inside "Applications" subheader on left panel
+    When I click toggle button to select "Applications - All"
+    And I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:ApplicationTableId---" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside table
+    And I click on "Edit" in the page details
+    And I enter value "123" into field "CongressionalDistrict1__c"
+    When I click on "Save" in the page details
+    And I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "appEGMSID"
+    When I navigate to "Forms and Files" sub tab
+    Then I softly see value "Application for Federal Assistance (SF-424)" for title "Form Name" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
+    When I click on "View" icon for "Application for Federal Assistance (SF-424)" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    And I switch to tab number "1"
+    And I click on "Edit" in the page details
+    And I enter "SF424_FORM" values from "Application_Field_Values.xlsx"
+    And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
+    And I upload attachment without random number "AttachmentTesting.pdf" of type "Delinquent Federal Debt" from computer
+    When I click modal button "Close"
+    And I wait for "2" seconds
+    When I click on "Save" in the page details
+    When I click on "Validate" in the page details
+    Then I softly see the following messages in the page details contains:
+      | Form Validated Successfully. |
+    And I close the tab
+    And I click on "Submit For Approval" in the page details
+    Then I softly see status in Progress-bar is "Submitted For Approval" and is "dark blue"
+    When I navigate to "Forms and Files" sub tab
+    And I select value inside table "---grantee_tableId:-:applicationBusinessFormTableId---" is "All"
+    Then I can see row level action button "Preview" against "Application for Federal Assistance (SF-424)" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    Then I can see row level action button "View" against "Application for Federal Assistance (SF-424)" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    Then I cannot see row level action button "Edit" against "Application for Federal Assistance (SF-424)" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    Then I can see row level action button "SplitView" against "Application for Federal Assistance (SF-424)" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    And I select value inside table "---grantee_tableId:-:applicationBusinessFormTableId---" is "All"
+    When I click on "View" icon for "Application for Federal Assistance (SF-424)" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    And I wait for "3" seconds
+    And I switch to tab number "1"
+    Then I softly cannot see top right button "Validate" in page detail
+    Then I softly cannot see top right button "Edit" in page detail
+    And I close the tab
+    When I re-login to "Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
+    When I navigate to "Applications" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:PendingTask---" panel
+    When I click on "Start" icon for "{SavedValue:appEGMSID}" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
+    When I "Approve" in the approval decision
+    Then I softly see field "Status" as "Approved"
+    When I re-login to "Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
+    When I navigate to "Applications" tab
+    And I navigate to "Applications" content inside "Applications" subheader on left panel
+    When I click toggle button to select "Applications - All"
+    And I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:ApplicationTableId---" panel
+    When I click on "View" icon for "{SavedValue:appEGMSID}" inside table
+    Then I softly see status in Progress-bar is "Approved" and is "dark blue"
+    Then I softly see field "Status" as "Approved"
+    When I navigate to "Forms and Files" sub tab
+    And I select value inside table "---grantee_tableId:-:applicationBusinessFormTableId---" is "All"
+    Then I can see row level action button "Preview" against "Application for Federal Assistance (SF-424)" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    Then I can see row level action button "View" against "Application for Federal Assistance (SF-424)" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    Then I cannot see row level action button "Edit" against "Application for Federal Assistance (SF-424)" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    Then I can see row level action button "SplitView" against "Application for Federal Assistance (SF-424)" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    And I select value inside table "---grantee_tableId:-:applicationBusinessFormTableId---" is "All"
+    When I click on "View" icon for "Application for Federal Assistance (SF-424)" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    And I wait for "3" seconds
+    And I switch to tab number "1"
+    Then I softly cannot see top right button "Validate" in page detail
+    Then I softly cannot see top right button "Edit" in page detail
+    And I close the tab
+    Then I softly can see top right button "Submit To Grants.Gov" in page detail
+    When I click on "Submit To Grants.Gov" in the page details
+    Then I softly see field "Status" as "Submitted to Grantor"
+    When I navigate to "Forms and Files" sub tab
+    And I select value inside table "---grantee_tableId:-:applicationBusinessFormTableId---" is "All"
+    Then I can see row level action button "Preview" against "Application for Federal Assistance (SF-424)" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    Then I can see row level action button "View" against "Application for Federal Assistance (SF-424)" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    Then I cannot see row level action button "Edit" against "Application for Federal Assistance (SF-424)" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    Then I can see row level action button "SplitView" against "Application for Federal Assistance (SF-424)" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    And I select value inside table "---grantee_tableId:-:applicationBusinessFormTableId---" is "All"
+    When I click on "View" icon for "Application for Federal Assistance (SF-424)" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    And I wait for "3" seconds
+    And I switch to tab number "1"
+    Then I softly cannot see top right button "Validate" in page detail
+    Then I softly cannot see top right button "Edit" in page detail

@@ -2305,7 +2305,7 @@ Feature: Validate all scenarios for Applications Grants Gov
     Then I can see top right button "Check Status" in page detail
     Then I can see top right button "Revise" in page detail
 
-  @481544 @ValidatePMusershouldabletosubmittheapplicationtograntsgovifuserupdatethedatarevisioninprogressstate @P2_Grantee @PM_Grantee @GRegression2
+  @481544 @ValidatePMusershouldabletosubmittheapplicationtograntsgovifuserupdatethedatarevisioninprogressstate @P2_Grantee @PM_Grantee @GRegression2 @GranteeP_Q4
   Scenario: Validate PM user should able to submit the application to grants.gov if user update the data revision in progress state
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default"

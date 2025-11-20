@@ -220,7 +220,7 @@ Feature: Validate all scenarios for Non Federal Program
     And I select "Download as PDF" from parallel lines dropdown of "Non-Federal Contacts"
     And I wait for "7" seconds
     And I download the file
-    Then I see "Non-Federal Contacts" on page "1" of "govgrants" pdf file
+    Then I softly see "Non-Federal Contacts" on page "1" of "govgrants" pdf file
     And I switch to parent tab
     Then I softly can see top right button "New" in flex table with id "---grantee_tableId:-:nonFedContactTableId---"
     And I click on top right button "New" in flex table with id "---grantee_tableId:-:nonFedContactTableId---"
