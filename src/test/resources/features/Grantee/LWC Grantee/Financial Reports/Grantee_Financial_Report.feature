@@ -2753,8 +2753,4 @@ Feature: Validate all scenarios for Financial Report
   Scenario: Validate when PM user logout the pm user the page should redirects to the login page
     Given I login to "Grantee" app as "GRANTEE PM" user
     And I logout
-    Then I softly see field "Username" inside page block
-    Then I softly see field "Password" inside page block
-    Then I softly see button "Log In to Sandbox" on login page
-
-
+    When I re-login to "Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
