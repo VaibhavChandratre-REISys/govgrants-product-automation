@@ -1935,13 +1935,12 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     When I navigate to "History" sub tab
     Then I softly see "Submission History (Grants.gov)" page block displayed
     Then I softly see "No Records Found" inside flex table with id "---announcement:-:announcementsubmissionHistoryTableId---"
-    Then I softly see "Status" in flex table header "---announcement:-:announcementsubmissionHistoryTableId---"
     Then I softly see "Grants.Gov Status" in flex table header "---announcement:-:announcementsubmissionHistoryTableId---"
     Then I softly see "Response Status Details" in flex table header "---announcement:-:announcementsubmissionHistoryTableId---"
-    Then I softly see "Tracking Number" in flex table header "---announcement:-:announcementsubmissionHistoryTableId---"
     Then I softly see "Last Modified By" in flex table header "---announcement:-:announcementsubmissionHistoryTableId---"
-    Then I softly see "Last Modified On" in flex table header "---announcement:-:announcementsubmissionHistoryTableId---"
+    Then I softly see "Response Timestamp" in flex table header "---announcement:-:announcementsubmissionHistoryTableId---"
     And I click on "Submit For Approval" in the page details
+    Then I softly see field "Status" as "Submitted for Approval"
     When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Announcements" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
