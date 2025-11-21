@@ -1333,6 +1333,8 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click on "Edit" in the page details
     When I complete filling in the Review form with recommendation "Recommended"
     And I click on "Save" in the page details
+    And I wait for "5" seconds
+    And I click on "Save" in the page details
     When I click on "Submit" in the page details without processing
     When I click alert button "OK"
     Then I see that "Status" is in "Review Completed" status
@@ -1568,7 +1570,6 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click on submit review
     And I wait for "1" seconds
     #To do - Remove comment for package execution
-#    When I click modal button "Close"
     When I close "Enter Review" modal by clicking the top right x button
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Grants" tab
@@ -3350,7 +3351,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click on "Send to Subrecipient" in the page details
     And I refresh the page
     And I pause execution for "5" seconds
-    Then I softly see field "Status" as "Sent to Subrecipient"
+    Then I see field "Status" as "Sent to Subrecipient"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
