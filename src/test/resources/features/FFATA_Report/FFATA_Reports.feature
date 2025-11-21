@@ -265,7 +265,7 @@ Feature: Validate all scenarios for FFATA Reports
     And I navigate to "Home" tab
     When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
     Then I softly can see "FFATA Reporting" sub tab at view detail page
-    And I navigate to "FFATA Reporting" tab
+    When I navigate to "FFATA Reporting" sub tab
     Then I softly see "FFATA Compliance" page block displayed
     Then I softly see "Executive Compensation" page block displayed
     Then I softly see "Subaward Details for FFATA Compliance" page block displayed
