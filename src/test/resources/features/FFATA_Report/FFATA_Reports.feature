@@ -280,7 +280,7 @@ Feature: Validate all scenarios for FFATA Reports
       | --None-- | No | Yes |
     Then I softly see value "No" selected as default for the dropdown field "FFATAquestion2__c"
     Then I see only the following ordered options in dropdown field "FFATAquestion3__c" :
-      | --None-- | No | Yes |
+      | --None-- | Yes | No |
     Then I softly see value "Yes" selected as default for the dropdown field "FFATAquestion3__c"
     When I click on "Save" in the page details
     And I wait for "2" seconds
@@ -360,6 +360,5 @@ Feature: Validate all scenarios for FFATA Reports
     Then I see option "Download as CSV" present in parallel dropdown
     And I save the value from row "1" for column name "Subaward EGMS ID" as "AwardEGMSID" from flex table "---subAwardStandAlone:-:SrOrgSubawardDetailsFFATAComplianceTableId---"
     And I click on hyperlink containing value "{SavedValue:AwardEGMSID}"
-    Then I see the header is "Award" in the page details
+    Then I see the header is "Subaward" in the page details
     Then I softly see field "EGMS ID" as "{SavedValue:AwardEGMSID}"
-
