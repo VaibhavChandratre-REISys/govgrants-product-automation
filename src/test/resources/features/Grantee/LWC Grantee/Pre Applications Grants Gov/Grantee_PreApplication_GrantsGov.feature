@@ -2135,7 +2135,7 @@ Feature: Validate all scenarios for Pre-Applications Grants Gov
 
   @472431_1 @validatethatPM(RecordOwner)userseeCreateApplicationbuttonagaininthesameorganizationontherelatedopportunity/Preapplicationonceapplicationisdeleted
   Scenario: Validate that PM(Record Owner) user see Create Application button again in the same organization on the related opportunity/Preapplication once application is deleted
-    Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityWithAllFormMendatory}"
+    Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default"
     Given I login to "Grantee" app as "GRANTEE PM" user
     And I navigate to "Opportunities" tab

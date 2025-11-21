@@ -1173,11 +1173,11 @@ Feature: Validate all scenarios for Pre-Applications Manual
     Then I see option "Refresh" present in parallel dropdown
     Then I see option "Download as PDF" present in parallel dropdown
     Then I see option "Download as CSV" present in parallel dropdown
-    And I perform quick search for "{SavedValue:Automation Runtime}" in "---grantee_tableId:-:PreApplication---" panel
-    Then I softly can see row level action button "View" against "{SavedValue:Automation Runtime}" in flex table with id "---grantee_tableId:-:PreApplication---"
-    Then I softly can see row level action button "Edit" against "{SavedValue:Automation Runtime}" in flex table with id "---grantee_tableId:-:PreApplication---"
-    Then I softly can see row level action button "Delete" against "{SavedValue:Automation Runtime}" in flex table with id "---grantee_tableId:-:PreApplication---"
-    When I click on "View" icon for "{SavedValue:Automation Runtime}" inside table
+    And I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:PreApplication---" panel
+    Then I softly can see row level action button "View" against "{SavedValue:Automation Runtime Opportunity}" in flex table with id "---grantee_tableId:-:PreApplication---"
+    Then I softly can see row level action button "Edit" against "{SavedValue:Automation Runtime Opportunity}" in flex table with id "---grantee_tableId:-:PreApplication---"
+    Then I softly can see row level action button "Delete" against "{SavedValue:Automation Runtime Opportunity}" in flex table with id "---grantee_tableId:-:PreApplication---"
+    And I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside flex table with id "---grantee_tableId:-:preApplicaltionTableId---" without waiting for record
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "PreappEGMSID"
     When I navigate to "Setup" sub tab
