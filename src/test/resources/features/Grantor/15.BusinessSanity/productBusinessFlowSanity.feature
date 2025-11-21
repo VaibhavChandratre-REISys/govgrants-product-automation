@@ -1569,6 +1569,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I wait for "1" seconds
     #To do - Remove comment for package execution
 #    When I click modal button "Close"
+    When I close "Enter Review" modal by clicking the top right x button
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
@@ -1969,6 +1970,8 @@ Feature: Validate sanity testing of Complete Business Flow
     When I click modal button "Save"
     And I pause execution for "2" seconds
     When I click modal button "Close"
+    And I refresh the page
+    And I pause execution for "2" seconds
     Then I see status in Progress-bar is "Paid" and is "dark blue"
 
   @72350 @adhocAdvanceHappyPath @ProdSan1
@@ -3034,6 +3037,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I close "Associate Contacts" modal by clicking the top right x button
     When I click on "Submit to Grantor" in the page details
     And I wait for "3" seconds
+    And I refresh the page
     And I pause execution for "4" seconds
     Then I softly see field "Status" as "Submitted to Grantor"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
