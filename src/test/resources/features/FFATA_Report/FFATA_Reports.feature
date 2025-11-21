@@ -99,6 +99,9 @@ Feature: Validate all scenarios for FFATA Reports
     And I click on "Activate" in the page details
     And I wait for "3" seconds
     Then I see that "Subaward" is in "Activated" status
+    And I click on hyperlink containing value "{SavedValue:GrantEGMSID}"
+    When I navigate to "Overview" sub tab
+    And I save the field labeled "Grant Issue Date" as "AwardIssueDate"
     And I navigate to "Grants" tab
     When I navigate to "FFATA Reports" content inside "Reports" subheader on left panel
     Then I softly see top right button "New" inside flex table "---subAwardStandAlone:-:ffataReportTableId---"
@@ -202,6 +205,161 @@ Feature: Validate all scenarios for FFATA Reports
     And I wait for "2" seconds
     Then I softly see the following messages in the page details contains:
       | Please select at least one record to associate. |
+    When I click "Associate" after selection of "FFATA Funding Source 13" in the table "---subAwardStandAlone:-:AssociateFFATAEligibleSubawardsTableId---"
+    And I wait for "2" seconds
+    Then I softly see the following messages in the page details contains:
+      | Subawards added successfully. |
+    Then I softly see "No Records Found" inside flex table with id "---subAwardStandAlone:-:AssociateFFATAEligibleSubawardsTableId---"
+    And I click modal button "Close"
+    And I wait for "1" seconds
+    And I click toggle button to select "Subawards - Not Submitted"
+    Then I softly see value "H173A230074" for title "FAIN" inside table "---subAwardStandAlone:-:ffataEligibleAwardstableId---"
+    Then I softly see value "{SavedValue:AwardEGMSID}" for title "EGMS ID" inside table "---subAwardStandAlone:-:ffataEligibleAwardstableId---"
+    Then I softly see value "$50,000.00" for title "Award Amount" inside table "---subAwardStandAlone:-:ffataEligibleAwardstableId---"
+    Then I softly see value "{SavedValue:AwardIssueDate}" for title "Award Issue Date" inside table "---subAwardStandAlone:-:ffataEligibleAwardstableId---"
+    Then I softly see field name "FFATAReportNumber__c" is blank in flex table with Id "---subAwardStandAlone:-:ffataEligibleAwardstableId---"
+    Then I softly see field name "FFATAReportVersion__c" is blank in flex table with Id "---subAwardStandAlone:-:ffataEligibleAwardstableId---"
+    Then I softly see value "Not Submitted" for title "FFATA Report Status" inside table "---subAwardStandAlone:-:ffataEligibleAwardstableId---"
+    Then I softly see value "Ready for Submission" for title "Processing Status" inside table "---subAwardStandAlone:-:ffataEligibleAwardstableId---"
+    And I save the value from row "1" for column name "Last Modified Date" as "LastModifiedDate" from flex table "---subAwardStandAlone:-:ffataEligibleAwardstableId---"
+    Then I softly see value "{SavedValue:LastModifiedDate}" for title "Processing Status" inside table "---subAwardStandAlone:-:ffataEligibleAwardstableId---"
+    And I click on top right button "Submit to SAM.gov" in flex table with id "---subAwardStandAlone:-:ffataEligibleAwardstableId---"
+    And I wait for "2" seconds
+    Then I softly see the following messages in the page details contains:
+      | Select the eligible records to proceed. |
+    When I check "{SavedValue:AwardEGMSID}" boxes in flex table with id "---subAwardStandAlone:-:ffataEligibleAwardstableId---"
+    When I click table top right button "Submit to SAM.gov" in flex table with id "---subAwardStandAlone:-:ffataEligibleAwardstableId---"
+    Then I softly see confirmation box with body "This action will submit subawards to SAM.gov and export a CSV report, classified as 'FFATA Submission Report' under the Files tab, for all associated eligible subawards. Are you sure you want to proceed?" is displayed
+    And I click "OK" on modal confirmation box
+    And I wait for "2" seconds
+    Then I softly see the following messages in the page details contains:
+      | Only the eligible records will proceed for Sam.gov submission. Refresh the page and check the status after some time. |
+    Then I softly do not see field name "FFATAReportNumber__c" is blank in flex table with Id "---subAwardStandAlone:-:ffataEligibleAwardstableId---"
+    Then I softly do not see field name "FFATAReportVersion__c" is blank in flex table with Id "---subAwardStandAlone:-:ffataEligibleAwardstableId---"
+    And I save the value from row "1" for column name "FFATA Report Number" as "FFATAReportNumber" from flex table "---subAwardStandAlone:-:ffataEligibleAwardstableId---"
+    And I save the value from row "1" for column name "FFATA Report Version" as "FFATAReportVersion" from flex table "---subAwardStandAlone:-:ffataEligibleAwardstableId---"
+    Then I softly see value "{SavedValue:FFATAReportNumber}" for title "FFATA Report Number" inside table "---subAwardStandAlone:-:ffataEligibleAwardstableId---"
+    Then I softly see value "{SavedValue:FFATAReportVersion}" for title "FFATA Report Version" inside table "---subAwardStandAlone:-:ffataEligibleAwardstableId---"
+    Then I softly see value "Published" for title "FFATA Report Status" inside table "---subAwardStandAlone:-:ffataEligibleAwardstableId---"
+    Then I softly see value "Processed" for title "Processing Status" inside table "---subAwardStandAlone:-:ffataEligibleAwardstableId---"
+    Then I softly see field "Report Status" as "Completed"
+    Then I softly see "Failed Subawards" page block displayed
+    Then I softly see "No Records Found" inside flex table with id "---subAwardStandAlone:-:FFATAEligibleSubawardsFailedRecordsTableId---"
+    Then I softly see "FAIN" in flex table header "---subAwardStandAlone:-:FFATAEligibleSubawardsFailedRecordsTableId---"
+    Then I softly see "EGMS ID" in flex table header "---subAwardStandAlone:-:FFATAEligibleSubawardsFailedRecordsTableId---"
+    Then I softly see "Processing Errors" in flex table header "---subAwardStandAlone:-:FFATAEligibleSubawardsFailedRecordsTableId---"
+    Then I softly see "Last Modified Date" in flex table header "---subAwardStandAlone:-:FFATAEligibleSubawardsFailedRecordsTableId---"
+    And I navigate to "Files" sub tab
+    Then I softly see "FFATA Report Files" page block displayed
+    Then I softly see value "csv" for title "File Extension" inside table "---subAwardStandAlone:-:FFATAReportFilesTableId---"
+    Then I softly see value "Json" for title "File Extension" inside table "---subAwardStandAlone:-:FFATAReportFilesTableId---"
+    Then I softly can see row level action button "Download" against "csv" in flex table with id "---fundingSource:-:FFATAReportFilesTableId---"
+    Then I softly can see row level action button "Delete" against "csv" in flex table with id "---fundingSource:-:FFATAReportFilesTableId---"
+    Then I softly can see row level action button "Download" against "Json" in flex table with id "---fundingSource:-:FFATAReportFilesTableId---"
+    Then I softly can see row level action button "Delete" against "Json" in flex table with id "---fundingSource:-:FFATAReportFilesTableId---"
 
-
+  @546344 @ValidatethatPrimarySubrecipientSPIuserscanabletoseeFFATAReportingtabonaccountlayouthaveeditaccessonbelowparticularsectionsunderFFATAReportingtab
+  Scenario: Validate that Primary Subrecipient SPI users can able to see FFATA Reporting tab on account layout & have edit accesson below particular sections under FFATA Reporting tab
+    When I am on "SUBPORTAL" portal
+    And I login to "Grants Portal" app as "SPI3" user
+    And I navigate to "Home" tab
+    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
+    Then I softly can see "FFATA Reporting" sub tab at view detail page
+    And I navigate to "FFATA Reporting" tab
+    Then I softly see "FFATA Compliance" page block displayed
+    Then I softly see "Executive Compensation" page block displayed
+    Then I softly see "Subaward Details for FFATA Compliance" page block displayed
+    Then I softly see the text containing "For Subaward FFATA report submission, Question 1 must be answered as ‘Yes’, Question 2 as ‘No’, and a minimum of five employee records must be provided in the Executive Compensation section."
+    When I hovering mouse on help text icon inside page block detail "FFATA Compliance"
+    Then I softly see "Answer the following questions to determine your organization’s FFATA reporting requirements based on the most recent completed fiscal year." shown as help text
+    When I click on "Edit" in the page details
+    Then I see only the following ordered options in dropdown field "FFATAquestion1__c" :
+      | --None-- | No | Yes |
+    Then I softly see value "Yes" selected as default for the dropdown field "FFATAquestion1__c"
+    Then I see only the following ordered options in dropdown field "FFATAquestion2__c" :
+      | --None-- | No | Yes |
+    Then I softly see value "No" selected as default for the dropdown field "FFATAquestion2__c"
+    Then I see only the following ordered options in dropdown field "FFATAquestion3__c" :
+      | --None-- | No | Yes |
+    Then I softly see value "Yes" selected as default for the dropdown field "FFATAquestion3__c"
+    When I click on "Save" in the page details
+    And I wait for "2" seconds
+    When I hovering mouse on help text icon inside page block detail "Executive Compensation"
+    Then I softly see "The five top-paid employes information would be sent as FFATA Reporting." shown as help text
+    Then I softly see "No Records Found" inside flex table with id "---home:-:executionCompensationTableId---"
+    Then I softly can see top right button "New" in flex table with id "---home:-:executionCompensationTableId---"
+    Then I softly see "Actions" in flex table header "---home:-:executionCompensationTableId---"
+    Then I softly see "Full Name" in flex table header "---home:-:executionCompensationTableId---"
+    Then I softly see "Salary ($)" in flex table header "---home:-:executionCompensationTableId---"
+    And I click on top right button "New" in flex table with id "---home:-:executionCompensationTableId---"
+    Then I softly see field "FullName__c" maximum length is "255" for input field
+    And I click on top right button "Save" in flex table with id "---home:-:executionCompensationTableId---"
+    And I wait for "2" seconds
+    Then I softly see the following messages in the page details contains:
+      | Required fields missing |
+    When I click on parallel lines menu bar with data target value "Executive Compensation"
+    And I select "Refresh" from parallel lines dropdown of "Executive Compensation"
+    Then I see table is refreshing
+    When I enter the following values into flex table with id "---home:-:executionCompensationTableId---" by clicking "New" :
+      | Full Name      | Salary ($) |
+      | Michael Carter | -20        |
+    And I wait for "2" seconds
+    Then I softly see the following messages in the page details contains:
+      | Salary cannot be negative. |
+    When I click on parallel lines menu bar with data target value "Executive Compensation"
+    And I select "Refresh" from parallel lines dropdown of "Executive Compensation"
+    Then I see table is refreshing
+    When I enter the following values into flex table with id "---home:-:executionCompensationTableId---" by clicking "New" :
+      | Full Name      | Salary ($) |
+      | Michael Carter | 20000      |
+    Then I softly can see row level action button "Edit" against "Michael Carter" in flex table with id "---home:-:executionCompensationTableId---"
+    Then I softly can see row level action button "Delete" against "Michael Carter" in flex table with id "---home:-:executionCompensationTableId---"
+    When I click on "Delete" icon for "Michael Carter" inside table with table id "---home:-:executionCompensationTableId---" without processing
+    Then I softly see confirmation box with body "Are you sure you want to delete this record?" is displayed
+    When I click modal button "OK"
+    And I wait for "3" seconds
+    Then I softly see the following messages in the page details contains:
+      | Record deleted successfully. |
+    Then I softly see "No Records Found" inside flex table with id "---home:-:executionCompensationTableId---"
+    When I enter the following values into flex table with id "---home:-:executionCompensationTableId---" by clicking "New" :
+      | Full Name      | Salary ($) |
+      | Michael Carter | 10000      |
+      | Emily Johnson  | 50000      |
+      | Daniel Smith   | 70000      |
+      | Jessica Brown  | 20000      |
+      | Andrew Miller  | 40000      |
+      | Sarah Brown    | 90000      |
+      | Jessica Davis  | 60000      |
+      | Sarah Davis    | 5000       |
+      | Sarah Miller   | 55000      |
+      | Daniel Davis   | 35000      |
+      | Sarah Johnson  | 40000      |
+    Then I softly see total records count "Total Records: 11" in flex table "---home:-:executionCompensationTableId---"
+    And I click on page navigation arrow "---home:-:executionCompensationTableId---" for table id "Next"
+    When I click on button "resetIcon" in flex table with id "---home:-:executionCompensationTableId---"
+    And I wait for "1" seconds
+    When I click on "Delete" icon for "Michael Carter" inside flex table with id "---home:-:executionCompensationTableId---"
+    When I click on "Delete" icon for "Emily Johnson" inside flex table with id "---home:-:executionCompensationTableId---"
+    When I click on "Delete" icon for "Daniel Smith" inside flex table with id "---home:-:executionCompensationTableId---"
+    When I click on "Delete" icon for "Jessica Brown" inside flex table with id "---home:-:executionCompensationTableId---"
+    When I click on "Delete" icon for "Andrew Miller" inside flex table with id "---home:-:executionCompensationTableId---"
+    When I click on "Delete" icon for "Sarah Brown" inside flex table with id "---home:-:executionCompensationTableId---"
+    When I click on "Delete" icon for "Jessica Davis" inside flex table with id "---home:-:executionCompensationTableId---"
+    When I click on "Delete" icon for "Sarah Davis" inside flex table with id "---home:-:executionCompensationTableId---"
+    When I click on "Delete" icon for "Sarah Miller" inside flex table with id "---home:-:executionCompensationTableId---"
+    When I click on "Delete" icon for "Daniel Davis" inside flex table with id "---home:-:executionCompensationTableId---"
+    When I click on "Delete" icon for "Sarah Johnson" inside flex table with id "---home:-:executionCompensationTableId---"
+    Then I softly see "No Records Found" inside flex table with id "---home:-:executionCompensationTableId---"
+    Then I softly see "Subaward Title" in flex table header "---subAwardStandAlone:-:SrOrgSubawardDetailsFFATAComplianceTableId---"
+    Then I softly see "FFATA Report Due Date" in flex table header "---subAwardStandAlone:-:SrOrgSubawardDetailsFFATAComplianceTableId---"
+    Then I softly see "FFATA Report Status" in flex table header "---subAwardStandAlone:-:SrOrgSubawardDetailsFFATAComplianceTableId---"
+    When I click on parallel lines menu bar with data target value "Subaward Details for FFATA Compliance"
+    And I wait for "3" seconds
+    Then I see option "Refresh" present in parallel dropdown
+    Then I see option "Download as PDF" present in parallel dropdown
+    Then I see option "Download as CSV" present in parallel dropdown
+    And I save the value from row "1" for column name "Subaward EGMS ID" as "AwardEGMSID" from flex table "---subAwardStandAlone:-:SrOrgSubawardDetailsFFATAComplianceTableId---"
+    And I click on hyperlink containing value "{SavedValue:AwardEGMSID}"
+    Then I see the header is "Award" in the page details
+    Then I softly see field "EGMS ID" as "{SavedValue:AwardEGMSID}"
 

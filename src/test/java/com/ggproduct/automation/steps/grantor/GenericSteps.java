@@ -41,9 +41,9 @@ public class GenericSteps {
     }
 
     @Description("To verify field value is blank in flex table with Id")
-    @Then("^I (softly see|see) field name \"([^\"]*)\" is blank in flex table with Id \"([^\"]*)\"$")
+    @Then("^I (softly see|see|do not see|softly do not see) field name \"([^\"]*)\" is blank in flex table with Id \"([^\"]*)\"$")
     public void iSeeFieldNameIsBlank(String usage, String fieldname, String tableId) {
-        grantorProjectManager.assertColumnValuIsBlank(tableId, fieldname, usage.contains("softly"));
+        grantorProjectManager.assertColumnValuIsBlank(tableId, fieldname, usage);
     }
 
     @Description("To verify total records available under flex table")

@@ -48,11 +48,15 @@ public class GrantorProjectManager extends ProjectManager {
         return false;
     }
 
-    public void assertColumnValuIsBlank(String tableId, String fieldName, boolean isSoftly) {
-        if (isSoftly) {
+    public void assertColumnValuIsBlank(String tableId, String fieldName, String usage) {
+        if (usage.equals("softly see")) {
             I.amPerforming().assertionsTo().assertThat(isColumnValueBlank(tableId, fieldName)).isTrue();
-        } else {
+        } else if (usage.equals("see")) {
             Assert.assertTrue(isColumnValueBlank(tableId, fieldName));
+        } else if (usage.equals("softly do not see")) {
+            I.amPerforming().assertionsTo().assertThat(isColumnValueBlank(tableId, fieldName)).isFalse();
+        } else {
+            Assert.assertFalse(isColumnValueBlank(tableId, fieldName));
         }
     }
 

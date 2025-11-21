@@ -4266,27 +4266,36 @@ public final class GovGrantsAssertionObjects {
         return flag;
     }
 
-    public void assertLabelMaximumLengthIsForInputField(String usage, String labelName, String length) {
+    public void assertLabelMaximumLengthIsForInputField(String usage, String check, String labelName, String length) {
         if (usage.equalsIgnoreCase("see")) {
-            Assert.assertTrue(isMaximumLengthIsForInputField(labelName, length));
+            Assert.assertTrue(isMaximumLengthIsForInputField(check, labelName, length));
         } else if (usage.equalsIgnoreCase("softly see")) {
-            I.amPerforming().assertionsTo().assertThat(isMaximumLengthIsForInputField(labelName, length)).isTrue();
+            I.amPerforming().assertionsTo().assertThat(isMaximumLengthIsForInputField(check, labelName, length)).isTrue();
         } else if (usage.equalsIgnoreCase("do not see")) {
-            Assert.assertFalse(isMaximumLengthIsForInputField(labelName, length));
+            Assert.assertFalse(isMaximumLengthIsForInputField(check, labelName, length));
         } else {
-            I.amPerforming().assertionsTo().assertThat(isMaximumLengthIsForInputField(labelName, length)).isFalse();
+            I.amPerforming().assertionsTo().assertThat(isMaximumLengthIsForInputField(check, labelName, length)).isFalse();
         }
     }
 
-    private Boolean isMaximumLengthIsForInputField(String labelName, String length) {
+    private Boolean isMaximumLengthIsForInputField(String check, String labelName, String length) {
         boolean flag = false;
-        try {
-            if (I.amPerforming().checkToSee().isDisplayed(By.xpath(" //label[text()='" + labelName + "']//parent::div//input[@maxlength='" + length + "']"))) {
-                flag = true;
-            }
-        } catch (Exception e) {
-        }
-        return flag;
+       if(check.equalsIgnoreCase("label")){
+           try {
+               if (I.amPerforming().checkToSee().isDisplayed(By.xpath(" //label[text()='" + labelName + "']//parent::div//input[@maxlength='" + length + "']"))) {
+                   flag = true;
+               }
+           } catch (Exception e) {
+           }
+       } else {
+           try {
+               if (I.amPerforming().checkToSee().isDisplayed(By.xpath("//c-fieldlwc[@data-fieldapiname='" + labelName + "']//parent::div//input[@maxlength='" + length + "']"))) {
+                   flag = true;
+               }
+           } catch (Exception e) {
+           }
+       }
+       return flag;
     }
 
     public void assertalueForTheEditModeField(String usage, String fieldName, String fieldAPIName) {
