@@ -1164,7 +1164,7 @@ Feature: Validate all scenarios for Pre-Applications Manual
     When I click on "Convert to Opportunity" in the page details
     And I save the field labeled "EGMS ID" as "opportunityEGMSID"
     And I create opportunity with state "Approved" for opportunity number "{SavedValue:Automation Runtime}" with properties "Default"
-    And I create Pre-application "{SavedValue:Automation Runtime Opportunity}" with state "Created" for opportunity number "{SavedValue:Automation Runtime}" with properties "Default"
+    And I create Pre-application "{SavedValue:Automation Runtime}" with state "Created" for opportunity number "{SavedValue:Automation Runtime}" with properties "Default"
     When I navigate to "Applications" tab
     And I navigate to "Pre-Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Pre-Applications - All"
@@ -1173,11 +1173,13 @@ Feature: Validate all scenarios for Pre-Applications Manual
     Then I see option "Refresh" present in parallel dropdown
     Then I see option "Download as PDF" present in parallel dropdown
     Then I see option "Download as CSV" present in parallel dropdown
-    And I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:PreApplication---" panel
-    Then I softly can see row level action button "View" against "{SavedValue:Automation Runtime Opportunity}" in flex table with id "---grantee_tableId:-:PreApplication---"
-    Then I softly can see row level action button "Edit" against "{SavedValue:Automation Runtime Opportunity}" in flex table with id "---grantee_tableId:-:PreApplication---"
-    Then I softly can see row level action button "Delete" against "{SavedValue:Automation Runtime Opportunity}" in flex table with id "---grantee_tableId:-:PreApplication---"
-    When I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside table
+    And I perform quick search for "{SavedValue:Automation Runtime}" in "---grantee_tableId:-:PreApplication---" panel
+    Then I softly can see row level action button "View" against "{SavedValue:Automation Runtime}" in flex table with id "---grantee_tableId:-:PreApplication---"
+    Then I softly can see row level action button "Edit" against "{SavedValue:Automation Runtime}" in flex table with id "---grantee_tableId:-:PreApplication---"
+    Then I softly can see row level action button "Delete" against "{SavedValue:Automation Runtime}" in flex table with id "---grantee_tableId:-:PreApplication---"
+    When I click on "View" icon for "{SavedValue:Automation Runtime}" inside table
+    And I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "PreappEGMSID"
     When I navigate to "Setup" sub tab
     Then I softly see "Project Period" page block displayed
     Then I softly see "Budget Period Details" page block displayed
@@ -1204,8 +1206,8 @@ Feature: Validate all scenarios for Pre-Applications Manual
     When I navigate to "Applications" tab
     And I navigate to "Pre-Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Pre-Applications - All"
-    And I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:PreApplication---" panel
-    When I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside table
+    And I perform quick search for "{SavedValue:PreappEGMSID}" in "---grantee_tableId:-:PreApplication---" panel
+    When I click on "View" icon for "{SavedValue:PreappEGMSID}" inside table
     Then I softly see field "Status" as "Created"
     Then I softly see status in Progress-bar is "Created" and is "dark blue"
     And I click on Menu icon present on top right corner of the page
@@ -1213,9 +1215,9 @@ Feature: Validate all scenarios for Pre-Applications Manual
     And I click on "Download as PDF" in the page details
     And I wait for "7" seconds
     And I download the file
-    Then I softly see "{SavedValue:Automation Runtime Opportunity}" on page "1" of "govgrants" pdf file
+    Then I softly see "Pre-Application - {SavedValue:Automation Runtime Opportunity}" on page "1" of "govgrants" pdf file
     And I switch to parent tab
-    And I save the field labeled "EGMS ID" as "PreappEGMSID"
+    And I wait for "2" seconds
     When I navigate to "Files" sub tab
     And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:preApplicationAddFilesTableId---"
     And I upload attachment without random number "Attachment.pdf" of type "Letter of Intent" from computer
