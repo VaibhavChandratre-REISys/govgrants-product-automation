@@ -13272,7 +13272,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
       | userName        | User       |
       | Grantee PO user | GRANTEE PO |
 
-  @486579 @BudgetRedirectionAREXEusershouldabletoactivatenewawardthroughBRAR @P1_Grantee @EXE_Grantee @GRegression1
+  @486579 @BudgetRedirectionAREXEusershouldabletoactivatenewawardthroughBRAR @P1_Grantee @EXE_Grantee @GRegression1 @GranteeP_Q4
   Scenario Outline: Budget Redirection AR- EXE user should able to activate new award through BR AR
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default-<OwnerType>"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "SECOND_FOCUS_WITH_BUDGET"

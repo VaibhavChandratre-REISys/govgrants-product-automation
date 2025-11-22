@@ -8319,7 +8319,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
     Then I softly see field "Source Change Request" as "{SavedValue:AREGMSID}"
     Then I softly see field "Request Type" as "Change Request"
 
-  @495231 @495222 @validatethebudgetRedirectAR&functionality
+  @495231 @495222 @validatethebudgetRedirectAR&functionality @GranteeP_Q4
   Scenario Outline: Validate the budget Redirect AR & functionality
     And I create "Manual" qualified lead for title "Automation Runtime Opportunity" and opportunity number "Automation Runtime" with properties "default-Victor EXE user"
     Given I login to "Grantee" app as "GRANTEE PM" user
@@ -9050,7 +9050,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
     Then I softly see value "Activated" for title "Status" against the value "{SavedValue:AwardEGMSID2}" inside table "---grantee_tableId:-:GrantsAwardsRevisionTableId---"
     Then I softly see value "Amended" for title "Status" against the value "{SavedValue:AwardEGMSID}" inside table "---grantee_tableId:-:GrantsAwardsRevisionTableId---"
 
-  @495474 @449368 @Validatethebudgetredirectionwitheditaccessno
+  @495474 @449368 @Validatethebudgetredirectionwitheditaccessno @GranteeP_Q4
   Scenario: Validate budget redirection with edit access no
     And I create "Manual" qualified lead for title "Automation Runtime Opportunity" and opportunity number "Automation Runtime" with properties "default-Victor EXE user"
     Given I login to "Grantee" app as "GRANTEE PM" user

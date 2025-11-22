@@ -1651,7 +1651,7 @@ Feature: Validate all scenarios for closeout
     And I navigate to "Closeout" tab
     Then I do not see "Budget Period Closeouts" inside "Closeouts" is displayed
 
-  @484043 @ValidateFromAppGPCloseoutwithPMProfileAbletocreateschedulecloseout @P2_Grantee @PM_Grantee @GRegression1
+  @484043 @ValidateFromAppGPCloseoutwithPMProfileAbletocreateschedulecloseout @P2_Grantee @PM_Grantee @GRegression1 @GranteeP_Q4
   Scenario: Validate From App GP Closeout with PM Profile, Able to create schedule closeout
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default"
@@ -2181,7 +2181,7 @@ Feature: Validate all scenarios for closeout
     Then I softly do not see value "{SavedValue:progressEGMSID5}" for title "EGMS ID" inside table "---grantee_tableId:-:PendingProgressReprt---"
     Then I softly do not see value "Submitted to Grantor" for title "Status" inside table "---grantee_tableId:-:PendingProgressReprt---"
 
-  @446149 @ValidateGPCloseoutwithPMProfileAbletocreateProjectperiodcloseoutandabletocompletethecloseout @Grantee_Smoke1
+  @446149 @ValidateGPCloseoutwithPMProfileAbletocreateProjectperiodcloseoutandabletocompletethecloseout @Grantee_Smoke1 @GranteeP_Q4
   Scenario: Validate GP Closeout with PM Profile Able to create Project period closeout and able to complete the closeout
     And I "Created" standalone subaward "Automation Runtime award" with properties "INDIRECT_COST_NO"
     And I updated direct grant award for title "{SavedValue:Automation Runtime award}" with properties "default"
@@ -3589,7 +3589,7 @@ Feature: Validate all scenarios for closeout
      And I click on "View" icon for "{SavedValue:AwardEGMSID}" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
      Then I softly see field "Status" as "Closed"
 
-  @495223 @Validatethetheadhoccloseout&functionality
+  @495223 @Validatethetheadhoccloseout&functionality @GranteeP_Q4
   Scenario: Validate the the Adhoc closeout & functionality
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Manual" qualified lead for title "Automation Runtime Opportunity" and opportunity number "Automation Runtime" with properties "default"
