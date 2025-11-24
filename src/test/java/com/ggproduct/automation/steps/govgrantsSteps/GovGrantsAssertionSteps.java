@@ -9,6 +9,7 @@ import io.cucumber.java.en.When;
 import jdk.jfr.Description;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.CellType;
+import org.apache.poi.ss.usermodel.DataFormatter;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
@@ -20,6 +21,8 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.nio.charset.MalformedInputException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.List;
 import java.util.Map;
 import java.util.function.Predicate;
@@ -539,6 +542,10 @@ public final class GovGrantsAssertionSteps {
         ggAssertionObjects.assertFieldIsEditableOrNot(fieldAPIName, usage.contains("softly"));
     }
 
+    @Then("^I (softly see|see) field \"([^\"]*)\" is not editable for modal$")
+    public void iSoftlySeeFieldIsNotEditableForModal(String usage, String fieldAPIName) {
+        ggAssertionObjects.assertFieldIsEditableOrNotForModal(fieldAPIName, usage.contains("softly"));
+    }
 
     @Then("^I (softly see|see) field on modal \"([^\"]*)\" is not editable$")
     public void iSeeFieldOnModalIsNotEditable(String usage, String fieldAPIName) {
@@ -950,26 +957,106 @@ public final class GovGrantsAssertionSteps {
 
     @Then("^I see row \"(\\d+)\" contains value \"([^\"]*)\" against the column name \"([^\"]*)\" in the Excel file \"([^\"]*)\"$")
     public void validateExactCellValue(int rowNumber, String expectedValue, String columnName, String fileName) {
+        validateFileCellValue(rowNumber, expectedValue, columnName, fileName);
+    }
+
+    public void validateFileCellValue(int rowNumber, String expectedValue, String columnName, String fileName) {
+
+        File dir = new File(System.getProperty("user.dir") + "/target");
+
+        // Allow time for file download
+        I.amPerforming().waitFor().makeThreadSleep(3000);
+
+        File xlsx = new File(dir, fileName + ".xlsx");
+        File csv = new File(dir, fileName + ".csv");
+
+        // CASE 1: If clean files DO NOT exist, try renaming safely
+        if (!xlsx.exists() && !csv.exists()) {
+
+            // Try CSV rename FIRST
+            try {
+                I.amPerforming().fileHandling().toRenameFileWithSpecificExtensionNew(dir, fileName, "csv", "csv");
+            } catch (Exception ignored) {}
+
+            // Refresh CSV reference
+            csv = new File(dir, fileName + ".csv");
+
+            // If CSV does not exist, ONLY THEN try XLSX
+            if (!csv.exists()) {
+                try {
+                    I.amPerforming().fileHandling().toRenameFileWithSpecificExtensionNew(dir, fileName, "xlsx", "xlsx");
+                } catch (Exception ignored) {}
+            }
+        }
+
+        // REFRESH ALL PATHS
+        xlsx = new File(dir, fileName + ".xlsx");
+        csv = new File(dir, fileName + ".csv");
+
+        // CASE 2: Decide which parser to use
+        if (xlsx.exists()) {
+            validateExcelCell(rowNumber, expectedValue, columnName, xlsx.getAbsolutePath(), fileName);
+        }
+        else if (csv.exists()) {
+            validateCSVCell(rowNumber, expectedValue, columnName, csv.getAbsolutePath(), fileName);
+        }
+        else {
+            throw new AssertionError("No .xlsx or .csv file found for: " + fileName +
+                    ". Downloaded file may not match expected pattern.");
+        }
+    }
+
+    public void validateCSVCell(int rowNumber, String expectedValue, String columnName, String filePath, String fileName) {
 
         try {
-            // File directory
-            File dir = new File(System.getProperty("user.dir") + "/target");
+            List<String> lines = Files.readAllLines(Paths.get(filePath));
 
-            // wait for download
-            I.amPerforming().waitFor().makeThreadSleep(3000);
+            if (lines.isEmpty()) {
+                throw new AssertionError("CSV file is empty: " + fileName);
+            }
 
-            // rename the downloaded file (your standard framework logic)
-            I.amPerforming().fileHandling().toRenameFileWithSpecificExtension(dir, fileName, "xlsx", "xlsx");
+            String[] headers = lines.get(0).split(",");
 
-            // final excel path
-            String excelFilePath = dir.getAbsolutePath() + "/" + fileName + ".xlsx";
+            int columnIndex = -1;
+            for (int i = 0; i < headers.length; i++) {
+                if (headers[i].trim().equalsIgnoreCase(columnName.trim())) {
+                    columnIndex = i;
+                    break;
+                }
+            }
 
-            FileInputStream fis = new FileInputStream(excelFilePath);
+            if (columnIndex == -1) {
+                throw new AssertionError("Column '" + columnName + "' not found in CSV file: " + fileName);
+            }
+
+            if (rowNumber >= lines.size()) {
+                throw new AssertionError("Row " + rowNumber + " not found in CSV file: " + fileName);
+            }
+
+            String[] rowValues = lines.get(rowNumber).split(",");
+            String actualValue = rowValues[columnIndex].trim();
+
+            System.out.println("Expected: '" + expectedValue + "', Actual: '" + actualValue + "'");
+
+            if (!actualValue.equalsIgnoreCase(expectedValue)) {
+                throw new AssertionError("CSV mismatch → Expected '" + expectedValue +
+                        "' but found '" + actualValue + "'");
+            }
+
+        } catch (Exception e) {
+            throw new AssertionError("Failed to validate CSV file '" + fileName + "': " + e.getMessage(), e);
+        }
+    }
+
+    public void validateExcelCell(int rowNumber, String expectedValue, String columnName, String filePath, String fileName) {
+
+        try {
+            FileInputStream fis = new FileInputStream(filePath);
             XSSFWorkbook workbook = new XSSFWorkbook(fis);
+            DataFormatter formatter = new DataFormatter();
 
             XSSFSheet sheet = workbook.getSheetAt(0);
 
-            // Header row = row 0
             Row headerRow = sheet.getRow(0);
             int columnIndex = -1;
 
@@ -981,10 +1068,9 @@ public final class GovGrantsAssertionSteps {
             }
 
             if (columnIndex == -1) {
-                throw new AssertionError("Column \"" + columnName + "\" not found in Excel file: " + fileName);
+                throw new AssertionError("Column '" + columnName + "' not found in Excel file: " + fileName);
             }
 
-            // BDD row number corresponds to Excel row number
             Row targetRow = sheet.getRow(rowNumber);
 
             if (targetRow == null) {
@@ -992,41 +1078,20 @@ public final class GovGrantsAssertionSteps {
             }
 
             Cell cell = targetRow.getCell(columnIndex);
-
-            String actualValue = "";
-            if (cell != null) {
-                switch (cell.getCellType()) {
-                    case STRING:
-                        actualValue = cell.getStringCellValue().trim();
-                        break;
-                    case NUMERIC:
-                        actualValue = String.valueOf(cell.getNumericCellValue());
-                        break;
-                    case BOOLEAN:
-                        actualValue = String.valueOf(cell.getBooleanCellValue());
-                        break;
-                    default:
-                        actualValue = cell.toString().trim();
-                }
-            }
+            String actualValue = formatter.formatCellValue(cell).trim();
 
             System.out.println("Expected: '" + expectedValue + "', Actual: '" + actualValue + "'");
 
             if (!actualValue.equalsIgnoreCase(expectedValue)) {
-                throw new AssertionError("Expected: \"" + expectedValue +
-                        "\", but found: \"" + actualValue +
-                        "\" at row " + rowNumber +
-                        ", column \"" + columnName +
-                        "\" in file: " + fileName);
+                throw new AssertionError("Excel mismatch → Expected '" + expectedValue +
+                        "' but found '" + actualValue + "'");
             }
-
-            System.out.println("Validation passed for row " + rowNumber + ", column \"" + columnName + "\"");
 
             workbook.close();
             fis.close();
 
         } catch (Exception e) {
-            throw new AssertionError("Failed to validate Excel file \"" + fileName + "\": " + e.getMessage(), e);
+            throw new AssertionError("Failed to validate Excel file '" + fileName + "': " + e.getMessage(), e);
         }
     }
 }

@@ -2304,6 +2304,21 @@ public final class GovGrantsAssertionObjects {
     }
 
     /**
+     * validate if fields is in edit mode is displayed at modal page
+     *
+     * @param fieldAPIName
+     * @param isSoftly
+     * @author vaibhav.chandratre
+     */
+    public void assertFieldIsEditableOrNotForModal(String fieldAPIName, boolean isSoftly) {
+        if (isSoftly) {
+            I.amPerforming().assertionsTo().assertThat(isFieldEditableForModal(fieldAPIName)).isFalse();
+        } else {
+            Assert.assertFalse(isFieldEditableForModal(fieldAPIName));
+        }
+    }
+
+    /**
      * validate if fields is in edit mode is displayed at modal details
      *
      * @param fieldAPIName
@@ -2322,6 +2337,17 @@ public final class GovGrantsAssertionObjects {
         boolean flag = true;
         try {
             if (I.amPerforming().checkToSee().isDisplayed(By.xpath("//div[@data-field_api_name='" + fieldAPIName + "']//input[@disabled] | //div[@data-field_api_name='" + fieldAPIName + "']//button[@disabled]  | //div[@data-field_api_name='" + fieldAPIName + "']//lightning-formatted-text")))
+                flag = true;
+        } catch (Exception e) {
+            flag = false;
+        }
+        return flag;
+    }
+
+    private Boolean isFieldEditableForModal(String fieldAPIName) {
+        boolean flag = true;
+        try {
+            if (I.amPerforming().checkToSee().isDisplayed(By.xpath("//div[contains(@class,'modal__container')]//div[@data-field_api_name='" + fieldAPIName + "']//input[@disabled] | //div[contains(@class,'modal__container')]//div[@data-field_api_name='" + fieldAPIName + "']//button[@disabled]")))
                 flag = true;
         } catch (Exception e) {
             flag = false;

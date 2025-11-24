@@ -137,7 +137,7 @@ Feature: Validate all scenarios for FFATA Reports
     Then I softly see field on modal "Report Name" inside page block
     Then I softly see asterisk mark on "Report Name"
     Then I softly see field on modal "Report Type" inside page block
-    Then I softly see field "Type__c" is not editable
+    Then I softly see field "Type__c" is not editable for modal
     Then I softly see field on modal "Award Activation From" inside page block
     Then I softly see asterisk mark on "Award Activation From"
     Then I softly see field on modal "Award Activation To" inside page block
@@ -248,6 +248,7 @@ Feature: Validate all scenarios for FFATA Reports
     And I save the value from row "1" for column name "Title" as "csvFile" from flex table "---subAwardStandAlone:-:FFATAReportFilesTableId---"
     And I click on "Download" icon for "csv" inside flex table with id "---subAwardStandAlone:-:FFATAReportFilesTableId---"
     And I wait for "2" seconds
+    And I switch to parent tab
     Then I see row "1" contains value "Ready for Submission" against the column name "Processing Status" in the Excel file "{SavedValue:csvFile}"
     And I click on top right button "Submit to SAM.gov" in flex table with id "---subAwardStandAlone:-:ffataEligibleAwardstableId---"
     And I wait for "2" seconds
@@ -296,6 +297,7 @@ Feature: Validate all scenarios for FFATA Reports
     And I save the value from row "1" for column name "Title" as "csvFile" from flex table "---subAwardStandAlone:-:FFATAReportFilesTableId---"
     And I click on "Download" icon for "csv" inside flex table with id "---subAwardStandAlone:-:FFATAReportFilesTableId---"
     And I wait for "2" seconds
+    And I switch to parent tab
     Then I see row "1" contains value "H173A230074" against the column name "FAIN" in the Excel file "{SavedValue:csvFile}"
     Then I see row "1" contains value "9100" against the column name "Agency Code" in the Excel file "{SavedValue:csvFile}"
     Then I see row "1" contains value "{SavedValue:GrantEGMSID}" against the column name "Grant EGMS ID" in the Excel file "{SavedValue:csvFile}"

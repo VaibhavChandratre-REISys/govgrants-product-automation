@@ -2531,8 +2531,10 @@ Feature: Validate all scenarios of every modules flow
 
   @testgranteesf
   Scenario:
-    And I published "Competitive" type announcement having name "Automation Runtime Announcement Application Review" and properties "default"
-    And I initiated an application review for application "{SavedValue:Automation Runtime Announcement Application Review}" on announcement "{SavedValue:Automation Runtime Announcement Application Review}" with properties "default"
-    Given I created award from approved FDM with announcement "{SavedValue:Automation Runtime Announcement Application Review}" and properties "NO_BUDGET_REDIRECTION_THRESHOLD"
-    And I activate award from FDM having application name "{SavedValue:Automation Runtime Announcement Application Review}"
+    When I login to "As a Grantor" app as "SARAH PM" user
     And I halt execution
+    And I save the value from row "1" for column name "Title" as "csvFile" from flex table "---subAwardStandAlone:-:FFATAReportFilesTableId---"
+    And I click on "Download" icon for "csv" inside flex table with id "---subAwardStandAlone:-:FFATAReportFilesTableId---"
+    And I wait for "2" seconds
+    And I switch to parent tab
+    Then I see row "1" contains value "H173A230074" against the column name "FAIN" in the Excel file "{SavedValue:csvFile}"
