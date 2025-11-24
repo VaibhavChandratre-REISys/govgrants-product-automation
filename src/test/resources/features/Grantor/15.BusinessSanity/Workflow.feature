@@ -2529,12 +2529,8 @@ Feature: Validate all scenarios of every modules flow
     And I wait for "3" seconds
     Then I see that "Subaward" is in "Activated" status
 
-  @testgranteesf
+  @testgranteesf @debug
   Scenario:
     When I login to "As a Grantor" app as "SARAH PM" user
     And I halt execution
-    And I save the value from row "1" for column name "Title" as "csvFile" from flex table "---subAwardStandAlone:-:FFATAReportFilesTableId---"
-    And I click on "Download" icon for "csv" inside flex table with id "---subAwardStandAlone:-:FFATAReportFilesTableId---"
-    And I wait for "2" seconds
-    And I switch to parent tab
-    Then I see row "1" contains value "H173A230074" against the column name "FAIN" in the Excel file "{SavedValue:csvFile}"
+    Then I softly see field "Type__c" is not editable for modal

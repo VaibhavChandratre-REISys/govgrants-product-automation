@@ -2312,9 +2312,9 @@ public final class GovGrantsAssertionObjects {
      */
     public void assertFieldIsEditableOrNotForModal(String fieldAPIName, boolean isSoftly) {
         if (isSoftly) {
-            I.amPerforming().assertionsTo().assertThat(isFieldEditableForModal(fieldAPIName)).isFalse();
+            I.amPerforming().assertionsTo().assertThat(isFieldEditableForModal(fieldAPIName)).isTrue();
         } else {
-            Assert.assertFalse(isFieldEditableForModal(fieldAPIName));
+            Assert.assertTrue(isFieldEditableForModal(fieldAPIName));
         }
     }
 

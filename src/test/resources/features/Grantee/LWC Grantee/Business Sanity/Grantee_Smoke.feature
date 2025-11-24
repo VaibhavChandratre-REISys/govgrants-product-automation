@@ -13462,7 +13462,7 @@ Feature: Grantee Smoke scenarios
     Then I softly can see row level action button "View" against "Automation Subject" in flex table with id "CommunicationHistory"
     Then I softly can see row level action button "Reply" against "Automation Subject" in flex table with id "CommunicationHistory"
 
-  @495308 @443894 @443895 @463566 @Validatethecommonfunctionalitylikefiledauditchatterglobalsearchnotification @Grantee_Smoke3 @debug
+  @495308 @443894 @443895 @463566 @Validatethecommonfunctionalitylikefiledauditchatterglobalsearchnotification @Grantee_Smoke3
   Scenario: Validate the common functionality like filed audit chatter global search notification
     When I login to "Grantee" app as "GRANTEE PM" user
     And I navigate to "Planning" tab
