@@ -1,7 +1,7 @@
 @FFATAReports
 Feature: Validate all scenarios for FFATA Reports
 
-  @546353 @546372 @547281 @547952 @546351 @547285 @546367 @547750 @546364 @ValidateInternalusersAdminPMPOEXEcanabletocreateFFATAReportCreationwithValidDatasuccessfully
+  @546353 @546372 @547281 @547952 @546351 @547285 @546367 @547750 @546364 @546354 @546356 @ValidateInternalusersAdminPMPOEXEcanabletocreateFFATAReportCreationwithValidDatasuccessfully
   Scenario: Validate Internal users Admin PM PO EXE can able to create FFATA Report Creation with Valid Data successfully
     When I am on "SUBPORTAL" portal
     And I login to "Grants Portal" app as "SPI3" user
@@ -286,7 +286,11 @@ Feature: Validate all scenarios for FFATA Reports
     Then I softly can see row level action button "Delete" against "csv" in flex table with id "---subAwardStandAlone:-:FFATAReportFilesTableId---"
     Then I softly can see row level action button "Download" against "txt" in flex table with id "---subAwardStandAlone:-:FFATAReportFilesTableId---"
     Then I softly can see row level action button "Delete" against "txt" in flex table with id "---subAwardStandAlone:-:FFATAReportFilesTableId---"
-    And I click on "Export" in the page details
+    #546356
+    When I click on "Export" in the page details without processing
+    Then I softly see confirmation box with quotes in body "This action will export a CSV report, classified as "FFATA Submission Report" under the Files tab, for all associated eligible subawards. Are you sure you want to proceed?" is displayed
+    And I click "OK" on modal confirmation box
+    And I wait for "2" seconds
     And I refresh the page
     And I wait for "2" seconds
     And I save the value from row "1" for column name "Title" as "csvFile" from flex table "---subAwardStandAlone:-:FFATAReportFilesTableId---"
