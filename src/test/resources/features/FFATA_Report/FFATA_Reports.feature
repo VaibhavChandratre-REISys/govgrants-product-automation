@@ -234,6 +234,8 @@ Feature: Validate all scenarios for FFATA Reports
     And I wait for "2" seconds
     Then I softly see the following messages in the page details contains:
       | Only the eligible records will proceed for Sam.gov submission. Refresh the page and check the status after some time. |
+    And I refresh the page
+    And I wait for "2" seconds
     Then I softly do not see field name "FFATAReportNumber__c" is blank in flex table with Id "---subAwardStandAlone:-:ffataEligibleAwardstableId---"
     Then I softly do not see field name "FFATAReportVersion__c" is blank in flex table with Id "---subAwardStandAlone:-:ffataEligibleAwardstableId---"
     And I save the value from row "1" for column name "FFATA Report Number" as "FFATAReportNumber" from flex table "---subAwardStandAlone:-:ffataEligibleAwardstableId---"
@@ -252,11 +254,152 @@ Feature: Validate all scenarios for FFATA Reports
     And I navigate to "Files" sub tab
     Then I softly see "FFATA Report Files" page block displayed
     Then I softly see value "csv" for title "File Extension" inside table "---subAwardStandAlone:-:FFATAReportFilesTableId---"
-    Then I softly see value "Json" for title "File Extension" inside table "---subAwardStandAlone:-:FFATAReportFilesTableId---"
-    Then I softly can see row level action button "Download" against "csv" in flex table with id "---fundingSource:-:FFATAReportFilesTableId---"
-    Then I softly can see row level action button "Delete" against "csv" in flex table with id "---fundingSource:-:FFATAReportFilesTableId---"
-    Then I softly can see row level action button "Download" against "Json" in flex table with id "---fundingSource:-:FFATAReportFilesTableId---"
-    Then I softly can see row level action button "Delete" against "Json" in flex table with id "---fundingSource:-:FFATAReportFilesTableId---"
+    Then I softly see value "txt" for title "File Extension" inside table "---subAwardStandAlone:-:FFATAReportFilesTableId---"
+    Then I softly can see row level action button "Download" against "csv" in flex table with id "---subAwardStandAlone:-:FFATAReportFilesTableId---"
+    Then I softly can see row level action button "Delete" against "csv" in flex table with id "---subAwardStandAlone:-:FFATAReportFilesTableId---"
+    Then I softly can see row level action button "Download" against "txt" in flex table with id "---subAwardStandAlone:-:FFATAReportFilesTableId---"
+    Then I softly can see row level action button "Delete" against "txt" in flex table with id "---subAwardStandAlone:-:FFATAReportFilesTableId---"
+    And I click on "Export" in the page details
+    And I refresh the page
+    And I wait for "2" seconds
+    And I save the value from row "1" for column name "Title" as "csvFile" from flex table "---subAwardStandAlone:-:FFATAReportFilesTableId---"
+    And I click on "Download" icon for "csv" inside flex table with id "---subAwardStandAlone:-:FFATAReportFilesTableId---"
+    And I wait for "2" seconds
+    Then I see row "1" contains value "H173A230074" against the column name "FAIN" in the Excel file "{SavedValue:csvFile}"
+    Then I see row "1" contains value "9100" against the column name "Agency Code" in the Excel file "{SavedValue:csvFile}"
+    Then I see row "1" contains value "{SavedValue:GrantEGMSID}" against the column name "Grant EGMS ID" in the Excel file "{SavedValue:csvFile}"
+    Then I see row "1" contains value "Published" against the column name "FFATA Report Status" in the Excel file "{SavedValue:csvFile}"
+    Then I see row "1" contains value "{SavedValue:FFATAReportNumber}" against the column name "Report Number" in the Excel file "{SavedValue:csvFile}"
+    Then I see row "1" contains value "100000" against the column name "Award Amount" in the Excel file "{SavedValue:csvFile}"
+    Then I see row "1" contains value "{SavedValue:AwardIssueDate}" against the column name "Award Issue Date" in the Excel file "{SavedValue:csvFile}"
+    Then I see row "1" contains value "Processed" against the column name "Processing Status" in the Excel file "{SavedValue:csvFile}"
+    Then I see row "1" contains value "VANCOUVER" against the column name "City" in the Excel file "{SavedValue:csvFile}"
+    Then I see row "1" contains value "WA" against the column name "State" in the Excel file "{SavedValue:csvFile}"
+    Then I see row "1" contains value "986614918" against the column name "Zip+Extension" in the Excel file "{SavedValue:csvFile}"
+    Then I see row "1" contains value "USA" against the column name "Country" in the Excel file "{SavedValue:csvFile}"
+    Then I see row "1" contains value "Yes" against the column name "Compensation Q1" in the Excel file "{SavedValue:csvFile}"
+    Then I see row "1" contains value "No" against the column name "Compensation Q2" in the Excel file "{SavedValue:csvFile}"
+    Then I see row "1" contains value "Yes" against the column name "Compensation Q3" in the Excel file "{SavedValue:csvFile}"
+    Then I see row "1" contains value "Sarah Davis" against the column name "Employee 1 Full Name" in the Excel file "{SavedValue:csvFile}"
+    Then I see row "1" contains value "80000" against the column name "Employee 1 Salary" in the Excel file "{SavedValue:csvFile}"
+    Then I see row "1" contains value "Daniel Smith" against the column name "Employee 2 Full Name" in the Excel file "{SavedValue:csvFile}"
+    Then I see row "1" contains value "70000" against the column name "Employee 2 Salary" in the Excel file "{SavedValue:csvFile}"
+    Then I see row "1" contains value "Emily Johnson" against the column name "Employee 3 Full Name" in the Excel file "{SavedValue:csvFile}"
+    Then I see row "1" contains value "50000" against the column name "Employee 3 Salary" in the Excel file "{SavedValue:csvFile}"
+    Then I see row "1" contains value "Andrew Miller" against the column name "Employee 4 Full Name" in the Excel file "{SavedValue:csvFile}"
+    Then I see row "1" contains value "40000" against the column name "Employee 4 Salary" in the Excel file "{SavedValue:csvFile}"
+    Then I see row "1" contains value "Jessica Brown" against the column name "Employee 5 Full Name" in the Excel file "{SavedValue:csvFile}"
+    Then I see row "1" contains value "20000" against the column name "Employee 5 Salary" in the Excel file "{SavedValue:csvFile}"
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click toggle button to select "Grants - Active"
+    When I perform quick search for "{SavedValue:GrantEGMSID}" in "---subAwardFromFDM:-:grantsTableId---" panel
+    And I click on "View" icon for "{SavedValue:GrantEGMSID}" inside flex table with id "---subAwardFromFDM:-:grantsTableId---" without waiting for record
+    Then I softly see "FFATA Compliance" page block displayed
+    Then I softly see value "H173A230074" for title "FAIN" inside table "---subAwardStandAlone:-:FFATAComplianceSectionGrantLayoutTableId---"
+    Then I softly see value "9100" for title "Agency Code" inside table "---subAwardStandAlone:-:FFATAComplianceSectionGrantLayoutTableId---"
+    Then I softly see value "{SavedValue:AwardEGMSID}" for title "EGMS ID" inside table "---subAwardStandAlone:-:FFATAComplianceSectionGrantLayoutTableId---"
+    Then I softly see value "$100,000.00" for title "Award Amount" inside table "---subAwardStandAlone:-:FFATAComplianceSectionGrantLayoutTableId---"
+    Then I softly see value "{SavedValue:AwardIssueDate}" for title "Award Issue Date" inside table "---subAwardStandAlone:-:FFATAComplianceSectionGrantLayoutTableId---"
+    Then I softly see value "{SavedValue:FFATAReportNumber}" for title "FFATA Report Number" inside table "---subAwardStandAlone:-:FFATAComplianceSectionGrantLayoutTableId---"
+    Then I softly see value "Published" for title "FFATA Report Status" inside table "---subAwardStandAlone:-:FFATAComplianceSectionGrantLayoutTableId---"
+    And I navigate to "Home" tab
+    When I navigate to "Subrecipients" content inside "Organization" subheader on left panel
+    When I perform quick search for "WASHINGTON CENTER FOR DEAF AND HARD OF HEARING YOUTH" in "ActiveAccount" panel
+    And I click on "View" icon for "WASHINGTON CENTER FOR DEAF AND HARD OF HEARING YOUTH" inside table
+    Then I softly can see "FFATA Reporting" sub tab at view detail page
+    When I navigate to "FFATA Reporting" sub tab
+    Then I softly see "FFATA Compliance" page block displayed
+    Then I softly see "Executive Compensation" page block displayed
+    Then I softly see "Subaward Details for FFATA Compliance" page block displayed
+    Then I softly see the text containing "For Subaward FFATA report submission, Question 1 must be answered as ‘Yes’, Question 2 as ‘No’, and a minimum of five employee records must be provided in the Executive Compensation section."
+    When I hovering mouse on help text icon inside page block detail "FFATA Compliance"
+    Then I softly see "Answer the following questions to determine your organization’s FFATA reporting requirements based on the most recent completed fiscal year." shown as help text
+    Then I softly see field "1. In your organization’s most recently completed fiscal year, did you receive $25,000,000 or more in annual gross revenue from Federal procurement contracts (including subcontracts) and Federal awards (including subawards) that are subject to the Transparency Act, as defined at § 170.300?" as "Yes"
+    Then I softly see field "2. In your organization’s most recently completed fiscal year, did you receive 80 percent or more of your annual gross revenue from Federal procurement contracts (including subcontracts) and Federal awards (including subawards) that are subject to the Transparency Act, as defined at § 170.300?" as "No"
+    Then I softly see field "3. Does the public have access to information about the compensation of the executives in your organization (the legal entity to which your Unique Entity ID (SAM) belongs) through periodic reports filed under section 13(a) or 15(d) of the Securities Exchange Act of 1934 (15 U.S.C. 78m(a), 78o(d)) or section 6104 of the Internal Revenue Code of 1986?" as "Yes"
+    When I hovering mouse on help text icon inside page block detail "Executive Compensation"
+    Then I softly see "The five top-paid employes information would be sent as FFATA Reporting." shown as help text
+    Then I softly see value "Michael Carter" for title "Full Name" inside table "---home:-:executionCompensationTableId---"
+    Then I softly see value "$10,000.00" for title "Salary ($)" inside table "---home:-:executionCompensationTableId---"
+    Then I softly see value "Emily Johnson" for title "Full Name" inside table "---home:-:executionCompensationTableId---"
+    Then I softly see value "$50,000.00" for title "Salary ($)" inside table "---home:-:executionCompensationTableId---"
+    Then I softly see value "Daniel Smith" for title "Full Name" inside table "---home:-:executionCompensationTableId---"
+    Then I softly see value "$70,000.00" for title "Salary ($)" inside table "---home:-:executionCompensationTableId---"
+    Then I softly see value "Sarah Davis" for title "Full Name" inside table "---home:-:executionCompensationTableId---"
+    Then I softly see value "$80,000.00" for title "Salary ($)" inside table "---home:-:executionCompensationTableId---"
+    Then I softly see value "Andrew Miller" for title "Full Name" inside table "---home:-:executionCompensationTableId---"
+    Then I softly see value "$40,000.00" for title "Salary ($)" inside table "---home:-:executionCompensationTableId---"
+    Then I softly see value "Jessica Brown" for title "Full Name" inside table "---home:-:executionCompensationTableId---"
+    Then I softly see value "$20,000.00" for title "Salary ($)" inside table "---home:-:executionCompensationTableId---"
+    Then I softly see "Subaward EGMS ID" in flex table header "---subAwardStandAlone:-:SrOrgSubawardDetailsFFATAComplianceTableId---"
+    Then I softly see "Subaward Title" in flex table header "---subAwardStandAlone:-:SrOrgSubawardDetailsFFATAComplianceTableId---"
+    Then I softly see "FFATA Report Due Date" in flex table header "---subAwardStandAlone:-:SrOrgSubawardDetailsFFATAComplianceTableId---"
+    Then I softly see "FFATA Report Status" in flex table header "---subAwardStandAlone:-:SrOrgSubawardDetailsFFATAComplianceTableId---"
+    When I click on parallel lines menu bar with data target value "Subaward Details for FFATA Compliance"
+    And I wait for "3" seconds
+    Then I see option "Refresh" present in parallel dropdown
+    Then I see option "Download as PDF" present in parallel dropdown
+    Then I see option "Download as CSV" present in parallel dropdown
+    And I perform quick search for "{SavedValue:AwardEGMSID}" in "---subAwardStandAlone:-:SrOrgSubawardDetailsFFATAComplianceTableId---" panel
+    Then I softly see value "{SavedValue:AwardEGMSID}" for title "Subaward EGMS ID" inside table "---subAwardStandAlone:-:SrOrgSubawardDetailsFFATAComplianceTableId---"
+    Then I softly see value "{SavedValue:Automation Runtime FFATA Report}" for title "Subaward Title" inside table "---subAwardStandAlone:-:SrOrgSubawardDetailsFFATAComplianceTableId---"
+    Then I softly see value "Published" for title "FFATA Report Status" inside table "---subAwardStandAlone:-:SrOrgSubawardDetailsFFATAComplianceTableId---"
+    And I save the value from row "1" for column name "FFATA Report Due Date" as "FFATAReportDueDate" from flex table "---subAwardStandAlone:-:SrOrgSubawardDetailsFFATAComplianceTableId---"
+    Then I softly see value "{SavedValue:FFATAReportDueDate}" for title "FFATA Report Due Date" inside table "---subAwardStandAlone:-:SrOrgSubawardDetailsFFATAComplianceTableId---"
+    And I click on hyperlink containing value "{SavedValue:AwardEGMSID}"
+    Then I see the header is "Subaward" in the page details
+    Then I softly see field "EGMS ID" as "{SavedValue:AwardEGMSID}"
+    When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
+    And I navigate to "Home" tab
+    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
+    Then I softly can see "FFATA Reporting" sub tab at view detail page
+    When I navigate to "FFATA Reporting" sub tab
+    Then I softly see "FFATA Compliance" page block displayed
+    Then I softly see "Executive Compensation" page block displayed
+    Then I softly see "Subaward Details for FFATA Compliance" page block displayed
+    Then I softly see the text containing "For Subaward FFATA report submission, Question 1 must be answered as ‘Yes’, Question 2 as ‘No’, and a minimum of five employee records must be provided in the Executive Compensation section."
+    When I hovering mouse on help text icon inside page block detail "FFATA Compliance"
+    Then I softly see "Answer the following questions to determine your organization’s FFATA reporting requirements based on the most recent completed fiscal year." shown as help text
+    Then I softly see field "1. In your organization’s most recently completed fiscal year, did you receive $25,000,000 or more in annual gross revenue from Federal procurement contracts (including subcontracts) and Federal awards (including subawards) that are subject to the Transparency Act, as defined at § 170.300?" as "Yes"
+    Then I softly see field "2. In your organization’s most recently completed fiscal year, did you receive 80 percent or more of your annual gross revenue from Federal procurement contracts (including subcontracts) and Federal awards (including subawards) that are subject to the Transparency Act, as defined at § 170.300?" as "No"
+    Then I softly see field "3. Does the public have access to information about the compensation of the executives in your organization (the legal entity to which your Unique Entity ID (SAM) belongs) through periodic reports filed under section 13(a) or 15(d) of the Securities Exchange Act of 1934 (15 U.S.C. 78m(a), 78o(d)) or section 6104 of the Internal Revenue Code of 1986?" as "Yes"
+    When I hovering mouse on help text icon inside page block detail "Executive Compensation"
+    Then I softly see "The five top-paid employes information would be sent as FFATA Reporting." shown as help text
+    Then I softly see value "Michael Carter" for title "Full Name" inside table "---home:-:executionCompensationTableId---"
+    Then I softly see value "$10,000.00" for title "Salary ($)" inside table "---home:-:executionCompensationTableId---"
+    Then I softly see value "Emily Johnson" for title "Full Name" inside table "---home:-:executionCompensationTableId---"
+    Then I softly see value "$50,000.00" for title "Salary ($)" inside table "---home:-:executionCompensationTableId---"
+    Then I softly see value "Daniel Smith" for title "Full Name" inside table "---home:-:executionCompensationTableId---"
+    Then I softly see value "$70,000.00" for title "Salary ($)" inside table "---home:-:executionCompensationTableId---"
+    Then I softly see value "Sarah Davis" for title "Full Name" inside table "---home:-:executionCompensationTableId---"
+    Then I softly see value "$80,000.00" for title "Salary ($)" inside table "---home:-:executionCompensationTableId---"
+    Then I softly see value "Andrew Miller" for title "Full Name" inside table "---home:-:executionCompensationTableId---"
+    Then I softly see value "$40,000.00" for title "Salary ($)" inside table "---home:-:executionCompensationTableId---"
+    Then I softly see value "Jessica Brown" for title "Full Name" inside table "---home:-:executionCompensationTableId---"
+    Then I softly see value "$20,000.00" for title "Salary ($)" inside table "---home:-:executionCompensationTableId---"
+    Then I softly see "Subaward EGMS ID" in flex table header "---subAwardStandAlone:-:SrOrgSubawardDetailsFFATAComplianceTableId---"
+    Then I softly see "Subaward Title" in flex table header "---subAwardStandAlone:-:SrOrgSubawardDetailsFFATAComplianceTableId---"
+    Then I softly see "FFATA Report Due Date" in flex table header "---subAwardStandAlone:-:SrOrgSubawardDetailsFFATAComplianceTableId---"
+    Then I softly see "FFATA Report Status" in flex table header "---subAwardStandAlone:-:SrOrgSubawardDetailsFFATAComplianceTableId---"
+    When I click on parallel lines menu bar with data target value "Subaward Details for FFATA Compliance"
+    And I wait for "3" seconds
+    Then I see option "Refresh" present in parallel dropdown
+    Then I see option "Download as PDF" present in parallel dropdown
+    Then I see option "Download as CSV" present in parallel dropdown
+    And I perform quick search for "{SavedValue:AwardEGMSID}" in "---subAwardStandAlone:-:SrOrgSubawardDetailsFFATAComplianceTableId---" panel
+    Then I softly see value "{SavedValue:AwardEGMSID}" for title "Subaward EGMS ID" inside table "---subAwardStandAlone:-:SrOrgSubawardDetailsFFATAComplianceTableId---"
+    Then I softly see value "{SavedValue:Automation Runtime FFATA Report}" for title "Subaward Title" inside table "---subAwardStandAlone:-:SrOrgSubawardDetailsFFATAComplianceTableId---"
+    Then I softly see value "Published" for title "FFATA Report Status" inside table "---subAwardStandAlone:-:SrOrgSubawardDetailsFFATAComplianceTableId---"
+    And I save the value from row "1" for column name "FFATA Report Due Date" as "FFATAReportDueDate" from flex table "---subAwardStandAlone:-:SrOrgSubawardDetailsFFATAComplianceTableId---"
+    Then I softly see value "{SavedValue:FFATAReportDueDate}" for title "FFATA Report Due Date" inside table "---subAwardStandAlone:-:SrOrgSubawardDetailsFFATAComplianceTableId---"
+    When I click on "Delete" icon for "Michael Carter" inside flex table with id "---home:-:executionCompensationTableId---"
+    When I click on "Delete" icon for "Emily Johnson" inside flex table with id "---home:-:executionCompensationTableId---"
+    When I click on "Delete" icon for "Daniel Smith" inside flex table with id "---home:-:executionCompensationTableId---"
+    When I click on "Delete" icon for "Jessica Brown" inside flex table with id "---home:-:executionCompensationTableId---"
+    When I click on "Delete" icon for "Andrew Miller" inside flex table with id "---home:-:executionCompensationTableId---"
+    When I click on "Delete" icon for "Sarah Davis" inside flex table with id "---home:-:executionCompensationTableId---"
+    Then I softly see "No Records Found" inside flex table with id "---home:-:executionCompensationTableId---"
 
   @546344 @ValidatethatPrimarySubrecipientSPIuserscanabletoseeFFATAReportingtabonaccountlayouthaveeditaccessonbelowparticularsectionsunderFFATAReportingtab
   Scenario: Validate that Primary Subrecipient SPI users can able to see FFATA Reporting tab on account layout & have edit accesson below particular sections under FFATA Reporting tab

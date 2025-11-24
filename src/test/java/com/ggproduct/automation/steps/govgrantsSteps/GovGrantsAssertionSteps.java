@@ -7,10 +7,18 @@ import io.cucumber.java.PendingException;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import jdk.jfr.Description;
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.CellType;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
 import java.nio.charset.MalformedInputException;
 import java.util.List;
 import java.util.Map;
@@ -938,5 +946,87 @@ public final class GovGrantsAssertionSteps {
     @Then("^I (softly see|see|do not see|softly do not see) with quotes \"(.*?)\" shown as help text$")
     public void iSoftlySeeWithQuotesShownAsHelpText(String usage, String helpText) {
         govgrants.perform().pageDetails().assertHelpTextAtPageBlockwithQuotes(usage, helpText);
+    }
+
+    @Then("^I see row \"(\\d+)\" contains value \"([^\"]*)\" against the column name \"([^\"]*)\" in the Excel file \"([^\"]*)\"$")
+    public void validateExactCellValue(int rowNumber, String expectedValue, String columnName, String fileName) {
+
+        try {
+            // File directory
+            File dir = new File(System.getProperty("user.dir") + "/target");
+
+            // wait for download
+            I.amPerforming().waitFor().makeThreadSleep(3000);
+
+            // rename the downloaded file (your standard framework logic)
+            I.amPerforming().fileHandling().toRenameFileWithSpecificExtension(dir, fileName, "xlsx", "xlsx");
+
+            // final excel path
+            String excelFilePath = dir.getAbsolutePath() + "/" + fileName + ".xlsx";
+
+            FileInputStream fis = new FileInputStream(excelFilePath);
+            XSSFWorkbook workbook = new XSSFWorkbook(fis);
+
+            XSSFSheet sheet = workbook.getSheetAt(0);
+
+            // Header row = row 0
+            Row headerRow = sheet.getRow(0);
+            int columnIndex = -1;
+
+            for (Cell cell : headerRow) {
+                if (cell.getStringCellValue().trim().equalsIgnoreCase(columnName.trim())) {
+                    columnIndex = cell.getColumnIndex();
+                    break;
+                }
+            }
+
+            if (columnIndex == -1) {
+                throw new AssertionError("Column \"" + columnName + "\" not found in Excel file: " + fileName);
+            }
+
+            // BDD row number corresponds to Excel row number
+            Row targetRow = sheet.getRow(rowNumber);
+
+            if (targetRow == null) {
+                throw new AssertionError("Row " + rowNumber + " not found in Excel file: " + fileName);
+            }
+
+            Cell cell = targetRow.getCell(columnIndex);
+
+            String actualValue = "";
+            if (cell != null) {
+                switch (cell.getCellType()) {
+                    case STRING:
+                        actualValue = cell.getStringCellValue().trim();
+                        break;
+                    case NUMERIC:
+                        actualValue = String.valueOf(cell.getNumericCellValue());
+                        break;
+                    case BOOLEAN:
+                        actualValue = String.valueOf(cell.getBooleanCellValue());
+                        break;
+                    default:
+                        actualValue = cell.toString().trim();
+                }
+            }
+
+            System.out.println("Expected: '" + expectedValue + "', Actual: '" + actualValue + "'");
+
+            if (!actualValue.equalsIgnoreCase(expectedValue)) {
+                throw new AssertionError("Expected: \"" + expectedValue +
+                        "\", but found: \"" + actualValue +
+                        "\" at row " + rowNumber +
+                        ", column \"" + columnName +
+                        "\" in file: " + fileName);
+            }
+
+            System.out.println("Validation passed for row " + rowNumber + ", column \"" + columnName + "\"");
+
+            workbook.close();
+            fis.close();
+
+        } catch (Exception e) {
+            throw new AssertionError("Failed to validate Excel file \"" + fileName + "\": " + e.getMessage(), e);
+        }
     }
 }
