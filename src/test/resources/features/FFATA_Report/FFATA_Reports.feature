@@ -255,7 +255,7 @@ Feature: Validate all scenarios for FFATA Reports
     Then I see row "1" contains value "9100" against the column name "Agency Code" in the Excel file "{SavedValue:csvFile}"
     Then I see row "1" contains value "{SavedValue:GrantEGMSID}" against the column name "Grant EGMS ID" in the Excel file "{SavedValue:csvFile}"
     Then I see row "1" contains value "Not Submitted" against the column name "FFATA Report Status" in the Excel file "{SavedValue:csvFile}"
-    Then I see row "1" contains value "50000" against the column name "Award Amount" in the Excel file "{SavedValue:csvFile}"
+    Then I see row "1" contains value "50000.00" against the column name "Award Amount" in the Excel file "{SavedValue:csvFile}"
     Then I see row "1" contains value "{SavedValue:AwardIssueDate}" against the column name "Award Issue Date" in the Excel file "{SavedValue:csvFile}"
     Then I see row "1" contains value "VANCOUVER" against the column name "City" in the Excel file "{SavedValue:csvFile}"
     Then I see row "1" contains value "WA" against the column name "State" in the Excel file "{SavedValue:csvFile}"
@@ -265,15 +265,15 @@ Feature: Validate all scenarios for FFATA Reports
     Then I see row "1" contains value "No" against the column name "Compensation Q2" in the Excel file "{SavedValue:csvFile}"
     Then I see row "1" contains value "Yes" against the column name "Compensation Q3" in the Excel file "{SavedValue:csvFile}"
     Then I see row "1" contains value "Sarah Davis" against the column name "Employee 1 Full Name" in the Excel file "{SavedValue:csvFile}"
-    Then I see row "1" contains value "80000" against the column name "Employee 1 Salary" in the Excel file "{SavedValue:csvFile}"
+    Then I see row "1" contains value "80000.00" against the column name "Employee 1 Salary" in the Excel file "{SavedValue:csvFile}"
     Then I see row "1" contains value "Daniel Smith" against the column name "Employee 2 Full Name" in the Excel file "{SavedValue:csvFile}"
-    Then I see row "1" contains value "70000" against the column name "Employee 2 Salary" in the Excel file "{SavedValue:csvFile}"
+    Then I see row "1" contains value "70000.00" against the column name "Employee 2 Salary" in the Excel file "{SavedValue:csvFile}"
     Then I see row "1" contains value "Emily Johnson" against the column name "Employee 3 Full Name" in the Excel file "{SavedValue:csvFile}"
-    Then I see row "1" contains value "50000" against the column name "Employee 3 Salary" in the Excel file "{SavedValue:csvFile}"
+    Then I see row "1" contains value "50000.00" against the column name "Employee 3 Salary" in the Excel file "{SavedValue:csvFile}"
     Then I see row "1" contains value "Andrew Miller" against the column name "Employee 4 Full Name" in the Excel file "{SavedValue:csvFile}"
-    Then I see row "1" contains value "40000" against the column name "Employee 4 Salary" in the Excel file "{SavedValue:csvFile}"
+    Then I see row "1" contains value "40000.00" against the column name "Employee 4 Salary" in the Excel file "{SavedValue:csvFile}"
     Then I see row "1" contains value "Jessica Brown" against the column name "Employee 5 Full Name" in the Excel file "{SavedValue:csvFile}"
-    Then I see row "1" contains value "20000" against the column name "Employee 5 Salary" in the Excel file "{SavedValue:csvFile}"
+    Then I see row "1" contains value "20000.00" against the column name "Employee 5 Salary" in the Excel file "{SavedValue:csvFile}"
     And I click on top right button "Submit to SAM.gov" in flex table with id "---subAwardStandAlone:-:ffataEligibleAwardstableId---"
     And I wait for "2" seconds
     Then I softly see the following messages in the page details contains:
@@ -329,7 +329,7 @@ Feature: Validate all scenarios for FFATA Reports
     Then I see row "1" contains value "{SavedValue:GrantEGMSID}" against the column name "Grant EGMS ID" in the Excel file "{SavedValue:csvFile}"
     Then I see row "1" contains value "Published" against the column name "FFATA Report Status" in the Excel file "{SavedValue:csvFile}"
     Then I see row "1" contains value "{SavedValue:FFATAReportNumber}" against the column name "Report Number" in the Excel file "{SavedValue:csvFile}"
-    Then I see row "1" contains value "50000" against the column name "Award Amount" in the Excel file "{SavedValue:csvFile}"
+    Then I see row "1" contains value "50000.00" against the column name "Award Amount" in the Excel file "{SavedValue:csvFile}"
     Then I see row "1" contains value "{SavedValue:AwardIssueDate}" against the column name "Award Issue Date" in the Excel file "{SavedValue:csvFile}"
     Then I see row "1" contains value "Processed" against the column name "Processing Status" in the Excel file "{SavedValue:csvFile}"
     Then I see row "1" contains value "VANCOUVER" against the column name "City" in the Excel file "{SavedValue:csvFile}"
@@ -341,15 +341,15 @@ Feature: Validate all scenarios for FFATA Reports
     Then I see row "1" contains value "Yes" against the column name "Compensation Q3" in the Excel file "{SavedValue:csvFile}"
     #547285
     Then I see row "1" contains value "Sarah Davis" against the column name "Employee 1 Full Name" in the Excel file "{SavedValue:csvFile}"
-    Then I see row "1" contains value "80000" against the column name "Employee 1 Salary" in the Excel file "{SavedValue:csvFile}"
+    Then I see row "1" contains value "80000.00" against the column name "Employee 1 Salary" in the Excel file "{SavedValue:csvFile}"
     Then I see row "1" contains value "Daniel Smith" against the column name "Employee 2 Full Name" in the Excel file "{SavedValue:csvFile}"
-    Then I see row "1" contains value "70000" against the column name "Employee 2 Salary" in the Excel file "{SavedValue:csvFile}"
+    Then I see row "1" contains value "70000.00" against the column name "Employee 2 Salary" in the Excel file "{SavedValue:csvFile}"
     Then I see row "1" contains value "Emily Johnson" against the column name "Employee 3 Full Name" in the Excel file "{SavedValue:csvFile}"
-    Then I see row "1" contains value "50000" against the column name "Employee 3 Salary" in the Excel file "{SavedValue:csvFile}"
+    Then I see row "1" contains value "50000.00" against the column name "Employee 3 Salary" in the Excel file "{SavedValue:csvFile}"
     Then I see row "1" contains value "Andrew Miller" against the column name "Employee 4 Full Name" in the Excel file "{SavedValue:csvFile}"
-    Then I see row "1" contains value "40000" against the column name "Employee 4 Salary" in the Excel file "{SavedValue:csvFile}"
+    Then I see row "1" contains value "40000.00" against the column name "Employee 4 Salary" in the Excel file "{SavedValue:csvFile}"
     Then I see row "1" contains value "Jessica Brown" against the column name "Employee 5 Full Name" in the Excel file "{SavedValue:csvFile}"
-    Then I see row "1" contains value "20000" against the column name "Employee 5 Salary" in the Excel file "{SavedValue:csvFile}"
+    Then I see row "1" contains value "20000.00" against the column name "Employee 5 Salary" in the Excel file "{SavedValue:csvFile}"
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
@@ -696,7 +696,7 @@ Feature: Validate all scenarios for FFATA Reports
     Then I softly do not see top right button "Associate" inside flex table "---subAwardStandAlone:-:ffataEligibleAwardstableId---"
     Then I softly do not see top right button "Submit to SAM.gov" inside flex table "---subAwardStandAlone:-:ffataEligibleAwardstableId---"
     Then I softly do not see top right button "Remove" inside flex table "---subAwardStandAlone:-:ffataEligibleAwardstableId---"
-    When I re-login to "Grantor" app as "Auditor" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "AUDITOR" user on "INTERNAL" portal
     When I navigate to "FFATA Reports" content inside "Reports" subheader on left panel
     Then I softly do not see top right button "New" inside flex table "---subAwardStandAlone:-:ffataReportTableId---"
     And I perform quick search for "{SavedValue:FFATAEGMSID}" in "---subAwardStandAlone:-:ffataReportTableId---" panel
