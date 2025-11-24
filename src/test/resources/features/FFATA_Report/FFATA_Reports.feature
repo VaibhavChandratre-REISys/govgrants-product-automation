@@ -242,6 +242,7 @@ Feature: Validate all scenarios for FFATA Reports
     And I save the value from row "1" for column name "Last Modified Date" as "LastModifiedDate" from flex table "---subAwardStandAlone:-:ffataEligibleAwardstableId---"
     Then I softly see value "{SavedValue:LastModifiedDate}" for title "Last Modified Date" inside table "---subAwardStandAlone:-:ffataEligibleAwardstableId---"
     And I click on "Export" in the page details
+    And I wait for "3" seconds
     And I refresh the page
     And I wait for "2" seconds
     And I navigate to "Files" sub tab
@@ -291,7 +292,7 @@ Feature: Validate all scenarios for FFATA Reports
     When I click on "Export" in the page details without processing
     Then I softly see confirmation box with quotes in body "This action will export a CSV report, classified as "FFATA Submission Report" under the Files tab, for all associated eligible subawards. Are you sure you want to proceed?" is displayed
     And I click "OK" on modal confirmation box
-    And I wait for "2" seconds
+    And I wait for "3" seconds
     And I refresh the page
     And I wait for "2" seconds
     And I save the value from row "1" for column name "Title" as "csvFile" from flex table "---subAwardStandAlone:-:FFATAReportFilesTableId---"
