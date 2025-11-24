@@ -251,10 +251,33 @@ Feature: Validate all scenarios for FFATA Reports
     And I wait for "2" seconds
     And I switch to parent tab
     Then I see row "1" contains value "Ready for Submission" against the column name "Processing Status" in the Excel file "{SavedValue:csvFile}"
+    Then I see row "1" contains value "H173A230074" against the column name "FAIN" in the Excel file "{SavedValue:csvFile}"
+    Then I see row "1" contains value "9100" against the column name "Agency Code" in the Excel file "{SavedValue:csvFile}"
+    Then I see row "1" contains value "{SavedValue:GrantEGMSID}" against the column name "Grant EGMS ID" in the Excel file "{SavedValue:csvFile}"
+    Then I see row "1" contains value "Not Submitted" against the column name "FFATA Report Status" in the Excel file "{SavedValue:csvFile}"
+    Then I see row "1" contains value "50000" against the column name "Award Amount" in the Excel file "{SavedValue:csvFile}"
+    Then I see row "1" contains value "{SavedValue:AwardIssueDate}" against the column name "Award Issue Date" in the Excel file "{SavedValue:csvFile}"
+    Then I see row "1" contains value "VANCOUVER" against the column name "City" in the Excel file "{SavedValue:csvFile}"
+    Then I see row "1" contains value "WA" against the column name "State" in the Excel file "{SavedValue:csvFile}"
+    Then I see row "1" contains value "986614918" against the column name "Zip+Extension" in the Excel file "{SavedValue:csvFile}"
+    Then I see row "1" contains value "USA" against the column name "Country" in the Excel file "{SavedValue:csvFile}"
+    Then I see row "1" contains value "Yes" against the column name "Compensation Q1" in the Excel file "{SavedValue:csvFile}"
+    Then I see row "1" contains value "No" against the column name "Compensation Q2" in the Excel file "{SavedValue:csvFile}"
+    Then I see row "1" contains value "Yes" against the column name "Compensation Q3" in the Excel file "{SavedValue:csvFile}"
+    Then I see row "1" contains value "Sarah Davis" against the column name "Employee 1 Full Name" in the Excel file "{SavedValue:csvFile}"
+    Then I see row "1" contains value "80000" against the column name "Employee 1 Salary" in the Excel file "{SavedValue:csvFile}"
+    Then I see row "1" contains value "Daniel Smith" against the column name "Employee 2 Full Name" in the Excel file "{SavedValue:csvFile}"
+    Then I see row "1" contains value "70000" against the column name "Employee 2 Salary" in the Excel file "{SavedValue:csvFile}"
+    Then I see row "1" contains value "Emily Johnson" against the column name "Employee 3 Full Name" in the Excel file "{SavedValue:csvFile}"
+    Then I see row "1" contains value "50000" against the column name "Employee 3 Salary" in the Excel file "{SavedValue:csvFile}"
+    Then I see row "1" contains value "Andrew Miller" against the column name "Employee 4 Full Name" in the Excel file "{SavedValue:csvFile}"
+    Then I see row "1" contains value "40000" against the column name "Employee 4 Salary" in the Excel file "{SavedValue:csvFile}"
+    Then I see row "1" contains value "Jessica Brown" against the column name "Employee 5 Full Name" in the Excel file "{SavedValue:csvFile}"
+    Then I see row "1" contains value "20000" against the column name "Employee 5 Salary" in the Excel file "{SavedValue:csvFile}"
     And I click on top right button "Submit to SAM.gov" in flex table with id "---subAwardStandAlone:-:ffataEligibleAwardstableId---"
     And I wait for "2" seconds
     Then I softly see the following messages in the page details contains:
-      | Select the eligible records to proceed. |
+      | Select at least one record. |
     When I check "{SavedValue:AwardEGMSID}" boxes in flex table with id "---subAwardStandAlone:-:ffataEligibleAwardstableId---"
     When I click table top right button "Submit to SAM.gov" in flex table with id "---subAwardStandAlone:-:ffataEligibleAwardstableId---"
     Then I softly see confirmation box with body "This action will submit subawards to SAM.gov and export a CSV report, classified as 'FFATA Submission Report' under the Files tab, for all associated eligible subawards. Are you sure you want to proceed?" is displayed
@@ -264,6 +287,7 @@ Feature: Validate all scenarios for FFATA Reports
       | Only the eligible records will proceed for Sam.gov submission. Refresh the page and check the status after some time. |
     And I refresh the page
     And I wait for "2" seconds
+    And I navigate to "FFATA Reporting" sub tab
     Then I softly do not see field name "FFATAReportNumber__c" is blank in flex table with Id "---subAwardStandAlone:-:ffataEligibleAwardstableId---"
     Then I softly do not see field name "FFATAReportVersion__c" is blank in flex table with Id "---subAwardStandAlone:-:ffataEligibleAwardstableId---"
     And I save the value from row "1" for column name "FFATA Report Number" as "FFATAReportNumber" from flex table "---subAwardStandAlone:-:ffataEligibleAwardstableId---"
@@ -295,6 +319,7 @@ Feature: Validate all scenarios for FFATA Reports
     And I wait for "3" seconds
     And I refresh the page
     And I wait for "2" seconds
+    And I navigate to "Files" sub tab
     And I save the value from row "1" for column name "Title" as "csvFile" from flex table "---subAwardStandAlone:-:FFATAReportFilesTableId---"
     And I click on "Download" icon for "csv" inside flex table with id "---subAwardStandAlone:-:FFATAReportFilesTableId---"
     And I wait for "2" seconds
@@ -304,7 +329,7 @@ Feature: Validate all scenarios for FFATA Reports
     Then I see row "1" contains value "{SavedValue:GrantEGMSID}" against the column name "Grant EGMS ID" in the Excel file "{SavedValue:csvFile}"
     Then I see row "1" contains value "Published" against the column name "FFATA Report Status" in the Excel file "{SavedValue:csvFile}"
     Then I see row "1" contains value "{SavedValue:FFATAReportNumber}" against the column name "Report Number" in the Excel file "{SavedValue:csvFile}"
-    Then I see row "1" contains value "100000" against the column name "Award Amount" in the Excel file "{SavedValue:csvFile}"
+    Then I see row "1" contains value "50000" against the column name "Award Amount" in the Excel file "{SavedValue:csvFile}"
     Then I see row "1" contains value "{SavedValue:AwardIssueDate}" against the column name "Award Issue Date" in the Excel file "{SavedValue:csvFile}"
     Then I see row "1" contains value "Processed" against the column name "Processing Status" in the Excel file "{SavedValue:csvFile}"
     Then I see row "1" contains value "VANCOUVER" against the column name "City" in the Excel file "{SavedValue:csvFile}"
@@ -334,7 +359,7 @@ Feature: Validate all scenarios for FFATA Reports
     Then I softly see value "H173A230074" for title "FAIN" inside table "---subAwardStandAlone:-:FFATAComplianceSectionGrantLayoutTableId---"
     Then I softly see value "9100" for title "Agency Code" inside table "---subAwardStandAlone:-:FFATAComplianceSectionGrantLayoutTableId---"
     Then I softly see value "{SavedValue:AwardEGMSID}" for title "EGMS ID" inside table "---subAwardStandAlone:-:FFATAComplianceSectionGrantLayoutTableId---"
-    Then I softly see value "$100,000.00" for title "Award Amount" inside table "---subAwardStandAlone:-:FFATAComplianceSectionGrantLayoutTableId---"
+    Then I softly see value "$50,000.00" for title "Award Amount" inside table "---subAwardStandAlone:-:FFATAComplianceSectionGrantLayoutTableId---"
     Then I softly see value "{SavedValue:AwardIssueDate}" for title "Award Issue Date" inside table "---subAwardStandAlone:-:FFATAComplianceSectionGrantLayoutTableId---"
     Then I softly see value "{SavedValue:FFATAReportNumber}" for title "FFATA Report Number" inside table "---subAwardStandAlone:-:FFATAComplianceSectionGrantLayoutTableId---"
     Then I softly see value "Published" for title "FFATA Report Status" inside table "---subAwardStandAlone:-:FFATAComplianceSectionGrantLayoutTableId---"
@@ -645,3 +670,42 @@ Feature: Validate all scenarios for FFATA Reports
       | Subawards added successfully. |
     And I click modal button "Close"
     And I wait for "1" seconds
+    When I re-login to "Grantor" app as "FO" user on "INTERNAL" portal
+    When I navigate to "FFATA Reports" content inside "Reports" subheader on left panel
+    Then I softly do not see top right button "New" inside flex table "---subAwardStandAlone:-:ffataReportTableId---"
+    And I perform quick search for "{SavedValue:FFATAEGMSID}" in "---subAwardStandAlone:-:ffataReportTableId---" panel
+    Then I softly cannot see row level action button "Edit" against "Created" in flex table with id "---subAwardStandAlone:-:ffataReportTableId---"
+    Then I softly can see row level action button "View" against "Created" in flex table with id "---subAwardStandAlone:-:ffataReportTableId---"
+    Then I softly cannot see row level action button "Delete" against "Created" in flex table with id "---subAwardStandAlone:-:ffataReportTableId---"
+    When I click on "View" icon for "{SavedValue:FFATAEGMSID}" inside flex table with id "---subAwardStandAlone:-:ffataReportTableId---"
+    Then I cannot see top right button "Edit" in page detail
+    Then I cannot see top right button "Export" in page detail
+    Then I softly do not see top right button "Associate" inside flex table "---subAwardStandAlone:-:ffataEligibleAwardstableId---"
+    Then I softly do not see top right button "Submit to SAM.gov" inside flex table "---subAwardStandAlone:-:ffataEligibleAwardstableId---"
+    Then I softly do not see top right button "Remove" inside flex table "---subAwardStandAlone:-:ffataEligibleAwardstableId---"
+    When I re-login to "Grantor" app as "FD" user on "INTERNAL" portal
+    When I navigate to "FFATA Reports" content inside "Reports" subheader on left panel
+    Then I softly do not see top right button "New" inside flex table "---subAwardStandAlone:-:ffataReportTableId---"
+    And I perform quick search for "{SavedValue:FFATAEGMSID}" in "---subAwardStandAlone:-:ffataReportTableId---" panel
+    Then I softly cannot see row level action button "Edit" against "Created" in flex table with id "---subAwardStandAlone:-:ffataReportTableId---"
+    Then I softly can see row level action button "View" against "Created" in flex table with id "---subAwardStandAlone:-:ffataReportTableId---"
+    Then I softly cannot see row level action button "Delete" against "Created" in flex table with id "---subAwardStandAlone:-:ffataReportTableId---"
+    When I click on "View" icon for "{SavedValue:FFATAEGMSID}" inside flex table with id "---subAwardStandAlone:-:ffataReportTableId---"
+    Then I cannot see top right button "Edit" in page detail
+    Then I cannot see top right button "Export" in page detail
+    Then I softly do not see top right button "Associate" inside flex table "---subAwardStandAlone:-:ffataEligibleAwardstableId---"
+    Then I softly do not see top right button "Submit to SAM.gov" inside flex table "---subAwardStandAlone:-:ffataEligibleAwardstableId---"
+    Then I softly do not see top right button "Remove" inside flex table "---subAwardStandAlone:-:ffataEligibleAwardstableId---"
+    When I re-login to "Grantor" app as "Auditor" user on "INTERNAL" portal
+    When I navigate to "FFATA Reports" content inside "Reports" subheader on left panel
+    Then I softly do not see top right button "New" inside flex table "---subAwardStandAlone:-:ffataReportTableId---"
+    And I perform quick search for "{SavedValue:FFATAEGMSID}" in "---subAwardStandAlone:-:ffataReportTableId---" panel
+    Then I softly cannot see row level action button "Edit" against "Created" in flex table with id "---subAwardStandAlone:-:ffataReportTableId---"
+    Then I softly can see row level action button "View" against "Created" in flex table with id "---subAwardStandAlone:-:ffataReportTableId---"
+    Then I softly cannot see row level action button "Delete" against "Created" in flex table with id "---subAwardStandAlone:-:ffataReportTableId---"
+    When I click on "View" icon for "{SavedValue:FFATAEGMSID}" inside flex table with id "---subAwardStandAlone:-:ffataReportTableId---"
+    Then I cannot see top right button "Edit" in page detail
+    Then I cannot see top right button "Export" in page detail
+    Then I softly do not see top right button "Associate" inside flex table "---subAwardStandAlone:-:ffataEligibleAwardstableId---"
+    Then I softly do not see top right button "Submit to SAM.gov" inside flex table "---subAwardStandAlone:-:ffataEligibleAwardstableId---"
+    Then I softly do not see top right button "Remove" inside flex table "---subAwardStandAlone:-:ffataEligibleAwardstableId---"
