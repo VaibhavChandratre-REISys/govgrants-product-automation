@@ -107,8 +107,11 @@ Feature: Validate all scenarios for FFATA Reports
     Then I softly see top right button "New" inside flex table "---subAwardStandAlone:-:ffataReportTableId---"
     Then I softly see top right button "View Eligible Subawards" inside flex table "---subAwardStandAlone:-:ffataReportTableId---"
     And I click on top right button "View Eligible Subawards" in flex table with id "---subAwardStandAlone:-:ffataReportTableId---"
+    And I switch to tab number "1"
     Then I see the header is "Report: Bulk request Details" in the page details
     Then I see the header is "FFATA Eligible Subawards Report" in the page details
+    And I close the tab
+    And I wait for "2" seconds
     And I navigate to "Grants" tab
     When I navigate to "FFATA Reports" content inside "Reports" subheader on left panel
     Then I softly see "EGMS ID" in flex table header "---subAwardStandAlone:-:ffataReportTableId---"
