@@ -288,6 +288,8 @@ Feature: Validate all scenarios for FFATA Reports
     And I refresh the page
     And I wait for "2" seconds
     And I navigate to "FFATA Report" sub tab
+    And I wait for "2" seconds
+    And I click toggle button to select "Subawards - All"
     Then I softly do not see field name "FFATAReportNumber__c" is blank in flex table with Id "---subAwardStandAlone:-:ffataEligibleAwardstableId---"
     Then I softly do not see field name "FFATAReportVersion__c" is blank in flex table with Id "---subAwardStandAlone:-:ffataEligibleAwardstableId---"
     And I save the value from row "1" for column name "FFATA Report Number" as "FFATAReportNumber" from flex table "---subAwardStandAlone:-:ffataEligibleAwardstableId---"
