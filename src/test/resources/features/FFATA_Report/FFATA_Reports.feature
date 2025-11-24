@@ -1,7 +1,7 @@
 @FFATAReports
 Feature: Validate all scenarios for FFATA Reports
 
-  @546353 @ValidateInternalusersAdminPMPOEXEcanabletocreateFFATAReportCreationwithValidDatasuccessfully
+  @546353 @546372 @547281 @547952 @546351 @547285 @546367 @547750 @546364 @ValidateInternalusersAdminPMPOEXEcanabletocreateFFATAReportCreationwithValidDatasuccessfully
   Scenario: Validate Internal users Admin PM PO EXE can able to create FFATA Report Creation with Valid Data successfully
     When I am on "SUBPORTAL" portal
     And I login to "Grants Portal" app as "SPI3" user
@@ -114,18 +114,30 @@ Feature: Validate all scenarios for FFATA Reports
     And I wait for "2" seconds
     And I navigate to "Grants" tab
     When I navigate to "FFATA Reports" content inside "Reports" subheader on left panel
+    #546351
     Then I softly see "EGMS ID" in flex table header "---subAwardStandAlone:-:ffataReportTableId---"
     Then I softly see "Report Name" in flex table header "---subAwardStandAlone:-:ffataReportTableId---"
     Then I softly see "Type" in flex table header "---subAwardStandAlone:-:ffataReportTableId---"
     Then I softly see "Report Status" in flex table header "---subAwardStandAlone:-:ffataReportTableId---"
     Then I softly see "Created By" in flex table header "---subAwardStandAlone:-:ffataReportTableId---"
     Then I softly see "Created Date" in flex table header "---subAwardStandAlone:-:ffataReportTableId---"
+    Then I softly see button "Advance Filter" inside flextable "---subAwardStandAlone:-:ffataReportTableId---"
+    When I click on parallel lines menu bar with data target value "FFATA Reports"
+    And I wait for "3" seconds
+    Then I see option "Refresh" present in parallel dropdown
+    Then I see option "Download as PDF" present in parallel dropdown
+    Then I see option "Download as CSV" present in parallel dropdown
+    And I save the total records from the flex table id "---subAwardStandAlone:-:ffataReportTableId---" as "totalRecords"
+    Then I softly see total records count "{SavedValue:totalRecords}" in flex table "---subAwardStandAlone:-:ffataReportTableId---"
+    And I click on page navigation arrow "---subAwardStandAlone:-:ffataReportTableId---" for table id "Next"
+    When I click on button "resetIcon" in flex table with id "---subAwardStandAlone:-:ffataReportTableId---"
+    And I wait for "1" seconds
     And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:ffataReportTableId---"
     Then I softly see "Create FFATA Report" opens in overLay window
     Then I softly see field on modal "Report Name" inside page block
     Then I softly see asterisk mark on "Report Name"
     Then I softly see field on modal "Report Type" inside page block
-    Then I softly see that "Type__c" rendered in view mode only
+    Then I softly see field "Type__c" is not editable
     Then I softly see field on modal "Award Activation From" inside page block
     Then I softly see asterisk mark on "Award Activation From"
     Then I softly see field on modal "Award Activation To" inside page block
@@ -143,6 +155,7 @@ Feature: Validate all scenarios for FFATA Reports
     Then I softly see "Close" modal button
     And I click modal button "Save and Continue"
     And I wait for "2" seconds
+    #546364
     Then I softly can see top right button "Save" in page detail
     Then I softly can see top right button "Cancel" in page detail
     Then I softly see field "Report Status" as "Created"
@@ -173,6 +186,7 @@ Feature: Validate all scenarios for FFATA Reports
     And I click on "Save" in the page details
     Then I softly see field "Report Name" as "{SavedValue:Automation Runtime FFATA Report Updated}"
     Then I softly see "Subawards - All" page block displayed
+    #547952
     Then I softly see toggle option "Subawards - Not Submitted" inside flex table id "---subAwardStandAlone:-:ffataEligibleAwardstableId---"
     Then I softly see toggle option "Subawards - Published" inside flex table id "---subAwardStandAlone:-:ffataEligibleAwardstableId---"
     Then I softly see toggle option "Subawards - All" inside flex table id "---subAwardStandAlone:-:ffataEligibleAwardstableId---"
@@ -223,9 +237,18 @@ Feature: Validate all scenarios for FFATA Reports
     Then I softly see field name "FFATAReportNumber__c" is blank in flex table with Id "---subAwardStandAlone:-:ffataEligibleAwardstableId---"
     Then I softly see field name "FFATAReportVersion__c" is blank in flex table with Id "---subAwardStandAlone:-:ffataEligibleAwardstableId---"
     Then I softly see value "Not Submitted" for title "FFATA Report Status" inside table "---subAwardStandAlone:-:ffataEligibleAwardstableId---"
+    #547750
     Then I softly see value "Ready for Submission" for title "Processing Status" inside table "---subAwardStandAlone:-:ffataEligibleAwardstableId---"
     And I save the value from row "1" for column name "Last Modified Date" as "LastModifiedDate" from flex table "---subAwardStandAlone:-:ffataEligibleAwardstableId---"
     Then I softly see value "{SavedValue:LastModifiedDate}" for title "Processing Status" inside table "---subAwardStandAlone:-:ffataEligibleAwardstableId---"
+    And I click on "Export" in the page details
+    And I refresh the page
+    And I wait for "2" seconds
+    And I navigate to "Files" sub tab
+    And I save the value from row "1" for column name "Title" as "csvFile" from flex table "---subAwardStandAlone:-:FFATAReportFilesTableId---"
+    And I click on "Download" icon for "csv" inside flex table with id "---subAwardStandAlone:-:FFATAReportFilesTableId---"
+    And I wait for "2" seconds
+    Then I see row "1" contains value "Ready for Submission" against the column name "Processing Status" in the Excel file "{SavedValue:csvFile}"
     And I click on top right button "Submit to SAM.gov" in flex table with id "---subAwardStandAlone:-:ffataEligibleAwardstableId---"
     And I wait for "2" seconds
     Then I softly see the following messages in the page details contains:
@@ -247,6 +270,7 @@ Feature: Validate all scenarios for FFATA Reports
     Then I softly see value "{SavedValue:FFATAReportVersion}" for title "FFATA Report Version" inside table "---subAwardStandAlone:-:ffataEligibleAwardstableId---"
     Then I softly see value "Published" for title "FFATA Report Status" inside table "---subAwardStandAlone:-:ffataEligibleAwardstableId---"
     Then I softly see value "Processed" for title "Processing Status" inside table "---subAwardStandAlone:-:ffataEligibleAwardstableId---"
+    #546367
     Then I softly see field "Report Status" as "Completed"
     Then I softly see "Failed Subawards" page block displayed
     Then I softly see "No Records Found" inside flex table with id "---subAwardStandAlone:-:FFATAEligibleSubawardsFailedRecordsTableId---"
@@ -283,6 +307,7 @@ Feature: Validate all scenarios for FFATA Reports
     Then I see row "1" contains value "Yes" against the column name "Compensation Q1" in the Excel file "{SavedValue:csvFile}"
     Then I see row "1" contains value "No" against the column name "Compensation Q2" in the Excel file "{SavedValue:csvFile}"
     Then I see row "1" contains value "Yes" against the column name "Compensation Q3" in the Excel file "{SavedValue:csvFile}"
+    #547285
     Then I see row "1" contains value "Sarah Davis" against the column name "Employee 1 Full Name" in the Excel file "{SavedValue:csvFile}"
     Then I see row "1" contains value "80000" against the column name "Employee 1 Salary" in the Excel file "{SavedValue:csvFile}"
     Then I see row "1" contains value "Daniel Smith" against the column name "Employee 2 Full Name" in the Excel file "{SavedValue:csvFile}"

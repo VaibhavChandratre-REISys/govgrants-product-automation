@@ -2321,7 +2321,7 @@ public final class GovGrantsAssertionObjects {
     private Boolean isFieldEditable(String fieldAPIName) {
         boolean flag = true;
         try {
-            if (I.amPerforming().checkToSee().isDisplayed(By.xpath("//div[@data-field_api_name='" + fieldAPIName + "']//input[@disabled] | //div[@data-field_api_name='" + fieldAPIName + "']//lightning-formatted-text")))
+            if (I.amPerforming().checkToSee().isDisplayed(By.xpath("//div[@data-field_api_name='" + fieldAPIName + "']//input[@disabled] | //div[@data-field_api_name='" + fieldAPIName + "']//button[@disabled]  | //div[@data-field_api_name='" + fieldAPIName + "']//lightning-formatted-text")))
                 flag = true;
         } catch (Exception e) {
             flag = false;
