@@ -287,7 +287,7 @@ Feature: Validate all scenarios for FFATA Reports
       | Only the eligible records will proceed for Sam.gov submission. Refresh the page and check the status after some time. |
     And I refresh the page
     And I wait for "2" seconds
-    And I navigate to "FFATA Reporting" sub tab
+    And I navigate to "FFATA Report" sub tab
     Then I softly do not see field name "FFATAReportNumber__c" is blank in flex table with Id "---subAwardStandAlone:-:ffataEligibleAwardstableId---"
     Then I softly do not see field name "FFATAReportVersion__c" is blank in flex table with Id "---subAwardStandAlone:-:ffataEligibleAwardstableId---"
     And I save the value from row "1" for column name "FFATA Report Number" as "FFATAReportNumber" from flex table "---subAwardStandAlone:-:ffataEligibleAwardstableId---"
