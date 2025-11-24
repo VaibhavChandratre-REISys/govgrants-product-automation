@@ -7,7 +7,7 @@ Feature: Validate all scenarios for FFATA Reports
     And I login to "Grants Portal" app as "SPI3" user
     And I navigate to "Home" tab
     When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
-    And I navigate to "FFATA Reporting" tab
+    And I navigate to "FFATA Reporting" sub tab
     When I enter the following values into flex table with id "---home:-:executionCompensationTableId---" by clicking "New" :
       | Full Name      | Salary ($) |
       | Michael Carter | 10000      |
