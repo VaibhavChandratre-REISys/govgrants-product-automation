@@ -282,7 +282,7 @@ Feature: Validate all scenarios for FFATA Reports
     When I click table top right button "Submit to SAM.gov" in flex table with id "---subAwardStandAlone:-:ffataEligibleAwardstableId---"
     Then I softly see confirmation box with body "This action will submit subawards to SAM.gov and export a CSV report, classified as 'FFATA Submission Report' under the Files tab, for all associated eligible subawards. Are you sure you want to proceed?" is displayed
     And I click "OK" on modal confirmation box
-    And I wait for "2" seconds
+    And I wait for "3" seconds
     Then I softly see the following messages in the page details contains:
       | Only the eligible records will proceed for Sam.gov submission. Refresh the page and check the status after some time. |
     And I refresh the page
@@ -299,6 +299,8 @@ Feature: Validate all scenarios for FFATA Reports
     Then I softly see value "Published" for title "FFATA Report Status" inside table "---subAwardStandAlone:-:ffataEligibleAwardstableId---"
     Then I softly see value "Processed" for title "Processing Status" inside table "---subAwardStandAlone:-:ffataEligibleAwardstableId---"
     #546367
+    And I refresh the page
+    And I wait for "2" seconds
     Then I softly see field "Report Status" as "Completed"
     Then I softly see "Failed Subawards" page block displayed
     Then I softly see "No Records Found" inside flex table with id "---subAwardStandAlone:-:FFATAEligibleSubawardsFailedRecordsTableId---"
