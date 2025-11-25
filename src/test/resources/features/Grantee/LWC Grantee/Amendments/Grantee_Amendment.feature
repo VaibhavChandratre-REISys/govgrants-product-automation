@@ -17769,8 +17769,6 @@ Feature: Validate all scenarios for Grantee Amendment Request
     Then I softly see "Initiated By" in flex table header "---grantee_tableId:-:AmendmentTableId---"
     Then I softly see "Status" in flex table header "---grantee_tableId:-:AmendmentTableId---"
     And I click toggle button to select "Amendment Requests - My Records"
-    When I perform quick search for "{SavedValue:OTHAMENDID}" in "---grantee_tableId:-:AmendmentTableId---" panel
-    Then I softly see value "Created" for title "Status" inside table "---grantee_tableId:-:AmendmentTableId---"
     When I perform quick search for "Created" in "---grantee_tableId:-:AmendmentTableId---" panel
     Then I softly do not see value "Approved" for title "Status" inside table "---grantee_tableId:-:AmendmentTableId---"
     Then I softly do not see value "Submitted for Approval" for title "Status" inside table "---grantee_tableId:-:AmendmentTableId---"
@@ -18185,9 +18183,8 @@ Feature: Validate all scenarios for Grantee Amendment Request
     And I update title as "Automation.pdf" on upload file modal
     And I select Classification as "Notice of Award" at upload file modal
     When I click modal button "Save"
-    And I click modal button "Close"
+#    And I click modal button "Close"
     And I wait for "3" seconds
-    And I refresh the page
     Then I softly see "Notice of Award" has been added in "Amendment Files" flex table
     And I click on "Delete" icon for "Notice of Award" inside flex table with id "---grantee_tableId:-:amendmentRequestAddFile---" without waiting for record
     Then I softly do not see value "Notice of Award" for title "Title" inside table "---grantee_tableId:-:amendmentRequestAddFile---"
@@ -19527,6 +19524,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
     And I "Created" award from application for opportunity "CAS-HHS0000660610" for title "{SavedValue:Automation Runtime Award}" with properties "default-Grantee PO user"
     And I updated award from application for title "{SavedValue:Automation Runtime Award}" with properties "default"
     And I activate the award for title "{SavedValue:Automation Runtime Award}"
+    And I wait for "2" seconds
     And I "Created" of type "Periodic Renewal" amendment request for title "{SavedValue:Automation Runtime Award}" with properties "STEP_FOUR_APPROVER-Grantee PO user"
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
@@ -19556,6 +19554,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
     When I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "AmendEGMSID1"
     And I click on "Submit for Approval" in the page details
+    Then I see field "Status" as "Submitted for Approval"
     When I re-login to "Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel

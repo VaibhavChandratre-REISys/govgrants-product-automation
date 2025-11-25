@@ -1287,7 +1287,7 @@ Feature: Validate all scenarios for closeout
     And I perform quick search for "Record Id" in "---grantee_tableId:-:HomePendingTask---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---grantee_tableId:-:HomePendingTask---" without waiting for record
     Then I see only the following ordered radio buttons in the approval decision :
-      | Approve | Forward | Send to Owner |
+      | Approve | Reject | Forward | Send to Owner |
     When I select radio button "Forward" in the approval decision
     And I select user "David FO" in the approval decision
     When I enter comment "Automation testing" in the approval decision

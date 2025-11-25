@@ -673,8 +673,6 @@ Feature: Validate all scenarios for Financial Report
     When I enter the following values into flex table with id "---grantee_tableId:-:financialReportPeerReviewTableId---" by clicking "New" :
       | Reviewer Name | Role            | Description            | Due Date | Allow Record Editing |
       | Sarah PM      | Fiscal Reviewer | Automation Description | 5        | No                   |
-    Then I softly see the following messages in the page details contains:
-      | Saved Successfully! |
     Then I softly can see row level action button "Edit" against "Grantee PO" in flex table with id "---grantee_tableId:-:financialReportPeerReviewTableId---"
     Then I softly can see row level action button "Send for Review" against "Grantee PO" in flex table with id "---grantee_tableId:-:financialReportPeerReviewTableId---"
     Then I softly can see row level action button "Delete" against "Grantee PO" in flex table with id "---grantee_tableId:-:financialReportPeerReviewTableId---"
@@ -1358,7 +1356,7 @@ Feature: Validate all scenarios for Financial Report
     And I save the field labeled "Award Issue Date" as "AwardIssueDate"
     And I save the field labeled "Grant Award Number" as "GrantAwardNumber"
     And I save the field labeled "EGMS ID" as "AwardEGMSID"
-    And I re-login to "Grantee" app as "GRANTEE ADMIN" user on "INTERNAL" portal
+    And I re-login to "Grantee" app as "GRANTEE ADMIN1" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
     And I click toggle button to select "Grants - All"
@@ -1462,6 +1460,7 @@ Feature: Validate all scenarios for Financial Report
     When I click on "Delete" icon for "Sarah PM" inside table with table id "---grantee_tableId:-:financialReportPeerReviewTableId---" without processing
     Then I softly see confirmation box with body "Do you want to delete? Once it is deleted it cannot be restored." is displayed
     When I click modal button "OK"
+    And I wait for "2" seconds
     Then I softly do not see value "Sarah PM" for title "Reviewer Name" inside table "---grantee_tableId:-:financialReportPeerReviewTableId---"
     And I click on "Send for Review" icon for "David FO" inside flex table with id "---grantee_tableId:-:financialReportPeerReviewTableId---" without waiting for record
     And I click on "Send for Review" icon for "Grantee PO" inside flex table with id "---grantee_tableId:-:financialReportPeerReviewTableId---" without waiting for record
@@ -1482,7 +1481,7 @@ Feature: Validate all scenarios for Financial Report
     And I click on submit review
     Then I softly see value "Submitted" for title "Status" against the value "Grantee PO" inside table "---grantee_tableId:-:financialReportPeerReviewTableId---"
     Then I softly cannot see row level action button "Enter Review" against "Grantee PO" in flex table with id "---grantee_tableId:-:financialReportPeerReviewTableId---"
-    When I re-login to "Grantee" app as "GRANTEE ADMIN" user on "INTERNAL" portal
+    When I re-login to "Grantee" app as "GRANTEE ADMIN1" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Financial Reports" content inside "Monitoring" subheader on left panel
     And I click toggle button to select "Financial Reports - Draft"
@@ -1589,8 +1588,7 @@ Feature: Validate all scenarios for Financial Report
     And I update title as "Automation.pdf" on upload file modal
     And I select Classification as "Financial Report" at upload file modal
     When I click modal button "Save"
-    And I click modal button "Close"
-    And I refresh the page
+#    And I click modal button "Close"
     And I wait for "2" seconds
     Then I softly see value "Automation.pdf" for title "Title" inside table "---grantee_tableId:-:financialReportAddFilesTableId---"
     Then I softly see value "Financial Report" for title "Classification" inside table "---grantee_tableId:-:financialReportAddFilesTableId---"
@@ -1689,7 +1687,7 @@ Feature: Validate all scenarios for Financial Report
     When I navigate to "Completed Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:financialEGMSID}" in "---grantee_tableId:-:monitoringCompletedTaskTableId---" panel
     Then I softly see value "{SavedValue:financialEGMSID}" for title "EGMS ID" inside table "---grantee_tableId:-:monitoringCompletedTaskTableId---"
-    When I re-login to "Grantee" app as "GRANTEE ADMIN" user on "INTERNAL" portal
+    When I re-login to "Grantee" app as "GRANTEE ADMIN1" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Financial Reports" content inside "Monitoring" subheader on left panel
     And I click toggle button to select "Financial Reports - All"

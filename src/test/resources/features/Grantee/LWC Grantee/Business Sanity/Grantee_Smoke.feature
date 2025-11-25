@@ -1910,7 +1910,7 @@ Feature: Grantee Smoke scenarios
   @475809 @ValidateNotYetConvertedOpportunityGrantsgovPMusercancreateApplicationfromOpportunityifPreApplicationRequiredisselectedasNoonOpportunityrecord @Grantee_Smoke1
   Scenario: Not Yet Converted Opportunity Grantsgov PM user can create Application from Opportunity if Pre-Application Required? is selected as No on Opportunity record
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberProjectnarrativeForm}"
-    And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0001212704" with properties "default"
+    And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0001269349" with properties "default"
     When I login to "Grantee" app as "GRANTEE PM" user
     And I navigate to "Opportunities" tab
     When I navigate to "Qualified" content inside "Leads" subheader on left panel
@@ -1919,7 +1919,7 @@ Feature: Grantee Smoke scenarios
     And I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside flex table with id "---grantee_tableId:-:qualifiedLeadTableId---" without waiting for record
     When I click on "Convert to Opportunity" in the page details
     And I save the field labeled "EGMS ID" as "opportunityEGMSID"
-    And I create opportunity with state "Approved" for opportunity number "CAS-HHS0001212704" with properties "default"
+    And I create opportunity with state "Approved" for opportunity number "CAS-HHS0001269349" with properties "default"
     And I navigate to "Opportunities" tab
     And I navigate to "Not Converted" content inside "Opportunities" subheader on left panel
     When I click toggle button to select "Opportunities Not Converted to Application - All"
@@ -6325,6 +6325,7 @@ Feature: Grantee Smoke scenarios
     Then I softly see status in Progress-bar is "Approved" and is "dark blue"
     Then I softly can see top right button "Submit To Grants.Gov" in page detail
     When I click on "Submit To Grants.Gov" in the page details
+    And I wait for "2" seconds
     Then I softly see field "Status" as "Submitted to Grantor"
 
   @481492 @ValidatePMuserisabletosubmittheapplicationformtograntsgovwithvaliddataonformProjectPerformanceSiteLocations @Grantee_Smoke1
@@ -7140,17 +7141,17 @@ Feature: Grantee Smoke scenarios
     Then I softly can see "Form" sub tab at view detail page
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:sf424ABudgetSummaryTableId---" by clicking "Edit" :
       | Grant Program Function or Activity (a) | Catalog of Federal Domestic Assistance Number (b) | Estimated Unobligated Federal Funds (c) | Estimated Unobligated Non-Federal Funds (d) | New or Revised Federal Budget (e) | New or Revised Non-Federal Budget (f) |
-      | Automation Permanent Focus Area        | Automation Test                                   | 1000                                    | 1000                                        | 1000                              | 1000                                  |
+      | Automation Permanent Focus Area - BP01        | Automation Test                                   | 1000                                    | 1000                                        | 1000                              | 1000                                  |
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:sf424ANonFedResourceTableId---" by clicking "Edit" :
       | (a) Grant Program               | (b) Applicant | (c) State | (d) Other Sources |
-      | Automation Permanent Focus Area | 1000          | 1000      | 1000              |
+      | Automation Permanent Focus Area - BP01 | 1000          | 1000      | 1000              |
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:sf424ANonConstructionGridDTableId---" by clicking "Edit" :
       | Type        | 1st Quarter | 2nd Quarter | 3rd Quarter | 4th Quarter |
       | Federal     | 1000        | 1000        | 1000        | 1000        |
       | Non-Federal | 1000        | 1000        | 1000        | 1000        |
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:sf424ANonConstructionGridETableId---" by clicking "Edit" :
       | (a) Grant Program               | (b) First Future Funding Period | (c) Second Future Funding Period | (d) Third Future Funding Period | (e) Fourth Future Funding Period |
-      | Automation Permanent Focus Area | 1000                            | 1000                             | 1000                            | 1000                             |
+      | Automation Permanent Focus Area - BP01 | 1000                            | 1000                             | 1000                            | 1000                             |
     And I wait for "1" seconds
     When I click on "Validate" in the page details
     Then I softly see the following messages in the page details contains:
@@ -8211,6 +8212,7 @@ Feature: Grantee Smoke scenarios
     And I enter a review as "Passed"
     When I click modal button "Save"
     And I click on submit review
+    And I wait for "2" seconds
     Then I softly see value "Submitted" for title "Status" against the value "Grantee PO" inside table "---grantee_tableId:-:financialReportPeerReviewTableId---"
     Then I softly cannot see row level action button "Enter Review" against "Grantee PO" in flex table with id "---grantee_tableId:-:financialReportPeerReviewTableId---"
     When I re-login to "Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
@@ -8573,6 +8575,7 @@ Feature: Grantee Smoke scenarios
     Then I see status in Progress-bar is "Approved" and is "dark blue"
     And I click on "Submit To Grants.Gov" in the page details without processing
     And I click "OK" on modal confirmation box
+    And I wait for "3" seconds
     Then I softly see field "Status" as "Submitted to Grantor"
     Then I cannot see top right button "Edit" in page detail
     Then I can see top right button "Check Status" in page detail
@@ -8585,14 +8588,14 @@ Feature: Grantee Smoke scenarios
     Then I softly see "Last Modified By" in flex table header "---grantee_tableId:-:submissionHistoryTableId---"
     Then I softly see "Last Modified On" in flex table header "---grantee_tableId:-:submissionHistoryTableId---"
     And I save the value from row "1" for column name "Tracking Number" as "TrackingNumber" from flex table "---grantee_tableId:-:submissionHistoryTableId---"
-    Then I softly see value "S2SReceiving" for title "Grants.Gov Status" against the value "{SavedValue:TrackingNumber}" inside table "---grantee_tableId:-:submissionHistoryTableId---"
+    Then I softly see value "S2SReceived" for title "Grants.Gov Status" against the value "{SavedValue:TrackingNumber}" inside table "---grantee_tableId:-:submissionHistoryTableId---"
     Then I softly see value "SUCCESS" for title "Status" against the value "{SavedValue:TrackingNumber}" inside table "---grantee_tableId:-:submissionHistoryTableId---"
     Then I softly see value "Success" for title "Response Status Details" against the value "{SavedValue:TrackingNumber}" inside table "---grantee_tableId:-:submissionHistoryTableId---"
     Then I softly see value "{SavedValue:TrackingNumber}" for title "Tracking Number" against the value "SUCCESS" inside table "---grantee_tableId:-:submissionHistoryTableId---"
     Then I softly see value "Grantee PO" for title "Last Modified By" against the value "{SavedValue:TrackingNumber}" inside table "---grantee_tableId:-:submissionHistoryTableId---"
     And I save the value from row "1" for column name "Last Modified On" as "LastModifiedOn" from flex table "---grantee_tableId:-:submissionHistoryTableId---"
     Then I softly see value "{SavedValue:LastModifiedOn}" for title "Last Modified On" against the value "{SavedValue:TrackingNumber}" inside table "---grantee_tableId:-:submissionHistoryTableId---"
-    And I click on "View" icon for "S2SReceiving" inside flex table with id "---grantee_tableId:-:submissionHistoryTableId---"
+    And I click on "View" icon for "S2SReceived" inside flex table with id "---grantee_tableId:-:submissionHistoryTableId---"
     Then I softly see "Grants.Gov Submission History" opens in overLay window
     Then I can softly do not see modal button "Save"
     And I click modal button "Close"
@@ -8734,6 +8737,7 @@ Feature: Grantee Smoke scenarios
     Then I softly see status in Progress-bar is "Approved" and is "dark blue"
     And I click on "Submit To Grants.Gov" in the page details without processing
     And I click "OK" on modal confirmation box
+    And I wait for "2" seconds
     Then I softly see field "Status" as "Submitted to Grantor"
     Then I cannot see top right button "Edit" in page detail
     Then I can see top right button "Check Status" in page detail
@@ -9077,6 +9081,7 @@ Feature: Grantee Smoke scenarios
     Then I softly see status in Progress-bar is "Approved" and is "dark blue"
     And I click on "Submit To Grants.Gov" in the page details without processing
     And I click "OK" on modal confirmation box
+    And I wait for "3" seconds
     Then I softly see field "Status" as "Submitted to Grantor"
     Then I cannot see top right button "Edit" in page detail
     Then I can see top right button "Check Status" in page detail
@@ -9089,14 +9094,14 @@ Feature: Grantee Smoke scenarios
     Then I softly see "Last Modified By" in flex table header "---grantee_tableId:-:submissionHistoryTableId---"
     Then I softly see "Last Modified On" in flex table header "---grantee_tableId:-:submissionHistoryTableId---"
     And I save the value from row "1" for column name "Tracking Number" as "TrackingNumber" from flex table "---grantee_tableId:-:submissionHistoryTableId---"
-    Then I softly see value "S2SReceiving" for title "Grants.Gov Status" against the value "{SavedValue:TrackingNumber}" inside table "---grantee_tableId:-:submissionHistoryTableId---"
+    Then I softly see value "S2SReceived" for title "Grants.Gov Status" against the value "{SavedValue:TrackingNumber}" inside table "---grantee_tableId:-:submissionHistoryTableId---"
     Then I softly see value "SUCCESS" for title "Status" against the value "{SavedValue:TrackingNumber}" inside table "---grantee_tableId:-:submissionHistoryTableId---"
     Then I softly see value "Success" for title "Response Status Details" against the value "{SavedValue:TrackingNumber}" inside table "---grantee_tableId:-:submissionHistoryTableId---"
     Then I softly see value "{SavedValue:TrackingNumber}" for title "Tracking Number" against the value "SUCCESS" inside table "---grantee_tableId:-:submissionHistoryTableId---"
     Then I softly see value "Sarah PM" for title "Last Modified By" against the value "{SavedValue:TrackingNumber}" inside table "---grantee_tableId:-:submissionHistoryTableId---"
     And I save the value from row "1" for column name "Last Modified On" as "LastModifiedOn" from flex table "---grantee_tableId:-:submissionHistoryTableId---"
     Then I softly see value "{SavedValue:LastModifiedOn}" for title "Last Modified On" against the value "{SavedValue:TrackingNumber}" inside table "---grantee_tableId:-:submissionHistoryTableId---"
-    And I click on "View" icon for "S2SReceiving" inside flex table with id "---grantee_tableId:-:submissionHistoryTableId---"
+    And I click on "View" icon for "S2SReceived" inside flex table with id "---grantee_tableId:-:submissionHistoryTableId---"
     Then I softly see "Grants.Gov Submission History" opens in overLay window
     Then I can softly do not see modal button "Save"
     And I click modal button "Close"
