@@ -11403,7 +11403,7 @@ Feature: Validate all scenarios of grants and award without background
     And I click on "Save" in the page details
     And I navigate to "Budget" sub tab
     And I wait for "2" seconds
-    Then I softly see field "Budget Redirection Threshold %" as "10.00%"
+    Then I softly see field "Budget Redirection Threshold %" as "20.00%"
 
     Examples:
       | Announcement Name                                               | Application Name                                                |

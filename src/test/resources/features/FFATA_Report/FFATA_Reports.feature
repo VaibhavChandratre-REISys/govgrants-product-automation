@@ -675,6 +675,7 @@ Feature: Validate all scenarios for FFATA Reports
     And I click modal button "Close"
     And I wait for "1" seconds
     When I re-login to "Grantor" app as "FO" user on "INTERNAL" portal
+    And I navigate to "Grants" tab
     When I navigate to "FFATA Reports" content inside "Reports" subheader on left panel
     Then I softly do not see top right button "New" inside flex table "---subAwardStandAlone:-:ffataReportTableId---"
     And I perform quick search for "{SavedValue:FFATAEGMSID}" in "---subAwardStandAlone:-:ffataReportTableId---" panel
@@ -688,6 +689,7 @@ Feature: Validate all scenarios for FFATA Reports
     Then I softly do not see top right button "Submit to SAM.gov" inside flex table "---subAwardStandAlone:-:ffataEligibleAwardstableId---"
     Then I softly do not see top right button "Remove" inside flex table "---subAwardStandAlone:-:ffataEligibleAwardstableId---"
     When I re-login to "Grantor" app as "FD" user on "INTERNAL" portal
+    And I navigate to "Grants" tab
     When I navigate to "FFATA Reports" content inside "Reports" subheader on left panel
     Then I softly do not see top right button "New" inside flex table "---subAwardStandAlone:-:ffataReportTableId---"
     And I perform quick search for "{SavedValue:FFATAEGMSID}" in "---subAwardStandAlone:-:ffataReportTableId---" panel
@@ -701,6 +703,7 @@ Feature: Validate all scenarios for FFATA Reports
     Then I softly do not see top right button "Submit to SAM.gov" inside flex table "---subAwardStandAlone:-:ffataEligibleAwardstableId---"
     Then I softly do not see top right button "Remove" inside flex table "---subAwardStandAlone:-:ffataEligibleAwardstableId---"
     When I re-login to "Grantor" app as "AUDITOR" user on "INTERNAL" portal
+    And I navigate to "Grants" tab
     When I navigate to "FFATA Reports" content inside "Reports" subheader on left panel
     Then I softly do not see top right button "New" inside flex table "---subAwardStandAlone:-:ffataReportTableId---"
     And I perform quick search for "{SavedValue:FFATAEGMSID}" in "---subAwardStandAlone:-:ffataReportTableId---" panel
