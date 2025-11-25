@@ -88,6 +88,12 @@ public class CommonSteps {
         projectManager.clickOnCOIOption(radioButtonName);
     }
 
+    //pranita
+    @And("I click radio button {string} in form")
+    public void iClickRadioButtonInForm(String radioButtonName) {
+        projectManager.clickOnFormOption(radioButtonName);
+    }
+
     @And("I reset the table")
     public void iResetTheTable() {
         I.amPerforming().click().withJavaScript(By.xpath("//div[@class='resetIcon']//button"));
