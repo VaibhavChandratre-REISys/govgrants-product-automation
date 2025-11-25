@@ -7155,7 +7155,7 @@ Feature: Validate all scenarios for Grantee Award from Application
     And I click on "View" icon for "{SavedValue:AwardEGMSID}" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
     And I wait for "2" seconds
     Then I softly can see "Actuals" sub tab at view detail page
-    And I create adhoc closeout "{SavedValue:Automation Runtime Award}" for status "Approved" with properties "default"
+    And I create adhoc closeout "{SavedValue:Automation Runtime Opportunity}" for status "Approved" with properties "default"
     And I click on hyperlink containing value "{SavedValue:GrantEGMSID}"
     When I navigate to "Closeout" sub tab
     And I click on "View" icon for "Approved" inside flex table with id "---grantee_tableId:-:GrantsProjectPeriodCloseoutTableId---" without waiting for record

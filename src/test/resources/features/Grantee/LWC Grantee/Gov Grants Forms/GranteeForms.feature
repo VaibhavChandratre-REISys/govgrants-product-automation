@@ -14790,7 +14790,7 @@ Feature: Grantee Forms Scenario
     Then I softly see value "Validated" for title "Grants.Gov Status" against the value "{SavedValue:TrackingNumber}" inside table "---grantee_tableId:-:submissionHistoryTableId---"
     Then I softly see value "SUCCESS" for title "Status" against the value "{SavedValue:TrackingNumber}" inside table "---grantee_tableId:-:submissionHistoryTableId---"
 
-  @480749 @validateifformisoptionalotherattachmentissetoptionalthenabletocompletewithoutdata.  @GranteeP_Q4
+  @480749 @validateifformisoptionalotherattachmentissetoptionalthenabletocompletewithoutdata.  @GranteeP_Q4 @P3_Grantee @GRegression3 @PM_Grantee
   Scenario: Validate if form is optional other attachment is set optional then able to complete without data.
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default"
