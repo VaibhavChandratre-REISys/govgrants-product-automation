@@ -18457,7 +18457,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
     Then I see the header is "Amendment Request" in the page details
     Then I softly see "Collapse" button for header
     Then I softly see field "EGMS ID" as "{SavedValue:OTHAMENDID}"
-    Then I softly see field "Status" as "Reviewed"
+    Then I softly see field "Status" as "Submitted for Approval"
     Then I softly see field "Initiated By" as "Grantor"
     Then I softly see field "Amendment Type" as "Other"
     Then I softly can see "Overview" sub tab at view detail page
@@ -18596,7 +18596,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
     When I navigate to "Amendments" sub tab
     Then I softly see top right button "New" inside flex table "---grantee_tableId:-:AmendmentRequestTableId---"
     And I navigate to "Monitoring" sub tab
-    Then I softly see value "{SavedValue:TermsTitle}" for title "Title" inside table "---grantee_tableId:-:SpecialConditionTableId---"
+    Then I softly see value "{SavedValue:TermsId}" for title "Title" inside table "---grantee_tableId:-:SpecialConditionTableId---"
     And I navigate to "History" sub tab
     And I navigate to "Field Audit" sub tab in split screen
     And I click on hyperlink containing value "View All"
@@ -18629,8 +18629,8 @@ Feature: Validate all scenarios for Grantee Amendment Request
     When I navigate to "Awards" content inside "Grants, Awards & Amendment Requests" subheader on left panel
     And I click toggle button to select "Awards - All"
     And I wait for "3" seconds
-    When I perform quick search for "{SavedValue:AwardEGMSID2}" in "---grantee_tableId:-:GrantsTable---" panel
-    And I click on "View" icon for "{SavedValue:AwardEGMSID2}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
+    When I perform quick search for "{SavedValue:AwardEGMSID2}" in "---grantee_tableId:-:awardTableId---" panel
+    And I click on "View" icon for "{SavedValue:AwardEGMSID2}" inside flex table with id "---grantee_tableId:-:awardTableId---" without waiting for record
     And I wait for "2" seconds
     Then I softly see field "Status" as "Activated"
     Then I softly see status in Progress-bar is "Activated" and is "dark blue"
@@ -18676,7 +18676,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
     When I navigate to "Amendments" sub tab
     Then I softly do not see top right button "New" inside flex table "---grantee_tableId:-:AmendmentRequestTableId---"
     And I navigate to "Monitoring" sub tab
-    Then I softly see value "{SavedValue:TermsTitle}" for title "Title" inside table "---grantee_tableId:-:SpecialConditionTableId---"
+    Then I softly see value "{SavedValue:TermsId}" for title "Title" inside table "---grantee_tableId:-:SpecialConditionTableId---"
     And I navigate to "History" sub tab
     And I navigate to "Field Audit" sub tab in split screen
     And I click on hyperlink containing value "View All"

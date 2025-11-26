@@ -700,6 +700,7 @@ Feature: Validate all scenarios for Financial Report
     And I enter a review as "Passed"
     When I click modal button "Save"
     And I click on submit review
+    And I wait for "3" seconds
     Then I softly see value "Submitted" for title "Status" against the value "Grantee PO" inside table "---grantee_tableId:-:financialReportPeerReviewTableId---"
     Then I softly cannot see row level action button "Enter Review" against "Grantee PO" in flex table with id "---grantee_tableId:-:financialReportPeerReviewTableId---"
     When I re-login to "Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
@@ -745,7 +746,9 @@ Feature: Validate all scenarios for Financial Report
     Then I softly see link "{SavedValue:LastModifiedBy}" inside Page block
     And I click on hyperlink containing value "{SavedValue:LastModifiedBy}"
     Then I softly see the text containing "sarah.pm@ggp.test8.ggmergeqa2"
+    And I wait for "2" seconds
     And I click on back arrow
+    And I wait for "2" seconds
     Then I softly can see row level action button "View" against "Federal Financial Report (SF-425)" in flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
     Then I softly can see row level action button "Splitview" against "Federal Financial Report (SF-425)" in flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
     Then I softly can see row level action button "Preview" against "Federal Financial Report (SF-425)" in flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
@@ -813,8 +816,7 @@ Feature: Validate all scenarios for Financial Report
     And I update title as "Automation.pdf" on upload file modal
     And I select Classification as "Financial Report" at upload file modal
     When I click modal button "Save"
-    And I click modal button "Close"
-    And I refresh the page
+#    And I click modal button "Close"
     And I wait for "2" seconds
     Then I softly see value "Automation.pdf" for title "Title" inside table "---grantee_tableId:-:financialReportAddFilesTableId---"
     Then I softly see value "Financial Report" for title "Classification" inside table "---grantee_tableId:-:financialReportAddFilesTableId---"
@@ -1290,6 +1292,7 @@ Feature: Validate all scenarios for Financial Report
     And I save the field labeled "EGMS ID" as "AwardEGMSID"
     And I navigate to "Management" sub tab
     And I click on top right button "New" in flex table with id "---grantee_tableId:-:FinancialsReportTableId---"
+    And I wait for "2" seconds
     And I enter "Creation" values from "Financial_Report_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     And I click on "Save" in the page details
@@ -1479,6 +1482,7 @@ Feature: Validate all scenarios for Financial Report
     And I enter a review as "Passed"
     When I click modal button "Save"
     And I click on submit review
+    And I wait for "2" seconds
     Then I softly see value "Submitted" for title "Status" against the value "Grantee PO" inside table "---grantee_tableId:-:financialReportPeerReviewTableId---"
     Then I softly cannot see row level action button "Enter Review" against "Grantee PO" in flex table with id "---grantee_tableId:-:financialReportPeerReviewTableId---"
     When I re-login to "Grantee" app as "GRANTEE ADMIN1" user on "INTERNAL" portal
@@ -2630,6 +2634,7 @@ Feature: Validate all scenarios for Financial Report
     And I enter a review as "Passed"
     When I click modal button "Save"
     And I click on submit review
+    And I wait for "2" seconds
     Then I softly see value "Submitted" for title "Status" against the value "Fiscal Reviewer" inside table "---grantee_tableId:-:financialReportPeerReviewTableId---"
     Then I softly cannot see row level action button "Enter Review" against "Fiscal Reviewer" in flex table with id "---grantee_tableId:-:financialReportPeerReviewTableId---"
     And I expand nested table containing column value "Fiscal Reviewer"

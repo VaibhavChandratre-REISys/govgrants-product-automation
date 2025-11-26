@@ -371,6 +371,7 @@ Feature: Validate all scenarios for FFATA Reports
     When I navigate to "Subrecipients" content inside "Organization" subheader on left panel
     When I perform quick search for "WASHINGTON CENTER FOR DEAF AND HARD OF HEARING YOUTH" in "ActiveAccount" panel
     And I click on "View" icon for "WASHINGTON CENTER FOR DEAF AND HARD OF HEARING YOUTH" inside table
+    And I wait for "2" seconds
     Then I softly can see "FFATA Reporting" sub tab at view detail page
     When I navigate to "FFATA Reporting" sub tab
     Then I softly see "FFATA Compliance" page block displayed

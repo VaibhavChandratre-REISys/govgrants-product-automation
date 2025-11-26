@@ -611,8 +611,7 @@ Feature: Validate all scenarios for Grantee Award from Application
     And I update title as "Automation.pdf" on upload file modal
     And I select Classification as "Interim Award Document" at upload file modal
     When I click modal button "Save"
-    And I click modal button "Close"
-    And I refresh the page
+#    And I click modal button "Close"
     And I wait for "2" seconds
     And I save the value from row "1" for column name "Title" as "TitleFiles" from flex table "---grantee_tableId:-:awardAddFilesTableId---"
     Then I softly see value "Automation.pdf" for title "Title" inside table "---grantee_tableId:-:awardAddFilesTableId---"

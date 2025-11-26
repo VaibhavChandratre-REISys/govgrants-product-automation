@@ -2526,7 +2526,7 @@ Feature: Validate all scenarios for Grants & Awards
     When I close "Award Line Items" modal by clicking the top right x button
     And I wait for "3" seconds
     Then I can see row level action button "Add Line Items" against "Architectural and engineering fees" in flex table with id "---grantee_tableId:-:AwardBudgetTableId---"
-    When I click on "Award Line Items" icon for "Architectural and engineering fees" inside flex table with id "---grantee_tableId:-:AwardBudgetTableId---" with wait for record
+    When I click on "Add Line Items" icon for "Architectural and engineering fees" inside flex table with id "---grantee_tableId:-:AwardBudgetTableId---" with wait for record
     Then I softly see "Award Line Items" opens in overLay window
     Then I softly see "Award Line Items" page block displayed
     Then I softly see top right button "New" inside flex table "---grantee_tableId:-:awardLineItemsTableId---"
