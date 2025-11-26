@@ -825,19 +825,10 @@ Feature: Validate all scenarios for FFATA Reports
       | Subawards added successfully. |
     And I click modal button "Close"
     And I wait for "1" seconds
-    #546369
-    When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
-    And I navigate to "Home" tab
-    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
-    When I navigate to "FFATA Reporting" sub tab
-    When I perform quick search for "{SavedValue:AwardEGMSID}" in "---subAwardStandAlone:-:SrOrgSubawardDetailsFFATAComplianceTableId---" panel
-    And I save the value from row "1" for column name "FFATA Report Due Date" as "FFATAReportDueDate" from flex table "---subAwardStandAlone:-:SrOrgSubawardDetailsFFATAComplianceTableId---"
-    Then I softly see field name "FFATAReportDueDate__c" is blank in flex table with Id "---subAwardStandAlone:-:SrOrgSubawardDetailsFFATAComplianceTableId---"
-    Then I softly see value "{SavedValue:FFATAReportDueDate}" for title "FFATA Report Due Date" inside table "---subAwardStandAlone:-:SrOrgSubawardDetailsFFATAComplianceTableId---"
     And I checkout to yopmail with mailid "danieljacks@yopmail.com"
-    And I pause execution for "180" seconds
+    And I pause execution for "120" seconds
     Then I refresh the page
-    And I see the mail subject is as follows :
+    Then I see the mail subject is as follows :
       """
       Sandbox: Notification: Subaward {SavedValue:AwardEGMSID} is applicable for FFATAReporting
       """
@@ -860,3 +851,13 @@ Feature: Validate all scenarios for FFATA Reports
        Thank you.
        The EGMS Team
       """
+    #546369
+    Given I am on "SUBPORTAL" portal
+    When I login to "Grants Portal" app as "SPI3" user
+    And I navigate to "Home" tab
+    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
+    When I navigate to "FFATA Reporting" sub tab
+    When I perform quick search for "{SavedValue:AwardEGMSID}" in "---subAwardStandAlone:-:SrOrgSubawardDetailsFFATAComplianceTableId---" panel
+    And I save the value from row "1" for column name "FFATA Report Due Date" as "FFATAReportDueDate" from flex table "---subAwardStandAlone:-:SrOrgSubawardDetailsFFATAComplianceTableId---"
+    Then I softly do not see field name "FFATAReportDueDate__c" is blank in flex table with Id "---subAwardStandAlone:-:SrOrgSubawardDetailsFFATAComplianceTableId---"
+    Then I softly see value "{SavedValue:FFATAReportDueDate}" for title "FFATA Report Due Date" inside table "---subAwardStandAlone:-:SrOrgSubawardDetailsFFATAComplianceTableId---"
