@@ -803,12 +803,34 @@ Feature: Validate all scenarios for FFATA Reports
     And I click on "Activate" in the page details
     And I wait for "3" seconds
     Then I see that "Subaward" is in "Activated" status
+    And I click on hyperlink containing value "{SavedValue:GrantEGMSID}"
+    When I navigate to "Overview" sub tab
+    And I save the field labeled "Grant Issue Date" as "AwardIssueDate"
+    And I navigate to "Grants" tab
+    When I navigate to "FFATA Reports" content inside "Reports" subheader on left panel
+    And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:ffataReportTableId---"
+    When I enter in modal value "Automation Runtime FFATA Report" into field "ReportName__c"
+    When I enter in modal value "0" into field "AwardActivationFrom__c"
+    When I enter in modal value "3650" into field "AwardActivationTo__c"
+    Then I softly see "Save and Continue" modal button
+    Then I softly see "Close" modal button
+    And I click modal button "Save and Continue"
+    And I wait for "2" seconds
+    And I click on "Save" in the page details
+    And I save the field labeled "EGMS ID" as "FFATAEGMSID"
+    And I click on top right button "Associate" in flex table with id "---subAwardStandAlone:-:ffataEligibleAwardstableId---"
+    When I click "Associate" after selection of "FFATA Funding Source 13" in the table "---subAwardStandAlone:-:AssociateFFATAEligibleSubawardsTableId---"
+    And I wait for "2" seconds
+    Then I softly see the following messages in the page details contains:
+      | Subawards added successfully. |
+    And I click modal button "Close"
+    And I wait for "1" seconds
     #546369
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Home" tab
     When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
     When I navigate to "FFATA Reporting" sub tab
-    When I perform quick search for "{SavedValue:SiteVisitId}" in "---subAwardStandAlone:-:SrOrgSubawardDetailsFFATAComplianceTableId---" panel
+    When I perform quick search for "{SavedValue:AwardEGMSID}" in "---subAwardStandAlone:-:SrOrgSubawardDetailsFFATAComplianceTableId---" panel
     And I save the value from row "1" for column name "FFATA Report Due Date" as "FFATAReportDueDate" from flex table "---subAwardStandAlone:-:SrOrgSubawardDetailsFFATAComplianceTableId---"
     Then I softly see field name "FFATAReportDueDate__c" is blank in flex table with Id "---subAwardStandAlone:-:SrOrgSubawardDetailsFFATAComplianceTableId---"
     Then I softly see value "{SavedValue:FFATAReportDueDate}" for title "FFATA Report Due Date" inside table "---subAwardStandAlone:-:SrOrgSubawardDetailsFFATAComplianceTableId---"
