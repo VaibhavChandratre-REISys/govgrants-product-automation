@@ -12665,7 +12665,7 @@ Feature: Grantee Smoke scenarios
     Then I softly see value "Progress Report" for title "Classification" inside table "---grantee_tableId:-:progressReportFileTableId---"
     And I click on "Download" icon for "Progress Report" inside flex table with id "---grantee_tableId:-:progressReportFileTableId---" without waiting for record
     And I wait for "2" seconds
-    And I download the file
+    And I download the file without rename
     And I wait for "4" seconds
     Then I softly verify that the file "Automation.pdf" is downloaded
     And I switch to parent tab
