@@ -1,7 +1,7 @@
 @FFATAReports
 Feature: Validate all scenarios for FFATA Reports
 
-  @546353 @546372 @547281 @547952 @546351 @547285 @546367 @547750 @546364 @546354 @546356 @ValidateInternalusersAdminPMPOEXEcanabletocreateFFATAReportCreationwithValidDatasuccessfully
+  @546353 @546372 @547281 @547952 @546351 @547285 @546367 @547750 @546364 @546354 @546356 @546362 @ValidateInternalusersAdminPMPOEXEcanabletocreateFFATAReportCreationwithValidDatasuccessfully
   Scenario: Validate Internal users Admin PM PO EXE can able to create FFATA Report Creation with Valid Data successfully
     When I am on "SUBPORTAL" portal
     And I login to "Grants Portal" app as "SPI3" user
@@ -354,6 +354,9 @@ Feature: Validate all scenarios for FFATA Reports
     Then I see row "1" contains value "40000.00" against the column name "Employee 4 Salary" in the Excel file "{SavedValue:csvFile}"
     Then I see row "1" contains value "Jessica Brown" against the column name "Employee 5 Full Name" in the Excel file "{SavedValue:csvFile}"
     Then I see row "1" contains value "20000.00" against the column name "Employee 5 Salary" in the Excel file "{SavedValue:csvFile}"
+    When I click on "Delete" icon for "{SavedValue:csvFile}" inside flex table with id "---subAwardStandAlone:-:FFATAReportFilesTableId---"
+    And I wait for "2" seconds
+    Then I softly do not see value "{SavedValue:csvFile}" for title "Title" inside table "---subAwardStandAlone:-:FFATAReportFilesTableId---"
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
@@ -717,3 +720,121 @@ Feature: Validate all scenarios for FFATA Reports
     Then I softly do not see top right button "Associate" inside flex table "---subAwardStandAlone:-:ffataEligibleAwardstableId---"
     Then I softly do not see top right button "Submit to SAM.gov" inside flex table "---subAwardStandAlone:-:ffataEligibleAwardstableId---"
     Then I softly do not see top right button "Remove" inside flex table "---subAwardStandAlone:-:ffataEligibleAwardstableId---"
+
+  @546368 @546369 @ValidatethatemailsenttosubrecipientuserSPIINDwhensubawardiseligibleforFFATAsubmission
+  Scenario: Validate that email sent to subrecipient user SPI IND when subaward is eligible for FFATA submission
+    When I login to "As a Grantor" app as "SARAH PM" user
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:activeGrantsTableId---"
+    And I wait for "2" seconds
+    And I enter "GrantsFFATA" values from "Award_Field_Values.xlsx"
+    And I enter in modal value "Automation Runtime FFATA Report" into field "ProjectTitle__c"
+    And I click modal button "Continue"
+    And I enter "Grant_Edition_FFATA" values from "Award_Field_Values.xlsx"
+    When I click modal button "Save and Continue"
+    And I save the field labeled "EGMS ID" as "GrantEGMSID"
+    And I navigate to "Subawards" sub tab
+    And I click on "View" icon for "Created" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
+    And I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "AwardEGMSID"
+    And I navigate to "Overview" sub tab
+    And I click on "Edit" in the page details
+    When I enter "Edition_FFATA" values from "Award_Field_Values.xlsx"
+    And I enter value "40000" into field "NewObligation__c"
+    And I enter value "40000" into field "TotalCommitment__c"
+    And I click on "Save" in the page details
+    And I navigate to "Budget" sub tab
+    When I click on top right button "Associate" in flex table with id "---subAwardStandAlone:-:fundingAccountsTableId---"
+    When I click "Associate" after selection of "{SavedValue:fataSingleExternalFA}" in the table "---subAwardStandAlone:-:awardFundingAccountsTableId---"
+    And I wait for "3" seconds
+    And I click modal button "Close"
+    And I wait for "3" seconds
+    When I edit the following rows inline in flex table with id "---subAwardStandAlone:-:fundingAccountsTableId---" by clicking "Edit" :
+      | Funding Account                   | Encumbrance |
+      | {SavedValue:fataSingleExternalFA} | 40000       |
+    And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:subAwardBudgetTableId---" by clicking "Edit" :
+      | Budget Category | Award Amount |
+      | Construction    | 40000        |
+    And I navigate to "Terms" sub tab
+    And I click on "Edit" icon for "Payment Request" inside flex table with id "---subAwardStandAlone:-:paymentRequestSchedulesTableId---" without waiting for record
+    When I enter in modal "Payment Request Schedule" values from "Award_Field_Values.xlsx"
+    And I wait for "3" seconds
+    And I click modal button "Save"
+    And I wait for "3" seconds
+    And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardStandAlone:-:progressReportScheduleTableId---" without waiting for record
+    When I enter in modal "Progress Report Schedule" values from "Award_Field_Values.xlsx"
+    And I wait for "3" seconds
+    And I click modal button "Save"
+    Then I refresh the page
+    When I navigate to "Overview" sub tab
+    And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:associatedContactsTableId---" by clicking "Edit" :
+      | Name         | Project Role             | Is Key Personnel |
+      | Daniel Jacks | Project Director/Manager | Checked          |
+    When I navigate to "Responsibilities" sub tab
+    When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
+      | Name     | Award  |
+      | Sarah PM | Step 1 |
+    And I wait for "3" seconds
+    When I navigate to "Terms" sub tab
+    When I click on top right button "Associate Mandatory Terms and Conditions" in flex table with id "---subAwardStandAlone:-:termsndConditionsTableId---"
+    And I pause execution for "3" seconds
+    And I click on "Submit for Approval" in the page details
+    Then I see status in Progress-bar is "Submitted for Approval" and is "dark blue"
+    And I "Approve" in the approval decision
+    And I wait for "2" seconds
+    And I click on "Send to Subrecipient" in the page details
+    And I wait for "2" seconds
+    When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
+    And I navigate to "Grants" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "Record Id" in "---subAwardStandAlone:-:subrecipientPendingtaskTableId---" panel
+    When I click on "Start" icon for "Record Id" inside flex table with id "---subAwardStandAlone:-:subrecipientPendingtaskTableId---" without waiting for record
+    And I click on "Accept after Approval" in the page details
+    And I wait for "2" seconds
+    When I re-login to "Grantor" app as "SARAH PM" user on "INTERNAL" portal
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click toggle button to select "Grants - All"
+    When I perform quick search for "{SavedValue:GrantEGMSID}" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
+    And I click on "View" icon for "{SavedValue:GrantEGMSID}" inside table
+    When I navigate to "Subawards" sub tab
+    And I click on "View" icon for "{SavedValue:AwardEGMSID}" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
+    And I click on "Activate" in the page details
+    And I wait for "3" seconds
+    Then I see that "Subaward" is in "Activated" status
+    #546369
+    When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
+    And I navigate to "Home" tab
+    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
+    When I navigate to "FFATA Reporting" sub tab
+    When I perform quick search for "{SavedValue:SiteVisitId}" in "---subAwardStandAlone:-:SrOrgSubawardDetailsFFATAComplianceTableId---" panel
+    And I save the value from row "1" for column name "FFATA Report Due Date" as "FFATAReportDueDate" from flex table "---subAwardStandAlone:-:SrOrgSubawardDetailsFFATAComplianceTableId---"
+    Then I softly see field name "FFATAReportDueDate__c" is blank in flex table with Id "---subAwardStandAlone:-:SrOrgSubawardDetailsFFATAComplianceTableId---"
+    Then I softly see value "{SavedValue:FFATAReportDueDate}" for title "FFATA Report Due Date" inside table "---subAwardStandAlone:-:SrOrgSubawardDetailsFFATAComplianceTableId---"
+    And I checkout to yopmail with mailid "danieljacks@yopmail.com"
+    And I pause execution for "180" seconds
+    Then I refresh the page
+    And I see the mail subject is as follows :
+      """
+      Sandbox: Notification: Subaward {SavedValue:AwardEGMSID} is applicable for FFATAReporting
+      """
+    Then I see the mail text is as follows :
+      """
+       Hello,
+
+
+
+       This email to notify you that Subaward {SavedValue:AwardEGMSID} is applicable for FFATA Reporting.
+
+
+
+       Log in to the EGMS to update the FFATA Compliance Section.
+
+       Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrantssupport@reisystems.com if you have any questions or need assistance with this task.
+
+
+
+       Thank you.
+       The EGMS Team
+      """
