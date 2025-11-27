@@ -1,7 +1,7 @@
 @plumbingCases @grantor-regression
 Feature: Validate all scenarios for Plumbing Cases
 
-  @545520 @ValidateEXEusercreationofanewFundingSourcefromFinancialtabonceusernavigatetoactiveGranteegrants @debug
+  @545520 @ValidateEXEusercreationofanewFundingSourcefromFinancialtabonceusernavigatetoactiveGranteegrants
   Scenario: Validate EXE user creation of a new Funding Source from Financial tab once user navigate to active Grantee grants
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default-Victor EXE user"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"

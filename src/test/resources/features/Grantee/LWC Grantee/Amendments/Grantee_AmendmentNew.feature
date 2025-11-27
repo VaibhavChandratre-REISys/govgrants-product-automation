@@ -9274,3 +9274,120 @@ Feature: Validate all scenarios for Grantee Amendment Request
     When I "Reject" in the approval decision
     Then I softly see field "Status" as "Rejected"
     Then I softly see status in Progress-bar is "Rejected" and is "Red"
+
+   @453766 @validatethereparentingofFinancialReport
+   Scenario: Validate the reparenting of Financial Report
+     And I "Created" standalone subaward "Automation Runtime award" with properties "default-DEMO ADMIN user"
+     And I updated direct grant award for title "{SavedValue:Automation Runtime award}" with properties "default"
+     And I activate the award for title "{SavedValue:Automation Runtime award}"
+     Given I login to "Grantee" app as "GRANTEE ADMIN" user
+     And I "Created" the "Financial Report" for title "{SavedValue:Automation Runtime award}" with properties "ADMIN_OWNER"
+     And I navigate to "Grants" tab
+     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+     And I click toggle button to select "Grants - All"
+     When I perform quick search for "{SavedValue:Automation Runtime award}" in "---grantee_tableId:-:GrantsTable---" panel
+     And I click on "View" icon for "{SavedValue:Automation Runtime award}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
+     And I save the field labeled "EGMS ID" as "GrantEGMSID"
+     When I navigate to "Awards" sub tab
+     And I click on "View" icon for "Activated" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
+     And I save the field labeled "EGMS ID" as "AwardEGMSID"
+     And I navigate to "Overview" sub tab
+     And I save the field labeled "Award Issue Date" as "AwardIssueDate"
+     And I navigate to "Management" sub tab
+     And I click on "View" icon for "Created" inside flex table with id "---grantee_tableId:-:FinancialsReportTableId---"
+     And I save the field labeled "EGMS ID" as "financialEGMSID1"
+     And I navigate to "Responsibilities" sub tab
+     When I enter the following values into flex table with id "---grantee_tableId:-:financialReportApproverTableId---" by clicking "New" :
+       | Name       | Financial Report |
+       | DEMO ADMIN | Step 1           |
+     And I click on "Submit for Approval" in the page details
+     Then I softly see field "Status" as "Submitted for Approval"
+     And I "Submitted to Grantor" the "Financial Report" for title "{SavedValue:Automation Runtime award}" with properties "ADMIN_OWNER"
+     And I navigate to "Grants" tab
+     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+     And I click toggle button to select "Grants - All"
+     When I perform quick search for "{SavedValue:Automation Runtime award}" in "---grantee_tableId:-:GrantsTable---" panel
+     And I click on "View" icon for "{SavedValue:Automation Runtime award}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
+     And I save the field labeled "EGMS ID" as "GrantEGMSID"
+     When I navigate to "Awards" sub tab
+     And I click on "View" icon for "Activated" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
+     And I navigate to "Management" sub tab
+     And I click on "View" icon for "Submitted to Grantor" inside flex table with id "---grantee_tableId:-:FinancialsReportTableId---"
+     And I save the field labeled "EGMS ID" as "financialEGMSID2"
+     Then I softly see field "Status" as "Submitted to Grantor"
+     And I "Created" the "Financial Report" for title "{SavedValue:Automation Runtime award}" with properties "ADMIN_OWNER"
+     And I navigate to "Grants" tab
+     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+     And I click toggle button to select "Grants - All"
+     When I perform quick search for "{SavedValue:Automation Runtime award}" in "---grantee_tableId:-:GrantsTable---" panel
+     And I click on "View" icon for "{SavedValue:Automation Runtime award}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
+     And I save the field labeled "EGMS ID" as "GrantEGMSID"
+     When I navigate to "Awards" sub tab
+     And I click on "View" icon for "Activated" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
+     And I navigate to "Management" sub tab
+     And I click on "View" icon for "Created" inside flex table with id "---grantee_tableId:-:FinancialsReportTableId---"
+     And I save the field labeled "EGMS ID" as "financialEGMSID3"
+     Then I softly see field "Status" as "Created"
+     And I navigate to "Grants" tab
+     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+     And I click toggle button to select "Grants - All"
+     When I perform quick search for "{SavedValue:Automation Runtime award}" in "---grantee_tableId:-:GrantsTable---" panel
+     And I click on "View" icon for "{SavedValue:Automation Runtime award}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
+     When I navigate to "Awards" sub tab
+     And I click on "View" icon for "Activated" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
+     And I navigate to "Management" sub tab
+     Then I softly see value "{SavedValue:financialEGMSID1}" for title "EGMS ID" inside table "---grantee_tableId:-:FinancialsReportTableId---"
+     Then I softly see value "{SavedValue:financialEGMSID2}" for title "EGMS ID" inside table "---grantee_tableId:-:FinancialsReportTableId---"
+     Then I softly see value "{SavedValue:financialEGMSID3}" for title "EGMS ID" inside table "---grantee_tableId:-:FinancialsReportTableId---"
+     And I "Approved" of type "Budget Period Change" amendment request for title "{SavedValue:Automation Runtime Award}" with properties "BUDGET_PERIOD_CHANGE_GRANTEE_ADMIN"
+     And I refresh the page
+     And I wait for "2" seconds
+     And I navigate to "Grants" tab
+     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+     And I click toggle button to select "Grants - All"
+     When I perform quick search for "{SavedValue:Automation Runtime award}" in "---grantee_tableId:-:GrantsTable---" panel
+     And I click on "View" icon for "{SavedValue:Automation Runtime award}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
+     And I save the field labeled "EGMS ID" as "GrantEGMSID"
+     When I navigate to "Awards" sub tab
+     And I click on "View" icon for "Activated" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
+     And I wait for "2" seconds
+     When I navigate to "Amendments" sub tab
+     And I click on "View" icon for "Approved" inside flex table with id "---grantee_tableId:-:AmendmentRequestTableId---"
+     When I click on "Submit to Grantor" in the page details
+     When I enter values into fields
+       | Value | Field                 |
+       | 0     | SubmittedToGrantor__c |
+     And I click modal button "Save"
+     And I click modal button "Close"
+     Then I softly see field "Status" as "Submitted to Grantor"
+     When I click on "Record Decision" in the page details
+     When I enter values into fields
+       | Value                       | Field             |
+       | Accepted                    | Decision__c       |
+       | {SavedValue:AwardIssueDate} | AwardIssueDate__c |
+       | Test                        | Comments__c       |
+     And I click modal button "Save"
+     And I click modal button "Close"
+     Then I softly see field "Status" as "Accepted"
+     And I click on "Amend Award" in the page details
+     Then I softly see status in Progress-bar is "Pending Activation" and is "dark blue"
+     When I click on "Activate Award" in the page details
+     Then I softly see field "Status" as "Activated"
+     And I save the field labeled "EGMS ID" as "AwardId1"
+     And I navigate to "Management" sub tab
+     Then I softly see value "{SavedValue:financialEGMSID1}" for title "EGMS ID" inside table "---grantee_tableId:-:FinancialsReportTableId---"
+     Then I softly see value "{SavedValue:AwardId1}" for title "Award EGMS ID" against the value "{SavedValue:financialEGMSID1}" inside table "---grantee_tableId:-:FinancialsReportTableId---"
+     Then I softly see value "{SavedValue:financialEGMSID2}" for title "EGMS ID" inside table "---grantee_tableId:-:FinancialsReportTableId---"
+     Then I softly see value "{SavedValue:AwardEGMSID}" for title "Award EGMS ID" against the value "{SavedValue:financialEGMSID2}" inside table "---grantee_tableId:-:FinancialsReportTableId---"
+     Then I softly see value "{SavedValue:financialEGMSID3}" for title "EGMS ID" inside table "---grantee_tableId:-:FinancialsReportTableId---"
+     Then I softly see value "{SavedValue:AwardId1}" for title "Award EGMS ID" against the value "{SavedValue:financialEGMSID3}" inside table "---grantee_tableId:-:FinancialsReportTableId---"
+     And I navigate to "Grants" tab
+     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+     And I click toggle button to select "Grants - All"
+     When I perform quick search for "{SavedValue:Automation Runtime award}" in "---grantee_tableId:-:GrantsTable---" panel
+     And I click on "View" icon for "{SavedValue:Automation Runtime award}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
+     When I navigate to "Awards" sub tab
+     And I click on "View" icon for "Amended" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
+     And I navigate to "Management" sub tab
+     Then I softly see value "{SavedValue:financialEGMSID3}" for title "EGMS ID" inside table "---grantee_tableId:-:FinancialsReportTableId---"
+     Then I softly see value "{SavedValue:AwardEGMSID}" for title "Award EGMS ID" against the value "{SavedValue:financialEGMSID3}" inside table "---grantee_tableId:-:FinancialsReportTableId---"

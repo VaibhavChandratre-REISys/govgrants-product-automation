@@ -4,7 +4,7 @@ Feature: Validate all scenarios for Grantee Progress Report
   @495998 @ValidateFromAppScheduleProgressReportAdminuserPRownercanabletoSubmitProgressReportwithsingleApprover @P2_Grantee @ADMIN_Grantee @GRegression2
   Scenario: Validate From App - Schedule Progress Report Admin user PR owner can able to Submit Progress Report with single Approver
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
-    And I create "Grants.Gov" qualified lead for title "Automation Runtime award" and opportunity number "CAS-HHS0000660610" with properties "default-Product Admin user"
+    And I create "Grants.Gov" qualified lead for title "Automation Runtime award" and opportunity number "CAS-HHS0000660610" with properties "default-DEMO ADMIN user"
     Given I login to "Grantee" app as "GRANTEE PM" user
     And I navigate to "Opportunities" tab
     When I navigate to "Qualified" content inside "Leads" subheader on left panel
@@ -15,10 +15,10 @@ Feature: Validate all scenarios for Grantee Progress Report
     And I save the field labeled "EGMS ID" as "opportunityEGMSID"
     And I create opportunity with state "Approved" for opportunity number "CAS-HHS0000660610" with properties "default"
     And I create Application "{SavedValue:Automation Runtime award}" with state "Submitted to Grantor" for opportunity number "CAS-HHS0000660610" with properties "default"
-    And I "Created" award from application for opportunity "CAS-HHS0000660610" for title "{SavedValue:Automation Runtime award}" with properties "default-Product Admin user"
+    And I "Created" award from application for opportunity "CAS-HHS0000660610" for title "{SavedValue:Automation Runtime award}" with properties "default-DEMO ADMIN user"
     And I updated award from application for title "{SavedValue:Automation Runtime award}" with properties "default"
     And I activate the award for title "{SavedValue:Automation Runtime award}"
-    And I re-login to "Grantee" app as "GRANTEE ADMIN1" user on "INTERNAL" portal
+    And I re-login to "Grantee" app as "GRANTEE ADMIN" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
     And I click toggle button to select "Grants - All"
@@ -94,7 +94,7 @@ Feature: Validate all scenarios for Grantee Progress Report
     When I navigate to "Completed Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:progressEGMSID}" in "---grantee_tableId:-:monitoringCompletedTaskTableId---" panel
     Then I softly see value "{SavedValue:progressEGMSID}" for title "EGMS ID" inside table "---grantee_tableId:-:monitoringCompletedTaskTableId---"
-    When I re-login to "Grantee" app as "GRANTEE ADMIN1" user on "INTERNAL" portal
+    When I re-login to "Grantee" app as "GRANTEE ADMIN" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Progress Reports" content inside "Monitoring" subheader on left panel
     And I click toggle button to select "Progress Reports - All"

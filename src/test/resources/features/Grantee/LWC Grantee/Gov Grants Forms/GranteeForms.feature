@@ -15093,3 +15093,44 @@ Feature: Grantee Forms Scenario
     Then I softly see "cross" symbol against the value "Disclosure of Lobbying Activities (SF-LLL)" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
     Then I softly see value "0.00%" for title "Percentage" against the value "Disclosure of Lobbying Activities (SF-LLL)" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
     Then I softly see value "No" for title "Validated" against the value "Disclosure of Lobbying Activities (SF-LLL)" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
+
+  @481561 @validatePMUsershouldabletoseethecorrecthelptextonprojectabstractsummaryformfield
+  Scenario: Validate PM User should able to see the correct helptext on project abstract summary form field
+    Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
+    And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default"
+    Given I login to "Grantee" app as "GRANTEE PM" user
+    And I navigate to "Opportunities" tab
+    When I navigate to "Qualified" content inside "Leads" subheader on left panel
+    And I click toggle button to select "Qualified Leads - All"
+    When I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:qualifiedLeadTableId---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside flex table with id "---grantee_tableId:-:qualifiedLeadTableId---" without waiting for record
+    When I click on "Convert to Opportunity" in the page details
+    And I save the field labeled "EGMS ID" as "opportunityEGMSID"
+    And I create opportunity with state "Approved" for opportunity number "CAS-HHS0000660610" with properties "default"
+    And I create Application "{SavedValue:Automation Runtime Opportunity}" with state "Created" for opportunity number "CAS-HHS0000660610" with properties "default"
+    When I navigate to "Applications" tab
+    And I navigate to "Applications" content inside "Applications" subheader on left panel
+    When I click toggle button to select "Applications - All"
+    And I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:ApplicationTableId---" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside table
+    And I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "appEGMSID"
+    When I navigate to "Forms and Files" sub tab
+    And I select value inside table "---grantee_tableId:-:applicationBusinessFormTableId---" is "All"
+    And I click on "View" icon for "Project Abstract Summary" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    And I switch to tab number "1"
+    Then I softly see field "Funding Opportunity Number" inside page block
+    When I hovering mouse on help text icon inside page block detail "Funding Opportunity Number"
+    Then I softly see "Funding Opportunity Number for the particular program announcement. Pre-populated from the Application cover sheet. This field is required. Max character limit for this field is 40." shown as help text
+    Then I softly see field "Assistance Listing Number [CFDA(s)]" inside page block
+    When I hovering mouse on help text icon inside page block detail "Assistance Listing Number [CFDA(s)]"
+    Then I softly see "Assistance Listing # assigned to the Program. Max character limit for this field is 15." shown as help text
+    Then I softly see field "Applicant Name" inside page block
+    When I hovering mouse on help text icon inside page block detail "Applicant Name"
+    Then I softly see "This is the legal name of applicant which will undertake the assistance activity. Max character limit for this field is 60." shown as help text
+    Then I softly see field "Descriptive Title of Applicant's Project" inside page block
+    When I hovering mouse on help text icon inside page block detail "Descriptive Title of Applicant's Project"
+    Then I softly see "This is the project title or brief description of the project. Max character limit for this field is 250." shown as help text
+    Then I softly see field "Project Abstract" inside page block
+    When I hovering mouse on help text icon inside page block detail "Project Abstract"
+    Then I softly see "Enter a work summary or abstract of the work to be performed under this project. Max character limit for this field is 4000." shown as help text
