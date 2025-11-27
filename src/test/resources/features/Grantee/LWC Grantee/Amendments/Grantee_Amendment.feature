@@ -1379,7 +1379,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
       | Overview Tab - Money cannot be moved across the Focus Areas during a Budget Redirection request.       |
       | Overview Tab - Original Awarded budget and Revised budget difference for each focus area must be zero. |
 
-  @449402 @VerifyUserwillactivatethenewawardfromNonOwnerAwardOwner @GRegression1 @GranteeTBE
+  @449372 @449402 @VerifyUserwillactivatethenewawardfromNonOwnerAwardOwner @GRegression1 @GranteeTBE
   Scenario: Verify User will activate the new award from Non Owner Award Owner
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "SECOND_FOCUS_WITH_BUDGET"

@@ -6320,3 +6320,94 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
 
   @530977 @validatecompetitiveGrant/awardrecordshouldsharewithPO/FO/FD/EXE/Auditor/AdminfromsameOrguserin(createdstateofaward)
   Scenario: Validate Competitive Grant/award record should share with PO/FO/FD/EXE/Auditor/Admin from same Org user in (created state of award)
+    When I login to "Grantor" app as "dynamicUser" user
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:activeGrantsTableId---"
+    And I enter "GrantFields1" values from "Award_Field_Values.xlsx"
+    And I click modal button "Continue"
+    And I enter "Grant_Edition" values from "Award_Field_Values.xlsx"
+    When I click modal button "Save and Continue"
+    And I navigate to "Files" sub tab
+    When I enter the following values into flex table with id "---subAwardStandAlone:-:flexGridGrantChecklistsTableId---" by clicking "Add" :
+      | Description | Required  | Applies To | Status |
+      | Automation  | Mandatory | Award      | Active |
+    Then I see "Automation" inside flex table with id "---subAwardStandAlone:-:flexGridGrantChecklistsTableId---"
+    And I navigate to "Subawards" sub tab
+    And I click on "View" icon for "Created" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
+    And I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "AwardEGMSID"
+    And I navigate to "Overview" sub tab
+    And I save the field labeled "Subaward Title" as "Automation Runtime award"
+    And I click on "Edit" in the page details
+    When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
+    And I click on "Save" in the page details
+    When I navigate to "Setup" sub tab
+    And I click on top right button "Associate" in flex table with id "---program:-:focusAreaTableId---"
+    When I click "Associate" after selection of "Automation Permanent Focus Area1" by showing entries "All" in flex table with id "---program:-:associateFocusAreaTableId---"
+    And I click on top right button "Associate" in flex table with id "---program:-:objectivesTableId---"
+    When I click "Associate" after selection of "Automation Permanent Objective1" by showing entries "All" in flex table with id "---program:-:associateObjectivesTableId---"
+    And I click on top right button "Associate" in flex table with id "---program:-:kpiTableId---"
+    When I click "Associate" after selection of "Automation Permanent KPI1" by showing entries "All" in flex table with id "---program:-:associateKPITableId---"
+    And I navigate to "Budget" sub tab
+    When I click on top right button "Associate" in flex table with id "---subAwardStandAlone:-:fundingAccountsTableId---"
+    When I click "Associate" after selection of "Automation Permanent Funding Account" in the table "---subAwardStandAlone:-:awardFundingAccountsTableId---"
+    When I close "Associate Funding Accounts" modal by clicking the top right x button
+    And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:focusAreaTableId---" by clicking "Edit" :
+      | Title                           | Start Date | End Date |
+      | Automation Permanent Focus Area | 0          | 3650     |
+    When I edit the following rows inline in flex table with id "---subAwardStandAlone:-:fundingAccountsTableId---" by clicking "Edit" :
+      | Funding Account             | Encumbrance |
+      | {SavedValue:fundingAccount} | 1000        |
+    And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:subAwardBudgetTableId---" by clicking "Edit" :
+      | Budget Category | Award Amount | Cash Match | Non-Cash Match |
+      | Construction    | 1000         | 100        | 100            |
+    When I navigate to "Performance" sub tab
+    And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:kpiTableId---" by clicking "Edit" :
+      | EGMS ID                  | Target |
+      | Automation Permanent KPI | 10     |
+    And I navigate to "Terms" sub tab
+    And I click on "Edit" icon for "Payment Request" inside flex table with id "---subAwardStandAlone:-:paymentRequestSchedulesTableId---" without waiting for record
+    When I enter in modal "Payment Request Schedule" values from "Award_Field_Values.xlsx"
+    And I wait for "3" seconds
+    And I click modal button "Save"
+    And I wait for "3" seconds
+    And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardStandAlone:-:progressReportScheduleTableId---" without waiting for record
+    When I enter in modal "Progress Report Schedule" values from "Award_Field_Values.xlsx"
+    And I wait for "3" seconds
+    And I click modal button "Save"
+    Then I refresh the page
+    When I navigate to "Overview" sub tab
+    And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:associatedContactsTableId---" by clicking "Edit" :
+      | Name                       | Project Role             | Is Key Personnel |
+      | {SavedValue:SPI3 Username} | Project Director/Manager | Checked          |
+    When I navigate to "Responsibilities" sub tab
+    Then I can see top right button "New" in flex table with id "---subAwardStandAlone:-:peerReviewersTableId---"
+    And I enter the following values into flex table with id "---subAwardStandAlone:-:peerReviewersTableId---" by clicking "New" :
+      | Reviewer Name            | Role            | Description                 | Due Date | Allow Record Editing |
+      | {SavedValue:PO Username} | Fiscal Reviewer | Automation Test Description | 7        | No                   |
+    Then I can see top right button "New" in flex table with id "---subAwardStandAlone:-:awardApproversTableId---"
+    When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
+      | Name                     | Award  |
+      | {SavedValue:PM Username} | Step 1 |
+    When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
+      | Name          | Award  | Reimbursement |
+      | Automation FO | Step 2 | Step 1        |
+    When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
+      | Name           | Award  | Amendment Request | Closeout |
+      | Automation EXE | Step 3 | Step 3            | Step 3   |
+    When I navigate to "Responsibilities" sub tab
+    And I navigate to "Files" sub tab
+    Then I can see top right button "New" in flex table with id "---subAwardStandAlone:-:notesAwardTableId---"
+    When I enter the following values into flex table with id "---subAwardStandAlone:-:notesAwardTableId---" by clicking "New" :
+      | Title        | Description      |
+      | Notes Record | Automation Notes |
+    Then I softly see value "Notes Record" for title "Title" inside table "---subAwardStandAlone:-:notesAwardTableId---"
+    Then I can see top right button "Add Files" in flex table with id "---subAwardStandAlone:-:addFilesTableId---"
+    And I click on top right button "Add Files" in flex table with id "---subAwardStandAlone:-:addFilesTableId---"
+    And I upload attachment without random number "Attachment.pdf" of type "Other" from computer
+    And I click modal button "Close"
+    Then I softly can see row level action button "Edit" against "Attachment.pdf" in flex table with id "---subAwardStandAlone:-:addFilesTableId---"
+    Then I softly can see row level action button "Delete" against "Attachment.pdf" in flex table with id "---subAwardStandAlone:-:addFilesTableId---"
+    Then I softly can see row level action button "Download" against "Attachment.pdf" in flex table with id "---subAwardStandAlone:-:addFilesTableId---"
+    And I click on "Edit" icon for "Attachment.pdf" inside flex table with id "---subAwardStandAlone:-:addFilesTableId---"

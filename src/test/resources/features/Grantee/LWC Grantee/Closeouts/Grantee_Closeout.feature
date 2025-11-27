@@ -1651,7 +1651,7 @@ Feature: Validate all scenarios for closeout
     And I navigate to "Closeout" tab
     Then I do not see "Budget Period Closeouts" inside "Closeouts" is displayed
 
-  @484043 @ValidateFromAppGPCloseoutwithPMProfileAbletocreateschedulecloseout @P2_Grantee @PM_Grantee @GRegression1 @GranteeP_Q4
+  @495232 @484043 @ValidateFromAppGPCloseoutwithPMProfileAbletocreateschedulecloseout @P2_Grantee @PM_Grantee @GRegression1 @GranteeP_Q4
   Scenario: Validate From App GP Closeout with PM Profile, Able to create schedule closeout
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default"
@@ -3591,40 +3591,15 @@ Feature: Validate all scenarios for closeout
 
   @495223 @Validatethetheadhoccloseout&functionality @GranteeP_Q4
   Scenario: Validate the the Adhoc closeout & functionality
-    Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
-    And I create "Manual" qualified lead for title "Automation Runtime Opportunity" and opportunity number "Automation Runtime" with properties "default"
-    Given I login to "Grantee" app as "GRANTEE PM" user
-    And I navigate to "Opportunities" tab
-    When I navigate to "Qualified" content inside "Leads" subheader on left panel
-    And I click toggle button to select "Qualified Leads - All"
-    When I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:qualifiedLeadTableId---" panel
-    And I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside flex table with id "---grantee_tableId:-:qualifiedLeadTableId---" without waiting for record
-    When I click on "Convert to Opportunity" in the page details
-    And I save the field labeled "EGMS ID" as "opportunityEGMSID"
-    And I create opportunity with state "Approved" for opportunity number "{SavedValue:Automation Runtime}" with properties "default"
-    And I create Application "{SavedValue:Automation Runtime Opportunity}" with state "Submitted to Grantor" for opportunity number "{SavedValue:Automation Runtime}" with properties "default"
-    And I "Created" award from application for opportunity "{SavedValue:Automation Runtime}" for title "{SavedValue:Automation Runtime Opportunity}" with properties "default"
-    And I updated award from application for title "{SavedValue:Automation Runtime Opportunity}" with properties "default"
+    And I "Created" standalone subaward "Automation Runtime award" with properties "INDIRECT_COST_NO"
+    And I updated direct grant award for title "{SavedValue:Automation Runtime award}" with properties "default"
+    And I activate the award for title "{SavedValue:Automation Runtime award}"
+    When I login to "Grantee" app as "GRANTEE PM" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
     And I click toggle button to select "Grants - All"
-    When I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:GrantsTable---" panel
-    And I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
-    Then I softly see field "Status" as "Draft"
-    When I navigate to "Awards" sub tab
-    And I click on "View" icon for "Created" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
-    And I navigate to "Overview" sub tab
-    When I click on top right button "Associate" in flex table with id "---grantee_tableId:-:awardExternalProgranTableId---"
-    When I click "Associate" after selection of "Automation Permanent NGO Program" in the table "---grantee_tableId:-:awardAssociateExternalProgranTableId---"
-    And I wait for "3" seconds
-    And I click modal button "Close"
-    And I wait for "3" seconds
-    And I activate the award for title "{SavedValue:Automation Runtime Opportunity}"
-    And I navigate to "Grants" tab
-    When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
-    And I click toggle button to select "Grants - All"
-    When I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:GrantsTable---" panel
-    And I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
+    When I perform quick search for "{SavedValue:Automation Runtime award}" in "---grantee_tableId:-:GrantsTable---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime award}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
     And I navigate to "Overview" sub tab
     And I save the field labeled "EGMS ID" as "GrantEGMSID"
     And I save the field labeled "Grant Number" as "GrantNumber"
@@ -3634,61 +3609,23 @@ Feature: Validate all scenarios for closeout
     Then I softly see status in Progress-bar is "Activated" and is "dark blue"
     And I save the field labeled "EGMS ID" as "AwardEGMSID"
     And I navigate to "Overview" sub tab
-    And I save the value from row "1" for column name "Title" as "ProgramName" from flex table "---grantee_tableId:-:awardExternalProgranTableId---"
-    And I save the value from row "1" for column name "Title" as "ContactName" from flex table "---grantee_tableId:-:awardContactTableId---"
-    And I navigate to "Projections" sub tab
-    And I save the value from row "1" for column name "Title" as "FocusAreaName" from flex table "---grantee_tableId:-:ProjectTableId---"
-    And I navigate to "Monitoring" sub tab
-    And I save the value from row "1" for column name "Title" as "ObjectiveTitle" from flex table "---grantee_tableId:-:awardObjectiveTableId---"
-    And I save the value from row "1" for column name "Title" as "KPITitle" from flex table "---grantee_tableId:-:KeyPerformanceIndicatorTableId---"
-    And I navigate to "Management" sub tab
-    And I click on top right button "New" in flex table with id "---grantee_tableId:-:FinancialsReportTableId---"
-    And I enter "Creation" values from "Financial_Report_Field_Values.xlsx"
-    And I click modal button "Save and Continue"
-    And I click on "Save" in the page details
-    And I wait for "2" seconds
-    And I save the field labeled "EGMS ID" as "financialEGMSID"
-    And I navigate to "Grants" tab
-    When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
-    And I click toggle button to select "Grants - All"
-    When I perform quick search for "{SavedValue:Automation Runtime award}" in "---grantee_tableId:-:GrantsTable---" panel
-    And I click on "View" icon for "{SavedValue:Automation Runtime award}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
-    And I navigate to "Overview" sub tab
-    And I save the field labeled "EGMS ID" as "GrantEGMSID"
-    And I save the field labeled "Grant Number" as "GrantNumber"
-    When I navigate to "Awards" sub tab
-    And I click on "View" icon for "Activated" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
-    Then I softly see field "Status" as "Activated"
-    And I navigate to "Management" sub tab
-    And I click on top right button "New" in flex table with id "---grantee_tableId:-:ProgressReportTableId---"
-    And I enter "Grantee_Creation" values from "ProgressReport_Field_Values.xlsx"
-    And I click modal button "Save and Continue"
-    And I click on "Save" in the page details
-    And I wait for "2" seconds
-    And I save the field labeled "EGMS ID" as "progressEGMSID"
-    And I navigate to "Grants" tab
-    When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
-    And I click toggle button to select "Grants - All"
-    When I perform quick search for "{SavedValue:Automation Runtime award}" in "---grantee_tableId:-:GrantsTable---" panel
-    And I click on "View" icon for "{SavedValue:Automation Runtime award}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
-    And I navigate to "Overview" sub tab
-    And I save the field labeled "EGMS ID" as "GrantEGMSID"
-    And I save the field labeled "Grant Number" as "GrantNumber"
-    When I navigate to "Awards" sub tab
-    And I click on "View" icon for "Activated" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
-    Then I softly see field "Status" as "Activated"
+    And I save the field labeled "Award Issue Date" as "AwardIssueDate"
     When I navigate to "Amendments" sub tab
     And I click on top right button "New" in flex table with id "---grantee_tableId:-:AmendmentRequestTableId---"
-    And I enter "Grantee_ScopeOfWork_Creation" values from "AmendmentRequest_Field_Values.xlsx"
+    And I enter "Grantee_FundingChange_Creation" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
+    And I wait for "3" seconds
+    When I enter values into fields
+      | Value | Field                      |
+      | 2000  | RequestedChangeInBudget__c |
+    And I click on "Save" in the page details
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "amendmentEGMSID"
-    And I click on "Save" in the page details
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
     And I click toggle button to select "Grants - All"
-    When I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:GrantsTable---" panel
-    And I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
+    When I perform quick search for "{SavedValue:Automation Runtime award}" in "---grantee_tableId:-:GrantsTable---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime award}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
     Then I softly see field "Status" as "Active"
     Then I softly see status in Progress-bar is "Active" and is "dark blue"
     And I navigate to "Overview" sub tab
@@ -3702,6 +3639,28 @@ Feature: Validate all scenarios for closeout
       | {SavedValue:PPST} | CloseoutDate__c |
     And I click modal button "Save and Continue"
     And I wait for "5" seconds
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+    And I click toggle button to select "Grants - All"
+    When I perform quick search for "{SavedValue:GrantEGMSID}" in "---grantee_tableId:-:GrantsTable---" panel
+    And I click on "View" icon for "{SavedValue:GrantEGMSID}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
+    When I navigate to "Closeout" sub tab
+    Then I softly do not see top right button "New" inside flex table "---grantee_tableId:-:GrantsProjectPeriodCloseoutTableId---"
+    Then I softly can see row level action button "View" against "Created" in flex table with id "---grantee_tableId:-:GrantsProjectPeriodCloseoutTableId---"
+    Then I softly can see row level action button "Edit" against "Created" in flex table with id "---grantee_tableId:-:GrantsProjectPeriodCloseoutTableId---"
+    Then I softly can see row level action button "Delete" against "Created" in flex table with id "---grantee_tableId:-:GrantsProjectPeriodCloseoutTableId---"
+    When I click on "Delete" icon for "Created" inside table with table id "---grantee_tableId:-:GrantsProjectPeriodCloseoutTableId---" without processing
+    Then I softly see confirmation box with body "Are you sure, you want to permanently delete the project period closeout?" is displayed
+    When I click modal button "OK"
+    And I wait for "4" seconds
+    Then I softly see top right button "New" inside flex table "---grantee_tableId:-:GrantsProjectPeriodCloseoutTableId---"
+    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:GrantsProjectPeriodCloseoutTableId---"
+    And I click on top right button "New" in flex table with id "---grantee_tableId:-:GrantsProjectPeriodCloseoutTableId---"
+    When I enter in modal "Grantee_Creation" values from "Closeout_Field_Values.xlsx"
+    When I enter values into fields
+      | Value             | Field           |
+      | {SavedValue:PPST} | CloseoutDate__c |
+    And I click modal button "Save and Continue"
     And I enter "Grantee_Edition" values from "Closeout_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I wait for "2" seconds
@@ -3752,6 +3711,38 @@ Feature: Validate all scenarios for closeout
     Then I softly see "Messages" page block displayed
     Then I softly see top right button "Send Email" inside flex table "CommunicationHistory"
     When I navigate to "Responsibilities" sub tab
+    When I enter the following values into flex table with id "---grantee_tableId:-:closeoutPeerReviewTableId---" by clicking "New" :
+      | Reviewer Name | Responsibility  | Description            | Due Date | Allow Record Editing |
+      | David FO      | Fiscal Reviewer | Automation Description | 5        | Yes                  |
+    Then I softly see the following messages in the page details contains:
+      | Saved Successfully! |
+    And I click on "Send for Review" icon for "David FO" inside flex table with id "---grantee_tableId:-:closeoutPeerReviewTableId---" without waiting for record
+    And I pause execution for "3" seconds
+    When I re-login to "Grantee" app as "GRANTEE FO" user on "INTERNAL" portal
+    When I navigate to "Home" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "{SavedValue:closeoutID}" in "---grantee_tableId:-:HomePendingTask---" panel
+    When I click on "Start" icon for "{SavedValue:closeoutID}" inside flex table with id "---grantee_tableId:-:HomePendingTask---" without waiting for record
+    And I navigate to "Responsibilities" sub tab
+    Then I softly can see top right button "Edit" in page detail
+    When I click on "Enter Review" icon for "David FO" inside flex table with id "---grantee_tableId:-:closeoutPeerReviewTableId---" without waiting for record
+    And I wait for "2" seconds
+    When I click modal button "Save"
+    Then I softly see the following messages in the page details contains:
+      | To Save, Rating is required.   |
+      | To Save, Comments is required. |
+    And I enter a review as "Passed"
+    When I click modal button "Save"
+    And I click on submit review
+    And I wait for "3" seconds
+    When I re-login to "Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
+    And I navigate to "Closeout" tab
+    And I perform quick search for "{SavedValue:closeoutID}" in "---grantee_tableId:-:phaseCloseoutTableId---" panel
+    And I click on "View" icon for "{SavedValue:closeoutID}" inside flex table with id "---grantee_tableId:-:phaseCloseoutTableId---"
+    When I click on "Complete Review" in the page details
+    Then I softly see field "Status" as "Reviewed"
+    Then I softly see status in Progress-bar is "Reviewed" and is "dark blue"
+    When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---grantee_tableId:-:closeoutApproverTableId---" by clicking "New" :
       | Name       | Closeout |
       | Victor EXE | Step 1   |
@@ -3772,6 +3763,38 @@ Feature: Validate all scenarios for closeout
     When I navigate to "Home" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:closeoutID}" in "---grantee_tableId:-:HomePendingTask---" panel
+    When I click on "Start" icon for "{SavedValue:closeoutID}" inside flex table with id "---grantee_tableId:-:HomePendingTask---" without waiting for record
+    Then I see only the following ordered radio buttons in the approval decision :
+      | Approve | Forward | Send to Owner |
+    When I select radio button "Forward" in the approval decision
+    And I select user "David FO" in the approval decision
+    When I enter comment "Automation testing" in the approval decision
+    And I submit the approval in the approval decision without processing
+    When I re-login to "Grantee" app as "GRANTEE FO" user on "INTERNAL" portal
+    When I navigate to "Home" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "{SavedValue:closeoutID}" in "---grantee_tableId:-:HomePendingTask---" panel
+    Then I softly see value "{SavedValue:closeoutID}" for title "EGMS ID" inside table "---grantee_tableId:-:HomePendingTask---"
+    When I click on "Start" icon for "{SavedValue:closeoutID}" inside flex table with id "---grantee_tableId:-:HomePendingTask---" without waiting for record
+    When I "Send to Owner" in the approval decision
+    Then I softly see field "Status" as "Created"
+    And I wait for "100" seconds
+    When I re-login to "Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
+    And I navigate to "Closeout" tab
+    And I perform quick search for "{SavedValue:closeoutID}" in "---grantee_tableId:-:phaseCloseoutTableId---" panel
+    And I click on "View" icon for "{SavedValue:closeoutID}" inside flex table with id "---grantee_tableId:-:phaseCloseoutTableId---"
+    When I navigate to "Responsibilities" sub tab
+    And I edit the following rows inline in flex table with id "---grantee_tableId:-:closeoutApproverTableId---" by clicking "Edit" :
+      | Closeout | Name       |
+      | Step 1   | Victor EXE |
+    When I click on "Override" in the page details
+    Then I softly see field "Status" as "Overridden"
+    When I click on "Submit for Approval" in the page details
+    Then I see field "Status" as "Submitted for Approval"
+    When I re-login to "Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
+    When I navigate to "Home" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "{SavedValue:closeoutID}" in "---grantee_tableId:-:HomePendingTask---" panel
     Then I softly see value "{SavedValue:closeoutID}" for title "EGMS ID" inside table "---grantee_tableId:-:HomePendingTask---"
     When I click on "Start" icon for "{SavedValue:closeoutID}" inside flex table with id "---grantee_tableId:-:HomePendingTask---" without waiting for record
     When I "Approve" in the approval decision
@@ -3782,45 +3805,48 @@ Feature: Validate all scenarios for closeout
     And I click toggle button to select "Project Period Closeout - All"
     And I perform quick search for "{SavedValue:closeoutID}" in "---grantee_tableId:-:ProjectPeriodCloseout---" panel
     And I click on "View" icon for "{SavedValue:closeoutID}" inside flex table with id "---grantee_tableId:-:ProjectPeriodCloseout---"
-    When I navigate to "Open  Items" sub tab
-    Then I softly see value "Force Closed" for title "Status" against the value "{SavedValue:amendmentEGMSID}" inside table "---grantee_tableId:-:pendingAmendmentCloseoutTableId---"
-    Then I softly see value "Force Closed" for title "Status" against the value "{SavedValue:progressEGMSID}" inside table "---grantee_tableId:-:PendingProgressReprt---"
-    Then I softly see value "Force Closed" for title "Status" against the value "{SavedValue:financialEGMSID}" inside table "---grantee_tableId:-:PendingFinancialReport---"
-    And I navigate to "Overview" sub tab
-    And I click on hyperlink containing value "{SavedValue:GrantEGMSID}"
+    Then I softly can see top right button "Submit to Grantor" in page detail
+    When I click on "Submit to Grantor" in the page details
+    Then I softly see "Submit to Grantor" opens in overLay window
+    And I wait for "1" seconds
+    And I click modal button "Save"
+    And I wait for "3" seconds
+    Then I softly see the following messages in the page details contains:
+      | To Save, Submitted to Grantor On is required. |
+    When I enter values into fields
+      | Value | Field                 |
+      | 0     | SubmittedToGrantor__c |
+    And I click modal button "Save"
     And I wait for "2" seconds
-    Then I softly see field "EGMS ID" as "{SavedValue:GrantEGMSID}"
-    Then I softly see field "Status" as "Pending Closeout"
-    Then I softly see status in Progress-bar is "Active" and is "dark blue"
-    And I navigate to "Overview" sub tab
-    Then I softly see value "{SavedValue:ProgramName}" for title "Title" inside table "---grantee_tableId:-:grantExternalProgramTableId---"
-    Then I softly see value "{SavedValue:ContactName}" for title "Name" inside table "---grantee_tableId:-:GranteeGrantContact---"
-    Then I softly see value "{SavedValue:FocusAreaName}" for title "Title" inside table "---grantee_tableId:-:grantFocusAreaTableId---"
-    And I navigate to "Monitoring" sub tab
-    Then I softly see value "{SavedValue:ObjectiveTitle}" for title "Title" inside table "---grantee_tableId:-:grantGoalsTableId---"
-    Then I softly see value "{SavedValue:KPITitle}" for title "Title" inside table "---grantee_tableId:-:grantKPITableId---"
-    And I navigate to "Management" sub tab
-    Then I softly see value "Force Closed" for title "Status" against the value "{SavedValue:amendmentEGMSID}" inside table "---grantee_tableId:-:GrantsAmendmentRequestsTableId---"
-    Then I softly see value "Force Closed" for title "Status" against the value "{SavedValue:progressEGMSID}" inside table "---grantee_tableId:-:grantProgressReportTableId---"
-    Then I softly see value "Force Closed" for title "Status" against the value "{SavedValue:financialEGMSID}" inside table "---grantee_tableId:-:GrantsFinancialReportTableId---"
-    And I perform quick search inside global search "{SavedValue:amendmentEGMSID}"
-    And I click on row level action button "Edit" against "{SavedValue:amendmentEGMSID}" in global search with id "Amendment Requests"
-    Then I softly see field "Status" as "Force Closed"
-    Then I cannot see top right button "Save" in page detail
-    Then I cannot see top right button "Cancel" in page detail
-    Then I softly see the text containing "You dont have sufficient access to edit this record"
-    And I perform quick search inside global search "{SavedValue:progressEGMSID}"
-    And I click on row level action button "Edit" against "{SavedValue:progressEGMSID}" in global search with id "Monitoring Reports"
-    Then I softly see field "Status" as "Force Closed"
-    Then I cannot see top right button "Save" in page detail
-    Then I cannot see top right button "Cancel" in page detail
-    Then I softly see the text containing "You dont have sufficient access to edit this record"
-    And I perform quick search inside global search "{SavedValue:financialEGMSID}"
-    And I click on row level action button "Edit" against "{SavedValue:financialEGMSID}" in global search with id "Monitoring Reports"
-    Then I softly see field "Status" as "Force Closed"
-    Then I cannot see top right button "Save" in page detail
-    Then I cannot see top right button "Cancel" in page detail
-    Then I softly see the text containing "You dont have sufficient access to edit this record"
+    And I click modal button "Close"
+    And I wait for "2" seconds
+    Then I softly see field "Status" as "Submitted to Grantor"
+    Then I softly see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
+    Then I softly can see top right button "Complete Closeout" in page detail
+    When I click on "Complete Closeout" in the page details
+    And I click modal button "Save"
+    And I wait for "2" seconds
+    Then I softly see the following messages in the page details contains:
+      | To Save, Grantor Closeout Date is required. |
+    When I enter values into fields
+      | Value | Field                  |
+      | 0     | FederalCloseoutDate__c |
+    And I click modal button "Save"
+    And I wait for "2" seconds
+    And I click modal button "Close"
+    Then I softly see field "Status" as "Completed"
+    Then I softly see status in Progress-bar is "Completed" and is "dark blue"
+    And I navigate to "Field Audit" sub tab in split screen
+    And I click on hyperlink containing value "View All"
+    Then I softly see value "Completed" for title "New Value" inside field history table
+    Then I softly see value "Submitted to Grantor" for title "Original Value" inside field history table
+    And I click on back arrow
+    When I navigate to "Overview" sub tab
+    And I click on hyperlink containing value "{SavedValue:GrantEGMSID}"
+    Then I softly see field "Status" as "Closed/Completed"
+    When I navigate to "Awards" sub tab
+    And I click on "View" icon for "{SavedValue:AwardEGMSID}" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
+    Then I softly see field "Status" as "Closed"
 
   @473896 @ValidatePMusershouldnotseefinancialreportwithstateApprovedandSubmittedtoGrantorinPPCloseoutopenitems @GranteeP_Q4 @P2_Grantee @PM_Grantee @Gregression2
   Scenario: Validate PM user should not see financial report with state Approved and Submitted to Grantor in PP Closeout open items

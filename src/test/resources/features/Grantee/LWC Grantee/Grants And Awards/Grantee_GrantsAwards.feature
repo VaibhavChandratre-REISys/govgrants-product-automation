@@ -5069,7 +5069,7 @@ Feature: Validate all scenarios for Grants & Awards
     Then I softly see value "{SavedValue:progressEGMSID3}" for title "EGMS ID" inside table "---grantee_tableId:-:ProgressReportTableId---"
     Then I softly see value "{SavedValue:AwardEGMSID}" for title "Award EGMS ID" against the value "{SavedValue:progressEGMSID3}" inside table "---grantee_tableId:-:ProgressReportTableId---"
 
-  @463588 @ValidateOtherTypeARtheReparentingthefinancialreportfromothertypeofamendmentrequest @PO_Grantee @P2_Grantee @GRegression5
+  @463657 @463588 @ValidateOtherTypeARtheReparentingthefinancialreportfromothertypeofamendmentrequest @PO_Grantee @P2_Grantee @GRegression5
   Scenario: Validate Other Type AR the Reparenting the financial report from other type of amendment request
     And I "Created" standalone subaward "Automation Runtime award" with properties "default-Grantee PO user"
     And I updated direct grant award for title "{SavedValue:Automation Runtime award}" with properties "default"
