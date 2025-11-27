@@ -9300,6 +9300,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
      When I enter the following values into flex table with id "---grantee_tableId:-:financialReportApproverTableId---" by clicking "New" :
        | Name       | Financial Report |
        | DEMO ADMIN | Step 1           |
+     And I wait for "2" seconds
      And I click on "Submit for Approval" in the page details
      Then I softly see field "Status" as "Submitted for Approval"
      And I "Submitted to Grantor" the "Financial Report" for title "{SavedValue:Automation Runtime award}" with properties "ADMIN_OWNER"

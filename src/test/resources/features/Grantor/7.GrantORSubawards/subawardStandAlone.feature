@@ -6317,3 +6317,6 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     When I click on "Edit" in the page details
     And I navigate to "Budget" sub tab
     Then I softly see that "Budgeted Amount" rendered in view mode only
+
+  @530977 @validatecompetitiveGrant/awardrecordshouldsharewithPO/FO/FD/EXE/Auditor/AdminfromsameOrguserin(createdstateofaward)
+  Scenario: Validate Competitive Grant/award record should share with PO/FO/FD/EXE/Auditor/Admin from same Org user in (created state of award)
