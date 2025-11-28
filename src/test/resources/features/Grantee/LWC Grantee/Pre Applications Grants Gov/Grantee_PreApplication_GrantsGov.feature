@@ -765,8 +765,8 @@ Feature: Validate all scenarios for Pre-Applications Grants Gov
     When I click on "Save" in the page details
     And I wait for "2" seconds
     Then I softly see the following messages in the page details contains:
-      | Pre-Application Title is required to save under Overview.       |
-      | Program Income Treatment Type is required to save under Budget. |
+      | To Save, Pre-Application Title is required in the Overview tab under the Pre-Application Overview section.       |
+      | To Save, Program Income Treatment Type is required in the Budget tab under the Budget Overview section.          |
     And I enter value "Additive" into field "ProgramIncomeType__c"
     And I navigate to "Overview" sub tab
     And I enter value "{SavedValue:PreApplicationTitle}" into field "Title__c"
@@ -2162,7 +2162,7 @@ Feature: Validate all scenarios for Pre-Applications Grants Gov
     When I navigate to "Applications" tab
     And I navigate to "Pre-Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Pre-Applications - All"
-    And I perform quick search for "{SavedValue:PreappEGMSID}" in "---grantee_tableId:-:ApplicationTableId---" panel
+    And I perform quick search for "{SavedValue:PreappEGMSID}" in "---grantee_tableId:-:PreApplication---" panel
     When I click on "Delete" icon for "{SavedValue:PreappEGMSID}" inside table with table id "---grantee_tableId:-:PreApplication---" without processing
     Then I softly see confirmation box with body "Are you sure you want to permanently delete the draft pre-application?" is displayed
     When I click modal button "OK"

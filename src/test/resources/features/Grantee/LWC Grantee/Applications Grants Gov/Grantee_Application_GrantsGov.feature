@@ -1894,6 +1894,7 @@ Feature: Validate all scenarios for Applications Grants Gov
     When I click on "Start" icon for "{SavedValue:appEGMSID}" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
     Then I softly can see top right button "Edit" in page detail
     And I click on "Edit" in the page details
+    And I wait for "3" seconds
     When I navigate to "Overview" sub tab
     Then I softly see fields "Title__c" is in edit mode
     Then I softly see fields "DUNS__c" is in edit mode
@@ -1910,7 +1911,7 @@ Feature: Validate all scenarios for Applications Grants Gov
     Then I softly see fields "Zip4__c" is in edit mode
     Then I softly see fields "ZipCode4Extension__c" is in edit mode
     And I click on "Save" in the page details
-    And I wait for "2" seconds
+    And I wait for "3" seconds
     Then I can see top right button "Associate" in flex table with id "---grantee_tableId:-:ApplicationExternalProgramsTableId---"
     Then I can see top right button "New" in flex table with id "---grantee_tableId:-:ContactTableIdApplication---"
     Then I can see top right button "Associate" in flex table with id "---grantee_tableId:-:ContactTableIdApplication---"

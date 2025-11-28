@@ -6329,7 +6329,6 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     And I save the field labeled "Grant ID" as "GrantEGMSID"
     And I click on hyperlink containing value "{SavedValue:GrantEGMSID}"
     And I wait for "2" seconds
-    And I navigate to "Overview" sub tab
     Then I softly see field "EGMS ID" as "{SavedValue:GrantEGMSID}"
     And I navigate to "Files" sub tab
     When I enter the following values into flex table with id "---subAwardStandAlone:-:flexGridGrantChecklistsTableId---" by clicking "Add" :
