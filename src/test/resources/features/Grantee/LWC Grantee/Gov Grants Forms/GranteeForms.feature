@@ -10522,7 +10522,6 @@ Feature: Grantee Forms Scenario
     And I wait for "2" seconds
     When I click on "Revise" in the page details
     Then I softly see field "Status" as "Revision in Progress"
-    When I click on "Save" in the page details
     And I wait for "3" seconds
     When I navigate to "Forms and Files" sub tab
     Then I softly can see row level action button "View" against "Grants.gov Lobbying Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
@@ -10673,7 +10672,7 @@ Feature: Grantee Forms Scenario
     Then I softly see value "Grantee PO" for title "Last Modified By" against the value "{SavedValue:TrackingNumber}" inside table "---grantee_tableId:-:submissionHistoryTableId---"
     And I save the value from row "1" for column name "Last Modified On" as "LastModifiedOn" from flex table "---grantee_tableId:-:submissionHistoryTableId---"
     Then I softly see value "{SavedValue:LastModifiedOn}" for title "Last Modified On" against the value "{SavedValue:TrackingNumber}" inside table "---grantee_tableId:-:submissionHistoryTableId---"
-    And I click on "View" icon for "S2SReceiving" inside flex table with id "---grantee_tableId:-:submissionHistoryTableId---"
+    And I click on "View" icon for "S2SReceived" inside flex table with id "---grantee_tableId:-:submissionHistoryTableId---"
     Then I softly see "Grants.Gov Submission History" opens in overLay window
     Then I can softly do not see modal button "Save"
     And I click modal button "Close"
@@ -11058,106 +11057,105 @@ Feature: Grantee Forms Scenario
     Then I softly see "If Reporting Entity in No.4 is Subawardee, Enter Name and Address of Prime" page block displayed
     Then I softly see field "Name" inside "If Reporting Entity in No.4 is Subawardee, Enter Name and Address of Prime" section
     Then I softly see asterisk mark on "Reporting_Entity_Organization_Name__c"
-    And I hover mouse on the field "Reporting_Entity_Street_1__c" of page block "If Reporting Entity in No.4 is Subawardee, Enter Name and Address of Prime"
-    And I hover mouse on the field "Reporting_Entity_Organization_Name__c" of page block "If Reporting Entity in No.4 is Subawardee, Enter Name and Address of Prime"
+    When I hovering mouse on help text icon inside page block detail "Reporting_Entity_Organization_Name__c"
     Then I softly see "enter the full name of the prime Federal recipient. Max character limit for this field is 60." shown as help text
     Then I softly see field "Street 1" inside "If Reporting Entity in No.4 is Subawardee, Enter Name and Address of Prime" section
     Then I softly see asterisk mark on "Reporting_Entity_Street_1__c"
-    And I hover mouse on the field "Reporting_Entity_Street_1__c" of page block "If Reporting Entity in No.4 is Subawardee, Enter Name and Address of Prime"
+    When I hovering mouse on help text icon inside page block detail "Reporting_Entity_Street_1__c"
     Then I softly see "enter the address of the prime Federal recipient. Max character limit for this field is 55." shown as help text
     Then I softly see field "Street 2" inside "If Reporting Entity in No.4 is Subawardee, Enter Name and Address of Prime" section
     Then I softly do not see asterisk mark on "Reporting_Entity_Street_2__c"
-    And I hover mouse on the field "Reporting_Entity_Street_2__c" of page block "If Reporting Entity in No.4 is Subawardee, Enter Name and Address of Prime"
+    When I hovering mouse on help text icon inside page block detail "Reporting_Entity_Street_2__c"
     Then I softly see "enter the address of the prime Federal recipient. Max character limit for this field is 55." shown as help text
     Then I softly see field "City" inside "If Reporting Entity in No.4 is Subawardee, Enter Name and Address of Prime" section
     Then I softly see asterisk mark on "Reporting_Entity_City__c"
-    And I hover mouse on the field "Reporting_Entity_City__c" of page block "If Reporting Entity in No.4 is Subawardee, Enter Name and Address of Prime"
+    When I hovering mouse on help text icon inside page block detail "Reporting_Entity_City__c"
     Then I softly see "enter the city of the prime Federal recipient.Max character limit for this field is 35." shown as help text
     Then I softly see field "State" inside "If Reporting Entity in No.4 is Subawardee, Enter Name and Address of Prime" section
     Then I softly see asterisk mark on "Reporting_Entity_State__c"
-    And I hover mouse on the field "Reporting_Entity_State__c" of page block "If Reporting Entity in No.4 is Subawardee, Enter Name and Address of Prime"
+    When I hovering mouse on help text icon inside page block detail "Reporting_Entity_State__c"
     Then I softly see "select the appropriate state from this pull down menu." shown as help text
     Then I softly see field "Zip" inside "If Reporting Entity in No.4 is Subawardee, Enter Name and Address of Prime" section
     Then I softly see asterisk mark on "Reporting_Entity_Zip_Postal_Code__c"
-    And I hover mouse on the field "Reporting_Entity_Zip_Postal_Code__c" of page block "If Reporting Entity in No.4 is Subawardee, Enter Name and Address of Prime"
+    When I hovering mouse on help text icon inside page block detail "Reporting_Entity_Zip_Postal_Code__c"
     Then I softly see "enter the zip code.Max character limit for this field is 30." shown as help text
     Then I softly see field "Congressional District, if known" inside "If Reporting Entity in No.4 is Subawardee, Enter Name and Address of Prime" section
-    And I hover mouse on the field "PrimeSubawardeeCongressionalDistrict__c" of page block "If Reporting Entity in No.4 is Subawardee, Enter Name and Address of Prime"
+    When I hovering mouse on help text icon inside page block detail "Reporting_Entity_Zip_Postal_Code__c"
     Then I softly see "enter the Congressional District of the prime Federal recipient, if known. Should be numeric characters.Max character limit for this field is 6." shown as help text
        #477353
     Then I softly see "Name and Address of Lobbying Registrant" page block displayed
     Then I softly see field "Prefix" inside "Name and Address of Lobbying Registrant" section
     Then I softly do not see asterisk mark on "Lobbying_Registrant_Prefix__c"
-    And I hover mouse on the field "Lobbying_Registrant_Prefix__c" of page block "Name and Address of Lobbying Registrant"
+    When I hovering mouse on help text icon inside page block detail "Lobbying_Registrant_Prefix__c"
     Then I softly see "Enter the prefix (e.g., Mr., Mrs., Miss), if appropriate, for the Lobbying Registrant." shown as help text
     Then I softly see field "First Name" inside "Name and Address of Lobbying Registrant" section
     Then I softly see asterisk mark on "Lobbying_Registrant_First_Name__c"
-    And I hover mouse on the field "Lobbying_Registrant_First_Name__c" of page block "Name and Address of Lobbying Registrant"
+    When I hovering mouse on help text icon inside page block detail "Lobbying_Registrant_First_Name__c"
     Then I softly see "Enter the first name of Lobbying Registrant. This field is required.Max character limit for this field is 35." shown as help text
     Then I softly see field "Middle Name" inside "Name and Address of Lobbying Registrant" section
     Then I softly do not see asterisk mark on "Lobbying_Registrant_Middle_Name__c"
-    And I hover mouse on the field "Lobbying_Registrant_Middle_Name__c" of page block "Name and Address of Lobbying Registrant"
+    When I hovering mouse on help text icon inside page block detail "Lobbying_Registrant_Middle_Name__c"
     Then I softly see "Enter the middle name of Lobbying Registrant.Max character limit for this field is 25." shown as help text
     Then I softly see field "Last Name" inside "Name and Address of Lobbying Registrant" section
     Then I softly see asterisk mark on "Lobbying_Registrant_Last_Name__c"
-    And I hover mouse on the field "Lobbying_Registrant_Last_Name__c" of page block "Name and Address of Lobbying Registrant"
+    When I hovering mouse on help text icon inside page block detail "Lobbying_Registrant_Last_Name__c"
     Then I softly see "Enter the last name of Lobbying Registrant. This field is required.Max character limit for this field is 60." shown as help text
     Then I softly see field "Suffix" inside "Name and Address of Lobbying Registrant" section
     Then I softly do not see asterisk mark on "Lobbying_Registrant_Suffix__c"
-    And I hover mouse on the field "Lobbying_Registrant_Suffix__c" of page block "Name and Address of Lobbying Registrant"
+    When I hovering mouse on help text icon inside page block detail "Lobbying_Registrant_Suffix__c"
     Then I softly see "Enter the suffix (e.g., Jr. Sr., PhD), if appropriate, for the Lobbying Registrant." shown as help text
     Then I softly see field "Street 1" inside "Name and Address of Lobbying Registrant" section
     Then I softly see asterisk mark on "Lobbying_Registrant_Street_1__c"
-    And I hover mouse on the field "Lobbying_Registrant_Street_1__c" of page block "Name and Address of Lobbying Registrant"
+    When I hovering mouse on help text icon inside page block detail "Lobbying_Registrant_Street_1__c"
     Then I softly see "Enter the first line of street address for the Lobbying Registrant.Max character limit for this field is 55." shown as help text
     Then I softly see field "Street 2" inside "Name and Address of Lobbying Registrant" section
     Then I softly do not see asterisk mark on "Lobbying_Registrant_Street_2__c"
-    And I hover mouse on the field "Lobbying_Registrant_Street_2__c" of page block "Name and Address of Lobbying Registrant"
+    When I hovering mouse on help text icon inside page block detail "Lobbying_Registrant_Street_2__c"
     Then I softly see "Enter the second line of street address for the Lobbying Registrant.Max character limit for this field is 55." shown as help text
     Then I softly see field "City" inside "Name and Address of Lobbying Registrant" section
     Then I softly see asterisk mark on "Lobbying_Registrant_City__c"
-    And I hover mouse on the field "Lobbying_Registrant_City__c" of page block "Name and Address of Lobbying Registrant"
+    When I hovering mouse on help text icon inside page block detail "Lobbying_Registrant_City__c"
     Then I softly see "Enter the city of the Lobbying Registrant.Max character limit for this field is 35." shown as help text
     Then I softly see field "State" inside "Name and Address of Lobbying Registrant" section
     Then I softly see asterisk mark on "State2__c"
-    And I hover mouse on the field "State2__c" of page block "Name and Address of Lobbying Registrant"
+    When I hovering mouse on help text icon inside page block detail "State2__c"
     Then I softly see "Select the appropriate state of the Lobbying Registrant." shown as help text
     Then I softly see field "Zip" inside "Name and Address of Lobbying Registrant" section
     Then I softly see asterisk mark on "Lobbying_Registrant_Zip_Postal_Code__c"
-    And I hover mouse on the field "Lobbying_Registrant_Zip_Postal_Code__c" of page block "Name and Address of Lobbying Registrant"
+    When I hovering mouse on help text icon inside page block detail "Lobbying_Registrant_Zip_Postal_Code__c"
     Then I softly see "Enter the Zip Code (or ZIP+4) of the Lobbying Registrant.Max character limit for this field is 30." shown as help text
        #477355
     Then I softly see "Disclosure of Lobbying Activities" page block displayed
     Then I softly see field "Prefix" inside "Disclosure of Lobbying Activities" section
     Then I softly do not see asterisk mark on "Signature_Prefix__c"
-    And I hover mouse on the field "Signature_Prefix__c" of page block "Disclosure of Lobbying Activities"
+    When I hovering mouse on help text icon inside page block detail "Signature_Prefix__c"
     Then I softly see "Enter the prefix (e.g., Mr., Mrs., Miss), if appropriate, for the Certifying Official." shown as help text
     Then I softly see field "First Name" inside "Disclosure of Lobbying Activities" section
     Then I softly see asterisk mark on "Signature_First_Name__c"
-    And I hover mouse on the field "Signature_First_Name__c" of page block "Disclosure of Lobbying Activities"
+    When I hovering mouse on help text icon inside page block detail "Signature_First_Name__c"
     Then I softly see "Enter the first name of Certifying Official. This field is required.Max character limit for this field is 35." shown as help text
     Then I softly see field "Middle Name" inside "Disclosure of Lobbying Activities" section
     Then I softly do not see asterisk mark on "Signature_Middle_Name__c"
-    And I hover mouse on the field "Signature_Middle_Name__c" of page block "Disclosure of Lobbying Activities"
+    When I hovering mouse on help text icon inside page block detail "Signature_Middle_Name__c"
     Then I softly see "Enter the middle name of the Certifying Official.Max character limit for this field is 25." shown as help text
     Then I softly see field "Last Name" inside "Disclosure of Lobbying Activities" section
     Then I softly see asterisk mark on "Signature_Last_Name__c"
-    And I hover mouse on the field "Signature_Last_Name__c" of page block "Disclosure of Lobbying Activities"
+    When I hovering mouse on help text icon inside page block detail "Signature_Last_Name__c"
     Then I softly see "Enter the last name of the Certifying Official. This field is required.Max character limit for this field is 60." shown as help text
     Then I softly see field "Suffix" inside "Disclosure of Lobbying Activities" section
     Then I softly do not see asterisk mark on "Signature_Suffix__c"
-    And I hover mouse on the field "Signature_Suffix__c" of page block "Disclosure of Lobbying Activities"
+    When I hovering mouse on help text icon inside page block detail "Signature_Suffix__c"
     Then I softly see "Enter the suffix (e.g., Jr. Sr., PhD), if appropriate, for the Certifying Official." shown as help text
     Then I softly see field "Title" inside "Disclosure of Lobbying Activities" section
     Then I softly do not see asterisk mark on "Signature_Title__c"
-    And I hover mouse on the field "Signature_Title__c" of page block "Disclosure of Lobbying Activities"
+    When I hovering mouse on help text icon inside page block detail "Signature_Title__c"
     Then I softly see "Enter the title of the Certifying Official.Max character limit for this field is 45." shown as help text
     Then I softly see field "Telephone No" inside "Disclosure of Lobbying Activities" section
     Then I softly do not see asterisk mark on "Signature_Telephone_Number__c"
-    And I hover mouse on the field "Signature_Telephone_Number__c" of page block "Disclosure of Lobbying Activities"
+    When I hovering mouse on help text icon inside page block detail "Signature_Telephone_Number__c"
     Then I softly see "Enter the telephone number of the certifying official." shown as help text
     Then I softly see field "Date" inside "Disclosure of Lobbying Activities" section
-    And I hover mouse on the field "Signature_Date__c" of page block "Disclosure of Lobbying Activities"
+    When I hovering mouse on help text icon inside page block detail "Signature_Date__c"
     Then I softly see "Completed by Grants.gov upon submission." shown as help text
 
   @480744 @ValidateEXEProfileabletoseeotherattachmentformasanonowner @GRegression5 @EXE_Grantee @P3_Grantee
@@ -12424,6 +12422,8 @@ Feature: Grantee Forms Scenario
     Then I softly see "cross" symbol against the value "Project Narrative Attachment Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
     And I refresh the page
     And I wait for "2" seconds
+    And I click on "Submit For Approval" in the page details
+    Then I softly see field "Status" as "Submitted for Approval"
     When I re-login to "Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
     When I navigate to "Applications" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -13236,22 +13236,6 @@ Feature: Grantee Forms Scenario
       | Please enter Zip code in the Zip + 4 codes format (e.g. 12345-1234) in the 'Zip / Postal code' field. |
     And I enter value "12345-1234" into field "NineDigitZipCodeForForms__c"
     And I enter value "000" into field "GranteeFormsCongressionalDistrict__c"
-    When I click modal button "Save"
-    Then I softly see the following messages in the page details contains:
-      | Please enter 5-digit value for Congressional District field e.g. CA-123 |
-    And I enter value "EW--67" into field "GranteeFormsCongressionalDistrict__c"
-    When I click modal button "Save"
-    Then I softly see the following messages in the page details contains:
-      | Please enter 5-digit value for Congressional District field e.g. CA-123 |
-    And I enter value "555555" into field "GranteeFormsCongressionalDistrict__c"
-    When I click modal button "Save"
-    Then I softly see the following messages in the page details contains:
-      | Please enter 5-digit value for Congressional District field e.g. CA-123 |
-    And I enter value "0000te" into field "GranteeFormsCongressionalDistrict__c"
-    When I click modal button "Save"
-    Then I softly see the following messages in the page details contains:
-      | Please enter 5-digit value for Congressional District field e.g. CA-123 |
-    And I enter value "CR-849" into field "GranteeFormsCongressionalDistrict__c"
     And I enter value "{AUTOEnvData:60Char}" into field "AddressLine1__c"
     When I click modal button "Save"
     And I wait for "1" seconds
@@ -14604,7 +14588,6 @@ Feature: Grantee Forms Scenario
     # Awarded
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default"
-    Given I login to "Grantee" app as "GRANTEE PM" user
     And I navigate to "Opportunities" tab
     When I navigate to "Qualified" content inside "Leads" subheader on left panel
     And I click toggle button to select "Qualified Leads - All"

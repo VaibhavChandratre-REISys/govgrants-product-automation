@@ -6330,6 +6330,12 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     And I click on hyperlink containing value "{SavedValue:GrantEGMSID}"
     And I wait for "2" seconds
     Then I softly see field "EGMS ID" as "{SavedValue:GrantEGMSID}"
+    And I refresh the page
+    And I navigate to "Overview" sub tab
+    When I enter value "Automation Runtime award" into field "GrantDescription__c"
+    And I click on "Save" in the page details
+    And I refresh the page
+    And I wait for "2" seconds
     And I navigate to "Files" sub tab
     When I enter the following values into flex table with id "---subAwardStandAlone:-:flexGridGrantChecklistsTableId---" by clicking "Add" :
       | Description | Required  | Applies To | Status |
