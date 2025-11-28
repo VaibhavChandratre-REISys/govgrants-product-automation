@@ -5736,3 +5736,82 @@ Feature: Pre-Application scenarios without background
     Then I cannot see top right button "Edit" in page detail
     And I navigate to "Budget" sub tab
     Then I softly do not see "Actions" in flex table header "---applicationIntake:-:focusAreaTableAppId---"
+
+  @526117 @validateSPIuserPreapplicationisacceptedwhichiscreatedfromqualifiedannouncement
+  Scenario: SPI user Preapplication is accepted which is created from qualified announcement
+    Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_NEGOTIATION_YES"
+    When I am on "SUBPORTAL" portal
+    And I login to "Grants Portal" app as "SPI3" user
+    When I navigate to "Opportunities" tab
+    And I navigate to "Not Yet Qualified" content inside "Opportunities" subheader on left panel
+    When I click toggle button to select "Not Yet Qualified Opportunities - All"
+    And I perform quick search for "{SavedValue:Automation Runtime Announcement for Pre-App}" in "---applicationIntake:-:activeOpportunitiesTableId---" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement for Pre-App}" inside table
+    And I save the field containing "Leverage Allowed?" as "Yes"
+    And I save the field containing "Maximum # Applications Allowed" as "1"
+    When I click on "Qualify" in the page details
+    And I click on "Create Pre-Application" in the page details
+    And I wait for "2" seconds
+    When I click modal button "Save and Continue"
+    And I get the "EGMS ID"
+    And I enter "Edition1" values from "PreApplication_Field_Values.xlsx"
+    When I click on "Save" in the page details
+    And I wait for "5" seconds
+    When I navigate to "Budget" sub tab
+    And I save the field labeled "Subaward Floor" as "subawardfloor1"
+    And I save the field labeled "Subaward Ceiling" as "subawardcieling1"
+    #And I save the field labeled "Match Required?" as "matchrequired"
+    When I navigate to "Forms and Files" sub tab
+#    And I upload attachment without random number "Attachment.pdf" of type "Other" from computer
+    And I navigate to "Quickview" sub tab in split screen
+    And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
+    And I switch to tab number "1"
+    And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
+    And I click on "Save" in the page details
+#    And I click on "Back" in the page details
+    And I close the tab
+    When I click on "Submit to Grantor" in the page details
+    And I pause execution for "2" seconds
+    Then I softly see the following messages in the page details contains:
+      | Overview Tab - Associate at least one active key contact with the pre-application.                                                                                  |
+      | Budget Tab - Budgeted Amount must be greater than or equal to the Subaward Floor Amount. Adjust the Budgeted Amount in the Budget period section on the Budget tab. |
+      | Overview Tab - Enter an Acknowledgement before submitting this Pre-Application.                                                                                     |
+      | Budget Tab - Enter budget details for the first budget period before submitting the Pre-Application to the Grantor.                                                 |
+    When I navigate to "Overview" sub tab
+    And I edit the following rows inline in flex table with id "---preApplication:-:preAppContactTableId---" by clicking "Edit" :
+      | Name                       | Is Key Contact |
+      | {SavedValue:SPI3 Username} | Checked        |
+    When I navigate to "Overview" sub tab
+    And I wait for "2" seconds
+    And I click on "Edit" in the page details
+    And I enter value "Checked" into field "Agreement5__c"
+    And I click on "Save" in the page details
+    When I click on "Submit to Grantor" in the page details
+    And I pause execution for "2" seconds
+    Then I softly see the following messages in the page details contains:
+      | Budget Tab - Budgeted Amount must be greater than or equal to the Subaward Floor Amount. Adjust the Budgeted Amount in the Budget period section on the Budget tab. |
+      | Budget Tab - Enter budget details for the first budget period before submitting the Pre-Application to the Grantor.                                                 |
+    When I navigate to "Budget" sub tab
+    Given I expand nested table containing column value "BP01"
+    And I edit the following rows inline in flex table with id "---preApplication:-:budgetCategoryGridTableId---" by clicking "Edit" :
+      | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
+      | Construction  | 5000   | 5000       | 50             | 100            |
+    And I get the "EGMS ID"
+    When I click on "Submit to Grantor" in the page details
+    When I re-login to "Grantor" app as "FO" user on "INTERNAL" portal
+    When I navigate to "Applications" tab
+    And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    When I perform quick search for "Record Id" in "---preApplication:-:pendingTaskTableId---" panel
+    Then I softly see "No Records Found" inside flex table with id "---preApplication:-:pendingTaskTableId---"
+    When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
+    When I navigate to "Applications" tab
+    And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    When I perform quick search for "Record Id" in "---preApplication:-:pendingTaskTableId---" panel
+    And I softly see "No Records Found" inside flex table with id "---preApplication:-:pendingTaskTableId---"
+    When I re-login to "Grantor" app as "dynamicUser" user on "INTERNAL" portal
+    When I navigate to "Applications" tab
+    And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    When I perform quick search for "Record Id" in "---preApplication:-:pendingTaskTableId---" panel
+    And I click on "Start" icon for "Record Id" inside table
+    When I click on "Accept" in the page details
+    Then I softly see field "Status" as "Accepted"

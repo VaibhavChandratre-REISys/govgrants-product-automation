@@ -11057,30 +11057,30 @@ Feature: Grantee Forms Scenario
     Then I softly see "If Reporting Entity in No.4 is Subawardee, Enter Name and Address of Prime" page block displayed
     Then I softly see field "Name" inside "If Reporting Entity in No.4 is Subawardee, Enter Name and Address of Prime" section
     Then I softly see asterisk mark on "Reporting_Entity_Organization_Name__c"
-    When I hovering mouse on help text icon inside page block detail "Reporting_Entity_Organization_Name__c"
+    When I hovering mouse on help text icon inside page block detail "Name"
     Then I softly see "enter the full name of the prime Federal recipient. Max character limit for this field is 60." shown as help text
     Then I softly see field "Street 1" inside "If Reporting Entity in No.4 is Subawardee, Enter Name and Address of Prime" section
-    Then I softly see asterisk mark on "Reporting_Entity_Street_1__c"
+    Then I softly see asterisk mark on "Street 1"
     When I hovering mouse on help text icon inside page block detail "Reporting_Entity_Street_1__c"
     Then I softly see "enter the address of the prime Federal recipient. Max character limit for this field is 55." shown as help text
     Then I softly see field "Street 2" inside "If Reporting Entity in No.4 is Subawardee, Enter Name and Address of Prime" section
     Then I softly do not see asterisk mark on "Reporting_Entity_Street_2__c"
-    When I hovering mouse on help text icon inside page block detail "Reporting_Entity_Street_2__c"
+    When I hovering mouse on help text icon inside page block detail "Street 2"
     Then I softly see "enter the address of the prime Federal recipient. Max character limit for this field is 55." shown as help text
     Then I softly see field "City" inside "If Reporting Entity in No.4 is Subawardee, Enter Name and Address of Prime" section
     Then I softly see asterisk mark on "Reporting_Entity_City__c"
-    When I hovering mouse on help text icon inside page block detail "Reporting_Entity_City__c"
+    When I hovering mouse on help text icon inside page block detail "City"
     Then I softly see "enter the city of the prime Federal recipient.Max character limit for this field is 35." shown as help text
     Then I softly see field "State" inside "If Reporting Entity in No.4 is Subawardee, Enter Name and Address of Prime" section
     Then I softly see asterisk mark on "Reporting_Entity_State__c"
-    When I hovering mouse on help text icon inside page block detail "Reporting_Entity_State__c"
+    When I hovering mouse on help text icon inside page block detail "State"
     Then I softly see "select the appropriate state from this pull down menu." shown as help text
     Then I softly see field "Zip" inside "If Reporting Entity in No.4 is Subawardee, Enter Name and Address of Prime" section
     Then I softly see asterisk mark on "Reporting_Entity_Zip_Postal_Code__c"
-    When I hovering mouse on help text icon inside page block detail "Reporting_Entity_Zip_Postal_Code__c"
+    When I hovering mouse on help text icon inside page block detail "Zip"
     Then I softly see "enter the zip code.Max character limit for this field is 30." shown as help text
     Then I softly see field "Congressional District, if known" inside "If Reporting Entity in No.4 is Subawardee, Enter Name and Address of Prime" section
-    When I hovering mouse on help text icon inside page block detail "Reporting_Entity_Zip_Postal_Code__c"
+    When I hovering mouse on help text icon inside page block detail "Congressional District, if known"
     Then I softly see "enter the Congressional District of the prime Federal recipient, if known. Should be numeric characters.Max character limit for this field is 6." shown as help text
        #477353
     Then I softly see "Name and Address of Lobbying Registrant" page block displayed
@@ -14673,7 +14673,7 @@ Feature: Grantee Forms Scenario
     When I click on "Submit To Grants.Gov" in the page details
     Then I softly see field "Status" as "Submitted to Grantor"
     Then I can see top right button "Record Decision" in page detail
-    Then I can see top right button "Revise Amendment" in page detail
+    Then I can see top right button "Revise" in page detail
     When I click on "Record Decision" in the page details
     When I enter values into fields
       | Value           | Field                |
@@ -14872,7 +14872,7 @@ Feature: Grantee Forms Scenario
     Then I softly see value "Validated" for title "Grants.Gov Status" against the value "{SavedValue:TrackingNumber}" inside table "---grantee_tableId:-:submissionHistoryTableId---"
     Then I softly see value "SUCCESS" for title "Status" against the value "{SavedValue:TrackingNumber}" inside table "---grantee_tableId:-:submissionHistoryTableId---"
 
-  @477358 @ValidatePOProfile,abletovalidateSF-LLLFormonclicksplitviewaction. @GranteeP_Q4
+  @495931 @477358 @ValidatePOProfile,abletovalidateSF-LLLFormonclicksplitviewaction. @GranteeP_Q4
   Scenario: Validate PO Profile, able to validate SF -LLL Form on click split view action.
     Given I delete the grantee record "{grantee_testData:GrantsGovMandatorySFLLL}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0001269344" with properties "default-Grantee PO user"

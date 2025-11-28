@@ -832,7 +832,7 @@ Feature: Validate all scenarios for Pre-Applications Grants Gov
     When I click on "View" icon for "{SavedValue:PreappEGMSID}" inside table
     Then I softly see status in Progress-bar is "Created" and is "dark blue"
     And I click on Menu icon present on top right corner of the page
-    Then I see option "Download As PDF" present in parallel dropdown
+    Then I see option "Download as PDF" present in parallel dropdown
     Then I see option "Take Snapshot" present in parallel dropdown
     Then I softly see "Collapse" button for header
     Then I softly see "Collapse" button for page

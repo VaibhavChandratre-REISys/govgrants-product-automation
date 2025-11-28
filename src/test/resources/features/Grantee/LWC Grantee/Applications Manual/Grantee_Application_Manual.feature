@@ -429,3 +429,22 @@ Feature: Validate all scenarios for Applications Manual
     Then I softly see field "Status" as "Submitted to Grantor"
     When I navigate to "Overview" sub tab
     Then I see field "Submitted to Grantor On" as "{SavedValue:SubmittedtoGrantorOn}"
+
+  @494024 @Validateimpactonalreadycreatedapplicationafterapplicationduedateispassed
+  Scenario Outline: PreApp - Verify with PO Profile ,when preapplication due date is crossed for grants.gov lead then unable to see the create pre application button.
+    When I login to "Grantee" app as "<User>" user
+    When I navigate to "Applications" tab
+    And I navigate to "Applications" content inside "Applications" subheader on left panel
+    When I click toggle button to select "Applications - All"
+    And I perform quick search for "{AUTOEnvData:AutomationPermanentApplicationExpired}" in "---grantee_tableId:-:ApplicationTableId---" panel
+    When I click on "View" icon for "{AUTOEnvData:AutomationPermanentApplicationExpired}" inside table
+    And I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "appEGMSID"
+    Then I softly see field "Status" as "Created"
+    And I click on "Submit For Approval" in the page details
+    Then I softly see the following messages in the page details contains:
+      | This application cannot be submitted. The application due date has passed. |
+
+    Examples:
+      | User       |
+      | GRANTEE PM |

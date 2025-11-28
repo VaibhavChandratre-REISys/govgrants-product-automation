@@ -6345,23 +6345,33 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     And I click on "View" icon for "Created" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
     And I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---subAwardStandAlone:-:subawardFederalProgramTableId---"
-    When I perform quick search for "Automation Permanent NGO Program" in "---subAwardStandAlone:-:subawardFederalProgramTableId---" panel
-    When I click "Associate" after selection of "Automation Permanent NGO Program" in the table "---subAwardStandAlone:-:subawardFederalProgramTableId---"
+    When I perform quick search for "Automation Permanent NGO Program" in "---subAwardStandAlone:-:federalListTableId---" panel
+    When I click "Associate" after selection of "Automation Permanent NGO Program" in the table "---subAwardStandAlone:-:federalListTableId---"
     And I click modal button "Close"
+    And I wait for "2" seconds
     Then I see value "Automation Permanent NGO Program" for title "Program Title" inside table "---subAwardStandAlone:-:subawardFederalProgramTableId---"
-    Then I see value "Automation SPI3" for title "Name" inside table "---subAwardStandAlone:-:associateContactTableId---"
-    And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:associateContactTableId---" by clicking "Edit" :
+    Then I see value "Automation SPI3" for title "Name" inside table "---subAwardStandAlone:-:associatedContactsTableId---"
+    And I wait for "3" seconds
+    And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:associatedContactsTableId---" by clicking "Edit" :
       | Name                       | Project Role             | Is Key Personnel |
       | {SavedValue:SPI3 Username} | Project Director/Manager | Checked          |
+    And I wait for "3" seconds
     And I navigate to "Budget" sub tab
-    And I click on top right button "Associate" in flex table with id "---subAwardStandAlone:-:SubAwardFocusAreaTableId---"
-    When I click "Associate" after selection of "Automation Permanent Focus Area2" by showing entries "All" in flex table with id "---subAwardStandAlone:-:SubAwardFocusAreaTableId---"
-    Then I see value "Automation Permanent Focus Area2" for title "Title" inside table "---subAwardStandAlone:-:SubAwardFocusAreaTableId---"
+    And I click on top right button "Associate" in flex table with id "---subAwardStandAlone:-:focusAreaTableId---"
+    And I perform quick search for "Automation Permanent Focus Area2" in "---subAwardStandAlone:-:AssociateFocusArea---" panel
+    When I click "Associate" after selection of "Automation Permanent Focus Area2" in the table "---subAwardStandAlone:-:AssociateFocusArea---"
+    And I click modal button "Close"
+    And I wait for "3" seconds
+    Then I see value "Automation Permanent Focus Area2" for title "Title" inside table "---subAwardStandAlone:-:focusAreaTableId---"
     When I click on top right button "Associate" in flex table with id "---subAwardStandAlone:-:fundingAccountsTableId---"
+    When I perform quick search for "Automation Permanent Funding Account" in "---subAwardStandAlone:-:awardFundingAccountsTableId---" panel
+    And I wait for "3" seconds
+    And I save the field containing "EGMS ID" as "FundingAccountID"
     When I click "Associate" after selection of "Automation Permanent Funding Account" in the table "---subAwardStandAlone:-:awardFundingAccountsTableId---"
-    When I close "Associate Funding Accounts" modal by clicking the top right x button
+    And I click modal button "Close"
     And I refresh the page
-    Then I see value "Automation Permanent Funding Account" for title "Funding Account" inside table "---subAwardStandAlone:-:awardFundingAccountsTableId---"
+    And I navigate to "Budget" sub tab
+    Then I see value "{SavedValue:FundingAccountID}" for title "Funding Account" inside table "---subAwardStandAlone:-:fundingAccountsTableId---"
     And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:focusAreaTableId---" by clicking "Edit" :
       | Title                           | Start Date | End Date |
       | Automation Permanent Focus Area | 0          | 3650     |
@@ -6406,7 +6416,6 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardStandAlone:-:progressReportScheduleTableId---" without waiting for record
     When I enter "ProgressReportQuartelyReporting" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
-    And I click on "View" icon for "Progress Report" inside flex table with id "---subAwardStandAlone:-:progressReportScheduleTableId---" without waiting for record
     And I save the field labeled "Reporting Period Start Date" as "ReportingPeriodStartDate"
     When I close "Progress Report Schedule" modal by clicking the top right x button
     And I refresh the page
