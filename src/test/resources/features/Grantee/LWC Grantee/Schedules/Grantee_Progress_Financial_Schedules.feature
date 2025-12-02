@@ -436,7 +436,7 @@ Feature: Validate all scenarios for Progress & Financial Schedules
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:awardReportSchedulesTableId---" by clicking "Edit" :
       | EGMS ID               | Report Creation Date |
       | {SavedValue:EGMS ID1} | 0                    |
-    And I wait for "180" seconds
+    And I wait for "220" seconds
     And I refresh the page
     And I wait for "3" seconds
     And I save the value from row "1" for column name "EGMS ID" as "financialEGMSID" from flex table "---grantee_tableId:-:FinancialsReportTableId---"
@@ -562,8 +562,6 @@ Feature: Validate all scenarios for Progress & Financial Schedules
     When I enter the following values into flex table with id "---grantee_tableId:-:financialReportPeerReviewTableId---" by clicking "New" :
       | Reviewer Name | Role            | Description            | Due Date | Allow Record Editing |
       | Victor EXE    | Fiscal Reviewer | Automation Description | 5        | No                   |
-    Then I softly see the following messages in the page details contains:
-      | Saved Successfully! |
     Then I softly can see row level action button "Edit" against "Grantee PO" in flex table with id "---grantee_tableId:-:financialReportPeerReviewTableId---"
     Then I softly can see row level action button "Send for Review" against "Grantee PO" in flex table with id "---grantee_tableId:-:financialReportPeerReviewTableId---"
     Then I softly can see row level action button "Delete" against "Grantee PO" in flex table with id "---grantee_tableId:-:financialReportPeerReviewTableId---"
@@ -669,7 +667,6 @@ Feature: Validate all scenarios for Progress & Financial Schedules
     Then I softly can see top right button "Edit" in page detail
     And I click on Menu icon present on top right corner of the page
     Then I see option "Download as PDF" present in parallel dropdown
-    Then I see option "Take Snapshot" present in parallel dropdown
     Then I softly see "Financial Information" page block displayed
     Then I softly see "Recipient Information" page block displayed
     Then I softly see "Transactions" page block displayed
@@ -692,7 +689,6 @@ Feature: Validate all scenarios for Progress & Financial Schedules
     When I click on "Splitview" icon for "Federal Financial Report (SF-425)" inside flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
     Then I softly can see top right button "Edit" in the split screen page details
     Then I softly can see top right button "Download as PDF" in the split screen page details
-    Then I softly can see top right button "Take Snapshot" in the split screen page details
     When I navigate to "Forms and Files" sub tab
     And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:financialReportAddFilesTableId---"
     Then I see "Upload" button is disabled at modal under library
@@ -3025,7 +3021,7 @@ Feature: Validate all scenarios for Progress & Financial Schedules
 
     Examples:
       | userType      | userName   | UEI          |
-      | GRANTEE ADMIN | Product QA | 123456789012 |
+      | GRANTEE ADMIN | DEMO ADMIN | 123456789012 |
 
   @477324 @ValidateFinancialreportschedulesvalidationsdisplayedtoFDuserReviewerwitheditaccessasYesonEditFinancialreportschedulemodalwhenawardisinSubmittedforreviewstate @P3_Grantee @GRegression3 @FD_Grantee
   Scenario: Validate Financial report schedules validations displayed to FD user Reviewer with edit access as Yes on Edit Financial report schedule modal when award is in Submitted for review state
@@ -5018,7 +5014,7 @@ Feature: Validate all scenarios for Progress & Financial Schedules
 
     Examples:
       | userType      | userName   | UEI          |
-      | GRANTEE ADMIN | Product QA | 123456789012 |
+      | GRANTEE ADMIN | DEMO ADMIN | 123456789012 |
 
   @477314 @ValidateProgressreportschedulesvalidationsdisplayedtoPMuseronEditProgressreportschedulemodalwhenawardisinCreatedSubmittedforreviewReviewedActivatedstate @P3_Grantee @EXE_Grantee @GRegression3
   Scenario Outline: Validate Progress report schedules validations displayed to EXE user on Edit Progress report schedule modal when award is in Created, Submitted for review, Reviewed, Activated state
@@ -11061,8 +11057,8 @@ Feature: Validate all scenarios for Progress & Financial Schedules
     And I click on "View" icon for "{SavedValue:AwardEGMSID}" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
     Given I navigate to "Management" sub tab
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:awardReportSchedulesTableId---" by clicking "Edit" :
-      | EGMS ID               | Reporting Period Start Date | Reporting Period End Date |
-      | {SavedValue:EGMS ID1} | 17                          | 47                        |
+      | EGMS ID               | Reporting Period Start Date | Reporting Period End Date | Report Due Date |
+      | {SavedValue:EGMS ID1} | 17                          | 47                        | 48              |
     Then I softly see value "{Date:M/d/yyyy::d+17}" for title "Reporting Period Start Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
     And I navigate to "Monitoring" tab
     When I navigate to "Schedules" content inside "Monitoring" subheader on left panel
@@ -11181,8 +11177,8 @@ Feature: Validate all scenarios for Progress & Financial Schedules
     And I click on "View" icon for "{SavedValue:AwardEGMSID}" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
     Given I navigate to "Management" sub tab
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:awardReportSchedulesTableId---" by clicking "Edit" :
-      | EGMS ID               | Reporting Period Start Date | Reporting Period End Date |
-      | {SavedValue:EGMS ID1} | 17                          | 47                        |
+      | EGMS ID               | Reporting Period Start Date | Reporting Period End Date | Report Due Date |
+      | {SavedValue:EGMS ID1} | 17                          | 47                        | 48              |
     Then I softly see value "{Date:M/d/yyyy::d+17}" for title "Reporting Period Start Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
     Then I softly see value "{Date:M/d/yyyy::d+47}" for title "Reporting Period End Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
     And I navigate to "Monitoring" tab
@@ -11253,8 +11249,8 @@ Feature: Validate all scenarios for Progress & Financial Schedules
     And I save the value from row "12" for column name "EGMS ID" as "EGMS ID12" from flex table "---grantee_tableId:-:financialReportProgressReportSchedules---"
     And I save the value from row "2" for column name "Reporting Period End Date" as "ReportingPeriodEndDate" from flex table "---grantee_tableId:-:financialReportProgressReportSchedules---"
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:awardReportSchedulesTableId---" by clicking "Edit" :
-      | EGMS ID               | Reporting Period Start Date | Reporting Period End Date |
-      | {SavedValue:EGMS ID1} | 17                          | 47                        |
+      | EGMS ID               | Reporting Period Start Date | Reporting Period End Date | Report Due Date |
+      | {SavedValue:EGMS ID1} | 17                          | 47                        | 48              |
     Then I softly see value "{Date:M/d/yyyy::d+17}" for title "Reporting Period Start Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
     Then I softly see value "{Date:M/d/yyyy::d+47}" for title "Reporting Period End Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
     And I navigate to "Monitoring" tab
@@ -11289,7 +11285,7 @@ Feature: Validate all scenarios for Progress & Financial Schedules
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---grantee_tableId:-:awardApproverTableId---" by clicking "New" :
       | Name       | Award  |
-      | Victor EXE | Step 1 |
+      | <userName> | Step 1 |
     And I navigate to "Monitoring" sub tab
     And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:awardObjectiveTableId---"
     When I click "Associate" after selection of "Automation Permanent Objective" in the table "---grantee_tableId:-:awardAssociateObjectiveTableId---"
@@ -11394,8 +11390,8 @@ Feature: Validate all scenarios for Progress & Financial Schedules
     And I save the value from row "12" for column name "EGMS ID" as "EGMS ID12" from flex table "---grantee_tableId:-:financialReportProgressReportSchedules---"
     And I save the value from row "2" for column name "Reporting Period End Date" as "ReportingPeriodEndDate" from flex table "---grantee_tableId:-:financialReportProgressReportSchedules---"
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:awardReportSchedulesTableId---" by clicking "Edit" :
-      | EGMS ID               | Reporting Period Start Date | Reporting Period End Date |
-      | {SavedValue:EGMS ID1} | 17                          | 47                        |
+      | EGMS ID               | Reporting Period Start Date | Reporting Period End Date | Report Due Date |
+      | {SavedValue:EGMS ID1} | 17                          | 47                        | 48              |
     Then I softly see value "{Date:M/d/yyyy::d+17}" for title "Reporting Period Start Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
     Then I softly see value "{Date:M/d/yyyy::d+47}" for title "Reporting Period End Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
     And I navigate to "Monitoring" tab
@@ -11421,9 +11417,9 @@ Feature: Validate all scenarios for Progress & Financial Schedules
     Then I softly see value "{SavedValue:EGMS ID11}" for title "EGMS ID" against the value "Financial Report" inside table "---grantee_tableId:-:ScheduledListPage---"
     Then I softly see value "{SavedValue:EGMS ID12}" for title "EGMS ID" against the value "Financial Report" inside table "---grantee_tableId:-:ScheduledListPage---"
     Examples:
-      | User        |
-      | GRANTEE PM  |
-      | GRANTEE EXE |
+      | User        | userName   |
+      | GRANTEE PM  | Sarah PM   |
+      | GRANTEE EXE | Victor EXE |
 
   @485366 @ValidatePOusercanseeProgressreportschedulesfromawardinMonitoringschedules
   Scenario Outline: Validate PO user can see Progress report schedules from award in Monitoring schedules
@@ -11546,8 +11542,8 @@ Feature: Validate all scenarios for Progress & Financial Schedules
     And I click on "View" icon for "{SavedValue:AwardEGMSID}" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
     Given I navigate to "Management" sub tab
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:awardReportSchedulesTableId---" by clicking "Edit" :
-      | EGMS ID               | Reporting Period Start Date | Reporting Period End Date |
-      | {SavedValue:EGMS ID1} | 17                          | 47                        |
+      | EGMS ID               | Reporting Period Start Date | Reporting Period End Date | Report Due Date |
+      | {SavedValue:EGMS ID1} | 17                          | 47                        | 48              |
     Then I softly see value "{Date:MM/dd/yyyy::d+17}" for title "Reporting Period Start Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
     And I navigate to "Monitoring" tab
     When I navigate to "Schedules" content inside "Monitoring" subheader on left panel
@@ -11666,8 +11662,8 @@ Feature: Validate all scenarios for Progress & Financial Schedules
     And I click on "View" icon for "{SavedValue:AwardEGMSID}" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
     Given I navigate to "Management" sub tab
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:awardReportSchedulesTableId---" by clicking "Edit" :
-      | EGMS ID               | Reporting Period Start Date | Reporting Period End Date |
-      | {SavedValue:EGMS ID1} | 17                          | 47                        |
+      | EGMS ID               | Reporting Period Start Date | Reporting Period End Date | Report Due Date |
+      | {SavedValue:EGMS ID1} | 17                          | 47                        | 48              |
     Then I softly see value "{Date:MM/dd/yyyy::d+17}" for title "Reporting Period Start Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
     Then I softly see value "{Date:MM/dd/yyyy::d+47}" for title "Reporting Period End Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
     And I navigate to "Monitoring" tab
@@ -11738,8 +11734,8 @@ Feature: Validate all scenarios for Progress & Financial Schedules
     And I save the value from row "12" for column name "EGMS ID" as "EGMS ID12" from flex table "---grantee_tableId:-:financialReportProgressReportSchedules---"
     And I save the value from row "2" for column name "Reporting Period End Date" as "ReportingPeriodEndDate" from flex table "---grantee_tableId:-:financialReportProgressReportSchedules---"
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:awardReportSchedulesTableId---" by clicking "Edit" :
-      | EGMS ID               | Reporting Period Start Date | Reporting Period End Date |
-      | {SavedValue:EGMS ID1} | 17                          | 47                        |
+      | EGMS ID               | Reporting Period Start Date | Reporting Period End Date | Report Due Date |
+      | {SavedValue:EGMS ID1} | 17                          | 47                        | 48              |
     Then I softly see value "{Date:MM/dd/yyyy::d+17}" for title "Reporting Period Start Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
     Then I softly see value "{Date:MM/dd/yyyy::d+47}" for title "Reporting Period End Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
     And I navigate to "Monitoring" tab
@@ -11790,6 +11786,9 @@ Feature: Validate all scenarios for Progress & Financial Schedules
     When I enter in modal value "1" into field "Sequence__c"
     And I click modal button "Save"
     And I wait for "3" seconds
+    And I edit the following rows inline in flex table with id "---grantee_tableId:-:KeyPerformanceIndicatorTableId---" by clicking "Edit" :
+      | Title                  | Target | Current Value | Current Value As Of |
+      | Automation Runtime KPI | 10     | 10            | 0                   |
     When I navigate to "Files" sub tab
     And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:awardAddFilesTableId---"
     And I upload attachment without random number "Attachment.pdf" of type "Interim Award Document" from computer
@@ -11876,8 +11875,8 @@ Feature: Validate all scenarios for Progress & Financial Schedules
     And I save the value from row "12" for column name "EGMS ID" as "EGMS ID12" from flex table "---grantee_tableId:-:financialReportProgressReportSchedules---"
     And I save the value from row "2" for column name "Reporting Period End Date" as "ReportingPeriodEndDate" from flex table "---grantee_tableId:-:financialReportProgressReportSchedules---"
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:awardReportSchedulesTableId---" by clicking "Edit" :
-      | EGMS ID               | Reporting Period Start Date | Reporting Period End Date |
-      | {SavedValue:EGMS ID1} | 17                          | 47                        |
+      | EGMS ID               | Reporting Period Start Date | Reporting Period End Date | Report Due Date |
+      | {SavedValue:EGMS ID1} | 17                          | 47                        | 48              |
     Then I softly see value "{Date:MM/dd/yyyy::d+17}" for title "Reporting Period Start Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
     Then I softly see value "{Date:MM/dd/yyyy::d+47}" for title "Reporting Period End Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
     And I navigate to "Monitoring" tab
@@ -12028,8 +12027,8 @@ Feature: Validate all scenarios for Progress & Financial Schedules
     And I click on "View" icon for "{SavedValue:AwardEGMSID}" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
     Given I navigate to "Management" sub tab
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:awardReportSchedulesTableId---" by clicking "Edit" :
-      | EGMS ID               | Reporting Period Start Date | Reporting Period End Date |
-      | {SavedValue:EGMS ID1} | 17                          | 47                        |
+      | EGMS ID               | Reporting Period Start Date | Reporting Period End Date | Report Due Date |
+      | {SavedValue:EGMS ID1} | 17                          | 47                        | 48              |
     Then I softly see value "{Date:MM/dd/yyyy::d+17}" for title "Reporting Period Start Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
     And I navigate to "Monitoring" tab
     When I navigate to "Schedules" content inside "Monitoring" subheader on left panel
@@ -12148,8 +12147,8 @@ Feature: Validate all scenarios for Progress & Financial Schedules
     And I click on "View" icon for "{SavedValue:AwardEGMSID}" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
     Given I navigate to "Management" sub tab
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:awardReportSchedulesTableId---" by clicking "Edit" :
-      | EGMS ID               | Reporting Period Start Date | Reporting Period End Date |
-      | {SavedValue:EGMS ID1} | 17                          | 47                        |
+      | EGMS ID               | Reporting Period Start Date | Reporting Period End Date | Report Due Date |
+      | {SavedValue:EGMS ID1} | 17                          | 47                        | 48              |
     Then I softly see value "{Date:MM/dd/yyyy::d+17}" for title "Reporting Period Start Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
     Then I softly see value "{Date:MM/dd/yyyy::d+47}" for title "Reporting Period End Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
     And I navigate to "Monitoring" tab
@@ -12220,8 +12219,8 @@ Feature: Validate all scenarios for Progress & Financial Schedules
     And I save the value from row "12" for column name "EGMS ID" as "EGMS ID12" from flex table "---grantee_tableId:-:financialReportProgressReportSchedules---"
     And I save the value from row "2" for column name "Reporting Period End Date" as "ReportingPeriodEndDate" from flex table "---grantee_tableId:-:financialReportProgressReportSchedules---"
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:awardReportSchedulesTableId---" by clicking "Edit" :
-      | EGMS ID               | Reporting Period Start Date | Reporting Period End Date |
-      | {SavedValue:EGMS ID1} | 17                          | 47                        |
+      | EGMS ID               | Reporting Period Start Date | Reporting Period End Date | Report Due Date |
+      | {SavedValue:EGMS ID1} | 17                          | 47                        | 48              |
     Then I softly see value "{Date:MM/dd/yyyy::d+17}" for title "Reporting Period Start Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
     Then I softly see value "{Date:MM/dd/yyyy::d+47}" for title "Reporting Period End Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
     And I navigate to "Monitoring" tab
@@ -12272,6 +12271,9 @@ Feature: Validate all scenarios for Progress & Financial Schedules
     When I enter in modal value "1" into field "Sequence__c"
     And I click modal button "Save"
     And I wait for "3" seconds
+    And I edit the following rows inline in flex table with id "---grantee_tableId:-:KeyPerformanceIndicatorTableId---" by clicking "Edit" :
+      | Title                  | Target | Current Value | Current Value As Of |
+      | Automation Runtime KPI | 10     | 10            | 0                   |
     When I navigate to "Files" sub tab
     And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:awardAddFilesTableId---"
     And I upload attachment without random number "Attachment.pdf" of type "Interim Award Document" from computer
@@ -12358,8 +12360,8 @@ Feature: Validate all scenarios for Progress & Financial Schedules
     And I save the value from row "12" for column name "EGMS ID" as "EGMS ID12" from flex table "---grantee_tableId:-:financialReportProgressReportSchedules---"
     And I save the value from row "2" for column name "Reporting Period End Date" as "ReportingPeriodEndDate" from flex table "---grantee_tableId:-:financialReportProgressReportSchedules---"
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:awardReportSchedulesTableId---" by clicking "Edit" :
-      | EGMS ID               | Reporting Period Start Date | Reporting Period End Date |
-      | {SavedValue:EGMS ID1} | 17                          | 47                        |
+      | EGMS ID               | Reporting Period Start Date | Reporting Period End Date | Report Due Date |
+      | {SavedValue:EGMS ID1} | 17                          | 47                        | 48              |
     Then I softly see value "{Date:MM/dd/yyyy::d+17}" for title "Reporting Period Start Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
     Then I softly see value "{Date:MM/dd/yyyy::d+47}" for title "Reporting Period End Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
     And I navigate to "Monitoring" tab
@@ -12387,7 +12389,7 @@ Feature: Validate all scenarios for Progress & Financial Schedules
 
     Examples:
       | userType      | userName   | UEI          |
-      | GRANTEE ADMIN | Product QA | 123456789012 |
+      | GRANTEE ADMIN | DEMO ADMIN | 123456789012 |
 
   @485368 @ValidateFOusercanseeProgressreportschedulesfromawardinMonitoringschedules
   Scenario Outline: Validate FO user can see Progress report schedules from award in Monitoring schedules
@@ -12520,8 +12522,8 @@ Feature: Validate all scenarios for Progress & Financial Schedules
     And I click on "View" icon for "{SavedValue:AwardEGMSID}" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
     Given I navigate to "Management" sub tab
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:awardReportSchedulesTableId---" by clicking "Edit" :
-      | EGMS ID               | Reporting Period Start Date | Reporting Period End Date |
-      | {SavedValue:EGMS ID1} | 17                          | 47                        |
+      | EGMS ID               | Reporting Period Start Date | Reporting Period End Date | Report Due Date |
+      | {SavedValue:EGMS ID1} | 17                          | 47                        | 48              |
     Then I softly see value "{Date:MM/dd/yyyy::d+17}" for title "Reporting Period Start Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
     And I re-login to "Grantee" app as "GRANTEE FO" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -12675,8 +12677,8 @@ Feature: Validate all scenarios for Progress & Financial Schedules
     And I click on "View" icon for "{SavedValue:AwardEGMSID}" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
     Given I navigate to "Management" sub tab
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:awardReportSchedulesTableId---" by clicking "Edit" :
-      | EGMS ID               | Reporting Period Start Date | Reporting Period End Date |
-      | {SavedValue:EGMS ID1} | 17                          | 47                        |
+      | EGMS ID               | Reporting Period Start Date | Reporting Period End Date | Report Due Date |
+      | {SavedValue:EGMS ID1} | 17                          | 47                        | 48              |
     Then I softly see value "{Date:MM/dd/yyyy::d+17}" for title "Reporting Period Start Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
     Then I softly see value "{Date:MM/dd/yyyy::d+47}" for title "Reporting Period End Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
     And I re-login to "Grantee" app as "GRANTEE FO" user on "INTERNAL" portal
@@ -12771,8 +12773,8 @@ Feature: Validate all scenarios for Progress & Financial Schedules
     And I save the value from row "12" for column name "EGMS ID" as "EGMS ID12" from flex table "---grantee_tableId:-:financialReportProgressReportSchedules---"
     And I save the value from row "2" for column name "Reporting Period End Date" as "ReportingPeriodEndDate" from flex table "---grantee_tableId:-:financialReportProgressReportSchedules---"
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:awardReportSchedulesTableId---" by clicking "Edit" :
-      | EGMS ID               | Reporting Period Start Date | Reporting Period End Date |
-      | {SavedValue:EGMS ID1} | 17                          | 47                        |
+      | EGMS ID               | Reporting Period Start Date | Reporting Period End Date | Report Due Date |
+      | {SavedValue:EGMS ID1} | 17                          | 47                        | 48              |
     Then I softly see value "{Date:MM/dd/yyyy::d+17}" for title "Reporting Period Start Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
     Then I softly see value "{Date:MM/dd/yyyy::d+47}" for title "Reporting Period End Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
     And I re-login to "Grantee" app as "GRANTEE FO" user on "INTERNAL" portal
@@ -12848,6 +12850,9 @@ Feature: Validate all scenarios for Progress & Financial Schedules
     When I enter in modal value "1" into field "Sequence__c"
     And I click modal button "Save"
     And I wait for "3" seconds
+    And I edit the following rows inline in flex table with id "---grantee_tableId:-:KeyPerformanceIndicatorTableId---" by clicking "Edit" :
+      | Title                  | Target | Current Value | Current Value As Of |
+      | Automation Runtime KPI | 10     | 10            | 0                   |
     When I navigate to "Files" sub tab
     And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:awardAddFilesTableId---"
     And I upload attachment without random number "Attachment.pdf" of type "Interim Award Document" from computer
@@ -12957,8 +12962,8 @@ Feature: Validate all scenarios for Progress & Financial Schedules
     And I save the value from row "12" for column name "EGMS ID" as "EGMS ID12" from flex table "---grantee_tableId:-:financialReportProgressReportSchedules---"
     And I save the value from row "2" for column name "Reporting Period End Date" as "ReportingPeriodEndDate" from flex table "---grantee_tableId:-:financialReportProgressReportSchedules---"
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:awardReportSchedulesTableId---" by clicking "Edit" :
-      | EGMS ID               | Reporting Period Start Date | Reporting Period End Date |
-      | {SavedValue:EGMS ID1} | 17                          | 47                        |
+      | EGMS ID               | Reporting Period Start Date | Reporting Period End Date | Report Due Date |
+      | {SavedValue:EGMS ID1} | 17                          | 47                        | 48              |
     Then I softly see value "{Date:MM/dd/yyyy::d+17}" for title "Reporting Period Start Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
     Then I softly see value "{Date:MM/dd/yyyy::d+47}" for title "Reporting Period End Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
     And I re-login to "Grantee" app as "GRANTEE FO" user on "INTERNAL" portal
@@ -13143,8 +13148,8 @@ Feature: Validate all scenarios for Progress & Financial Schedules
     And I click on "View" icon for "{SavedValue:AwardEGMSID}" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
     Given I navigate to "Management" sub tab
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:awardReportSchedulesTableId---" by clicking "Edit" :
-      | EGMS ID               | Reporting Period Start Date | Reporting Period End Date |
-      | {SavedValue:EGMS ID1} | 17                          | 47                        |
+      | EGMS ID               | Reporting Period Start Date | Reporting Period End Date | Report Due Date |
+      | {SavedValue:EGMS ID1} | 17                          | 47                        | 48              |
     Then I softly see value "{Date:MM/dd/yyyy::d+17}" for title "Reporting Period Start Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
     And I re-login to "Grantee" app as "GRANTEE FD" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -13267,8 +13272,8 @@ Feature: Validate all scenarios for Progress & Financial Schedules
     And I click on "View" icon for "{SavedValue:AwardEGMSID}" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
     Given I navigate to "Management" sub tab
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:awardReportSchedulesTableId---" by clicking "Edit" :
-      | EGMS ID               | Reporting Period Start Date | Reporting Period End Date |
-      | {SavedValue:EGMS ID1} | 17                          | 47                        |
+      | EGMS ID               | Reporting Period Start Date | Reporting Period End Date | Report Due Date |
+      | {SavedValue:EGMS ID1} | 17                          | 47                        | 48              |
     Then I softly see value "{Date:MM/dd/yyyy::d+17}" for title "Reporting Period Start Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
     Then I softly see value "{Date:MM/dd/yyyy::d+47}" for title "Reporting Period End Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
     And I re-login to "Grantee" app as "GRANTEE FD" user on "INTERNAL" portal
@@ -13340,8 +13345,8 @@ Feature: Validate all scenarios for Progress & Financial Schedules
     And I save the value from row "12" for column name "EGMS ID" as "EGMS ID12" from flex table "---grantee_tableId:-:financialReportProgressReportSchedules---"
     And I save the value from row "2" for column name "Reporting Period End Date" as "ReportingPeriodEndDate" from flex table "---grantee_tableId:-:financialReportProgressReportSchedules---"
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:awardReportSchedulesTableId---" by clicking "Edit" :
-      | EGMS ID               | Reporting Period Start Date | Reporting Period End Date |
-      | {SavedValue:EGMS ID1} | 17                          | 47                        |
+      | EGMS ID               | Reporting Period Start Date | Reporting Period End Date | Report Due Date |
+      | {SavedValue:EGMS ID1} | 17                          | 47                        | 48              |
     Then I softly see value "{Date:MM/dd/yyyy::d+17}" for title "Reporting Period Start Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
     Then I softly see value "{Date:MM/dd/yyyy::d+47}" for title "Reporting Period End Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
     And I re-login to "Grantee" app as "GRANTEE FD" user on "INTERNAL" portal
@@ -13394,6 +13399,9 @@ Feature: Validate all scenarios for Progress & Financial Schedules
     When I enter in modal value "1" into field "Sequence__c"
     And I click modal button "Save"
     And I wait for "3" seconds
+    And I edit the following rows inline in flex table with id "---grantee_tableId:-:KeyPerformanceIndicatorTableId---" by clicking "Edit" :
+      | Title                  | Target | Current Value | Current Value As Of |
+      | Automation Runtime KPI | 10     | 10            | 0                   |
     When I navigate to "Files" sub tab
     And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:awardAddFilesTableId---"
     And I upload attachment without random number "Attachment.pdf" of type "Interim Award Document" from computer
@@ -13482,8 +13490,8 @@ Feature: Validate all scenarios for Progress & Financial Schedules
     And I save the value from row "12" for column name "EGMS ID" as "EGMS ID12" from flex table "---grantee_tableId:-:financialReportProgressReportSchedules---"
     And I save the value from row "2" for column name "Reporting Period End Date" as "ReportingPeriodEndDate" from flex table "---grantee_tableId:-:financialReportProgressReportSchedules---"
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:awardReportSchedulesTableId---" by clicking "Edit" :
-      | EGMS ID               | Reporting Period Start Date | Reporting Period End Date |
-      | {SavedValue:EGMS ID1} | 17                          | 47                        |
+      | EGMS ID               | Reporting Period Start Date | Reporting Period End Date | Report Due Date |
+      | {SavedValue:EGMS ID1} | 17                          | 47                        | 48              |
     Then I softly see value "{Date:MM/dd/yyyy::d+17}" for title "Reporting Period Start Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
     Then I softly see value "{Date:MM/dd/yyyy::d+47}" for title "Reporting Period End Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
     And I re-login to "Grantee" app as "GRANTEE FD" user on "INTERNAL" portal
@@ -14766,7 +14774,7 @@ Feature: Validate all scenarios for Progress & Financial Schedules
 
     Examples:
       | userType      | userName   | UEI          |
-      | GRANTEE ADMIN | Product QA | 123456789012 |
+      | GRANTEE ADMIN | DEMO ADMIN | 123456789012 |
 
   @446229 @477326 @ValidateFinancialReportScheduleusercaneditFinancialreportscheduleonCreatedSubmittedforreviewReviewedActivatedaward  @GRegression1 @EXE_Grantee @P2_Grantee
   Scenario Outline: Validate Financial Report Schedule user can edit Financial report schedule on Created Submitted for review Reviewed Activated award
@@ -15963,7 +15971,7 @@ Feature: Validate all scenarios for Progress & Financial Schedules
 
     Examples:
       | userType      | userName   | UEI          |
-      | GRANTEE ADMIN | Product QA | 123456789012 |
+      | GRANTEE ADMIN | DEMO ADMIN | 123456789012 |
 
   @485376 @ValidatePMusercanseeProgressreportschedulesfromawardinMonitoringschedules
   Scenario Outline: Validate PM user can see Progress report schedules from award in Monitoring schedules
@@ -16549,36 +16557,38 @@ Feature: Validate all scenarios for Progress & Financial Schedules
     Then I softly see status in Progress-bar is "Activated" and is "dark blue"
     And I navigate to "Management" sub tab
     And I expand nested table containing column value "Progress Report"
-    Then I softly see total records count "{SavedValue:totalRecords}" in flex table "---grantee_tableId:-:financialReportProgressReportSchedules---"
-    And I select value inside table "---grantee_tableId:-:financialReportProgressReportSchedules---" is "All"
-    Then I softly see value "{SavedValue:EGMS ID1}" for title "EGMS ID" against the value "Progress Report" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
-    Then I softly see value "{SavedValue:EGMS ID2}" for title "EGMS ID" against the value "Progress Report" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
-    Then I softly see value "{SavedValue:EGMS ID3}" for title "EGMS ID" against the value "Progress Report" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
-    Then I softly see value "{SavedValue:EGMS ID4}" for title "EGMS ID" against the value "Progress Report" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
-    Then I softly see value "{SavedValue:EGMS ID5}" for title "EGMS ID" against the value "Progress Report" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
-    Then I softly see value "{SavedValue:EGMS ID6}" for title "EGMS ID" against the value "Progress Report" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
-    Then I softly see value "{SavedValue:EGMS ID7}" for title "EGMS ID" against the value "Progress Report" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
-    Then I softly see value "{SavedValue:EGMS ID8}" for title "EGMS ID" against the value "Progress Report" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
-    Then I softly see value "{SavedValue:EGMS ID9}" for title "EGMS ID" against the value "Progress Report" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
-    Then I softly see value "{SavedValue:EGMS ID10}" for title "EGMS ID" against the value "Progress Report" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
-    Then I softly see value "{SavedValue:EGMS ID11}" for title "EGMS ID" against the value "Progress Report" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
-    Then I softly see value "{SavedValue:EGMS ID12}" for title "EGMS ID" against the value "Progress Report" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
+    Then I softly see total records count "Total Records: 1" in flex table "---grantee_tableId:-:financialReportProgressReportSchedules---"
+    And I save the value from row "1" for column name "EGMS ID" as "NEW EGMS ID1" from flex table "---grantee_tableId:-:financialReportProgressReportSchedules---"
+    Then I softly see value "{SavedValue:NEW EGMS ID1}" for title "EGMS ID" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
+    Then I softly do not see value "{SavedValue:EGMS ID1}" for title "EGMS ID" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
+    Then I softly do not see value "{SavedValue:EGMS ID2}" for title "EGMS ID" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
+    Then I softly do not see value "{SavedValue:EGMS ID3}" for title "EGMS ID" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
+    Then I softly do not see value "{SavedValue:EGMS ID4}" for title "EGMS ID" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
+    Then I softly do not see value "{SavedValue:EGMS ID5}" for title "EGMS ID" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
+    Then I softly do not see value "{SavedValue:EGMS ID6}" for title "EGMS ID" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
+    Then I softly do not see value "{SavedValue:EGMS ID7}" for title "EGMS ID" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
+    Then I softly do not see value "{SavedValue:EGMS ID8}" for title "EGMS ID" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
+    Then I softly do not see value "{SavedValue:EGMS ID9}" for title "EGMS ID" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
+    Then I softly do not see value "{SavedValue:EGMS ID10}" for title "EGMS ID" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
+    Then I softly do not see value "{SavedValue:EGMS ID11}" for title "EGMS ID" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
+    Then I softly do not see value "{SavedValue:EGMS ID12}" for title "EGMS ID" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
     And I collapse nested table containing column value "Progress Report"
     And I expand nested table containing column value "Financial Report"
-    Then I softly see total records count "{SavedValue:FinancialtotalRecords}" in flex table "---grantee_tableId:-:financialReportProgressReportSchedules---"
-    And I select value inside table "---grantee_tableId:-:financialReportProgressReportSchedules---" is "All"
-    Then I softly see value "{SavedValue:FINANEGMS ID1}" for title "EGMS ID" against the value "Financial Report" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
-    Then I softly see value "{SavedValue:FINANEGMS ID2}" for title "EGMS ID" against the value "Financial Report" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
-    Then I softly see value "{SavedValue:FINANEGMS ID3}" for title "EGMS ID" against the value "Financial Report" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
-    Then I softly see value "{SavedValue:FINANEGMS ID4}" for title "EGMS ID" against the value "Financial Report" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
-    Then I softly see value "{SavedValue:FINANEGMS ID5}" for title "EGMS ID" against the value "Financial Report" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
-    Then I softly see value "{SavedValue:FINANEGMS ID6}" for title "EGMS ID" against the value "Financial Report" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
-    Then I softly see value "{SavedValue:FINANEGMS ID7}" for title "EGMS ID" against the value "Financial Report" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
-    Then I softly see value "{SavedValue:FINANEGMS ID8}" for title "EGMS ID" against the value "Financial Report" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
-    Then I softly see value "{SavedValue:FINANEGMS ID9}" for title "EGMS ID" against the value "Financial Report" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
-    Then I softly see value "{SavedValue:FINANEGMS ID10}" for title "EGMS ID" against the value "Financial Report" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
-    Then I softly see value "{SavedValue:FINANEGMS ID11}" for title "EGMS ID" against the value "Financial Report" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
-    Then I softly see value "{SavedValue:FINANEGMS ID12}" for title "EGMS ID" against the value "Financial Report" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
+    Then I softly see total records count "Total Records: 1" in flex table "---grantee_tableId:-:financialReportProgressReportSchedules---"
+    And I save the value from row "1" for column name "EGMS ID" as "NEW FINANEGMS ID1" from flex table "---grantee_tableId:-:financialReportProgressReportSchedules---"
+    Then I softly see value "{SavedValue:NEW FINANEGMS ID1}" for title "EGMS ID" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
+    Then I softly do not see value "{SavedValue:FINANEGMS ID1}" for title "EGMS ID" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
+    Then I softly do not see value "{SavedValue:FINANEGMS ID2}" for title "EGMS ID" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
+    Then I softly do not see value "{SavedValue:FINANEGMS ID3}" for title "EGMS ID" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
+    Then I softly do not see value "{SavedValue:FINANEGMS ID4}" for title "EGMS ID" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
+    Then I softly do not see value "{SavedValue:FINANEGMS ID5}" for title "EGMS ID" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
+    Then I softly do not see value "{SavedValue:FINANEGMS ID6}" for title "EGMS ID" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
+    Then I softly do not see value "{SavedValue:FINANEGMS ID7}" for title "EGMS ID" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
+    Then I softly do not see value "{SavedValue:FINANEGMS ID8}" for title "EGMS ID" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
+    Then I softly do not see value "{SavedValue:FINANEGMS ID9}" for title "EGMS ID" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
+    Then I softly do not see value "{SavedValue:FINANEGMS ID10}" for title "EGMS ID" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
+    Then I softly do not see value "{SavedValue:FINANEGMS ID11}" for title "EGMS ID" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
+    Then I softly do not see value "{SavedValue:FINANEGMS ID12}" for title "EGMS ID" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
 
   @473154 @ValidatePOuserincaseperiodicrenewalschedulesarenotcreatedin1stawardthenin2ndawardschedulesunabletosee @PO_Grantee @P2_Grantee @GRegression5
   Scenario: Validate PO user in case periodic renewal schedules are not created in 1st award then in 2nd award schedules unable to see

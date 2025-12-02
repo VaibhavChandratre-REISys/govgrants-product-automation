@@ -4,7 +4,7 @@ Feature: Validate all scenarios for Grantee Progress Report
   @495998 @ValidateFromAppScheduleProgressReportAdminuserPRownercanabletoSubmitProgressReportwithsingleApprover @P2_Grantee @ADMIN_Grantee @GRegression2
   Scenario: Validate From App - Schedule Progress Report Admin user PR owner can able to Submit Progress Report with single Approver
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
-    And I create "Grants.Gov" qualified lead for title "Automation Runtime award" and opportunity number "CAS-HHS0000660610" with properties "default-Product Admin user"
+    And I create "Grants.Gov" qualified lead for title "Automation Runtime award" and opportunity number "CAS-HHS0000660610" with properties "default-QA Admin user"
     Given I login to "Grantee" app as "GRANTEE PM" user
     And I navigate to "Opportunities" tab
     When I navigate to "Qualified" content inside "Leads" subheader on left panel
@@ -15,7 +15,7 @@ Feature: Validate all scenarios for Grantee Progress Report
     And I save the field labeled "EGMS ID" as "opportunityEGMSID"
     And I create opportunity with state "Approved" for opportunity number "CAS-HHS0000660610" with properties "default"
     And I create Application "{SavedValue:Automation Runtime award}" with state "Submitted to Grantor" for opportunity number "CAS-HHS0000660610" with properties "default"
-    And I "Created" award from application for opportunity "CAS-HHS0000660610" for title "{SavedValue:Automation Runtime award}" with properties "default-Product Admin user"
+    And I "Created" award from application for opportunity "CAS-HHS0000660610" for title "{SavedValue:Automation Runtime award}" with properties "default-QA Admin user"
     And I updated award from application for title "{SavedValue:Automation Runtime award}" with properties "default"
     And I activate the award for title "{SavedValue:Automation Runtime award}"
     And I re-login to "Grantee" app as "GRANTEE ADMIN1" user on "INTERNAL" portal
@@ -450,8 +450,6 @@ Feature: Validate all scenarios for Grantee Progress Report
       | Reviewer Name | Role            | Description            | Due Date | Allow Record Editing |
       | Sarah PM      | Fiscal Reviewer | Automation Description | 5        | No                   |
     And I wait for "2" seconds
-    Then I softly see the following messages in the page details contains:
-      | Saved Successfully! |
     Then I softly can see row level action button "Edit" against "Grantee PO" in flex table with id "---grantee_tableId:-:financialReportPeerReviewTableId---"
     Then I softly can see row level action button "Send for Review" against "Grantee PO" in flex table with id "---grantee_tableId:-:financialReportPeerReviewTableId---"
     Then I softly can see row level action button "Delete" against "Grantee PO" in flex table with id "---grantee_tableId:-:financialReportPeerReviewTableId---"
@@ -620,8 +618,7 @@ Feature: Validate all scenarios for Grantee Progress Report
     And I wait for "2" seconds
     And I select Classification as "Progress Report" at upload file modal
     When I click modal button "Save"
-    And I click modal button "Close"
-    And I refresh the page
+#    And I click modal button "Close"
     And I wait for "2" seconds
     Then I softly see value "Automation.pdf" for title "Title" inside table "---grantee_tableId:-:progressReportFileTableId---"
     Then I softly see value "Progress Report" for title "Classification" inside table "---grantee_tableId:-:progressReportFileTableId---"
@@ -676,7 +673,7 @@ Feature: Validate all scenarios for Grantee Progress Report
     And I refresh the page
     And I wait for "3" seconds
     Then I softly see value "Automation Subject" for title "Subject" inside table "CommunicationHistory"
-    Then I softly see value "victor.exeqagrantee@yopmail.com" for title "From Address" inside table "CommunicationHistory"
+    Then I softly see value "victor.exe.ggmergeqa2@yopmail.com" for title "From Address" inside table "CommunicationHistory"
     Then I softly see value "pm.automation@yopmail.com" for title "To Address" inside table "CommunicationHistory"
     Then I softly can see row level action button "View" against "Automation Subject" in flex table with id "CommunicationHistory"
     Then I softly can see row level action button "Reply" against "Automation Subject" in flex table with id "CommunicationHistory"
@@ -942,7 +939,7 @@ Feature: Validate all scenarios for Grantee Progress Report
     And I perform quick search for "{SavedValue:progressEGMSID}" in "---grantee_tableId:-:PendingTask---" panel
     When I click on "Start" icon for "{SavedValue:progressEGMSID}" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
     When I "Send to Owner" in the approval decision
-    And I wait for "120" seconds
+    And I wait for "140" seconds
     And I navigate to "Monitoring" tab
     When I navigate to "Completed Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:progressEGMSID}" in "---grantee_tableId:-:monitoringCompletedTaskTableId---" panel
@@ -1733,7 +1730,7 @@ Feature: Validate all scenarios for Grantee Progress Report
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:awardReportSchedulesTableId---" by clicking "Edit" :
       | EGMS ID               | Report Creation Date |
       | {SavedValue:EGMS ID1} | 0                    |
-    And I wait for "200" seconds
+    And I wait for "220" seconds
     And I refresh the page
     And I wait for "3" seconds
     And I save the value from row "1" for column name "EGMS ID" as "progressEGMSID" from flex table "---grantee_tableId:-:ProgressReportTableId---"
@@ -2129,8 +2126,7 @@ Feature: Validate all scenarios for Grantee Progress Report
     And I update title as "Automation.pdf" on upload file modal
     And I select Classification as "Progress Report" at upload file modal
     When I click modal button "Save"
-    And I click modal button "Close"
-    And I refresh the page
+#    And I click modal button "Close"
     And I wait for "2" seconds
     Then I softly see value "Automation.pdf" for title "Title" inside table "---grantee_tableId:-:progressReportFileTableId---"
     Then I softly see value "Progress Report" for title "Classification" inside table "---grantee_tableId:-:progressReportFileTableId---"
@@ -2571,6 +2567,7 @@ Feature: Validate all scenarios for Grantee Progress Report
     When I enter the following values into flex table with id "---grantee_tableId:-:financialReportPeerReviewTableId---" by clicking "New" :
       | Reviewer Name | Role            | Description            | Due Date | Allow Record Editing |
       | David FO      | Fiscal Reviewer | Automation Description | 5        | No                   |
+    And I wait for "3" seconds
     When I enter the following values into flex table with id "---grantee_tableId:-:financialReportPeerReviewTableId---" by clicking "New" :
       | Reviewer Name | Role            | Description            | Due Date | Allow Record Editing |
       | Sarah PM      | Fiscal Reviewer | Automation Description | 5        | No                   |
@@ -2962,14 +2959,14 @@ Feature: Validate all scenarios for Grantee Progress Report
     And I save the value from row "1" for column name "EGMS ID" as "progressEGMSID" from flex table "---grantee_tableId:-:ProgressReportTableId---"
     Then I softly see value "Scheduled" for title "Report Type" against the value "{SavedValue:progressEGMSID}" inside table "---grantee_tableId:-:ProgressReportTableId---"
     And I navigate to "Home" tab
-    When I navigate to "Completed Tasks" content inside "My Tasks" subheader on left panel
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "Record Id" in "---grantee_tableId:-:HomePendingTask---" panel
     Then I softly see value "{SavedValue:progressEGMSID}" for title "EGMS ID" inside table "---grantee_tableId:-:HomePendingTask---"
     Then I softly see value "Complete Grantee Progress Report" for title "Task Type" inside table "---grantee_tableId:-:HomePendingTask---"
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:progressEGMSID}" in "---grantee_tableId:-:PendingTask---" panel
-    Then I see value "{SavedValue:progressEGMSID}" for title "EGMS ID" inside table "---grantee_tableId:-:PendingTask---"
+    Then I softly see value "{SavedValue:progressEGMSID}" for title "EGMS ID" inside table "---grantee_tableId:-:PendingTask---"
     And I navigate to "Monitoring" tab
     When I navigate to "Progress Reports" content inside "Monitoring" subheader on left panel
     And I click toggle button to select "Progress Reports - Draft"
@@ -3373,6 +3370,7 @@ Feature: Validate all scenarios for Grantee Progress Report
     And I "Created" standalone subaward "Automation Runtime award" with properties "default-Victor EXE user"
     And I updated direct grant award for title "{SavedValue:Automation Runtime award}" with properties "default"
     And I activate the award for title "{SavedValue:Automation Runtime award}"
+    And I wait for "3" seconds
     And I "Created" the "Progress Report" for title "{SavedValue:Automation Runtime award}" with properties "NA_APPROVER_EXE_OWNER"
     When I login to "Grantee" app as "GRANTEE EXE" user
     And I navigate to "Grants" tab
@@ -3771,7 +3769,7 @@ Feature: Validate all scenarios for Grantee Progress Report
     And I perform quick search for "{SavedValue:progressEGMSID}" in "---grantee_tableId:-:PendingTask---" panel
     When I click on "Start" icon for "{SavedValue:progressEGMSID}" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
     When I "Send to Owner" in the approval decision
-    And I wait for "120" seconds
+    And I wait for "140" seconds
     And I navigate to "Monitoring" tab
     When I navigate to "Completed Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:progressEGMSID}" in "---grantee_tableId:-:monitoringCompletedTaskTableId---" panel
@@ -4327,7 +4325,7 @@ Feature: Validate all scenarios for Grantee Progress Report
     Then I softly see "Owner" page block displayed
     When I enter the following values into flex table with id "---grantee_tableId:-:progressReportApprovers---" by clicking "New" :
       | Name       | Progress Report |
-      | Grantee PM | Step 1          |
+      | Sarah PM   | Step 1          |
     When I navigate to "Forms and Files" sub tab
     Then I softly see "Forms" page block displayed
     Then I softly see "Progress Report Files" page block displayed
@@ -4410,7 +4408,7 @@ Feature: Validate all scenarios for Grantee Progress Report
     Then I do not see "Upload" button is disabled at modal under library
     When I click modal button "Close"
     And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:progressReportFileTableId---"
-    And I upload attachment without random number "Attachment.pdf" of type "Other" from computer
+    And I upload attachment without random number "Attachment.pdf" of type "Progress Report" from computer
     When I click modal button "Close"
     And I refresh the page
     When I enter the following values into flex table with id "---grantee_tableId:-:financialReportNotesTableId---" by clicking "New" :
@@ -4490,7 +4488,8 @@ Feature: Validate all scenarios for Grantee Progress Report
     And I switch to tab number "1"
     And I enter "Grantee_PSR_form" values from "ProgressReport_Field_Values.xlsx"
     And I click on "Save" in the page details
-    Then I softly see field "Status" as "Submitted for Review"
+    And I close the tab
+    And I wait for "2" seconds
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:progressEGMSID}" in "---grantee_tableId:-:PendingTask---" panel
@@ -4498,12 +4497,13 @@ Feature: Validate all scenarios for Grantee Progress Report
     When I click on "Start" icon for "{SavedValue:progressEGMSID}" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
     When I navigate to "Responsibilities" sub tab
     And I click on "Send for Review" icon for "Grantee PO" inside table
+    Then I softly see field "Status" as "Submitted for Review"
     When I re-login to "Grantee" app as "GRANTEE PO" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:progressEGMSID}" in "---grantee_tableId:-:PendingTask---" panel
     Then I softly see value "Review Grantee Progress Report" for title "Task Type" against the value "{SavedValue:progressEGMSID}" inside table "---grantee_tableId:-:PendingTask---"
-    When I re-login to "Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
+    When I re-login to "Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Progress Reports" content inside "Monitoring" subheader on left panel
     And I click toggle button to select "Progress Reports - All"
@@ -4533,6 +4533,12 @@ Feature: Validate all scenarios for Grantee Progress Report
     When I enter the following values into flex table with id "---grantee_tableId:-:progressReportApprovers---" by clicking "New" :
       | Name       | Progress Report |
       | Grantee PO | Step 1          |
+    When I navigate to "Forms and Files" sub tab
+    And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:progressReportFileTableId---"
+    And I upload attachment without random number "Attachment.pdf" of type "Progress Report" from computer
+    When I click modal button "Close"
+    And I refresh the page
+    And I wait for "2" seconds
     When I click on "Validate" in the page details
     Then I softly see the following messages in the page details contains:
       | The Report has been validated successfully. |

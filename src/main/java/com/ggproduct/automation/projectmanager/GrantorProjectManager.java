@@ -48,11 +48,15 @@ public class GrantorProjectManager extends ProjectManager {
         return false;
     }
 
-    public void assertColumnValuIsBlank(String tableId, String fieldName, boolean isSoftly) {
-        if (isSoftly) {
+    public void assertColumnValuIsBlank(String tableId, String fieldName, String usage) {
+        if (usage.equals("softly see")) {
             I.amPerforming().assertionsTo().assertThat(isColumnValueBlank(tableId, fieldName)).isTrue();
-        } else {
+        } else if (usage.equals("see")) {
             Assert.assertTrue(isColumnValueBlank(tableId, fieldName));
+        } else if (usage.equals("softly do not see")) {
+            I.amPerforming().assertionsTo().assertThat(isColumnValueBlank(tableId, fieldName)).isFalse();
+        } else {
+            Assert.assertFalse(isColumnValueBlank(tableId, fieldName));
         }
     }
 
@@ -768,7 +772,7 @@ public class GrantorProjectManager extends ProjectManager {
 
     public Boolean isFieldStatusVisibleInPageblock(String fieldName, String fieldValue, String pageblockName) {
         boolean flag = false;
-        if (I.amPerforming().checkToSee().isDisplayed(By.xpath("//span[contains(text(),'" + pageblockName + "')]/ancestor::c-page-block-section//following-sibling::div//label[contains(text(),'" + fieldName + "')]/..//div//lightning-formatted-text[contains(text(),'" + fieldValue + "')] | //span[contains(text(),'" + pageblockName + "')]/parent::div/../div//label[contains(text(),'" + fieldName + "')]/..//div//span[contains(text(),'" + fieldValue + "')] | //span[contains(text(),'" + pageblockName + "')]/parent::div/../div//label[contains(text(),'" + fieldName + "')]/..//span//p[contains(text(),'" + fieldValue + "')] | //span[contains(text(),'" + pageblockName + "')]/parent::div/../div//span[contains(text(),'" + fieldName + "')]/../..//span//p[contains(text(),'" + fieldValue + "')] | //span[contains(text(),'" + pageblockName + "')]/ancestor::c-page-block-section//following-sibling::div//label[contains(text(),'" + fieldName + "')]/..//div//lightning-formatted-phone//a[contains(text(),'" + fieldValue + "')]"))) {
+        if (I.amPerforming().checkToSee().isDisplayed(By.xpath("//span[contains(text(),'" + pageblockName + "')]/ancestor::c-page-block-section//following-sibling::div//label[contains(text(),'" + fieldName + "')]/..//div//lightning-formatted-number[contains(text(),'" + fieldValue + "')] | //span[contains(text(),'" + pageblockName + "')]/ancestor::c-page-block-section//following-sibling::div//label[contains(text(),'" + fieldName + "')]/..//div//lightning-formatted-text[contains(text(),'" + fieldValue + "')] | //span[contains(text(),'" + pageblockName + "')]/parent::div/../div//label[contains(text(),'" + fieldName + "')]/..//div//span[contains(text(),'" + fieldValue + "')] | //span[contains(text(),'" + pageblockName + "')]/parent::div/../div//label[contains(text(),'" + fieldName + "')]/..//span//p[contains(text(),'" + fieldValue + "')] | //span[contains(text(),'" + pageblockName + "')]/parent::div/../div//span[contains(text(),'" + fieldName + "')]/../..//span//p[contains(text(),'" + fieldValue + "')] | //span[contains(text(),'" + pageblockName + "')]/ancestor::c-page-block-section//following-sibling::div//label[contains(text(),'" + fieldName + "')]/..//div//lightning-formatted-phone//a[contains(text(),'" + fieldValue + "')]"))) {
             flag = true;
         } else {
             flag = false;

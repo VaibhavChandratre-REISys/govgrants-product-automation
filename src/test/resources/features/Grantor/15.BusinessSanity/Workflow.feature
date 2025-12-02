@@ -2529,10 +2529,8 @@ Feature: Validate all scenarios of every modules flow
     And I wait for "3" seconds
     Then I see that "Subaward" is in "Activated" status
 
-  @testgranteesf
+  @testgranteesf @debug
   Scenario:
-    When I login to "Grantee" app as "GRANTEE PM" user
-    And I halt execution
-    And I enter the value "VA" for the field "City__c" inside page block "Applicant Information"
-    And I enter the value "AL" for the field "State__c" inside page block "Applicant Information"
-    And I enter the value "USA: UNITED STATES" for the field "Country__c" inside page block "Applicant Information"
+    When I login to "As a Grantor" app as "PM" user
+    And I navigate to "Grants" tab
+    Then I softly see value "{Date:MM/dd/yyyy::d+X}" for title "FFATA Report Due Date" inside table "---subAwardStandAlone:-:SrOrgSubawardDetailsFFATAComplianceTableId---"

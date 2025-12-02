@@ -52,6 +52,7 @@ import java.net.URLConnection;
 import java.nio.file.*;
 import java.nio.file.attribute.BasicFileAttributes;
 import java.util.*;
+import java.util.stream.Collectors;
 
 public final class FileHandler {
     private final ExcelReader excelReader;
@@ -177,6 +178,45 @@ public final class FileHandler {
                 break;
             }
         }
+    }
+
+    public void toRenameFileWithSpecificExtensionNew(File filePath, String baseFileName, String fromFileType, String toFileType) {
+
+        fromFileType = fromFileType.toLowerCase();
+        toFileType = toFileType.toLowerCase();
+
+        File[] directory = toGetCompleteFilesListOnLocalDirectory(filePath.getAbsolutePath());
+
+        // Match ANY file starting with baseFileName (timestamped, appended, raw)
+        String finalFromFileType = fromFileType;
+        List<File> matchingFiles = Arrays.stream(directory)
+                .filter(f -> {
+                    String name = f.getName().toLowerCase();
+                    return name.startsWith(baseFileName.toLowerCase())
+                            && name.endsWith("." + finalFromFileType);
+                })
+                .collect(Collectors.toList());
+
+        if (matchingFiles.isEmpty()) {
+            throw new RuntimeException("No file found starting with '" + baseFileName +
+                    "' and ending with ." + fromFileType +
+                    " in " + filePath.getAbsolutePath());
+        }
+
+        // Select the most recently modified file
+        File latestFile = matchingFiles.stream()
+                .max(Comparator.comparingLong(File::lastModified))
+                .orElseThrow();
+
+        File renamedFile = new File(filePath, baseFileName + "." + toFileType);
+
+        boolean success = latestFile.renameTo(renamedFile);
+
+        if (!success) {
+            throw new RuntimeException("Failed to rename: " + latestFile.getName());
+        }
+
+        System.out.println("Renamed file: " + latestFile.getName() + " → " + renamedFile.getName());
     }
 
     /**

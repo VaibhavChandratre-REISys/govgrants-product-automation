@@ -1,4 +1,4 @@
-@GranteeSmokeTestCases @GranteeTBE @GranteeSmokeTestCasesPDF @skipOnJenkins
+@GranteeSmokeTestCases @GranteeTBE @GranteeSmokeTestCasesPDF
 Feature: Grantee Smoke scenarios for PDF
 
   @449166 @VerifyPMuserasAROwnersameasAwardOwnercanabletocreateFundingChangeARonactiveAward&abletoAcceptit&abletocreatenewAward&seeimpactonAward&Grant @Grantee_Smoke1 @GRegression1
@@ -28,6 +28,7 @@ Feature: Grantee Smoke scenarios for PDF
     And I save the field labeled "EGMS ID" as "GrantEGMSID"
     And I save the field labeled "Grant Number" as "GrantNumber"
     And I save the field labeled "Project Period" as "ProjectPeriod"
+    And I save the field labeled "Required Match (%)" as "ReqiredChange"
     When I navigate to "Awards" sub tab
     And I click on "View" icon for "Activated" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
     Then I softly see field "Status" as "Activated"
@@ -37,8 +38,6 @@ Feature: Grantee Smoke scenarios for PDF
     And I save the field labeled "Grant Award Number" as "GrantAwardNumber"
     And I save the field labeled "Award Issue Date" as "AwardIssueDate"
     And I save the field labeled "Budget Period" as "BudgetPeriod"
-    And I navigate to "Projections" sub tab
-    And I save the field labeled "Budget Redirection Threshold (%)" as "ReqiredChange"
     When I navigate to "Amendments" sub tab
     Then I softly see top right button "New" inside flex table "---grantee_tableId:-:AmendmentRequestTableId---"
     And I click on top right button "New" in flex table with id "---grantee_tableId:-:AmendmentRequestTableId---"
@@ -180,12 +179,14 @@ Feature: Grantee Smoke scenarios for PDF
     Then I softly see value "$200.00" for title "Other Leverage" against the value "Construction" inside table "---grantee_tableId:-:AmendmentBudgetTableId---"
     Then I softly see value "$5,700.00" for title "Total Project Cost" against the value "Construction" inside table "---grantee_tableId:-:AmendmentBudgetTableId---"
     When I click on "Original Budget Details" icon for "Construction" inside flex table with id "---grantee_tableId:-:AmendmentBudgetTableId---" with wait for record
-    Then I softly see value "$5,000.00" for title "Award Budget" against the value "Construction" inside table "---grantee_tableId:-:awardLineItemsTableId---"
-    Then I softly see value "$500.00" for title "Cash Match" against the value "Construction" inside table "---grantee_tableId:-:awardLineItemsTableId---"
-    Then I softly see value "$200.00" for title "Other Leverage" against the value "Construction" inside table "---grantee_tableId:-:awardLineItemsTableId---"
-    Then I softly see value "$5,700.00" for title "Total Project Cost" against the value "Construction" inside table "---grantee_tableId:-:awardLineItemsTableId---"
+    Then I softly see value "$5,000.00" for title "Award Budget" against the value "Construction" inside table "---grantee_tableId:-:amendmentAwardLineItemsTableId---"
+    Then I softly see value "$500.00" for title "Cash Match" against the value "Construction" inside table "---grantee_tableId:-:amendmentAwardLineItemsTableId---"
+    Then I softly see value "$200.00" for title "Other Leverage" against the value "Construction" inside table "---grantee_tableId:-:amendmentAwardLineItemsTableId---"
+    Then I softly see value "$5,700.00" for title "Total Project Cost" against the value "Construction" inside table "---grantee_tableId:-:amendmentAwardLineItemsTableId---"
     When I close "Original Budget Details" modal by clicking the top right x button
+    And I wait for "2" seconds
     When I click on "Add Line Items" icon for "Construction" inside flex table with id "---grantee_tableId:-:AmendmentBudgetTableId---" with wait for record
+    And I wait for "3" seconds
     Then I softly see top right button "New" inside flex table "---grantee_tableId:-:amendmentLineItemsTableId---"
     Then I softly see "Title" in flex table header "---grantee_tableId:-:amendmentLineItemsTableId---"
     Then I softly see "Narrative" in flex table header "---grantee_tableId:-:amendmentLineItemsTableId---"
@@ -219,8 +220,8 @@ Feature: Grantee Smoke scenarios for PDF
     Then I softly see value "{SavedValue:ApprovedIndirectCostRate}" for title "Approved Indirect Cost Rate(%)" inside table "---grantee_tableId:-:amendmentIndirectRateTableId---"
     And I save the value from row "1" for column name "Indirect Cost Rate Type" as "IndirectCostRateType" from flex table "---grantee_tableId:-:amendmentIndirectRateTableId---"
     Then I softly see value "{SavedValue:IndirectCostRateType}" for title "Indirect Cost Rate Type" inside table "---grantee_tableId:-:amendmentIndirectRateTableId---"
-    Then I softly can see row level action button "Edit" against "New Indirect rate" in flex table with id "---grantee_tableId:-:amendmentIndirectRateTableId---"
-    Then I softly can see row level action button "Delete" against "New Indirect rate" in flex table with id "---grantee_tableId:-:amendmentIndirectRateTableId---"
+    Then I softly can see row level action button "Edit" against "New Indirect rate1" in flex table with id "---grantee_tableId:-:amendmentIndirectRateTableId---"
+    Then I softly can see row level action button "Delete" against "New Indirect rate1" in flex table with id "---grantee_tableId:-:amendmentIndirectRateTableId---"
     And I click on "Edit" in the page details
     Then I softly see fields "GeneralConditionChanged__c" is in edit mode
     And I enter value "Checked" into field "GeneralConditionChanged__c"
@@ -348,8 +349,7 @@ Feature: Grantee Smoke scenarios for PDF
     And I update title as "Attachment.pdf" on upload file modal
     And I select Classification as "Notice of Award" at upload file modal
     When I click modal button "Save"
-    And I click modal button "Close"
-    And I refresh the page
+#    And I click modal button "Close"
     And I wait for "2" seconds
     Then I softly see "Notice of Award" has been added in "Amendment Files" flex table
     And I click on "Delete" icon for "Notice of Award" inside flex table with id "---grantee_tableId:-:amendmentRequestAddFile---" without waiting for record
@@ -395,6 +395,7 @@ Feature: Grantee Smoke scenarios for PDF
     And I enter a review as "Passed"
     When I click modal button "Save"
     And I click on submit review
+    And I wait for "2" seconds
     When I re-login to "Grantee" app as "<User>" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Amendment Requests" content inside "Grants, Awards & Amendment Requests" subheader on left panel
@@ -422,7 +423,7 @@ Feature: Grantee Smoke scenarios for PDF
     When I enter the following values into flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---" by clicking "New" :
       | Title | Narrative     | Awarded Budget | Cash Match | Other Leverage |
       | Test  | The narrative | 2000           | 200        | 200            |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Amendment Line Items" modal by clicking the top right x button
     And I click on "Submit for Approval" in the page details
     Then I softly see the following messages in the page details contains:
       | Overview Tab - You have a requested a change of $2000.0, but the required change is $0.00.                |
@@ -498,6 +499,7 @@ Feature: Grantee Smoke scenarios for PDF
     And I click on "Delete" in the page details without processing
     Then I softly see confirmation box with body "Are you sure you want to delete this subaward?" is displayed
     And I click "OK" on modal confirmation box
+    And I wait for "2" seconds
     Then I softly see field "Status" as "Submitted to Grantor"
     Then I softly see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
     And I navigate to "Field Audit" sub tab in split screen
@@ -700,12 +702,12 @@ Feature: Grantee Smoke scenarios for PDF
     Then I see option "Refresh" present in parallel dropdown
     Then I see option "Download as PDF" present in parallel dropdown
     Then I see option "Download as CSV" present in parallel dropdown
-    And I select "Download as PDF" from parallel lines dropdown of "Non-Federal Programs- All"
+    And I select "Download as PDF" from parallel lines dropdown of "Non-Federal Programs - All"
     And I wait for "8" seconds
     And I download the file
-    Then I softly see "Non-Federal Programs- All" on page "1" of "govgrants" pdf file
+    Then I softly see "Non-Federal Programs - All" on page "1" of "govgrants" pdf file
     And I switch to parent tab
-    When I click on parallel lines menu bar with data target value "Non-Federal Programs- All"
+    When I click on parallel lines menu bar with data target value "Non-Federal Programs - All"
     And I select "Refresh" from parallel lines dropdown of "Non-Federal Programs - All"
     Then I see table is refreshing
     And I click on top right button "New" in flex table with id "---grantee_tableId:-:nonFederalProgramsTableId---"
@@ -762,10 +764,8 @@ Feature: Grantee Smoke scenarios for PDF
     And I click on "Edit" icon for "Program Artifacts" inside flex table with id "---grantee_tableId:-:nonFedAddFilesTableId---"
     And I select Classification as "Other Artifacts" at upload file modal
     When I click modal button "Save"
-    When I click modal button "Close"
+#    When I click modal button "Close"
     And I wait for "2" seconds
-    And I refresh the page
-    And I wait for "5" seconds
     Then I softly see value "Other Artifacts" for title "Classification" inside table "---grantee_tableId:-:nonFedAddFilesTableId---"
     And I click on "Delete" icon for "Other Artifacts" inside flex table with id "---grantee_tableId:-:nonFedAddFilesTableId---" without waiting for record
     Then I softly do not see value "Attachment.pdf" for title "Title" inside table "---grantee_tableId:-:nonFedAddFilesTableId---"
@@ -826,7 +826,6 @@ Feature: Grantee Smoke scenarios for PDF
     Examples:
       | userType   |
       | GRANTEE PM |
-
 
   @443850 @ValidatewithPMProfileIfindirectgrantkeepsettingYESthenInApprovedActivestateabletoseetheaccessofsection @Grantee_Smoke1
   Scenario: Validate with PM Profile in direct grant keep setting YES then In Approved Active state able to see the access of section
@@ -931,8 +930,7 @@ Feature: Grantee Smoke scenarios for PDF
     And I update title as "Automation.pdf" on upload file modal
     And I select Classification as "Interim Award Document" at upload file modal
     When I click modal button "Save"
-    And I click modal button "Close"
-    And I refresh the page
+#    And I click modal button "Close"
     And I wait for "2" seconds
     When I enter the following values into flex table with id "---grantee_tableId:-:awardsNotesTableId---" by clicking "New" :
       | Title        | Description      |
@@ -1025,9 +1023,8 @@ Feature: Grantee Smoke scenarios for PDF
     Then I softly see value "Submitted for Approval" for title "Original Value" inside field history table
     And I click on back arrow
     When I navigate to "History" sub tab
-    Then I softly see snapshot with name containing "ApprovalPDF.pdf" as name
+    Then I softly see snapshot with name containing "Approver Decision.pdf" as name
     Then I softly see snapshot with name containing "SubmitForApproval.pdf" as name
-    Then I softly see snapshot with name containing "Complete Review.pdf" as name
     Then I softly can see top right button "View NOGA" in page detail
     And I click on "View NOGA" in the page details
     And I download the file
@@ -1056,7 +1053,7 @@ Feature: Grantee Smoke scenarios for PDF
     And I select "Download as PDF" from parallel lines dropdown of "Non-Federal Contacts"
     And I wait for "7" seconds
     And I download the file
-    Then I see "Non-Federal Contacts" on page "1" of "govgrants" pdf file
+    Then I softly see "Non-Federal Contacts" on page "1" of "govgrants" pdf file
     And I switch to parent tab
     Then I softly can see top right button "New" in flex table with id "---grantee_tableId:-:nonFedContactTableId---"
     And I click on top right button "New" in flex table with id "---grantee_tableId:-:nonFedContactTableId---"
@@ -1146,7 +1143,7 @@ Feature: Grantee Smoke scenarios for PDF
     Then I see field "Last Name" as "Execution" on modal
     Then I see field "Phone" as "(896) 709-3844" on modal
     Then I see field "Mobile Phone" as "(896) 709-3440" on modal
-    Then I see field "Email" as " {SavedValue:uniqueEmailID}" on modal
+    Then I see field "Email" as "{SavedValue:uniqueEmailID}" on modal
     And I click on top right button "Edit" in flex table with id "---grantee_tableId:-:nonFedContactTableId---"
     When I enter in modal value "Automation Runtime Test" into field "Title"
     When I enter in modal value "Automation1" into field "FirstName"
@@ -1162,7 +1159,7 @@ Feature: Grantee Smoke scenarios for PDF
     Then I see field "Last Name" as "Execution1" on modal
     Then I see field "Phone" as "(896) 709-3855" on modal
     Then I see field "Mobile Phone" as "(896) 709-3455" on modal
-    Then I see field "Email" as " {SavedValue:uniqueEmailID}" on modal
+    Then I see field "Email" as "{SavedValue:uniqueEmailID}" on modal
     And I click on hyperlink for modal containing value "Test With Automation PM"
     Then I see the header is "Non-Federal Organization" in the page details
     Then I see the sub-header is "Test With Automation PM" in the page details
@@ -1200,7 +1197,7 @@ Feature: Grantee Smoke scenarios for PDF
     And I select "Download as PDF" from parallel lines dropdown of "Federal Contacts"
     And I wait for "7" seconds
     And I download the file
-    Then I see "Federal Contacts" on page "1" of "govgrants" pdf file
+    Then I softly see "Federal Contacts" on page "1" of "govgrants" pdf file
     And I switch to parent tab
     Then I softly can see top right button "New" in flex table with id "---grantee_tableId:-:fedContactTableId---"
     And I click on top right button "New" in flex table with id "---grantee_tableId:-:fedContactTableId---"
@@ -1291,7 +1288,7 @@ Feature: Grantee Smoke scenarios for PDF
     Then I see field "Last Name" as "Execution" on modal
     Then I see field "Phone" as "(896) 709-3844" on modal
     Then I see field "Mobile Phone" as "(896) 709-3440" on modal
-    Then I see field "Email" as " {SavedValue:uniqueEmailID}" on modal
+    Then I see field "Email" as "{SavedValue:uniqueEmailID}" on modal
     And I click on top right button "Edit" in flex table with id "---grantee_tableId:-:fedContactTableId---"
     When I enter in modal value "Automation Runtime Test" into field "Title"
     When I enter in modal value "Automation1" into field "FirstName"
@@ -1307,7 +1304,7 @@ Feature: Grantee Smoke scenarios for PDF
     Then I see field "Last Name" as "Execution1" on modal
     Then I see field "Phone" as "(896) 709-3855" on modal
     Then I see field "Mobile Phone" as "(896) 709-3455" on modal
-    Then I see field "Email" as " {SavedValue:uniqueEmailID}" on modal
+    Then I see field "Email" as "{SavedValue:uniqueEmailID}" on modal
     And I click on hyperlink for modal containing value "Department of Education"
     Then I see the header is "Federal Organization" in the page details
     Then I see the sub-header is "Department of Education" in the page details

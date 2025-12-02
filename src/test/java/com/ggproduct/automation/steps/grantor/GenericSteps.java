@@ -41,9 +41,9 @@ public class GenericSteps {
     }
 
     @Description("To verify field value is blank in flex table with Id")
-    @Then("^I (softly see|see) field name \"([^\"]*)\" is blank in flex table with Id \"([^\"]*)\"$")
+    @Then("^I (softly see|see|do not see|softly do not see) field name \"([^\"]*)\" is blank in flex table with Id \"([^\"]*)\"$")
     public void iSeeFieldNameIsBlank(String usage, String fieldname, String tableId) {
-        grantorProjectManager.assertColumnValuIsBlank(tableId, fieldname, usage.contains("softly"));
+        grantorProjectManager.assertColumnValuIsBlank(tableId, fieldname, usage);
     }
 
     @Description("To verify total records available under flex table")
@@ -479,6 +479,13 @@ public class GenericSteps {
         grantorWebServices.approveDFM(applicationName);
     }
 
+
+    @And("I created approved FDM on application {string} for Plumbing Cases")
+    public void iCreatedApprovedFDMOnApplicationForPlumbingCases(String applicationName) {
+        I.amPerforming().waitFor().makeThreadSleep(40000); //ToDO- This API gets failed as It needs Application Record, So added wait time as of now
+        grantorWebServices.approveDFMForPlumbingcases(applicationName);
+    }
+
     @Given("I reviewed the application {string}")
     public void reviewedApplication(String applicationName) {
         I.amPerforming().waitFor().makeThreadSleep(40000); //ToDO- This API gets failed as It needs Application Record, So added wait time as of now
@@ -495,6 +502,11 @@ public class GenericSteps {
         grantorWebServices.createAwardFromFDM(announcementName);
     }
 
+    @Given("I created award from approved FDM with announcement {string} for plumbing cases")
+    public void iCreatedAwardFromApprovedFDMWithAnnouncementForPlumbingCases(String announcementName) {
+        grantorWebServices.createAwardFromFDMForPlumbingCases(announcementName);
+    }
+
     @Given("I created award from approved FDM with announcement {string} and properties {string}")
     public void iCreatedAwardFromApprovedFDMWithAnnouncement(String announcementName, String Type) {
         grantorWebServices.createAwardFromFDM(announcementName, Type);
@@ -506,6 +518,14 @@ public class GenericSteps {
         I.amPerforming().propertiesFileOperationsTo().saveValue(annName, newAnnName);
         annName = newAnnName;
         grantorWebServices.publishAnnouncment(annType, annName, filter);
+    }
+
+    @And("I published {string} type announcement having name {string} and properties {string} for plumbing cases")
+    public void iPublishedTypeAnnouncementHavingNameAndPropertiesForPlumbingCases(String annType, String annName, String filter) {
+        String newAnnName = annName + I.amPerforming().addOnsTo().getRandomNumber();
+        I.amPerforming().propertiesFileOperationsTo().saveValue(annName, newAnnName);
+        annName = newAnnName;
+        grantorWebServices.publishAnnouncmentForPlumbingCases(annType, annName, filter);
     }
 
     @And("I activated standalone subaward {string} with properties {string}")

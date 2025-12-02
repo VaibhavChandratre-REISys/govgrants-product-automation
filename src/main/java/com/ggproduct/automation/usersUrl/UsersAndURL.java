@@ -309,6 +309,15 @@ public class UsersAndURL implements UsersController {
             case "ADMIN":
                 password = "Salesforce@2035";
                 break;
+            case "FO":
+                password = "Rei@2031";
+                break;
+            case "FD":
+                password = "Rei@2031";
+                break;
+            case "AUDITOR":
+                password = "Rei@2031";
+                break;
             default:
                 password = "Salesforce@2034";
         }
@@ -520,9 +529,9 @@ public class UsersAndURL implements UsersController {
         username.put("ADMIN1", "admin1@yopmail.com.qaorg");
         username.put("EXE", "test@gmaildemo.com.qaorg");
         username.put("PM", "donald_pm@ggp.test7.atm.qaorg");
-        username.put("FO", "auto.fm@auto.com.atm.qaorg");
+        username.put("FO", "david.fo@ggp.test8.qaorg");
         username.put("PO", "automationpo@yopmail.com.qaorg");
-        username.put("FD", "automationfd@yopmail.com.qaorg");
+        username.put("FD", "danielle.garcia@ggp.test8.qaorg");
         username.put("PM1", "pm1.automation@yopmail.com.qaorg");
         username.put("EXE1", "exe1.automation@yopmail.com.qaorg");
         username.put("PO1", "automationpo1@yopmail.com.qaorg");
@@ -532,7 +541,7 @@ public class UsersAndURL implements UsersController {
         username.put("SPA", "spa.automation@yopmail.com");
         username.put("SA", "automationspi2@yopmail.com");
         username.put("IND", "ind2029.automation@yopmail.com");
-        username.put("AUDITOR", "automationauditor@yopmail.com.qaorg");
+        username.put("AUDITOR", "amperoaud@yopmail.com.qaorg");
         username.put("SARAH PM", "sarah.pm@ggp.test8.qaorg");
 
         username.put("GRANTEE ADMIN", "product.qa@ggp.test8.qagrnteatm");

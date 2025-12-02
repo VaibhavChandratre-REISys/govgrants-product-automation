@@ -7,11 +7,22 @@ import io.cucumber.java.PendingException;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import jdk.jfr.Description;
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.CellType;
+import org.apache.poi.ss.usermodel.DataFormatter;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
 import java.nio.charset.MalformedInputException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.List;
 import java.util.Map;
 import java.util.function.Predicate;
@@ -424,7 +435,7 @@ public final class GovGrantsAssertionSteps {
     @Then("^I see the (sub-header) is \"([^\"]*)\" in the page details$")
     public void validateOverviewHeader(String isHeader, String headerText) {
             if ("header".equalsIgnoreCase(isHeader)) {
-                By headerLocator = By.xpath("//div[contains(@class,'page-header__col-title')]//h2[normalize-space(text())= '" + headerText + "'] | //div[contains(@class,'page-header')]//h1[text()='" + headerText + "']");
+                By headerLocator = By.xpath("//div[contains(@class,'page-header__col-title')]//h2[normalize-space(text())= '" + headerText + "'] | //div[contains(@class,'page-header')]//h1[text()='" + headerText + "'] | //div[contains(@class,'page-header')]//h1//span[text()='" + headerText + "']");
                 Assert.assertTrue(I.amPerforming().checkToSee().isDisplayed(headerLocator));
             } else {
                 By headerLocator = By.xpath("//div[contains(@class,'page-header__name')]//span[contains(@title,'" + headerText + "') or contains(text(),'" + headerText + "')]");
@@ -531,6 +542,10 @@ public final class GovGrantsAssertionSteps {
         ggAssertionObjects.assertFieldIsEditableOrNot(fieldAPIName, usage.contains("softly"));
     }
 
+    @Then("^I (softly see|see) field \"([^\"]*)\" is not editable for modal$")
+    public void iSoftlySeeFieldIsNotEditableForModal(String usage, String fieldAPIName) {
+        ggAssertionObjects.assertFieldIsEditableOrNotForModal(fieldAPIName, usage.contains("softly"));
+    }
 
     @Then("^I (softly see|see) field on modal \"([^\"]*)\" is not editable$")
     public void iSeeFieldOnModalIsNotEditable(String usage, String fieldAPIName) {
@@ -909,9 +924,9 @@ public final class GovGrantsAssertionSteps {
         ggAssertionObjects.assertDefaultToggleAs(usage, defaultToggle, tableId);
     }
 
-    @Then("I (softly see|see|do not see|softly do not see) label \"([^\"]*)\" maximum length is \"([^\"]*)\" for input field$")
-    public void iSoftlySeeLabelMaximumLengthIsForInputField(String usage, String labelName, String length) {
-        ggAssertionObjects.assertLabelMaximumLengthIsForInputField(usage, labelName, length);
+    @Then("I (softly see|see|do not see|softly do not see) (label|field) \"([^\"]*)\" maximum length is \"([^\"]*)\" for input field$")
+    public void iSoftlySeeLabelMaximumLengthIsForInputField(String usage, String check, String labelName, String length) {
+        ggAssertionObjects.assertLabelMaximumLengthIsForInputField(usage, check, labelName, length);
     }
 
     @Then("I (softly see|see|do not see|softly do not see) value \"([^\"]*)\" for the edit mode field \"([^\"]*)\"$")
@@ -938,5 +953,145 @@ public final class GovGrantsAssertionSteps {
     @Then("^I (softly see|see|do not see|softly do not see) with quotes \"(.*?)\" shown as help text$")
     public void iSoftlySeeWithQuotesShownAsHelpText(String usage, String helpText) {
         govgrants.perform().pageDetails().assertHelpTextAtPageBlockwithQuotes(usage, helpText);
+    }
+
+    @Then("^I see row \"(\\d+)\" contains value \"([^\"]*)\" against the column name \"([^\"]*)\" in the Excel file \"([^\"]*)\"$")
+    public void validateExactCellValue(int rowNumber, String expectedValue, String columnName, String fileName) {
+        validateFileCellValue(rowNumber, expectedValue, columnName, fileName);
+    }
+
+    public void validateFileCellValue(int rowNumber, String expectedValue, String columnName, String fileName) {
+
+        File dir = new File(System.getProperty("user.dir") + "/target");
+
+        // Allow time for file download
+        I.amPerforming().waitFor().makeThreadSleep(3000);
+
+        File xlsx = new File(dir, fileName + ".xlsx");
+        File csv = new File(dir, fileName + ".csv");
+
+        // CASE 1: If clean files DO NOT exist, try renaming safely
+        if (!xlsx.exists() && !csv.exists()) {
+
+            // Try CSV rename FIRST
+            try {
+                I.amPerforming().fileHandling().toRenameFileWithSpecificExtensionNew(dir, fileName, "csv", "csv");
+            } catch (Exception ignored) {}
+
+            // Refresh CSV reference
+            csv = new File(dir, fileName + ".csv");
+
+            // If CSV does not exist, ONLY THEN try XLSX
+            if (!csv.exists()) {
+                try {
+                    I.amPerforming().fileHandling().toRenameFileWithSpecificExtensionNew(dir, fileName, "xlsx", "xlsx");
+                } catch (Exception ignored) {}
+            }
+        }
+
+        // REFRESH ALL PATHS
+        xlsx = new File(dir, fileName + ".xlsx");
+        csv = new File(dir, fileName + ".csv");
+
+        // CASE 2: Decide which parser to use
+        if (xlsx.exists()) {
+            validateExcelCell(rowNumber, expectedValue, columnName, xlsx.getAbsolutePath(), fileName);
+        }
+        else if (csv.exists()) {
+            validateCSVCell(rowNumber, expectedValue, columnName, csv.getAbsolutePath(), fileName);
+        }
+        else {
+            throw new AssertionError("No .xlsx or .csv file found for: " + fileName +
+                    ". Downloaded file may not match expected pattern.");
+        }
+    }
+
+    public void validateCSVCell(int rowNumber, String expectedValue, String columnName, String filePath, String fileName) {
+
+        try {
+            List<String> lines = Files.readAllLines(Paths.get(filePath));
+
+            if (lines.isEmpty()) {
+                throw new AssertionError("CSV file is empty: " + fileName);
+            }
+
+            String[] headers = lines.get(0).split(",");
+
+            int columnIndex = -1;
+            for (int i = 0; i < headers.length; i++) {
+                if (headers[i].trim().equalsIgnoreCase(columnName.trim())) {
+                    columnIndex = i;
+                    break;
+                }
+            }
+
+            if (columnIndex == -1) {
+                throw new AssertionError("Column '" + columnName + "' not found in CSV file: " + fileName);
+            }
+
+            if (rowNumber >= lines.size()) {
+                throw new AssertionError("Row " + rowNumber + " not found in CSV file: " + fileName);
+            }
+
+            String[] rowValues = lines.get(rowNumber).split(",");
+            String actualValue = rowValues[columnIndex].trim();
+
+            System.out.println("Expected: '" + expectedValue + "', Actual: '" + actualValue + "'");
+
+            if (!actualValue.equalsIgnoreCase(expectedValue)) {
+                throw new AssertionError("CSV mismatch → Expected '" + expectedValue +
+                        "' but found '" + actualValue + "'");
+            }
+
+        } catch (Exception e) {
+            throw new AssertionError("Failed to validate CSV file '" + fileName + "': " + e.getMessage(), e);
+        }
+    }
+
+    public void validateExcelCell(int rowNumber, String expectedValue, String columnName, String filePath, String fileName) {
+
+        try {
+            FileInputStream fis = new FileInputStream(filePath);
+            XSSFWorkbook workbook = new XSSFWorkbook(fis);
+            DataFormatter formatter = new DataFormatter();
+
+            XSSFSheet sheet = workbook.getSheetAt(0);
+
+            Row headerRow = sheet.getRow(0);
+            int columnIndex = -1;
+
+            for (Cell cell : headerRow) {
+                if (cell.getStringCellValue().trim().equalsIgnoreCase(columnName.trim())) {
+                    columnIndex = cell.getColumnIndex();
+                    break;
+                }
+            }
+
+            if (columnIndex == -1) {
+                throw new AssertionError("Column '" + columnName + "' not found in Excel file: " + fileName);
+            }
+
+            Row targetRow = sheet.getRow(rowNumber);
+
+            if (targetRow == null) {
+                throw new AssertionError("Row " + rowNumber + " not found in Excel file: " + fileName);
+            }
+
+            Cell cell = targetRow.getCell(columnIndex);
+            String actualValue = formatter.formatCellValue(cell).trim();
+
+            System.out.println("Expected: '" + expectedValue + "', Actual: '" + actualValue + "'");
+
+            if (!actualValue.equalsIgnoreCase(expectedValue)) {
+                throw new AssertionError("Excel mismatch → Expected '" + expectedValue +
+                        "' but found '" + actualValue + "'");
+            }
+
+            workbook.close();
+            fis.close();
+
+        } catch (Exception e) {
+            throw new AssertionError("Failed to validate Excel file '" + fileName + "': " + e.getMessage(), e);
+        }
     }
 }
