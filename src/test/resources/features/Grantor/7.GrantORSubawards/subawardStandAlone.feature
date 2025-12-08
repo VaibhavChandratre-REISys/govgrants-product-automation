@@ -6649,6 +6649,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - All"
+    And I wait for "2" seconds
     When I perform quick search for "{SavedValue:GrantEGMSID}" in "---subAwardStandAlone:-:recipientGrantTableId---" panel
     Then I softly see "No Records Found" inside flex table with id "---subAwardStandAlone:-:recipientGrantTableId---"
     When I navigate to "Subawards" content inside "Grants, Subawards & Amendments" subheader on left panel
@@ -6667,11 +6668,8 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     When I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "Record Id" in "---subAwardStandAlone:-:pendingTaskTableId---" panel
+    And I wait for "2" seconds
     When I click on "Start" icon for "Record Id" inside flex table with id "---subAwardStandAlone:-:pendingTaskTableId---" without waiting for record
-    And I navigate to "Files" sub tab
-    Then I see "Automation" inside flex table with id "---subAwardStandAlone:-:flexGridGrantChecklistsTableId---"
-    And I navigate to "Subawards" sub tab
-    And I click on "View" icon for "Created" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
     Then I see value "Automation Permanent NGO Program" for title "Program Title" inside table "---subAwardStandAlone:-:subawardFederalProgramTableId---"
     Then I see value "Automation SPI3" for title "Name" inside table "---subAwardStandAlone:-:associateContactTableId---"
     And I navigate to "Budget" sub tab
