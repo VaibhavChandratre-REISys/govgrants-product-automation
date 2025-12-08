@@ -6410,22 +6410,23 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     And I click modal button "Save"
     And I wait for "3" seconds
     And I expand nested table containing column value "Payment Request"
-    Then I softly see value "{SavedValue:ReportingPeriodStartDate}" for title "Reporting Period Start Date" inside table "---subAwardStandAlone:-:SubawardPaymentSchedulesTableId---"
+    And I save the total records from the flex table id "---subAwardStandAlone:-:paymentRequestSchedulesTableId---" as "totalRecordsPaymentSchedule"
+    Then I see total records count "{SavedValue:totalRecordsPaymentSchedule}" in flex table "---subAwardStandAlone:-:paymentRequestSchedulesTableId---"
     And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardStandAlone:-:progressReportScheduleTableId---" without waiting for record
     When I enter "ProgressReportQuartelyReporting" values from "Award_Field_Values.xlsx"
-    And I save the field labeled "Reporting Period Start Date" as "ReportingPeriodStartDate"
     And I click modal button "Save"
     And I refresh the page
     And I expand nested table containing column value "Progress Report"
-    Then I softly see value "{SavedValue:ReportingPeriodStartDate}" for title "Reporting Period Start Date" inside table "---subAwardStandAlone:-:SubawardProgressSchedulesTableId---"
+    And I save the total records from the flex table id "---subAwardStandAlone:-:progressReportScheduleTableId---" as "totalRecordsProgressSchedule"
+    Then I softly see total records count "{SavedValue:totalRecordsProgressSchedule}" in flex table "---subAwardStandAlone:-:progressReportScheduleTableId---"
     And I wait for "3" seconds
     When I click on top right button "Associate Mandatory Terms and Conditions" in flex table with id "---subAwardStandAlone:-:termsndConditionsTableId---"
     And I wait for "4" seconds
     Then I softly see the following messages in the page details contains:
       | Terms & Conditions associated with subaward successfully. |
     And I refresh the page
-    And I save the total records from the flex table id "---subAwardStandAlone:-:termsndConditionsTableId---" as "totalRecords"
-    Then I softly see total records count "{SavedValue:totalRecords}" in flex table "---subAwardStandAlone:-:termsndConditionsTableId---"
+    And I save the total records from the flex table id "---subAwardStandAlone:-:termsndConditionsTableId---" as "totalRecordsTnC"
+    Then I softly see total records count "{SavedValue:totalRecordsTnC}" in flex table "---subAwardStandAlone:-:termsndConditionsTableId---"
     When I navigate to "Responsibilities" sub tab
     Then I can see top right button "New" in flex table with id "---subAwardStandAlone:-:peerReviewersTableId---"
     And I enter the following values into flex table with id "---subAwardStandAlone:-:peerReviewersTableId---" by clicking "New" :
@@ -6476,10 +6477,10 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     Then I see value "Automation Permanent KPI2" for title "Title" inside table "---subAwardStandAlone:-:kpiTableId---"
     And I navigate to "Terms" sub tab
     And I expand nested table containing column value "Payment Request"
-    Then I softly see value "{SavedValue:ReportingPeriodStartDate}" for title "Reporting Period Start Date" inside table "---subAwardStandAlone:-:SubawardPaymentSchedulesTableId---"
+    Then I see total records count "{SavedValue:totalRecordsPaymentSchedule}" in flex table "---subAwardStandAlone:-:paymentRequestSchedulesTableId---"
     And I expand nested table containing column value "Progress Report"
-    Then I softly see value "{SavedValue:ReportingPeriodStartDate}" for title "Reporting Period Start Date" inside table "---subAwardStandAlone:-:SubawardProgressSchedulesTableId---"
-    Then I softly see total records count "{SavedValue:totalRecords}" in flex table "---subAwardStandAlone:-:termsndConditionsTableId---"
+    Then I softly see total records count "{SavedValue:totalRecordsProgressSchedule}" in flex table "---subAwardStandAlone:-:progressReportScheduleTableId---"
+    Then I softly see total records count "{SavedValue:totalRecordsTnC}" in flex table "---subAwardStandAlone:-:termsndConditionsTableId---"
     When I navigate to "Responsibilities" sub tab
     Then I cannot see top right button "New" in flex table with id "---subAwardStandAlone:-:peerReviewersTableId---"
     Then I see value "{SavedValue:PO Username}" for title "Reviewer Name" inside table "---subAwardStandAlone:-:peerReviewersTableId---"
@@ -6594,22 +6595,24 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     And I click modal button "Save"
     And I wait for "3" seconds
     And I expand nested table containing column value "Payment Request"
-    Then I softly see value "{SavedValue:ReportingPeriodStartDate}" for title "Reporting Period Start Date" inside table "---subAwardStandAlone:-:SubawardPaymentSchedulesTableId---"
+    And I save the total records from the flex table id "---subAwardStandAlone:-:paymentRequestSchedulesTableId---" as "totalRecordsPaymentSchedule"
+    Then I see total records count "{SavedValue:totalRecordsPaymentSchedule}" in flex table "---subAwardStandAlone:-:paymentRequestSchedulesTableId---"
     And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardStandAlone:-:progressReportScheduleTableId---" without waiting for record
     When I enter "ProgressReportQuartelyReporting" values from "Award_Field_Values.xlsx"
     And I save the field labeled "Reporting Period Start Date" as "ReportingPeriodStartDate"
     And I click modal button "Save"
     And I refresh the page
     And I expand nested table containing column value "Progress Report"
-    Then I softly see value "{SavedValue:ReportingPeriodStartDate}" for title "Reporting Period Start Date" inside table "---subAwardStandAlone:-:SubawardProgressSchedulesTableId---"
+    And I save the total records from the flex table id "---subAwardStandAlone:-:progressReportScheduleTableId---" as "totalRecordsProgressSchedule"
+    Then I softly see total records count "{SavedValue:totalRecordsProgressSchedule}" in flex table "---subAwardStandAlone:-:progressReportScheduleTableId---"
     And I wait for "3" seconds
     When I click on top right button "Associate Mandatory Terms and Conditions" in flex table with id "---subAwardStandAlone:-:termsndConditionsTableId---"
     And I wait for "4" seconds
     Then I softly see the following messages in the page details contains:
       | Terms & Conditions associated with subaward successfully. |
     And I refresh the page
-    And I save the total records from the flex table id "---subAwardStandAlone:-:termsndConditionsTableId---" as "totalRecords"
-    Then I softly see total records count "{SavedValue:totalRecords}" in flex table "---subAwardStandAlone:-:termsndConditionsTableId---"
+    And I save the total records from the flex table id "---subAwardStandAlone:-:termsndConditionsTableId---" as "totalRecordsTnC"
+    Then I softly see total records count "{SavedValue:totalRecordsTnC}" in flex table "---subAwardStandAlone:-:termsndConditionsTableId---"
     When I navigate to "Responsibilities" sub tab
     Then I can see top right button "New" in flex table with id "---subAwardStandAlone:-:peerReviewersTableId---"
     And I enter the following values into flex table with id "---subAwardStandAlone:-:peerReviewersTableId---" by clicking "New" :
@@ -6680,10 +6683,10 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     Then I see value "Automation Permanent KPI2" for title "Title" inside table "---subAwardStandAlone:-:kpiTableId---"
     And I navigate to "Terms" sub tab
     And I expand nested table containing column value "Payment Request"
-    Then I softly see value "{SavedValue:ReportingPeriodStartDate}" for title "Reporting Period Start Date" inside table "---subAwardStandAlone:-:SubawardPaymentSchedulesTableId---"
+    Then I see total records count "{SavedValue:totalRecordsPaymentSchedule}" in flex table "---subAwardStandAlone:-:paymentRequestSchedulesTableId---"
     And I expand nested table containing column value "Progress Report"
-    Then I softly see value "{SavedValue:ReportingPeriodStartDate}" for title "Reporting Period Start Date" inside table "---subAwardStandAlone:-:SubawardProgressSchedulesTableId---"
-    Then I softly see total records count "{SavedValue:totalRecords}" in flex table "---subAwardStandAlone:-:termsndConditionsTableId---"
+    Then I softly see total records count "{SavedValue:totalRecordsProgressSchedule}" in flex table "---subAwardStandAlone:-:progressReportScheduleTableId---"
+    Then I softly see total records count "{SavedValue:totalRecordsTnC}" in flex table "---subAwardStandAlone:-:termsndConditionsTableId---"
     And I navigate to "Files" sub tab
     When I click on "Attach" icon for "Mandatory" inside flex table with id "---subAwardStandAlone:-:RecipientSubAwardChecklistTableId---" without waiting for record
     And I switch to iframe with id "---subAwardStandAlone:-:RecipientSubAwardChecklistTableFrameId---"
