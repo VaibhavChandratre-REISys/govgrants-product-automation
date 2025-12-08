@@ -6443,6 +6443,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     Then I can see top right button "Add Files" in flex table with id "---subAwardStandAlone:-:addFilesTableId---"
     And I click on top right button "Add Files" in flex table with id "---subAwardStandAlone:-:addFilesTableId---"
     And I upload attachment without random number "Attachment.pdf" of type "Other" from computer
+    And I wait for "3" seconds
     And I click modal button "Close"
     Then I softly see value "Attachment.pdf" for title "Title" inside table "---subAwardStandAlone:-:addFilesTableId---"
     Then I softly can see row level action button "Edit" against "Attachment.pdf" in flex table with id "---subAwardStandAlone:-:addFilesTableId---"
@@ -6629,6 +6630,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     Then I can see top right button "Add Files" in flex table with id "---subAwardStandAlone:-:addFilesTableId---"
     And I click on top right button "Add Files" in flex table with id "---subAwardStandAlone:-:addFilesTableId---"
     And I upload attachment without random number "Attachment.pdf" of type "Other" from computer
+    And I wait for "3" seconds
     And I click modal button "Close"
     Then I softly see value "Attachment.pdf" for title "Title" inside table "---subAwardStandAlone:-:addFilesTableId---"
     Then I softly can see row level action button "Edit" against "Attachment.pdf" in flex table with id "---subAwardStandAlone:-:addFilesTableId---"
