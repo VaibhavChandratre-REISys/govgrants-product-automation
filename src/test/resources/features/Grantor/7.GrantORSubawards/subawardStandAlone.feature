@@ -6414,6 +6414,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     Then I see total records count "{SavedValue:totalRecordsPaymentSchedule}" in flex table "---subAwardStandAlone:-:paymentRequestSchedulesTableId---"
     And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardStandAlone:-:progressReportScheduleTableId---" without waiting for record
     When I enter "ProgressReportQuartelyReporting" values from "Award_Field_Values.xlsx"
+    And I save the field labeled "Reporting Period Start Date" as "ReportingPeriodStartDate"
     And I click modal button "Save"
     And I refresh the page
     And I expand nested table containing column value "Progress Report"
