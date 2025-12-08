@@ -6496,11 +6496,11 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     Examples:
       | NonOwner |
       | EXE      |
-    |  PO       |
-    |  FO       |
-    |  FD       |
-    |  Auditor  |
-    |  ADMIN    |
+      | PO       |
+      | FO       |
+      | FD       |
+      | Auditor  |
+      | ADMIN    |
 
   @533441 @530983 @validateSPI/SPAexternalusershouldseegrantandawardrecordoncegrantorsendthatrecordtoS/Ruser
   Scenario Outline: Validate SPI/SPA external user should see grant and award record once grantor send that record to S/R user
@@ -6716,6 +6716,6 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     And I wait for "3" seconds
     Then I see value "Automation Runtime Focus Area for flexsharing" for title "Title" inside table "---subAwardStandAlone:-:SubAwardFocusAreaTableId---"
     Examples:
-    |  SrUser   |
-    |    SPI3   |
-    |    SPA    |
+      | SrUser |
+      | SPI3   |
+      | SPA    |
