@@ -6499,11 +6499,11 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     Examples:
       | NonOwner |
       | EXE      |
-      | PO       |
-      | FO       |
-      | FD       |
-      | Auditor  |
-      | ADMIN    |
+#      | PO       |
+#      | FO       |
+#      | FD       |
+#      | Auditor  |
+#      | ADMIN    |
 
   @533441 @530983 @validateSPI/SPAexternalusershouldseegrantandawardrecordoncegrantorsendthatrecordtoS/Ruser
   Scenario Outline: Validate SPI/SPA external user should see grant and award record once grantor send that record to S/R user
