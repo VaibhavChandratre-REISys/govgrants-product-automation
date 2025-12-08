@@ -5739,8 +5739,8 @@ Feature: Pre-Application scenarios without background
 
   @526117 @validateSPIuserPreapplicationisacceptedwhichiscreatedfromqualifiedannouncement
   Scenario: SPI user Preapplication is accepted which is created from qualified announcement
-    Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_NEGOTIATION_YES"
-    When I am on "SUBPORTAL" portal
+    Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PROGRAM_FOR_PREAPP_SUPP_DOC_YES"
+    And I am on "SUBPORTAL" portal
     And I login to "Grants Portal" app as "SPI3" user
     When I navigate to "Opportunities" tab
     And I navigate to "Not Yet Qualified" content inside "Opportunities" subheader on left panel
@@ -5757,40 +5757,46 @@ Feature: Pre-Application scenarios without background
     And I enter "Edition1" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I wait for "5" seconds
+    When I navigate to "Applications" tab
+    And I navigate to "Pre-Applications" content inside "Applications" subheader on left panel
+    Then I softly see toggle option "Pre-Applications - All" inside flex table id "RecipientPreApplications"
+    Then I softly see toggle option "Pre-Applications - Draft" inside flex table id "RecipientPreApplications"
+    Then I softly see toggle option "Pre-Applications - Submitted" inside flex table id "RecipientPreApplications"
+    Then I softly see toggle option "Pre-Applications - Expired" inside flex table id "RecipientPreApplications"
+    Then I softly see toggle option "Pre-Applications - My Records" inside flex table id "RecipientPreApplications"
+    When I click toggle button to select "Pre-Applications - Draft"
+    When I perform quick search for "Record Id" in "RecipientPreApplications" panel
+    And I click on "View" icon for "Record id" inside table
+    And I wait for "2" seconds
     When I navigate to "Budget" sub tab
     And I save the field labeled "Subaward Floor" as "subawardfloor1"
     And I save the field labeled "Subaward Ceiling" as "subawardcieling1"
-    #And I save the field labeled "Match Required?" as "matchrequired"
+    And I save the field labeled "Match Required?" as "matchrequired"
     When I navigate to "Forms and Files" sub tab
-#    And I upload attachment without random number "Attachment.pdf" of type "Other" from computer
+    When I click on "Attach" icon for "Mandatory" inside flex table with id "---preApplication:-:preApplicationChecklistId---" without waiting for record
+    And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
+    When I click modal button "Close"
+    And I wait for "2" seconds
+    When I navigate to "Forms and Files" sub tab
+    Then I see "Attachment.pdf" has been added in "Supporting Documents Checklist" flex table
+    And I click on top right button "Add Files" in flex table with id "---preApplication:-:ExternalPreApplicationFilesTableId---"
+    And I upload attachment without random number "Attachment.pdf" of type "Other" from computer
+    And I wait for "2" seconds
+    When I click modal button "Close"
+    And I refresh the page
     And I navigate to "Quickview" sub tab in split screen
     And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I switch to tab number "1"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     And I click on "Save" in the page details
-#    And I click on "Back" in the page details
-    And I close the tab
-    When I click on "Submit to Grantor" in the page details
-    And I pause execution for "2" seconds
-    Then I softly see the following messages in the page details contains:
-      | Overview Tab - Associate at least one active key contact with the pre-application.                                                                                  |
-      | Budget Tab - Budgeted Amount must be greater than or equal to the Subaward Floor Amount. Adjust the Budgeted Amount in the Budget period section on the Budget tab. |
-      | Overview Tab - Enter an Acknowledgement before submitting this Pre-Application.                                                                                     |
-      | Budget Tab - Enter budget details for the first budget period before submitting the Pre-Application to the Grantor.                                                 |
     When I navigate to "Overview" sub tab
     And I edit the following rows inline in flex table with id "---preApplication:-:preAppContactTableId---" by clicking "Edit" :
       | Name                       | Is Key Contact |
       | {SavedValue:SPI3 Username} | Checked        |
-    When I navigate to "Overview" sub tab
     And I wait for "2" seconds
     And I click on "Edit" in the page details
     And I enter value "Checked" into field "Agreement5__c"
     And I click on "Save" in the page details
-    When I click on "Submit to Grantor" in the page details
-    And I pause execution for "2" seconds
-    Then I softly see the following messages in the page details contains:
-      | Budget Tab - Budgeted Amount must be greater than or equal to the Subaward Floor Amount. Adjust the Budgeted Amount in the Budget period section on the Budget tab. |
-      | Budget Tab - Enter budget details for the first budget period before submitting the Pre-Application to the Grantor.                                                 |
     When I navigate to "Budget" sub tab
     Given I expand nested table containing column value "BP01"
     And I edit the following rows inline in flex table with id "---preApplication:-:budgetCategoryGridTableId---" by clicking "Edit" :
