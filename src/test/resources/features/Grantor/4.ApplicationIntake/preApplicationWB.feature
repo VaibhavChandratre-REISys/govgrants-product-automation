@@ -5739,14 +5739,14 @@ Feature: Pre-Application scenarios without background
 
   @526117 @validateSPIuserPreapplicationisacceptedwhichiscreatedfromqualifiedannouncement
   Scenario: SPI user Preapplication is accepted which is created from qualified announcement
-    Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PROGRAM_FOR_PREAPP_SUPP_DOC_YES"
+    Given I published "Competitive" type announcement having name "Automation Runtime Announcement Application" and properties "PROGRAM_FOR_PREAPP_SUPP_DOC_YES"
     And I am on "SUBPORTAL" portal
     And I login to "Grants Portal" app as "SPI3" user
     When I navigate to "Opportunities" tab
     And I navigate to "Not Yet Qualified" content inside "Opportunities" subheader on left panel
     When I click toggle button to select "Not Yet Qualified Opportunities - All"
-    And I perform quick search for "{SavedValue:Automation Runtime Announcement for Pre-App}" in "---applicationIntake:-:activeOpportunitiesTableId---" panel
-    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement for Pre-App}" inside table
+    And I perform quick search for "{SavedValue:Automation Runtime Announcement Application}" in "---applicationIntake:-:activeOpportunitiesTableId---" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement Application}" inside table
     And I save the field containing "Leverage Allowed?" as "Yes"
     And I save the field containing "Maximum # Applications Allowed" as "1"
     When I click on "Qualify" in the page details
@@ -5764,14 +5764,12 @@ Feature: Pre-Application scenarios without background
     Then I softly see toggle option "Pre-Applications - Submitted" inside flex table id "RecipientPreApplications"
     Then I softly see toggle option "Pre-Applications - Expired" inside flex table id "RecipientPreApplications"
     Then I softly see toggle option "Pre-Applications - My Records" inside flex table id "RecipientPreApplications"
-    When I click toggle button to select "Pre-Applications - Draft"
     When I perform quick search for "Record Id" in "RecipientPreApplications" panel
     And I click on "View" icon for "Record id" inside table
     And I wait for "2" seconds
     When I navigate to "Budget" sub tab
     And I save the field labeled "Subaward Floor" as "subawardfloor1"
     And I save the field labeled "Subaward Ceiling" as "subawardcieling1"
-    And I save the field labeled "Match Required?" as "matchrequired"
     When I navigate to "Forms and Files" sub tab
     When I click on "Attach" icon for "Mandatory" inside flex table with id "---preApplication:-:preApplicationChecklistId---" without waiting for record
     And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
@@ -5790,6 +5788,31 @@ Feature: Pre-Application scenarios without background
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     And I click on "Save" in the page details
     When I navigate to "Overview" sub tab
+    And I click table top right button "Associate" in flex table with id "---preApplication:-:flexGridPreAppContactTableId---"
+    When I click "Add" after selection of "Automation SPA" by showing entries "All" in flex table with id "---preApplication:-:associatePreAppContactsTableId---"
+    And I wait for "3" seconds
+    When I close "Associate Contacts" modal by clicking the top right x button
+    Then I softly see value "Automation SPA" for title "Name" inside table "---preApplication:-:flexGridPreAppContactTableId---"
+    And I click table top right button "Associate" in flex table with id "---preApplication:-:flexGridPreAppContactTableId---"
+    When I click "Add" after selection of "Automation SPI 4 contact" by showing entries "All" in flex table with id "---preApplication:-:associatePreAppContactsTableId---"
+    And I wait for "3" seconds
+    When I close "Associate Contacts" modal by clicking the top right x button
+    Then I softly see value "Automation SPI 4 contact" for title "Name" inside table "---preApplication:-:flexGridPreAppContactTableId---"
+    And I click table top right button "Associate" in flex table with id "---preApplication:-:flexGridPreAppContactTableId---"
+    When I click "Add" after selection of "Automation SPI 5 contact" by showing entries "All" in flex table with id "---preApplication:-:associatePreAppContactsTableId---"
+    And I wait for "3" seconds
+    When I close "Associate Contacts" modal by clicking the top right x button
+    Then I softly see value "Automation SPI 5 contact" for title "Name" inside table "---preApplication:-:flexGridPreAppContactTableId---"
+    And I click table top right button "Associate" in flex table with id "---preApplication:-:flexGridPreAppContactTableId---"
+    When I click "Add" after selection of "Automation SPI 6 contact" by showing entries "All" in flex table with id "---preApplication:-:associatePreAppContactsTableId---"
+    And I wait for "3" seconds
+    When I close "Associate Contacts" modal by clicking the top right x button
+    Then I softly see value "Automation SPI 6 contact" for title "Name" inside table "---preApplication:-:flexGridPreAppContactTableId---"
+    And I click table top right button "Associate" in flex table with id "---preApplication:-:flexGridPreAppContactTableId---"
+    When I click "Add" after selection of "Automation SPI 7 contact" by showing entries "All" in flex table with id "---preApplication:-:associatePreAppContactsTableId---"
+    And I wait for "3" seconds
+    When I close "Associate Contacts" modal by clicking the top right x button
+    Then I softly see value "Automation SPI 7 contact" for title "Name" inside table "---preApplication:-:flexGridPreAppContactTableId---"
     And I edit the following rows inline in flex table with id "---preApplication:-:preAppContactTableId---" by clicking "Edit" :
       | Name                       | Is Key Contact |
       | {SavedValue:SPI3 Username} | Checked        |
