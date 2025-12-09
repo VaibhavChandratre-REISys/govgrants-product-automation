@@ -6651,12 +6651,12 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - All"
     And I wait for "2" seconds
-    When I perform quick search for "{SavedValue:GrantEGMSID}" in "---subAwardStandAlone:-:RecipientGrantsPendingTableId---" panel
-    Then I softly see "No Records Found" inside flex table with id "---subAwardStandAlone:-:RecipientGrantsPendingTableId---"
+    When I perform quick search for "{SavedValue:GrantEGMSID}" in "---amendment:-:recipientActiveGrantsTableId---" panel
+    Then I softly see "No Records Found" inside flex table with id "---amendment:-:recipientActiveGrantsTableId---"
     When I navigate to "Subawards" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Subawards  - All"
-    And I perform quick search for "{SavedValue:AwardEGMSID}" in "---progressReport:-:recipientsSubawardTableId---" panel
-    Then I softly see "No Records Found" inside flex table with id "---progressReport:-:recipientsSubawardTableId---"
+    And I perform quick search for "{SavedValue:AwardEGMSID}" in "---paymentRequest:-:recipientsSubawardTableId---" panel
+    Then I softly see "No Records Found" inside flex table with id "---paymentRequest:-:recipientsSubawardTableId---"
     When I re-login to "Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Subawards" content inside "Grants, Subawards & Amendments" subheader on left panel
