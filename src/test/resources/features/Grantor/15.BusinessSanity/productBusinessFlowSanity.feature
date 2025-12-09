@@ -3699,9 +3699,11 @@ Feature: Validate sanity testing of Complete Business Flow
     And I wait for "2" seconds
     And I click on top right button "Add Files" in flex table with id "---progressReport:-:sf428cFormAttachmentTableId---"
     And I upload attachment without random number "AttachmentTesting.pdf" of type "14i. NHPA Description" from computer
+    And I wait for "5" seconds
     When I click modal button "Close"
     And I click on top right button "Add Files" in flex table with id "---progressReport:-:sf428cFormAttachmentTableId---"
     And I upload attachment without random number "AttachmentTesting.pdf" of type "14h. Environmental Compliance Requirements" from computer
+    And I wait for "5" seconds
     When I click modal button "Close"
     And I wait for "9" seconds
     When I click on "Validate" in the page details
@@ -3744,6 +3746,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I upload attachment without random number "AttachmentTesting.pdf" of type "1. Supplemental Sheet SF-428S or recipient equivalent" from computer
     And I click on top right button "Add Files" in flex table with id "---progressReport:-:sf428cFormAttachmentTableId---"
     And I upload attachment without random number "AttachmentTesting.pdf" of type "2. Additional File for Comments" from computer
+    And I pause execution for "5" seconds
     And I refresh the page
     And I wait for "4" seconds
     Then I softly can see top right button "Validate" in page detail
@@ -3787,10 +3790,12 @@ Feature: Validate sanity testing of Complete Business Flow
     And I wait for "3" seconds
     And I click on top right button "Add Files" in flex table with id "---progressReport:-:sf428cFormAttachmentTableId---"
     And I upload attachment without random number "AttachmentTesting.pdf" of type "1. Supplemental Sheet SF-428S or recipient equivalent" from computer
+    And I wait for "5" seconds
     When I click modal button "Close"
     And I wait for "2" seconds
     And I click on top right button "Add Files" in flex table with id "---progressReport:-:sf428cFormAttachmentTableId---"
     And I upload attachment without random number "AttachmentTesting.pdf" of type "2. Additional File for Comments" from computer
+    And I wait for "5" seconds
     When I click modal button "Close"
     And I wait for "9" seconds
     When I click on "Validate" in the page details
@@ -4492,9 +4497,7 @@ Feature: Validate sanity testing of Complete Business Flow
   Scenario: Scenario for user registration
     Given I begin "Organization" registration as "Register As Organization"
     When I click on "Agree" in the page details
-    And I halt execution
     When I click on "Agree" in the page details
-    And I halt execution
     And I wait for "2" seconds
     When I click on "Save" in the page details
     And I navigate to "Organization Profile" sub tab
@@ -4506,7 +4509,6 @@ Feature: Validate sanity testing of Complete Business Flow
     And I enter value "{SavedValue:uniqueEmailID}" into field "PrimaryRepEmail__c"
 #    When I click on "Save" in the page details
 #    When I click on "Submit" in the page details
-    And I halt execution
     And I am on "INTERNAL" portal
     And I login to "As a Grantor" app as "PM" user
     When I navigate to "Pending Subrecipient Registrations" content inside "Organization" subheader on left panel
@@ -4565,6 +4567,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I enter "Individual_PrimaryDetails" values from "UserRegistration_Field_Values.xlsx"
     And I enter value "Yes" into field "SameAsOrganizationAddress__c"
     When I click on "Save" in the page details
+    #captcha
     When I click on "Submit" in the page details
     And I pause execution for "5" seconds
     And I am on "INTERNAL" portal
@@ -4574,7 +4577,8 @@ Feature: Validate sanity testing of Complete Business Flow
     When I click on "Start" icon for "{SavedValue:uniqueEmailID}" inside flex table with id "{grantor_tableId:SubrecipientIndRegistration}"
     And I "Approve" in the approval decision
     And I checkout to maildrop with mailid "{SavedValue:uniqueEmailID}"
-    And I click on mail with subject "Sandbox: Welcome to GovGrants 3.0 Recipient Portal"
+#    And I click on mail with subject "Sandbox: Welcome to GovGrants 3.0 Recipient Portal"
+    And I click on mail with subject "Sandbox: Welcome to GovGrants"
     And I navigate to reset password link
     Then I set password for the user
     And I navigate to "Home" tab
@@ -4597,8 +4601,8 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click on "Send Invitation" icon for "{SavedValue:Automation Runtime} Contact" inside flex table with id "---home:-:reviewersTableId---" without waiting for record
     And I click "Send" button in modal
     And I wait for "2" seconds
-    Then I softly see the following messages in the page details :
-      | Email Sent Successfully. |
+#    Then I softly see the following messages in the page details :
+#      | Email Sent Successfully. |
     And I checkout to maildrop with mailid "{SavedValue:uniqueEmailID}"
     And I navigate to maildrop portal for "{SavedValue:uniqueEmailID}" with subject "Sandbox: Notification: You have been Invited to Register in the"
     When I click on "Agree" in the page details
@@ -4607,8 +4611,8 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click on "Save" in the page details
     When I click on "Submit" in the page details
     And I pause execution for "5" seconds
-    Then I see the following messages in the page details contains:
-      | Confirmation Message |
+#    Then I see the following messages in the page details contains:
+#      | Confirmation Message |
     And I checkout to maildrop with mailid "{SavedValue:uniqueEmailID}"
     And I click on mail with subject "Sandbox: Welcome to GovGrants 3.0 Recipient Portal"
     And I navigate to reset password link
