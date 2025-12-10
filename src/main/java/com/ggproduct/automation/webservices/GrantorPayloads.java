@@ -605,6 +605,8 @@ public class GrantorPayloads {
                 return updateApplicationWithProgramSuppDocYes(json);
             case "BY_APPLICANT_DETAILS_BUDGET_YES_RISK_NO":
                 return updateAnnouncementWithByAppDetailBudgetYes(json);
+            case "PRE_APPLICATION_NEGOTIATION_YES_MULTIPLE_FOCUS_AREA":
+                return updatePreApplicationAndNegotiationAsYesMultipleFAForAnnouncement(json);
             default:
                 return json;
         }
@@ -792,6 +794,26 @@ public class GrantorPayloads {
         json.add("Announcement", nego);
         return json;
 
+    }
+
+    private JsonObject updatePreApplicationAndNegotiationAsYesMultipleFAForAnnouncement(JsonObject json) {
+        JsonArray serviceArea = new JsonArray();
+        JsonObject serviceAreaB = new JsonObject();
+        serviceAreaB.addProperty("ServiceArea", ProjectWebServices.getIdOf("ServiceArea__c", "Automation Permanent Focus Area2"));
+        serviceArea.add(serviceAreaB);
+        JsonObject serviceAreaC = new JsonObject();
+        serviceAreaC.addProperty("ServiceArea", ProjectWebServices.getIdOf("ServiceArea__c", "Automation Permanent Focus Area3"));
+        serviceArea.add(serviceAreaC);
+        json.add("AnnouncementServiceArea", serviceArea);
+        JsonObject jsonObject1 = json.getAsJsonArray("Announcement").get(0).getAsJsonObject();
+        JsonArray pre1= new JsonArray();
+        jsonObject1.addProperty("PreApplicationNeeded", "Yes");
+        jsonObject1.addProperty("Allocationlevel", "By Applicant");
+        jsonObject1.addProperty("RiskAssessment_Required", "No");
+        jsonObject1.addProperty("IsNegotiationsAllowed", "Yes");
+        pre1.add(jsonObject1);
+        json.add("Announcement", pre1);
+        return json;
     }
 
     private JsonObject updateAnnouncementWithSecondFocusAreaByappFocusAreaRiskNoNOIncomeSubMatchNo(JsonObject json) {

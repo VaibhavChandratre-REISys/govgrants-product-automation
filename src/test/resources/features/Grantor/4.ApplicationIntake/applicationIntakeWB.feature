@@ -2757,7 +2757,6 @@ Feature: Application Intake scenarios without background
       | EGMS ID                  | Target |
       | Automation Permanent KPI | 10     |
     And I click on top right button "Associate" in flex table with id "---applicationIntake:-:goalsAndObjectivesTableId---"
-    And I halt execution
     When I click "Associate" after selection of "Automation Permanent Objective2" in the table "---applicationIntake:-:goalsTableId---"
     Then I see that "Automation Permanent Objective2" has been added in flextable with Id "---applicationIntake:-:goalsAndObjectivesTableId---"
     And I navigate to "Forms and Files" sub tab
@@ -2778,7 +2777,6 @@ Feature: Application Intake scenarios without background
     And I edit the following rows inline in flex table with id "---applicationReview:-:flexGridAppContactTableId---" by clicking "Edit" :
       | Name                       | Is Key Contact |
       | {SavedValue:SPI3 Username} | Checked        |
-
 
    @526440 @validateSPIuserapplicationissubmittedtograntorwhichiscreatedfrompreapplication
    Scenario: Validate SPI user Application is submitted to grantor which is created from preapplication
@@ -2803,36 +2801,27 @@ Feature: Application Intake scenarios without background
      And I navigate to "Overview" sub tab
      And I click table top right button "Associate" in flex table with id "---preApplication:-:flexGridPreAppContactTableId---"
      When I click "Add" after selection of "Automation SPA" by showing entries "All" in flex table with id "---preApplication:-:associatePreAppContactsTableId---"
-     And I wait for "3" seconds
-     When I close "Associate Contacts" modal by clicking the top right x button
-     Then I softly see value "Automation SPA" for title "Name" inside table "---preApplication:-:flexGridPreAppContactTableId---"
-     And I click table top right button "Associate" in flex table with id "---preApplication:-:flexGridPreAppContactTableId---"
+     And I wait for "2" seconds
      When I click "Add" after selection of "Automation SPI 4 contact" by showing entries "All" in flex table with id "---preApplication:-:associatePreAppContactsTableId---"
-     And I wait for "3" seconds
-     When I close "Associate Contacts" modal by clicking the top right x button
-     Then I softly see value "Automation SPI 4 contact" for title "Name" inside table "---preApplication:-:flexGridPreAppContactTableId---"
-     And I click table top right button "Associate" in flex table with id "---preApplication:-:flexGridPreAppContactTableId---"
+     And I wait for "2" seconds
      When I click "Add" after selection of "Automation SPI 5 contact" by showing entries "All" in flex table with id "---preApplication:-:associatePreAppContactsTableId---"
-     And I wait for "3" seconds
-     When I close "Associate Contacts" modal by clicking the top right x button
-     Then I softly see value "Automation SPI 5 contact" for title "Name" inside table "---preApplication:-:flexGridPreAppContactTableId---"
-     And I click table top right button "Associate" in flex table with id "---preApplication:-:flexGridPreAppContactTableId---"
+     And I wait for "2" seconds
      When I click "Add" after selection of "Automation SPI 6 contact" by showing entries "All" in flex table with id "---preApplication:-:associatePreAppContactsTableId---"
-     And I wait for "3" seconds
+     And I wait for "2" seconds
      When I close "Associate Contacts" modal by clicking the top right x button
-     Then I softly see value "Automation SPI 6 contact" for title "Name" inside table "---preApplication:-:flexGridPreAppContactTableId---"
      And I click table top right button "Associate" in flex table with id "---preApplication:-:flexGridPreAppContactTableId---"
      When I click "Add" after selection of "Automation SPI 7 contact" by showing entries "All" in flex table with id "---preApplication:-:associatePreAppContactsTableId---"
      And I wait for "3" seconds
      When I close "Associate Contacts" modal by clicking the top right x button
+     Then I softly see value "Automation SPA" for title "Name" inside table "---preApplication:-:flexGridPreAppContactTableId---"
+     Then I softly see value "Automation SPI 4 contact" for title "Name" inside table "---preApplication:-:flexGridPreAppContactTableId---"
+     Then I softly see value "Automation SPI 5 contact" for title "Name" inside table "---preApplication:-:flexGridPreAppContactTableId---"
+     Then I softly see value "Automation SPI 6 contact" for title "Name" inside table "---preApplication:-:flexGridPreAppContactTableId---"
      Then I softly see value "Automation SPI 7 contact" for title "Name" inside table "---preApplication:-:flexGridPreAppContactTableId---"
      And I edit the following rows inline in flex table with id "---preApplication:-:preAppContactTableId---" by clicking "Edit" :
        | Name                       | Project Role             | Is Key Contact |
        | {SavedValue:SPI3 Username} | Project Director/Manager | Checked        |
      And I wait for "2" seconds
-     And I click on "Edit" in the page details
-     And I enter value "Checked" into field "Agreement5__c"
-     And I click on "Save" in the page details
      And I navigate to "Budget" sub tab
      Given I expand nested table containing column value "BP01"
      And I edit the following rows inline in flex table with id "---preApplication:-:preApplicationAttachmentId---" by clicking "Edit" :
@@ -2862,7 +2851,6 @@ Feature: Application Intake scenarios without background
      When I click on "Create Application" in the page details
      And I wait for "3" seconds
      And I click modal button "Save and Continue"
-     And I halt execution
      And I enter "Edition" values from "Application_Field_Values.xlsx"
      When I click on "Save" in the page details
      When I save the field labeled "EGMS ID" as "AppEGMSID"
@@ -2898,6 +2886,7 @@ Feature: Application Intake scenarios without background
      And I click on "Save" in the split screen page details
      And I wait for "2" seconds
      And I get the "EGMS ID"
+     And I click on "Save" in the page details
      When I click on "Submit Application" in the page details
      When I re-login to "Grantor" app as "EXE1" user on "INTERNAL" portal
      And I navigate to "Applications" tab

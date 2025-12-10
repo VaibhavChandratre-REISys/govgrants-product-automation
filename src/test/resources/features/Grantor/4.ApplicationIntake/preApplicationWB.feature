@@ -5817,15 +5817,13 @@ Feature: Pre-Application scenarios without background
       | Name                       | Is Key Contact |
       | {SavedValue:SPI3 Username} | Checked        |
     And I wait for "2" seconds
-    And I click on "Edit" in the page details
-    And I enter value "Checked" into field "Agreement5__c"
-    And I click on "Save" in the page details
     When I navigate to "Budget" sub tab
     Given I expand nested table containing column value "BP01"
     And I edit the following rows inline in flex table with id "---preApplication:-:budgetCategoryGridTableId---" by clicking "Edit" :
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 5000   | 5000       | 50             | 100            |
     And I get the "EGMS ID"
+    And I wait for "3" seconds
     When I click on "Submit to Grantor" in the page details
     When I re-login to "Grantor" app as "FO" user on "INTERNAL" portal
     When I navigate to "Applications" tab

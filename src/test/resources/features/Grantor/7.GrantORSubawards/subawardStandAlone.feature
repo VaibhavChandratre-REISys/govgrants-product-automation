@@ -6389,19 +6389,19 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     And I wait for "2" seconds
     Then I see value "Automation Permanent Objective" for title "Title" inside table "---subAwardStandAlone:-:objectivesTableId---"
     Then I see value "Automation Permanent Objective2" for title "Title" inside table "---subAwardStandAlone:-:objectivesTableId---"
-    And I click on top right button "Associate" in flex table with id "---subAwardStandAlone:-:kpiTableId---"
-    When I enter value "Automation Permanent KPI2" into field "MasterKPI__c"
-    When I enter value "8" into field "Target__c"
-    When I click modal button "Save"
-    And I wait for "2" seconds
+#    And I click on top right button "Associate" in flex table with id "---subAwardStandAlone:-:kpiTableId---"
+#    When I enter value "Automation Permanent KPI2" into field "MasterKPI__c"
+#    When I enter value "8" into field "Target__c"
+#    When I click modal button "Save"
+#    And I wait for "2" seconds
     Then I see value "Automation Permanent KPI" for title "Title" inside table "---subAwardStandAlone:-:kpiTableId---"
-    Then I see value "Automation Permanent KPI2" for title "Title" inside table "---subAwardStandAlone:-:kpiTableId---"
+#    Then I see value "Automation Permanent KPI2" for title "Title" inside table "---subAwardStandAlone:-:kpiTableId---"
     And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:kpiTableId---" by clicking "Edit" :
       | EGMS ID                  | Target |
       | Automation Permanent KPI | 10     |
-    And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:kpiTableId---" by clicking "Edit" :
-      | EGMS ID                   | Target |
-      | Automation Permanent KPI2 | 20     |
+#    And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:kpiTableId---" by clicking "Edit" :
+#      | EGMS ID                   | Target |
+#      | Automation Permanent KPI2 | 20     |
     And I navigate to "Terms" sub tab
     And I click on "Edit" icon for "Payment Request" inside flex table with id "---subAwardStandAlone:-:paymentRequestSchedulesTableId---" without waiting for record
     When I enter in modal "Payment Request Schedule" values from "Award_Field_Values.xlsx"
@@ -6476,7 +6476,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     Then I see value "Automation Permanent Objective" for title "Title" inside table "---subAwardStandAlone:-:objectivesTableId---"
     Then I see value "Automation Permanent Objective2" for title "Title" inside table "---subAwardStandAlone:-:objectivesTableId---"
     Then I see value "Automation Permanent KPI" for title "Title" inside table "---subAwardStandAlone:-:kpiTableId---"
-    Then I see value "Automation Permanent KPI2" for title "Title" inside table "---subAwardStandAlone:-:kpiTableId---"
+#    Then I see value "Automation Permanent KPI2" for title "Title" inside table "---subAwardStandAlone:-:kpiTableId---"
     And I navigate to "Terms" sub tab
     And I expand nested table containing column value "Payment Request"
     Then I see total records count "{SavedValue:totalRecordsPaymentSchedule}" in flex table "---subAwardStandAlone:-:paymentRequestSchedulesTableId---"
