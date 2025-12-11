@@ -25633,3 +25633,6 @@ Feature: Amendment Request scenarios without background
     When I perform quick search for "{SavedValue:RAEGMSID}" in "---riskassessment:-:organizationprofileviewTableId---" panel
     When I click on "View" icon for "{SavedValue:RAEGMSID}" inside flex table with id "---riskassessment:-:organizationprofileviewTableId---" without waiting for record
     Then I softly see field "Overall Risk" as "{SavedValue:OverAllRisk}"
+
+    @531429 @validateusershouldabletoseethecreatedBPCamendmenttootherinternaluserfromsameorganization
+    Scenario: Validate user should able to see  the created BPC amendment to other internal user from same organization
