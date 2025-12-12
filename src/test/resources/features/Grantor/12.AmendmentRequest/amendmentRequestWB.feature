@@ -25677,11 +25677,11 @@ Feature: Amendment Request scenarios without background
     Examples:
       | NonOwner |
       | PO       |
-#      | EXE |
-#      | FO  |
-#      | FD  |
-#      | ADMIN  |
-#      | AUDITOR |
+      | EXE |
+      | FO  |
+      | FD  |
+      | ADMIN  |
+      | AUDITOR |
 
     @531511 @validateusershouldabletoseethecreatedBPCamendmenttootherinternaluserfromsameorganization
     Scenario Outline: Validate user should able to see  the created BPC amendment to other internal user from same organization
