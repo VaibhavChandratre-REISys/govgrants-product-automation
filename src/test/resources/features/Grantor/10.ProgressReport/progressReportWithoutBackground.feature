@@ -10703,21 +10703,28 @@ Feature: Validate scenarios in Progress Report without background
 
   @531936 @validateprogressreportrecordshouldsharewithSPI/SPAuserfromsameorgincreatedstate
   Scenario: Validate progress report record should share with SPI/SPA user from same org in created state
-    Given I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
+    Given I activated standalone subaward "Automation Runtime Direct Award" with properties "default" of type "Competitive"
+    Given I delete the record "{SavedValue:Automation Runtime Direct Award}" from the object "Progress Report"
+    When I create a post award record "ProgressReport" for the Award "{SavedValue:Automation Runtime Direct Award}" having object api name as "ProgressReports__c"
     And I am on "SUBPORTAL" portal
     And I login to "Grants Portal" app as "SPI3" user
-    And I delete the record "<Award Name>" from the object "Progress Report"
-    And I delete the record "<Award Name>" from the object "Progress Report"
-    When I create a post award record "ProgressReport" for the Award "<Award Name>" having object api name as "ProgressReports__c"
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    When I perform quick search for "Record Id" in "---progressReport:-:pendingTaskTableId---" panel
-    When I click on "Start" icon for "Record Id" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
+    When I perform quick search for "{SavedValue:Record Id}" in "---progressReport:-:pendingTaskTableId---" panel
+    When I click on "Start" icon for "{SavedValue:Record Id}" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
+    And I click on "Edit" in the page details
+    When I navigate to "Forms and Files" sub tab
+    And I click on "Attach" icon for "Active" inside flex table with id "---progressReport:-:progressReportChecklistsTableId---" without waiting for record
+    And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
+    When I click modal button "Close"
+    And I wait for "2" seconds
+    And I click on "Save" in the page details
     When I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "progID"
+    And I save the field labeled "Subaward ID" as "SubAwardID"
     And I click on "Edit" in the page details
     When I enter "Edition" values from "ProgressReport_Field_Values.xlsx"
     And I click on "Save" in the page details
-    When I save the field labeled "EGMS ID" as "progID"
     And I navigate to "Performance" sub tab
     When I edit the following rows inline in flex table with id "---progressReport:-:kpiTableId---" by clicking "Edit" :
       | Title                    | Reported Date | Actual |
@@ -10729,11 +10736,6 @@ Feature: Validate scenarios in Progress Report without background
     And I click on "Save" in the page details
     And I close the tab
     And I refresh the page
-    When I navigate to "Forms and Files" sub tab
-    And I click on "Attach" icon for "Active" inside flex table with id "---progressReport:-:progressReportChecklistsTableId---" without waiting for record
-    And I upload attachment without random number "AttachmentTesting.pdf" of type "Others" from computer
-    And I click modal button "Close"
-    And I wait for "3" seconds
     When I re-login to "Grants Portal" app as "SPA" user on "SUBPORTAL" portal
     And I navigate to "Monitoring" tab
     And I navigate to "Progress Reports" content inside "Monitoring Activities" subheader on left panel
