@@ -808,7 +808,7 @@ public class GrantorPayloads {
         JsonObject jsonObject1 = json.getAsJsonArray("Announcement").get(0).getAsJsonObject();
         JsonArray pre1= new JsonArray();
         jsonObject1.addProperty("PreApplicationNeeded", "Yes");
-        jsonObject1.addProperty("Allocationlevel", "By Applicant");
+        jsonObject1.addProperty("Allocationlevel", "N/A");
         jsonObject1.addProperty("RiskAssessment_Required", "No");
         jsonObject1.addProperty("IsNegotiationsAllowed", "Yes");
         pre1.add(jsonObject1);

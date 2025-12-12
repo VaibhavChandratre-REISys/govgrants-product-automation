@@ -2826,19 +2826,38 @@ Feature: Application Intake scenarios without background
      Given I expand nested table containing column value "BP01"
      And I edit the following rows inline in flex table with id "---preApplication:-:preApplicationAttachmentId---" by clicking "Edit" :
        | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
-       | Construction  | 5000   | 5000       | 50             | 100            |
+       | Construction  | 5000   | 500       | 50             | 100            |
      When I navigate to "Forms and Files" sub tab
+     When I click on "Attach" icon for "Mandatory" inside flex table with id "---preApplication:-:preApplicationChecklistId---" without waiting for record
+     And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
+     When I click modal button "Close"
+     And I wait for "2" seconds
+     When I navigate to "Forms and Files" sub tab
+     Then I see "View" has been added in "Supporting Documents Checklist" flex table
      And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
      And I switch to tab number "1"
      And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
      And I click on "Save" in the page details
      And I close the tab
      When I click on "Submit to Grantor" in the page details
-     When I re-login to "Grantor" app as "EXE1" user on "INTERNAL" portal
+     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
      When I navigate to "Applications" tab
      And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
      When I perform quick search for "{SavedValue:PreappEGMSID}" in "---preApplication:-:pendingTaskTableId---" panel
      And I click on "Start" icon for "{SavedValue:PreappEGMSID}" inside table
+     When I navigate to "Overview" sub tab
+     Then I softly see value "Automation SPA" for title "Name" inside table "---preApplication:-:flexGridPreAppContactTableId---"
+     Then I softly see value "Automation SPI 4 contact" for title "Name" inside table "---preApplication:-:flexGridPreAppContactTableId---"
+     Then I softly see value "Automation SPI 5 contact" for title "Name" inside table "---preApplication:-:flexGridPreAppContactTableId---"
+     Then I softly see value "Automation SPI 6 contact" for title "Name" inside table "---preApplication:-:flexGridPreAppContactTableId---"
+     Then I softly see value "Automation SPI 7 contact" for title "Name" inside table "---preApplication:-:flexGridPreAppContactTableId---"
+     And I navigate to "Budget" sub tab
+     Then I softly see value "$5,000.00" for title "Budget" against the value "Construction" inside table "---preApplication:-:preApplicationAttachmentId---"
+     When I navigate to "Forms and Files" sub tab
+     Then I see "View" has been added in "Supporting Documents Checklist" flex table
+     Then I can see row level action button "View" against "Standard Pre-Application form" in flex table with id "---preApplication:-:preAppFormTableId---"
+     Then I can see row level action button "Preview" against "Standard Pre-Application form" in flex table with id "---preApplication:-:preAppFormTableId---"
+     Then I cannot see row level action button "Edit" against "Standard Pre-Application form" in flex table with id "---preApplication:-:preAppFormTableId---"
      When I click on "Accept" in the page details
      And I wait for "3" seconds
      When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
@@ -2847,6 +2866,19 @@ Feature: Application Intake scenarios without background
      When I click toggle button to select "Pre-Applications - Submitted"
      And I perform quick search for "{SavedValue:PreappEGMSID}" in "RecipientPreApplications" panel
      When I click on "View" icon for "{SavedValue:PreappEGMSID}" inside table
+     When I navigate to "Overview" sub tab
+     Then I softly see value "Automation SPA" for title "Name" inside table "---preApplication:-:flexGridPreAppContactTableId---"
+     Then I softly see value "Automation SPI 4 contact" for title "Name" inside table "---preApplication:-:flexGridPreAppContactTableId---"
+     Then I softly see value "Automation SPI 5 contact" for title "Name" inside table "---preApplication:-:flexGridPreAppContactTableId---"
+     Then I softly see value "Automation SPI 6 contact" for title "Name" inside table "---preApplication:-:flexGridPreAppContactTableId---"
+     Then I softly see value "Automation SPI 7 contact" for title "Name" inside table "---preApplication:-:flexGridPreAppContactTableId---"
+     And I navigate to "Budget" sub tab
+     Then I softly see value "$5,000.00" for title "Budget" against the value "Construction" inside table "---preApplication:-:preApplicationAttachmentId---"
+     When I navigate to "Forms and Files" sub tab
+     Then I see "View" has been added in "Supporting Documents Checklist" flex table
+     Then I can see row level action button "View" against "Standard Pre-Application form" in flex table with id "---preApplication:-:preAppFormTableId---"
+     Then I can see row level action button "Preview" against "Standard Pre-Application form" in flex table with id "---preApplication:-:preAppFormTableId---"
+     Then I cannot see row level action button "Edit" against "Standard Pre-Application form" in flex table with id "---preApplication:-:preAppFormTableId---"
      Then I softly can see top right button "Create Application" in page detail
      When I click on "Create Application" in the page details
      And I wait for "3" seconds
@@ -2888,7 +2920,7 @@ Feature: Application Intake scenarios without background
      And I get the "EGMS ID"
      And I click on "Save" in the page details
      When I click on "Submit Application" in the page details
-     When I re-login to "Grantor" app as "EXE1" user on "INTERNAL" portal
+     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
      And I navigate to "Applications" tab
      When I navigate to "Applications" content inside "Applications" subheader on left panel
      When I click toggle button to select "Applications - All"
