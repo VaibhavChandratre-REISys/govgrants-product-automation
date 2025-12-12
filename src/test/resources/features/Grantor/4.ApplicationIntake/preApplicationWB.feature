@@ -5751,7 +5751,7 @@ Feature: Pre-Application scenarios without background
     And I save the field containing "Maximum # Applications Allowed" as "1"
     When I click on "Qualify" in the page details
     And I click on "Create Pre-Application" in the page details
-    And I wait for "2" seconds
+    And I wait for "3" seconds
     When I click modal button "Save and Continue"
     And I get the "EGMS ID"
     And I enter "Edition1" values from "PreApplication_Field_Values.xlsx"
@@ -5775,18 +5775,19 @@ Feature: Pre-Application scenarios without background
     And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
     When I click modal button "Close"
     And I wait for "2" seconds
-    When I navigate to "Forms and Files" sub tab
-    Then I see "Attachment.pdf" has been added in "Supporting Documents Checklist" flex table
+    Then I softly see value "View" for title "Subrecipient Document Link" against the value "Mandatory" inside table "Supporting Documents Checklist"
+#    Then I see "View" has been added in "Supporting Documents Checklist" flex table
     And I click on top right button "Add Files" in flex table with id "---preApplication:-:ExternalPreApplicationFilesTableId---"
     And I upload attachment without random number "Attachment.pdf" of type "Other" from computer
     And I wait for "2" seconds
     When I click modal button "Close"
+    Then I softly see value "Attachment.pdf" for title "Title" inside table "---preApplication:-:ExternalPreApplicationFilesTableId---"
     And I refresh the page
-    And I navigate to "Quickview" sub tab in split screen
     And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I switch to tab number "1"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
-    And I click on "Save" in the page details
+    When I click on "Save" in the page details
+    And I click on "Back" in the page details
     When I navigate to "Overview" sub tab
     And I click table top right button "Associate" in flex table with id "---preApplication:-:flexGridPreAppContactTableId---"
     When I click "Add" after selection of "Automation SPA" by showing entries "All" in flex table with id "---preApplication:-:associatePreAppContactsTableId---"
@@ -5821,7 +5822,7 @@ Feature: Pre-Application scenarios without background
     Given I expand nested table containing column value "BP01"
     And I edit the following rows inline in flex table with id "---preApplication:-:budgetCategoryGridTableId---" by clicking "Edit" :
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
-      | Construction  | 5000   | 5000       | 50             | 100            |
+      | Construction  | 5000   | 500       | 50             | 100            |
     And I get the "EGMS ID"
     And I wait for "3" seconds
     When I click on "Submit to Grantor" in the page details
@@ -5840,5 +5841,24 @@ Feature: Pre-Application scenarios without background
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---preApplication:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "Record Id" inside table
+    When I navigate to "Overview" sub tab
+    Then I softly see value "Automation SPA" for title "Name" inside table "---preApplication:-:flexGridPreAppContactTableId---"
+    Then I softly see value "Automation SPI 4 contact" for title "Name" inside table "---preApplication:-:flexGridPreAppContactTableId---"
+    Then I softly see value "Automation SPI 5 contact" for title "Name" inside table "---preApplication:-:flexGridPreAppContactTableId---"
+    Then I softly see value "Automation SPI 6 contact" for title "Name" inside table "---preApplication:-:flexGridPreAppContactTableId---"
+    Then I softly see value "Automation SPI 7 contact" for title "Name" inside table "---preApplication:-:flexGridPreAppContactTableId---"
+    When I navigate to "Budget" sub tab
+    Then I softly see field "Subaward Floor" as "{SavedValue:subawardfloor1}"
+    Then I softly see field "Subaward Ceiling" as "{SavedValue:subawardcieling1}"
+    Given I expand nested table containing column value "BP01"
+    Then I softly see value "$5,000.00" for title "Budget" against the value "Construction" inside table "---preApplication:-:budgetCategoryGridTableId---"
+    Then I softly see value "$500.00" for title "Cash Match" against the value "Construction" inside table "---preApplication:-:budgetCategoryGridTableId---"
+    Then I softly see value "$50.00" for title "Non-Cash Match" against the value "Construction" inside table "---preApplication:-:budgetCategoryGridTableId---"
+    When I navigate to "Forms and Files" sub tab
+    Then I softly see "View" has been added in "Supporting Documents Checklist" flex table
+    Then I softly see value "Attachment.pdf" for title "Title" inside table "---preApplication:-:ExternalPreApplicationFilesTableId---"
+    Then I can see row level action button "View" against "Standard Pre-Application form" in flex table with id "---preApplication:-:preAppFormTableId---"
+    Then I can see row level action button "Preview" against "Standard Pre-Application form" in flex table with id "---preApplication:-:preAppFormTableId---"
+    Then I cannot see row level action button "Edit" against "Standard Pre-Application form" in flex table with id "---preApplication:-:preAppFormTableId---"
     When I click on "Accept" in the page details
     Then I softly see field "Status" as "Accepted"
