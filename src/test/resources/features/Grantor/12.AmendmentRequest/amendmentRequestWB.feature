@@ -26167,13 +26167,9 @@ Feature: Amendment Request scenarios without background
     And I save the field labeled "EGMS ID" as "BPCId"
     When I re-login to "Grants Portal" app as "SPA" user on "SUBPORTAL" portal
     And I perform quick search inside global search "{SavedValue:BPCId}"
-    And I click on row level action button "Edit" against "{SavedValue:BPCId}" in global search with id "Amendment Requests"
+    And I click on hyperlink containing value "{SavedValue:BPCId}"
     Then I softly see field "Status" as "Created"
     Then I see status in Progress-bar is "Created" and is "dark blue"
-    And I navigate to "Grants" tab
-    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    When I perform quick search for "{SavedValue:BPCId}" in "---amendment:-:pendingTaskTableId---" panel
-    Then I softly see value "{SavedValue:BPCId}" for title "EGMS ID" inside table "---amendment:-:pendingTaskTableId---"
     And I navigate to "Grants" tab
     When I navigate to "Amendment Requests" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Amendment Requests - All"
@@ -26187,9 +26183,10 @@ Feature: Amendment Request scenarios without background
     When I navigate to "Management" sub tab
     Then I softly see value "{SavedValue:BPCId}" for title "EGMS ID" inside table "---amendment:-:recipientAwardAmendmentRequestTableId---"
     When I navigate to "Overview" sub tab
+    And I save the field labeled "Grant ID" as "GrantEGMSID"
     When I click on hyperlink containing value "{SavedValue:GrantEGMSID}"
     When I navigate to "Requests" sub tab
-    Then I softly see value "{SavedValue:BPCId}" for title "EGMS ID" inside table "---amendment:-:SubrecipientGrantAmendmentTableId---"
+    Then I softly see value "{SavedValue:BPCId}" for title "EGMS ID" inside table "---subAwardStandAlone:-:SubrecipientGrantAmendmentTableId---"
     When I re-login to "Grants Portal" app as "IND" user on "SUBPORTAL" portal
     And I perform quick search inside global search "{SavedValue:BPCId}"
     Then I softly do not see value "{SavedValue:BPCId}" for title "EGMS ID" inside table "Amendment Requests"
@@ -26210,7 +26207,7 @@ Feature: Amendment Request scenarios without background
     When I click on "View" icon for "{SavedValue:BPCId}" inside flex table with id "---amendment:-:recipientSideAmendmentRequestTableId---" without waiting for record
     And I click on "Submit to Grantor" in the page details
     Then I softly see field "Status" as "Submitted to Grantor"
-    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PO" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:BPCId}" in "---amendment:-:pendingTaskTableId---" panel
@@ -26236,6 +26233,7 @@ Feature: Amendment Request scenarios without background
     When I perform quick search for "{SavedValue:BPCId}" in "---subAwardStandAlone:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "{SavedValue:BPCId}" inside flex table with id "---subAwardStandAlone:-:pendingTaskTableId---" without waiting for record
     And I "Approve" in the approval decision
+    And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:BPCId}" in "---subAwardStandAlone:-:pendingTaskTableId---" panel
     Then I softly see "No Records Found" inside flex table with id "---subAwardStandAlone:-:pendingTaskTableId---"
@@ -26245,3 +26243,111 @@ Feature: Amendment Request scenarios without background
     When I perform quick search for "{SavedValue:BPCId}" in "---subAwardStandAlone:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "{SavedValue:BPCId}" inside flex table with id "---subAwardStandAlone:-:pendingTaskTableId---" without waiting for record
     And I "Approve" in the approval decision
+
+  @531380 @validatecombinationofamendmentFlexsharingSPI,SPAusersfromsameorganizationcanViewCombinationofamendmentcreatedbySPIuser
+  Scenario: Validate Combination of amendment Flexsharing  SPI, SPA users from same organization can View  Combination of amendment  created by SPI user
+    Given I activated standalone subaward "Automation Runtime Award" with properties "SECOND_FOCUS_AREA_BUD_CAT_BUILDUP_YES-Automation PO user" of type "Formula_By_Applicant"
+    When I am on "SUBPORTAL" portal
+    When I login to "Grants Portal" app as "SPI3" user
+    And I navigate to "Grants" tab
+    And I navigate to "Subawards" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click toggle button to select "Subawards  - All"
+    When I perform quick search for "{SavedValue:Automation Runtime Award}" in "---amendment:-:recipientsSubawardTableId---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside flex table with id "---amendment:-:recipientsSubawardTableId---" without waiting for record
+    Given I navigate to "Management" sub tab
+    And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:recipientAwardAmendmentRequestTableId---"
+    When I enter "Sub_BR_KPC_SOW_creation" values from "AmendmentRequest_Field_Values.xlsx"
+    And I click modal button "Save and Continue"
+    And I enter value "Automation Justification" into field "Justification__c"
+    And I enter value "Automation Justification" into field "ContactChangeDescription__c"
+    And I enter "Subrecipient_SOW_Edition" values from "AmendmentRequest_Field_Values.xlsx"
+    When I click on "Save" in the page details
+    And I save the field labeled "EGMS ID" as "budRedKPCSOWId"
+    And I navigate to "Overview" sub tab
+    And I edit the following rows inline in flex table with id "---amendment:-:RecipientKeyPersonalTableId---" by clicking "Edit" :
+      | Name                       | Project Role |
+      | {SavedValue:SPI3 Username} | Other        |
+    And I wait for "2" seconds
+    And I refresh the page
+    Then I softly see status in Progress-bar is "Created" and is "dark blue"
+    When I click on "Add Line Items" icon for "Construction" inside flex table with id "---amendment:-:budgetChangeTableId---"
+    And I edit the following rows inline in flex table with id "---amendment:-:amendmentLineItemsTableId---" by clicking "Edit" :
+      | Title        | Award Amount |
+      | Construction | 450          |
+    And I wait for "2" seconds
+    When I close "Amendment Line Items" modal by clicking the top right x button
+    When I click on "Add Line Items" icon for "Indirect costs" inside flex table with id "---amendment:-:budgetChangeTableId---"
+    And I enter the following values into flex table with id "---amendment:-:amendmentLineItemsTableId---" by clicking "New" :
+      | Title        | Narrative     | Award Amount |
+      | Construction | The Narrative | 50           |
+    And I wait for "2" seconds
+    When I close "Amendment Line Items" modal by clicking the top right x button
+    And I wait for "3" seconds
+    And I click on page navigation arrow "---amendment:-:budgetChangeTableId---" for table id "Next"
+    And I wait for "3" seconds
+    When I click on "Add Line Items" icon for "Construction" inside flex table with id "---amendment:-:budgetChangeTableId---"
+    And I edit the following rows inline in flex table with id "---amendment:-:amendmentLineItemsTableId---" by clicking "Edit" :
+      | Title        | Award Amount |
+      | Construction | 450          |
+    And I wait for "2" seconds
+    When I close "Amendment Line Items" modal by clicking the top right x button
+    And I wait for "3" seconds
+    When I click on "Add Line Items" icon for "Indirect costs" inside flex table with id "---amendment:-:budgetChangeTableId---"
+    And I enter the following values into flex table with id "---amendment:-:amendmentLineItemsTableId---" by clicking "New" :
+      | Title        | Narrative     | Award Amount |
+      | Construction | The Narrative | 50           |
+    And I wait for "2" seconds
+    When I close "Amendment Line Items" modal by clicking the top right x button
+    And I wait for "2" seconds
+    When I re-login to "Grants Portal" app as "SPA" user on "SUBPORTAL" portal
+    And I perform quick search inside global search "{SavedValue:budRedKPCSOWId}"
+    And I click on hyperlink containing value "{SavedValue:budRedKPCSOWId}"
+    Then I softly see field "Status" as "Created"
+    Then I see status in Progress-bar is "Created" and is "dark blue"
+    And I navigate to "Grants" tab
+    When I navigate to "Amendment Requests" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click toggle button to select "Amendment Requests - All"
+    And I perform quick search for "{SavedValue:budRedKPCSOWId}" in "---amendment:-:recipientSideAmendmentRequestTableId---" panel
+    Then I softly see value "{SavedValue:budRedKPCSOWId}" for title "EGMS ID" inside table "---amendment:-:recipientSideAmendmentRequestTableId---"
+    When I click on "View" icon for "{SavedValue:budRedKPCSOWId}" inside flex table with id "---amendment:-:recipientSideAmendmentRequestTableId---" without waiting for record
+    And I navigate to "Grants" tab
+    When I navigate to "Subawards" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I perform quick search for "{SavedValue:AwardEGMSID}" in "---paymentRequest:-:recipientsSubawardTableId---" panel
+    When I click on "View" icon for "{SavedValue:AwardEGMSID}" inside flex table with id "---paymentRequest:-:recipientsSubawardTableId---" without waiting for record
+    When I navigate to "Management" sub tab
+    Then I softly see value "{SavedValue:budRedKPCSOWId}" for title "EGMS ID" inside table "---amendment:-:recipientAwardAmendmentRequestTableId---"
+    When I navigate to "Overview" sub tab
+    And I save the field labeled "Grant ID" as "GrantEGMSID"
+    When I click on hyperlink containing value "{SavedValue:GrantEGMSID}"
+    When I navigate to "Requests" sub tab
+    Then I softly see value "{SavedValue:budRedKPCSOWId}" for title "EGMS ID" inside table "---amendment:-:SubrecipientGrantAmendmentTableId---"
+    When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
+    And I navigate to "Grants" tab
+    When I navigate to "Amendment Requests" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click toggle button to select "Amendment Requests - All"
+    And I perform quick search for "{SavedValue:budRedKPCSOWId}" in "---amendment:-:recipientSideAmendmentRequestTableId---" panel
+    Then I softly see value "{SavedValue:budRedKPCSOWId}" for title "EGMS ID" inside table "---amendment:-:recipientSideAmendmentRequestTableId---"
+    When I click on "View" icon for "{SavedValue:budRedKPCSOWId}" inside flex table with id "---amendment:-:recipientSideAmendmentRequestTableId---" without waiting for record
+    And I click on "Submit to Grantor" in the page details
+    Then I softly see field "Status" as "Submitted to Grantor"
+    When I re-login to "Grantor" app as "PO" user on "INTERNAL" portal
+    And I navigate to "Grants" tab
+    And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    When I perform quick search for "{SavedValue:budRedKPCSOWId}" in "---amendment:-:pendingTaskTableId---" panel
+    And I click on "Start" icon for "{SavedValue:budRedKPCSOWId}" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
+    When I navigate to "Responsibilities" sub tab
+    When I enter the following values into flex table with id "---amendment:-:approversTableId---" by clicking "New" :
+      | Name                      | Amendment Request |
+      | {SavedValue:EXE Username} | NA                |
+    When I enter the following values into flex table with id "---amendment:-:approversTableId---" by clicking "New" :
+      | Name                      | Amendment Request |
+      | {SavedValue:EXE Username} | Step 1            |
+    When I click on "Submit for Approval" in the page details
+    Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
+    When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
+    And I navigate to "Grants" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    When I perform quick search for "{SavedValue:budRedKPCSOWId}" in "---amendment:-:pendingTaskTableId---" panel
+    When I click on "Start" icon for "{SavedValue:budRedKPCSOWId}" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
+    And I "Approve" in the approval decision
+    Then I softly see field "Status" as "Approved"
