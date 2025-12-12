@@ -1109,7 +1109,7 @@ Feature: Validate all scenarios in Negotiations
     When I click on "Save" in the page details
     Then I softly see field "Application Sections for Negotiation" as "Forms and Files: Forms"
     When I click on "Send to Subrecipient" in the page details
-    When I re-login to "Grants Portal" app as "SPI4" user on "SUBPORTAL" portal
+    When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Home" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:EGMSID}" in "---negotiation:-:homePendingTasks---" panel

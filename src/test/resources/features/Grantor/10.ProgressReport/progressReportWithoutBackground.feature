@@ -330,7 +330,7 @@ Feature: Validate scenarios in Progress Report without background
       | Award Name                            | Grant Name                            |
       | {SavedValue:Automation Runtime Award} | {SavedValue:Automation Runtime Award} |
 
-  @34944 @validateInternalUserIsAbleToSeeSchedulesGeneratedUnderScheduledActivitiesOnActiveAward   @
+  @34944 @validateInternalUserIsAbleToSeeSchedulesGeneratedUnderScheduledActivitiesOnActiveAward
   Scenario Outline: Validate Internal User is able to see the Schedules generated under Scheduled Activities on active award
     Given I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     When I login to "Grantor" app as "dynamicUser" user
@@ -10700,3 +10700,58 @@ Feature: Validate scenarios in Progress Report without background
     Then I softly can see top right button "New" in flex table with id "---progressReport:-:GrantorNotesProgressReporttableId---"
     Then I cannot see row level action button "Delete" against "Notes Record" in flex table with id "---progressReport:-:GrantorNotesProgressReporttableId---"
     Then I cannot see row level action button "Edit" against "Notes Record" in flex table with id "---progressReport:-:GrantorNotesProgressReporttableId---"
+
+  @531936 @validateprogressreportrecordshouldsharewithSPI/SPAuserfromsameorgincreatedstate
+  Scenario: Validate progress report record should share with SPI/SPA user from same org in created state
+    Given I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
+    And I am on "SUBPORTAL" portal
+    And I login to "Grants Portal" app as "SPI3" user
+    And I delete the record "<Award Name>" from the object "Progress Report"
+    And I delete the record "<Award Name>" from the object "Progress Report"
+    When I create a post award record "ProgressReport" for the Award "<Award Name>" having object api name as "ProgressReports__c"
+    And I navigate to "Monitoring" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    When I perform quick search for "Record Id" in "---progressReport:-:pendingTaskTableId---" panel
+    When I click on "Start" icon for "Record Id" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
+    When I get the "EGMS ID"
+    And I click on "Edit" in the page details
+    When I enter "Edition" values from "ProgressReport_Field_Values.xlsx"
+    And I click on "Save" in the page details
+    When I save the field labeled "EGMS ID" as "progID"
+    And I navigate to "Performance" sub tab
+    When I edit the following rows inline in flex table with id "---progressReport:-:kpiTableId---" by clicking "Edit" :
+      | Title                    | Reported Date | Actual |
+      | Automation Permanent KPI | 7             | 7      |
+    When I navigate to "Forms and Files" sub tab
+    And I click on "Edit" icon for "Community Initiative Progress Report" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
+    And I switch to tab number "1"
+    And I enter "Form Fields" values from "ProgressReport_Field_Values.xlsx"
+    And I click on "Save" in the page details
+    And I close the tab
+    And I refresh the page
+    When I navigate to "Forms and Files" sub tab
+    And I click on "Attach" icon for "Active" inside flex table with id "---progressReport:-:progressReportChecklistsTableId---" without waiting for record
+    And I upload attachment without random number "AttachmentTesting.pdf" of type "Others" from computer
+    And I click modal button "Close"
+    And I wait for "3" seconds
+    When I re-login to "Grants Portal" app as "SPA" user on "SUBPORTAL" portal
+    And I navigate to "Monitoring" tab
+    And I navigate to "Progress Reports" content inside "Monitoring Activities" subheader on left panel
+    When I click toggle button to select "Progress Reports - All"
+    When I perform quick search for "{SavedValue:progID}" in "---progressReport:-:progressReportFlexTableId---" panel
+    And I click on "View" icon for "{SavedValue:progID}" inside flex table with id "---progressReport:-:progressReportFlexTableId---" without waiting for record
+    And I click on "Edit" in the page details
+    When I enter "Edition" values from "ProgressReport_Field_Values.xlsx"
+    And I click on "Save" in the page details
+    And I navigate to "Performance" sub tab
+    When I edit the following rows inline in flex table with id "---progressReport:-:kpiTableId---" by clicking "Edit" :
+      | Title                    | Reported Date | Actual |
+      | Automation Permanent KPI | 7             | 7      |
+    When I navigate to "Forms and Files" sub tab
+    And I click on "Edit" icon for "Community Initiative Progress Report" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
+    And I switch to tab number "1"
+    And I enter "Form Fields" values from "ProgressReport_Field_Values.xlsx"
+    And I click on "Save" in the page details
+    And I close the tab
+    And I refresh the page
+    Then I softly cannot see top right button "Submit to Grantor" in page detail

@@ -26186,7 +26186,7 @@ Feature: Amendment Request scenarios without background
     And I save the field labeled "Grant ID" as "GrantEGMSID"
     When I click on hyperlink containing value "{SavedValue:GrantEGMSID}"
     When I navigate to "Requests" sub tab
-    Then I softly see value "{SavedValue:BPCId}" for title "EGMS ID" inside table "---subAwardStandAlone:-:SubrecipientGrantAmendmentTableId---"
+    Then I softly see value "{SavedValue:BPCId}" for title "EGMS ID" inside table "---amendment:-:SubrecipientGrantAmendmentTableId---"
     When I re-login to "Grants Portal" app as "IND" user on "SUBPORTAL" portal
     And I perform quick search inside global search "{SavedValue:BPCId}"
     Then I softly do not see value "{SavedValue:BPCId}" for title "EGMS ID" inside table "Amendment Requests"
