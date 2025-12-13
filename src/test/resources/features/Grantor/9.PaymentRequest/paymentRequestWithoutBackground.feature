@@ -7386,9 +7386,8 @@ Feature: Payment Request scenarios without background
     Then I softly see value "$10.00" for title "Advance Requested This Action" against the value "Construction" inside table "---paymentRequest:-:budgetTableId---"
     Then I softly see value "$10.00" for title "Total Advance" against the value "Construction" inside table "---paymentRequest:-:budgetTableId---"
     When I navigate to "Forms and Files" sub tab
-    Then I softly see value "{SavedValue:TemplateLink}" for title "Template Link" inside table "---paymentRequest:-:recipientAdvanceSupportiveDocumentChecklistTableId---"
-    And I click on hyperlink for the field "ContentVersionLink__c" containing value "{SavedValue:TemplateLink}"
-    And I download the file without rename
+    Then I softly see value "View" for title "Template Link" inside table "---paymentRequest:-:recipientAdvanceSupportiveDocumentChecklistTableId---"
+    And I click on hyperlink containing value "View"
     And I wait for "3" seconds
     Then I softly verify that the file "Attachment.pdf" is downloaded
     And I close the tab
