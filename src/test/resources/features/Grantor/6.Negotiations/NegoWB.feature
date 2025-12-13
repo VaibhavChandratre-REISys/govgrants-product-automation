@@ -910,14 +910,6 @@ Feature: Validate all scenarios in Negotiations
     And I enter value "Checked" into field "Agreement5__c"
     And I click on "Save" in the page details
     And I navigate to "Budget" sub tab
-    Then I softly can see top right button "Add Focus Area" in flex table with id "---applicationIntake:-:focusAreaTableAppId---"
-    When I click on top right button "Add Focus Area" in flex table with id "---applicationIntake:-:focusAreaTableAppId---"
-    When I click "Associate" after selection of "Automation Permanent Focus Area2" in the table "---grantee_tableId:-:selectAwardFocusAreaTableId---"
-    And I click modal button "Close"
-    When I click on top right button "Add Focus Area" in flex table with id "---applicationIntake:-:focusAreaTableAppId---"
-    When I click "Associate" after selection of "Automation Permanent Focus Area3" in the table "---grantee_tableId:-:selectAwardFocusAreaTableId---"
-    And I click modal button "Close"
-    And I refresh the page
     And I wait for "3" seconds
     Given I expand nested table containing column value "BP01"
     Then I softly see "Focus Area : Automation Permanent Focus Area" inside rows of enhanced grid id "---preApplication:-:SubRecipientBudgetPeriodTableId---"

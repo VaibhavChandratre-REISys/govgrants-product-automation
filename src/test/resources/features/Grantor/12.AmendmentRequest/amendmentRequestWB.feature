@@ -25674,6 +25674,38 @@ Feature: Amendment Request scenarios without background
     Then I cannot see top right button "Edit" in page detail
     Then I softly see field "Status" as "Created"
     Then I see status in Progress-bar is "Created" and is "dark blue"
+    When I re-login to "Grantor" app as "AUDITOR" user on "INTERNAL" portal
+    And I perform quick search inside global search "{SavedValue:budgetPChangeId}"
+    Then I softly cannot see row level action button "Edit" against "{SavedValue:budgetPChangeId}" in global search with id "Amendment Requests"
+    When I click on hyperlink containing value "{SavedValue:budgetPChangeId}"
+    Then I softly see field "Status" as "Created"
+    Then I see status in Progress-bar is "Created" and is "dark blue"
+    Then I cannot see top right button "Save" in page detail
+    Then I cannot see top right button "Cancel" in page detail
+    And I navigate to "Grants" tab
+    When I navigate to "Amendment Requests" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click toggle button to select "Amendment Requests - All"
+    And I perform quick search for "{SavedValue:budgetPChangeId}" in "---amendment:-:grantorAmendmentRequestsTableId---" panel
+    When I click on "View" icon for "{SavedValue:budgetPChangeId}" inside flex table with id "---amendment:-:grantorAmendmentRequestsTableId---" without waiting for record
+    Then I cannot see top right button "Edit" in page detail
+    Then I softly see field "Status" as "Created"
+    Then I see status in Progress-bar is "Created" and is "dark blue"
+    When I re-login to "Grantor" app as "AUDITOR" user on "INTERNAL" portal
+    And I perform quick search inside global search "{SavedValue:budgetPChangeId}"
+    Then I softly cannot see row level action button "Edit" against "{SavedValue:budgetPChangeId}" in global search with id "Amendment Requests"
+    When I click on hyperlink containing value "{SavedValue:budgetPChangeId}"
+    Then I softly see field "Status" as "Created"
+    Then I see status in Progress-bar is "Created" and is "dark blue"
+    Then I cannot see top right button "Save" in page detail
+    Then I cannot see top right button "Cancel" in page detail
+    And I navigate to "Grants" tab
+    When I navigate to "Amendment Requests" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click toggle button to select "Amendment Requests - All"
+    And I perform quick search for "{SavedValue:budgetPChangeId}" in "---amendment:-:grantorAmendmentRequestsTableId---" panel
+    When I click on "View" icon for "{SavedValue:budgetPChangeId}" inside flex table with id "---amendment:-:grantorAmendmentRequestsTableId---" without waiting for record
+    Then I cannot see top right button "Edit" in page detail
+    Then I softly see field "Status" as "Created"
+    Then I see status in Progress-bar is "Created" and is "dark blue"
     Examples:
       | NonOwner |
       | PO       |
@@ -25681,7 +25713,6 @@ Feature: Amendment Request scenarios without background
       | FO       |
       | FD       |
       | ADMIN    |
-      | AUDITOR  |
 
   @531511 @validateusershouldabletoseethecreatedBPCamendmenttootherinternaluserfromsameorganization
   Scenario Outline: Validate user should able to see  the created BPC amendment to other internal user from same organization
@@ -25817,22 +25848,19 @@ Feature: Amendment Request scenarios without background
 
   @531279 @validatePMPOEXEFOFDAuditorAdminusercanViewCombinationofamendmentcreatedbyPMuserfromsameorganization
   Scenario Outline: Validate PM, PO, EXE, FO, FD, Auditor, Admin user can View  Combination of amendment  created by PM user from same organization
-    And I activated standalone subaward "Automation Runtime Amendment Award" with properties "default" of type "Competitive"
-    Given I login to "Grantor" app as "PM" user
+    And I activated standalone subaward "Automation Runtime Amendment Award" with properties "SECOND_FOCUS_AREA_BUDGET_CATEGORY" of type "Formula_By_Applicant_Focus_Area"
+    When I login to "Grantor" app as "PM" user
     And I navigate to "Grants" tab
-    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
-    And I click toggle button to select "Grants - All"
+    And I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click toggle button to select "Grants - Active"
     When I perform quick search for "{SavedValue:Automation Runtime Amendment Award}" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
-    And I click on "View" icon for "{SavedValue:Automation Runtime Amendment Award}" inside table
-    And I save the field labeled "EGMS ID" as "GrantEGMSID"
+    And I click on "View" icon for "{SavedValue:Automation Runtime Amendment Award}" inside flex table with id "---subAwardStandAlone:-:activeGrantsTableId---" without waiting for record
     When I navigate to "Subawards" sub tab
-    And I click on "View" icon for "{SavedValue:Automation Runtime Amendment Award}" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
-    And I save the field labeled "EGMS ID" as "AwardEGMSID"
-    Then I softly see that "Subaward" is in "Activated" status
+    When I perform quick search for "Activated" in "---subAwardStandAlone:-:subawardsTableId---" panel
+    And I click on "View" icon for "Activated" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
     And I navigate to "Management" sub tab
     And I click on top right button "New" in flex table with id "---amendment:-:amendmentRequestTableId---"
-    When I enter "BudgetPeriodChange_Creation" values from "AmendmentRequest_Field_Values.xlsx"
-    And I click modal button "Save and Continue"
+    When I enter "BPC_SOW_FC_Creation" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     When I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "bpcFcScopeId"
@@ -25875,6 +25903,22 @@ Feature: Amendment Request scenarios without background
     Then I cannot see top right button "Edit" in page detail
     Then I softly see field "Status" as "Created"
     Then I see status in Progress-bar is "Created" and is "dark blue"
+    When I re-login to "Grantor" app as "AUDITOR" user on "INTERNAL" portal
+    And I perform quick search inside global search "{SavedValue:bpcFcScopeId}"
+    Then I softly cannot see row level action button "Edit" against "{SavedValue:bpcFcScopeId}" in global search with id "Amendment Requests"
+    When I click on hyperlink containing value "{SavedValue:bpcFcScopeId}"
+    Then I softly see field "Status" as "Created"
+    Then I see status in Progress-bar is "Created" and is "dark blue"
+    Then I cannot see top right button "Save" in page detail
+    Then I cannot see top right button "Cancel" in page detail
+    And I navigate to "Grants" tab
+    When I navigate to "Amendment Requests" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click toggle button to select "Amendment Requests - All"
+    And I perform quick search for "{SavedValue:bpcFcScopeId}" in "---amendment:-:grantorAmendmentRequestsTableId---" panel
+    When I click on "View" icon for "{SavedValue:bpcFcScopeId}" inside flex table with id "---amendment:-:grantorAmendmentRequestsTableId---" without waiting for record
+    Then I cannot see top right button "Edit" in page detail
+    Then I softly see field "Status" as "Created"
+    Then I see status in Progress-bar is "Created" and is "dark blue"
     Examples:
       | NonOwner |
       | PO       |
@@ -25882,7 +25926,6 @@ Feature: Amendment Request scenarios without background
       | FO       |
       | FD       |
       | ADMIN    |
-      | AUDITOR  |
 
   @530812 @validatePMPOEXEFOFDAuditorAdminusercanViewTermsandconditionsamendmentcreatedbyPMuserfromsameorganization
   Scenario Outline: Validate PM, PO, EXE, FO, FD, Auditor, Admin user can View Terms and conditions amendment  created by PM user from same organization
@@ -25940,6 +25983,22 @@ Feature: Amendment Request scenarios without background
     Then I cannot see top right button "Edit" in page detail
     Then I softly see field "Status" as "Created"
     Then I see status in Progress-bar is "Created" and is "dark blue"
+    When I re-login to "Grantor" app as "AUDITOR" user on "INTERNAL" portal
+    And I perform quick search inside global search "{SavedValue:TnCEGMSID}"
+    Then I softly cannot see row level action button "Edit" against "{SavedValue:TnCEGMSID}" in global search with id "Amendment Requests"
+    When I click on hyperlink containing value "{SavedValue:TnCEGMSID}"
+    Then I softly see field "Status" as "Created"
+    Then I see status in Progress-bar is "Created" and is "dark blue"
+    Then I cannot see top right button "Save" in page detail
+    Then I cannot see top right button "Cancel" in page detail
+    And I navigate to "Grants" tab
+    When I navigate to "Amendment Requests" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click toggle button to select "Amendment Requests - All"
+    And I perform quick search for "{SavedValue:TnCEGMSID}" in "---amendment:-:grantorAmendmentRequestsTableId---" panel
+    When I click on "View" icon for "{SavedValue:TnCEGMSID}" inside flex table with id "---amendment:-:grantorAmendmentRequestsTableId---" without waiting for record
+    Then I cannot see top right button "Edit" in page detail
+    Then I softly see field "Status" as "Created"
+    Then I see status in Progress-bar is "Created" and is "dark blue"
     Examples:
       | NonOwner |
       | PO       |
@@ -25947,7 +26006,6 @@ Feature: Amendment Request scenarios without background
       | FO       |
       | FD       |
       | ADMIN    |
-      | AUDITOR  |
 
   @531675 @validatePMPOEXEFOFDAuditorAdminusercanViewFundingChangeamendmentcreatedbyPMuserfromsameorganization
   Scenario Outline: Validate PM, PO, EXE, FO, FD, Auditor, Admin user can View Funding Change amendment created by PM user from same organization
@@ -25998,6 +26056,22 @@ Feature: Amendment Request scenarios without background
     Then I cannot see top right button "Edit" in page detail
     Then I softly see field "Status" as "Created"
     Then I see status in Progress-bar is "Created" and is "dark blue"
+    When I re-login to "Grantor" app as "AUDITOR" user on "INTERNAL" portal
+    And I perform quick search inside global search "{SavedValue:FundingID}"
+    Then I softly cannot see row level action button "Edit" against "{SavedValue:FundingID}" in global search with id "Amendment Requests"
+    When I click on hyperlink containing value "{SavedValue:FundingID}"
+    Then I softly see field "Status" as "Created"
+    Then I see status in Progress-bar is "Created" and is "dark blue"
+    Then I cannot see top right button "Save" in page detail
+    Then I cannot see top right button "Cancel" in page detail
+    And I navigate to "Grants" tab
+    When I navigate to "Amendment Requests" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click toggle button to select "Amendment Requests - All"
+    And I perform quick search for "{SavedValue:FundingID}" in "---amendment:-:grantorAmendmentRequestsTableId---" panel
+    When I click on "View" icon for "{SavedValue:FundingID}" inside flex table with id "---amendment:-:grantorAmendmentRequestsTableId---" without waiting for record
+    Then I cannot see top right button "Edit" in page detail
+    Then I softly see field "Status" as "Created"
+    Then I see status in Progress-bar is "Created" and is "dark blue"
     Examples:
       | NonOwner |
       | PO       |
@@ -26005,7 +26079,6 @@ Feature: Amendment Request scenarios without background
       | FO       |
       | FD       |
       | ADMIN    |
-      | AUDITOR  |
 
   @532491 @validatePMPOEXEFOFDAuditorAdminusercanViewPeriodicRenewalamendmentcreatedbyPMuserfromsameorganization
   Scenario Outline: Validate PM, PO, EXE, FO, FD, Auditor, Admin user can View Periodic Renewal amendment created by PM user from same organization
@@ -26062,6 +26135,22 @@ Feature: Amendment Request scenarios without background
     Then I cannot see top right button "Edit" in page detail
     Then I softly see field "Status" as "Created"
     Then I see status in Progress-bar is "Created" and is "dark blue"
+    When I re-login to "Grantor" app as "AUDITOR" user on "INTERNAL" portal
+    And I perform quick search inside global search "{SavedValue:PeriodicID}"
+    Then I softly cannot see row level action button "Edit" against "{SavedValue:PeriodicID}" in global search with id "Amendment Requests"
+    When I click on hyperlink containing value "{SavedValue:PeriodicID}"
+    Then I softly see field "Status" as "Created"
+    Then I see status in Progress-bar is "Created" and is "dark blue"
+    Then I cannot see top right button "Save" in page detail
+    Then I cannot see top right button "Cancel" in page detail
+    And I navigate to "Grants" tab
+    When I navigate to "Amendment Requests" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click toggle button to select "Amendment Requests - All"
+    And I perform quick search for "{SavedValue:PeriodicID}" in "---amendment:-:grantorAmendmentRequestsTableId---" panel
+    When I click on "View" icon for "{SavedValue:PeriodicID}" inside flex table with id "---amendment:-:grantorAmendmentRequestsTableId---" without waiting for record
+    Then I cannot see top right button "Edit" in page detail
+    Then I softly see field "Status" as "Created"
+    Then I see status in Progress-bar is "Created" and is "dark blue"
     Examples:
       | NonOwner |
       | PO       |
@@ -26069,61 +26158,58 @@ Feature: Amendment Request scenarios without background
       | FO       |
       | FD       |
       | ADMIN    |
-      | AUDITOR  |
 
     @531287 @validatecombinationofamendmentFlexsharingrecordvisibilitytoSPISPAuser(relatedexternalusers)whenAmendmentrequestisSendtosubrecipient
     Scenario: Validate Combination of amendment Flexsharing record visibility to SPI,SPA user (related external users) when Amendment request is Send to subrecipient
-    And I activated standalone subaward "Automation Runtime Amendment Award" with properties "default" of type "Competitive"
-    Given I login to "Grantor" app as "PM" user
-    And I navigate to "Grants" tab
-    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
-    And I click toggle button to select "Grants - All"
-    When I perform quick search for "{SavedValue:Automation Runtime Amendment Award}" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
-    And I click on "View" icon for "{SavedValue:Automation Runtime Amendment Award}" inside table
-    And I save the field labeled "EGMS ID" as "GrantEGMSID"
-    When I navigate to "Subawards" sub tab
-    And I click on "View" icon for "{SavedValue:Automation Runtime Amendment Award}" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
-    And I save the field labeled "EGMS ID" as "AwardEGMSID"
-    Then I softly see that "Subaward" is in "Activated" status
-    And I navigate to "Management" sub tab
-    And I click on top right button "New" in flex table with id "---amendment:-:amendmentRequestTableId---"
-    When I enter "BudgetPeriodChange_Creation" values from "AmendmentRequest_Field_Values.xlsx"
-    And I click modal button "Save and Continue"
-    When I click on "Save" in the page details
-    And I save the field labeled "EGMS ID" as "bpcFcScopeId"
-    And I get the updated budget end date by offset "1" for award "{SavedValue:Automation Runtime Amendment Award}"
-    When I click on "Edit" in the page details
-    And I enter "BudgetPeriodChange_Edition" values from "AmendmentRequest_Field_Values.xlsx"
-    And I enter value "4000" into field "NewBudgetPeriodEndDate__c"
-    And I enter "ScopeOfWork_Edition" values from "AmendmentRequest_Field_Values.xlsx"
-    When I enter values into fields
-      | Value                       | Field                         |
-      | Automation Test Description | FundingChangeJustification__c |
-    When I click on "Save" in the page details
-    And I wait for "2" seconds
-    And I save the field labeled "New Budget Period End Date" as "updatedBudgetPeriodDate"
-    And I edit the following rows inline in flex table with id "---amendment:-:projectAreasTableId---" by clicking "Edit" :
-      | Title                           | End Date                             | New Obligation |
-      | Automation Permanent Focus Area | {SavedValue:updatedBudgetPeriodDate} | 1000           |
-    And I edit the following rows inline in flex table with id "---amendment:-:projectAreasTableId---" by clicking "Edit" :
-      | Title                            | End Date                             | New Obligation |
-      | Automation Permanent Focus Area2 | {SavedValue:updatedBudgetPeriodDate} | 1000           |
-    And I navigate to "Responsibilities" sub tab
-    When I enter the following values into flex table with id "---amendment:-:fundingChangeApproversTableId---" by clicking "New" :
-      | Name                     | Amendment Request |
-      | {SavedValue:PM Username} | Step 1            |
-    When I get the "EGMS ID"
-    And I click on "Send to Subrecipient" in the page details
+      And I activated standalone subaward "Automation Runtime Amendment Award" with properties "SECOND_FOCUS_AREA_BUDGET_CATEGORY" of type "Formula_By_Applicant_Focus_Area"
+      When I login to "Grantor" app as "PM" user
+      And I navigate to "Grants" tab
+      And I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+      And I click toggle button to select "Grants - Active"
+      When I perform quick search for "{SavedValue:Automation Runtime Amendment Award}" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
+      And I click on "View" icon for "{SavedValue:Automation Runtime Amendment Award}" inside flex table with id "---subAwardStandAlone:-:activeGrantsTableId---" without waiting for record
+      When I navigate to "Subawards" sub tab
+      When I perform quick search for "Activated" in "---subAwardStandAlone:-:subawardsTableId---" panel
+      And I click on "View" icon for "Activated" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
+      And I navigate to "Management" sub tab
+      And I click on top right button "New" in flex table with id "---amendment:-:amendmentRequestTableId---"
+      When I enter "BPC_SOW_FC_Creation" values from "AmendmentRequest_Field_Values.xlsx"
+      And I click modal button "Save and Continue"
+      When I click on "Save" in the page details
+      And I save the field labeled "EGMS ID" as "bpcFcScopeId"
+      And I get the updated budget end date by offset "1" for award "{SavedValue:Automation Runtime Amendment Award}"
+      When I click on "Edit" in the page details
+      And I enter "BudgetPeriodChange_Edition" values from "AmendmentRequest_Field_Values.xlsx"
+      And I enter value "4000" into field "NewBudgetPeriodEndDate__c"
+      And I enter "ScopeOfWork_Edition" values from "AmendmentRequest_Field_Values.xlsx"
+      When I enter values into fields
+        | Value                       | Field                         |
+        | Automation Test Description | FundingChangeJustification__c |
+      When I click on "Save" in the page details
+      And I wait for "2" seconds
+      And I save the field labeled "New Budget Period End Date" as "updatedBudgetPeriodDate"
+      And I edit the following rows inline in flex table with id "---amendment:-:projectAreasTableId---" by clicking "Edit" :
+        | Title                           | End Date                             | New Obligation |
+        | Automation Permanent Focus Area | {SavedValue:updatedBudgetPeriodDate} | 1000           |
+      And I edit the following rows inline in flex table with id "---amendment:-:projectAreasTableId---" by clicking "Edit" :
+        | Title                            | End Date                             | New Obligation |
+        | Automation Permanent Focus Area2 | {SavedValue:updatedBudgetPeriodDate} | 1000           |
+      And I navigate to "Responsibilities" sub tab
+      When I enter the following values into flex table with id "---amendment:-:fundingChangeApproversTableId---" by clicking "New" :
+        | Name                     | Amendment Request |
+        | {SavedValue:PM Username} | Step 1            |
+      When I get the "EGMS ID"
+      And I click on "Send to Subrecipient" in the page details
     Then I see field "Status" as "Sent to Subrecipient"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
-    And I perform quick search inside global search "{SavedValue:budgetPChangeId}"
-    And I click on row level action button "Edit" against "{SavedValue:budgetPChangeId}" in global search with id "Amendment Requests"
+    And I perform quick search inside global search "{SavedValue:bpcFcScopeId}"
+    And I click on row level action button "Edit" against "{SavedValue:bpcFcScopeId}" in global search with id "Amendment Requests"
     Then I softly see field "Status" as "Sent to Subrecipient"
     Then I see status in Progress-bar is "Sent to Subrecipient" and is "dark blue"
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    When I perform quick search for "Record Id" in "---amendment:-:pendingTaskTableId---" panel
-    Then I softly see value "Record Id" for title "EGMS ID" inside table "---amendment:-:pendingTaskTableId---"
+    When I perform quick search for "{SavedValue:bpcFcScopeId}" in "---amendment:-:pendingTaskTableId---" panel
+    Then I softly see value "{SavedValue:bpcFcScopeId}" for title "EGMS ID" inside table "---amendment:-:pendingTaskTableId---"
     And I navigate to "Grants" tab
     When I navigate to "Amendment Requests" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Amendment Requests - All"
@@ -26254,6 +26340,7 @@ Feature: Amendment Request scenarios without background
     And I click toggle button to select "Subawards  - All"
     When I perform quick search for "{SavedValue:Automation Runtime Award}" in "---amendment:-:recipientsSubawardTableId---" panel
     And I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside flex table with id "---amendment:-:recipientsSubawardTableId---" without waiting for record
+    And I save the field labeled "EGMS ID" as "AwardEGMSID"
     Given I navigate to "Management" sub tab
     And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:recipientAwardAmendmentRequestTableId---"
     When I enter "Sub_BR_KPC_SOW_creation" values from "AmendmentRequest_Field_Values.xlsx"
@@ -26386,3 +26473,28 @@ Feature: Amendment Request scenarios without background
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:kpcId}" in "---amendment:-:pendingTaskTableId---" panel
     Then I see value "{SavedValue:kpcId}" for title "EGMS ID" inside table "---amendment:-:pendingTaskTableId---"
+    When I click on "Start" icon for "{SavedValue:kpcId}" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
+    When I navigate to "Responsibilities" sub tab
+    When I enter the following values into flex table with id "---amendment:-:approversTableId---" by clicking "New" :
+      | Name                     | Amendment Request |
+      | {SavedValue:PO Username} | Step 1            |
+    When I enter the following values into flex table with id "---amendment:-:approversTableId---" by clicking "New" :
+      | Name                      | Amendment Request |
+      | {SavedValue:EXE Username} | Step 2            |
+    And I click on "Submit for Approval" in the page details
+    Then I softly see field "Status" as "Submitted for Approval"
+    When I re-login to "Grantor" app as "PO" user on "INTERNAL" portal
+    And I navigate to "Grants" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    When I perform quick search for "{SavedValue:kpcId}" in "---subAwardStandAlone:-:pendingTaskTableId---" panel
+    And I click on "Start" icon for "{SavedValue:kpcId}" inside flex table with id "---subAwardStandAlone:-:pendingTaskTableId---" without waiting for record
+    Then I see value "Automation SPI3" for title "Name" inside table "---amendment:-:InternalKeyPersonalTableId---"
+    And I "Approve" in the approval decision
+    Then I cannot see top right button "Undo" in page detail
+    When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
+    And I navigate to "Grants" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "{SavedValue:kpcId}" in "---amendment:-:pendingTaskTableId---" panel
+    When I click on "Start" icon for "{SavedValue:kpcId}" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
+    Then I see value "Automation SPI3" for title "Name" inside table "---amendment:-:InternalKeyPersonalTableId---"
+    And I "Approve" in the approval decision
