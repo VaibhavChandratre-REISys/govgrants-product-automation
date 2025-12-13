@@ -2852,6 +2852,7 @@ Feature: Application Intake scenarios without background
      Then I softly see value "Automation SPI 6 contact" for title "Name" inside table "---preApplication:-:flexGridPreAppContactTableId---"
      Then I softly see value "Automation SPI 7 contact" for title "Name" inside table "---preApplication:-:flexGridPreAppContactTableId---"
      And I navigate to "Budget" sub tab
+     When I expand nested table containing column value "BP01"
      Then I softly see value "$5,000.00" for title "Budget" against the value "Construction" inside table "---preApplication:-:preApplicationAttachmentId---"
      When I navigate to "Forms and Files" sub tab
      Then I see "View" has been added in "Supporting Documents Checklist" flex table
@@ -2873,6 +2874,7 @@ Feature: Application Intake scenarios without background
      Then I softly see value "Automation SPI 6 contact" for title "Name" inside table "---preApplication:-:flexGridPreAppContactTableId---"
      Then I softly see value "Automation SPI 7 contact" for title "Name" inside table "---preApplication:-:flexGridPreAppContactTableId---"
      And I navigate to "Budget" sub tab
+     When I expand nested table containing column value "BP01"
      Then I softly see value "$5,000.00" for title "Budget" against the value "Construction" inside table "---preApplication:-:preApplicationAttachmentId---"
      When I navigate to "Forms and Files" sub tab
      Then I see "View" has been added in "Supporting Documents Checklist" flex table

@@ -26203,7 +26203,7 @@ Feature: Amendment Request scenarios without background
     Then I see field "Status" as "Sent to Subrecipient"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I perform quick search inside global search "{SavedValue:bpcFcScopeId}"
-    And I click on row level action button "Edit" against "{SavedValue:bpcFcScopeId}" in global search with id "Amendment Requests"
+    And I click on hyperlink containing value "{SavedValue:bpcFcScopeId}"
     Then I softly see field "Status" as "Sent to Subrecipient"
     Then I see status in Progress-bar is "Sent to Subrecipient" and is "dark blue"
     And I navigate to "Grants" tab
@@ -26496,6 +26496,7 @@ Feature: Amendment Request scenarios without background
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:kpcId}" in "---amendment:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "{SavedValue:kpcId}" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
+    When I navigate to "Overview" sub tab
     Then I see value "Automation SPI3" for title "Name" inside table "---amendment:-:InternalKeyPersonalTableId---"
     And I "Approve" in the approval decision
 
@@ -26886,7 +26887,6 @@ Feature: Amendment Request scenarios without background
      And I enter "Subrecipient_SOW_Edition" values from "AmendmentRequest_Field_Values.xlsx"
      When I click on "Save" in the page details
      And I save the field labeled "EGMS ID" as "scopeWorkId"
-     And I halt execution
      And I get the "EGMS ID"
      Then I see status in Progress-bar is "Created" and is "dark blue"
      When I re-login to "Grants Portal" app as "SPA" user on "SUBPORTAL" portal

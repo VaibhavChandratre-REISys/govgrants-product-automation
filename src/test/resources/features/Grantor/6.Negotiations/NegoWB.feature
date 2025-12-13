@@ -790,24 +790,22 @@ Feature: Validate all scenarios in Negotiations
     And I click on "Save" in the page details
     And I navigate to "Budget" sub tab
     Then I softly can see top right button "Add Focus Area" in flex table with id "---applicationIntake:-:focusAreaTableAppId---"
-    When I click on top right button "Add Focus Area" in flex table with id "---applicationIntake:-:focusAreaTableAppId---"
-    When I click "Associate" after selection of "Automation Permanent Focus Area2" in the table "---grantee_tableId:-:selectAwardFocusAreaTableId---"
-    And I click modal button "Close"
-    When I click on top right button "Add Focus Area" in flex table with id "---applicationIntake:-:focusAreaTableAppId---"
-    When I click "Associate" after selection of "Automation Permanent Focus Area3" in the table "---grantee_tableId:-:selectAwardFocusAreaTableId---"
-    And I click modal button "Close"
-    And I refresh the page
     And I wait for "3" seconds
     Given I expand nested table containing column value "BP01"
     Then I softly see "Focus Area : Automation Permanent Focus Area" inside rows of enhanced grid id "---preApplication:-:SubRecipientBudgetPeriodTableId---"
     And I edit the following rows inline in flex table with id "---preApplication:-:preApplicationAttachmentId---" by clicking "Edit" :
       | Category Name | Budget | Cash Match | Non-Cash Match |
       | Construction  | 500    | 100        | 100            |
-    And I click on page navigation arrow "---grantee_tableId:-:preApplicationAttachmentId---" for table id "Next"
+    And I click on page navigation arrow "---preApplication:-:preApplicationAttachmentId---" for table id "Next"
     Then I softly see "Focus Area : Automation Permanent Focus Area2" inside rows of enhanced grid id "---preApplication:-:SubRecipientBudgetPeriodTableId---"
     And I edit the following rows inline in flex table with id "---preApplication:-:preApplicationAttachmentId---" by clicking "Edit" :
       | Category Name | Budget | Cash Match | Non-Cash Match |
-      | Construction  | 500    | 100        | 100            |
+      | Construction  | 300    | 100        | 100            |
+    And I click on page navigation arrow "---preApplication:-:preApplicationAttachmentId---" for table id "Next"
+    Then I softly see "Focus Area : Automation Permanent Focus Area3" inside rows of enhanced grid id "---preApplication:-:SubRecipientBudgetPeriodTableId---"
+    And I edit the following rows inline in flex table with id "---preApplication:-:preApplicationAttachmentId---" by clicking "Edit" :
+      | Category Name | Budget | Cash Match | Non-Cash Match |
+      | Construction  | 200    | 100        | 100            |
     When I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I switch to tab number "1"
