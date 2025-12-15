@@ -991,6 +991,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I pause execution for "4" seconds
     When I collapse nested table containing column value "Management Review"
     And I click on top right button "Validate" in flex table with id "---announcement:-:preScreenReviewFormTableId---"
+    And I pause execution for "4" seconds
     Then I softly see the following messages in the page details :
       | There are no errors with the review step templates. |
     And I click on "Edit" in the page details
@@ -1170,6 +1171,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I perform quick search for "Record Id" in "---home:-:internalHomePendingTaskTableId---" panel
     And I click on "Start" icon for "Record Id" inside flex table with id "---home:-:internalHomePendingTaskTableId---"
     When I click on "Accept" in the page details
+    And I pause execution for "8" seconds
     And I refresh the page
     Then I see status in Progress-bar is "Accepted" and is "dark blue"
 
@@ -1333,6 +1335,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click on "Edit" in the page details
     When I complete filling in the Review form with recommendation "Recommended"
     And I click on "Save" in the page details
+    And I pause execution for "10" seconds
     When I click on "Submit" in the page details without processing
     When I click alert button "OK"
     Then I see that "Status" is in "Review Completed" status
@@ -1541,6 +1544,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I perform quick search for "Record Id" in "---subAwardFromFDM:-:subrecipientPendingTaskTableId---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---subAwardFromFDM:-:subrecipientPendingTaskTableId---" without waiting for record
     And I click on "Accept" in the page details
+    And I pause execution for "9" seconds
     And I wait for "2" seconds
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Grants" tab
@@ -1567,7 +1571,8 @@ Feature: Validate sanity testing of Complete Business Flow
     When I click modal button "Save"
     And I click on submit review
     And I wait for "1" seconds
-    #To do - Remove comment for package execution
+     #To do remove comment for package execution
+    When I close "Enter Review" modal by clicking the top right x button
 #    When I click modal button "Close"
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Grants" tab
@@ -1705,6 +1710,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I click on "Start" icon for "Record Id" inside flex table with id "---subAwardStandAlone:-:subrecipientPendingtaskTableId---" without waiting for record
     When I click on "Accept" in the page details
     And I wait for "2" seconds
+    And I pause execution for "9" seconds
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
@@ -2831,6 +2837,7 @@ Feature: Validate sanity testing of Complete Business Flow
       | {SavedValue:PM Username} | Step 1            |
     When I get the "EGMS ID"
     And I click on "Send to Subrecipient" in the page details
+    And I pause execution for "10" seconds
     Then I see field "Status" as "Sent to Subrecipient"
     When I re-login to "Grants Portal" app as "<User>" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
@@ -3362,7 +3369,6 @@ Feature: Validate sanity testing of Complete Business Flow
     And I wait for "2" seconds
     When I close "Add Line Items" modal by clicking the top right x button
     And I wait for "2" seconds
-    And I refresh the page
     And I click on "Submit to Grantor" in the page details
     Then I softly see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
@@ -3690,7 +3696,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I wait for "9" seconds
     When I click on "Validate" in the page details
     Then I softly see the following messages in the page details :
-      | Form validated successfully. |
+      | Form Validated Successfully. |
 
   @SF428_B_Form_Fill @ProdSan3
   Scenario: Validate SPI user can able to save & validate form after entering correct & valid data on all fields present on SF-428-B form
@@ -3735,10 +3741,10 @@ Feature: Validate sanity testing of Complete Business Flow
     Then I softly can see top right button "Back" in page detail
     When I click on "Validate" in the page details
     Then I softly see the following messages in the page details :
-      | Form validated successfully. |
+      | Form Validated Successfully. |
 
   @SF428_B_ErrorValidation @ProdSan3
-  Scenario:
+  Scenario: SF428_B_ErrorValidation
     Given I activated standalone subaward "Automation Runtime Direct Award" with properties "default" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Direct Award}" from the object "Progress Report"
     When I create a post award record "ProgressReport" for the Award "{SavedValue:Automation Runtime Direct Award}" having object api name as "ProgressReports__c"
@@ -4135,6 +4141,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I perform quick search for "Record Id" in "---subAwardStandAlone:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---subAwardStandAlone:-:pendingTaskTableId---" without waiting for record
     When I click on "Accept" in the page details
+    And I pause execution for "10" seconds
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Home" tab
     When I navigate to "My Tasks" content inside "Reassign" subheader on left panel
@@ -4423,6 +4430,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I perform quick search for "Record Id" in "---subAwardStandAlone:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---subAwardStandAlone:-:pendingTaskTableId---" without waiting for record
     When I click on "Accept" in the page details
+    And I pause execution for "8" seconds
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
