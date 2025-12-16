@@ -54,8 +54,9 @@ public final class Modal {
      * Accept modal based pop up
      */
     public void acceptPopUp() {
+        I.amPerforming().waitFor().makeThreadSleep(3000);
         try {
-            if (I.amPerforming().checkToSee().IsElementPresentQuick(By.xpath("//div[contains(@class,'modal__container')]//lightning-confirm | //div[contains(@class,'modal__container')]//header//h2[text()='Confirm']"))) {
+            if (I.amPerforming().checkToSee().isDisplayed(By.xpath("//div[contains(@class,'modal__container')]//lightning-confirm | //div[contains(@class,'modal__container')]//header//h2[text()='Confirm']"))) {
                 WebElement popup = I.amPerforming().getElementReference().of(By.xpath("//div[contains(@class,'modal__container')]"));
                 I.amPerforming().click().on(I.amPerforming().getElementReference().ofNested(popup, By.xpath("//div[contains(@class,'modal__container')]//button[text()='OK' or text()='Yes' or text()='Continue']")));
             }
