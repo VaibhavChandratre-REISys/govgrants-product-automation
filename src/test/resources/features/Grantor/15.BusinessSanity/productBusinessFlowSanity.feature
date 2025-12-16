@@ -3770,7 +3770,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click on "Edit" icon for "Tangible Personal Property Report - Final Report - SF-428-B" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
     And I switch to tab number "1"
     And I enter "SF428B_Form" values from "ProgressReport_Field_Values.xlsx"
-    When I enter value "UnChecked" into field "FederallyownedProperty__c"
+   When I enter value "UnChecked" into field "FederallyownedProperty__c"
     When I enter value "UnChecked" into field "AcquiredEquipment__c"
     When I enter value "UnChecked" into field "ResidualUnusedSupplies__c"
     When I click on "Save" in the page details
@@ -3786,7 +3786,9 @@ Feature: Validate sanity testing of Complete Business Flow
     When I click on "Validate" in the page details
     Then I softly see the following messages in the page details :
       | Selecting at least one that apply in 'Report' is required. |
+    And I pause execution for "10" seconds
     When I click on "Edit" in the page details
+    And I pause execution for "6" seconds
     When I enter value "Checked" into field "FederallyownedProperty__c"
     When I enter value "Checked" into field "AcquiredEquipment__c"
     When I enter value "Checked" into field "ResidualUnusedSupplies__c"
