@@ -298,7 +298,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click on submit review
     And I pause execution for "2" seconds
     # To do - remove comment for package execution
-#    When I close "Enter Review" modal by clicking the top right x button
+    When I close "Enter Review" modal by clicking the top right x button
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Announcements" tab
     When I navigate to "Competitive" content inside "Announcements" subheader on left panel
