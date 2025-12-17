@@ -1824,8 +1824,9 @@ Feature: Validate sanity testing of Complete Business Flow
     And I pause execution for "15" seconds
     And I click on submit review
     #To do remove comment for package execution
-#    When I close "Enter Review" modal by clicking the top right x button
+    When I close "Enter Review" modal by clicking the top right x button
 #    When I click modal button "Close"
+    And I pause execution for "5" seconds
     When I re-login to "As a Grantor" app as "DynamicUser" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Risk Assessments" content inside "Monitoring Activities" subheader on left panel
