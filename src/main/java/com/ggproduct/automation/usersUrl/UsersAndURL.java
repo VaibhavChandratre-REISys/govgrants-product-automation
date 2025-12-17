@@ -537,7 +537,7 @@ public class UsersAndURL implements UsersController {
     private String getFwLwcEnvironmentPassword(String userType) {
         Map<String, String> password = new HashMap<>();
         password.put("ADMIN", "Jupiter@2026");
-        password.put("ADMIN1", "Jupiter@2026");
+        password.put("ADMIN1", "Jupiter@20266");
         password.put("EXE", "Jupiter@2026");
         password.put("PM", "Jupiter@2026");
         password.put("FO", "Jupiter@2026");
