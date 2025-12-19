@@ -5435,7 +5435,6 @@ Feature: Validate all scenarios in Closeout
     And I save the field labeled "EGMS ID" as "closeoutRequestNo"
     And I enter "Edition" values from "Closeout_Field_Values.xlsx"
     When I click on "Save" in the page details
-    And I halt execution
     And I click on "Edit" in the page details
     And I enter value "Automation Test justification" into field "Justification__c"
     When I click on "Save" in the page details

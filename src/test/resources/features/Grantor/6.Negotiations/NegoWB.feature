@@ -865,7 +865,6 @@ Feature: Validate all scenarios in Negotiations
     And I wait for "4" seconds
     When I click modal button "Save and Continue"
     And I save the field labeled "EGMS ID" as "PreappEGMSID"
-    And I halt execution
     And I enter "Edition" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I get the "EGMS ID"

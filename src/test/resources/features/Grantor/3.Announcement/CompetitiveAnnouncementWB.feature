@@ -2017,7 +2017,6 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     When I enter value "SecondTest" into field "FirstName"
     When I enter value "SecondLast" into field "LastName"
     When I enter value "{SavedValue:uniqueEmailID1}" into field "Email"
-    And I halt execution
     And I click modal button "Save"
     And I pause execution for "1" seconds
     Then I softly see value "SecondTest SecondLast" for title "Name" inside table "---announcement:-:contactTableId---"
@@ -2348,7 +2347,6 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     When I click on "View" icon for "{SavedValue:Automation Runtime Announcement for Pre-App}" inside table
     Then I can see top right button "Qualify" in page detail
     And I navigate to "Overview" sub tab
-    And I halt execution
     Then I softly see "Opportunity Information" page block displayed
     Then I softly see "Opportunity Specific Settings" page block displayed
     Then I softly see "Federal/NGO Program" page block displayed
