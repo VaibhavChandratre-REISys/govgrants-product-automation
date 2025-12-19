@@ -504,7 +504,7 @@ Feature: Validate all scenarios in Desk Review
     And I click on top right button "Associate" in flex table with id "---deskreview:-:associateAwardDeskReviewTableId---"
     When I click "Associate" after selection of "{SavedValue:Automation Runtime Award Record}" in the table "---deskreview:-:awardDeskReviewTableId---"
     And I click on "Notify" in the page details
-     When I re-login to "Grantor" app as "dynamicUser" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Desk Reviews" content inside "Monitoring Activities" subheader on left panel
     When I perform quick search for "Record Id" in "---deskreview:-:deskReviewGridViewTableId---" panel
@@ -1579,23 +1579,27 @@ Feature: Validate all scenarios in Desk Review
     Then I softly do not see value "Automation.pdf" for title "Title" inside table "---deskreview:-:deskReviewsFilesTableId---"
 
   @532357 @validateAwarddeskreviewInternalusershouldseethecorrectnumberofrecordsinthechildtables
-    Scenario: Validate Award Desk Review -Internal user should see the correct number of records in the child tables
+  Scenario Outline: Validate Award Desk Review -Internal user should see the correct number of records in the child tables
     Then I softly see status in Progress-bar is "Created" and is "dark blue"
     When I click on "Edit" in the page details
     And I enter value "Automation Description" into field "Description__c"
     When I click on "Save" in the page details
     Then I softly see status in Progress-bar is "Created" and is "dark blue"
+    And I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "DREGMSID"
     Given I navigate to "Overview" sub tab
-    And I halt execution
     And I click on top right button "Associate" in flex table with id "---deskreview:-:participantsTableId---"
     When I click "Associate" after selection of "{SavedValue:EXE1 Username}" in the table "---deskreview:-:deskReviewContactsTableId---"
     And I click modal button "Close"
     And I pause execution for "3" seconds
     And I refresh the page
     Then I softly see value "{SavedValue:EXE1 Username}" for title "Name" inside table "---deskreview:-:participantsTableId---"
+    Then I softly see value "Automation SPI3" for title "Name" inside table "---deskreview:-:participantsTableId---"
     And I click on top right button "Associate" in flex table with id "---deskreview:-:associateAwardDeskReviewTableId---"
+    And I wait for "2" seconds
     When I click "Associate" after selection of "{SavedValue:Automation Runtime Award Record}" in the table "---deskreview:-:awardDeskReviewTableId---"
-    Then I softly see value "{SavedValue:Automation Runtime Award Record}" for title "Name" inside table "---deskreview:-:associateAwardDeskReviewTableId---"
+    And I wait for "2" seconds
+    Then I softly see value "{SavedValue:Automation Runtime Award Record}" for title "Subaward Title" inside table "---deskreview:-:associateAwardDeskReviewTableId---"
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---deskreview:-:approverDeskReviewTableId---" by clicking "New" :
       | Name                       | Desk Review |
@@ -1611,3 +1615,34 @@ Feature: Validate all scenarios in Desk Review
     When I click modal button "Close"
     And I wait for "2" seconds
     Then I softly see value "Attachment.pdf" for title "Title" inside table "---deskreview:-:deskReviewsFilesTableId---"
+    Then I can see top right button "New" in flex table with id "---deskreview:-:grantordeskReviewNotesTableId---"
+    When I enter the following values into flex table with id "---deskreview:-:grantordeskReviewNotesTableId---" by clicking "New" :
+      | Title        | Description      |
+      | Notes Record | Automation Notes |
+    Then I softly see value "Notes Record" for title "Title" inside table "---deskreview:-:grantordeskReviewNotesTableId---"
+    When I re-login to "Grantor" app as "<User>" user on "INTERNAL" portal
+    Given I navigate to "Monitoring" tab
+    When I navigate to "Desk Reviews" content inside "Monitoring Activities" subheader on left panel
+    And I click toggle button to select "Desk Review Reports - All"
+    When I perform quick search for "{SavedValue:DREGMSID}" in "---deskreview:-:deskReviewGridViewTableId---" panel
+    Then I softly can see row level action button "View" against "{SavedValue:DREGMSID}" in flex table with id "---deskreview:-:deskReviewGridViewTableId---"
+    And I click on "View" icon for "{SavedValue:DREGMSID}" inside flex table with id "---deskreview:-:deskReviewGridViewTableId---"
+    Then I softly cannot see top right button "Accept and Close" in page detail
+    When I navigate to "Overview" sub tab
+    Then I softly see value "{SavedValue:EXE1 Username}" for title "Name" inside table "---deskreview:-:participantsTableId---"
+    Then I softly see value "Automation SPI3" for title "Name" inside table "---deskreview:-:participantsTableId---"
+    Then I softly see value "{SavedValue:Automation Runtime Award Record}" for title "Subaward Title" inside table "---deskreview:-:associateAwardDeskReviewTableId---"
+    When I navigate to "Responsibilities" sub tab
+    Then I softly see value "{SavedValue:EXE1 Username}" for title "Name" inside table "---deskreview:-:approverDeskReviewTableId---"
+    Then I softly see value "{SavedValue:FO Username}" for title "Name" inside table "---deskreview:-:approverDeskReviewTableId---"
+    When I navigate to "Files" sub tab
+    Then I softly see value "Attachment.pdf" for title "Title" inside table "---deskreview:-:deskReviewsFilesTableId---"
+    Then I softly see value "Notes Record" for title "Title" inside table "---deskreview:-:grantordeskReviewNotesTableId---"
+    Examples:
+      | User     |
+      | PO       |
+      | EXE      |
+      | FO       |
+      | FD       |
+      | ADMIN    |
+      | AUDITOR  |
