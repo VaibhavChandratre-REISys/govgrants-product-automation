@@ -2830,6 +2830,7 @@ Feature: Application Intake scenarios without background
      When I navigate to "Forms and Files" sub tab
      When I click on "Attach" icon for "Mandatory" inside flex table with id "---preApplication:-:preApplicationChecklistId---" without waiting for record
      And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
+     And I wait for "2" seconds
      When I click modal button "Close"
      And I wait for "2" seconds
      When I navigate to "Forms and Files" sub tab
@@ -2837,9 +2838,12 @@ Feature: Application Intake scenarios without background
      And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
      And I switch to tab number "1"
      And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
+     And I wait for "2" seconds
      And I click on "Save" in the page details
+     And I wait for "2" seconds
      And I close the tab
      When I click on "Submit to Grantor" in the page details
+     Then I softly see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
      When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
      When I navigate to "Applications" tab
      And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -2889,6 +2893,7 @@ Feature: Application Intake scenarios without background
      When I click on "Save" in the page details
      When I save the field labeled "EGMS ID" as "AppEGMSID"
      Then I softly see status in Progress-bar is "Created" and is "dark blue"
+     And I navigate to "Overview" sub tab
      Then I softly see value "Automation SPA" for title "Name" inside table "---preApplication:-:flexGridPreAppContactTableId---"
      Then I softly see value "Automation SPI 4 contact" for title "Name" inside table "---preApplication:-:flexGridPreAppContactTableId---"
      Then I softly see value "Automation SPI 5 contact" for title "Name" inside table "---preApplication:-:flexGridPreAppContactTableId---"
@@ -2920,7 +2925,6 @@ Feature: Application Intake scenarios without background
      And I click on "Save" in the split screen page details
      And I wait for "2" seconds
      And I get the "EGMS ID"
-     And I click on "Save" in the page details
      When I click on "Submit Application" in the page details
      When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
      And I navigate to "Applications" tab

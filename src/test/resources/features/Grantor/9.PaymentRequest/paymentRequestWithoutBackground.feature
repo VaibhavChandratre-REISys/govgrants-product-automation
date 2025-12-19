@@ -7390,10 +7390,12 @@ Feature: Payment Request scenarios without background
     And I click on hyperlink containing value "View"
     And I wait for "3" seconds
     Then I softly verify that the file "Attachment.pdf" is downloaded
+    And I wait for "3" seconds
     And I close the tab
     And I wait for "2" seconds
     When I click on "Attach" icon for "Mandatory" inside flex table with id "---paymentRequest:-:recipientAdvanceSupportiveDocumentChecklistTableId---" without waiting for record
     And I upload attachment without random number "AttachmentTesting.pdf" of type "Others" from computer
+    And I wait for "2" seconds
     And I click modal button "Close"
     And I wait for "2" seconds
     Then I softly see value "View" for title "Subrecipient Document Link" inside table "---paymentRequest:-:recipientAdvanceSupportiveDocumentChecklistTableId---"

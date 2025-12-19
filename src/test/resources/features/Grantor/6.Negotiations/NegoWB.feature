@@ -865,6 +865,7 @@ Feature: Validate all scenarios in Negotiations
     And I wait for "4" seconds
     When I click modal button "Save and Continue"
     And I save the field labeled "EGMS ID" as "PreappEGMSID"
+    And I halt execution
     And I enter "Edition" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I get the "EGMS ID"
@@ -914,12 +915,12 @@ Feature: Validate all scenarios in Negotiations
     And I edit the following rows inline in flex table with id "---preApplication:-:preApplicationAttachmentId---" by clicking "Edit" :
       | Category Name | Budget | Cash Match | Non-Cash Match |
       | Construction  | 500    | 100        | 100            |
-    And I click on page navigation arrow "---grantee_tableId:-:preApplicationAttachmentId---" for table id "Next"
+    And I click on page navigation arrow "---preApplication:-:preApplicationAttachmentId---" for table id "Next"
     Then I softly see "Focus Area : Automation Permanent Focus Area2" inside rows of enhanced grid id "---preApplication:-:SubRecipientBudgetPeriodTableId---"
     And I edit the following rows inline in flex table with id "---preApplication:-:preApplicationAttachmentId---" by clicking "Edit" :
       | Category Name | Budget | Cash Match | Non-Cash Match |
       | Construction  | 200    | 100        | 100            |
-    And I click on page navigation arrow "---grantee_tableId:-:preApplicationAttachmentId---" for table id "Next"
+    And I click on page navigation arrow "---preApplication:-:preApplicationAttachmentId---" for table id "Next"
     Then I softly see "Focus Area : Automation Permanent Focus Area3" inside rows of enhanced grid id "---preApplication:-:SubRecipientBudgetPeriodTableId---"
     And I edit the following rows inline in flex table with id "---preApplication:-:preApplicationAttachmentId---" by clicking "Edit" :
       | Category Name | Budget | Cash Match | Non-Cash Match |
