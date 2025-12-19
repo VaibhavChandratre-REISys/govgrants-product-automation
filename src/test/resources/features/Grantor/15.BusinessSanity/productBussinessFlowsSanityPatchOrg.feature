@@ -1339,7 +1339,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click on "Edit" in the page details
     When I complete filling in the Review form with recommendation "Recommended"
    #if needed acces issue
-#    And I click on "Save" in the page details
+    And I click on "Save" in the page details
     And I wait for "5" seconds
     And I click on "Save" in the page details
     When I click on "Submit" in the page details without processing
