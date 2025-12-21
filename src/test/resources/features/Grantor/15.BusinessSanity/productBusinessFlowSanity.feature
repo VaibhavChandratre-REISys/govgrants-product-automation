@@ -3384,9 +3384,10 @@ Feature: Validate sanity testing of Complete Business Flow
       | Construction | 1500         |
     And I wait for "2" seconds
     When I close "Add Line Items" modal by clicking the top right x button
-    And I wait for "2" seconds
-    And I refresh the page
+    And I wait for "5" seconds
     And I click on "Submit to Grantor" in the page details
+    And I refresh the page
+    And I wait for "5" seconds
     Then I softly see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Grants" tab
@@ -3721,6 +3722,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I click modal button "Close"
     And I wait for "9" seconds
     When I click on "Validate" in the page details
+    And I click on button "Validate" for succes or error validation
     Then I softly see the following messages in the page details :
       | Form Validated Successfully. |
 
@@ -3767,6 +3769,7 @@ Feature: Validate sanity testing of Complete Business Flow
     Then I softly can see top right button "Edit" in page detail
     Then I softly can see top right button "Back" in page detail
     When I click on "Validate" in the page details
+    And I click on button "Validate" for succes or error validation
     Then I softly see the following messages in the page details :
       | Form Validated Successfully. |
 
@@ -4353,6 +4356,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I refresh the page
     And I wait for "5" seconds
     When I click on "Validate" in the page details
+    And I click on button "Validate" for succes or error validation
     Then I softly see the following messages in the page details :
       | If year is selected, report type As of Year is required. |
     And I close the tab
@@ -4368,6 +4372,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I wait for "3" seconds
     When I click on "Save" in the page details
     When I click on "Validate" in the page details
+    And I click on button "Validate" for succes or error validation
     Then I softly see the following messages in the page details :
       | If "Other" option is selected in "14k", Justification in specify is required.                                                                |
       | If "Other" option is selected in "14l", Justification in specify is required.                                                                |
