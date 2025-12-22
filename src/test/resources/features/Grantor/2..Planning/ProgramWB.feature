@@ -8312,3 +8312,36 @@ Feature: Validate all scenarios for program
     Then I softly see field on modal "Mobile Phone" inside page block
     Then I softly see field on modal "Office Phone" inside page block
     Then I softly see field on modal "Project Role" inside page block
+
+  @533308 @validateTerms&ConditionMasterRecordPM,PO,EXE,FO,FD,AuditoruserViewTermandconditionscreatedbyAdminuserfromsameorganization
+  Scenario Outline: Validate PM, PO, EXE, FO, FD, Auditor user View Terms and conditions created by Admin user from same organization
+    Given I login to "Grantor" app as "ADMIN" user
+    When I navigate to "Planning" tab
+    And I navigate to "Terms and Conditions" content inside "Setup" subheader on left panel
+    When I click on top right button "New" in flex table with id "---home:-:termsAndConditionsTableId---"
+    And I enter "Creation" values from "TermsandConditions_Field_Values.xlsx"
+    When I click modal button "Save"
+    When I save the field labeled "EGMS ID" as "EGMSID"
+    And I click modal button "Close"
+    And I pause execution for "3" seconds
+    When I navigate to "Planning" tab
+    And I navigate to "Terms and Conditions" content inside "Setup" subheader on left panel
+    When I perform quick search for "{SavedValue:EGMSID}" in "---home:-:termsAndConditionsTableId---" panel
+    Then I softly see value "Active" for title "Status" against the value "{SavedValue:EGMSID}" inside table "---home:-:termsAndConditionsTableId---"
+    Then I softly can see row level action button "View" against "{SavedValue:EGMSID}" in flex table with id "---home:-:termsAndConditionsTableId---"
+    Then I softly can see row level action button "Edit" against "{SavedValue:EGMSID}" in flex table with id "---home:-:termsAndConditionsTableId---"
+    When I re-login to "Grantor" app as "<User>" user on "INTERNAL" portal
+    When I navigate to "Planning" tab
+    And I navigate to "Terms and Conditions" content inside "Setup" subheader on left panel
+    When I perform quick search for "{SavedValue:EGMSID}" in "---home:-:termsAndConditionsTableId---" panel
+    Then I softly see value "Active" for title "Status" against the value "{SavedValue:EGMSID}" inside table "---home:-:termsAndConditionsTableId---"
+    Then I softly can see row level action button "View" against "{SavedValue:EGMSID}" in flex table with id "---home:-:termsAndConditionsTableId---"
+    Then I softly cannot see row level action button "Edit" against "{SavedValue:EGMSID}" in flex table with id "---home:-:termsAndConditionsTableId---"
+    Examples:
+      | User       |
+      | PO         |
+      | PM         |
+      | EXE        |
+      | FO         |
+      | FD         |
+      | AUDITOR    |
