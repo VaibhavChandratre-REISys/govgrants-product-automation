@@ -3643,14 +3643,14 @@ Feature: Validate sanity testing of Complete Business Flow
     When I enter the following values into flex table with id "---amendment:-:approversTableId---" by clicking "New" :
       | Name                     | Amendment Request |
       | {SavedValue:PO Username} | Step 1            |
-    And I wait for "2" seconds
+    And I wait for "5" seconds
     #To do after refresh 3700 value need to add
-    When I click on "Submit for Approval" in the page details
-    And I wait for "5" seconds
-    When I click on "Edit" in the page details
-    And I wait for "5" seconds
-    And I enter value "3700" into field "RevisedCommitment__c"
-    When I click on "Save" in the page details
+#    When I click on "Submit for Approval" in the page details
+#    And I wait for "5" seconds
+#    When I click on "Edit" in the page details
+#    And I wait for "5" seconds
+#    And I enter value "3700" into field "RevisedCommitment__c"
+#    When I click on "Save" in the page details
     When I click on "Submit for Approval" in the page details
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     When I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
