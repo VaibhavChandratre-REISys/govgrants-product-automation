@@ -5552,6 +5552,10 @@ Feature: Validate all scenarios in Closeout
     Examples:
       | NonOwner |
       | PO       |
+      | EXE      |
+      | FO       |
+      | FD       |
+      | ADMIN    |
 
   @535235 @validatecreatedstatePPcloseoutrequestandit’schildrecordsshouldbevisibletoS\Ruserincreatedstateofcloseoutrequest
   Scenario Outline: Validate  created state PP closeout request and it’s child records should be visible to S\R user in created state of closeout request

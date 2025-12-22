@@ -10757,3 +10757,115 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     Then I softly see value "Automation Finding Subrecipient" for title "Title" inside table "---deskreview:-:deskReviewCorrectiveTableId---"
     And I navigate to "Files" sub tab
     Then I softly see value "Attachment.pdf" for title "Subrecipient Document Link" inside table "---sitevisits:-:siteVisitSupportingDocumentChecklist---"
+
+  @531270 @validateAwardsitevisit-usershouldabletoseetheAwardsitevisitsharewithexternaluseronlyaftersendtosubrecipientbutton
+  Scenario: Validate Award site visit-Verify user should able to see the Award site visit share with external user only after send to subrecipient button
+    Given I activated standalone subaward "Automation Runtime Award Record" with properties "default" of type "Competitive"
+    When I login to "Grantor" app as "dynamicUser" user
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click toggle button to select "Grants - Active"
+    And I perform quick search for "{SavedValue:Automation Runtime Award Site Visit}" in "GrantorActiveGrants" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Award Site Visit}" inside flex table with id "GrantorActiveGrants"
+    And I navigate to "Files" sub tab
+    When I enter the following values into flex table with id "---subAwardStandAlone:-:flexGridGrantChecklistsTableId---" by clicking "Add" :
+      | Description | Required  | Applies To | Status |
+      | Automation  | Mandatory | Site Visit | Active |
+    When I navigate to "Subawards" sub tab
+    And I click on "View" icon for "{SavedValue:Automation Runtime Award Site Visit}" inside flex table with id "---sitevisits:-:GrantsSubAwardsTableId---"
+    Given I navigate to "Management" sub tab
+    And I click on top right button "Initiate Site Visit" in flex table with id "---sitevisits:-:InitiateSiteVisitTableId---"
+    And I enter "Creation" values from "SiteVisit_Field_Values.xlsx"
+    When I click modal button "Save and Continue"
+    And I enter "Edition" values from "SiteVisit_Field_Values.xlsx"
+    When I click on "Save" in the page details
+    And I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "SiteVisitID"
+    Given I navigate to "Responsibilities" sub tab
+    When I enter the following values into flex table with id "---sitevisits:-:approverSiteVisitTableId---" by clicking "New" :
+      | Name                      | Site Visit |
+      | {SavedValue:EXE Username} | Step 1     |
+    When I save the field labeled "EGMS ID" as "SVEGMSID"
+    When I navigate to "Files" sub tab
+    And I click on "Upload Template" icon for "Automation" inside flex table with id "---sitevisits:-:siteVisitSupportingDocumentChecklist---" with wait for record
+    And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
+    And I click modal button "Close"
+    Given I navigate to "Overview" sub tab
+    And I click on top right button "Associate" in flex table with id "---sitevisits:-:participantsTableId---"
+    When I click "Associate" after selection of "Automation SPA" in the table "---sitevisits:-:siteVisitContactsTableId---"
+    And I click on top right button "Associate" in flex table with id "---sitevisits:-:associateAwardSiteVisitsTableId---"
+    When I click "Associate" after selection of "{SavedValue:Automation Runtime Award Record}" in the table "---sitevisits:-:awardSiteVisitsTableId---"
+    When I re-login to "Grantor" app as "PO" user on "INTERNAL" portal
+    When I navigate to "Home" tab
+    And I select "Site Visits" from dropdown for Global search
+    And I perform quick search inside global search "{SavedValue:SVEGMSID}"
+    And I click on row level action button "Edit" against "{SavedValue:SVEGMSID}" in global search with id "Site Visits"
+    Then I softly see field "Status" as "Created"
+    Then I softly see the text containing "You dont have sufficient access to edit this record"
+    When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
+    When I navigate to "Home" tab
+    And I select "Site Visits" from dropdown for Global search
+    And I perform quick search inside global search "{SavedValue:SVEGMSID}"
+    Then I softly see the text containing "No results"
+    And I navigate to "Monitoring" tab
+    When I navigate to "Site Visits" content inside "Monitoring Activities" subheader on left panel
+    When I perform quick search for "{SavedValue:SitevVisitId}" in "---sitevisits:-:monitoringSiteVisitSubTableId---" panel
+    Then I softly see "No Records Found" inside flex table with id "---sitevisits:-:manageSiteVisitTableId---"
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
+    And I navigate to "Monitoring" tab
+    When I navigate to "Site Visits" content inside "Monitoring Activities" subheader on left panel
+    When I perform quick search for "{SavedValue:SVEGMSID}" in "---sitevisits:-:manageSiteVisitTableId---" panel
+    Then I see value "{SavedValue:SVEGMSID}" for title "EGMS ID" inside table "---sitevisits:-:manageSiteVisitTableId---"
+    And I click on "View" icon for "{SavedValue:SVEGMSID}" inside flex table with id "---sitevisits:-:manageSiteVisitTableId---"
+    Given I navigate to "Overview" sub tab
+    And I click on top right button "Associate" in flex table with id "---sitevisits:-:participantsTableId---"
+    When I click "Associate" after selection of "Automation SPA" in the table "---sitevisits:-:siteVisitContactsTableId---"
+    And I click on top right button "Associate" in flex table with id "---sitevisits:-:associateAwardSiteVisitsTableId---"
+    When I click "Associate" after selection of "{SavedValue:Automation Runtime Award Record}" in the table "---sitevisits:-:awardSiteVisitsTableId---"
+    And I click on "Notify" in the page details
+    When I click on "Conduct" in the page details
+    When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
+    And I navigate to "Monitoring" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    When I perform quick search for "Record Id" in "---sitevisits:-:monitoringTabPhasePendingTasks---" panel
+    When I click on "Start" icon for "Record Id" inside flex table with id "---sitevisits:-:monitoringTabPhasePendingTasks---"
+    Then I softly do not see value "Record Id" for title "EGMS ID" inside table "---sitevisits:-:monitoringTabPhasePendingTasks---"
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
+    And I navigate to "Monitoring" tab
+    When I navigate to "Site Visits" content inside "Monitoring Activities" subheader on left panel
+    When I perform quick search for "Record Id" in "---sitevisits:-:manageSiteVisitTableId---" panel
+    And I click on "View" icon for "Record Id" inside flex table with id "---sitevisits:-:manageSiteVisitTableId---"
+    And I navigate to "Reports and Outcomes" sub tab
+    When I click on "Edit" icon for "General Review Form" inside flex table with id "---sitevisits:-:reportsTableId---"
+    And I switch to tab number "1"
+    And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
+    And I click on "Save" in the page details
+    And I close the tab
+    When I enter the following values into flex table with id "---sitevisits:-:correctiveTableId---" by clicking "New" :
+      | Title                  | Description            | Type        |
+      | Automation Finding     | Automation Description | Finding     |
+      | Automation Concern     | Automation Description | Concern     |
+      | Automation Observation | Automation Description | Observation |
+    When I click on "Submit for Approval" in the page details
+    And I navigate to "Responsibilities" sub tab
+    Then I cannot see top right button "New" in flex table with id "---sitevisits:-:approverSiteVisitTableId---"
+    Then I cannot see top right button "New" in flex table with id "---sitevisits:-:reviewersFlexTableId---"
+    When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
+    And I navigate to "Monitoring" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    When I perform quick search for "Record Id" in "---deskreview:-:monitoringTabPhasePendingTasks---" panel
+    And I click on "Start" icon for "Record Id" inside flex table with id "---deskreview:-:monitoringTabPhasePendingTasks---"
+    And I "Approve" in the approval decision
+    Then I softly see status in Progress-bar is "Approved" and is "dark blue"
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
+    And I navigate to "Monitoring" tab
+    When I navigate to "Site Visits" content inside "Monitoring Activities" subheader on left panel
+    When I perform quick search for "Record Id" in "---sitevisits:-:manageSiteVisitTableId---" panel
+    And I click on "View" icon for "Record Id" inside flex table with id "---sitevisits:-:manageSiteVisitTableId---"
+    And I click on "Send to Subrecipient" in the page details
+    Then I softly see status in Progress-bar is "Sent to Subrecipient" and is "dark blue"
+    When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
+    And I navigate to "Monitoring" tab
+    When I navigate to "Site Visits" content inside "Monitoring Activities" subheader on left panel
+    When I perform quick search for "{SavedValue:SVEGMSID}" in "---sitevisits:-:monitoringSiteVisitSubTableId---" panel
+    Then I see value "{SavedValue:SVEGMSID}" for title "EGMS ID" inside table "---sitevisits:-:monitoringSiteVisitSubTableId---"
