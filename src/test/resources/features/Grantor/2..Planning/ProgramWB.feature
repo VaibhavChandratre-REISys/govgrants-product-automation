@@ -8345,3 +8345,54 @@ Feature: Validate all scenarios for program
       | FO         |
       | FD         |
       | AUDITOR    |
+
+  @527250 @validatethatrecordssharingforInternalProgramwithPO/FO/FD/auditor/Admin/EXEfromsameOrginallstatesofInternalProgram
+  Scenario: Validate that records sharing for Internal Program with PO/FO/FD/auditor/Admin/EXE from same Org in all states of Internal Program
+    When I login to "Grantor" app as "dynamicUser" user
+    And I navigate to "Planning" tab
+    When I navigate to "Internal Programs" content inside "Programs" subheader on left panel
+    And I click toggle button to select "Internal Programs - Draft"
+    And I click on top right button "New" in flex table with id "---program:-:programsTableId---"
+    When I enter in modal "Creation" values from "Program_Field_Values.xlsx"
+    And I click modal button "Save and Continue"
+    And I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "ProgramEGMSID"
+    And I click on "Save" in the page details
+    And I click on "Edit" in the page details
+    When I enter "Edition" values from "Program_Field_Values.xlsx"
+    And I click on "Save" in the page details
+    When I navigate to "Overview" sub tab
+    And I click on top right button "Associate" in flex table with id "---program:-:contactsTableId---"
+    When I click "Associate" after selection of "{SavedValue:EXE Username}" by showing entries "All" in flex table with id "---program:-:associateContactsTableId---"
+    Then I softly see value "{SavedValue:EXE Username}" for title "Name" inside table "---program:-:contactsTableId---"
+    When I navigate to "Setup" sub tab
+    And I click on top right button "Associate" in flex table with id "---program:-:focusAreaTableId---"
+    When I click "Associate" after selection of "Automation Permanent Focus Area" by showing entries "All" in flex table with id "---program:-:associateFocusAreaTableId---"
+    And I click on top right button "Associate" in flex table with id "---program:-:objectivesTableId---"
+    When I click "Associate" after selection of "Automation Permanent Objective" by showing entries "All" in flex table with id "---program:-:associateObjectivesTableId---"
+    And I click on top right button "Associate" in flex table with id "---program:-:kpiTableId---"
+    When I click "Associate" after selection of "Automation Permanent KPI" by showing entries "All" in flex table with id "---program:-:associateKPITableId---"
+    When I navigate to "Responsibilities" sub tab
+    When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
+      | Name                     | Program |
+      | {SavedValue:PM Username} | NA      |
+    When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
+      | Name                     | Program |
+      | {SavedValue:FO Username} | Step 1  |
+    Then I softly see value "{SavedValue:FO Username}" for title "Name" inside table "---program:-:approverTableId---"
+    And I save the value from row "1" for column name "Name" as "OwnerName" from flex table "---program:-:programOwnerTableId---"
+    Then I softly see value "{SavedValue:PM Username}" for title "Name" inside table "---program:-:programOwnerTableId---"
+    And I pause execution for "5" seconds
+    When I re-login to "Grantor" app as "<NonOwner>" user on "INTERNAL" portal
+    And I navigate to "Planning" tab
+    When I navigate to "Internal Programs" content inside "Programs" subheader on left panel
+    And I click toggle button to select "Internal Programs - Draft"
+    When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:programsTableId---" panel
+    And I click on "View" icon for "{SavedValue:ProgramEGMSID}" inside flex table with id "---program:-:programsTableId---" without waiting for record
+    And I navigate to "Setup" sub tab
+    When I enter the following values into flex table with id "---program:-:checklistTableId---" by clicking "Add" :
+      | Description                 | Required  | Applies To  | Status |
+      | Automation test description | Mandatory | Application | Active |
+    When I navigate to "Files" sub tab
+    Then I can see top right button "Add Files" in flex table with id "---program:-:GrantorInternalProgramFilesTableId---"
+    Then I can see top right button "New" in flex table with id "---program:-:internalProgramNotesTableId---"

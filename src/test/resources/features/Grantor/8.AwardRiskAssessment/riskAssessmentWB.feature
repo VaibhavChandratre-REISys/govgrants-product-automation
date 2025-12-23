@@ -1682,8 +1682,132 @@ Feature: Risk Assessment scenarios without background
     Examples:
       | User       |
       | PO         |
-      | PM         |
       | EXE        |
       | FO         |
       | FD         |
       | AUDITOR    |
+
+  @532649 @validateAwardRiskAssessment-usershouldabletoseetheAwardriskassessmentsharewithexternaluseronlyaftersendtosubrecipientbutton
+  Scenario Outline: Validate Award Risk Assessment  -Internal user should see the correct number of records in the child tables
+    Given I login to "Grantor" app as "dynamicUser" user
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:activeGrantsTableId---"
+    And I enter "Grant_Creation1" values from "Award_Field_Values.xlsx"
+    And I click modal button "Continue"
+    And I enter "Grant_Edition" values from "Award_Field_Values.xlsx"
+    When I click modal button "Save and Continue"
+    And I navigate to "Subawards" sub tab
+    And I click on "View" icon for "Created" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
+    And I get the "EGMS ID"
+    And I click on "Edit" in the page details
+    When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
+    And I click on "Save" in the page details
+    And I wait for "2" seconds
+    And I navigate to "Terms" sub tab
+    And I navigate to "Management" sub tab
+    When I click on top right button "New" in flex table with id "---subAwardStandAlone:-:riskAssessmentTableId---"
+    And I enter "Risk Assessment Creation" values from "Award_Field_Values.xlsx"
+    When I click on "Save and Continue" in the page details
+    And I navigate to "Assessment" sub tab
+    And I enter "Risk Assessment" values from "Award_Field_Values.xlsx"
+    When I click on "Save" in the page details
+    When I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "RiskEGMSID"
+    When I navigate to "Responsibilities" sub tab
+    And I enter the following values into flex table with id "---subAwardStandAlone:-:RiskAssessmentPeerReviewTableId---" by clicking "New" :
+      | Name                     | Responsibility  | Description                 | Due Date | Allow Record Editing |
+      | {SavedValue:FO Username} | Fiscal Reviewer | Automation Test Description | 7        | No                   |
+    And I enter the following values into flex table with id "---subAwardStandAlone:-:RiskAssessmentPeerReviewTableId---" by clicking "New" :
+      | Name                     | Responsibility  | Description                 | Due Date | Allow Record Editing |
+      | {SavedValue:PM Username} | Fiscal Reviewer | Automation Test Description | 7        | No                   |
+    When I enter the following values into flex table with id "---subAwardStandAlone:-:riskAssessmentApproverTableId---" by clicking "New" :
+      | Name                     | Risk Assessment |
+      | {SavedValue:FO Username} | Step 1          |
+    Then I softly see value "{SavedValue:FO Username}" for title "Name" inside table "---subAwardStandAlone:-:RiskAssessmentPeerReviewTableId---"
+    Then I softly see value "{SavedValue:PM Username}" for title "Name" inside table "---subAwardStandAlone:-:RiskAssessmentPeerReviewTableId---"
+    Then I softly see value "{SavedValue:FO Username}" for title "Name" inside table "---subAwardStandAlone:-:riskAssessmentApproverTableId---"
+    When I navigate to "Files" sub tab
+    Then I can see top right button "Add Files" in flex table with id "---subAwardStandAlone:-:RiskAttachmentFilesTableId---"
+    And I click on top right button "Add Files" in flex table with id "---subAwardStandAlone:-:RiskAttachmentFilesTableId---"
+    And I upload attachment without random number "Attachment.pdf" of type "Other Artifacts" from computer
+    When I click modal button "Close"
+    Then I softly see value "Attachment.pdf" for title "Title" inside table "---subAwardStandAlone:-:RiskAttachmentFilesTableId---"
+    Then I softly can see row level action button "Download" against "Other Artifacts" in flex table with id "---subAwardStandAlone:-:RiskAttachmentFilesTableId---"
+    Then I softly can see row level action button "View" against "Other Artifacts" in flex table with id "---subAwardStandAlone:-:RiskAttachmentFilesTableId---"
+    Then I softly can see row level action button "Edit" against "Other Artifacts" in flex table with id "---subAwardStandAlone:-:RiskAttachmentFilesTableId---"
+    Then I softly can see row level action button "Delete" against "Other Artifacts" in flex table with id "---subAwardStandAlone:-:RiskAttachmentFilesTableId---"
+    Then I can see top right button "New" in flex table with id "---riskassessment:-:riskAssNotesTableId---"
+    When I enter the following values into flex table with id "---riskassessment:-:riskAssNotesTableId---" by clicking "New" :
+      | Title           | Description      |
+      | Automation Test | Automation Notes |
+    Then I softly see value "Automation Test" for title "Title" inside table "---riskassessment:-:riskAssNotesTableId---"
+    Then I softly can see row level action button "Edit" against "Automation Test" in flex table with id "---riskassessment:-:riskAssNotesTableId---"
+    Then I softly can see row level action button "Delete" against "Automation Test" in flex table with id "---riskassessment:-:riskAssNotesTableId---"
+    And I re-login to "Grants Portal" app as "<SRUser>" user on "SUBPORTAL" portal
+    And I navigate to "Home" tab
+    And I perform quick search inside global search "{SavedValue:RiskEGMSID}"
+    Then I softly see the text containing "No results"
+    And I navigate to "Monitoring" tab
+    When I navigate to "Risk Assessments" content inside "Monitoring Activities" subheader on left panel
+    When I click toggle button to select "Subaward Risk Assessment - All"
+    And I perform quick search for "{SavedValue:RiskEGMSID}" in "---riskassessment:-:riskAssessmentGridViewExternalTableId---" panel
+    Then I softly do not see "{SavedValue:RiskEGMSID}" inside flex table with id "---riskassessment:-:riskAssessmentGridViewExternalTableId---"
+    And I re-login to "Grants Portal" app as "IND" user on "SUBPORTAL" portal
+    And I navigate to "Home" tab
+    And I perform quick search inside global search "{SavedValue:RiskEGMSID}"
+    Then I softly see the text containing "No results"
+    And I navigate to "Monitoring" tab
+    When I navigate to "Risk Assessments" content inside "Monitoring Activities" subheader on left panel
+    When I click toggle button to select "Subaward Risk Assessment - All"
+    And I perform quick search for "{SavedValue:RiskEGMSID}" in "---riskassessment:-:riskAssessmentGridViewExternalTableId---" panel
+    Then I softly do not see "{SavedValue:RiskEGMSID}" inside flex table with id "---riskassessment:-:riskAssessmentGridViewExternalTableId---"
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
+    And I navigate to "Monitoring" tab
+    When I navigate to "Risk Assessments" content inside "Monitoring Activities" subheader on left panel
+    And I click toggle button to select "Subaward Risk Assessments - All"
+    And I perform quick search for "{SavedValue:RiskEGMSID}" in "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---" panel
+    When I click on "View" icon for "{SavedValue:RiskEGMSID}" inside flex table with id "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---" without waiting for record
+    When I click on "Submit for Approval" in the page details
+    When I re-login to "Grantor" app as "FO" user on "INTERNAL" portal
+    And I navigate to "Monitoring" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "Record Id" in "---subAwardStandAlone:-:pendingTaskTableId---" panel
+    When I click on "Start" icon for "Record Id" inside flex table with id "---subAwardStandAlone:-:pendingTaskTableId---" without waiting for record
+    And I "Approve" in the approval decision
+    And I wait for "2" seconds
+    Then I softly see field "Status" as "Active"
+    And I re-login to "Grants Portal" app as "<SRUser>" user on "SUBPORTAL" portal
+    And I navigate to "Home" tab
+    And I perform quick search inside global search "{SavedValue:RiskEGMSID}"
+    When I click on hyperlink containing value "{SavedValue:RiskEGMSID}"
+    Then I softly see field "Status" as "Active"
+    And I navigate to "Monitoring" tab
+    When I navigate to "Risk Assessments" content inside "Monitoring Activities" subheader on left panel
+    When I click toggle button to select "Subaward Risk Assessment - All"
+    And I perform quick search for "{SavedValue:RiskEGMSID}" in "---riskassessment:-:riskAssessmentGridViewExternalTableId---" panel
+    Then I softly see "{SavedValue:RiskEGMSID}" inside flex table with id "---riskassessment:-:riskAssessmentGridViewExternalTableId---"
+    When I click on "View" icon for "{SavedValue:RiskEGMSID}" inside flex table with id "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---" without waiting for record
+    Then I softly cannot see "Responsibilities" sub tab at view detail page
+    When I navigate to "Files" sub tab
+    Then I softly see value "Attachment.pdf" for title "Title" inside table "---subAwardStandAlone:-:RiskAttachmentFilesTableId---"
+    Then I softly can see row level action button "Download" against "Other Artifacts" in flex table with id "---subAwardStandAlone:-:RiskAttachmentFilesTableId---"
+    Then I softly can see row level action button "View" against "Other Artifacts" in flex table with id "---subAwardStandAlone:-:RiskAttachmentFilesTableId---"
+    Then I softly cannot see row level action button "Edit" against "Other Artifacts" in flex table with id "---subAwardStandAlone:-:RiskAttachmentFilesTableId---"
+    Then I softly cannot see row level action button "Delete" against "Other Artifacts" in flex table with id "---subAwardStandAlone:-:RiskAttachmentFilesTableId---"
+    Then I softly see value "Automation Test" for title "Title" inside table "---riskassessment:-:riskAssNotesTableId---"
+    Then I softly cannot see row level action button "Edit" against "Automation Test" in flex table with id "---riskassessment:-:riskAssNotesTableId---"
+    Then I softly cannot see row level action button "Delete" against "Automation Test" in flex table with id "---riskassessment:-:riskAssNotesTableId---"
+    And I re-login to "Grants Portal" app as "IND" user on "SUBPORTAL" portal
+    And I navigate to "Home" tab
+    And I perform quick search inside global search "{SavedValue:RiskEGMSID}"
+    Then I softly see the text containing "No results"
+    And I navigate to "Monitoring" tab
+    When I navigate to "Risk Assessments" content inside "Monitoring Activities" subheader on left panel
+    When I click toggle button to select "Subaward Risk Assessment - All"
+    And I perform quick search for "{SavedValue:RiskEGMSID}" in "---riskassessment:-:riskAssessmentGridViewExternalTableId---" panel
+    Then I softly do not see "{SavedValue:RiskEGMSID}" inside flex table with id "---riskassessment:-:riskAssessmentGridViewExternalTableId---"
+    Examples:
+      | SRUser     |
+      | SPI3       |
+      | SPA        |

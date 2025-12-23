@@ -10804,7 +10804,6 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     Then I softly see the text containing "You dont have sufficient access to edit this record"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     When I navigate to "Home" tab
-    And I select "Site Visits" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:SVEGMSID}"
     Then I softly see the text containing "No results"
     And I navigate to "Monitoring" tab
