@@ -2443,8 +2443,8 @@ Feature: Validate all scenarios for Opportunity
    When I enter the following values into flex table with id "---grantee_tableId:-:opportunityApproverTableId---" by clicking "New" :
      | Name               | Opportunity |
      | Danielle FD Garcia | Step 2      |
-   Then I see value "David FO" for title "Reviewer Name" inside table "---grantee_tableId:-:opportunityExternalProgramTableId---"
-   Then I see value "Victor EXE" for title "Reviewer Name" inside table "---grantee_tableId:-:opportunityExternalProgramTableId---"
+   Then I see value "David FO" for title "Reviewer Name" inside table "---grantee_tableId:-:OpportunityPeerReviewers---"
+   Then I see value "Victor EXE" for title "Reviewer Name" inside table "---grantee_tableId:-:OpportunityPeerReviewers---"
    Then I see value "Grantee PO" for title "Name" inside table "---grantee_tableId:-:opportunityApproverTableId---"
    Then I see value "Danielle FD Garcia" for title "Name" inside table "---grantee_tableId:-:opportunityApproverTableId---"
    And I click on "Send for Review" icon for "David FO" inside flex table with id "---grantee_tableId:-:OpportunityPeerReviewers---" without waiting for record
@@ -2481,8 +2481,8 @@ Feature: Validate all scenarios for Opportunity
    Then I see value "Automation Permanent NGO Program2" for title "Title" inside table "---grantee_tableId:-:opportunityExternalProgramTableId---"
    Then I see value "Automation Permanent NGO Program" for title "Title" inside table "---grantee_tableId:-:opportunityExternalProgramTableId---"
    And I navigate to "Responsibilities" sub tab
-   Then I see value "David FO" for title "Reviewer Name" inside table "---grantee_tableId:-:opportunityExternalProgramTableId---"
-   Then I see value "Victor EXE" for title "Reviewer Name" inside table "---grantee_tableId:-:opportunityExternalProgramTableId---"
+   Then I see value "David FO" for title "Reviewer Name" inside table "---grantee_tableId:-:OpportunityPeerReviewers---"
+   Then I see value "Victor EXE" for title "Reviewer Name" inside table "---grantee_tableId:-:OpportunityPeerReviewers---"
    Then I see value "Grantee PO" for title "Name" inside table "---grantee_tableId:-:opportunityApproverTableId---"
    Then I see value "Danielle FD Garcia" for title "Name" inside table "---grantee_tableId:-:opportunityApproverTableId---"
    And I navigate to "Files" sub tab
@@ -2499,8 +2499,8 @@ Feature: Validate all scenarios for Opportunity
    Then I see value "Automation Permanent NGO Program2" for title "Title" inside table "---grantee_tableId:-:opportunityExternalProgramTableId---"
    Then I see value "Automation Permanent NGO Program" for title "Title" inside table "---grantee_tableId:-:opportunityExternalProgramTableId---"
    And I navigate to "Responsibilities" sub tab
-   Then I see value "David FO" for title "Reviewer Name" inside table "---grantee_tableId:-:opportunityExternalProgramTableId---"
-   Then I see value "Victor EXE" for title "Reviewer Name" inside table "---grantee_tableId:-:opportunityExternalProgramTableId---"
+   Then I see value "David FO" for title "Reviewer Name" inside table "---grantee_tableId:-:OpportunityPeerReviewers---"
+   Then I see value "Victor EXE" for title "Reviewer Name" inside table "---grantee_tableId:-:OpportunityPeerReviewers---"
    Then I see value "Grantee PO" for title "Name" inside table "---grantee_tableId:-:opportunityApproverTableId---"
    Then I see value "Danielle FD Garcia" for title "Name" inside table "---grantee_tableId:-:opportunityApproverTableId---"
    And I navigate to "Files" sub tab
@@ -2532,8 +2532,8 @@ Feature: Validate all scenarios for Opportunity
    Then I see value "Automation Permanent NGO Program2" for title "Title" inside table "---grantee_tableId:-:opportunityExternalProgramTableId---"
    Then I see value "Automation Permanent NGO Program" for title "Title" inside table "---grantee_tableId:-:opportunityExternalProgramTableId---"
    And I navigate to "Responsibilities" sub tab
-   Then I see value "David FO" for title "Reviewer Name" inside table "---grantee_tableId:-:opportunityExternalProgramTableId---"
-   Then I see value "Victor EXE" for title "Reviewer Name" inside table "---grantee_tableId:-:opportunityExternalProgramTableId---"
+   Then I see value "David FO" for title "Reviewer Name" inside table "---grantee_tableId:-:OpportunityPeerReviewers---"
+   Then I see value "Victor EXE" for title "Reviewer Name" inside table "---grantee_tableId:-:OpportunityPeerReviewers---"
    Then I see value "Grantee PO" for title "Name" inside table "---grantee_tableId:-:opportunityApproverTableId---"
    Then I see value "Danielle FD Garcia" for title "Name" inside table "---grantee_tableId:-:opportunityApproverTableId---"
    And I navigate to "Files" sub tab
@@ -2564,8 +2564,8 @@ Feature: Validate all scenarios for Opportunity
    Then I see value "Automation Permanent NGO Program2" for title "Title" inside table "---grantee_tableId:-:opportunityExternalProgramTableId---"
    Then I see value "Automation Permanent NGO Program" for title "Title" inside table "---grantee_tableId:-:opportunityExternalProgramTableId---"
    And I navigate to "Responsibilities" sub tab
-   Then I see value "David FO" for title "Reviewer Name" inside table "---grantee_tableId:-:opportunityExternalProgramTableId---"
-   Then I see value "Victor EXE" for title "Reviewer Name" inside table "---grantee_tableId:-:opportunityExternalProgramTableId---"
+   Then I see value "David FO" for title "Reviewer Name" inside table "---grantee_tableId:-:OpportunityPeerReviewers---"
+   Then I see value "Victor EXE" for title "Reviewer Name" inside table "---grantee_tableId:-:OpportunityPeerReviewers---"
    Then I see value "Grantee PO" for title "Name" inside table "---grantee_tableId:-:opportunityApproverTableId---"
    Then I see value "Danielle FD Garcia" for title "Name" inside table "---grantee_tableId:-:opportunityApproverTableId---"
    And I navigate to "Files" sub tab
@@ -2591,8 +2591,8 @@ Feature: Validate all scenarios for Opportunity
    Then I see value "Automation Permanent NGO Program2" for title "Title" inside table "---grantee_tableId:-:opportunityExternalProgramTableId---"
    Then I see value "Automation Permanent NGO Program" for title "Title" inside table "---grantee_tableId:-:opportunityExternalProgramTableId---"
    And I navigate to "Responsibilities" sub tab
-   Then I see value "David FO" for title "Reviewer Name" inside table "---grantee_tableId:-:opportunityExternalProgramTableId---"
-   Then I see value "Victor EXE" for title "Reviewer Name" inside table "---grantee_tableId:-:opportunityExternalProgramTableId---"
+   Then I see value "David FO" for title "Reviewer Name" inside table "---grantee_tableId:-:OpportunityPeerReviewers---"
+   Then I see value "Victor EXE" for title "Reviewer Name" inside table "---grantee_tableId:-:OpportunityPeerReviewers---"
    Then I see value "Grantee PO" for title "Name" inside table "---grantee_tableId:-:opportunityApproverTableId---"
    Then I see value "Danielle FD Garcia" for title "Name" inside table "---grantee_tableId:-:opportunityApproverTableId---"
    And I navigate to "Files" sub tab
@@ -2612,8 +2612,8 @@ Feature: Validate all scenarios for Opportunity
    Then I see value "Automation Permanent NGO Program2" for title "Title" inside table "---grantee_tableId:-:opportunityExternalProgramTableId---"
    Then I see value "Automation Permanent NGO Program" for title "Title" inside table "---grantee_tableId:-:opportunityExternalProgramTableId---"
    And I navigate to "Responsibilities" sub tab
-   Then I see value "David FO" for title "Reviewer Name" inside table "---grantee_tableId:-:opportunityExternalProgramTableId---"
-   Then I see value "Victor EXE" for title "Reviewer Name" inside table "---grantee_tableId:-:opportunityExternalProgramTableId---"
+   Then I see value "David FO" for title "Reviewer Name" inside table "---grantee_tableId:-:OpportunityPeerReviewers---"
+   Then I see value "Victor EXE" for title "Reviewer Name" inside table "---grantee_tableId:-:OpportunityPeerReviewers---"
    Then I see value "Grantee PO" for title "Name" inside table "---grantee_tableId:-:opportunityApproverTableId---"
    Then I see value "Danielle FD Garcia" for title "Name" inside table "---grantee_tableId:-:opportunityApproverTableId---"
    And I navigate to "Files" sub tab
@@ -2637,8 +2637,8 @@ Feature: Validate all scenarios for Opportunity
    Then I see value "Automation Permanent NGO Program2" for title "Title" inside table "---grantee_tableId:-:opportunityExternalProgramTableId---"
    Then I see value "Automation Permanent NGO Program" for title "Title" inside table "---grantee_tableId:-:opportunityExternalProgramTableId---"
    And I navigate to "Responsibilities" sub tab
-   Then I see value "David FO" for title "Reviewer Name" inside table "---grantee_tableId:-:opportunityExternalProgramTableId---"
-   Then I see value "Victor EXE" for title "Reviewer Name" inside table "---grantee_tableId:-:opportunityExternalProgramTableId---"
+   Then I see value "David FO" for title "Reviewer Name" inside table "---grantee_tableId:-:OpportunityPeerReviewers---"
+   Then I see value "Victor EXE" for title "Reviewer Name" inside table "---grantee_tableId:-:OpportunityPeerReviewers---"
    Then I see value "Grantee PO" for title "Name" inside table "---grantee_tableId:-:opportunityApproverTableId---"
    Then I see value "Danielle FD Garcia" for title "Name" inside table "---grantee_tableId:-:opportunityApproverTableId---"
    And I navigate to "Files" sub tab
@@ -2656,8 +2656,8 @@ Feature: Validate all scenarios for Opportunity
    Then I see value "Automation Permanent NGO Program2" for title "Title" inside table "---grantee_tableId:-:opportunityExternalProgramTableId---"
    Then I see value "Automation Permanent NGO Program" for title "Title" inside table "---grantee_tableId:-:opportunityExternalProgramTableId---"
    And I navigate to "Responsibilities" sub tab
-   Then I see value "David FO" for title "Reviewer Name" inside table "---grantee_tableId:-:opportunityExternalProgramTableId---"
-   Then I see value "Victor EXE" for title "Reviewer Name" inside table "---grantee_tableId:-:opportunityExternalProgramTableId---"
+   Then I see value "David FO" for title "Reviewer Name" inside table "---grantee_tableId:-:OpportunityPeerReviewers---"
+   Then I see value "Victor EXE" for title "Reviewer Name" inside table "---grantee_tableId:-:OpportunityPeerReviewers---"
    Then I see value "Grantee PO" for title "Name" inside table "---grantee_tableId:-:opportunityApproverTableId---"
    Then I see value "Danielle FD Garcia" for title "Name" inside table "---grantee_tableId:-:opportunityApproverTableId---"
    And I navigate to "Files" sub tab
@@ -2668,8 +2668,8 @@ Feature: Validate all scenarios for Opportunity
    Then I see value "Automation Permanent NGO Program2" for title "Title" inside table "---grantee_tableId:-:opportunityExternalProgramTableId---"
    Then I see value "Automation Permanent NGO Program" for title "Title" inside table "---grantee_tableId:-:opportunityExternalProgramTableId---"
    And I navigate to "Responsibilities" sub tab
-   Then I see value "David FO" for title "Reviewer Name" inside table "---grantee_tableId:-:opportunityExternalProgramTableId---"
-   Then I see value "Victor EXE" for title "Reviewer Name" inside table "---grantee_tableId:-:opportunityExternalProgramTableId---"
+   Then I see value "David FO" for title "Reviewer Name" inside table "---grantee_tableId:-:OpportunityPeerReviewers---"
+   Then I see value "Victor EXE" for title "Reviewer Name" inside table "---grantee_tableId:-:OpportunityPeerReviewers---"
    Then I see value "Grantee PO" for title "Name" inside table "---grantee_tableId:-:opportunityApproverTableId---"
    Then I see value "Danielle FD Garcia" for title "Name" inside table "---grantee_tableId:-:opportunityApproverTableId---"
    And I navigate to "Files" sub tab
@@ -2682,8 +2682,8 @@ Feature: Validate all scenarios for Opportunity
    Then I see value "Automation Permanent NGO Program2" for title "Title" inside table "---grantee_tableId:-:opportunityExternalProgramTableId---"
    Then I see value "Automation Permanent NGO Program" for title "Title" inside table "---grantee_tableId:-:opportunityExternalProgramTableId---"
    And I navigate to "Responsibilities" sub tab
-   Then I see value "David FO" for title "Reviewer Name" inside table "---grantee_tableId:-:opportunityExternalProgramTableId---"
-   Then I see value "Victor EXE" for title "Reviewer Name" inside table "---grantee_tableId:-:opportunityExternalProgramTableId---"
+   Then I see value "David FO" for title "Reviewer Name" inside table "---grantee_tableId:-:OpportunityPeerReviewers---"
+   Then I see value "Victor EXE" for title "Reviewer Name" inside table "---grantee_tableId:-:OpportunityPeerReviewers---"
    Then I see value "Grantee PO" for title "Name" inside table "---grantee_tableId:-:opportunityApproverTableId---"
    Then I see value "Danielle FD Garcia" for title "Name" inside table "---grantee_tableId:-:opportunityApproverTableId---"
    And I navigate to "Files" sub tab
@@ -2701,8 +2701,8 @@ Feature: Validate all scenarios for Opportunity
    Then I see value "Automation Permanent NGO Program2" for title "Title" inside table "---grantee_tableId:-:opportunityExternalProgramTableId---"
    Then I see value "Automation Permanent NGO Program" for title "Title" inside table "---grantee_tableId:-:opportunityExternalProgramTableId---"
    And I navigate to "Responsibilities" sub tab
-   Then I see value "David FO" for title "Reviewer Name" inside table "---grantee_tableId:-:opportunityExternalProgramTableId---"
-   Then I see value "Victor EXE" for title "Reviewer Name" inside table "---grantee_tableId:-:opportunityExternalProgramTableId---"
+   Then I see value "David FO" for title "Reviewer Name" inside table "---grantee_tableId:-:OpportunityPeerReviewers---"
+   Then I see value "Victor EXE" for title "Reviewer Name" inside table "---grantee_tableId:-:OpportunityPeerReviewers---"
    Then I see value "Grantee PO" for title "Name" inside table "---grantee_tableId:-:opportunityApproverTableId---"
    Then I see value "Danielle FD Garcia" for title "Name" inside table "---grantee_tableId:-:opportunityApproverTableId---"
    And I navigate to "Files" sub tab
@@ -2720,8 +2720,8 @@ Feature: Validate all scenarios for Opportunity
    Then I see value "Automation Permanent NGO Program2" for title "Title" inside table "---grantee_tableId:-:opportunityExternalProgramTableId---"
    Then I see value "Automation Permanent NGO Program" for title "Title" inside table "---grantee_tableId:-:opportunityExternalProgramTableId---"
    And I navigate to "Responsibilities" sub tab
-   Then I see value "David FO" for title "Reviewer Name" inside table "---grantee_tableId:-:opportunityExternalProgramTableId---"
-   Then I see value "Victor EXE" for title "Reviewer Name" inside table "---grantee_tableId:-:opportunityExternalProgramTableId---"
+   Then I see value "David FO" for title "Reviewer Name" inside table "---grantee_tableId:-:OpportunityPeerReviewers---"
+   Then I see value "Victor EXE" for title "Reviewer Name" inside table "---grantee_tableId:-:OpportunityPeerReviewers---"
    Then I see value "Grantee PO" for title "Name" inside table "---grantee_tableId:-:opportunityApproverTableId---"
    Then I see value "Danielle FD Garcia" for title "Name" inside table "---grantee_tableId:-:opportunityApproverTableId---"
    And I navigate to "Files" sub tab
