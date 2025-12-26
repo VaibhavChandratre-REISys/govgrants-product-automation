@@ -1983,6 +1983,7 @@ Feature: Validate all scenarios for Leads
    Then I softly can see "Files" sub tab at view detail page
    Then I softly can see "History" sub tab at view detail page
    Then I softly can see "Messages" sub tab at view detail page
+   And I navigate to "Overview" sub tab
    Then I softly see "Lead Information" page block displayed
    Then I softly see "Qualification Details" page block displayed
    Then I softly see "All Qualifications" page block displayed
