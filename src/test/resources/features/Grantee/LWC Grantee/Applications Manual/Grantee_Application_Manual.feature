@@ -607,3 +607,111 @@ Feature: Validate all scenarios for Applications Manual
     Examples:
       | NonUser |
       | PM1      |
+
+  @546865 @validatethatBudgetPeriodsectionshouldbevisiblewithcorrectrecordscounttoallInternalUsers
+  Scenario Outline: Validate Budget Period section should be visible with correct records count
+    And I create "Manual" qualified lead for title "Automation Runtime Opportunity" and opportunity number "Automation Runtime" with properties "default"
+    When I login to "Grantee" app as "GRANTEE PM" user
+    And I navigate to "Opportunities" tab
+    When I navigate to "Qualified" content inside "Leads" subheader on left panel
+    And I click toggle button to select "Qualified Leads - All"
+    When I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:qualifiedLeadTableId---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside flex table with id "---grantee_tableId:-:qualifiedLeadTableId---" without waiting for record
+    When I click on "Convert to Opportunity" in the page details
+    And I save the field labeled "EGMS ID" as "opportunityEGMSID"
+    And I create opportunity with state "Approved" for opportunity number "{SavedValue:Automation Runtime}" with properties "default"
+    And I navigate to "Opportunities" tab
+    And I navigate to "Not Converted" content inside "Opportunities" subheader on left panel
+    When I click toggle button to select "Opportunities Not Converted to Application - All"
+    And I perform quick search for "{SavedValue:opportunityEGMSID}" in "---grantee_tableId:-:OpportunityNotConvertedToApplication---" panel
+    When I click on "View" icon for "{SavedValue:opportunityEGMSID}" inside table
+    Then I softly can see top right button "Create Application" in page detail
+    And I click on "Create Application" in the page details
+    And I wait for "5" seconds
+    And I click modal button "Save and Continue"
+    And I enter "Grantee_Edition" values from "Application_Field_Values.xlsx"
+    And I wait for "2" seconds
+    When I click on "Save" in the page details
+    And I pause execution for "2" seconds
+    And I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "appEGMSID"
+    Then I softly see field "Status" as "Created"
+    When I navigate to "Setup" sub tab
+    Then I softly see "Project Period" page block displayed
+    Then I softly see "Budget Period Details" page block displayed
+    Then I cannot see top right button "Create New Budget Period" in flex table with id "---grantee_tableId:-:BudgetPeriodDetailsFromSetup---"
+    Then I cannot see top right button "Associate Focus Area" in flex table with id "---grantee_tableId:-:BudgetPeriodDetailsFromSetup---"
+    And I click on top right button "Associate Focus Area" in flex table with id "---grantee_tableId:-:BudgetPeriodDetailsFromSetup---"
+    When I click "Next" after selection of "BP01" in the table "---grantee_tableId:-:ApplicationBudgetPeriodModalTableId---"
+    When I click "Associate" after selection of "Automation Permanent Focus Area" in the table "---grantee_tableId:-:ApplicationSelectFocusAreaModalTableId---"
+    And I wait for "2" seconds
+    When I click "Associate" after selection of "Automation Permanent Focus Area2" in the table "---grantee_tableId:-:ApplicationSelectFocusAreaModalTableId---"
+    And I wait for "2" seconds
+    And I click modal button "Close"
+    Then I softly can see row level action button "Delete" against "BP01" in flex table with id "---grantee_tableId:-:BudgetPeriodDetailsFromSetup---"
+    Then I softly can see row level action button "Edit" against "BP01" in flex table with id "---grantee_tableId:-:BudgetPeriodDetailsFromSetup---"
+    And I click on "Edit" icon for "BP01" inside flex table with id "---grantee_tableId:-:BudgetPeriodDetailsFromSetup---"
+    When I enter in modal value "360" into field "BudgetEndDate__c"
+    When I click modal button "Save"
+    When I click modal button "Close"
+    And I click on top right button "Associate Focus Area" in flex table with id "---grantee_tableId:-:BudgetPeriodDetailsFromSetup---"
+    When I click "Next" after selection of "BP01" in the table "---grantee_tableId:-:ApplicationBudgetPeriodModalTableId---"
+    And I wait for "3" seconds
+    When I click "Associate" after selection of "Automation Permanent Focus Area2" in the table "---grantee_tableId:-:ApplicationSelectFocusAreaModalTableId---"
+    And I click modal button "Close"
+    Then I softly can see row level action button "Delete" against "BP01" in flex table with id "---grantee_tableId:-:BudgetPeriodDetailsFromSetup---"
+    Then I softly can see row level action button "Edit" against "BP01" in flex table with id "---grantee_tableId:-:BudgetPeriodDetailsFromSetup---"
+    Given I expand nested table containing column value "BP01"
+    Then I softly see value "Automation Permanent Focus Area" for title "Focus Area Title" inside table "---grantee_tableId:-:BudgetPeriodDetailsFromSetup---"
+    Then I softly see value "Automation Permanent Focus Area2" for title "Focus Area Title" inside table "---grantee_tableId:-:BudgetPeriodDetailsFromSetup---"
+    Then I softly can see row level action button "Remove" against "Automation Permanent Focus Area" in flex table with id "---grantee_tableId:-:BudgetPeriodDetailsFromSetup---"
+    Then I softly can see row level action button "Remove" against "Automation Permanent Focus Area2" in flex table with id "---grantee_tableId:-:BudgetPeriodDetailsFromSetup---"
+    Then I see total records count "Total Records: 2" in flex table "---grantee_tableId:-:ChildBudgetPeriodDetailsFromBudgetOfSetUp---"
+    And I click on top right button "Create New Budget Period" in flex table with id "---grantee_tableId:-:BudgetPeriodDetailsFromSetup---"
+    When I enter in modal value "361" into field "BudgetStartDate__c"
+    When I enter in modal value "365" into field "BudgetEndDate__c"
+    When I click modal button "Save"
+    When I click modal button "Close"
+    And I wait for "2" seconds
+    Given I expand nested table containing column value "BP02"
+    Then I softly do not see value "Automation Permanent Focus Area" for title "Focus Area Title" inside table "---grantee_tableId:-:BudgetPeriodDetailsFromSetup---"
+    Then I softly see value "Automation Permanent Focus Area2" for title "Focus Area Title" inside table "---grantee_tableId:-:BudgetPeriodDetailsFromSetup---"
+    Then I softly can see row level action button "Remove" against "Automation Permanent Focus Area2" in flex table with id "---grantee_tableId:-:BudgetPeriodDetailsFromSetup---"
+    Then I see total records count "Total Records: 1" in flex table "---grantee_tableId:-:ChildBudgetPeriodDetailsFromBudgetOfSetUp---"
+    When I re-login to "Grantee" app as "<User>" user on "INTERNAL" portal
+    When I navigate to "Applications" tab
+    And I navigate to "Applications" content inside "Applications" subheader on left panel
+    When I click toggle button to select "Applications - All"
+    And I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:ApplicationTableId---" panel
+    When I click on "View" icon for "{SavedValue:appEGMSID}" inside table
+    Then I softly see field "Status" as "Created"
+    When I navigate to "Setup" sub tab
+    Then I softly see "Project Period" page block displayed
+    Then I softly see "Budget Period Details" page block displayed
+    Then I cannot see top right button "Create New Budget Period" in flex table with id "---grantee_tableId:-:BudgetPeriodDetailsFromSetup---"
+    Then I cannot see top right button "Associate Focus Area" in flex table with id "---grantee_tableId:-:BudgetPeriodDetailsFromSetup---"
+    Then I softly see value "BP01" for title "Budget Period #" inside table "---grantee_tableId:-:BudgetPeriodDetailsFromSetup---"
+    Then I softly see value "BP02" for title "Budget Period #" inside table "---grantee_tableId:-:BudgetPeriodDetailsFromSetup---"
+    Then I softly cannot see row level action button "Delete" against "BP01" in flex table with id "---grantee_tableId:-:BudgetPeriodDetailsFromSetup---"
+    Then I softly cannot see row level action button "Edit" against "BP01" in flex table with id "---grantee_tableId:-:BudgetPeriodDetailsFromSetup---"
+    Then I softly cannot see row level action button "Delete" against "BP02" in flex table with id "---grantee_tableId:-:BudgetPeriodDetailsFromSetup---"
+    Then I softly cannot see row level action button "Edit" against "BP02" in flex table with id "---grantee_tableId:-:BudgetPeriodDetailsFromSetup---"
+    Given I expand nested table containing column value "BP01"
+    Then I softly see value "Automation Permanent Focus Area" for title "Focus Area Title" inside table "---grantee_tableId:-:BudgetPeriodDetailsFromSetup---"
+    Then I softly see value "Automation Permanent Focus Area2" for title "Focus Area Title" inside table "---grantee_tableId:-:BudgetPeriodDetailsFromSetup---"
+    Then I softly cannot see row level action button "Remove" against "Automation Permanent Focus Area" in flex table with id "---grantee_tableId:-:BudgetPeriodDetailsFromSetup---"
+    Then I softly cannot see row level action button "Remove" against "Automation Permanent Focus Area2" in flex table with id "---grantee_tableId:-:BudgetPeriodDetailsFromSetup---"
+    Then I see total records count "Total Records: 2" in flex table "---grantee_tableId:-:ChildBudgetPeriodDetailsFromBudgetOfSetUp---"
+    Given I expand nested table containing column value "BP02"
+    Then I softly do not see value "Automation Permanent Focus Area" for title "Focus Area Title" inside table "---grantee_tableId:-:BudgetPeriodDetailsFromSetup---"
+    Then I softly see value "Automation Permanent Focus Area2" for title "Focus Area Title" inside table "---grantee_tableId:-:BudgetPeriodDetailsFromSetup---"
+    Then I softly cannot see row level action button "Remove" against "Automation Permanent Focus Area2" in flex table with id "---grantee_tableId:-:BudgetPeriodDetailsFromSetup---"
+    Then I see total records count "Total Records: 1" in flex table "---grantee_tableId:-:ChildBudgetPeriodDetailsFromBudgetOfSetUp---"
+    Examples:
+      | User            |
+      | GRANTEE PO      |
+      | GRANTEE EXE     |
+      | GRANTEE FO      |
+      | GRANTEE FD      |
+      | GRANTEE ADMIN   |
+      | GRANTEE AUDITOR |
