@@ -192,6 +192,9 @@ public class UsersAndURL implements UsersController {
             case "PM":
                 password = "Auto@2021";
                 break;
+            case "PM1":
+                password = "Auto@2021";
+                break;
             case "EXE":
                 password = "Auto@2021";
                 break;

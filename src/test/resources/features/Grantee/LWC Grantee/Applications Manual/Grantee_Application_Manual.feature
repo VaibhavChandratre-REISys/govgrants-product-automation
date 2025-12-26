@@ -449,7 +449,7 @@ Feature: Validate all scenarios for Applications Manual
       | User       |
       | GRANTEE PM |
 
-  @547354 @validatethatContactsectionshouldbevisiblewithcorrectrecordscounttoallInternalUsers
+  @547368 @547354 @validatethatContactsectionshouldbevisiblewithcorrectrecordscounttoallInternalUsers
     Scenario Outline: Validate that Contact section should be visible with correct records count to all Internal Users
     And I create "Manual" qualified lead for title "Automation Runtime Opportunity" and opportunity number "Automation Runtime" with properties "default"
     When I login to "Grantee" app as "GRANTEE PM" user
@@ -524,6 +524,8 @@ Feature: Validate all scenarios for Applications Manual
     Then I softly see value "Sarah PM" for title "Name" inside table "---grantee_tableId:-:ContactTableIdApplication---"
     Then I softly see value "Victor EXE" for title "Name" inside table "---grantee_tableId:-:ContactTableIdApplication---"
     Then I softly see value "Project Director/Principal Investigator(PI/PD)" for title "Project Role" against the value "Sarah PM" inside table "---grantee_tableId:-:ContactTableIdApplication---"
+    Then I softly see value "Checked" for title "Is Key Contact" against the value "Sarah PM" inside table "---grantee_tableId:-:ContactTableIdApplication---"
+
     Examples:
       | User            |
       | GRANTEE PO      |
@@ -532,3 +534,68 @@ Feature: Validate all scenarios for Applications Manual
       | GRANTEE FD      |
       | GRANTEE ADMIN   |
       | GRANTEE AUDITOR |
+
+  @547368 @validateKeyContactsectionshouldbevisiblewithcorrectrecordscounttoallInternalUsers
+  Scenario Outline: Validate Key Contact section should be visible with correct records count to all Internal Users
+    And I create "Manual" qualified lead for title "Automation Runtime Opportunity" and opportunity number "Automation Runtime" with properties "default"
+    When I login to "Grantee" app as "GRANTEE PM" user
+    And I navigate to "Opportunities" tab
+    When I navigate to "Qualified" content inside "Leads" subheader on left panel
+    And I click toggle button to select "Qualified Leads - All"
+    When I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:qualifiedLeadTableId---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside flex table with id "---grantee_tableId:-:qualifiedLeadTableId---" without waiting for record
+    When I click on "Convert to Opportunity" in the page details
+    And I save the field labeled "EGMS ID" as "opportunityEGMSID"
+    And I create opportunity with state "Approved" for opportunity number "{SavedValue:Automation Runtime}" with properties "default"
+    And I navigate to "Opportunities" tab
+    And I navigate to "Not Converted" content inside "Opportunities" subheader on left panel
+    When I click toggle button to select "Opportunities Not Converted to Application - All"
+    And I perform quick search for "{SavedValue:opportunityEGMSID}" in "---grantee_tableId:-:OpportunityNotConvertedToApplication---" panel
+    When I click on "View" icon for "{SavedValue:opportunityEGMSID}" inside table
+    Then I softly can see top right button "Create Application" in page detail
+    And I click on "Create Application" in the page details
+    And I wait for "5" seconds
+    And I click modal button "Save and Continue"
+    And I enter "Grantee_Edition" values from "Application_Field_Values.xlsx"
+    And I wait for "2" seconds
+    When I click on "Save" in the page details
+    And I pause execution for "2" seconds
+    And I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "appEGMSID"
+    Then I softly see field "Status" as "Created"
+    And I navigate to "Overview" sub tab
+    Then I can see top right button "New" in flex table with id "---grantee_tableId:-:ContactTableIdApplication---"
+    Then I can see top right button "Associate" in flex table with id "---grantee_tableId:-:ContactTableIdApplication---"
+    And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:ContactTableIdApplication---"
+    When I click "Associate" after selection of "Sarah PM" in the table "---grantee_tableId:-:ContactModalTableIdApplication---"
+    When I click modal button "Close"
+    And I wait for "2" seconds
+    And I refresh the page
+    And I wait for "3" seconds
+    And I edit the following rows inline in flex table with id "---grantee_tableId:-:ContactTableIdApplication---" by clicking "Edit" :
+      | Name     |  Project Role                                   |
+      | Sarah PM |  Project Director/Principal Investigator(PI/PD) |
+    And I edit the following rows inline in flex table with id "---grantee_tableId:-:ContactTableIdApplication---" by clicking "Edit" :
+      | Name       |  Is Key Contact  |
+      | Sarah PM   |  Checked         |
+    And I wait for "2" seconds
+    Then I softly see value "Sarah PM" for title "Name" inside table "---grantee_tableId:-:ContactTableIdApplication---"
+    Then I softly see value "Project Director/Principal Investigator(PI/PD)" for title "Project Role" against the value "Sarah PM" inside table "---grantee_tableId:-:ContactTableIdApplication---"
+    And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:ContactTableIdApplication---"
+    When I click "Associate" after selection of "Victor EXE" in the table "---grantee_tableId:-:ContactModalTableIdApplication---"
+    When I click modal button "Close"
+    Then I softly see value "Victor EXE" for title "Name" inside table "---grantee_tableId:-:ContactTableIdApplication---"
+    When I re-login to "Grantee" app as "<NonUser>" user on "INTERNAL" portal
+    When I navigate to "Applications" tab
+    And I navigate to "Applications" content inside "Applications" subheader on left panel
+    When I click toggle button to select "Applications - All"
+    And I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:ApplicationTableId---" panel
+    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:ApplicationTableId---"
+    And I navigate to "Home" tab
+    And I select "Applications" from dropdown for Global search
+    And I wait for "2" seconds
+    And I perform quick search inside global search "{SavedValue:appEGMSID}"
+    Then I softly see the text containing "No results"
+    Examples:
+      | NonUser |
+      | PM1      |
