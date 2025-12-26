@@ -507,7 +507,13 @@ Feature: Validate all scenarios for Applications Manual
     When I click modal button "Close"
     Then I softly see value "Victor EXE" for title "Name" inside table "---grantee_tableId:-:ContactTableIdApplication---"
     And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:ApplicationExternalProgramsTableId---"
-    When I click "Associate" after selection of "Automation Permanent NGO Program2" in the table "---grantee_tableId:-:ApplicationExternalProgramsTableId---"
+    And I wait for "2" seconds
+    When I perform quick search for "Automation Permanent NGO Program" in "---grantee_tableId:-:applicationAssociateExternalProgramsTableId---" panel
+    When I click "Associate" after selection of "Automation Permanent NGO Program" in the table "---grantee_tableId:-:applicationAssociateExternalProgramsTableId---"
+    And I wait for "2" seconds
+    When I perform quick search for "Automation Permanent NGO Program2" in "---grantee_tableId:-:applicationAssociateExternalProgramsTableId---" panel
+    When I click "Associate" after selection of "Automation Permanent NGO Program2" in the table "---grantee_tableId:-:applicationAssociateExternalProgramsTableId---"
+    And I wait for "2" seconds
     When I click modal button "Close"
     Then I softly see value "Automation Permanent NGO Program" for title "Title" inside table "---grantee_tableId:-:ApplicationExternalProgramsTableId---"
     Then I softly see value "Automation Permanent NGO Program2" for title "Title" inside table "---grantee_tableId:-:ApplicationExternalProgramsTableId---"
