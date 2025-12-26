@@ -2061,7 +2061,7 @@ Feature: Validate all scenarios for Leads
      | GRANTEE FD      | softly cannot see | Qualified Leads - All |
      | GRANTEE ADMIN   | softly cannot see | Qualified Leads - All |
 
-   @546646 @validateonlyPM/PO/EXEusercanseequalifybuttononlead
+   @546650 @546646 @validateonlyPM/PO/EXEusercanseequalifybuttononlead
    Scenario Outline: Validate only PM/PO/EXE user can see qualify button on lead
      Given I login to "Grantee" app as "<User>" user
      And I navigate to "Opportunities" tab
@@ -2112,6 +2112,23 @@ Feature: Validate all scenarios for Leads
      When I click on "View" icon for "{SavedValue:LeadsEGMSID}" inside flex table with id "---grantee_tableId:-:LeadsNotYetQualified---"
      Then I softly see field "State" as "Posted"
      Then I cannot see top right button "Qualify Lead" in page detail
+     And I navigate to "Overview" sub tab
+     Then I softly see "Related Programs" page block displayed
+     Then I softly cannot see top right button "Associate" in flex table with id "---grantee_tableId:-:RelatedPrograms---"
+     And I navigate to "Files" sub tab
+     Then I softly see "Lead Files" page block displayed
+     Then I softly see "Notes" page block displayed
+     Then I softly cannot see top right button "Add Files" in flex table with id "---grantee_tableId:-:leadsAddFileTableId---"
+     Then I see value "AttachmentTesting.pdf" for title "Title" inside table "---grantee_tableId:-:leadsAddFileTableId---"
+     Then I can see row level action button "View" against "AttachmentTesting.pdf" in flex table with id "---grantee_tableId:-:leadsAddFileTableId---"
+     Then I cannot see row level action button "Delete" against "AttachmentTesting.pdf" in flex table with id "---grantee_tableId:-:leadsAddFileTableId---"
+     Then I cannot see row level action button "Edit" against "AttachmentTesting.pdf" in flex table with id "---grantee_tableId:-:leadsAddFileTableId---"
+     Then I can see row level action button "Download" against "AttachmentTesting.pdf" in flex table with id "---grantee_tableId:-:leadsAddFileTableId---"
+     Then I softly see value "Notes Record" for title "Title" inside table "---grantee_tableId:-:LeadsAttachmentTableId---"
+     Then I cannot see row level action button "Edit" against "Notes Record" in flex table with id "---grantee_tableId:-:LeadsAttachmentTableId---"
+     Then I cannot see row level action button "Delete" against "Notes Record" in flex table with id "---grantee_tableId:-:LeadsAttachmentTableId---"
+     Then I cannot see top right button "Activate" in page detail
+
      Examples:
        | User            | NonUser        |
        | GRANTEE PM      | GRANTEE FO     |
