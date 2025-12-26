@@ -2402,6 +2402,7 @@ Feature: Validate all scenarios for Opportunity
  Scenario: Validate the records sharing for Opp with PO/FO/FD/auditor/Admin/EXE from same Org in all states of Opp
    And I create "Manual" qualified lead for title "Automation Runtime Opportunity" and opportunity number "Automation Runtime" with properties "default"
    Given I login to "Grantee" app as "GRANTEE PM" user
+   And I wait for "2" seconds
    And I navigate to "Opportunities" tab
    When I navigate to "Qualified" content inside "Leads" subheader on left panel
    And I click toggle button to select "Qualified Leads - All"

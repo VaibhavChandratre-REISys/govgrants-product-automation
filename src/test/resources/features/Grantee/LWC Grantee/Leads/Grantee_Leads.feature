@@ -2061,7 +2061,6 @@ Feature: Validate all scenarios for Leads
      | GRANTEE FD      | softly cannot see | Qualified Leads - All |
      | GRANTEE ADMIN   | softly cannot see | Qualified Leads - All |
 
-
    @546646 @validateonlyPM/PO/EXEusercanseequalifybuttononlead
    Scenario Outline: Validate only PM/PO/EXE user can see qualify button on lead
      Given I login to "Grantee" app as "<User>" user
