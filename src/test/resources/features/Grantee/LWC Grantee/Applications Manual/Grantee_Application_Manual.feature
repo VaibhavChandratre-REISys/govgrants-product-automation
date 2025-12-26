@@ -450,7 +450,7 @@ Feature: Validate all scenarios for Applications Manual
       | GRANTEE PM |
 
   @547354 @validatethatContactsectionshouldbevisiblewithcorrectrecordscounttoallInternalUsers
-    Scenario: Validate that Contact section should be visible with correct records count to all Internal Users
+    Scenario Outline: Validate that Contact section should be visible with correct records count to all Internal Users
     And I create "Manual" qualified lead for title "Automation Runtime Opportunity" and opportunity number "Automation Runtime" with properties "default"
     When I login to "Grantee" app as "GRANTEE PM" user
     And I navigate to "Opportunities" tab
@@ -494,7 +494,41 @@ Feature: Validate all scenarios for Applications Manual
     And I refresh the page
     And I wait for "3" seconds
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:ContactTableIdApplication---" by clicking "Edit" :
-      | Name     | Is Key Contact | Project Role                                   |
-      | Sarah PM | Checked        | Project Director/Principal Investigator(PI/PD) |
+      | Name     |  Project Role                                   |
+      | Sarah PM |  Project Director/Principal Investigator(PI/PD) |
+    And I edit the following rows inline in flex table with id "---grantee_tableId:-:ContactTableIdApplication---" by clicking "Edit" :
+      | Name       |  Is Key Contact  |
+      | Sarah PM   |  Checked         |
     And I wait for "2" seconds
+    Then I softly see value "Sarah PM" for title "Name" inside table "---grantee_tableId:-:ContactTableIdApplication---"
     Then I softly see value "Project Director/Principal Investigator(PI/PD)" for title "Project Role" against the value "Sarah PM" inside table "---grantee_tableId:-:ContactTableIdApplication---"
+    And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:ContactTableIdApplication---"
+    When I click "Associate" after selection of "Victor EXE" in the table "---grantee_tableId:-:ContactModalTableIdApplication---"
+    When I click modal button "Close"
+    Then I softly see value "Victor EXE" for title "Name" inside table "---grantee_tableId:-:ContactTableIdApplication---"
+    When I re-login to "Grantee" app as "<User>" user on "INTERNAL" portal
+    When I navigate to "Applications" tab
+    And I navigate to "Applications" content inside "Applications" subheader on left panel
+    When I click toggle button to select "Applications - All"
+    And I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:ApplicationTableId---" panel
+    When I click on "View" icon for "{SavedValue:appEGMSID}" inside table
+    Then I softly see field "Status" as "Created"
+    And I navigate to "Overview" sub tab
+    Then I softly see "Application Overview" page block displayed
+    Then I softly see "Opportunity Overview" page block displayed
+    Then I softly see "External Programs" page block displayed
+    Then I softly see "Contacts" page block displayed
+    Then I softly see "Project Abstract" page block displayed
+    Then I softly see "Primary Place of Performance" page block displayed
+    Then I softly see value "Project Director/Principal Investigator(PI/PD)" for title "Project Role" against the value "Sarah PM" inside table "---grantee_tableId:-:ContactTableIdApplication---"
+    Then I softly see value "Sarah PM" for title "Name" inside table "---grantee_tableId:-:ContactTableIdApplication---"
+    Then I softly see value "Victor EXE" for title "Name" inside table "---grantee_tableId:-:ContactTableIdApplication---"
+    Then I softly see value "Project Director/Principal Investigator(PI/PD)" for title "Project Role" against the value "Sarah PM" inside table "---grantee_tableId:-:ContactTableIdApplication---"
+    Examples:
+      | User            |
+      | GRANTEE PO      |
+      | GRANTEE EXE     |
+      | GRANTEE FO      |
+      | GRANTEE FD      |
+      | GRANTEE ADMIN   |
+      | GRANTEE AUDITOR |
