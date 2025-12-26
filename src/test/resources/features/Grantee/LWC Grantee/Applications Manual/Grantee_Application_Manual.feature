@@ -449,7 +449,7 @@ Feature: Validate all scenarios for Applications Manual
       | User       |
       | GRANTEE PM |
 
-  @547368 @547354 @validatethatContactsectionshouldbevisiblewithcorrectrecordscounttoallInternalUsers
+  @547375 @547368 @547354 @validatethatContactsectionshouldbevisiblewithcorrectrecordscounttoallInternalUsers
     Scenario Outline: Validate that Contact section should be visible with correct records count to all Internal Users
     And I create "Manual" qualified lead for title "Automation Runtime Opportunity" and opportunity number "Automation Runtime" with properties "default"
     When I login to "Grantee" app as "GRANTEE PM" user
@@ -506,6 +506,12 @@ Feature: Validate all scenarios for Applications Manual
     When I click "Associate" after selection of "Victor EXE" in the table "---grantee_tableId:-:ContactModalTableIdApplication---"
     When I click modal button "Close"
     Then I softly see value "Victor EXE" for title "Name" inside table "---grantee_tableId:-:ContactTableIdApplication---"
+    And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:ApplicationExternalProgramsTableId---"
+    When I click "Associate" after selection of "Automation Permanent NGO Program2" in the table "---grantee_tableId:-:ApplicationExternalProgramsTableId---"
+    When I click modal button "Close"
+    Then I softly see value "Automation Permanent NGO Program" for title "Title" inside table "---grantee_tableId:-:ApplicationExternalProgramsTableId---"
+    Then I softly see value "Automation Permanent NGO Program2" for title "Title" inside table "---grantee_tableId:-:ApplicationExternalProgramsTableId---"
+    Then I see total records count "Total Records: 2" in flex table "---grantee_tableId:-:ApplicationExternalProgramsTableId---"
     When I re-login to "Grantee" app as "<User>" user on "INTERNAL" portal
     When I navigate to "Applications" tab
     And I navigate to "Applications" content inside "Applications" subheader on left panel
@@ -525,7 +531,9 @@ Feature: Validate all scenarios for Applications Manual
     Then I softly see value "Victor EXE" for title "Name" inside table "---grantee_tableId:-:ContactTableIdApplication---"
     Then I softly see value "Project Director/Principal Investigator(PI/PD)" for title "Project Role" against the value "Sarah PM" inside table "---grantee_tableId:-:ContactTableIdApplication---"
     Then I softly see value "Checked" for title "Is Key Contact" against the value "Sarah PM" inside table "---grantee_tableId:-:ContactTableIdApplication---"
-
+    Then I softly see value "Automation Permanent NGO Program" for title "Title" inside table "---grantee_tableId:-:ApplicationExternalProgramsTableId---"
+    Then I softly see value "Automation Permanent NGO Program2" for title "Title" inside table "---grantee_tableId:-:ApplicationExternalProgramsTableId---"
+    Then I see total records count "Total Records: 2" in flex table "---grantee_tableId:-:ApplicationExternalProgramsTableId---"
     Examples:
       | User            |
       | GRANTEE PO      |
