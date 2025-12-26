@@ -2061,7 +2061,7 @@ Feature: Validate all scenarios for Leads
      | GRANTEE FD      | softly cannot see | Qualified Leads - All |
      | GRANTEE ADMIN   | softly cannot see | Qualified Leads - All |
 
-   @546650 @546646 @validateonlyPM/PO/EXEusercanseequalifybuttononlead
+   @546659 @546650 @546646 @validateonlyPM/PO/EXEusercanseequalifybuttononlead
    Scenario Outline: Validate only PM/PO/EXE user can see qualify button on lead
      Given I login to "Grantee" app as "<User>" user
      And I navigate to "Opportunities" tab
@@ -2134,3 +2134,38 @@ Feature: Validate all scenarios for Leads
        | GRANTEE PM      | GRANTEE FO     |
        | GRANTEE PO      | GRANTEE FD     |
        | GRANTEE EXE     | GRANTEE AUDITOR |
+
+  @546652 @validateonceNotyetqualifiedleadisdeleteitshouldberemovedfromallinteruserslayout
+  Scenario Outline: Validate once Not yet qualified lead is delete it should be removed from all inter users layout
+    Given I login to "Grantee" app as "GRANTEE PM" user
+    And I navigate to "Opportunities" tab
+    When I navigate to "Not Yet Qualified" content inside "Leads" subheader on left panel
+    Then I softly see top right button "New" inside flex table "---grantee_tableId:-:LeadsNotYetQualified---"
+    And I click on top right button "New" in flex table with id "---grantee_tableId:-:LeadsNotYetQualified---"
+    Then I softly see "Create New Lead" opens in overLay window
+    And I enter "Grantee_Leads_Creation" values from "Announcement_Field_Values.xlsx"
+    And I click modal button "Save and Continue"
+    Then I see the header is "Lead" in the page details
+    Then I softly see field "State" as "Forecasted"
+    And I save the field labeled "EGMS ID" as "LeadsEGMSID"
+    And I navigate to "Opportunities" tab
+    When I navigate to "Not Yet Qualified" content inside "Leads" subheader on left panel
+    And I click toggle button to select "Leads Not Yet Qualified - All"
+    When I perform quick search for "{SavedValue:LeadsEGMSID}" in "---grantee_tableId:-:LeadsNotYetQualified---" panel
+    And I click on "Delete" icon for "{SavedValue:LeadsEGMSID}" inside flex table with id "---grantee_tableId:-:LeadsNotYetQualified---"
+    When I perform quick search for "{SavedValue:LeadsEGMSID}" in "---grantee_tableId:-:LeadsNotYetQualified---" panel
+    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:LeadsNotYetQualified---"
+    And I re-login to "Grantee" app as "<User>" user on "INTERNAL" portal
+    And I navigate to "Opportunities" tab
+    When I navigate to "Not Yet Qualified" content inside "Leads" subheader on left panel
+    And I click toggle button to select "Leads Not Yet Qualified - All"
+    When I perform quick search for "{SavedValue:LeadsEGMSID}" in "---grantee_tableId:-:LeadsNotYetQualified---" panel
+    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:LeadsNotYetQualified---"
+    Examples:
+      | User            |
+      | GRANTEE PO      |
+      | GRANTEE EXE     |
+      | GRANTEE FO      |
+      | GRANTEE FD      |
+      | GRANTEE ADMIN   |
+      | GRANTEE AUDITOR |

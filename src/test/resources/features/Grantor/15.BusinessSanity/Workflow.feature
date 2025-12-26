@@ -2532,7 +2532,4 @@ Feature: Validate all scenarios of every modules flow
   @testgranteesf
   Scenario:
     When I login to "Grantee" app as "GRANTEE PM" user
-    And I halt execution
-    And I enter the value "VA" for the field "City__c" inside page block "Applicant Information"
-    And I enter the value "AL" for the field "State__c" inside page block "Applicant Information"
-    And I enter the value "USA: UNITED STATES" for the field "Country__c" inside page block "Applicant Information"
+    And I re-login to "Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
