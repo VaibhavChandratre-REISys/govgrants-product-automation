@@ -608,7 +608,7 @@ Feature: Validate all scenarios for Applications Manual
       | NonUser |
       | PM1      |
 
-  @546865 @validatethatBudgetPeriodsectionshouldbevisiblewithcorrectrecordscounttoallInternalUsers
+  @547381 @validatethatBudgetPeriodsectionshouldbevisiblewithcorrectrecordscounttoallInternalUsers
   Scenario Outline: Validate Budget Period section should be visible with correct records count
     And I create "Manual" qualified lead for title "Automation Runtime Opportunity" and opportunity number "Automation Runtime" with properties "default"
     When I login to "Grantee" app as "GRANTEE PM" user
@@ -639,8 +639,8 @@ Feature: Validate all scenarios for Applications Manual
     When I navigate to "Setup" sub tab
     Then I softly see "Project Period" page block displayed
     Then I softly see "Budget Period Details" page block displayed
-    Then I cannot see top right button "Create New Budget Period" in flex table with id "---grantee_tableId:-:BudgetPeriodDetailsFromSetup---"
-    Then I cannot see top right button "Associate Focus Area" in flex table with id "---grantee_tableId:-:BudgetPeriodDetailsFromSetup---"
+    Then I can see top right button "Create New Budget Period" in flex table with id "---grantee_tableId:-:BudgetPeriodDetailsFromSetup---"
+    Then I can see top right button "Associate Focus Area" in flex table with id "---grantee_tableId:-:BudgetPeriodDetailsFromSetup---"
     And I click on top right button "Associate Focus Area" in flex table with id "---grantee_tableId:-:BudgetPeriodDetailsFromSetup---"
     When I click "Next" after selection of "BP01" in the table "---grantee_tableId:-:ApplicationBudgetPeriodModalTableId---"
     When I click "Associate" after selection of "Automation Permanent Focus Area" in the table "---grantee_tableId:-:ApplicationSelectFocusAreaModalTableId---"
