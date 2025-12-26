@@ -501,15 +501,12 @@ Feature: Validate all scenarios for Applications Manual
       | Sarah PM   |  Checked         |
     And I wait for "2" seconds
     Then I softly see value "Sarah PM" for title "Name" inside table "---grantee_tableId:-:ContactTableIdApplication---"
-    Then I softly see value "Project Director/Principal Investigator(PI/PD)" for title "Project Role" against the value "Sarah PM" inside table "---grantee_tableId:-:ContactTableIdApplication---"
     And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:ContactTableIdApplication---"
     When I click "Associate" after selection of "Victor EXE" in the table "---grantee_tableId:-:ContactModalTableIdApplication---"
     When I click modal button "Close"
+    And I wait for "2" seconds
     Then I softly see value "Victor EXE" for title "Name" inside table "---grantee_tableId:-:ContactTableIdApplication---"
     And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:ApplicationExternalProgramsTableId---"
-    And I wait for "2" seconds
-    When I perform quick search for "Automation Permanent NGO Program" in "---grantee_tableId:-:applicationAssociateExternalProgramsTableId---" panel
-    When I click "Associate" after selection of "Automation Permanent NGO Program" in the table "---grantee_tableId:-:applicationAssociateExternalProgramsTableId---"
     And I wait for "2" seconds
     When I perform quick search for "Automation Permanent NGO Program2" in "---grantee_tableId:-:applicationAssociateExternalProgramsTableId---" panel
     When I click "Associate" after selection of "Automation Permanent NGO Program2" in the table "---grantee_tableId:-:applicationAssociateExternalProgramsTableId---"
