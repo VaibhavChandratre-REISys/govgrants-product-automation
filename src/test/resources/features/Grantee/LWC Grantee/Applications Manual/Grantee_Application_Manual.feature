@@ -779,3 +779,103 @@ Feature: Validate all scenarios for Applications Manual
       | GRANTEE FD      |
       | GRANTEE ADMIN   |
       | GRANTEE AUDITOR |
+
+  @547389 @547387 @547388 @validatethatIndirectRatessectionshouldbevisiblewithcorrectrecordscounttoallInternalUsers
+  Scenario Outline: Validate Indirect Rates section should be visible with correct records count
+  /Validate Program Income section should be visible with correct records count
+  /Validate Approvers section should be visible with correct records count
+    And I create "Manual" qualified lead for title "Automation Runtime Opportunity" and opportunity number "Automation Runtime" with properties "default"
+    When I login to "Grantee" app as "GRANTEE PM" user
+    And I navigate to "Opportunities" tab
+    When I navigate to "Qualified" content inside "Leads" subheader on left panel
+    And I click toggle button to select "Qualified Leads - All"
+    When I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:qualifiedLeadTableId---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside flex table with id "---grantee_tableId:-:qualifiedLeadTableId---" without waiting for record
+    When I click on "Convert to Opportunity" in the page details
+    And I save the field labeled "EGMS ID" as "opportunityEGMSID"
+    And I create opportunity with state "Approved" for opportunity number "{SavedValue:Automation Runtime}" with properties "default"
+    And I navigate to "Opportunities" tab
+    And I navigate to "Not Converted" content inside "Opportunities" subheader on left panel
+    When I click toggle button to select "Opportunities Not Converted to Application - All"
+    And I perform quick search for "{SavedValue:opportunityEGMSID}" in "---grantee_tableId:-:OpportunityNotConvertedToApplication---" panel
+    When I click on "View" icon for "{SavedValue:opportunityEGMSID}" inside table
+    Then I softly can see top right button "Create Application" in page detail
+    And I click on "Create Application" in the page details
+    And I wait for "5" seconds
+    And I click modal button "Save and Continue"
+    And I enter "Grantee_Edition" values from "Application_Field_Values.xlsx"
+    And I wait for "2" seconds
+    When I click on "Save" in the page details
+    And I pause execution for "2" seconds
+    And I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "appEGMSID"
+    Then I softly see field "Status" as "Created"
+    When I navigate to "Setup" sub tab
+    Then I softly see "Project Period" page block displayed
+    Then I softly see "Budget Period Details" page block displayed
+    Then I can see top right button "Associate Focus Area" in flex table with id "---grantee_tableId:-:BudgetPeriodDetailsFromSetup---"
+    And I click on top right button "Associate Focus Area" in flex table with id "---grantee_tableId:-:BudgetPeriodDetailsFromSetup---"
+    When I click "Next" after selection of "BP01" in the table "---grantee_tableId:-:ApplicationBudgetPeriodModalTableId---"
+    When I click "Associate" after selection of "Automation Permanent Focus Area" in the table "---grantee_tableId:-:ApplicationSelectFocusAreaModalTableId---"
+    And I wait for "2" seconds
+    And I click modal button "Close"
+    When I navigate to "Budget" sub tab
+    Then I softly see "Program Income" page block displayed
+    Then I softly see value "Automation Permanent Focus Area - BP01" for title "Focus Area Name" inside table "---grantee_tableId:-:ApplicationProgramIncomeTableID---"
+    Then I softly can see row level action button "Edit" against "Automation Permanent Focus Area - BP01" in flex table with id "---grantee_tableId:-:ApplicationProgramIncomeTableID---"
+    Then I softly see total records count "Total Records: 1" in flex table "---grantee_tableId:-:ApplicationProgramIncomeTableID---"
+    Then I softly see "Indirect Rates" page block displayed
+    Then I softly see "Actions" in flex table header "---grantee_tableId:-:indirectRatesApplicationtableId---"
+    Then I softly see "Title" in flex table header "---grantee_tableId:-:indirectRatesApplicationtableId---"
+    Then I softly see "Date From" in flex table header "---grantee_tableId:-:indirectRatesApplicationtableId---"
+    Then I softly see "Date To" in flex table header "---grantee_tableId:-:indirectRatesApplicationtableId---"
+    Then I softly see "Approved Indirect Cost Rate(%)" in flex table header "---grantee_tableId:-:indirectRatesApplicationtableId---"
+    Then I softly see "Indirect Cost Rate Type" in flex table header "---grantee_tableId:-:indirectRatesApplicationtableId---"
+    When I enter the following values into flex table with id "---grantee_tableId:-:indirectRatesApplicationtableId---" by clicking "New" :
+      | Title | Date From | Date To | Approved Indirect Cost Rate(%) | Indirect Cost Rate Type |
+      | Rate  | 15        | 30      | 10                             | Final                   |
+    Then I softly see value "Rate" for title "Title" inside table "---grantee_tableId:-:indirectRatesApplicationtableId---"
+    When I navigate to "Responsibilities" sub tab
+    Then I softly see "Approvers" page block displayed
+    When I enter the following values into flex table with id "---grantee_tableId:-:ApplicationApprovers---" by clicking "New" :
+      | Name     | Application |
+      | David FO | Step 1      |
+    When I enter the following values into flex table with id "---grantee_tableId:-:ApplicationApprovers---" by clicking "New" :
+      | Name       | Application |
+      | Grantee PO | Step 2      |
+    Then I softly see value "David FO" for title "Name" inside table "---grantee_tableId:-:ApplicationApprovers---"
+    Then I softly see value "Grantee PO" for title "Name" inside table "---grantee_tableId:-:ApplicationApprovers---"
+    Then I softly see value "Victor EXE" for title "Name" inside table "---grantee_tableId:-:ApplicationApprovers---"
+    When I re-login to "Grantee" app as "<User>" user on "INTERNAL" portal
+    When I navigate to "Applications" tab
+    And I navigate to "Applications" content inside "Applications" subheader on left panel
+    When I click toggle button to select "Applications - All"
+    And I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:ApplicationTableId---" panel
+    When I click on "View" icon for "{SavedValue:appEGMSID}" inside table
+    Then I softly see field "Status" as "Created"
+    When I navigate to "Budget" sub tab
+    Then I softly see "Program Income" page block displayed
+    Then I softly see value "Automation Permanent Focus Area - BP01" for title "Focus Area Name" inside table "---grantee_tableId:-:ApplicationProgramIncomeTableID---"
+    Then I softly cannot see row level action button "Edit" against "Automation Permanent Focus Area - BP01" in flex table with id "---grantee_tableId:-:ApplicationProgramIncomeTableID---"
+    Then I softly see total records count "Total Records: 1" in flex table "---grantee_tableId:-:ApplicationProgramIncomeTableID---"
+    Then I softly see "Indirect Rates" page block displayed
+    Then I softly see "Actions" in flex table header "---grantee_tableId:-:indirectRatesApplicationtableId---"
+    Then I softly see "Title" in flex table header "---grantee_tableId:-:indirectRatesApplicationtableId---"
+    Then I softly see "Date From" in flex table header "---grantee_tableId:-:indirectRatesApplicationtableId---"
+    Then I softly see "Date To" in flex table header "---grantee_tableId:-:indirectRatesApplicationtableId---"
+    Then I softly see "Approved Indirect Cost Rate(%)" in flex table header "---grantee_tableId:-:indirectRatesApplicationtableId---"
+    Then I softly see "Indirect Cost Rate Type" in flex table header "---grantee_tableId:-:indirectRatesApplicationtableId---"
+    Then I softly see value "Rate" for title "Title" inside table "---grantee_tableId:-:indirectRatesApplicationtableId---"
+    When I navigate to "Responsibilities" sub tab
+    Then I softly see "Approvers" page block displayed
+    Then I softly see value "David FO" for title "Name" inside table "---grantee_tableId:-:ApplicationApprovers---"
+    Then I softly see value "Grantee PO" for title "Name" inside table "---grantee_tableId:-:ApplicationApprovers---"
+    Then I softly see value "Victor EXE" for title "Name" inside table "---grantee_tableId:-:ApplicationApprovers---"
+    Examples:
+      | User            |
+      | GRANTEE PO      |
+      | GRANTEE EXE     |
+      | GRANTEE FO      |
+      | GRANTEE FD      |
+      | GRANTEE ADMIN   |
+      | GRANTEE AUDITOR |

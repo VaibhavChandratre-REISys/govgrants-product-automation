@@ -2616,7 +2616,7 @@ Feature: Validate all scenarios for Applications Grants Gov
     When I click toggle button to select "Applications - All"
     And I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:ApplicationTableId---" panel
     When I click on "View" icon for "{SavedValue:appEGMSID}" inside table
-    Then I softly see field "Status" as "Created"
+    Then I softly see field "Status" as "Submitted to Grantor"
     When I navigate to "Forms and Files" sub tab
     And I select value inside table "---grantee_tableId:-:applicationBusinessFormTableId---" is "All"
     Then I see total records count "Total Records: 12" in flex table "---grantee_tableId:-:applicationBusinessFormTableId---"
