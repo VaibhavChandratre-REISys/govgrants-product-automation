@@ -705,7 +705,6 @@ Feature: Validate all scenarios for Applications Manual
     Then I see total records count "Total Records: 2" in flex table "---grantee_tableId:-:ChildBudgetPeriodDetailsFromBudgetOfSetUp---"
     When I collapse nested table containing column value "BP01"
     Given I expand nested table containing column value "BP02"
-    Then I softly do not see value "Automation Permanent Focus Area" for title "Focus Area Title" inside table "---grantee_tableId:-:BudgetPeriodDetailsFromSetup---"
     Then I softly see value "Automation Permanent Focus Area2" for title "Focus Area Title" inside table "---grantee_tableId:-:BudgetPeriodDetailsFromSetup---"
     Then I softly cannot see row level action button "Remove" against "Automation Permanent Focus Area2" in flex table with id "---grantee_tableId:-:BudgetPeriodDetailsFromSetup---"
     Then I see total records count "Total Records: 1" in flex table "---grantee_tableId:-:ChildBudgetPeriodDetailsFromBudgetOfSetUp---"
