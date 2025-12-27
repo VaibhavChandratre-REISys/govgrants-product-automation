@@ -338,8 +338,8 @@ Feature: Validate all scenarios for Applications Manual
     When I navigate to "Overview" sub tab
     Then I softly see field "Pre-Application Required?" as "No"
     Examples:
-      | filter          | userName   | userType        |
-      | Sarah PM user   | GRANTEE PM | GRANTEE AUDITOR |
+      | filter        | userName   | userType        |
+      | Sarah PM user | GRANTEE PM | GRANTEE AUDITOR |
 
   @487158 @ValidateNotYetConvertedOpportunityManualADMINusercannotcreateApplicationfromOpportunityifPreApplicationRequiredisselectedasNoonOpportunityrecord @P3_Grantee @ADMIN_Grantee @GRegression2
   Scenario Outline: Validate Not Yet Converted Opportunity Manual ADMIN user cannot create Application from Opportunity if Pre-Application Required? is selected as No on Opportunity record
@@ -364,8 +364,8 @@ Feature: Validate all scenarios for Applications Manual
     When I navigate to "Overview" sub tab
     Then I softly see field "Pre-Application Required?" as "No"
     Examples:
-      | filter          | userName   | userType        |
-      | Grantee PO user | GRANTEE PO | GRANTEE ADMIN   |
+      | filter          | userName   | userType      |
+      | Grantee PO user | GRANTEE PO | GRANTEE ADMIN |
 
   @472391 @Validatethatuserabletocreatetheapplicationfromthequalifiedleads @P2_Grantee @PM_Grantee @GRegression1
   Scenario: Validate that user able to create the application from the qualified leads
@@ -421,7 +421,7 @@ Feature: Validate all scenarios for Applications Manual
     Then I softly see the following messages in the page details contains:
       | To Save, Submitted to Grantor On is required. |
     When I enter values into fields
-      | Value | Field                 |
+      | Value | Field          |
       | 0     | SubmittedOn__c |
     And I click modal button "Save"
     And I save the field labeled "Submitted to Grantor On" as "SubmittedtoGrantorOn"
@@ -450,7 +450,7 @@ Feature: Validate all scenarios for Applications Manual
       | GRANTEE PM |
 
   @547375 @547368 @547354 @validatethatContactsectionshouldbevisiblewithcorrectrecordscounttoallInternalUsers
-    Scenario Outline: Validate that Contact section should be visible with correct records count to all Internal Users
+  Scenario Outline: Validate that Contact section should be visible with correct records count to all Internal Users
     And I create "Manual" qualified lead for title "Automation Runtime Opportunity" and opportunity number "Automation Runtime" with properties "default"
     When I login to "Grantee" app as "GRANTEE PM" user
     And I navigate to "Opportunities" tab
@@ -494,11 +494,11 @@ Feature: Validate all scenarios for Applications Manual
     And I refresh the page
     And I wait for "3" seconds
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:ContactTableIdApplication---" by clicking "Edit" :
-      | Name     |  Project Role                                   |
-      | Sarah PM |  Project Director/Principal Investigator(PI/PD) |
+      | Name     | Project Role                                   |
+      | Sarah PM | Project Director/Principal Investigator(PI/PD) |
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:ContactTableIdApplication---" by clicking "Edit" :
-      | Name       |  Is Key Contact  |
-      | Sarah PM   |  Checked         |
+      | Name     | Is Key Contact |
+      | Sarah PM | Checked        |
     And I wait for "2" seconds
     Then I softly see value "Sarah PM" for title "Name" inside table "---grantee_tableId:-:ContactTableIdApplication---"
     And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:ContactTableIdApplication---"
@@ -584,11 +584,11 @@ Feature: Validate all scenarios for Applications Manual
     And I refresh the page
     And I wait for "3" seconds
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:ContactTableIdApplication---" by clicking "Edit" :
-      | Name     |  Project Role                                   |
-      | Sarah PM |  Project Director/Principal Investigator(PI/PD) |
+      | Name     | Project Role                                   |
+      | Sarah PM | Project Director/Principal Investigator(PI/PD) |
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:ContactTableIdApplication---" by clicking "Edit" :
-      | Name       |  Is Key Contact  |
-      | Sarah PM   |  Checked         |
+      | Name     | Is Key Contact |
+      | Sarah PM | Checked        |
     And I wait for "2" seconds
     Then I softly see value "Sarah PM" for title "Name" inside table "---grantee_tableId:-:ContactTableIdApplication---"
     Then I softly see value "Project Director/Principal Investigator(PI/PD)" for title "Project Role" against the value "Sarah PM" inside table "---grantee_tableId:-:ContactTableIdApplication---"
@@ -609,7 +609,7 @@ Feature: Validate all scenarios for Applications Manual
     Then I softly see the text containing "No results"
     Examples:
       | NonUser |
-      | PM1      |
+      | PM1     |
 
   @547381 @validatethatBudgetPeriodsectionshouldbevisiblewithcorrectrecordscounttoallInternalUsers
   Scenario Outline: Validate Budget Period section should be visible with correct records count
@@ -708,6 +708,69 @@ Feature: Validate all scenarios for Applications Manual
     Then I softly see value "Automation Permanent Focus Area2" for title "Focus Area Title" inside table "---grantee_tableId:-:BudgetPeriodDetailsFromSetup---"
     Then I softly cannot see row level action button "Remove" against "Automation Permanent Focus Area2" in flex table with id "---grantee_tableId:-:BudgetPeriodDetailsFromSetup---"
     Then I see total records count "Total Records: 1" in flex table "---grantee_tableId:-:ChildBudgetPeriodDetailsFromBudgetOfSetUp---"
+    Examples:
+      | User            |
+      | GRANTEE PO      |
+      | GRANTEE EXE     |
+      | GRANTEE FO      |
+      | GRANTEE FD      |
+      | GRANTEE ADMIN   |
+      | GRANTEE AUDITOR |
+
+  @547384 @validatethatBudgetCategoriessectionshouldbevisiblewithcorrectrecordscounttoallInternalUsers
+  Scenario Outline: Validate Budget Categories section should be visible with correct records count
+    And I create "Manual" qualified lead for title "Automation Runtime Opportunity" and opportunity number "Automation Runtime" with properties "default"
+    When I login to "Grantee" app as "GRANTEE PM" user
+    And I navigate to "Opportunities" tab
+    When I navigate to "Qualified" content inside "Leads" subheader on left panel
+    And I click toggle button to select "Qualified Leads - All"
+    When I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:qualifiedLeadTableId---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside flex table with id "---grantee_tableId:-:qualifiedLeadTableId---" without waiting for record
+    When I click on "Convert to Opportunity" in the page details
+    And I save the field labeled "EGMS ID" as "opportunityEGMSID"
+    And I create opportunity with state "Approved" for opportunity number "{SavedValue:Automation Runtime}" with properties "default"
+    And I navigate to "Opportunities" tab
+    And I navigate to "Not Converted" content inside "Opportunities" subheader on left panel
+    When I click toggle button to select "Opportunities Not Converted to Application - All"
+    And I perform quick search for "{SavedValue:opportunityEGMSID}" in "---grantee_tableId:-:OpportunityNotConvertedToApplication---" panel
+    When I click on "View" icon for "{SavedValue:opportunityEGMSID}" inside table
+    Then I softly can see top right button "Create Application" in page detail
+    And I click on "Create Application" in the page details
+    And I wait for "5" seconds
+    And I click modal button "Save and Continue"
+    And I enter "Grantee_Edition" values from "Application_Field_Values.xlsx"
+    And I wait for "2" seconds
+    When I click on "Save" in the page details
+    And I pause execution for "2" seconds
+    And I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "appEGMSID"
+    Then I softly see field "Status" as "Created"
+    When I navigate to "Setup" sub tab
+    Then I softly see "Project Period" page block displayed
+    Then I softly see "Budget Period Details" page block displayed
+    Then I can see top right button "Associate Focus Area" in flex table with id "---grantee_tableId:-:BudgetPeriodDetailsFromSetup---"
+    And I click on top right button "Associate Focus Area" in flex table with id "---grantee_tableId:-:BudgetPeriodDetailsFromSetup---"
+    When I click "Next" after selection of "BP01" in the table "---grantee_tableId:-:ApplicationBudgetPeriodModalTableId---"
+    When I click "Associate" after selection of "Automation Permanent Focus Area" in the table "---grantee_tableId:-:ApplicationSelectFocusAreaModalTableId---"
+    And I wait for "2" seconds
+    And I click modal button "Close"
+    When I navigate to "Budget" sub tab
+    Then I softly see "Budget Details" page block displayed
+    Given I expand nested table containing column value "BP01"
+    Then I softly see "Focus Area : Automation Permanent Focus Area - BP01" inside rows of enhanced grid id "---grantee_tableId:-:ApplicationBudgetCategoryTableId---"
+    Then I softly see total records count "Total Records: 12" in flex table "---grantee_tableId:-:ApplicationBudgetCategoryTableId---"
+    When I re-login to "Grantee" app as "<User>" user on "INTERNAL" portal
+    When I navigate to "Applications" tab
+    And I navigate to "Applications" content inside "Applications" subheader on left panel
+    When I click toggle button to select "Applications - All"
+    And I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:ApplicationTableId---" panel
+    When I click on "View" icon for "{SavedValue:appEGMSID}" inside table
+    Then I softly see field "Status" as "Created"
+    When I navigate to "Budget" sub tab
+    Then I softly see "Budget Details" page block displayed
+    Given I expand nested table containing column value "BP01"
+    Then I softly see "Focus Area : Automation Permanent Focus Area - BP01" inside rows of enhanced grid id "---grantee_tableId:-:ApplicationBudgetCategoryTableId---"
+    Then I softly see total records count "Total Records: 12" in flex table "---grantee_tableId:-:ApplicationBudgetCategoryTableId---"
     Examples:
       | User            |
       | GRANTEE PO      |
