@@ -657,7 +657,7 @@ Feature: Validate all scenarios for Applications Manual
     When I enter in modal value "360" into field "BudgetEndDate__c"
     When I click modal button "Save"
     And I click on top right button "Associate Focus Area" in flex table with id "---grantee_tableId:-:BudgetPeriodDetailsFromSetup---"
-    When I click "Next" after selection of "BP01" in the table "---grantee_tableId:-:ApplicationBudgetPeriodModalTableId---"
+    When I click "Next" after selection of "BP02" in the table "---grantee_tableId:-:ApplicationBudgetPeriodModalTableId---"
     And I wait for "3" seconds
     When I click "Associate" after selection of "Automation Permanent Focus Area2" in the table "---grantee_tableId:-:ApplicationSelectFocusAreaModalTableId---"
     And I click modal button "Close"
