@@ -656,11 +656,6 @@ Feature: Validate all scenarios for Applications Manual
     And I click on "Edit" icon for "BP01" inside flex table with id "---grantee_tableId:-:BudgetPeriodDetailsFromSetup---"
     When I enter in modal value "360" into field "BudgetEndDate__c"
     When I click modal button "Save"
-    And I click on top right button "Associate Focus Area" in flex table with id "---grantee_tableId:-:BudgetPeriodDetailsFromSetup---"
-    When I click "Next" after selection of "BP02" in the table "---grantee_tableId:-:ApplicationBudgetPeriodModalTableId---"
-    And I wait for "3" seconds
-    When I click "Associate" after selection of "Automation Permanent Focus Area2" in the table "---grantee_tableId:-:ApplicationSelectFocusAreaModalTableId---"
-    And I click modal button "Close"
     Then I softly can see row level action button "Delete" against "BP01" in flex table with id "---grantee_tableId:-:BudgetPeriodDetailsFromSetup---"
     Then I softly can see row level action button "Edit" against "BP01" in flex table with id "---grantee_tableId:-:BudgetPeriodDetailsFromSetup---"
     Given I expand nested table containing column value "BP01"
@@ -674,6 +669,11 @@ Feature: Validate all scenarios for Applications Manual
     When I enter in modal value "365" into field "BudgetEndDate__c"
     When I click modal button "Save"
     And I wait for "2" seconds
+    And I click on top right button "Associate Focus Area" in flex table with id "---grantee_tableId:-:BudgetPeriodDetailsFromSetup---"
+    When I click "Next" after selection of "BP02" in the table "---grantee_tableId:-:ApplicationBudgetPeriodModalTableId---"
+    And I wait for "3" seconds
+    When I click "Associate" after selection of "Automation Permanent Focus Area2" in the table "---grantee_tableId:-:ApplicationSelectFocusAreaModalTableId---"
+    And I click modal button "Close"
     Given I expand nested table containing column value "BP02"
     Then I softly do not see value "Automation Permanent Focus Area" for title "Focus Area Title" inside table "---grantee_tableId:-:BudgetPeriodDetailsFromSetup---"
     Then I softly see value "Automation Permanent Focus Area2" for title "Focus Area Title" inside table "---grantee_tableId:-:BudgetPeriodDetailsFromSetup---"
