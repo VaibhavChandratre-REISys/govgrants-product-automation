@@ -656,7 +656,6 @@ Feature: Validate all scenarios for Applications Manual
     And I click on "Edit" icon for "BP01" inside flex table with id "---grantee_tableId:-:BudgetPeriodDetailsFromSetup---"
     When I enter in modal value "360" into field "BudgetEndDate__c"
     When I click modal button "Save"
-    When I click modal button "Close"
     And I click on top right button "Associate Focus Area" in flex table with id "---grantee_tableId:-:BudgetPeriodDetailsFromSetup---"
     When I click "Next" after selection of "BP01" in the table "---grantee_tableId:-:ApplicationBudgetPeriodModalTableId---"
     And I wait for "3" seconds
@@ -674,7 +673,6 @@ Feature: Validate all scenarios for Applications Manual
     When I enter in modal value "361" into field "BudgetStartDate__c"
     When I enter in modal value "365" into field "BudgetEndDate__c"
     When I click modal button "Save"
-    When I click modal button "Close"
     And I wait for "2" seconds
     Given I expand nested table containing column value "BP02"
     Then I softly do not see value "Automation Permanent Focus Area" for title "Focus Area Title" inside table "---grantee_tableId:-:BudgetPeriodDetailsFromSetup---"
