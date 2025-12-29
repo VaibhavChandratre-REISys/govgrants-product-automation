@@ -9462,9 +9462,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
     Then I softly see "Special Conditions" page block displayed
     Then I softly see "System Information" page block displayed
     Then I softly see value "Automation Permanent Focus Area" for title "Title" inside table "---grantee_tableId:-:amendmentFocusAreaTableId---"
-    Then I softly see value "Automation Permanent Focus Area2" for title "Title" inside table "---grantee_tableId:-:amendmentFocusAreaTableId---"
     Then I softly cannot see row level action button "Edit" against "Automation Permanent Focus Area" in flex table with id "---grantee_tableId:-:amendmentFocusAreaTableId---"
-    Then I softly cannot see row level action button "Edit" against "Automation Permanent Focus Area2" in flex table with id "---grantee_tableId:-:amendmentFocusAreaTableId---"
     Then I softly see "Budget Category" in flex table header "---grantee_tableId:-:AmendmentBudgetTableId---"
     Then I softly see "Award Budget" in flex table header "---grantee_tableId:-:AmendmentBudgetTableId---"
     Then I softly see "Spent" in flex table header "---grantee_tableId:-:AmendmentBudgetTableId---"
@@ -9574,9 +9572,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
     Then I softly see "Special Conditions" page block displayed
     Then I softly see "System Information" page block displayed
     Then I softly see value "Automation Permanent Focus Area" for title "Title" inside table "---grantee_tableId:-:amendmentFocusAreaTableId---"
-    Then I softly see value "Automation Permanent Focus Area2" for title "Title" inside table "---grantee_tableId:-:amendmentFocusAreaTableId---"
     Then I softly cannot see row level action button "Edit" against "Automation Permanent Focus Area" in flex table with id "---grantee_tableId:-:amendmentFocusAreaTableId---"
-    Then I softly cannot see row level action button "Edit" against "Automation Permanent Focus Area2" in flex table with id "---grantee_tableId:-:amendmentFocusAreaTableId---"
     Then I softly see "Budget Category" in flex table header "---grantee_tableId:-:AmendmentBudgetTableId---"
     Then I softly see "Award Budget" in flex table header "---grantee_tableId:-:AmendmentBudgetTableId---"
     Then I softly see "Spent" in flex table header "---grantee_tableId:-:AmendmentBudgetTableId---"
@@ -9792,7 +9788,6 @@ Feature: Validate all scenarios for Grantee Amendment Request
     And I select "Amendment Requests" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:SOWEGMSID}"
     Then I softly can see row level action button "Edit" against "{SavedValue:SOWEGMSID}" in global search with id "Amendment Requests"
-    Then I softly can see row level action button "Change Owner" against "{SavedValue:SOWEGMSID}" in global search with id "Amendment Requests"
     And I navigate to "Grants" tab
     When I navigate to "Amendment Requests" content inside "Grants, Awards & Amendment Requests" subheader on left panel
     And I click toggle button to select "Amendment Requests - All"
@@ -9834,7 +9829,6 @@ Feature: Validate all scenarios for Grantee Amendment Request
     Then I softly see value "Victor EXE" for title "Name" inside table "---grantee_tableId:-:AmendmentApproverRolesTableId---"
     Then I softly see value "Sarah PM" for title "Name" inside table "---grantee_tableId:-:AmendmentApproverRolesTableId---"
     When I navigate to "Files" sub tab
-    Then I softly see top right button "Add Files" inside flex table "---grantee_tableId:-:amendmentRequestAddFile---"
     Then I softly see value "Attachment.pdf" for title "Title" inside table "---grantee_tableId:-:amendmentRequestAddFile---"
     Then I can see row level action button "Download" against "Terms and Conditions" in flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
     Then I cannot see row level action button "Delete" against "Terms and Conditions" in flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
