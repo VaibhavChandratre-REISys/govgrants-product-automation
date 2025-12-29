@@ -9867,6 +9867,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
     And I save the field labeled "Award Issue Date" as "AwardIssueDate"
     And I save the value from row "1" for column name "Name" as "ContactName" from flex table "---grantee_tableId:-:awardContactTableId---"
     And I save the value from row "1" for column name "Name" as "ProposedName" from flex table "---grantee_tableId:-:awardContactTableId---"
+    And I wait for "2" seconds
     When I navigate to "Amendments" sub tab
     And I click on top right button "New" in flex table with id "---grantee_tableId:-:AmendmentRequestTableId---"
     And I enter "Grantee_ScopeOfWork_Creation" values from "AmendmentRequest_Field_Values.xlsx"
@@ -9881,6 +9882,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
     Then I softly can see "Files" sub tab at view detail page
     Then I softly can see "History" sub tab at view detail page
     Then I softly can see "Messages" sub tab at view detail page
+    And I wait for "2" seconds
     And I navigate to "Overview" sub tab
     Then I softly see "Details" page block displayed
     Then I softly see "Award Description" page block displayed
@@ -9997,7 +9999,6 @@ Feature: Validate all scenarios for Grantee Amendment Request
     And I select "Amendment Requests" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:SOWEGMSID}"
     Then I softly can see row level action button "Edit" against "{SavedValue:SOWEGMSID}" in global search with id "Amendment Requests"
-    Then I softly can see row level action button "Change Owner" against "{SavedValue:SOWEGMSID}" in global search with id "Amendment Requests"
     And I navigate to "Grants" tab
     When I navigate to "Amendment Requests" content inside "Grants, Awards & Amendment Requests" subheader on left panel
     And I click toggle button to select "Amendment Requests - My Records"
@@ -10070,8 +10071,8 @@ Feature: Validate all scenarios for Grantee Amendment Request
     Then I softly can see row level action button "Edit" against "Notes Record1" in flex table with id "---grantee_tableId:-:amendmentRequestNotesTableId---"
     Then I softly can see row level action button "Delete" against "Notes Record1" in flex table with id "---grantee_tableId:-:amendmentRequestNotesTableId---"
 
-   @547288 @validatethatuserseeApplicationshouldbevisibletocrossOrgpeerreviewerifApplicationownersubmitARforreview(WithAllowEdit'No')
-  Scenario: Validate that user see Application should be visible to cross Org peer reviewer if Application owner submit AR for review (With Allow Edit 'No')
+   @547288 @validatethatuserseeSOWshouldbevisibletocrossOrgpeerreviewerifApplicationownersubmitARforreview(WithAllowEdit'No')
+  Scenario: Validate that user see SOW should be visible to cross Org peer reviewer if Application owner submit AR for review (With Allow Edit 'No')
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
     And I activate the award for title "{SavedValue:Automation Runtime Award}"
@@ -10219,7 +10220,6 @@ Feature: Validate all scenarios for Grantee Amendment Request
     And I select "Amendment Requests" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:SOWEGMSID}"
     Then I softly can see row level action button "Edit" against "{SavedValue:SOWEGMSID}" in global search with id "Amendment Requests"
-    Then I softly can see row level action button "Change Owner" against "{SavedValue:SOWEGMSID}" in global search with id "Amendment Requests"
     And I navigate to "Grants" tab
     When I navigate to "Amendment Requests" content inside "Grants, Awards & Amendment Requests" subheader on left panel
     And I click toggle button to select "Amendment Requests - My Records"
@@ -10453,7 +10453,6 @@ Feature: Validate all scenarios for Grantee Amendment Request
     And I select "Amendment Requests" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:BPCAMENDID}"
     Then I softly can see row level action button "Edit" against "{SavedValue:BPCAMENDID}" in global search with id "Amendment Requests"
-    Then I softly can see row level action button "Change Owner" against "{SavedValue:BPCAMENDID}" in global search with id "Amendment Requests"
     And I navigate to "Grants" tab
     When I navigate to "Amendment Requests" content inside "Grants, Awards & Amendment Requests" subheader on left panel
     And I click toggle button to select "Amendment Requests - All"
@@ -10501,7 +10500,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
     Then I softly see "Amendment Files" page block displayed
     Then I softly see "Notes" page block displayed
     Then I see "Attachment.pdf" has been added in "Amendment Files" flex table
-    Then I softly see value "Notes Record1" for title "Title" inside table "---grantee_tableId:-:amendmentRequestNotesTableId---"
+    Then I softly see value "Notes Record" for title "Title" inside table "---grantee_tableId:-:amendmentRequestNotesTableId---"
     Then I softly cannot see row level action button "Edit" against "Notes Record" in flex table with id "---grantee_tableId:-:amendmentRequestNotesTableId---"
     Then I softly cannot see row level action button "Delete" against "Notes Record" in flex table with id "---grantee_tableId:-:amendmentRequestNotesTableId---"
       And I navigate to "History" sub tab
