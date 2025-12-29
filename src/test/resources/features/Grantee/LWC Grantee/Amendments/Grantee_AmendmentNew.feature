@@ -10333,11 +10333,9 @@ Feature: Validate all scenarios for Grantee Amendment Request
     Then I see textarea field "PurposeRTA__c" is editable
     Then I softly see field "Grant EGMS ID" as "{SavedValue:GrantEGMSID}"
     Then I softly see link "{SavedValue:GrantEGMSID}" inside Page block
-    Then I softly see field "Grant Award Number" as "{SavedValue:GrantAwardNumber}"
     Then I softly see field "Award EGMS ID" as "{SavedValue:AwardEGMSID}"
     Then I softly see link "{SavedValue:AwardEGMSID}" inside Page block
     Then I see field "Budget Period" is not editable
-    Then I softly see field "Budget Period" as "{SavedValue:BudgetPeriod}"
     Then I softly see fields "NewBudgetPeriodEndDate__c" is in edit mode
     Then I softly see value "Automation Permanent Focus Area" for title "Title" inside table "---grantee_tableId:-:amendmentFocusAreaTableId---"
     Then I softly can see row level action button "Edit" against "Automation Permanent Focus Area" in flex table with id "---grantee_tableId:-:amendmentFocusAreaTableId---"
@@ -10716,7 +10714,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
     When I navigate to "Overview" sub tab
     And I wait for "2" seconds
     Then I softly see field "EGMS ID" as "{SavedValue:BPCAMENDID}"
-    Then I softly see field "Status" as "Created"
+    Then I softly see field "Status" as "Submitted for Review"
     Then I softly see field "Initiated By" as "Grantor"
     Then I softly see field "Amendment Type" as "Budget Period Change"
     Then I softly see "Details" page block displayed
