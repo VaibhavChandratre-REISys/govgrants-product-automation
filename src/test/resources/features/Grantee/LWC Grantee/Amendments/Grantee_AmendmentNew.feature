@@ -9447,8 +9447,6 @@ Feature: Validate all scenarios for Grantee Amendment Request
     Then I softly see field "Status" as "Created"
     Then I softly see field "Initiated By" as "Grantor"
     Then I softly see field "Amendment Type" as "Budget Redirection"
-    Then I can see top right button "Save" in page detail
-    Then I can see top right button "Cancel" in page detail
     And I wait for "3" seconds
     Then I softly can see "Overview" sub tab at view detail page
     Then I softly can see "Responsibilities" sub tab at view detail page
@@ -9489,6 +9487,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
     Then I softly see value "{SavedValue:IndirectCostRateType}" for title "Indirect Cost Rate Type" inside table "---grantee_tableId:-:amendmentIndirectRateTableId---"
     Then I softly can see row level action button "Edit" against "{SavedValue:Title}" in flex table with id "---grantee_tableId:-:amendmentIndirectRateTableId---"
     Then I softly can see row level action button "Delete" against "{SavedValue:Title}" in flex table with id "---grantee_tableId:-:amendmentIndirectRateTableId---"
+    And I click on "Edit" in the page details
     Then I softly see fields "GeneralConditionChanged__c" is in edit mode
     And I enter value "Checked" into field "GeneralConditionChanged__c"
     And I enter value "Checked" into field "AreTCspartofNGAAttachments__c"
