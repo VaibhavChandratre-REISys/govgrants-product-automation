@@ -4545,11 +4545,12 @@ Feature: Validate all scenarios for Grantee Progress Report
     And I perform quick search for "{SavedValue:progressEGMSID}" in "---grantee_tableId:-:PendingTask---" panel
     Then I softly see value "Approve Grantee Progress Report" for title "Task Type" against the value "{SavedValue:progressEGMSID}" inside table "---grantee_tableId:-:PendingTask---"
 
-
   @547402 @validatead-hocprogressreportshouldbevisibletoallinternaluserPM/PO/FO/FD/admin/auditor/EXEwiththeirchildrecordsincreatedstateinviewonlymodethroughglobalsearch
   Scenario Outline: Valiate ad-hoc progress report should be visible to all internal user PM/PO/FO/FD/admin/auditor/EXE with their child records in created state in view only mode through global search
     And I "Created" standalone subaward "Automation Runtime award" with properties "default"
+    And I wait for "2" seconds
     And I updated direct grant award for title "{SavedValue:Automation Runtime award}" with properties "default"
+    And I wait for "3" seconds
     And I activate the award for title "{SavedValue:Automation Runtime award}"
     When I login to "Grantee" app as "GRANTEE PM" user
     And I navigate to "Grants" tab
@@ -4567,7 +4568,9 @@ Feature: Validate all scenarios for Grantee Progress Report
     And I save the field labeled "EGMS ID" as "AwardEGMSID"
     And I navigate to "Management" sub tab
     And I click on top right button "New" in flex table with id "---grantee_tableId:-:ProgressReportTableId---"
+    And I wait for "3" seconds
     And I enter "Grantee_Creation" values from "ProgressReport_Field_Values.xlsx"
+    And I wait for "3" seconds
     And I click modal button "Save and Continue"
     And I click on "Save" in the page details
     And I wait for "2" seconds
