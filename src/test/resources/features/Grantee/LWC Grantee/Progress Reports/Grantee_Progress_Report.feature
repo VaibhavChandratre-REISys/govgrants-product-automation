@@ -4713,8 +4713,8 @@ Feature: Validate all scenarios for Grantee Progress Report
     Then I softly see value "David FO" for title "Reviewer Name" inside table "---grantee_tableId:-:financialReportPeerReviewTableId---"
     Then I softly see value "Sarah PM" for title "Reviewer Name" inside table "---grantee_tableId:-:financialReportPeerReviewTableId---"
     When I enter the following values into flex table with id "---grantee_tableId:-:progressReportApprovers---" by clicking "New" :
-      | Name       | Progress Report |
-      | Sarah PM   | Step 1          |
+      | Name     | Progress Report |
+      | Sarah PM | Step 1          |
     Then I softly see value "Sarah PM" for title "Name" inside table "---grantee_tableId:-:progressReportApprovers---"
     When I navigate to "Forms and Files" sub tab
     Then I softly see "Forms" page block displayed
@@ -4817,7 +4817,7 @@ Feature: Validate all scenarios for Grantee Progress Report
     And I perform quick search inside global search "{SavedValue:progressEGMSID}"
     And I click on hyperlink for global search containing value "{SavedValue:progressEGMSID}"
     Then I softly see field "Status" as "Created"
-    And I wait for "2" seconds    
+    And I wait for "2" seconds
     And I navigate to "Monitoring" tab
     When I navigate to "Progress Reports" content inside "Monitoring" subheader on left panel
     And I click toggle button to select "Progress Reports - Draft"
@@ -4835,7 +4835,7 @@ Feature: Validate all scenarios for Grantee Progress Report
     Then I softly see field "Days Left" as "{SavedValue:DaysLeft}"
     Then I softly see status in Progress-bar is "Created" and is "dark blue"
     Then I softly see "Resize" button for page
-     Then I softly can see "Overview" sub tab at view detail page
+    Then I softly can see "Overview" sub tab at view detail page
     Then I softly can see "Performance" sub tab at view detail page
     Then I softly can see "Responsibilities" sub tab at view detail page
     Then I softly can see "Forms and Files" sub tab at view detail page
@@ -5140,8 +5140,8 @@ Feature: Validate all scenarios for Grantee Progress Report
     Then I softly see value "David FO" for title "Reviewer Name" inside table "---grantee_tableId:-:financialReportPeerReviewTableId---"
     Then I softly see value "Sarah PM" for title "Reviewer Name" inside table "---grantee_tableId:-:financialReportPeerReviewTableId---"
     When I enter the following values into flex table with id "---grantee_tableId:-:progressReportApprovers---" by clicking "New" :
-      | Name       | Progress Report |
-      | Sarah PM   | Step 1          |
+      | Name     | Progress Report |
+      | Sarah PM | Step 1          |
     Then I softly see value "Sarah PM" for title "Name" inside table "---grantee_tableId:-:progressReportApprovers---"
     When I navigate to "Forms and Files" sub tab
     Then I softly see "Forms" page block displayed
@@ -5241,7 +5241,7 @@ Feature: Validate all scenarios for Grantee Progress Report
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---grantee_tableId:-:financialReportPeerReviewTableId---" by clicking "New" :
       | Reviewer Name             | Role            | Description            | Due Date | Allow Record Editing |
-      | {SavedValue:PM1 Username} | Fiscal Reviewer | Automation Description | 5        | Yes                   |
+      | {SavedValue:PM1 Username} | Fiscal Reviewer | Automation Description | 5        | Yes                  |
     Then I softly see value "{SavedValue:PM1 Username}" for title "Reviewer Name" inside table "---grantee_tableId:-:financialReportPeerReviewTableId---"
     And I click on "Send for Review" icon for "{SavedValue:PM1 Username}" inside flex table with id "---grantee_tableId:-:financialReportPeerReviewTableId---" without waiting for record
     When I get the "EGMS ID"
@@ -5450,7 +5450,7 @@ Feature: Validate all scenarios for Grantee Progress Report
     Then I softly cannot see row level action button "Edit" against "Notes Record" in flex table with id "---grantee_tableId:-:financialReportNotesTableId---"
     Then I softly cannot see row level action button "Delete" against "Notes Record" in flex table with id "---grantee_tableId:-:financialReportNotesTableId---"
     When I enter the following values into flex table with id "---grantee_tableId:-:financialReportNotesTableId---" by clicking "New" :
-      | Title        | Description      |
+      | Title         | Description      |
       | Notes Record1 | Automation Notes |
     Then I softly see the following messages in the page details contains:
       | Saved Successfully! |
@@ -5643,8 +5643,8 @@ Feature: Validate all scenarios for Grantee Progress Report
     Then I softly see value "David FO" for title "Reviewer Name" inside table "---grantee_tableId:-:financialReportPeerReviewTableId---"
     Then I softly see value "Sarah PM" for title "Reviewer Name" inside table "---grantee_tableId:-:financialReportPeerReviewTableId---"
     When I enter the following values into flex table with id "---grantee_tableId:-:progressReportApprovers---" by clicking "New" :
-      | Name       | Progress Report |
-      | Sarah PM   | Step 1          |
+      | Name     | Progress Report |
+      | Sarah PM | Step 1          |
     Then I softly see value "Sarah PM" for title "Name" inside table "---grantee_tableId:-:progressReportApprovers---"
     When I navigate to "Forms and Files" sub tab
     Then I softly see "Forms" page block displayed
@@ -6084,8 +6084,8 @@ Feature: Validate all scenarios for Grantee Progress Report
     Then I softly see value "David FO" for title "Reviewer Name" inside table "---grantee_tableId:-:financialReportPeerReviewTableId---"
     Then I softly see value "Sarah PM" for title "Reviewer Name" inside table "---grantee_tableId:-:financialReportPeerReviewTableId---"
     When I enter the following values into flex table with id "---grantee_tableId:-:progressReportApprovers---" by clicking "New" :
-      | Name       | Progress Report |
-      | Sarah PM   | Step 1          |
+      | Name     | Progress Report |
+      | Sarah PM | Step 1          |
     Then I softly see value "Sarah PM" for title "Name" inside table "---grantee_tableId:-:progressReportApprovers---"
     When I navigate to "Forms and Files" sub tab
     Then I softly see "Forms" page block displayed
@@ -6185,7 +6185,7 @@ Feature: Validate all scenarios for Grantee Progress Report
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---grantee_tableId:-:financialReportPeerReviewTableId---" by clicking "New" :
       | Reviewer Name             | Role            | Description            | Due Date | Allow Record Editing |
-      | {SavedValue:PM1 Username} | Fiscal Reviewer | Automation Description | 5        | Yes                   |
+      | {SavedValue:PM1 Username} | Fiscal Reviewer | Automation Description | 5        | Yes                  |
     Then I softly see value "{SavedValue:PM1 Username}" for title "Reviewer Name" inside table "---grantee_tableId:-:financialReportPeerReviewTableId---"
     And I click on "Send for Review" icon for "{SavedValue:PM1 Username}" inside flex table with id "---grantee_tableId:-:financialReportPeerReviewTableId---" without waiting for record
     When I get the "EGMS ID"
@@ -6394,7 +6394,7 @@ Feature: Validate all scenarios for Grantee Progress Report
     Then I softly cannot see row level action button "Edit" against "Notes Record" in flex table with id "---grantee_tableId:-:financialReportNotesTableId---"
     Then I softly cannot see row level action button "Delete" against "Notes Record" in flex table with id "---grantee_tableId:-:financialReportNotesTableId---"
     When I enter the following values into flex table with id "---grantee_tableId:-:financialReportNotesTableId---" by clicking "New" :
-      | Title        | Description      |
+      | Title         | Description      |
       | Notes Record1 | Automation Notes |
     Then I softly see the following messages in the page details contains:
       | Saved Successfully! |

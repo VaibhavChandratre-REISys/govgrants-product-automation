@@ -12424,9 +12424,9 @@ Feature: Validate all scenarios for Grantee Amendment Request
     Then I softly see value "{SavedValue:AwardEGMSID2}" for title "New Value" inside field history table
     Then I softly see value "{SavedValue:AwardEGMSID}" for title "Original Value" inside field history table
     Examples:
-      | User           |
-      | GRANTEE EXE    |
-      | GRANTEE PO    |
+      | User        |
+      | GRANTEE EXE |
+      | GRANTEE PO  |
 
   @487063 @CombinationofamendmentVerifyFOuserAROwnercanabletoForwardAmendmentRequestfromApprovalProcess @P3_Grantee @FO_Grantee @GRegression1 @GranteeTBE
   Scenario Outline: Combination of amendment - Verify FO user (AR Owner) can able to Forward Amendment Request from Approval Process
@@ -15076,9 +15076,9 @@ Feature: Validate all scenarios for Grantee Amendment Request
     Then I softly see value "{SavedValue:AwardEGMSID1}" for title "Original Value" inside field history table
 
     Examples:
-      | Owner          | OwnerType          | UserType        | emailIdTo                         | CreatedBy     | Assertion     |
-      | GRANTEE ADMIN | Product Admin user  | GRANTEE ADMIN   | demo.admin.merge@yopmail.com      | DEMO ADMIN      | softly cannot |
-      | GRANTEE EXE    | Victor EXE user    | GRANTEE EXE     | victor.exe.ggmergeqa2@yopmail.com | Victor EXE    | softly cannot |
+      | Owner         | OwnerType          | UserType      | emailIdTo                         | CreatedBy  | Assertion     |
+      | GRANTEE ADMIN | Product Admin user | GRANTEE ADMIN | demo.admin.merge@yopmail.com      | DEMO ADMIN | softly cannot |
+      | GRANTEE EXE   | Victor EXE user    | GRANTEE EXE   | victor.exe.ggmergeqa2@yopmail.com | Victor EXE | softly cannot |
 
   @486592 @BudgetRedirectionAREXEusershouldabletoactivatenewawardthroughBRAR @P3_Grantee @FO_Grantee @GRegression4
   Scenario Outline: Budget Redirection AR- FO user should able to activate new award through BR AR
@@ -20777,7 +20777,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
     When I click on "Add Line Items" icon for "Site work" inside flex table with id "---grantee_tableId:-:AmendmentBudgetTableId---" with wait for record
     When I enter the following values into flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---" by clicking "New" :
       | Title     | Narrative     | Awarded Budget | Cash Match |
-      | Site work | The narrative | 1000            | 100         |
+      | Site work | The narrative | 1000           | 100        |
     When I close "Amendment Line Items" modal by clicking the top right x button
     Then I softly see value "$4,000.00" for title "Revised Award Budget" against the value "Construction" inside table "---grantee_tableId:-:AmendmentBudgetTableId---"
     Then I softly see value "$1,000.00" for title "Revised Award Budget" against the value "Site work" inside table "---grantee_tableId:-:AmendmentBudgetTableId---"
@@ -20791,7 +20791,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
     When I click on "Add Line Items" icon for "Site work" inside flex table with id "---grantee_tableId:-:AmendmentBudgetTableId---" with wait for record
     When I enter the following values into flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---" by clicking "New" :
       | Title     | Narrative     | Awarded Budget | Cash Match |
-      | Site work | The narrative | 1000            | 100         |
+      | Site work | The narrative | 1000           | 100        |
     When I close "Amendment Line Items" modal by clicking the top right x button
     Then I softly see value "$4,000.00" for title "Revised Award Budget" against the value "Construction" inside table "---grantee_tableId:-:AmendmentBudgetTableId---"
     Then I softly see value "$1,000.00" for title "Revised Award Budget" against the value "Site work" inside table "---grantee_tableId:-:AmendmentBudgetTableId---"
@@ -21031,8 +21031,8 @@ Feature: Validate all scenarios for Grantee Amendment Request
     Then I softly see value "{SavedValue:AwardEGMSID1}" for title "Original Value" inside field history table
 
     Examples:
-      | Owner          | OwnerType          | UserType       | emailIdTo                         | CreatedBy          | Assertion     |
-      | GRANTEE EXE    | Victor EXE user    | GRANTEE EXE    | victor.exeqagrantee@yopmail.com   | Victor EXE         | softly cannot |
+      | Owner       | OwnerType       | UserType    | emailIdTo                       | CreatedBy  | Assertion     |
+      | GRANTEE EXE | Victor EXE user | GRANTEE EXE | victor.exeqagrantee@yopmail.com | Victor EXE | softly cannot |
 
   @485289 @ValidatePOuserAROwnercanabletoAcceptFundingChangeAmendmentRequest @P1_Grantee @GRegression1 @PO_Grantee @rerun1
   Scenario: Validate PO user AR Owner can able to Accept Funding Change Amendment Request

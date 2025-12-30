@@ -10919,7 +10919,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
       | Construction | The narrative | 7000           | 700        | 200            |
     When I close "Amendment Line Items" modal by clicking the top right x button
     And I wait for "3" seconds
-    Then I softly see value "$7,000.00" for title "Revised Award Budget" against the value "Construction" inside table "---grantee_tableId:-:amendmentLineItemsTableId---"
+    Then I softly see value "$7,000.00" for title "Revised Award Budget" against the value "Construction" inside table "---grantee_tableId:-:AmendmentBudgetTableId---"
     And I click on top right button "New" in flex table with id "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
     When I enter in modal value "CFTermsCondition" into field "Title__c"
     When I enter in modal value "Terms Description" into field "Description__c"
@@ -11013,7 +11013,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
     Then I softly see field "Status" as "Submitted for Review"
     Given I expand nested table containing column value "BP01"
     Then I softly see value "$5,000.00" for title "Carry Forward" against the value "Construction" inside table "---grantee_tableId:-:carryForwardBudgetTableId---"
-    Then I softly see value "$7,000.00" for title "Revised Award Budget" against the value "Construction" inside table "---grantee_tableId:-:amendmentLineItemsTableId---"
+    Then I softly see value "$7,000.00" for title "Revised Award Budget" against the value "Construction" inside table "---grantee_tableId:-:AmendmentBudgetTableId---"
     Then I softly see value "CFTermsCondition" for title "Title" inside table "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
     Then I softly see value "{SavedValue:TitleIndirectRate}" for title "Title" inside table "---grantee_tableId:-:amendmentIndirectRateTableId---"
     Then I softly see value "{SavedValue:Effectivefrom}" for title "Effective from" inside table "---grantee_tableId:-:amendmentIndirectRateTableId---"
@@ -11136,7 +11136,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
       | Construction | The narrative | 7000           | 700        | 200            |
     When I close "Amendment Line Items" modal by clicking the top right x button
     And I wait for "3" seconds
-    Then I softly see value "$7,000.00" for title "Revised Award Budget" against the value "Construction" inside table "---grantee_tableId:-:amendmentLineItemsTableId---"
+    Then I softly see value "$7,000.00" for title "Revised Award Budget" against the value "Construction" inside table "---grantee_tableId:-:AmendmentBudgetTableId---"
     And I click on top right button "New" in flex table with id "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
     When I enter in modal value "CFTermsCondition" into field "Title__c"
     When I enter in modal value "Terms Description" into field "Description__c"
