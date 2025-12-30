@@ -22618,13 +22618,14 @@ Feature: Validate all scenarios in the Application Review without background
     And I wait for "3" seconds
     And I click modal button "Save and Continue"
     And I wait for "3" seconds
+    When I click on "Save" in the page details
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "AnnEGMSID"
     When I navigate to "Overview" sub tab
     And I save the field labeled "Announcement Name" as "Automation Runtime Competitive Announcement"
+    When I click on "Edit" in the page details
     And I wait for "3" seconds
     And I enter "Edition" values from "Announcement_Field_Values.xlsx"
-    And I wait for "3" seconds
     And I click on "Save" in the page details
     When I navigate to "Financials" sub tab
     And I click on top right button "Associate" in flex table with id "---announcement:-:fundingAccountsTableId---"
@@ -22644,17 +22645,19 @@ Feature: Validate all scenarios in the Application Review without background
     When I navigate to "Setup" sub tab
     And I click on top right button "Associate" in flex table with id "---announcement:-:objectivesTableId---"
     When I click "Associate" after selection of "Automation Permanent Objective2" by showing entries "All" in flex table with id "---announcement:-:goalsTableId---"
+    And I click on "Edit" in the page details
     And I expand nested table containing column value "Pre-Screen Review"
     And I edit the following rows inline in flex table with id "---announcement:-:AnnouncementReviewPanel---" by clicking "Edit" :
       | Form Name  | Review Response Shared |
       | Pre-Screen | No                     |
     When I navigate to "Financials" sub tab
-    And I click on "Edit" in the page details
     And I enter value "Justified" into field "Justification__c"
-    And I click on "Save" in the page details
+    When I get the "EGMS ID"
+    When I navigate to "Financials" sub tab
     And I edit the following rows inline in flex table with id "---announcement:-:budgetPeriodTableId---" by clicking "Edit" :
       | Budget Period Name | Start Date | End Date |
       | BP01               | 50         | 150      |
+    And I click on "Save" in the page details
     And I refresh the page
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---announcement:-:approversTableId---" by clicking "New" :
@@ -22666,7 +22669,6 @@ Feature: Validate all scenarios in the Application Review without background
     And I "Approve" in the approval decision
     And I pause execution for "5" seconds
     And I click on "Publish" in the page details
-    #Bug452157
     Then I see status in Progress-bar is "Published" and is "dark blue"
     When I initiated an application review for application "{SavedValue:Automation Runtime Competitive Announcement}" on announcement "{SavedValue:Automation Runtime Competitive Announcement}" with properties "default"
     When I navigate to "Applications" tab
