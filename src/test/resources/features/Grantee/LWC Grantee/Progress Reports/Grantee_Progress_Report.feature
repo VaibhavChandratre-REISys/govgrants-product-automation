@@ -4822,8 +4822,8 @@ Feature: Validate all scenarios for Grantee Progress Report
     When I navigate to "Progress Reports" content inside "Monitoring" subheader on left panel
     And I click toggle button to select "Progress Reports - Draft"
     And I perform quick search for "{SavedValue:progressEGMSID}" in "---grantee_tableId:-:ProgressReports---" panel
-    Then I softly can see row level action button "View" against "{SavedValue:progressEGMSID}" in flex table with id "---grantee_tableId:-:progressEGMSID---"
-    And I click on "View" icon for "{SavedValue:progressEGMSID}" inside flex table with id "---grantee_tableId:-:progressEGMSID---"
+    Then I softly can see row level action button "View" against "{SavedValue:progressEGMSID}" in flex table with id "---grantee_tableId:-:ProgressReports---"
+    And I click on "View" icon for "{SavedValue:progressEGMSID}" inside flex table with id "---grantee_tableId:-:ProgressReports---"
     Then I cannot see top right button "Edit" in page detail
     Then I cannot see top right button "Delete" in page detail
     Then I cannot see top right button "Submit for Approval" in page detail
@@ -5256,8 +5256,8 @@ Feature: Validate all scenarios for Grantee Progress Report
     When I navigate to "Progress Reports" content inside "Monitoring" subheader on left panel
     And I click toggle button to select "Progress Reports - My Records"
     And I perform quick search for "{SavedValue:progressEGMSID}" in "---grantee_tableId:-:ProgressReports---" panel
-    Then I softly can see row level action button "View" against "{SavedValue:progressEGMSID}" in flex table with id "---grantee_tableId:-:progressEGMSID---"
-    And I click on "View" icon for "{SavedValue:progressEGMSID}" inside flex table with id "---grantee_tableId:-:progressEGMSID---"
+    Then I softly can see row level action button "View" against "{SavedValue:progressEGMSID}" in flex table with id "---grantee_tableId:-:ProgressReports---"
+    And I click on "View" icon for "{SavedValue:progressEGMSID}" inside flex table with id "---grantee_tableId:-:ProgressReports---"
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:progressEGMSID}" in "---grantee_tableId:-:PendingTask---" panel
@@ -5752,8 +5752,8 @@ Feature: Validate all scenarios for Grantee Progress Report
     When I navigate to "Progress Reports" content inside "Monitoring" subheader on left panel
     And I click toggle button to select "Progress Reports - Draft"
     And I perform quick search for "{SavedValue:progressEGMSID}" in "---grantee_tableId:-:ProgressReports---" panel
-    Then I softly can see row level action button "View" against "{SavedValue:progressEGMSID}" in flex table with id "---grantee_tableId:-:progressEGMSID---"
-    And I click on "View" icon for "{SavedValue:progressEGMSID}" inside flex table with id "---grantee_tableId:-:progressEGMSID---"
+    Then I softly can see row level action button "View" against "{SavedValue:progressEGMSID}" in flex table with id "---grantee_tableId:-:ProgressReports---"
+    And I click on "View" icon for "{SavedValue:progressEGMSID}" inside flex table with id "---grantee_tableId:-:ProgressReports---"
     Then I cannot see top right button "Edit" in page detail
     Then I cannot see top right button "Delete" in page detail
     Then I cannot see top right button "Submit for Approval" in page detail
@@ -6200,8 +6200,8 @@ Feature: Validate all scenarios for Grantee Progress Report
     When I navigate to "Progress Reports" content inside "Monitoring" subheader on left panel
     And I click toggle button to select "Progress Reports - My Records"
     And I perform quick search for "{SavedValue:progressEGMSID}" in "---grantee_tableId:-:ProgressReports---" panel
-    Then I softly can see row level action button "View" against "{SavedValue:progressEGMSID}" in flex table with id "---grantee_tableId:-:progressEGMSID---"
-    And I click on "View" icon for "{SavedValue:progressEGMSID}" inside flex table with id "---grantee_tableId:-:progressEGMSID---"
+    Then I softly can see row level action button "View" against "{SavedValue:progressEGMSID}" in flex table with id "---grantee_tableId:-:ProgressReports---"
+    And I click on "View" icon for "{SavedValue:progressEGMSID}" inside flex table with id "---grantee_tableId:-:ProgressReports---"
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:progressEGMSID}" in "---grantee_tableId:-:PendingTask---" panel
