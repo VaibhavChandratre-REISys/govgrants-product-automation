@@ -10919,7 +10919,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
       | Construction | The narrative | 7000           | 700        | 200            |
     When I close "Amendment Line Items" modal by clicking the top right x button
     And I wait for "3" seconds
-    Then I softly see value "$7,000.00" for title "Awarded Budget" against the value "Construction" inside table "---grantee_tableId:-:amendmentLineItemsTableId---"
+    Then I softly see value "$7,000.00" for title "Revised Award Budget" against the value "Construction" inside table "---grantee_tableId:-:amendmentLineItemsTableId---"
     And I click on top right button "New" in flex table with id "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
     When I enter in modal value "CFTermsCondition" into field "Title__c"
     When I enter in modal value "Terms Description" into field "Description__c"
@@ -10932,40 +10932,6 @@ Feature: Validate all scenarios for Grantee Amendment Request
     When I enter the following values into flex table with id "---grantee_tableId:-:amendmentIndirectRateTableId---" by clicking "New" :
       | Title | Effective from | Effective until | Approved Indirect Cost Rate(%) | Indirect Cost Rate Type |
       | Rate2 | 15             | 30              | 10                             | Final                   |
-    And I save the value from row "1" for column name "Title" as "TitleIndirectRate" from flex table "---grantee_tableId:-:amendmentIndirectRateTableId---"
-    And I save the value from row "1" for column name "Effective from" as "Effectivefrom" from flex table "---grantee_tableId:-:amendmentIndirectRateTableId---"
-    And I save the value from row "1" for column name "Effective until" as "Effectiveuntil" from flex table "---grantee_tableId:-:amendmentIndirectRateTableId---"
-    And I save the value from row "1" for column name "Approved Indirect Cost Rate(%)" as "ApprovedIndirectCostRate" from flex table "---grantee_tableId:-:amendmentIndirectRateTableId---"
-    And I save the value from row "1" for column name "Indirect Cost Rate Type" as "IndirectCostRateType" from flex table "---grantee_tableId:-:amendmentIndirectRateTableId---"
-    Then I softly see value "{SavedValue:TitleIndirectRate}" for title "Title" inside table "---grantee_tableId:-:amendmentIndirectRateTableId---"
-    Then I softly see value "{SavedValue:Effectivefrom}" for title "Effective from" inside table "---grantee_tableId:-:amendmentIndirectRateTableId---"
-    Then I softly see value "{SavedValue:Effectiveuntil}" for title "Effective until" inside table "---grantee_tableId:-:amendmentIndirectRateTableId---"
-    Then I softly see value "{SavedValue:ApprovedIndirectCostRate}" for title "Approved Indirect Cost Rate(%)" inside table "---grantee_tableId:-:amendmentIndirectRateTableId---"
-    Then I softly see value "{SavedValue:IndirectCostRateType}" for title "Indirect Cost Rate Type" inside table "---grantee_tableId:-:amendmentIndirectRateTableId---"
-    Given I expand nested table containing column value "BP01"
-    And I edit the following rows inline in flex table with id "---grantee_tableId:-:carryForwardBudgetTableId---" by clicking "Edit" :
-      | Category Name | Carry Forward |
-      | Construction  | 4000          |
-    Then I softly see value "$4,000.00" for title "Carry Forward" against the value "Construction" inside table "---grantee_tableId:-:carryForwardBudgetTableId---"
-    When I click on "Add Line Items" icon for "Construction" inside flex table with id "---grantee_tableId:-:AmendmentBudgetTableId---" with wait for record
-    And I edit the following rows inline in flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---" by clicking "Edit" :
-      | Title        | Narrative     | Awarded Budget | Cash Match | Other Leverage |
-      | Construction | The narrative | 6000           | 700        | 200            |
-    When I close "Amendment Line Items" modal by clicking the top right x button
-    And I wait for "3" seconds
-    Then I softly see value "$6,000.00" for title "Awarded Budget" against the value "Construction" inside table "---grantee_tableId:-:amendmentLineItemsTableId---"
-    And I click on top right button "New" in flex table with id "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
-    When I enter in modal value "CFTermsCondition" into field "Title__c"
-    When I enter in modal value "Terms Description" into field "Description__c"
-    When I enter in modal value "1" into field "Sequence__c"
-    When I enter in modal value "1" into field "EffectiveFrom__c"
-    When I enter in modal value "1" into field "EffectiveTill__c"
-    And I click modal button "Save"
-    And I wait for "3" seconds
-    Then I softly see value "CFTermsCondition" for title "Title" inside table "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
-    When I enter the following values into flex table with id "---grantee_tableId:-:amendmentIndirectRateTableId---" by clicking "New" :
-      | Title | Effective from | Effective until | Approved Indirect Cost Rate(%) | Indirect Cost Rate Type |
-      | Rate3 | 20             | 31              | 20                             | Final                   |
     And I save the value from row "1" for column name "Title" as "TitleIndirectRate" from flex table "---grantee_tableId:-:amendmentIndirectRateTableId---"
     And I save the value from row "1" for column name "Effective from" as "Effectivefrom" from flex table "---grantee_tableId:-:amendmentIndirectRateTableId---"
     And I save the value from row "1" for column name "Effective until" as "Effectiveuntil" from flex table "---grantee_tableId:-:amendmentIndirectRateTableId---"
@@ -11047,7 +11013,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
     Then I softly see field "Status" as "Submitted for Review"
     Given I expand nested table containing column value "BP01"
     Then I softly see value "$5,000.00" for title "Carry Forward" against the value "Construction" inside table "---grantee_tableId:-:carryForwardBudgetTableId---"
-    Then I softly see value "$7,000.00" for title "Awarded Budget" against the value "Construction" inside table "---grantee_tableId:-:amendmentLineItemsTableId---"
+    Then I softly see value "$7,000.00" for title "Revised Award Budget" against the value "Construction" inside table "---grantee_tableId:-:amendmentLineItemsTableId---"
     Then I softly see value "CFTermsCondition" for title "Title" inside table "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
     Then I softly see value "{SavedValue:TitleIndirectRate}" for title "Title" inside table "---grantee_tableId:-:amendmentIndirectRateTableId---"
     Then I softly see value "{SavedValue:Effectivefrom}" for title "Effective from" inside table "---grantee_tableId:-:amendmentIndirectRateTableId---"
@@ -11170,7 +11136,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
       | Construction | The narrative | 7000           | 700        | 200            |
     When I close "Amendment Line Items" modal by clicking the top right x button
     And I wait for "3" seconds
-    Then I softly see value "$7,000.00" for title "Awarded Budget" against the value "Construction" inside table "---grantee_tableId:-:amendmentLineItemsTableId---"
+    Then I softly see value "$7,000.00" for title "Revised Award Budget" against the value "Construction" inside table "---grantee_tableId:-:amendmentLineItemsTableId---"
     And I click on top right button "New" in flex table with id "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
     When I enter in modal value "CFTermsCondition" into field "Title__c"
     When I enter in modal value "Terms Description" into field "Description__c"
@@ -11183,40 +11149,6 @@ Feature: Validate all scenarios for Grantee Amendment Request
     When I enter the following values into flex table with id "---grantee_tableId:-:amendmentIndirectRateTableId---" by clicking "New" :
       | Title | Effective from | Effective until | Approved Indirect Cost Rate(%) | Indirect Cost Rate Type |
       | Rate2 | 15             | 30              | 10                             | Final                   |
-    And I save the value from row "1" for column name "Title" as "TitleIndirectRate" from flex table "---grantee_tableId:-:amendmentIndirectRateTableId---"
-    And I save the value from row "1" for column name "Effective from" as "Effectivefrom" from flex table "---grantee_tableId:-:amendmentIndirectRateTableId---"
-    And I save the value from row "1" for column name "Effective until" as "Effectiveuntil" from flex table "---grantee_tableId:-:amendmentIndirectRateTableId---"
-    And I save the value from row "1" for column name "Approved Indirect Cost Rate(%)" as "ApprovedIndirectCostRate" from flex table "---grantee_tableId:-:amendmentIndirectRateTableId---"
-    And I save the value from row "1" for column name "Indirect Cost Rate Type" as "IndirectCostRateType" from flex table "---grantee_tableId:-:amendmentIndirectRateTableId---"
-    Then I softly see value "{SavedValue:TitleIndirectRate}" for title "Title" inside table "---grantee_tableId:-:amendmentIndirectRateTableId---"
-    Then I softly see value "{SavedValue:Effectivefrom}" for title "Effective from" inside table "---grantee_tableId:-:amendmentIndirectRateTableId---"
-    Then I softly see value "{SavedValue:Effectiveuntil}" for title "Effective until" inside table "---grantee_tableId:-:amendmentIndirectRateTableId---"
-    Then I softly see value "{SavedValue:ApprovedIndirectCostRate}" for title "Approved Indirect Cost Rate(%)" inside table "---grantee_tableId:-:amendmentIndirectRateTableId---"
-    Then I softly see value "{SavedValue:IndirectCostRateType}" for title "Indirect Cost Rate Type" inside table "---grantee_tableId:-:amendmentIndirectRateTableId---"
-    Given I expand nested table containing column value "BP01"
-    And I edit the following rows inline in flex table with id "---grantee_tableId:-:carryForwardBudgetTableId---" by clicking "Edit" :
-      | Category Name | Carry Forward |
-      | Construction  | 4000          |
-    Then I softly see value "$4,000.00" for title "Carry Forward" against the value "Construction" inside table "---grantee_tableId:-:carryForwardBudgetTableId---"
-    When I click on "Add Line Items" icon for "Construction" inside flex table with id "---grantee_tableId:-:AmendmentBudgetTableId---" with wait for record
-    And I edit the following rows inline in flex table with id "---grantee_tableId:-:amendmentLineItemsTableId---" by clicking "Edit" :
-      | Title        | Narrative     | Awarded Budget | Cash Match | Other Leverage |
-      | Construction | The narrative | 6000           | 700        | 200            |
-    When I close "Amendment Line Items" modal by clicking the top right x button
-    And I wait for "3" seconds
-    Then I softly see value "$6,000.00" for title "Awarded Budget" against the value "Construction" inside table "---grantee_tableId:-:amendmentLineItemsTableId---"
-    And I click on top right button "New" in flex table with id "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
-    When I enter in modal value "CFTermsCondition" into field "Title__c"
-    When I enter in modal value "Terms Description" into field "Description__c"
-    When I enter in modal value "1" into field "Sequence__c"
-    When I enter in modal value "1" into field "EffectiveFrom__c"
-    When I enter in modal value "1" into field "EffectiveTill__c"
-    And I click modal button "Save"
-    And I wait for "3" seconds
-    Then I softly see value "CFTermsCondition" for title "Title" inside table "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
-    When I enter the following values into flex table with id "---grantee_tableId:-:amendmentIndirectRateTableId---" by clicking "New" :
-      | Title | Effective from | Effective until | Approved Indirect Cost Rate(%) | Indirect Cost Rate Type |
-      | Rate3 | 20             | 31              | 20                             | Final                   |
     And I save the value from row "1" for column name "Title" as "TitleIndirectRate" from flex table "---grantee_tableId:-:amendmentIndirectRateTableId---"
     And I save the value from row "1" for column name "Effective from" as "Effectivefrom" from flex table "---grantee_tableId:-:amendmentIndirectRateTableId---"
     And I save the value from row "1" for column name "Effective until" as "Effectiveuntil" from flex table "---grantee_tableId:-:amendmentIndirectRateTableId---"
@@ -11313,6 +11245,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
     And I save the value from row "1" for column name "Name" as "ContactName" from flex table "---grantee_tableId:-:awardContactTableId---"
     And I save the value from row "1" for column name "Name" as "ProposedName" from flex table "---grantee_tableId:-:awardContactTableId---"
     When I navigate to "Amendments" sub tab
+    And I click on top right button "New" in flex table with id "---grantee_tableId:-:AmendmentRequestTableId---"
     And I enter "Grantee_PRenewal_Creation" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     And I enter "Grantee_PeriodicRenewal_Edition" values from "AmendmentRequest_Field_Values.xlsx"
@@ -11421,7 +11354,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
       | Indirect costs | The narrative | 2000           | 200        | 200            |
     When I close "Amendment Line Items" modal by clicking the top right x button
     And I wait for "2" seconds
-    Then I softly see value "$2,000.00" for title "Awarded Budget" inside table "---grantee_tableId:-:amendmentLineItemsTableId---"
+    Then I softly see value "$2,000.00" for title "Revised Award Budget" inside table "---grantee_tableId:-:amendmentLineItemsTableId---"
     Then I softly see link "Created By" inside Page block
     And I save the field labeled "Created By" as "CreatedBy"
     Then I softly see field "Created By" as "{SavedValue:CreatedBy}"
@@ -11558,6 +11491,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
     When I click "Associate" after selection of "Sarah PM" in the table "---grantee_tableId:-:amendmentAssociateContactTableId---"
     And I wait for "2" seconds
     And I click modal button "Close"
+    And I refresh the page
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:amendmentContactTableId---" by clicking "Edit" :
       | Proposed Name | Project Role    | Is Key Contact |
       | Sarah PM      | Project Officer | Checked        |
@@ -11625,7 +11559,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
       | Indirect costs | The narrative | 3000           | 200        | 200            |
     When I close "Amendment Line Items" modal by clicking the top right x button
     And I wait for "2" seconds
-    Then I softly see value "$3,000.00" for title "Awarded Budget" inside table "---grantee_tableId:-:amendmentLineItemsTableId---"
+    Then I softly see value "$3,000.00" for title "Revised Award Budget" inside table "---grantee_tableId:-:amendmentLineItemsTableId---"
     Then I softly see field "Created By" as "{SavedValue:CreatedBy}"
     Then I softly see link "Last Modified By" inside Page block
     Then I softly see field "Last Modified Date" as "Automation PM1"
@@ -11691,6 +11625,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
     And I save the value from row "1" for column name "Name" as "ContactName" from flex table "---grantee_tableId:-:awardContactTableId---"
     And I save the value from row "1" for column name "Name" as "ProposedName" from flex table "---grantee_tableId:-:awardContactTableId---"
     When I navigate to "Amendments" sub tab
+    And I click on top right button "New" in flex table with id "---grantee_tableId:-:AmendmentRequestTableId---"
     And I enter "Grantee_PRenewal_Creation" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     And I enter "Grantee_PeriodicRenewal_Edition" values from "AmendmentRequest_Field_Values.xlsx"
@@ -11808,7 +11743,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
       | Indirect costs | The narrative | 2000           | 200        | 200            |
     When I close "Amendment Line Items" modal by clicking the top right x button
     And I wait for "2" seconds
-    Then I softly see value "$2,000.00" for title "Awarded Budget" inside table "---grantee_tableId:-:amendmentLineItemsTableId---"
+    Then I softly see value "$2,000.00" for title "Revised Award Budget" inside table "---grantee_tableId:-:amendmentLineItemsTableId---"
     Then I softly see link "Created By" inside Page block
     And I save the field labeled "Created By" as "CreatedBy"
     Then I softly see field "Created By" as "{SavedValue:CreatedBy}"
@@ -11864,22 +11799,20 @@ Feature: Validate all scenarios for Grantee Amendment Request
     When I re-login to "Grantee" app as "<User>" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     And I select "Amendment Requests" from dropdown for Global search
-    And I perform quick search inside global search "{SavedValue:BPCAMENDID}"
-    Then I softly can see row level action button "Edit" against "{SavedValue:BPCAMENDID}" in global search with id "Amendment Requests"
-    Then I softly can see row level action button "Change Owner" against "{SavedValue:BPCAMENDID}" in global search with id "Amendment Requests"
+    And I perform quick search inside global search "{SavedValue:PRAMENDID}"
+    Then I softly can see row level action button "Edit" against "{SavedValue:PRAMENDID}" in global search with id "Amendment Requests"
     And I navigate to "Grants" tab
     When I navigate to "Amendment Requests" content inside "Grants, Awards & Amendment Requests" subheader on left panel
     And I click toggle button to select "Amendment Requests - My Records"
-    When I perform quick search for "{SavedValue:BPCAMENDID}" in "---grantee_tableId:-:AmendmentTableId---" panel
+    When I perform quick search for "{SavedValue:PRAMENDID}" in "---grantee_tableId:-:AmendmentTableId---" panel
     Then I softly see value "Created" for title "Status" inside table "---grantee_tableId:-:AmendmentTableId---"
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    And I perform quick search for "{SavedValue:BPCAMENDID}" in "---grantee_tableId:-:PendingTask---" panel
-    When I click on "Start" icon for "{SavedValue:BPCAMENDID}" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
-    Then I softly can see top right button "Edit" in page detail
-    Then I can see top right button "Edit" in page detail
-    Then I can see top right button "Delete" in page detail
-    Then I can see top right button "Submit for Approval" in page detail
+    And I perform quick search for "{SavedValue:PRAMENDID}" in "---grantee_tableId:-:PendingTask---" panel
+    When I click on "Start" icon for "{SavedValue:PRAMENDID}" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
+    Then I softly cannot see top right button "Edit" in page detail
+    Then I softly cannot see top right button "Delete" in page detail
+    Then I softly cannot see top right button "Submit for Approval" in page detail
     When I navigate to "Overview" sub tab
     Then I softly see "Details" page block displayed
     Then I softly see "Key Personnel Change" page block displayed

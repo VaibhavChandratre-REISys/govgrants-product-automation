@@ -546,9 +546,9 @@ Feature: Validate all scenarios for Applications Manual
       | GRANTEE ADMIN   |
       | GRANTEE AUDITOR |
 
-   @547490 @547368 @validateKeyContactsectionshouldnotbevisiblewithcorrectrecordscounttocrossorguser
+  @547490 @547368 @validateKeyContactsectionshouldnotbevisiblewithcorrectrecordscounttocrossorguser
   Scenario Outline: Validate Key Contact section should not be visible to cross org user
-     /Validate that Application record should not be visible to cross org users if record is not assigned through the Peer Review
+  /Validate that Application record should not be visible to cross org users if record is not assigned through the Peer Review
     And I create "Manual" qualified lead for title "Automation Runtime Opportunity" and opportunity number "Automation Runtime" with properties "default"
     When I login to "Grantee" app as "GRANTEE PM" user
     And I navigate to "Opportunities" tab
@@ -596,6 +596,9 @@ Feature: Validate all scenarios for Applications Manual
     And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:ContactTableIdApplication---"
     When I click "Associate" after selection of "Victor EXE" in the table "---grantee_tableId:-:ContactModalTableIdApplication---"
     When I click modal button "Close"
+    And I wait for "2" seconds
+    And I refresh the page
+    And I wait for "3" seconds
     Then I softly see value "Victor EXE" for title "Name" inside table "---grantee_tableId:-:ContactTableIdApplication---"
     When I re-login to "Grantee" app as "<NonUser>" user on "INTERNAL" portal
     When I navigate to "Applications" tab
