@@ -546,8 +546,9 @@ Feature: Validate all scenarios for Applications Manual
       | GRANTEE ADMIN   |
       | GRANTEE AUDITOR |
 
-  @547368 @validateKeyContactsectionshouldbevisiblewithcorrectrecordscounttoallInternalUsers
-  Scenario Outline: Validate Key Contact section should be visible with correct records count to all Internal Users
+   @547490 @547368 @validateKeyContactsectionshouldnotbevisiblewithcorrectrecordscounttocrossorguser
+  Scenario Outline: Validate Key Contact section should not be visible to cross org user
+     /Validate that Application record should not be visible to cross org users if record is not assigned through the Peer Review
     And I create "Manual" qualified lead for title "Automation Runtime Opportunity" and opportunity number "Automation Runtime" with properties "default"
     When I login to "Grantee" app as "GRANTEE PM" user
     And I navigate to "Opportunities" tab
