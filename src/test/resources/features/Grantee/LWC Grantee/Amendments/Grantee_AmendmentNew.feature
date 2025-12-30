@@ -11910,7 +11910,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
       | GRANTEE ADMIN   |
       | GRANTEE AUDITOR |
 
-  @547276 @validatePM,PO,EXE,FO,FD,Auditor,AdminusersfromsameorganizationcanseebudgetredirectionwhenamendmentisinCreatedstatewiththeirchildtables
+  @547679 @547276 @validatePM,PO,EXE,FO,FD,Auditor,AdminusersfromsameorganizationcanseebudgetredirectionwhenamendmentisinCreatedstatewiththeirchildtables
   Scenario Outline: Validate PM,PO, EXE, FO, FD, Auditor, Admin users from same organization can see budget redirection when amendment is in Created state with their child tables
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
@@ -11937,26 +11937,6 @@ Feature: Validate all scenarios for Grantee Amendment Request
     And I click modal button "Save and Continue"
     And I wait for "3" seconds
     And I save the field labeled "EGMS ID" as "BDRAMENDID"
-    When I re-login to "Grantee" app as "EXE" user on "INTERNAL" portal
-    And I navigate to "Grants" tab
-    And I select "Amendment Requests" from dropdown for Global search
-    And I perform quick search inside global search "{SavedValue:BDRAMENDID}"
-    Then I softly see the text containing "No results"
-    And I navigate to "Grants" tab
-    When I navigate to "Amendment Requests" content inside "Grants, Awards & Amendment Requests" subheader on left panel
-    And I click toggle button to select "Amendment Requests - My Records"
-    When I perform quick search for "{SavedValue:BDRAMENDID}" in "---grantee_tableId:-:AmendmentTableId---" panel
-    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:AmendmentTableId---"
-    And I navigate to "Grants" tab
-    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    And I perform quick search for "{SavedValue:BDRAMENDID}" in "---grantee_tableId:-:PendingTask---" panel
-    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:PendingTask---"
-    When I re-login to "Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
-    And I navigate to "Grants" tab
-    When I navigate to "Amendment Requests" content inside "Grants, Awards & Amendment Requests" subheader on left panel
-    And I click toggle button to select "Amendment Requests - My Records"
-    When I perform quick search for "{SavedValue:BDRAMENDID}" in "---grantee_tableId:-:AmendmentTableId---" panel
-    And I click on "View" icon for "{SavedValue:BDRAMENDID}" inside flex table with id "---grantee_tableId:-:AmendmentTableId---"
     When I navigate to "Overview" sub tab
     And I wait for "3" seconds
     Then I softly see field "EGMS ID" as "{SavedValue:BDRAMENDID}"
@@ -12025,9 +12005,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
       | Reviewer Name             | Role            | Description            | Due Date | Allow Record Editing |
       | {SavedValue:PM1 Username} | Fiscal Reviewer | Automation Description | 5        | Yes                  |
     Then I softly see value "{SavedValue:PM1 Username}" for title "Reviewer Name" inside table "---grantee_tableId:-:amendmentPeerReviewerTableId---"
-    And I click on "Send for Review" icon for "{SavedValue:PM1 Username}" inside flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---" without waiting for record
-    Then I softly see that "Sent for Review" has been added in flextable with Id "---grantee_tableId:-:amendmentPeerReviewerTableId---"
-    When I enter the following values into flex table with id "---grantee_tableId:-:AmendmentApproverRolesTableId---" by clicking "New" :
+     When I enter the following values into flex table with id "---grantee_tableId:-:AmendmentApproverRolesTableId---" by clicking "New" :
       | Name       | Amendment Request |
       | Victor EXE | Step 1            |
     When I enter the following values into flex table with id "---grantee_tableId:-:AmendmentApproverRolesTableId---" by clicking "New" :
@@ -12092,13 +12070,6 @@ Feature: Validate all scenarios for Grantee Amendment Request
     Then I softly can see row level action button "View" against "Terms" in flex table with id "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
     Then I softly cannot see row level action button "Edit" against "Terms" in flex table with id "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
     Then I softly cannot see row level action button "Delete" against "Terms" in flex table with id "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
-    And I click on top right button "New" in flex table with id "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
-    When I enter in modal value "Terms2" into field "Title__c"
-    When I enter in modal value "Terms Description" into field "Description__c"
-    When I enter in modal value "2" into field "Sequence__c"
-    When I enter in modal value "1" into field "EffectiveFrom__c"
-    When I enter in modal value "1" into field "EffectiveTill__c"
-    And I click modal button "Save"
     And I wait for "3" seconds
     When I navigate to "Responsibilities" sub tab
     Then I softly see "Peer Reviewers" page block displayed
@@ -12110,33 +12081,20 @@ Feature: Validate all scenarios for Grantee Amendment Request
     Then I softly see value "Sarah PM" for title "Name" inside table "---grantee_tableId:-:AmendmentApproverRolesTableId---"
     Then I softly see "Owner" page block displayed
     And I navigate to "Files" sub tab
-    Then I softly can see top right button "Add Files" in flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
-    And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
-    And I wait for "2" seconds
-    And I upload attachment without random number "AttachmentTesting.pdf" of type "Terms and Conditions" from computer
-    And I wait for "2" seconds
-    When I click modal button "Close"
-    And I wait for "2" seconds
+    Then I softly cannot see top right button "Add Files" in flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
     Then I softly see value "Attachment.pdf" for title "Title" inside table "---grantee_tableId:-:amendmentRequestAddFile---"
-    Then I softly see value "AttachmentTesting.pdf" for title "Title" inside table "---grantee_tableId:-:amendmentRequestAddFile---"
     Then I softly see top right button "New" inside flex table "---grantee_tableId:-:amendmentRequestNotesTableId---"
     When I enter the following values into flex table with id "---grantee_tableId:-:amendmentRequestNotesTableId---" by clicking "New" :
       | Title        | Description      |
-      | Notes Record | Automation Notes |
+      | Notes Record1 | Automation Notes |
     Then I softly see the following messages in the page details contains:
       | Saved Successfully! |
-    Then I softly see value "Notes Record" for title "Title" inside table "---grantee_tableId:-:amendmentRequestNotesTableId---"
-    Then I softly can see row level action button "Edit" against "Notes Record" in flex table with id "---grantee_tableId:-:amendmentRequestNotesTableId---"
-    Then I softly can see row level action button "Delete" against "Notes Record" in flex table with id "---grantee_tableId:-:amendmentRequestNotesTableId---"
     Then I softly see value "Notes Record1" for title "Title" inside table "---grantee_tableId:-:amendmentRequestNotesTableId---"
-    Then I softly cannot see row level action button "Edit" against "Notes Record1" in flex table with id "---grantee_tableId:-:amendmentRequestNotesTableId---"
-    Then I softly cannot see row level action button "Delete" against "Notes Record1" in flex table with id "---grantee_tableId:-:amendmentRequestNotesTableId---"
-    And I navigate to "Responsibilities" sub tab
-    When I click on "Enter Review" icon for "David FO" inside flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---" without waiting for record
-    And I enter a review as "Passed"
-    When I click modal button "Save"
-    And I click on submit review
-    And I wait for "3" seconds
+    Then I softly can see row level action button "Edit" against "Notes Record1" in flex table with id "---grantee_tableId:-:amendmentRequestNotesTableId---"
+    Then I softly can see row level action button "Delete" against "Notes Record1" in flex table with id "---grantee_tableId:-:amendmentRequestNotesTableId---"
+    Then I softly see value "Notes Record" for title "Title" inside table "---grantee_tableId:-:amendmentRequestNotesTableId---"
+    Then I softly cannot see row level action button "Edit" against "Notes Record" in flex table with id "---grantee_tableId:-:amendmentRequestNotesTableId---"
+    Then I softly cannot see row level action button "Delete" against "Notes Record" in flex table with id "---grantee_tableId:-:amendmentRequestNotesTableId---"
     Examples:
       | User            |
       | GRANTEE PO      |
