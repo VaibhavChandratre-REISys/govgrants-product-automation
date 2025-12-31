@@ -184,10 +184,10 @@ public class UsersAndURL implements UsersController {
                 password = "Merge@2026";
                 break;
             case "PO":
-                password = "Auto@2021";
+                password = "Auto@2020";
                 break;
             case "AUDITOR":
-                password = "Auto@2021";
+                password = "Auto@2022";
                 break;
             case "PM":
                 password = "Auto@2021";
@@ -199,6 +199,9 @@ public class UsersAndURL implements UsersController {
                 password = "Auto@2021";
                 break;
             case "FO":
+                password = "Auto@2021";
+                break;
+            case "FD":
                 password = "Auto@2021";
                 break;
             case "SPI3":
