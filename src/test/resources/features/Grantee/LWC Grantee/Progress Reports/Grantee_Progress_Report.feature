@@ -5095,7 +5095,9 @@ Feature: Validate all scenarios for Grantee Progress Report
     When I edit the following rows inline in flex table with id "---grantee_tableId:-:KPIOnProgressReport---" by clicking "Edit" :
       | EGMS ID                | Reported Value | Reported Value As Of |
       | Automation Runtime KPI | 10             | 1                    |
+    And I wait for "2" seconds
     And I click on "Edit" in the page details
+    And I wait for "2" seconds
     Then I see textarea field "KeyAccomplishments__c" is editable
     Then I see textarea field "Obstacles__c" is editable
     Then I see textarea field "Plans__c" is editable
@@ -5325,7 +5327,9 @@ Feature: Validate all scenarios for Grantee Progress Report
       | EGMS ID                | Reported Value | Reported Value As Of |
       | Automation Runtime KPI | 11             | 2                    |
     Then I softly see value "11" for title "Reported Value" inside table "---grantee_tableId:-:KPIOnProgressReport---"
+    And I wait for "2" seconds
     And I click on "Edit" in the page details
+    And I wait for "2" seconds
     Then I see textarea field "KeyAccomplishments__c" is editable
     Then I see textarea field "Obstacles__c" is editable
     Then I see textarea field "Plans__c" is editable
