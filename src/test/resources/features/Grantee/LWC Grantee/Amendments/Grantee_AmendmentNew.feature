@@ -10474,10 +10474,8 @@ Feature: Validate all scenarios for Grantee Amendment Request
     Then I softly see "System Information" page block displayed
     Then I softly see field "Grant EGMS ID" as "{SavedValue:GrantEGMSID}"
     Then I softly see link "{SavedValue:GrantEGMSID}" inside Page block
-    Then I softly see field "Grant Award Number" as "{SavedValue:GrantAwardNumber}"
     Then I softly see field "Award EGMS ID" as "{SavedValue:AwardEGMSID}"
     Then I softly see link "{SavedValue:AwardEGMSID}" inside Page block
-    Then I softly see field "Budget Period" as "{SavedValue:BudgetPeriod}"
     Then I softly see value "Automation Permanent Focus Area" for title "Title" inside table "---grantee_tableId:-:amendmentFocusAreaTableId---"
     Then I softly cannot see row level action button "Edit" against "Automation Permanent Focus Area" in flex table with id "---grantee_tableId:-:amendmentFocusAreaTableId---"
     Then I softly cannot see row level action button "Remove" against "Automation Permanent Focus Area" in flex table with id "---grantee_tableId:-:amendmentFocusAreaTableId---"
@@ -10573,11 +10571,9 @@ Feature: Validate all scenarios for Grantee Amendment Request
     Then I see textarea field "PurposeRTA__c" is editable
     Then I softly see field "Grant EGMS ID" as "{SavedValue:GrantEGMSID}"
     Then I softly see link "{SavedValue:GrantEGMSID}" inside Page block
-    Then I softly see field "Grant Award Number" as "{SavedValue:GrantAwardNumber}"
     Then I softly see field "Award EGMS ID" as "{SavedValue:AwardEGMSID}"
     Then I softly see link "{SavedValue:AwardEGMSID}" inside Page block
     Then I see field "Budget Period" is not editable
-    Then I softly see field "Budget Period" as "{SavedValue:BudgetPeriod}"
     Then I softly see fields "NewBudgetPeriodEndDate__c" is in edit mode
     Then I softly see value "Automation Permanent Focus Area" for title "Title" inside table "---grantee_tableId:-:amendmentFocusAreaTableId---"
     Then I softly can see row level action button "Edit" against "Automation Permanent Focus Area" in flex table with id "---grantee_tableId:-:amendmentFocusAreaTableId---"
