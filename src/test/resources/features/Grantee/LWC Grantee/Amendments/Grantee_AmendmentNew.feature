@@ -11956,10 +11956,10 @@ Feature: Validate all scenarios for Grantee Amendment Request
     Then I softly see top right button "New" inside flex table "---grantee_tableId:-:amendmentRequestNotesTableId---"
     When I enter the following values into flex table with id "---grantee_tableId:-:amendmentRequestNotesTableId---" by clicking "New" :
       | Title         | Description      |
-      | Notes Record1 | Automation Notes |
+      | Notes Record | Automation Notes |
     Then I softly see the following messages in the page details contains:
       | Saved Successfully! |
-    Then I softly see value "Notes Record1" for title "Title" inside table "---grantee_tableId:-:amendmentRequestNotesTableId---"
+    Then I softly see value "Notes Record" for title "Title" inside table "---grantee_tableId:-:amendmentRequestNotesTableId---"
     When I get the "EGMS ID"
     When I re-login to "Grantee" app as "<User>" user on "INTERNAL" portal
     And I navigate to "Grants" tab
