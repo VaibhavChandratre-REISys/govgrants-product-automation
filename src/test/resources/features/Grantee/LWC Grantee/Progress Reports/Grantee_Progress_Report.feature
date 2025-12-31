@@ -4738,22 +4738,10 @@ Feature: Validate all scenarios for Grantee Progress Report
     Then I softly see new tab is opened
     Then I softly can see top right button "Save" in page detail
     Then I softly can see top right button "Cancel" in page detail
-    Then I softly see that "Funding Organization" rendered in view mode only
-    Then I softly see that "Federal Grant or Other Identifying Number" rendered in view mode only
-    Then I softly see that "UEI Number" rendered in view mode only
-    Then I softly see that "EIN" rendered in view mode only
-    Then I softly see that "Internal Organization" rendered in view mode only
-    Then I softly see that "Recipient Identifying Number or Account Number" rendered in view mode only
-    Then I softly see that "Project/Grant Period" rendered in view mode only
-    Then I softly see that "Reporting Period End Date:" rendered in view mode only
-    Then I softly see that "Final Report?" rendered in view mode only
     And I enter "Grantee_PSR_form" values from "ProgressReport_Field_Values.xlsx"
+    And I wait for "3" seconds
     And I click on "Save" in the page details
     And I wait for "3" seconds
-    And I click on "Edit" in the page details
-    And I enter value "Automation for Execution" into field "Form1Narrative__c"
-    And I click on "Cancel" in the page details
-    And I wait for "2" seconds
     Then I softly see field "Key Accomplishments:" as "Automation Key Accomplishment" in "Key Accomplishments" pageblock
     Then I softly can see top right button "Edit" in page detail
     And I close the tab

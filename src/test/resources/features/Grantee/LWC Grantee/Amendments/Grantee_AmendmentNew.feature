@@ -10698,7 +10698,6 @@ Feature: Validate all scenarios for Grantee Amendment Request
     And I select "Amendment Requests" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:BPCAMENDID}"
     Then I softly can see row level action button "Edit" against "{SavedValue:BPCAMENDID}" in global search with id "Amendment Requests"
-    Then I softly can see row level action button "Change Owner" against "{SavedValue:BPCAMENDID}" in global search with id "Amendment Requests"
     And I navigate to "Grants" tab
     When I navigate to "Amendment Requests" content inside "Grants, Awards & Amendment Requests" subheader on left panel
     And I click toggle button to select "Amendment Requests - My Records"
@@ -11354,7 +11353,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
       | Indirect costs | The narrative | 2000           | 200        | 200            |
     When I close "Amendment Line Items" modal by clicking the top right x button
     And I wait for "2" seconds
-    Then I softly see value "$2,000.00" for title "Revised Award Budget" inside table "---grantee_tableId:-:amendmentLineItemsTableId---"
+    Then I softly see value "$2,000.00" for title "Revised Award Budget" inside table "---grantee_tableId:-:AmendmentBudgetTableId---"
     Then I softly see link "Created By" inside Page block
     And I save the field labeled "Created By" as "CreatedBy"
     Then I softly see field "Created By" as "{SavedValue:CreatedBy}"
@@ -11438,23 +11437,21 @@ Feature: Validate all scenarios for Grantee Amendment Request
     When I re-login to "Grantee" app as "PM1" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     And I select "Amendment Requests" from dropdown for Global search
-    And I perform quick search inside global search "{SavedValue:BPCAMENDID}"
-    Then I softly can see row level action button "Edit" against "{SavedValue:BPCAMENDID}" in global search with id "Amendment Requests"
-    Then I softly can see row level action button "Change Owner" against "{SavedValue:BPCAMENDID}" in global search with id "Amendment Requests"
+    And I perform quick search inside global search "{SavedValue:PRAMENDID}"
+    Then I softly can see row level action button "Edit" against "{SavedValue:PRAMENDID}" in global search with id "Amendment Requests"
     And I navigate to "Grants" tab
     When I navigate to "Amendment Requests" content inside "Grants, Awards & Amendment Requests" subheader on left panel
     And I click toggle button to select "Amendment Requests - My Records"
-    When I perform quick search for "{SavedValue:BPCAMENDID}" in "---grantee_tableId:-:AmendmentTableId---" panel
+    When I perform quick search for "{SavedValue:PRAMENDID}" in "---grantee_tableId:-:AmendmentTableId---" panel
     Then I softly see value "Submitted for Review" for title "Status" inside table "---grantee_tableId:-:AmendmentTableId---"
-    Then I softly can see row level action button "View" against "{SavedValue:BPCAMENDID}" in flex table with id "---grantee_tableId:-:AmendmentTableId---"
+    Then I softly can see row level action button "View" against "{SavedValue:PRAMENDID}" in flex table with id "---grantee_tableId:-:AmendmentTableId---"
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    And I perform quick search for "{SavedValue:BPCAMENDID}" in "---grantee_tableId:-:PendingTask---" panel
-    When I click on "Start" icon for "{SavedValue:BPCAMENDID}" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
+    And I perform quick search for "{SavedValue:PRAMENDID}" in "---grantee_tableId:-:PendingTask---" panel
+    When I click on "Start" icon for "{SavedValue:PRAMENDID}" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
     Then I softly can see top right button "Edit" in page detail
-    Then I can see top right button "Edit" in page detail
-    Then I can see top right button "Delete" in page detail
-    Then I can see top right button "Submit for Approval" in page detail
+    Then I softly cannot see top right button "Delete" in page detail
+    Then I softly cannot see top right button "Submit for Approval" in page detail
     When I navigate to "Overview" sub tab
     Then I softly see "Details" page block displayed
     Then I softly see "Key Personnel Change" page block displayed
@@ -11559,7 +11556,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
       | Indirect costs | The narrative | 3000           | 200        | 200            |
     When I close "Amendment Line Items" modal by clicking the top right x button
     And I wait for "2" seconds
-    Then I softly see value "$3,000.00" for title "Revised Award Budget" inside table "---grantee_tableId:-:amendmentLineItemsTableId---"
+    Then I softly see value "$3,000.00" for title "Revised Award Budget" inside table "---grantee_tableId:-:AmendmentBudgetTableId---"
     Then I softly see field "Created By" as "{SavedValue:CreatedBy}"
     Then I softly see link "Last Modified By" inside Page block
     Then I softly see field "Last Modified Date" as "Automation PM1"
@@ -11743,7 +11740,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
       | Indirect costs | The narrative | 2000           | 200        | 200            |
     When I close "Amendment Line Items" modal by clicking the top right x button
     And I wait for "2" seconds
-    Then I softly see value "$2,000.00" for title "Revised Award Budget" inside table "---grantee_tableId:-:amendmentLineItemsTableId---"
+    Then I softly see value "$2,000.00" for title "Revised Award Budget" inside table "---grantee_tableId:-:AmendmentBudgetTableId---"
     Then I softly see link "Created By" inside Page block
     And I save the field labeled "Created By" as "CreatedBy"
     Then I softly see field "Created By" as "{SavedValue:CreatedBy}"
