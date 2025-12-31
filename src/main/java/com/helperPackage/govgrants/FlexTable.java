@@ -951,6 +951,7 @@ public final class FlexTable implements FlexTableComponent {
             I.amPerforming().textInput().toClear(lookupInputBoxSelector);
             I.amPerforming().textInput().withJavaScript(lookupInputBoxSelector, fieldValue);
             By selectButtonLocator = By.xpath("//div[@title='" + fieldValue + "']");
+            I.amPerforming().waitFor().ElementToBeClickable(selectButtonLocator);
             I.amPerforming().click().withJavaScript(selectButtonLocator);
     }
 

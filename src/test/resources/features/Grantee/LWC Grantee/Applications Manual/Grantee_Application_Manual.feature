@@ -581,12 +581,11 @@ Feature: Validate all scenarios for Applications Manual
     And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:ContactTableIdApplication---"
     When I click "Associate" after selection of "Sarah PM" in the table "---grantee_tableId:-:ContactModalTableIdApplication---"
     When I click modal button "Close"
-    And I wait for "2" seconds
-    And I refresh the page
     And I wait for "3" seconds
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:ContactTableIdApplication---" by clicking "Edit" :
       | Name     | Project Role                                   |
       | Sarah PM | Project Director/Principal Investigator(PI/PD) |
+    And I wait for "3" seconds
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:ContactTableIdApplication---" by clicking "Edit" :
       | Name     | Is Key Contact |
       | Sarah PM | Checked        |
