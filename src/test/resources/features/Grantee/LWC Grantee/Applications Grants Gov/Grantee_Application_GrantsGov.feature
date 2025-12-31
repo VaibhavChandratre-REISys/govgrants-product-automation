@@ -2437,8 +2437,8 @@ Feature: Validate all scenarios for Applications Grants Gov
     Then I softly see value "SUCCESS" for title "Status" against the value "{SavedValue:TrackingNumber}" inside table "---grantee_tableId:-:submissionHistoryTableId---"
     Then I softly see value "Success" for title "Response Status Details" against the value "{SavedValue:TrackingNumber}" inside table "---grantee_tableId:-:submissionHistoryTableId---"
 
-    @486511 @validatethevalidationonapplication(Grants.gov)
-    Scenario: Validate the Validation on application(Grants.gov)
+  @486511 @validatethevalidationonapplication(Grants.gov)
+  Scenario: Validate the Validation on application(Grants.gov)
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityWithAllFormMendatory}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0001212745" with properties "default-Grantee PO user"
     Given I login to "Grantee" app as "GRANTEE PO" user
@@ -2468,9 +2468,9 @@ Feature: Validate all scenarios for Applications Grants Gov
     When I click on "Save" in the page details
     And I wait for "2" seconds
     Then I softly see the following messages in the page details contains:
-       | To Save, Application Title is required in the Overview tab under the Application Overview section.              |
-       | To Save, Program Income Treatment Type is required in the Budget tab under the Budget Overview section.         |
-       | To Save, Congressional District is required in the Overview tab under the Primary Place of Performance section. |
+      | To Save, Application Title is required in the Overview tab under the Application Overview section.              |
+      | To Save, Program Income Treatment Type is required in the Budget tab under the Budget Overview section.         |
+      | To Save, Congressional District is required in the Overview tab under the Primary Place of Performance section. |
     And I enter value "Additive" into field "ProgramIncome__c"
     And I navigate to "Overview" sub tab
     And I enter value "{SavedValue:ApplicationTitle}" into field "Title__c"
@@ -2479,62 +2479,62 @@ Feature: Validate all scenarios for Applications Grants Gov
     And I click on "Submit For Approval" in the page details
     And I wait for "2" seconds
     Then I softly see the following messages in the page details contains:
-      | Overview Tab - Associate at least one Contact with the application.                                                                          |
-      | Budget Tab - Requested Amount should be greater than or equal to Award Floor Amount. Adjust the requested budget in Budget Details section.  |
-      | Overview Tab - Please fill "Project Abstract" before you submit for approval.                                                                |
-      | Overview Tab - Please fill "Project Director/Principal Investigator" before you submit for approval.                                         |
-      | Overview Tab - Please fill "Authorized Organization Representative (AOR)" before you submit for approval.                                    |
-      | Budget Tab - You must add a budget before submitting this application.                                                                       |
-      | Overview Tab - You must add a UEI before submitting this application.                                                                        |
-      | Responsibilities - At least one approver is required.                                                                                        |
+      | Overview Tab - Associate at least one Contact with the application.                                                                         |
+      | Budget Tab - Requested Amount should be greater than or equal to Award Floor Amount. Adjust the requested budget in Budget Details section. |
+      | Overview Tab - Please fill "Project Abstract" before you submit for approval.                                                               |
+      | Overview Tab - Please fill "Project Director/Principal Investigator" before you submit for approval.                                        |
+      | Overview Tab - Please fill "Authorized Organization Representative (AOR)" before you submit for approval.                                   |
+      | Budget Tab - You must add a budget before submitting this application.                                                                      |
+      | Overview Tab - You must add a UEI before submitting this application.                                                                       |
+      | Responsibilities - At least one approver is required.                                                                                       |
 
-   @472431 @validatethatPM(RecordOwner)userseeCreateApplicationbuttonagaininthesameorganizationontherelatedopportunity/Preapplicationonceapplicationisdeleted
-   Scenario: Validate that PM(Record Owner) user see Create Application button again in the same organization on the related opportunity/Preapplication once application is deleted
-     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityWithAllFormMendatory}"
-     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0001212745" with properties "default-Grantee PO user"
-     Given I login to "Grantee" app as "GRANTEE PO" user
-     And I navigate to "Opportunities" tab
-     When I navigate to "Qualified" content inside "Leads" subheader on left panel
-     And I click toggle button to select "Qualified Leads - All"
-     When I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:qualifiedLeadTableId---" panel
-     And I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside flex table with id "---grantee_tableId:-:qualifiedLeadTableId---" without waiting for record
-     When I click on "Convert to Opportunity" in the page details
-     And I save the field labeled "EGMS ID" as "opportunityEGMSID"
-     And I create opportunity with state "Approved" for opportunity number "CAS-HHS0001212745" with properties "default-Grantee PO user"
-     And I navigate to "Opportunities" tab
-     And I navigate to "Not Converted" content inside "Opportunities" subheader on left panel
-     When I click toggle button to select "Opportunities Not Converted to Application - All"
-     And I perform quick search for "{SavedValue:opportunityEGMSID}" in "---grantee_tableId:-:OpportunityNotConvertedToApplication---" panel
-     When I click on "View" icon for "{SavedValue:opportunityEGMSID}" inside table
-     Then I softly can see top right button "Create Application" in page detail
-     When I click on "Create Application" in the page details
-     And I wait for "2" seconds
-     And I click modal button "Save and Continue"
-     And I navigate to "Overview" sub tab
-     And I get the "EGMS ID"
-     And I save the field labeled "EGMS ID" as "appEGMSID"
-     When I navigate to "Applications" tab
-     And I navigate to "Applications" content inside "Applications" subheader on left panel
-     When I click toggle button to select "Applications - All"
-     And I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:ApplicationTableId---" panel
-     When I click on "Delete" icon for "{SavedValue:appEGMSID}" inside table with table id "---grantee_tableId:-:ApplicationTableId---" without processing
-     Then I softly see confirmation box with body "Are you sure you want to permanently delete the draft application?" is displayed
-     When I click modal button "OK"
-     And I wait for "3" seconds
-     When I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:ApplicationTableId---" panel
-     Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:ApplicationTableId---"
-     And I navigate to "Opportunities" tab
-     And I navigate to "Not Converted" content inside "Opportunities" subheader on left panel
-     When I click toggle button to select "Opportunities Not Converted to Application - All"
-     And I perform quick search for "{SavedValue:opportunityEGMSID}" in "---grantee_tableId:-:OpportunityNotConvertedToApplication---" panel
-     When I click on "View" icon for "{SavedValue:opportunityEGMSID}" inside table
-     Then I softly can see top right button "Create Application" in page detail
-     When I click on "Create Application" in the page details
-     And I wait for "2" seconds
-     And I click modal button "Save and Continue"
-     And I navigate to "Overview" sub tab
-     And I get the "EGMS ID"
-     And I save the field labeled "EGMS ID" as "appEGMSID"
+  @472431 @validatethatPM(RecordOwner)userseeCreateApplicationbuttonagaininthesameorganizationontherelatedopportunity/Preapplicationonceapplicationisdeleted
+  Scenario: Validate that PM(Record Owner) user see Create Application button again in the same organization on the related opportunity/Preapplication once application is deleted
+    Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityWithAllFormMendatory}"
+    And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0001212745" with properties "default-Grantee PO user"
+    Given I login to "Grantee" app as "GRANTEE PO" user
+    And I navigate to "Opportunities" tab
+    When I navigate to "Qualified" content inside "Leads" subheader on left panel
+    And I click toggle button to select "Qualified Leads - All"
+    When I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:qualifiedLeadTableId---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside flex table with id "---grantee_tableId:-:qualifiedLeadTableId---" without waiting for record
+    When I click on "Convert to Opportunity" in the page details
+    And I save the field labeled "EGMS ID" as "opportunityEGMSID"
+    And I create opportunity with state "Approved" for opportunity number "CAS-HHS0001212745" with properties "default-Grantee PO user"
+    And I navigate to "Opportunities" tab
+    And I navigate to "Not Converted" content inside "Opportunities" subheader on left panel
+    When I click toggle button to select "Opportunities Not Converted to Application - All"
+    And I perform quick search for "{SavedValue:opportunityEGMSID}" in "---grantee_tableId:-:OpportunityNotConvertedToApplication---" panel
+    When I click on "View" icon for "{SavedValue:opportunityEGMSID}" inside table
+    Then I softly can see top right button "Create Application" in page detail
+    When I click on "Create Application" in the page details
+    And I wait for "2" seconds
+    And I click modal button "Save and Continue"
+    And I navigate to "Overview" sub tab
+    And I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "appEGMSID"
+    When I navigate to "Applications" tab
+    And I navigate to "Applications" content inside "Applications" subheader on left panel
+    When I click toggle button to select "Applications - All"
+    And I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:ApplicationTableId---" panel
+    When I click on "Delete" icon for "{SavedValue:appEGMSID}" inside table with table id "---grantee_tableId:-:ApplicationTableId---" without processing
+    Then I softly see confirmation box with body "Are you sure you want to permanently delete the draft application?" is displayed
+    When I click modal button "OK"
+    And I wait for "3" seconds
+    When I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:ApplicationTableId---" panel
+    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:ApplicationTableId---"
+    And I navigate to "Opportunities" tab
+    And I navigate to "Not Converted" content inside "Opportunities" subheader on left panel
+    When I click toggle button to select "Opportunities Not Converted to Application - All"
+    And I perform quick search for "{SavedValue:opportunityEGMSID}" in "---grantee_tableId:-:OpportunityNotConvertedToApplication---" panel
+    When I click on "View" icon for "{SavedValue:opportunityEGMSID}" inside table
+    Then I softly can see top right button "Create Application" in page detail
+    When I click on "Create Application" in the page details
+    And I wait for "2" seconds
+    And I click modal button "Save and Continue"
+    And I navigate to "Overview" sub tab
+    And I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "appEGMSID"
 
   @547385 @547386 @validatethatSubmissionHistorysectionshouldbevisiblewithcorrectrecordscounttoallInternalUsers
   Scenario Outline: Validate Submission History section should be visible with correct records count
