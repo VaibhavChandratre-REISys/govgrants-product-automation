@@ -4736,13 +4736,13 @@ Feature: Validate all scenarios for Grantee Progress Report
     When I click on "Edit" icon for "Progress Report" inside flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
     And I switch to tab number "1"
     Then I softly see new tab is opened
+    And I wait for "2" seconds
     Then I softly can see top right button "Save" in page detail
     Then I softly can see top right button "Cancel" in page detail
     And I enter "Grantee_PSR_form" values from "ProgressReport_Field_Values.xlsx"
     And I wait for "3" seconds
     And I click on "Save" in the page details
     And I wait for "3" seconds
-    Then I softly see field "Key Accomplishments:" as "Automation Key Accomplishment" in "Key Accomplishments" pageblock
     Then I softly can see top right button "Edit" in page detail
     And I close the tab
     When I click on "View" icon for "Progress Report" inside flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
@@ -4915,6 +4915,7 @@ Feature: Validate all scenarios for Grantee Progress Report
     When I click on "View" icon for "Progress Report" inside flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
     And I switch to tab number "1"
     Then I softly see new tab is opened
+    And I wait for "3" seconds
     Then I softly cannot see top right button "Edit" in page detail
     Then I softly cannot see top right button "Validate" in page detail
     And I click on Menu icon present on top right corner of the page

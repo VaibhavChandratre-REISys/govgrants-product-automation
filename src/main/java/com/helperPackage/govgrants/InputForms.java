@@ -1104,6 +1104,7 @@ public final class InputForms {
                 I.amPerforming().textInput().toClear(lookupInputBoxSelector);
                 I.amPerforming().textInput().in(lookupInputBoxSelector, searchTerm);
                 By selectButtonLocator = By.xpath("//div[@title='" + searchTerm + "']");
+                I.amPerforming().waitFor().ElementToBeClickable(selectButtonLocator);
 //                I.amPerforming().scroll().toMoveToElement(selectButtonLocator);
               I.amPerforming().scroll().withMouseToElement(selectButtonLocator);
                 I.amPerforming().click().on(selectButtonLocator);
