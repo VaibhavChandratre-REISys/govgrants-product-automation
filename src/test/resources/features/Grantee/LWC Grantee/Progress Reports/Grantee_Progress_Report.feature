@@ -4801,7 +4801,7 @@ Feature: Validate all scenarios for Grantee Progress Report
     Then I softly see "Messages" page block displayed
     When I re-login to "Grantee" app as "<User>" user on "INTERNAL" portal
     And I navigate to "Home" tab
-    And I select "Progress Report" from dropdown for Global search
+    And I select "Monitoring Reports" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:progressEGMSID}"
     And I click on hyperlink for global search containing value "{SavedValue:progressEGMSID}"
     Then I softly see field "Status" as "Created"
@@ -4948,9 +4948,9 @@ Feature: Validate all scenarios for Grantee Progress Report
     Then I softly cannot see row level action button "Delete" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:progressReportFileTableId---"
     Then I softly can see row level action button "Download" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:progressReportFileTableId---"
     Then I softly cannot see row level action button "Edit" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:progressReportFileTableId---"
-    Then I softly see value "Notes Record" for title "Title" inside table "---grantee_tableId:-:amendmentRequestNotesTableId---"
-    Then I softly cannot see row level action button "Edit" against "Notes Record" in flex table with id "---grantee_tableId:-:amendmentRequestNotesTableId---"
-    Then I softly cannot see row level action button "Delete" against "Notes Record" in flex table with id "---grantee_tableId:-:amendmentRequestNotesTableId---"
+    Then I softly see value "Notes Record" for title "Title" inside table "---grantee_tableId:-:financialReportNotesTableId---"
+    Then I softly cannot see row level action button "Edit" against "Notes Record" in flex table with id "---grantee_tableId:-:financialReportNotesTableId---"
+    Then I softly cannot see row level action button "Delete" against "Notes Record" in flex table with id "---grantee_tableId:-:financialReportNotesTableId---"
     And I navigate to "History" sub tab
     Then I softly see "Approval History" page block displayed
     Then I softly see "Snapshot History" page block displayed
@@ -5236,7 +5236,7 @@ Feature: Validate all scenarios for Grantee Progress Report
     When I get the "EGMS ID"
     When I re-login to "Grantee" app as "PM1" user on "INTERNAL" portal
     And I navigate to "Home" tab
-    And I select "Progress Report" from dropdown for Global search
+    And I select "Monitoring Reports" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:progressEGMSID}"
     And I click on hyperlink for global search containing value "{SavedValue:progressEGMSID}"
     Then I softly see field "Status" as "Submitted for Review"
@@ -5732,7 +5732,7 @@ Feature: Validate all scenarios for Grantee Progress Report
     Then I softly see "Messages" page block displayed
     When I re-login to "Grantee" app as "<User>" user on "INTERNAL" portal
     And I navigate to "Home" tab
-    And I select "Progress Report" from dropdown for Global search
+    And I select "Monitoring Reports" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:progressEGMSID}"
     And I click on hyperlink for global search containing value "{SavedValue:progressEGMSID}"
     Then I softly see field "Status" as "Created"
@@ -6175,7 +6175,7 @@ Feature: Validate all scenarios for Grantee Progress Report
     When I get the "EGMS ID"
     When I re-login to "Grantee" app as "PM1" user on "INTERNAL" portal
     And I navigate to "Home" tab
-    And I select "Progress Report" from dropdown for Global search
+    And I select "Monitoring Reports" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:progressEGMSID}"
     And I click on hyperlink for global search containing value "{SavedValue:progressEGMSID}"
     Then I softly see field "Status" as "Submitted for Review"
