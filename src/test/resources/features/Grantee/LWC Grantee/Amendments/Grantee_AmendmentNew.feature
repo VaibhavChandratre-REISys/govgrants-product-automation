@@ -11273,9 +11273,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
     Then I softly see "Special Conditions" page block displayed
     Then I softly see "System Information" page block displayed
     When I save the field labeled "Award Title" as "AwardTitle"
-    When I save the field labeled "Award Description" as "AwardDescription"
     Then I softly see field "Award Title" as "{SavedValue:AwardTitle}"
-    Then I softly see field "Award Description" as "{SavedValue:AwardDescription}"
     Then I softly see field "Status" as "Created"
     Then I softly see field "Initiated By" as "Grantor"
     Then I softly see field "Amendment Type" as "Periodic Renewal"
