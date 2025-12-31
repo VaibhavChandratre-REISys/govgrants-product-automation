@@ -2467,7 +2467,8 @@ Feature: Validate all scenarios for Opportunity
     When I re-login to "Grantee" app as "GRANTEE PO" user on "INTERNAL" portal
     And I perform quick search inside global search "{SavedValue:opportunityEGMSID}"
     Then I softly can see row level action button "Edit" against "{SavedValue:opportunityEGMSID}" in global search with id "Announcements"
-    Then I softly can see row level action button "Change Owner" against "{SavedValue:opportunityEGMSID}" in global search with id "Announcements"
+    Then I softly cannot see row level action button "Change Owner" against "{SavedValue:opportunityEGMSID}" in global search with id "Announcements"
+    And I click on row level action button "Edit" against "{SavedValue:opportunityEGMSID}" in global search with id "Announcements"
     Then I softly see field "Status" as "Submitted for Review"
     Then I cannot see top right button "Save" in page detail
     Then I cannot see top right button "Cancel" in page detail
@@ -2477,7 +2478,7 @@ Feature: Validate all scenarios for Opportunity
     When I click toggle button to select "Opportunities Not Converted to Application - All"
     And I perform quick search for "{SavedValue:opportunityEGMSID}" in "---grantee_tableId:-:OpportunityNotConvertedToApplication---" panel
     When I click on "View" icon for "{SavedValue:opportunityEGMSID}" inside table
-    Then I softly see field "Status" as "Reviewed"
+    Then I softly see field "Status" as "Submitted for Review"
     And I navigate to "Overview" sub tab
     Then I see value "Automation Permanent NGO Program2" for title "Title" inside table "---grantee_tableId:-:opportunityExternalProgramTableId---"
     Then I see value "Automation Permanent NGO Program" for title "Title" inside table "---grantee_tableId:-:opportunityExternalProgramTableId---"
@@ -2529,7 +2530,7 @@ Feature: Validate all scenarios for Opportunity
     Then I softly see value "{SavedValue:opportunityEGMSID}" for title "EGMS ID" inside table "---grantee_tableId:-:PendingTask---"
     When I click on "Start" icon for "{SavedValue:opportunityEGMSID}" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
     And I navigate to "Overview" sub tab
-    Then I softly cannot see top right button "Edit" in page detail
+    Then I softly can see top right button "Edit" in page detail
     Then I see value "Automation Permanent NGO Program2" for title "Title" inside table "---grantee_tableId:-:opportunityExternalProgramTableId---"
     Then I see value "Automation Permanent NGO Program" for title "Title" inside table "---grantee_tableId:-:opportunityExternalProgramTableId---"
     And I navigate to "Responsibilities" sub tab
@@ -2555,6 +2556,7 @@ Feature: Validate all scenarios for Opportunity
     Then I softly see value "Submitted" for title "Status" against the value "Victor EXE" inside table "---grantee_tableId:-:OpportunityPeerReviewers---"
     Then I softly cannot see row level action button "Enter Review" against "Victor EXE" in flex table with id "---grantee_tableId:-:OpportunityPeerReviewers---"
     Then I softly cannot see row level action button "Edit" against "Victor EXE" in flex table with id "---grantee_tableId:-:OpportunityPeerReviewers---"
+    Then I softly cannot see top right button "Edit" in page detail
     When I re-login to "Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
     And I navigate to "Opportunities" tab
     And I navigate to "Not Converted" content inside "Opportunities" subheader on left panel
@@ -2577,7 +2579,8 @@ Feature: Validate all scenarios for Opportunity
     When I re-login to "Grantee" app as "GRANTEE PO" user on "INTERNAL" portal
     And I perform quick search inside global search "{SavedValue:opportunityEGMSID}"
     Then I softly can see row level action button "Edit" against "{SavedValue:opportunityEGMSID}" in global search with id "Announcements"
-    Then I softly can see row level action button "Change Owner" against "{SavedValue:opportunityEGMSID}" in global search with id "Announcements"
+    Then I softly cannot see row level action button "Change Owner" against "{SavedValue:opportunityEGMSID}" in global search with id "Announcements"
+    And I click on row level action button "Edit" against "{SavedValue:opportunityEGMSID}" in global search with id "Announcements"
     Then I softly see field "Status" as "Reviewed"
     Then I cannot see top right button "Save" in page detail
     Then I cannot see top right button "Cancel" in page detail
@@ -2623,7 +2626,8 @@ Feature: Validate all scenarios for Opportunity
     When I re-login to "Grantee" app as "GRANTEE PO" user on "INTERNAL" portal
     And I perform quick search inside global search "{SavedValue:opportunityEGMSID}"
     Then I softly can see row level action button "Edit" against "{SavedValue:opportunityEGMSID}" in global search with id "Announcements"
-    Then I softly can see row level action button "Change Owner" against "{SavedValue:opportunityEGMSID}" in global search with id "Announcements"
+    Then I softly cannot see row level action button "Change Owner" against "{SavedValue:opportunityEGMSID}" in global search with id "Announcements"
+    And I click on row level action button "Edit" against "{SavedValue:opportunityEGMSID}" in global search with id "Announcements"
     Then I softly see field "Status" as "Submitted for Approval"
     Then I cannot see top right button "Save" in page detail
     Then I cannot see top right button "Cancel" in page detail
@@ -2645,7 +2649,6 @@ Feature: Validate all scenarios for Opportunity
     And I navigate to "Files" sub tab
     Then I see value "AttachmentTesting.pdf" for title "Title" inside table "---grantee_tableId:-:opportunityFilesTableId---"
     Then I softly see value "Notes Record" for title "Title" inside table "---grantee_tableId:-:opportunityNotesTableId---"
-    When I re-login to "Grantee" app as "GRANTEE PO" user on "INTERNAL" portal
     And I navigate to "Opportunities" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "Record Id" in "---grantee_tableId:-:PendingTask---" panel
@@ -2665,6 +2668,11 @@ Feature: Validate all scenarios for Opportunity
     Then I see value "AttachmentTesting.pdf" for title "Title" inside table "---grantee_tableId:-:opportunityFilesTableId---"
     Then I softly see value "Notes Record" for title "Title" inside table "---grantee_tableId:-:opportunityNotesTableId---"
     When I re-login to "Grantee" app as "GRANTEE FD" user on "INTERNAL" portal
+    And I navigate to "Opportunities" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "Record Id" in "---grantee_tableId:-:PendingTask---" panel
+    When I click on "Start" icon for "Record Id" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
+    Then I softly see field "Status" as "Submitted for Approval"
     And I navigate to "Overview" sub tab
     Then I see value "Automation Permanent NGO Program2" for title "Title" inside table "---grantee_tableId:-:opportunityExternalProgramTableId---"
     Then I see value "Automation Permanent NGO Program" for title "Title" inside table "---grantee_tableId:-:opportunityExternalProgramTableId---"
@@ -2692,12 +2700,10 @@ Feature: Validate all scenarios for Opportunity
     Then I softly see value "Notes Record" for title "Title" inside table "---grantee_tableId:-:opportunityNotesTableId---"
     When I re-login to "Grantee" app as "GRANTEE PO" user on "INTERNAL" portal
     And I navigate to "Opportunities" tab
-    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    And I perform quick search for "Record Id" in "---grantee_tableId:-:PendingTask---" panel
-    When I click on "Start" icon for "Record Id" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
-    Then I softly see field "Status" as "Approved"
-    When I "Approve" in the approval decision
-    Then I softly see field "Status" as "Approved"
+    And I navigate to "Not Converted" content inside "Opportunities" subheader on left panel
+    When I click toggle button to select "Opportunities Not Converted to Application - All"
+    And I perform quick search for "{SavedValue:opportunityEGMSID}" in "---grantee_tableId:-:OpportunityNotConvertedToApplication---" panel
+    When I click on "View" icon for "{SavedValue:opportunityEGMSID}" inside table
     And I navigate to "Overview" sub tab
     Then I see value "Automation Permanent NGO Program2" for title "Title" inside table "---grantee_tableId:-:opportunityExternalProgramTableId---"
     Then I see value "Automation Permanent NGO Program" for title "Title" inside table "---grantee_tableId:-:opportunityExternalProgramTableId---"
