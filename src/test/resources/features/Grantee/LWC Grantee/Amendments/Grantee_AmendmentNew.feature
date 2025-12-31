@@ -9428,7 +9428,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
     Then I softly see the text containing "No results"
     And I navigate to "Grants" tab
     When I navigate to "Amendment Requests" content inside "Grants, Awards & Amendment Requests" subheader on left panel
-    And I click toggle button to select "Amendment Requests - My Records"
+    And I click toggle button to select "Amendment Requests - All"
     When I perform quick search for "{SavedValue:BDRAMENDID}" in "---grantee_tableId:-:AmendmentTableId---" panel
     Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:AmendmentTableId---"
     And I navigate to "Grants" tab
@@ -11968,6 +11968,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
     Then I softly can see row level action button "Edit" against "{SavedValue:BDRAMENDID}" in global search with id "Amendment Requests"
     And I navigate to "Grants" tab
     When I navigate to "Amendment Requests" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+    And I click toggle button to select "Amendment Requests - All"
     When I perform quick search for "{SavedValue:BDRAMENDID}" in "---grantee_tableId:-:AmendmentTableId---" panel
     Then I softly can see row level action button "View" against "{SavedValue:BDRAMENDID}" in flex table with id "---grantee_tableId:-:AmendmentTableId---"
     Then I softly cannot see row level action button "Edit" against "{SavedValue:BDRAMENDID}" in flex table with id "---grantee_tableId:-:AmendmentTableId---"
