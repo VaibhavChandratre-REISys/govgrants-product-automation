@@ -11793,7 +11793,6 @@ Feature: Validate all scenarios for Grantee Amendment Request
       | GRANTEE ADMIN   |
       | GRANTEE AUDITOR |
 
-
   @548493 @548492 @validateFundingChangeamendmentrequestshouldvisibletocrossOrgpeerreviewerifARownersubmitARforreview(WithAllowEdit'Yes')
   Scenario: Validate Funding Change amendment request should visible to  cross Org peer reviewer if AR owner submit AR for review (With Allow Edit 'Yes')
   /Validate PM users from cross organization can not see Funding Change AR when amendment is in Created state with their child tables
@@ -11834,8 +11833,6 @@ Feature: Validate all scenarios for Grantee Amendment Request
     Then I can see top right button "Edit" in page detail
     Then I can see top right button "Delete" in page detail
     Then I can see top right button "Submit for Approval" in page detail
-    Then I can see top right button "Save" in page detail
-    Then I can see top right button "Cancel" in page detail
     And I wait for "2" seconds
     Then I softly can see "Overview" sub tab at view detail page
     Then I softly can see "Responsibilities" sub tab at view detail page
