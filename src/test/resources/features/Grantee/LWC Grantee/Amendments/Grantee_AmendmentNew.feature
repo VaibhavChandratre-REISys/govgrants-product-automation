@@ -11834,7 +11834,6 @@ Feature: Validate all scenarios for Grantee Amendment Request
     Then I can see top right button "Edit" in page detail
     Then I can see top right button "Delete" in page detail
     Then I can see top right button "Submit for Approval" in page detail
-    And I click on "Edit" in the page details
     Then I can see top right button "Save" in page detail
     Then I can see top right button "Cancel" in page detail
     And I wait for "2" seconds
