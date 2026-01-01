@@ -2542,7 +2542,7 @@ Feature: Validate all scenarios for Opportunity
     Then I see value "AttachmentTesting.pdf" for title "Title" inside table "---grantee_tableId:-:opportunityFilesTableId---"
     Then I softly see value "Notes Record" for title "Title" inside table "---grantee_tableId:-:opportunityNotesTableId---"
     And I navigate to "Responsibilities" sub tab
-    When I click on "Enter Review" icon for "David FO" inside flex table with id "---grantee_tableId:-:OpportunityPeerReviewers---" without waiting for record
+    When I click on "Enter Review" icon for "Victor EXE" inside flex table with id "---grantee_tableId:-:OpportunityPeerReviewers---" without waiting for record
     And I wait for "2" seconds
     When I click modal button "Save"
     And I wait for "2" seconds
