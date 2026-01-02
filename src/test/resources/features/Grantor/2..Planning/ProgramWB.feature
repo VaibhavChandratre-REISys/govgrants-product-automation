@@ -8338,16 +8338,16 @@ Feature: Validate all scenarios for program
     Then I softly can see row level action button "View" against "{SavedValue:EGMSID}" in flex table with id "---home:-:termsAndConditionsTableId---"
     Then I softly cannot see row level action button "Edit" against "{SavedValue:EGMSID}" in flex table with id "---home:-:termsAndConditionsTableId---"
     Examples:
-      | User       |
-      | PO         |
-      | PM         |
-      | EXE        |
-      | FO         |
-      | FD         |
-      | AUDITOR    |
+      | User    |
+      | PO      |
+      | PM      |
+      | EXE     |
+      | FO      |
+      | FD      |
+      | AUDITOR |
 
   @527250 @validatethatrecordssharingforInternalProgramwithPO/FO/FD/auditor/Admin/EXEfromsameOrginallstatesofInternalProgram
-  Scenario: Validate that records sharing for Internal Program with PO/FO/FD/auditor/Admin/EXE from same Org in all states of Internal Program
+  Scenario Outline: Validate that records sharing for Internal Program with PO/FO/FD/auditor/Admin/EXE from same Org in all states of Internal Program
     When I login to "Grantor" app as "dynamicUser" user
     And I navigate to "Planning" tab
     When I navigate to "Internal Programs" content inside "Programs" subheader on left panel
@@ -8396,3 +8396,162 @@ Feature: Validate all scenarios for program
     When I navigate to "Files" sub tab
     Then I can see top right button "Add Files" in flex table with id "---program:-:GrantorInternalProgramFilesTableId---"
     Then I can see top right button "New" in flex table with id "---program:-:internalProgramNotesTableId---"
+    Examples:
+      | NonOwner |
+      | PO       |
+      | EXE      |
+      | FO       |
+      | FD       |
+      | AUDITOR  |
+
+  @535715 @ValidateExternal/NGOorg1users(PM/PO/EXE)cancreateExternal/NGOProgramthenallusersshouldhaveviewaccesstoitirrespectiveofparticularorganization.
+  Scenario Outline: Validate External/NGO org 1 users (PM/PO/EXE)can create External/NGO Program then all users should have view access to it irrespective of particular organization.
+    When I login to "Grantor" app as "dynamicUser" user
+    And I navigate to "Planning" tab
+    When I navigate to "External Programs" content inside "Programs" subheader on left panel
+    And I click on top right button "New" in flex table with id "---program:-:ExternalNGOProgramTableId---"
+    When I enter "NGOCreation" values from "Program_Field_Values.xlsx"
+    And I click modal button "Save and Continue"
+    And I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "ProgramEGMSID"
+    And I click on "Save" in the page details
+    And I click on "Edit" in the page details
+    And I pause execution for "4" seconds
+    And I enter "NGOEdit" values from "Program_Field_Values.xlsx"
+    When I click on "Save" in the page details
+    When I navigate to "Overview" sub tab
+    Then I softly see "Program Information" page block displayed
+    Then I softly see "Details" page block displayed
+    Then I softly see "Contacts" page block displayed
+    Then I softly see "System Information" page block displayed
+    And I click on top right button "Associate" in flex table with id "---program:-:ExternalNGOProgramContactTableId---"
+    When I click "Associate" after selection of "NGO Contact" by showing entries "All" in flex table with id "---program:-:associateContactsTableId---"
+    And I click modal button "Close"
+    Then I softly see value "NGO Contact" for title "Name" inside table "---program:-:ExternalNGOProgramContactTableId---"
+    When I navigate to "Responsibilities" sub tab
+    When I enter the following values into flex table with id "---program:-:extapproverTableId---" by clicking "New" :
+      | Name                     | Program |
+      | {SavedValue:PM Username} | Step 1  |
+    When I enter the following values into flex table with id "---program:-:extapproverTableId---" by clicking "New" :
+      | Name                      | Program |
+      | {SavedValue:EXE Username} | Step 2  |
+    And I pause execution for "3" seconds
+    Then I softly see value "{SavedValue:PM Username}" for title "Name" inside table "---program:-:extapproverTableId---"
+    Then I softly see value "{SavedValue:EXE Username}" for title "Name" inside table "---program:-:extapproverTableId---"
+    When I navigate to "Files" sub tab
+    Then I can see top right button "Add Files" in flex table with id "---program:-:nonFedAddFilesTableId---"
+    And I click on top right button "Add Files" in flex table with id "---program:-:nonFedAddFilesTableId---"
+    And I wait for "2" seconds
+    And I upload attachment without random number "Attachment.pdf" of type "Program Artifacts" from computer
+    When I click modal button "Close"
+    And I wait for "2" seconds
+    Then I softly see value "Attachment.pdf" for title "Title" inside table "---program:-:nonFedAddFilesTableId---"
+    Then I can see top right button "New" in flex table with id "---program:-:nonFedNotesTableId---"
+    When I enter the following values into flex table with id "---program:-:nonFedNotesTableId---" by clicking "New" :
+      | Title        | Description      |
+      | Notes Record | Automation Notes |
+    Then I softly see value "Notes Record" for title "Title" inside table "---program:-:nonFedNotesTableId---"
+    When I re-login to "Grantor" app as "<NonOwner>" user on "INTERNAL" portal
+    And I navigate to "Planning" tab
+    When I navigate to "External Programs" content inside "Programs" subheader on left panel
+    And I click toggle button to select "External Programs - Draft"
+    When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:ExternalNGOProgramTableId---" panel
+    And I click on "View" icon for "{SavedValue:ProgramEGMSID}" inside flex table with id "---program:-:ExternalNGOProgramTableId---" without waiting for record
+    When I navigate to "Overview" sub tab
+    Then I softly see "Program Information" page block displayed
+    Then I softly see "Details" page block displayed
+    Then I softly see "Contacts" page block displayed
+    Then I softly see "System Information" page block displayed
+    Then I cannot see top right button "Associate" in flex table with id "---program:-:ExternalNGOProgramContactTableId---"
+    Then I softly see value "NGO Contact" for title "Name" inside table "---program:-:ExternalNGOProgramContactTableId---"
+    When I navigate to "Responsibilities" sub tab
+    Then I cannot see top right button "New" in flex table with id "---program:-:extapproverTableId---"
+    Then I softly see value "{SavedValue:PM Username}" for title "Name" inside table "---program:-:extapproverTableId---"
+    Then I softly see value "{SavedValue:EXE Username}" for title "Name" inside table "---program:-:extapproverTableId---"
+    When I navigate to "Files" sub tab
+    Then I cannot see top right button "Add Files" in flex table with id "---program:-:nonFedAddFilesTableId---"
+    Then I softly see value "Attachment.pdf" for title "Title" inside table "---program:-:nonFedAddFilesTableId---"
+    Then I can see top right button "New" in flex table with id "---program:-:nonFedNotesTableId---"
+    Then I softly see value "Notes Record" for title "Title" inside table "---program:-:nonFedNotesTableId---"
+    Examples:
+      | NonOwner |
+      | PO       |
+      | EXE      |
+      | FO       |
+      | FD       |
+      | AUDITOR  |
+
+  @535717 @ValidatethatInternal/ExternalusersseeContactstablewithallthedetails
+  Scenario Outline: Validate that Internal/ External users see Contacts table with all the details
+    When I login to "Grantor" app as "dynamicUser" user
+    And I navigate to "Planning" tab
+    When I navigate to "External Programs" content inside "Programs" subheader on left panel
+    And I click on top right button "New" in flex table with id "---program:-:ExternalNGOProgramTableId---"
+    When I enter "NGOCreation" values from "Program_Field_Values.xlsx"
+    And I click modal button "Save and Continue"
+    And I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "ProgramEGMSID"
+    And I click on "Save" in the page details
+    And I click on "Edit" in the page details
+    And I pause execution for "4" seconds
+    And I enter "NGOEdit" values from "Program_Field_Values.xlsx"
+    When I click on "Save" in the page details
+    When I navigate to "Overview" sub tab
+    Then I softly see "Program Information" page block displayed
+    Then I softly see "Details" page block displayed
+    Then I softly see "Contacts" page block displayed
+    Then I softly see "System Information" page block displayed
+    And I click on top right button "Associate" in flex table with id "---program:-:ExternalNGOProgramContactTableId---"
+    When I click "Associate" after selection of "NGO Contact" by showing entries "All" in flex table with id "---program:-:associateContactsTableId---"
+    When I click "Associate" after selection of "Sarah PM" by showing entries "All" in flex table with id "---program:-:associateContactsTableId---"
+    And I click modal button "Close"
+    And I wait for "2" seconds
+    Then I softly see value "NGO Contact" for title "Name" inside table "---program:-:ExternalNGOProgramContactTableId---"
+    Then I softly see value "Sarah PM" for title "Name" inside table "---program:-:ExternalNGOProgramContactTableId---"
+    When I navigate to "Responsibilities" sub tab
+    When I enter the following values into flex table with id "---program:-:extapproverTableId---" by clicking "New" :
+      | Name                     | Program |
+      | {SavedValue:PM Username} | Step 1  |
+    When I enter the following values into flex table with id "---program:-:extapproverTableId---" by clicking "New" :
+      | Name                      | Program |
+      | {SavedValue:EXE Username} | Step 2  |
+    And I pause execution for "3" seconds
+    Then I softly see value "{SavedValue:PM Username}" for title "Name" inside table "---program:-:extapproverTableId---"
+    Then I softly see value "{SavedValue:EXE Username}" for title "Name" inside table "---program:-:extapproverTableId---"
+    When I navigate to "Files" sub tab
+    Then I can see top right button "Add Files" in flex table with id "---program:-:nonFedAddFilesTableId---"
+    And I click on top right button "Add Files" in flex table with id "---program:-:nonFedAddFilesTableId---"
+    And I wait for "2" seconds
+    And I upload attachment without random number "Attachment.pdf" of type "Program Artifacts" from computer
+    When I click modal button "Close"
+    And I wait for "2" seconds
+    Then I softly see value "Attachment.pdf" for title "Title" inside table "---program:-:nonFedAddFilesTableId---"
+    Then I can see top right button "New" in flex table with id "---program:-:nonFedNotesTableId---"
+    When I enter the following values into flex table with id "---program:-:nonFedNotesTableId---" by clicking "New" :
+      | Title        | Description      |
+      | Notes Record | Automation Notes |
+    Then I softly see value "Notes Record" for title "Title" inside table "---program:-:nonFedNotesTableId---"
+    When I re-login to "Grantor" app as "<SrUser>" user on "INTERNAL" portal
+    And I navigate to "Planning" tab
+    When I navigate to "External Programs" content inside "Programs" subheader on left panel
+    And I click toggle button to select "External Programs - Draft"
+    When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:ExternalNGOProgramTableId---" panel
+    And I click on "View" icon for "{SavedValue:ProgramEGMSID}" inside flex table with id "---program:-:ExternalNGOProgramTableId---" without waiting for record
+    When I navigate to "Overview" sub tab
+    Then I softly see "Program Information" page block displayed
+    Then I softly see "Details" page block displayed
+    Then I softly see "Contacts" page block displayed
+    Then I softly see "System Information" page block displayed
+    Then I cannot see top right button "Associate" in flex table with id "---program:-:ExternalNGOProgramContactTableId---"
+    Then I softly see value "NGO Contact" for title "Name" inside table "---program:-:ExternalNGOProgramContactTableId---"
+    Then I softly see value "Sarah PM" for title "Name" inside table "---program:-:ExternalNGOProgramContactTableId---"
+    Then I softly cannot see "Responsibilities" sub tab at view detail page
+     When I navigate to "Files" sub tab
+    Then I cannot see top right button "Add Files" in flex table with id "---program:-:nonFedAddFilesTableId---"
+    Then I softly see value "Attachment.pdf" for title "Title" inside table "---program:-:nonFedAddFilesTableId---"
+    Then I cannot see top right button "New" in flex table with id "---program:-:nonFedNotesTableId---"
+    Then I softly see value "Notes Record" for title "Title" inside table "---program:-:nonFedNotesTableId---"
+    Examples:
+      | SrUser  |
+      | SPI     |
+      | SPA     |
