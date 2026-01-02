@@ -8427,7 +8427,18 @@ Feature: Validate all scenarios for program
     And I click on top right button "Associate" in flex table with id "---program:-:ExternalNGOProgramContactTableId---"
     When I click "Associate" after selection of "NGO Contact" by showing entries "All" in flex table with id "---program:-:associateContactsTableId---"
     And I click modal button "Close"
+    And I wait for "2" seconds
+    And I click on top right button "Associate" in flex table with id "---program:-:ExternalNGOProgramContactTableId---"
+    When I click "Associate" after selection of "NGO Contact2" by showing entries "All" in flex table with id "---program:-:associateContactsTableId---"
+    And I click modal button "Close"
+    And I wait for "2" seconds
+    And I click on top right button "Associate" in flex table with id "---program:-:ExternalNGOProgramContactTableId---"
+    When I click "Associate" after selection of "NGO Contact3" by showing entries "All" in flex table with id "---program:-:associateContactsTableId---"
+    And I click modal button "Close"
+    And I wait for "2" seconds
     Then I softly see value "NGO Contact" for title "Name" inside table "---program:-:ExternalNGOProgramContactTableId---"
+    Then I softly see value "NGO Contact2" for title "Name" inside table "---program:-:ExternalNGOProgramContactTableId---"
+    Then I softly see value "NGO Contact3" for title "Name" inside table "---program:-:ExternalNGOProgramContactTableId---"
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---program:-:extapproverTableId---" by clicking "New" :
       | Name                     | Program |
@@ -8439,18 +8450,18 @@ Feature: Validate all scenarios for program
     Then I softly see value "{SavedValue:PM Username}" for title "Name" inside table "---program:-:extapproverTableId---"
     Then I softly see value "{SavedValue:EXE Username}" for title "Name" inside table "---program:-:extapproverTableId---"
     When I navigate to "Files" sub tab
-    Then I can see top right button "Add Files" in flex table with id "---program:-:nonFedAddFilesTableId---"
-    And I click on top right button "Add Files" in flex table with id "---program:-:nonFedAddFilesTableId---"
+    Then I can see top right button "Add Files" in flex table with id "---grantee_tableId:-:nonFedAddFilesTableId---"
+    And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:nonFedAddFilesTableId---"
     And I wait for "2" seconds
     And I upload attachment without random number "Attachment.pdf" of type "Program Artifacts" from computer
     When I click modal button "Close"
     And I wait for "2" seconds
-    Then I softly see value "Attachment.pdf" for title "Title" inside table "---program:-:nonFedAddFilesTableId---"
-    Then I can see top right button "New" in flex table with id "---program:-:nonFedNotesTableId---"
-    When I enter the following values into flex table with id "---program:-:nonFedNotesTableId---" by clicking "New" :
+    Then I softly see value "Attachment.pdf" for title "Title" inside table "---grantee_tableId:-:nonFedAddFilesTableId---"
+    Then I can see top right button "New" in flex table with id "---grantee_tableId:-:nonFedNotesTableId---"
+    When I enter the following values into flex table with id "---grantee_tableId:-:nonFedNotesTableId---" by clicking "New" :
       | Title        | Description      |
       | Notes Record | Automation Notes |
-    Then I softly see value "Notes Record" for title "Title" inside table "---program:-:nonFedNotesTableId---"
+    Then I softly see value "Notes Record" for title "Title" inside table "---grantee_tableId:-:nonFedNotesTableId---"
     When I re-login to "Grantor" app as "<NonOwner>" user on "INTERNAL" portal
     And I navigate to "Planning" tab
     When I navigate to "External Programs" content inside "Programs" subheader on left panel
@@ -8464,15 +8475,17 @@ Feature: Validate all scenarios for program
     Then I softly see "System Information" page block displayed
     Then I cannot see top right button "Associate" in flex table with id "---program:-:ExternalNGOProgramContactTableId---"
     Then I softly see value "NGO Contact" for title "Name" inside table "---program:-:ExternalNGOProgramContactTableId---"
+    Then I softly see value "NGO Contact2" for title "Name" inside table "---program:-:ExternalNGOProgramContactTableId---"
+    Then I softly see value "NGO Contact3" for title "Name" inside table "---program:-:ExternalNGOProgramContactTableId---"
     When I navigate to "Responsibilities" sub tab
     Then I cannot see top right button "New" in flex table with id "---program:-:extapproverTableId---"
     Then I softly see value "{SavedValue:PM Username}" for title "Name" inside table "---program:-:extapproverTableId---"
     Then I softly see value "{SavedValue:EXE Username}" for title "Name" inside table "---program:-:extapproverTableId---"
     When I navigate to "Files" sub tab
-    Then I cannot see top right button "Add Files" in flex table with id "---program:-:nonFedAddFilesTableId---"
-    Then I softly see value "Attachment.pdf" for title "Title" inside table "---program:-:nonFedAddFilesTableId---"
-    Then I can see top right button "New" in flex table with id "---program:-:nonFedNotesTableId---"
-    Then I softly see value "Notes Record" for title "Title" inside table "---program:-:nonFedNotesTableId---"
+    Then I cannot see top right button "Add Files" in flex table with id "---grantee_tableId:-:nonFedAddFilesTableId---"
+    Then I softly see value "Attachment.pdf" for title "Title" inside table "---grantee_tableId:-:nonFedAddFilesTableId---"
+    Then I can see top right button "New" in flex table with id "---grantee_tableId:-:nonFedNotesTableId---"
+    Then I softly see value "Notes Record" for title "Title" inside table "---grantee_tableId:-:nonFedNotesTableId---"
     Examples:
       | NonOwner |
       | PO       |
@@ -8483,7 +8496,7 @@ Feature: Validate all scenarios for program
 
   @535717 @ValidatethatInternal/ExternalusersseeContactstablewithallthedetails
   Scenario Outline: Validate that Internal/ External users see Contacts table with all the details
-    When I login to "Grantor" app as "dynamicUser" user
+    When I login to "Grantor" app as "PM" user
     And I navigate to "Planning" tab
     When I navigate to "External Programs" content inside "Programs" subheader on left panel
     And I click on top right button "New" in flex table with id "---program:-:ExternalNGOProgramTableId---"
@@ -8503,11 +8516,19 @@ Feature: Validate all scenarios for program
     Then I softly see "System Information" page block displayed
     And I click on top right button "Associate" in flex table with id "---program:-:ExternalNGOProgramContactTableId---"
     When I click "Associate" after selection of "NGO Contact" by showing entries "All" in flex table with id "---program:-:associateContactsTableId---"
-    When I click "Associate" after selection of "Sarah PM" by showing entries "All" in flex table with id "---program:-:associateContactsTableId---"
+    And I click modal button "Close"
+    And I wait for "2" seconds
+    And I click on top right button "Associate" in flex table with id "---program:-:ExternalNGOProgramContactTableId---"
+    When I click "Associate" after selection of "NGO Contact2" by showing entries "All" in flex table with id "---program:-:associateContactsTableId---"
+    And I click modal button "Close"
+    And I wait for "2" seconds
+    And I click on top right button "Associate" in flex table with id "---program:-:ExternalNGOProgramContactTableId---"
+    When I click "Associate" after selection of "NGO Contact3" by showing entries "All" in flex table with id "---program:-:associateContactsTableId---"
     And I click modal button "Close"
     And I wait for "2" seconds
     Then I softly see value "NGO Contact" for title "Name" inside table "---program:-:ExternalNGOProgramContactTableId---"
-    Then I softly see value "Sarah PM" for title "Name" inside table "---program:-:ExternalNGOProgramContactTableId---"
+    Then I softly see value "NGO Contact2" for title "Name" inside table "---program:-:ExternalNGOProgramContactTableId---"
+    Then I softly see value "NGO Contact3" for title "Name" inside table "---program:-:ExternalNGOProgramContactTableId---"
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---program:-:extapproverTableId---" by clicking "New" :
       | Name                     | Program |
@@ -8519,19 +8540,19 @@ Feature: Validate all scenarios for program
     Then I softly see value "{SavedValue:PM Username}" for title "Name" inside table "---program:-:extapproverTableId---"
     Then I softly see value "{SavedValue:EXE Username}" for title "Name" inside table "---program:-:extapproverTableId---"
     When I navigate to "Files" sub tab
-    Then I can see top right button "Add Files" in flex table with id "---program:-:nonFedAddFilesTableId---"
-    And I click on top right button "Add Files" in flex table with id "---program:-:nonFedAddFilesTableId---"
+    Then I can see top right button "Add Files" in flex table with id "---grantee_tableId:-:nonFedAddFilesTableId---"
+    And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:nonFedAddFilesTableId---"
     And I wait for "2" seconds
     And I upload attachment without random number "Attachment.pdf" of type "Program Artifacts" from computer
     When I click modal button "Close"
     And I wait for "2" seconds
-    Then I softly see value "Attachment.pdf" for title "Title" inside table "---program:-:nonFedAddFilesTableId---"
-    Then I can see top right button "New" in flex table with id "---program:-:nonFedNotesTableId---"
-    When I enter the following values into flex table with id "---program:-:nonFedNotesTableId---" by clicking "New" :
+    Then I softly see value "Attachment.pdf" for title "Title" inside table "---grantee_tableId:-:nonFedAddFilesTableId---"
+    Then I can see top right button "New" in flex table with id "---grantee_tableId:-:nonFedNotesTableId---"
+    When I enter the following values into flex table with id "---grantee_tableId:-:nonFedNotesTableId---" by clicking "New" :
       | Title        | Description      |
       | Notes Record | Automation Notes |
-    Then I softly see value "Notes Record" for title "Title" inside table "---program:-:nonFedNotesTableId---"
-    When I re-login to "Grantor" app as "<SrUser>" user on "INTERNAL" portal
+    Then I softly see value "Notes Record" for title "Title" inside table "---grantee_tableId:-:nonFedNotesTableId---"
+    When I re-login to "Grants Portal" app as "<SrUser>" user on "SUBPORTAL" portal
     And I navigate to "Planning" tab
     When I navigate to "External Programs" content inside "Programs" subheader on left panel
     And I click toggle button to select "External Programs - Draft"
@@ -8544,13 +8565,14 @@ Feature: Validate all scenarios for program
     Then I softly see "System Information" page block displayed
     Then I cannot see top right button "Associate" in flex table with id "---program:-:ExternalNGOProgramContactTableId---"
     Then I softly see value "NGO Contact" for title "Name" inside table "---program:-:ExternalNGOProgramContactTableId---"
-    Then I softly see value "Sarah PM" for title "Name" inside table "---program:-:ExternalNGOProgramContactTableId---"
+    Then I softly see value "NGO Contact2" for title "Name" inside table "---program:-:ExternalNGOProgramContactTableId---"
+    Then I softly see value "NGO Contact3" for title "Name" inside table "---program:-:ExternalNGOProgramContactTableId---"
     Then I softly cannot see "Responsibilities" sub tab at view detail page
-     When I navigate to "Files" sub tab
-    Then I cannot see top right button "Add Files" in flex table with id "---program:-:nonFedAddFilesTableId---"
-    Then I softly see value "Attachment.pdf" for title "Title" inside table "---program:-:nonFedAddFilesTableId---"
-    Then I cannot see top right button "New" in flex table with id "---program:-:nonFedNotesTableId---"
-    Then I softly see value "Notes Record" for title "Title" inside table "---program:-:nonFedNotesTableId---"
+    When I navigate to "Files" sub tab
+    Then I cannot see top right button "Add Files" in flex table with id "---grantee_tableId:-:nonFedAddFilesTableId---"
+    Then I softly see value "Attachment.pdf" for title "Title" inside table "---grantee_tableId:-:nonFedAddFilesTableId---"
+    Then I cannot see top right button "New" in flex table with id "---grantee_tableId:-:nonFedNotesTableId---"
+    Then I softly see value "Notes Record" for title "Title" inside table "---grantee_tableId:-:nonFedNotesTableId---"
     Examples:
       | SrUser  |
       | SPI     |
