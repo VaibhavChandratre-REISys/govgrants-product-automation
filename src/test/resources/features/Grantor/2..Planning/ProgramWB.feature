@@ -8449,11 +8449,11 @@ Feature: Validate all scenarios for program
     When I click modal button "Close"
     And I wait for "2" seconds
     Then I softly see value "Attachment.pdf" for title "Title" inside table "---grantee_tableId:-:nonFedAddFilesTableId---"
-    Then I can see top right button "New" in flex table with id "---grantee_tableId:-:nonFedNotesTableId---"
-    When I enter the following values into flex table with id "---grantee_tableId:-:nonFedNotesTableId---" by clicking "New" :
+    Then I can see top right button "New" in flex table with id "---program:-:externalProgramNotesTableId---"
+    When I enter the following values into flex table with id "---program:-:externalProgramNotesTableId---" by clicking "New" :
       | Title        | Description      |
       | Notes Record | Automation Notes |
-    Then I softly see value "Notes Record" for title "Title" inside table "---grantee_tableId:-:nonFedNotesTableId---"
+    Then I softly see value "Notes Record" for title "Title" inside table "---program:-:externalProgramNotesTableId---"
     When I re-login to "Grantor" app as "<NonOwner>" user on "INTERNAL" portal
     And I navigate to "Planning" tab
     When I navigate to "External Programs" content inside "Programs" subheader on left panel
@@ -8474,8 +8474,8 @@ Feature: Validate all scenarios for program
     When I navigate to "Files" sub tab
     Then I cannot see top right button "Add Files" in flex table with id "---grantee_tableId:-:nonFedAddFilesTableId---"
     Then I softly see value "Attachment.pdf" for title "Title" inside table "---grantee_tableId:-:nonFedAddFilesTableId---"
-    Then I can see top right button "New" in flex table with id "---grantee_tableId:-:nonFedNotesTableId---"
-    Then I softly see value "Notes Record" for title "Title" inside table "---grantee_tableId:-:nonFedNotesTableId---"
+    Then I can see top right button "New" in flex table with id "---program:-:externalProgramNotesTableId---"
+    Then I softly see value "Notes Record" for title "Title" inside table "---program:-:externalProgramNotesTableId---"
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Planning" tab
     When I navigate to "External Programs" content inside "Programs" subheader on left panel
@@ -8524,8 +8524,8 @@ Feature: Validate all scenarios for program
     When I navigate to "Files" sub tab
     Then I cannot see top right button "Add Files" in flex table with id "---grantee_tableId:-:nonFedAddFilesTableId---"
     Then I softly see value "Attachment.pdf" for title "Title" inside table "---grantee_tableId:-:nonFedAddFilesTableId---"
-    Then I can see top right button "New" in flex table with id "---grantee_tableId:-:nonFedNotesTableId---"
-    Then I softly see value "Notes Record" for title "Title" inside table "---grantee_tableId:-:nonFedNotesTableId---"
+    Then I cannot see top right button "New" in flex table with id "---program:-:externalProgramNotesTableId---"
+    Then I softly see value "Notes Record" for title "Title" inside table "---program:-:externalProgramNotesTableId---"
     Examples:
       | NonOwner |
       | PO       |
@@ -8578,10 +8578,10 @@ Feature: Validate all scenarios for program
     And I wait for "2" seconds
     Then I softly see value "Attachment.pdf" for title "Title" inside table "---grantee_tableId:-:nonFedAddFilesTableId---"
     Then I can see top right button "New" in flex table with id "---grantee_tableId:-:nonFedNotesTableId---"
-    When I enter the following values into flex table with id "---grantee_tableId:-:nonFedNotesTableId---" by clicking "New" :
+    When I enter the following values into flex table with id "---program:-:externalProgramNotesTableId---" by clicking "New" :
       | Title        | Description      |
       | Notes Record | Automation Notes |
-    Then I softly see value "Notes Record" for title "Title" inside table "---grantee_tableId:-:nonFedNotesTableId---"
+    Then I softly see value "Notes Record" for title "Title" inside table "---program:-:externalProgramNotesTableId---"
     When I re-login to "Grants Portal" app as "<SrUser>" user on "SUBPORTAL" portal
     And I navigate to "Planning" tab
     When I navigate to "External Programs" content inside "Programs" subheader on left panel
@@ -8599,8 +8599,8 @@ Feature: Validate all scenarios for program
     When I navigate to "Files" sub tab
     Then I cannot see top right button "Add Files" in flex table with id "---grantee_tableId:-:nonFedAddFilesTableId---"
     Then I softly see value "Attachment.pdf" for title "Title" inside table "---grantee_tableId:-:nonFedAddFilesTableId---"
-    Then I cannot see top right button "New" in flex table with id "---grantee_tableId:-:nonFedNotesTableId---"
-    Then I softly see value "Notes Record" for title "Title" inside table "---grantee_tableId:-:nonFedNotesTableId---"
+    Then I cannot see top right button "New" in flex table with id "---program:-:externalProgramNotesTableId---"
+    Then I softly see value "Notes Record" for title "Title" inside table "---program:-:externalProgramNotesTableId---"
     Examples:
       | SrUser |
       | SPI    |
