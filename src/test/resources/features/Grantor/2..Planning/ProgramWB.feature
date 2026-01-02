@@ -8404,8 +8404,10 @@ Feature: Validate all scenarios for program
       | FD       |
       | AUDITOR  |
 
-  @535715 @ValidateExternal/NGOorg1users(PM/PO/EXE)cancreateExternal/NGOProgramthenallusersshouldhaveviewaccesstoitirrespectiveofparticularorganization.
+  @535723 @535719 @535715 @ValidateExternal/NGOorg1users(PM/PO/EXE)cancreateExternal/NGOProgramthenallusersshouldhaveviewaccesstoitirrespectiveofparticularorganization.
   Scenario Outline: Validate External/NGO org 1 users (PM/PO/EXE)can create External/NGO Program then all users should have view access to it irrespective of particular organization.
+    / Validate that Approver section can visible to all internal users once NGO program is created
+    /Validate External/ NGO program when submit  External/ NGO program is Activated
     When I login to "Grantor" app as "dynamicUser" user
     And I navigate to "Planning" tab
     When I navigate to "External Programs" content inside "Programs" subheader on left panel
@@ -8428,17 +8430,7 @@ Feature: Validate all scenarios for program
     When I click "Associate" after selection of "NGO Contact" by showing entries "All" in flex table with id "---program:-:associateContactsTableId---"
     And I click modal button "Close"
     And I wait for "2" seconds
-    And I click on top right button "Associate" in flex table with id "---program:-:ExternalNGOProgramContactTableId---"
-    When I click "Associate" after selection of "NGO Contact2" by showing entries "All" in flex table with id "---program:-:associateContactsTableId---"
-    And I click modal button "Close"
-    And I wait for "2" seconds
-    And I click on top right button "Associate" in flex table with id "---program:-:ExternalNGOProgramContactTableId---"
-    When I click "Associate" after selection of "NGO Contact3" by showing entries "All" in flex table with id "---program:-:associateContactsTableId---"
-    And I click modal button "Close"
-    And I wait for "2" seconds
     Then I softly see value "NGO Contact" for title "Name" inside table "---program:-:ExternalNGOProgramContactTableId---"
-    Then I softly see value "NGO Contact2" for title "Name" inside table "---program:-:ExternalNGOProgramContactTableId---"
-    Then I softly see value "NGO Contact3" for title "Name" inside table "---program:-:ExternalNGOProgramContactTableId---"
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---program:-:extapproverTableId---" by clicking "New" :
       | Name                     | Program |
@@ -8475,8 +8467,56 @@ Feature: Validate all scenarios for program
     Then I softly see "System Information" page block displayed
     Then I cannot see top right button "Associate" in flex table with id "---program:-:ExternalNGOProgramContactTableId---"
     Then I softly see value "NGO Contact" for title "Name" inside table "---program:-:ExternalNGOProgramContactTableId---"
-    Then I softly see value "NGO Contact2" for title "Name" inside table "---program:-:ExternalNGOProgramContactTableId---"
-    Then I softly see value "NGO Contact3" for title "Name" inside table "---program:-:ExternalNGOProgramContactTableId---"
+    When I navigate to "Responsibilities" sub tab
+    Then I cannot see top right button "New" in flex table with id "---program:-:extapproverTableId---"
+    Then I softly see value "{SavedValue:PM Username}" for title "Name" inside table "---program:-:extapproverTableId---"
+    Then I softly see value "{SavedValue:EXE Username}" for title "Name" inside table "---program:-:extapproverTableId---"
+    When I navigate to "Files" sub tab
+    Then I cannot see top right button "Add Files" in flex table with id "---grantee_tableId:-:nonFedAddFilesTableId---"
+    Then I softly see value "Attachment.pdf" for title "Title" inside table "---grantee_tableId:-:nonFedAddFilesTableId---"
+    Then I can see top right button "New" in flex table with id "---grantee_tableId:-:nonFedNotesTableId---"
+    Then I softly see value "Notes Record" for title "Title" inside table "---grantee_tableId:-:nonFedNotesTableId---"
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
+    And I navigate to "Planning" tab
+    When I navigate to "External Programs" content inside "Programs" subheader on left panel
+    And I click toggle button to select "External Programs - Draft"
+    When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:ExternalNGOProgramTableId---" panel
+    And I click on "View" icon for "{SavedValue:ProgramEGMSID}" inside flex table with id "---program:-:ExternalNGOProgramTableId---" without waiting for record
+    And I wait for "2" seconds
+    And I click on "Submit For Approval" in the page details
+    Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
+    When I "Approve" in the approval decision
+    When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
+    And I navigate to "Planning" tab
+    And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    When I perform quick search for "Record Id" in "---program:-:pendingTaskTableId---" panel
+    And I click on "Start" icon for "Record Id" inside flex table with id "---program:-:pendingTaskTableId---" without waiting for record
+    When I "Approve" in the approval decision
+    And I wait for "2" seconds
+    Then I softly see field "Status" as "Approved"
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
+    And I navigate to "Planning" tab
+    When I navigate to "External Programs" content inside "Programs" subheader on left panel
+    And I click toggle button to select "External Programs - Draft"
+    When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:ExternalNGOProgramTableId---" panel
+    And I click on "View" icon for "{SavedValue:ProgramEGMSID}" inside flex table with id "---program:-:ExternalNGOProgramTableId---" without waiting for record
+    And I wait for "2" seconds
+    And I click on "Activate" in the page details
+    Then I softly see status in Progress-bar is "Active" and is "dark blue"
+    When I re-login to "Grantor" app as "<NonOwner>" user on "INTERNAL" portal
+    And I navigate to "Planning" tab
+    When I navigate to "External Programs" content inside "Programs" subheader on left panel
+    And I click toggle button to select "External Programs - Draft"
+    When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:ExternalNGOProgramTableId---" panel
+    And I click on "View" icon for "{SavedValue:ProgramEGMSID}" inside flex table with id "---program:-:ExternalNGOProgramTableId---" without waiting for record
+    Then I softly see status in Progress-bar is "Active" and is "dark blue"
+    When I navigate to "Overview" sub tab
+    Then I softly see "Program Information" page block displayed
+    Then I softly see "Details" page block displayed
+    Then I softly see "Contacts" page block displayed
+    Then I softly see "System Information" page block displayed
+    Then I cannot see top right button "Associate" in flex table with id "---program:-:ExternalNGOProgramContactTableId---"
+    Then I softly see value "NGO Contact" for title "Name" inside table "---program:-:ExternalNGOProgramContactTableId---"
     When I navigate to "Responsibilities" sub tab
     Then I cannot see top right button "New" in flex table with id "---program:-:extapproverTableId---"
     Then I softly see value "{SavedValue:PM Username}" for title "Name" inside table "---program:-:extapproverTableId---"
@@ -8518,17 +8558,7 @@ Feature: Validate all scenarios for program
     When I click "Associate" after selection of "NGO Contact" by showing entries "All" in flex table with id "---program:-:associateContactsTableId---"
     And I click modal button "Close"
     And I wait for "2" seconds
-    And I click on top right button "Associate" in flex table with id "---program:-:ExternalNGOProgramContactTableId---"
-    When I click "Associate" after selection of "NGO Contact2" by showing entries "All" in flex table with id "---program:-:associateContactsTableId---"
-    And I click modal button "Close"
-    And I wait for "2" seconds
-    And I click on top right button "Associate" in flex table with id "---program:-:ExternalNGOProgramContactTableId---"
-    When I click "Associate" after selection of "NGO Contact3" by showing entries "All" in flex table with id "---program:-:associateContactsTableId---"
-    And I click modal button "Close"
-    And I wait for "2" seconds
     Then I softly see value "NGO Contact" for title "Name" inside table "---program:-:ExternalNGOProgramContactTableId---"
-    Then I softly see value "NGO Contact2" for title "Name" inside table "---program:-:ExternalNGOProgramContactTableId---"
-    Then I softly see value "NGO Contact3" for title "Name" inside table "---program:-:ExternalNGOProgramContactTableId---"
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---program:-:extapproverTableId---" by clicking "New" :
       | Name                     | Program |
@@ -8565,9 +8595,7 @@ Feature: Validate all scenarios for program
     Then I softly see "System Information" page block displayed
     Then I cannot see top right button "Associate" in flex table with id "---program:-:ExternalNGOProgramContactTableId---"
     Then I softly see value "NGO Contact" for title "Name" inside table "---program:-:ExternalNGOProgramContactTableId---"
-    Then I softly see value "NGO Contact2" for title "Name" inside table "---program:-:ExternalNGOProgramContactTableId---"
-    Then I softly see value "NGO Contact3" for title "Name" inside table "---program:-:ExternalNGOProgramContactTableId---"
-    Then I softly cannot see "Responsibilities" sub tab at view detail page
+     Then I softly cannot see "Responsibilities" sub tab at view detail page
     When I navigate to "Files" sub tab
     Then I cannot see top right button "Add Files" in flex table with id "---grantee_tableId:-:nonFedAddFilesTableId---"
     Then I softly see value "Attachment.pdf" for title "Title" inside table "---grantee_tableId:-:nonFedAddFilesTableId---"
