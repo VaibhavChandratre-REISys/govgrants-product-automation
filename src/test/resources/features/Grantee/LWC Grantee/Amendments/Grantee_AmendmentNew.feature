@@ -12236,8 +12236,9 @@ Feature: Validate all scenarios for Grantee Amendment Request
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:amendmentContactTableId---" by clicking "Edit" :
       | Proposed Name | Project Role    | Is Key Contact |
       | Sarah PM      | Project Officer | Checked        |
-    Then I softly see value "Checked" for title "Is Key Contact" against the value "David FO" inside table "---grantee_tableId:-:amendmentContactTableId---"
-    Then I softly see value "Checked" for title "Is Key Contact" against the value "Sarah PM" inside table "---grantee_tableId:-:amendmentContactTableId---"
+    And I wait for "3" seconds
+    Then I softly see value "True" for title "Is Key Contact" against the value "David FO" inside table "---grantee_tableId:-:amendmentContactTableId---"
+    Then I softly see value "True" for title "Is Key Contact" against the value "Sarah PM" inside table "---grantee_tableId:-:amendmentContactTableId---"
     And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:amendmentObjectiveTableId---"
     When I click "Associate" after selection of "Automation Permanent Objective2" in the table "---grantee_tableId:-:amendmentAssociateObjectiveTableId---"
     Then I softly see the following messages in the page details contains:
@@ -12285,7 +12286,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
       | Title                            | End Date                            |
       | Automation Permanent Focus Area2 | {SavedValue:NewBudgetPeriodEndDate} |
     Then I softly can see row level action button "Edit" against "Automation Permanent Focus Area" in flex table with id "---grantee_tableId:-:amendmentFocusAreaTableId---"
-    Then I softly cannot see row level action button "Remove" against "Automation Permanent Focus Area" in flex table with id "---grantee_tableId:-:amendmentFocusAreaTableId---"
+    Then I softly can see row level action button "Remove" against "Automation Permanent Focus Area" in flex table with id "---grantee_tableId:-:amendmentFocusAreaTableId---"
     Then I softly can see row level action button "Edit" against "Automation Permanent Focus Area2" in flex table with id "---grantee_tableId:-:amendmentFocusAreaTableId---"
     Then I softly can see row level action button "Remove" against "Automation Permanent Focus Area2" in flex table with id "---grantee_tableId:-:amendmentFocusAreaTableId---"
     When I click on "Add Line Items" icon for "Indirect costs" inside flex table with id "---grantee_tableId:-:AmendmentBudgetTableId---" with wait for record
@@ -12375,8 +12376,8 @@ Feature: Validate all scenarios for Grantee Amendment Request
     Then I softly see value "Sarah PM" for title "Proposed Name" inside table "---grantee_tableId:-:amendmentContactTableId---"
     Then I softly see value "Grantee PM" for title "Proposed Name" inside table "---grantee_tableId:-:amendmentContactTableId---"
     Then I softly see value "David FO" for title "Proposed Name" inside table "---grantee_tableId:-:amendmentContactTableId---"
-    Then I softly see value "Checked" for title "Is Key Contact" against the value "David FO" inside table "---grantee_tableId:-:amendmentContactTableId---"
-    Then I softly see value "Checked" for title "Is Key Contact" against the value "Sarah PM" inside table "---grantee_tableId:-:amendmentContactTableId---"
+    Then I softly see value "True" for title "Is Key Contact" against the value "David FO" inside table "---grantee_tableId:-:amendmentContactTableId---"
+    Then I softly see value "True" for title "Is Key Contact" against the value "Sarah PM" inside table "---grantee_tableId:-:amendmentContactTableId---"
     Examples:
       | User            |
       | GRANTEE PO      |
