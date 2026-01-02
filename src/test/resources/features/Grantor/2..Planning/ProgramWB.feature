@@ -8406,8 +8406,8 @@ Feature: Validate all scenarios for program
 
   @535723 @535719 @535715 @ValidateExternal/NGOorg1users(PM/PO/EXE)cancreateExternal/NGOProgramthenallusersshouldhaveviewaccesstoitirrespectiveofparticularorganization.
   Scenario Outline: Validate External/NGO org 1 users (PM/PO/EXE)can create External/NGO Program then all users should have view access to it irrespective of particular organization.
-    / Validate that Approver section can visible to all internal users once NGO program is created
-    /Validate External/ NGO program when submit  External/ NGO program is Activated
+  / Validate that Approver section can visible to all internal users once NGO program is created
+  /Validate External/ NGO program when submit  External/ NGO program is Activated
     When I login to "Grantor" app as "dynamicUser" user
     And I navigate to "Planning" tab
     When I navigate to "External Programs" content inside "Programs" subheader on left panel
@@ -8595,13 +8595,13 @@ Feature: Validate all scenarios for program
     Then I softly see "System Information" page block displayed
     Then I cannot see top right button "Associate" in flex table with id "---program:-:ExternalNGOProgramContactTableId---"
     Then I softly see value "NGO Contact" for title "Name" inside table "---program:-:ExternalNGOProgramContactTableId---"
-     Then I softly cannot see "Responsibilities" sub tab at view detail page
+    Then I softly cannot see "Responsibilities" sub tab at view detail page
     When I navigate to "Files" sub tab
     Then I cannot see top right button "Add Files" in flex table with id "---grantee_tableId:-:nonFedAddFilesTableId---"
     Then I softly see value "Attachment.pdf" for title "Title" inside table "---grantee_tableId:-:nonFedAddFilesTableId---"
     Then I cannot see top right button "New" in flex table with id "---grantee_tableId:-:nonFedNotesTableId---"
     Then I softly see value "Notes Record" for title "Title" inside table "---grantee_tableId:-:nonFedNotesTableId---"
     Examples:
-      | SrUser  |
-      | SPI     |
-      | SPA     |
+      | SrUser |
+      | SPI    |
+      | SPA    |
