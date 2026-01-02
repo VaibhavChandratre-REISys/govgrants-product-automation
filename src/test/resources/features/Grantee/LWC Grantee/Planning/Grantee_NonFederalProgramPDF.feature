@@ -841,3 +841,116 @@ Feature: Validate all scenarios for Non Federal Program for PDF
     Examples:
       | User          |
       | GRANTEE ADMIN |
+
+  @549247 @ValidateallinternalusersfromsameOrgshouldabletoviewthcreatedstatenon-federalexternalprogram
+  Scenario Outline: Validate all internal users from same Org should able to view the created state non-federal external program
+    When I login to "Grantee" app as "GRANTEE PM" user
+    And I navigate to "Planning" tab
+    When I navigate to "External" content inside "Programs" subheader on left panel
+    And I click toggle button to select "Non-Federal Programs - All"
+    And I click on top right button "New" in flex table with id "---grantee_tableId:-:nonFederalProgramsTableId---"
+    Then I softly see "Create Non Federal Program" opens in overLay window
+    When I enter "Grantee_nonFed" values from "Program_Field_Values.xlsx"
+    And I click modal button "Save and Continue"
+    Then I softly see field "Status" as "Created"
+    Then I can see top right button "Save" in page detail
+    Then I can see top right button "Cancel" in page detail
+    And I save the field labeled "EGMS ID" as "NonFedPrgID"
+    Then I softly see field "EGMS ID" as "{SavedValue:NonFedPrgID}"
+    Then I softly can see "Overview" sub tab at view detail page
+    Then I softly can see "Related Log" sub tab at view detail page
+    Then I softly can see "Files" sub tab at view detail page
+    Then I softly can see "History" sub tab at view detail page
+    Then I softly can see "Chatter" sub tab at view detail page
+    Then I softly can see "Field Audit" sub tab at view detail page
+    Then I softly see "Information" page block displayed
+    Then I softly see "Eligibility Requirements" page block displayed
+    Then I softly see "Application and Award Process" page block displayed
+    Then I softly see "Assistance Consideration" page block displayed
+    Then I softly see "Compliance Requirements" page block displayed
+    Then I softly see "Financial Information" page block displayed
+    Then I softly see "Contact Information" page block displayed
+    Then I softly see "System Information" page block displayed
+    When I navigate to "Related Log" sub tab
+    Then I softly see "Opportunities" page block displayed
+    Then I softly see "Pre-Applications" page block displayed
+    Then I softly see "Applications" page block displayed
+    Then I softly see "Grants" page block displayed
+    And I navigate to "Files" sub tab
+    Then I softly see "Program Files" page block displayed
+    Then I softly see "Notes" page block displayed
+    When I navigate to "History" sub tab
+    Then I softly see "Snapshot History" page block displayed
+    When I enter "Grantee_nonFed_Edition" values from "Program_Field_Values.xlsx"
+    And I generate the random digits and save as "digits"
+    And I enter value "{SavedValue:digits}" into field "FederalProgramCFDA__c"
+    And I click on "Save" in the page details
+    And I wait for "3" seconds
+    When I navigate to "Files" sub tab
+    And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:nonFedAddFilesTableId---"
+    And I pause execution for "2" seconds
+    And I upload attachment without random number "Attachment.pdf" of type "Program Artifacts" from computer
+    When I click modal button "Close"
+    And I pause execution for "3" seconds
+    Then I softly see "Program Artifacts" has been added in "Program Files" flex table
+    Then I softly can see row level action button "Edit" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:nonFedAddFilesTableId---"
+    Then I softly can see row level action button "Delete" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:nonFedAddFilesTableId---"
+    Then I softly can see row level action button "Download" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:nonFedAddFilesTableId---"
+    Then I softly can see row level action button "View" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:nonFedAddFilesTableId---"
+    When I enter the following values into flex table with id "---grantee_tableId:-:nonFedNotesTableId---" by clicking "New" :
+      | Title        | Description      |
+      | Notes Record | Automation Notes |
+    Then I softly see value "Notes Record" for title "Title" inside table "---grantee_tableId:-:nonFedNotesTableId---"
+    Then I softly see value "Automation Notes" for title "Description" inside table "---grantee_tableId:-:nonFedNotesTableId---"
+    Then I softly can see row level action button "Edit" against "Notes Record" in flex table with id "---grantee_tableId:-:nonFedNotesTableId---"
+    Then I softly can see row level action button "Delete" against "Notes Record" in flex table with id "---grantee_tableId:-:nonFedNotesTableId---"
+     And I navigate to "Chatter" sub tab in split screen
+    And I post the message "Automation Test" inside chatter
+    Then I softly see post "Automation Test" by user "Sarah PM"
+    When I re-login to "Grantee" app as "<User>" user on "INTERNAL" portal
+    And I navigate to "Planning" tab
+    When I navigate to "External" content inside "Programs" subheader on left panel
+    And I click toggle button to select "Non-Federal Programs - All"
+    When I perform quick search for "{SavedValue:NonFedPrgID}" in "---grantee_tableId:-:nonFederalProgramsTableId---" panel
+    And I click on "View" icon for "{SavedValue:NonFedPrgID}" inside flex table with id "---grantee_tableId:-:nonFederalProgramsTableId---"
+    Then I softly can see "Overview" sub tab at view detail page
+    Then I softly can see "Related Log" sub tab at view detail page
+    Then I softly can see "Files" sub tab at view detail page
+    Then I softly can see "History" sub tab at view detail page
+    Then I softly can see "Chatter" sub tab at view detail page
+    Then I softly can see "Field Audit" sub tab at view detail page
+    Then I softly see "Information" page block displayed
+    Then I softly see "Eligibility Requirements" page block displayed
+    Then I softly see "Application and Award Process" page block displayed
+    Then I softly see "Assistance Consideration" page block displayed
+    Then I softly see "Compliance Requirements" page block displayed
+    Then I softly see "Financial Information" page block displayed
+    Then I softly see "Contact Information" page block displayed
+    Then I softly see "System Information" page block displayed
+    When I navigate to "Related Log" sub tab
+    Then I softly see "Opportunities" page block displayed
+    Then I softly see "Pre-Applications" page block displayed
+    Then I softly see "Applications" page block displayed
+    Then I softly see "Grants" page block displayed
+    And I navigate to "Files" sub tab
+    Then I softly see "Program Files" page block displayed
+    Then I softly see value "Attachment.pdf" for title "Title" inside table "---grantee_tableId:-:nonFedAddFilesTableId---"
+    Then I softly cannot see row level action button "Edit" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:nonFedAddFilesTableId---"
+    Then I softly cannot see row level action button "Delete" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:nonFedAddFilesTableId---"
+    Then I softly can see row level action button "Download" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:nonFedAddFilesTableId---"
+    Then I softly can see row level action button "View" against "Attachment.pdf" in flex table with id "---grantee_tableId:-:nonFedAddFilesTableId---"
+    Then I softly see "Notes" page block displayed
+    Then I softly see value "Notes Record" for title "Title" inside table "---grantee_tableId:-:nonFedNotesTableId---"
+    Then I softly see value "Automation Notes" for title "Description" inside table "---grantee_tableId:-:nonFedNotesTableId---"
+    Then I softly cannot see row level action button "Edit" against "Notes Record" in flex table with id "---grantee_tableId:-:nonFedNotesTableId---"
+    Then I softly cannot see row level action button "Delete" against "Notes Record" in flex table with id "---grantee_tableId:-:nonFedNotesTableId---"
+    When I navigate to "History" sub tab
+    Then I softly see "Snapshot History" page block displayed
+       Examples:
+      | User            |
+      | GRANTEE PO      |
+      | GRANTEE EXE     |
+      | GRANTEE FO      |
+      | GRANTEE FD      |
+      | GRANTEE ADMIN   |
+      | GRANTEE AUDITOR |
