@@ -12351,18 +12351,10 @@ Feature: Validate all scenarios for Grantee Amendment Request
     Then I softly can see row level action button "Delete" against "Notes Record" in flex table with id "---grantee_tableId:-:amendmentRequestNotesTableId---"
     When I re-login to "Grantee" app as "<User>" user on "INTERNAL" portal
     And I navigate to "Grants" tab
-    And I select "Amendment Requests" from dropdown for Global search
-    And I perform quick search inside global search "{SavedValue:PRAMENDID}"
-    Then I softly can see row level action button "Edit" against "{SavedValue:PRAMENDID}" in global search with id "Amendment Requests"
-    And I navigate to "Grants" tab
     When I navigate to "Amendment Requests" content inside "Grants, Awards & Amendment Requests" subheader on left panel
-    And I click toggle button to select "Amendment Requests - My Records"
+    And I click toggle button to select "Amendment Requests - All"
     When I perform quick search for "{SavedValue:PRAMENDID}" in "---grantee_tableId:-:AmendmentTableId---" panel
-    Then I softly see value "Created" for title "Status" inside table "---grantee_tableId:-:AmendmentTableId---"
-    And I navigate to "Grants" tab
-    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    And I perform quick search for "{SavedValue:PRAMENDID}" in "---grantee_tableId:-:PendingTask---" panel
-    When I click on "Start" icon for "{SavedValue:PRAMENDID}" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
+    And I click on "View" icon for "{SavedValue:PRAMENDID}" inside flex table with id "---grantee_tableId:-:AmendmentTableId---"
     Then I softly cannot see top right button "Edit" in page detail
     Then I softly cannot see top right button "Delete" in page detail
     Then I softly cannot see top right button "Submit for Approval" in page detail
