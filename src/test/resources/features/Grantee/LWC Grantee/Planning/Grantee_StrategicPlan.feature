@@ -514,7 +514,6 @@ Feature: Validate all scenarios for Strategic Plan
     And I select Classification as "Objective" at upload file modal
     When I click modal button "Save"
 #    And I click modal button "Close"
-    And I refresh the page
     And I wait for "2" seconds
     Then I softly see value "Automation.pdf" for title "Title" inside table "---grantee_tableId:-:objectivesAddFilesTableId---"
     Then I softly see value "Objective" for title "Classification" inside table "---grantee_tableId:-:objectivesAddFilesTableId---"
@@ -667,7 +666,6 @@ Feature: Validate all scenarios for Strategic Plan
     And I select Classification as "Strategic Plan" at upload file modal
     When I click modal button "Save"
 #    And I click modal button "Close"
-    And I refresh the page
     And I wait for "2" seconds
     Then I softly see value "Automation.pdf" for title "Title" inside table "---grantee_tableId:-:strategicPlansFilesTableId---"
     Then I softly see value "Strategic Plan" for title "Classification" inside table "---grantee_tableId:-:strategicPlansFilesTableId---"
@@ -714,7 +712,6 @@ Feature: Validate all scenarios for Strategic Plan
     And I select Classification as "Strategic Goal" at upload file modal
     When I click modal button "Save"
 #    And I click modal button "Close"
-    And I refresh the page
     And I wait for "2" seconds
     Then I softly see value "Automation.pdf" for title "Title" inside table "---grantee_tableId:-:strategicGoalsFilesTableId---"
     Then I softly see value "Strategic Goal" for title "Classification" inside table "---grantee_tableId:-:strategicGoalsFilesTableId---"
@@ -740,7 +737,7 @@ Feature: Validate all scenarios for Strategic Plan
     And I refresh the page
     And I wait for "3" seconds
     Then I softly see value "Automation Subject" for title "Subject" inside table "CommunicationHistory"
-    Then I softly see value "victor.exeqagrantee@yopmail.com" for title "From Address" inside table "CommunicationHistory"
+    Then I softly see value "victor.exe.ggmergeqa2@yopmail.com" for title "From Address" inside table "CommunicationHistory"
     Then I softly see value "pm.automation@yopmail.com" for title "To Address" inside table "CommunicationHistory"
     And I navigate to "Overview" sub tab
     When I click on top right button "New" in flex table with id "---grantee_tableId:-:Objectives---"
@@ -769,7 +766,6 @@ Feature: Validate all scenarios for Strategic Plan
     And I select Classification as "Objective" at upload file modal
     When I click modal button "Save"
 #    And I click modal button "Close"
-    And I refresh the page
     And I wait for "2" seconds
     Then I softly see value "Automation.pdf" for title "Title" inside table "---grantee_tableId:-:objectivesAddFilesTableId---"
     Then I softly see value "Objective" for title "Classification" inside table "---grantee_tableId:-:objectivesAddFilesTableId---"
@@ -795,7 +791,7 @@ Feature: Validate all scenarios for Strategic Plan
     And I refresh the page
     And I wait for "3" seconds
     Then I softly see value "Automation Subject" for title "Subject" inside table "CommunicationHistory"
-    Then I softly see value "victor.exeqagrantee@yopmail.com" for title "From Address" inside table "CommunicationHistory"
+    Then I softly see value "victor.exe.ggmergeqa2@yopmail.com" for title "From Address" inside table "CommunicationHistory"
     Then I softly see value "pm.automation@yopmail.com" for title "To Address" inside table "CommunicationHistory"
     And I save the field labeled "Strategic Plan" as "StrategicPlan"
     And I click on hyperlink containing value "{SavedValue:StrategicPlan}"
@@ -922,7 +918,6 @@ Feature: Validate all scenarios for Strategic Plan
     And I select Classification as "Strategic Plan" at upload file modal
     When I click modal button "Save"
 #    And I click modal button "Close"
-    And I refresh the page
     And I wait for "2" seconds
     Then I softly see value "Automation.pdf" for title "Title" inside table "---grantee_tableId:-:strategicPlansFilesTableId---"
     Then I softly see value "Strategic Plan" for title "Classification" inside table "---grantee_tableId:-:strategicPlansFilesTableId---"
@@ -969,7 +964,6 @@ Feature: Validate all scenarios for Strategic Plan
     And I select Classification as "Strategic Goal" at upload file modal
     When I click modal button "Save"
 #    And I click modal button "Close"
-    And I refresh the page
     And I wait for "2" seconds
     Then I softly see value "Automation.pdf" for title "Title" inside table "---grantee_tableId:-:strategicGoalsFilesTableId---"
     Then I softly see value "Strategic Goal" for title "Classification" inside table "---grantee_tableId:-:strategicGoalsFilesTableId---"
@@ -1024,7 +1018,6 @@ Feature: Validate all scenarios for Strategic Plan
     And I select Classification as "Objective" at upload file modal
     When I click modal button "Save"
 #    And I click modal button "Close"
-    And I refresh the page
     And I wait for "2" seconds
     Then I softly see value "Automation.pdf" for title "Title" inside table "---grantee_tableId:-:objectivesAddFilesTableId---"
     Then I softly see value "Objective" for title "Classification" inside table "---grantee_tableId:-:objectivesAddFilesTableId---"
@@ -1360,7 +1353,7 @@ Feature: Validate all scenarios for Strategic Plan
     When I expand nested table containing column value "Automation Strategic Goal"
     Then I softly see value "Automation Strategic Objective" for title "Objective" inside table "---grantee_tableId:-:StrategicObjectivesChild---"
     Examples:
-      | userType    | emailIdFrom                       | emailIdTo               |
+      | userType    | emailIdFrom                       | emailIdTo                       |
       | GRANTEE EXE | victor.exe.ggmergeqa2@yopmail.com | sarah.pm.ggmergeqa2@yopmail.com |
 
   @476619 @ValidateEXEusercanDeactivateactiveStrategicplancreatedbyPMuserfromsameinternalorganization @P2_Grantee @EXE_Grantee @GRegression2
@@ -1614,8 +1607,8 @@ Feature: Validate all scenarios for Strategic Plan
     When I expand nested table containing column value "Automation Strategic Goal"
     Then I softly see value "Automation Strategic Objective" for title "Objective" inside table "---grantee_tableId:-:StrategicObjectivesChild---"
     Examples:
-      | userType      | emailIdFrom            | emailIdTo                       |
-      | GRANTEE Admin | product.qa@yopmail.com | victor.exeqagrantee@yopmail.com |
+      | userType      | emailIdFrom                  | emailIdTo                       |
+      | GRANTEE Admin | demo.admin.merge@yopmail.com | victor.exeqagrantee@yopmail.com |
 
   @445782 @vaildatePM/EXEusercanviewStrategicplanrecordinCreated,Active,Inactivestate @P2_Grantee @PM_Grantee @Gregression2
   Scenario Outline:Validate PM/ EXE user can view Strategic plan record in Created, Active, Inactive state
@@ -1646,13 +1639,13 @@ Feature: Validate all scenarios for Strategic Plan
     And I navigate to "Messages" sub tab
     And I click on top right button "Send Email" in flex table with id "CommunicationHistory"
     And I send the email under collab tab with following details:
-      | To                      | Subject            | Body            |
+      | To                              | Subject            | Body            |
       | sarah.pm.ggmergeqa2@yopmail.com | Automation Subject | Automation Body |
     When I click modal button "Close"
     And I refresh the page
     And I wait for "3" seconds
     Then I softly see value "Automation Subject" for title "Subject" inside table "CommunicationHistory"
-    Then I softly see value "exe1.automation@yopmail.com" for title "From Address" inside table "CommunicationHistory"
+    Then I softly see value "exe1.automation.qa2@yopmail.com" for title "From Address" inside table "CommunicationHistory"
     Then I softly see value "sarah.pm.ggmergeqa2@yopmail.com" for title "To Address" inside table "CommunicationHistory"
     And I navigate to "Overview" sub tab
     And I click on top right button "New" in flex table with id "---grantee_tableId:-:StrategicGoalsandObjective---"
@@ -1672,8 +1665,7 @@ Feature: Validate all scenarios for Strategic Plan
     And I update title as "Automation.pdf" on upload file modal
     And I select Classification as "Strategic Goal" at upload file modal
     When I click modal button "Save"
-    And I click modal button "Close"
-    And I refresh the page
+#    And I click modal button "Close"
     And I wait for "2" seconds
     Then I softly see value "Automation.pdf" for title "Title" inside table "---grantee_tableId:-:strategicGoalsFilesTableId---"
     Then I softly see value "Strategic Goal" for title "Classification" inside table "---grantee_tableId:-:strategicGoalsFilesTableId---"
@@ -1693,13 +1685,13 @@ Feature: Validate all scenarios for Strategic Plan
     And I navigate to "Messages" sub tab
     And I click on top right button "Send Email" in flex table with id "CommunicationHistory"
     And I send the email under collab tab with following details:
-      | To                      | Subject            | Body            |
+      | To                              | Subject            | Body            |
       | sarah.pm.ggmergeqa2@yopmail.com | Automation Subject | Automation Body |
     When I click modal button "Close"
     And I refresh the page
     And I wait for "3" seconds
     Then I softly see value "Automation Subject" for title "Subject" inside table "CommunicationHistory"
-    Then I softly see value "exe1.automation@yopmail.com" for title "From Address" inside table "CommunicationHistory"
+    Then I softly see value "exe1.automation.qa2@yopmail.com" for title "From Address" inside table "CommunicationHistory"
     Then I softly see value "sarah.pm.ggmergeqa2@yopmail.com" for title "To Address" inside table "CommunicationHistory"
     And I navigate to "Overview" sub tab
     When I click on top right button "New" in flex table with id "---grantee_tableId:-:Objectives---"
@@ -1748,13 +1740,13 @@ Feature: Validate all scenarios for Strategic Plan
     And I navigate to "Messages" sub tab
     And I click on top right button "Send Email" in flex table with id "CommunicationHistory"
     And I send the email under collab tab with following details:
-      | To                      | Subject            | Body            |
+      | To                              | Subject            | Body            |
       | sarah.pm.ggmergeqa2@yopmail.com | Automation Subject | Automation Body |
     When I click modal button "Close"
     And I refresh the page
     And I wait for "3" seconds
     Then I softly see value "Automation Subject" for title "Subject" inside table "CommunicationHistory"
-    Then I softly see value "exe1.automation@yopmail.com" for title "From Address" inside table "CommunicationHistory"
+    Then I softly see value "exe1.automation.qa2@yopmail.com" for title "From Address" inside table "CommunicationHistory"
     Then I softly see value "sarah.pm.ggmergeqa2@yopmail.com" for title "To Address" inside table "CommunicationHistory"
     And I save the field labeled "Strategic Plan" as "StrategicPlan"
     And I click on hyperlink containing value "{SavedValue:StrategicPlan}"

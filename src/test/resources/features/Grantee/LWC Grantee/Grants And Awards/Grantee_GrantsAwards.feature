@@ -1058,7 +1058,7 @@ Feature: Validate all scenarios for Grants & Awards
     And I refresh the page
     And I wait for "4" seconds
     Then I softly see value "Automation Subject" for title "Subject" inside table "CommunicationHistory"
-    Then I softly see value "victor.exeqagrantee@yopmail.com" for title "From Address" inside table "CommunicationHistory"
+    Then I softly see value "victor.exe.ggmergeqa2@yopmail.com" for title "From Address" inside table "CommunicationHistory"
     Then I softly see value "pm.automation@yopmail.com" for title "To Address" inside table "CommunicationHistory"
     And I navigate to "Management" sub tab
     Then I softly cannot see top right button "New" in flex table with id "---grantee_tableId:-:GrantsAmendmentRequestsTableId---"
@@ -2460,8 +2460,8 @@ Feature: Validate all scenarios for Grants & Awards
     Then I softly see total records count "Total Records: 12" in flex table "---grantee_tableId:-:AwardBudgetTableId---"
     Then I can see row level action button "Add Line Items" against "Administrative and legal expenses" in flex table with id "---grantee_tableId:-:AwardBudgetTableId---"
     When I click on "Add Line Items" icon for "Administrative and legal expenses" inside flex table with id "---grantee_tableId:-:AwardBudgetTableId---" with wait for record
-    Then I softly see "Add Line Items" opens in overLay window
-    Then I softly see "Line Items" page block displayed
+    Then I softly see "Award Line Items" opens in overLay window
+    Then I softly see "Award Line Items" page block displayed
     Then I softly see top right button "New" inside flex table "---grantee_tableId:-:awardLineItemsTableId---"
     Then I softly see "Title" in flex table header "---grantee_tableId:-:awardLineItemsTableId---"
     Then I softly see "Narrative" in flex table header "---grantee_tableId:-:awardLineItemsTableId---"
@@ -2477,11 +2477,11 @@ Feature: Validate all scenarios for Grants & Awards
       | Construction | 5000         | 500        | 500            |
     Then I softly see the following messages in the page details contains:
       | Required fields missing |
-    When I click on parallel lines menu bar with data target value "Line Items"
+    When I click on parallel lines menu bar with data target value "Award Line Items"
     And I wait for "3" seconds
     Then I see option "Refresh" present in parallel dropdown
     Then I see option "Download as PDF" present in parallel dropdown
-    And I select "Refresh" from parallel lines dropdown of "Line Items"
+    And I select "Refresh" from parallel lines dropdown of "Award Line Items"
     Then I see table is refreshing
     When I enter the following values into flex table with id "---grantee_tableId:-:awardLineItemsTableId---" by clicking "New" :
       | Title        | Narrative     | Award Budget | Cash Match | Non-Cash Match |
@@ -2538,11 +2538,12 @@ Feature: Validate all scenarios for Grants & Awards
     Then I softly see the following messages in the page details contains:
       | Record deleted successfully. |
     Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    When I close "Award Line Items" modal by clicking the top right x button
     And I wait for "3" seconds
     Then I can see row level action button "Add Line Items" against "Architectural and engineering fees" in flex table with id "---grantee_tableId:-:AwardBudgetTableId---"
     When I click on "Add Line Items" icon for "Architectural and engineering fees" inside flex table with id "---grantee_tableId:-:AwardBudgetTableId---" with wait for record
-    Then I softly see "Add Line Items" opens in overLay window
-    Then I softly see "Line Items" page block displayed
+    Then I softly see "Award Line Items" opens in overLay window
+    Then I softly see "Award Line Items" page block displayed
     Then I softly see top right button "New" inside flex table "---grantee_tableId:-:awardLineItemsTableId---"
     Then I softly see "Title" in flex table header "---grantee_tableId:-:awardLineItemsTableId---"
     Then I softly see "Narrative" in flex table header "---grantee_tableId:-:awardLineItemsTableId---"
@@ -2558,11 +2559,11 @@ Feature: Validate all scenarios for Grants & Awards
       | Construction | 5000         | 500        | 500            |
     Then I softly see the following messages in the page details contains:
       | Required fields missing |
-    When I click on parallel lines menu bar with data target value "Line Items"
+    When I click on parallel lines menu bar with data target value "Award Line Items"
     And I wait for "3" seconds
     Then I see option "Refresh" present in parallel dropdown
     Then I see option "Download as PDF" present in parallel dropdown
-    And I select "Refresh" from parallel lines dropdown of "Line Items"
+    And I select "Refresh" from parallel lines dropdown of "Award Line Items"
     Then I see table is refreshing
     When I enter the following values into flex table with id "---grantee_tableId:-:awardLineItemsTableId---" by clicking "New" :
       | Title        | Narrative     | Award Budget | Cash Match | Non-Cash Match |
@@ -2612,11 +2613,11 @@ Feature: Validate all scenarios for Grants & Awards
     Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:awardLineItemsTableId---"
     And I click on top right button "Clear" in flex table with id "---grantee_tableId:-:awardLineItemsTableId---"
     And I click on advance filter of table id "---grantee_tableId:-:awardLineItemsTableId---" for LWC
-    When I click on parallel lines menu bar with data target value "Line Items"
+    When I click on parallel lines menu bar with data target value "Award Line Items"
     And I wait for "3" seconds
     Then I see option "Refresh" present in parallel dropdown
     Then I see option "Download as PDF" present in parallel dropdown
-    And I select "Refresh" from parallel lines dropdown of "Line Items"
+    And I select "Refresh" from parallel lines dropdown of "Award Line Items"
     Then I see table is refreshing
     Then I softly can see row level action button "Delete" against "Construction" in flex table with id "---grantee_tableId:-:awardLineItemsTableId---"
     Then I softly can see row level action button "Edit" against "Construction" in flex table with id "---grantee_tableId:-:awardLineItemsTableId---"
@@ -2625,11 +2626,12 @@ Feature: Validate all scenarios for Grants & Awards
     Then I softly see the following messages in the page details contains:
       | Record deleted successfully. |
     Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    When I close "Award Line Items" modal by clicking the top right x button
     And I wait for "3" seconds
     Then I can see row level action button "Add Line Items" against "Construction" in flex table with id "---grantee_tableId:-:AwardBudgetTableId---"
     When I click on "Add Line Items" icon for "Construction" inside flex table with id "---grantee_tableId:-:AwardBudgetTableId---" with wait for record
-    Then I softly see "Add Line Items" opens in overLay window
-    Then I softly see "Line Items" page block displayed
+    Then I softly see "Award Line Items" opens in overLay window
+    Then I softly see "Award Line Items" page block displayed
     Then I softly see top right button "New" inside flex table "---grantee_tableId:-:awardLineItemsTableId---"
     Then I softly see "Title" in flex table header "---grantee_tableId:-:awardLineItemsTableId---"
     Then I softly see "Narrative" in flex table header "---grantee_tableId:-:awardLineItemsTableId---"
@@ -2645,11 +2647,11 @@ Feature: Validate all scenarios for Grants & Awards
       | Construction | 5000         | 500        | 500            |
     Then I softly see the following messages in the page details contains:
       | Required fields missing |
-    When I click on parallel lines menu bar with data target value "Line Items"
+    When I click on parallel lines menu bar with data target value "Award Line Items"
     And I wait for "3" seconds
     Then I see option "Refresh" present in parallel dropdown
     Then I see option "Download as PDF" present in parallel dropdown
-    And I select "Refresh" from parallel lines dropdown of "Line Items"
+    And I select "Refresh" from parallel lines dropdown of "Award Line Items"
     Then I see table is refreshing
     When I enter the following values into flex table with id "---grantee_tableId:-:awardLineItemsTableId---" by clicking "New" :
       | Title        | Narrative     | Award Budget | Cash Match | Non-Cash Match |
@@ -2706,11 +2708,12 @@ Feature: Validate all scenarios for Grants & Awards
     Then I softly see the following messages in the page details contains:
       | Record deleted successfully. |
     Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    When I close "Award Line Items" modal by clicking the top right x button
     And I wait for "3" seconds
     Then I can see row level action button "Add Line Items" against "Contingencies" in flex table with id "---grantee_tableId:-:AwardBudgetTableId---"
     When I click on "Add Line Items" icon for "Contingencies" inside flex table with id "---grantee_tableId:-:AwardBudgetTableId---" with wait for record
-    Then I softly see "Add Line Items" opens in overLay window
-    Then I softly see "Line Items" page block displayed
+    Then I softly see "Award Line Items" opens in overLay window
+    Then I softly see "Award Line Items" page block displayed
     Then I softly see top right button "New" inside flex table "---grantee_tableId:-:awardLineItemsTableId---"
     Then I softly see "Title" in flex table header "---grantee_tableId:-:awardLineItemsTableId---"
     Then I softly see "Narrative" in flex table header "---grantee_tableId:-:awardLineItemsTableId---"
@@ -2726,11 +2729,11 @@ Feature: Validate all scenarios for Grants & Awards
       | Construction | 5000         | 500        | 500            |
     Then I softly see the following messages in the page details contains:
       | Required fields missing |
-    When I click on parallel lines menu bar with data target value "Line Items"
+    When I click on parallel lines menu bar with data target value "Award Line Items"
     And I wait for "3" seconds
     Then I see option "Refresh" present in parallel dropdown
     Then I see option "Download as PDF" present in parallel dropdown
-    And I select "Refresh" from parallel lines dropdown of "Line Items"
+    And I select "Refresh" from parallel lines dropdown of "Award Line Items"
     Then I see table is refreshing
     When I enter the following values into flex table with id "---grantee_tableId:-:awardLineItemsTableId---" by clicking "New" :
       | Title        | Narrative     | Award Budget | Cash Match | Non-Cash Match |
@@ -2787,11 +2790,12 @@ Feature: Validate all scenarios for Grants & Awards
     Then I softly see the following messages in the page details contains:
       | Record deleted successfully. |
     Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    When I close "Award Line Items" modal by clicking the top right x button
     And I wait for "3" seconds
     Then I can see row level action button "Add Line Items" against "Equipment" in flex table with id "---grantee_tableId:-:AwardBudgetTableId---"
     When I click on "Add Line Items" icon for "Equipment" inside flex table with id "---grantee_tableId:-:AwardBudgetTableId---" with wait for record
-    Then I softly see "Add Line Items" opens in overLay window
-    Then I softly see "Line Items" page block displayed
+    Then I softly see "Award Line Items" opens in overLay window
+    Then I softly see "Award Line Items" page block displayed
     Then I softly see top right button "New" inside flex table "---grantee_tableId:-:awardLineItemsTableId---"
     Then I softly see "Title" in flex table header "---grantee_tableId:-:awardLineItemsTableId---"
     Then I softly see "Narrative" in flex table header "---grantee_tableId:-:awardLineItemsTableId---"
@@ -2807,11 +2811,11 @@ Feature: Validate all scenarios for Grants & Awards
       | Construction | 5000         | 500        | 500            |
     Then I softly see the following messages in the page details contains:
       | Required fields missing |
-    When I click on parallel lines menu bar with data target value "Line Items"
+    When I click on parallel lines menu bar with data target value "Award Line Items"
     And I wait for "3" seconds
     Then I see option "Refresh" present in parallel dropdown
     Then I see option "Download as PDF" present in parallel dropdown
-    And I select "Refresh" from parallel lines dropdown of "Line Items"
+    And I select "Refresh" from parallel lines dropdown of "Award Line Items"
     Then I see table is refreshing
     When I enter the following values into flex table with id "---grantee_tableId:-:awardLineItemsTableId---" by clicking "New" :
       | Title        | Narrative     | Award Budget | Cash Match | Non-Cash Match |
@@ -2868,11 +2872,12 @@ Feature: Validate all scenarios for Grants & Awards
     Then I softly see the following messages in the page details contains:
       | Record deleted successfully. |
     Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:awardLineItemsTableId---"
+    When I close "Award Line Items" modal by clicking the top right x button
     And I wait for "3" seconds
     Then I can see row level action button "Add Line Items" against "Indirect costs" in flex table with id "---grantee_tableId:-:AwardBudgetTableId---"
     When I click on "Add Line Items" icon for "Indirect costs" inside flex table with id "---grantee_tableId:-:AwardBudgetTableId---" with wait for record
-    Then I softly see "Add Line Items" opens in overLay window
-    Then I softly see "Line Items" page block displayed
+    Then I softly see "Award Line Items" opens in overLay window
+    Then I softly see "Award Line Items" page block displayed
     Then I softly see top right button "New" inside flex table "---grantee_tableId:-:awardLineItemsTableId---"
     Then I softly see "Title" in flex table header "---grantee_tableId:-:awardLineItemsTableId---"
     Then I softly see "Narrative" in flex table header "---grantee_tableId:-:awardLineItemsTableId---"
@@ -2888,11 +2893,11 @@ Feature: Validate all scenarios for Grants & Awards
       | Construction | 5000         | 500        | 500            |
     Then I softly see the following messages in the page details contains:
       | Required fields missing |
-    When I click on parallel lines menu bar with data target value "Line Items"
+    When I click on parallel lines menu bar with data target value "Award Line Items"
     And I wait for "3" seconds
     Then I see option "Refresh" present in parallel dropdown
     Then I see option "Download as PDF" present in parallel dropdown
-    And I select "Refresh" from parallel lines dropdown of "Line Items"
+    And I select "Refresh" from parallel lines dropdown of "Award Line Items"
     Then I see table is refreshing
     When I enter the following values into flex table with id "---grantee_tableId:-:awardLineItemsTableId---" by clicking "New" :
       | Title        | Narrative     | Award Budget | Cash Match | Non-Cash Match |

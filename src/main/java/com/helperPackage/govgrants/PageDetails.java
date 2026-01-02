@@ -904,6 +904,10 @@ public final class PageDetails {
             I.amPerforming().assertionsTo().assertThat(isHelpTextDisplayedwithQuotes(helptext)).isTrue();
         } else if (usage.equalsIgnoreCase("see")) {
             Assert.assertTrue(isHelpTextDisplayedwithQuotes(helptext));
+        } else if (usage.equalsIgnoreCase("do not see")) {
+            Assert.assertFalse(isHelpTextDisplayedwithQuotes(helptext));
+        } else {
+            I.amPerforming().assertionsTo().assertThat(isHelpTextDisplayedwithQuotes(helptext)).isFalse();
         }
     }
 

@@ -290,7 +290,7 @@ public final class JavaScript {
     public String getPageLoadingStatus() {
         JavascriptExecutor js = ((JavascriptExecutor) InstanceRecording.getInstance(DeviceBucket.class).getDriver());
         String readyState = js.executeScript("return document.readyState").toString();
-
+      
         // Check the ready state of the page
         if (readyState.equals("complete")) {
             I.amPerforming().updatingOfReportWith().write(LogLevel.TEST_BLAZE_INFO, "Page is fully loaded. " + readyState.toUpperCase());

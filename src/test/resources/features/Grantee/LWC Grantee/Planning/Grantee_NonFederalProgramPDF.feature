@@ -23,7 +23,7 @@ Feature: Validate all scenarios for Non Federal Program for PDF
     And I wait for "8" seconds
     And I download the file
     Then I see "Non-Federal Programs - All" on page "1" of "govgrants" pdf file
-    And I switch to parent tab
+    And I close the tab
     And I select "Refresh" from parallel lines dropdown of "Non-Federal Programs - All"
     Then I see table is refreshing
     And I click on top right button "New" in flex table with id "---grantee_tableId:-:nonFederalProgramsTableId---"
@@ -81,7 +81,7 @@ Feature: Validate all scenarios for Non Federal Program for PDF
     And I update title as "Automation.pdf" on upload file modal
     And I select Classification as "Other Artifacts" at upload file modal
     When I click modal button "Save"
-    And I wait for "5" seconds
+    And I wait for "3" seconds
     Then I softly see value "Automation.pdf" for title "Classification" inside table "---grantee_tableId:-:nonFedAddFilesTableId---"
     Then I softly see value "Other Artifacts" for title "Classification" inside table "---grantee_tableId:-:nonFedAddFilesTableId---"
     And I click on "Download" icon for "Other Artifacts" inside flex table with id "---grantee_tableId:-:nonFedAddFilesTableId---" without waiting for record

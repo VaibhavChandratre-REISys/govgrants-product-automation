@@ -2304,6 +2304,21 @@ public final class GovGrantsAssertionObjects {
     }
 
     /**
+     * validate if fields is in edit mode is displayed at modal page
+     *
+     * @param fieldAPIName
+     * @param isSoftly
+     * @author vaibhav.chandratre
+     */
+    public void assertFieldIsEditableOrNotForModal(String fieldAPIName, boolean isSoftly) {
+        if (isSoftly) {
+            I.amPerforming().assertionsTo().assertThat(isFieldEditableForModal(fieldAPIName)).isTrue();
+        } else {
+            Assert.assertTrue(isFieldEditableForModal(fieldAPIName));
+        }
+    }
+
+    /**
      * validate if fields is in edit mode is displayed at modal details
      *
      * @param fieldAPIName
@@ -2321,7 +2336,18 @@ public final class GovGrantsAssertionObjects {
     private Boolean isFieldEditable(String fieldAPIName) {
         boolean flag = true;
         try {
-            if (I.amPerforming().checkToSee().isDisplayed(By.xpath("//div[@data-field_api_name='" + fieldAPIName + "']//input[@disabled] | //div[@data-field_api_name='" + fieldAPIName + "']//lightning-formatted-text")))
+            if (I.amPerforming().checkToSee().isDisplayed(By.xpath("//div[@data-field_api_name='" + fieldAPIName + "']//input[@disabled] | //div[@data-field_api_name='" + fieldAPIName + "']//button[@disabled]  | //div[@data-field_api_name='" + fieldAPIName + "']//lightning-formatted-text")))
+                flag = true;
+        } catch (Exception e) {
+            flag = false;
+        }
+        return flag;
+    }
+
+    private Boolean isFieldEditableForModal(String fieldAPIName) {
+        boolean flag = true;
+        try {
+            if (I.amPerforming().checkToSee().isDisplayed(By.xpath("//div[contains(@class,'modal__container')]//div[@data-field_api_name='" + fieldAPIName + "']//input[@disabled] | //div[contains(@class,'modal__container')]//div[@data-field_api_name='" + fieldAPIName + "']//button[@disabled]")))
                 flag = true;
         } catch (Exception e) {
             flag = false;
@@ -4266,27 +4292,36 @@ public final class GovGrantsAssertionObjects {
         return flag;
     }
 
-    public void assertLabelMaximumLengthIsForInputField(String usage, String labelName, String length) {
+    public void assertLabelMaximumLengthIsForInputField(String usage, String check, String labelName, String length) {
         if (usage.equalsIgnoreCase("see")) {
-            Assert.assertTrue(isMaximumLengthIsForInputField(labelName, length));
+            Assert.assertTrue(isMaximumLengthIsForInputField(check, labelName, length));
         } else if (usage.equalsIgnoreCase("softly see")) {
-            I.amPerforming().assertionsTo().assertThat(isMaximumLengthIsForInputField(labelName, length)).isTrue();
+            I.amPerforming().assertionsTo().assertThat(isMaximumLengthIsForInputField(check, labelName, length)).isTrue();
         } else if (usage.equalsIgnoreCase("do not see")) {
-            Assert.assertFalse(isMaximumLengthIsForInputField(labelName, length));
+            Assert.assertFalse(isMaximumLengthIsForInputField(check, labelName, length));
         } else {
-            I.amPerforming().assertionsTo().assertThat(isMaximumLengthIsForInputField(labelName, length)).isFalse();
+            I.amPerforming().assertionsTo().assertThat(isMaximumLengthIsForInputField(check, labelName, length)).isFalse();
         }
     }
 
-    private Boolean isMaximumLengthIsForInputField(String labelName, String length) {
+    private Boolean isMaximumLengthIsForInputField(String check, String labelName, String length) {
         boolean flag = false;
-        try {
-            if (I.amPerforming().checkToSee().isDisplayed(By.xpath(" //label[text()='" + labelName + "']//parent::div//input[@maxlength='" + length + "']"))) {
-                flag = true;
-            }
-        } catch (Exception e) {
-        }
-        return flag;
+       if(check.equalsIgnoreCase("label")){
+           try {
+               if (I.amPerforming().checkToSee().isDisplayed(By.xpath(" //label[text()='" + labelName + "']//parent::div//input[@maxlength='" + length + "']"))) {
+                   flag = true;
+               }
+           } catch (Exception e) {
+           }
+       } else {
+           try {
+               if (I.amPerforming().checkToSee().isDisplayed(By.xpath("//c-fieldlwc[@data-fieldapiname='" + labelName + "']//parent::div//input[@maxlength='" + length + "']"))) {
+                   flag = true;
+               }
+           } catch (Exception e) {
+           }
+       }
+       return flag;
     }
 
     public void assertalueForTheEditModeField(String usage, String fieldName, String fieldAPIName) {

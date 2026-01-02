@@ -178,6 +178,13 @@ public class GrantorWebServices extends ProjectWebServices {
         approveDFMPostCall(projectApis.defaultRequestPayroleForApprovedDFM(), applicationName);
     }
 
+    /**
+     * @param applicationName name of application for Plumbing cases
+     */
+    public void approveDFMForPlumbingcases(String applicationName) {
+        approveDFMPostCall(projectApis.defaultRequestPayroleForApprovedDFMForPlumbingcases(), applicationName);
+    }
+
     public void reviewedApplication(String applicationName) {
         reviewApplicationPostCall(projectApis.defaultPayloadReviewApplication(), applicationName);
     }
@@ -187,6 +194,13 @@ public class GrantorWebServices extends ProjectWebServices {
      */
     public void createAwardFromFDM(String announcementName) {
         createAwardFromFDMPostCall(projectApis.defaultPayloadCreateAwardFromFDM(announcementName));
+    }
+
+    /**
+     * @param announcementName name of announcement on which application is created with same name as announcement for Plumbing cases
+     */
+    public void createAwardFromFDMForPlumbingCases(String announcementName) {
+        createAwardFromFDMPostCall(projectApis.defaultPayloadCreateAwardFromFDMForPlumbingCases(announcementName));
     }
 
     public void createAwardFromFDM(String announcementName, String... Type ) {
@@ -214,6 +228,17 @@ public class GrantorWebServices extends ProjectWebServices {
      */
     public void publishAnnouncment(String annType, String annName, String filter) {
         publishAnnouncementPostCall(projectApis.publishAnnPayload(annType, annName, filter));
+    }
+
+    /**
+     * @param annType type of announcement such as Formula, Competitive, Directed
+     * @param annName name of announcement
+     * @param filter  if we want to change anything from default payload then we can create
+     *                our own filter in publishAnnPayload(String, String) method
+     * @see GrantorPayloads#publishAnnPayload(String, String, String)
+     */
+    public void publishAnnouncmentForPlumbingCases(String annType, String annName, String filter) {
+        publishAnnouncementPostCall(projectApis.publishAnnPayloadForPlumbingCases(annType, annName, filter));
     }
 
     /**

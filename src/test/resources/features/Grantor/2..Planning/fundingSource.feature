@@ -146,7 +146,7 @@ Feature: Validate all scenarios in Funding Source
     Given I login to "Grantor" app as "PM" user
     When I navigate to "Planning" tab
     And I navigate to "Funding Sources" content inside "Setup" subheader on left panel
-    Then  I cannot see top right button "New" in flex table with id "---fundingsource:-:fundingSourceTableId---"
+    Then I cannot see top right button "New" in flex table with id "---fundingsource:-:fundingSourceTableId---"
     Examples:
       | User |
       | PM   |

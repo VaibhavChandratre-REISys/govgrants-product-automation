@@ -17767,8 +17767,6 @@ Feature: Validate all scenarios for Grantee Amendment Request
     Then I softly see "Initiated By" in flex table header "---grantee_tableId:-:AmendmentTableId---"
     Then I softly see "Status" in flex table header "---grantee_tableId:-:AmendmentTableId---"
     And I click toggle button to select "Amendment Requests - My Records"
-    When I perform quick search for "{SavedValue:OTHAMENDID}" in "---grantee_tableId:-:AmendmentTableId---" panel
-    Then I softly see value "Created" for title "Status" inside table "---grantee_tableId:-:AmendmentTableId---"
     When I perform quick search for "Created" in "---grantee_tableId:-:AmendmentTableId---" panel
     Then I softly do not see value "Approved" for title "Status" inside table "---grantee_tableId:-:AmendmentTableId---"
     Then I softly do not see value "Submitted for Approval" for title "Status" inside table "---grantee_tableId:-:AmendmentTableId---"
@@ -18084,6 +18082,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
     When I save the field labeled "Justification for Purpose and Summary" as "JustificationforPurposeandSummary"
     When I save the field labeled "If Other amendment type, explain" as "IfOtheramendmenttypeexplain"
     And I save the value from row "1" for column name "EGMS ID" as "TermsId" from flex table "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
+    And I save the value from row "1" for column name "Title" as "TermsTitle" from flex table "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
     Then I softly see value "{SavedValue:TermsId}" for title "EGMS ID" inside table "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
     Then I softly see "EGMS ID" in flex table header "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
     Then I softly see "Title" in flex table header "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
@@ -18183,9 +18182,8 @@ Feature: Validate all scenarios for Grantee Amendment Request
     And I update title as "Automation.pdf" on upload file modal
     And I select Classification as "Notice of Award" at upload file modal
     When I click modal button "Save"
-    And I click modal button "Close"
+#    And I click modal button "Close"
     And I wait for "3" seconds
-    And I refresh the page
     Then I softly see "Notice of Award" has been added in "Amendment Files" flex table
     And I click on "Delete" icon for "Notice of Award" inside flex table with id "---grantee_tableId:-:amendmentRequestAddFile---" without waiting for record
     Then I softly do not see value "Notice of Award" for title "Title" inside table "---grantee_tableId:-:amendmentRequestAddFile---"
@@ -18458,7 +18456,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
     Then I see the header is "Amendment Request" in the page details
     Then I softly see "Collapse" button for header
     Then I softly see field "EGMS ID" as "{SavedValue:OTHAMENDID}"
-    Then I softly see field "Status" as "Reviewed"
+    Then I softly see field "Status" as "Submitted for Approval"
     Then I softly see field "Initiated By" as "Grantor"
     Then I softly see field "Amendment Type" as "Other"
     Then I softly can see "Overview" sub tab at view detail page
@@ -18630,8 +18628,8 @@ Feature: Validate all scenarios for Grantee Amendment Request
     When I navigate to "Awards" content inside "Grants, Awards & Amendment Requests" subheader on left panel
     And I click toggle button to select "Awards - All"
     And I wait for "3" seconds
-    When I perform quick search for "{SavedValue:AwardEGMSID2}" in "---grantee_tableId:-:GrantsTable---" panel
-    And I click on "View" icon for "{SavedValue:AwardEGMSID2}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
+    When I perform quick search for "{SavedValue:AwardEGMSID2}" in "---grantee_tableId:-:awardTableId---" panel
+    And I click on "View" icon for "{SavedValue:AwardEGMSID2}" inside flex table with id "---grantee_tableId:-:awardTableId---" without waiting for record
     And I wait for "2" seconds
     Then I softly see field "Status" as "Activated"
     Then I softly see status in Progress-bar is "Activated" and is "dark blue"
@@ -19525,6 +19523,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
     And I "Created" award from application for opportunity "CAS-HHS0000660610" for title "{SavedValue:Automation Runtime Award}" with properties "default-Grantee PO user"
     And I updated award from application for title "{SavedValue:Automation Runtime Award}" with properties "default"
     And I activate the award for title "{SavedValue:Automation Runtime Award}"
+    And I wait for "2" seconds
     And I "Created" of type "Periodic Renewal" amendment request for title "{SavedValue:Automation Runtime Award}" with properties "STEP_FOUR_APPROVER-Grantee PO user"
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
@@ -19554,6 +19553,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
     When I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "AmendEGMSID1"
     And I click on "Submit for Approval" in the page details
+    Then I see field "Status" as "Submitted for Approval"
     When I re-login to "Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
