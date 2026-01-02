@@ -2398,7 +2398,7 @@ Feature: Validate all scenarios for Opportunity
     Then I softly cannot see top right button "Edit" in page detail
     Then I softly cannot see top right button "Submit for Approval" in page detail
 
-  @546590 @validatetherecordssharingforOppwithPO/FO/FD/auditor/Admin/EXEfromsameOrginallstatesofOpp
+  @546590 @validatetherecordssharingforOppwithPO/FO/FD/auditor/Admin/EXEfromsameOrginallstatesofOpp @GranteeFlexP1
   Scenario: Validate the records sharing for Opp with PO/FO/FD/auditor/Admin/EXE from same Org in all states of Opp
     And I create "Manual" qualified lead for title "Automation Runtime Opportunity" and opportunity number "Automation Runtime" with properties "default"
     Given I login to "Grantee" app as "GRANTEE PM" user

@@ -449,7 +449,7 @@ Feature: Validate all scenarios for Applications Manual
       | User       |
       | GRANTEE PM |
 
-  @547375 @547368 @547354 @validatethatContactsectionshouldbevisiblewithcorrectrecordscounttoallInternalUsers
+  @547375 @547368 @547354 @validatethatContactsectionshouldbevisiblewithcorrectrecordscounttoallInternalUsers @GranteeFlexP1
   Scenario Outline: Validate that Contact section should be visible with correct records count to all Internal Users
     And I create "Manual" qualified lead for title "Automation Runtime Opportunity" and opportunity number "Automation Runtime" with properties "default"
     When I login to "Grantee" app as "GRANTEE PM" user
@@ -546,7 +546,7 @@ Feature: Validate all scenarios for Applications Manual
       | GRANTEE ADMIN   |
       | GRANTEE AUDITOR |
 
-  @547490 @547368 @validateKeyContactsectionshouldnotbevisiblewithcorrectrecordscounttocrossorguser
+  @547490 @validateKeyContactsectionshouldnotbevisiblewithcorrectrecordscounttocrossorguser @GranteeFlexP1
   Scenario Outline: Validate Key Contact section should not be visible to cross org user
   /Validate that Application record should not be visible to cross org users if record is not assigned through the Peer Review
     And I create "Manual" qualified lead for title "Automation Runtime Opportunity" and opportunity number "Automation Runtime" with properties "default"
@@ -614,7 +614,7 @@ Feature: Validate all scenarios for Applications Manual
       | NonUser |
       | PM1     |
 
-  @547381 @validatethatBudgetPeriodsectionshouldbevisiblewithcorrectrecordscounttoallInternalUsers
+  @547381 @validatethatBudgetPeriodsectionshouldbevisiblewithcorrectrecordscounttoallInternalUsers @GranteeFlexP1
   Scenario Outline: Validate Budget Period section should be visible with correct records count
     And I create "Manual" qualified lead for title "Automation Runtime Opportunity" and opportunity number "Automation Runtime" with properties "default"
     When I login to "Grantee" app as "GRANTEE PM" user
@@ -720,7 +720,7 @@ Feature: Validate all scenarios for Applications Manual
       | GRANTEE ADMIN   |
       | GRANTEE AUDITOR |
 
-  @547384 @validatethatBudgetCategoriessectionshouldbevisiblewithcorrectrecordscounttoallInternalUsers
+  @547384 @validatethatBudgetCategoriessectionshouldbevisiblewithcorrectrecordscounttoallInternalUsers @GranteeFlexP1
   Scenario Outline: Validate Budget Categories section should be visible with correct records count
     And I create "Manual" qualified lead for title "Automation Runtime Opportunity" and opportunity number "Automation Runtime" with properties "default"
     When I login to "Grantee" app as "GRANTEE PM" user
@@ -783,7 +783,7 @@ Feature: Validate all scenarios for Applications Manual
       | GRANTEE ADMIN   |
       | GRANTEE AUDITOR |
 
-  @547389 @547387 @547388 @validatethatIndirectRatessectionshouldbevisiblewithcorrectrecordscounttoallInternalUsers
+  @547389 @547387 @547388 @validatethatIndirectRatessectionshouldbevisiblewithcorrectrecordscounttoallInternalUsers @GranteeFlexP1
   Scenario Outline: Validate Indirect Rates section should be visible with correct records count
   /Validate Program Income section should be visible with correct records count
   /Validate Approvers section should be visible with correct records count

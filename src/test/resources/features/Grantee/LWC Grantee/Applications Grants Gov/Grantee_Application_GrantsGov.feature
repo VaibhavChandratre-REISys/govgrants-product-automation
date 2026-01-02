@@ -2536,7 +2536,7 @@ Feature: Validate all scenarios for Applications Grants Gov
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "appEGMSID"
 
-  @547385 @547386 @validatethatSubmissionHistorysectionshouldbevisiblewithcorrectrecordscounttoallInternalUsers
+  @547385 @547386 @validatethatSubmissionHistorysectionshouldbevisiblewithcorrectrecordscounttoallInternalUsers @GranteeFlexP1
   Scenario Outline: Validate Submission History section should be visible with correct records count
   /Validate Forms section should be visible with correct records count
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"

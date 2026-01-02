@@ -9393,7 +9393,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
     Then I softly see value "{SavedValue:financialEGMSID3}" for title "EGMS ID" inside table "---grantee_tableId:-:FinancialsReportTableId---"
     Then I softly see value "{SavedValue:AwardEGMSID}" for title "Award EGMS ID" against the value "{SavedValue:financialEGMSID3}" inside table "---grantee_tableId:-:FinancialsReportTableId---"
 
-  @546991 @546989 @validatebudgetredirectionamendmentrequestshouldvisibletocrossOrgpeerreviewerifARownersubmitARforreview(WithAllowEdit'Yes')
+  @546991 @546989 @validatebudgetredirectionamendmentrequestshouldvisibletocrossOrgpeerreviewerifARownersubmitARforreview(WithAllowEdit'Yes') @GranteeFlexP1
   Scenario: Validate budget redirection amendment request should visible to  cross Org peer reviewer if AR owner submit AR for review (With Allow Edit 'Yes')
   /Validate users from cross organization can not see budget redirection AR when amendment is in Created state with their child tables
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default"
@@ -9641,7 +9641,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
     And I wait for "3" seconds
     Then I cannot see top right button "Edit" in page detail
 
-  @547276 @validatePM,PO,EXE,FO,FD,Auditor,AdminusersfromsameorganizationcanseesowwhenamendmentisinCreatedstatewiththeirchildtables
+  @547276 @validatePM,PO,EXE,FO,FD,Auditor,AdminusersfromsameorganizationcanseesowwhenamendmentisinCreatedstatewiththeirchildtables @GranteeFlexP1
   Scenario Outline: Validate PM,PO, EXE, FO, FD, Auditor, Admin users from same organization can see SOW  when amendment is in Created state with their child tables
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
@@ -9846,7 +9846,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
       | GRANTEE ADMIN   |
       | GRANTEE AUDITOR |
 
-  @547327 @547286 @validatethatuserseeApplicationshouldbevisibletocrossOrgpeerreviewerifApplicationownersubmitARforreview(WithAllowEdit'Yes')
+  @547327 @547286 @validatethatuserseeApplicationshouldbevisibletocrossOrgpeerreviewerifApplicationownersubmitARforreview(WithAllowEdit'Yes') @GranteeFlexP1
   Scenario: Validate that user see Application should be visible to cross Org peer reviewer if Application owner submit AR for review (With Allow Edit 'Yes')
   /Validate scope of work change AR  amendment request should visible to  cross Org peer reviewer if AR owner submit AR for review (With Allow Edit 'Yes')
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default"
@@ -10070,7 +10070,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
     Then I softly can see row level action button "Edit" against "Notes Record1" in flex table with id "---grantee_tableId:-:amendmentRequestNotesTableId---"
     Then I softly can see row level action button "Delete" against "Notes Record1" in flex table with id "---grantee_tableId:-:amendmentRequestNotesTableId---"
 
-  @547288 @validatethatuserseeSOWshouldbevisibletocrossOrgpeerreviewerifApplicationownersubmitARforreview(WithAllowEdit'No')
+  @547288 @validatethatuserseeSOWshouldbevisibletocrossOrgpeerreviewerifApplicationownersubmitARforreview(WithAllowEdit'No') @GranteeFlexP1
   Scenario: Validate that user see SOW should be visible to cross Org peer reviewer if Application owner submit AR for review (With Allow Edit 'No')
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
@@ -10274,7 +10274,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
     Then I softly cannot see row level action button "Edit" against "Notes Record" in flex table with id "---grantee_tableId:-:amendmentRequestNotesTableId---"
     Then I softly cannot see row level action button "Delete" against "Notes Record" in flex table with id "---grantee_tableId:-:amendmentRequestNotesTableId---"
 
-  @547301 @validatePM,PO,EXE,FO,FD,Auditor,AdminusersfromsameorganizationcanseeBudgetPeriodChangewhenamendmentisinCreatedstatewiththeirchildtables
+  @547301 @validatePM,PO,EXE,FO,FD,Auditor,AdminusersfromsameorganizationcanseeBudgetPeriodChangewhenamendmentisinCreatedstatewiththeirchildtables @GranteeFlexP1
   Scenario Outline: Validate PM,PO, EXE, FO, FD, Auditor, Admin users from same organization can see Budget Period Change AR when amendment is in Created state with their child tables
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
@@ -10512,7 +10512,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
       | GRANTEE ADMIN   |
       | GRANTEE AUDITOR |
 
-  @547303 @547304 @validateBudgetPeriodChangeARamendmentrequestshouldvisibletocrossOrgpeerreviewerifARownersubmitARforreview(WithAllowEdit'Yes')
+  @547303 @547304 @validateBudgetPeriodChangeARamendmentrequestshouldvisibletocrossOrgpeerreviewerifARownersubmitARforreview(WithAllowEdit'Yes') @GranteeFlexP1
   Scenario: Validate  Budget Period Change AR  amendment request should visible to  cross Org peer reviewer if AR owner submit AR for review (With Allow Edit 'Yes')
   /Validate users from cross organization can not see Budget Period change AR when amendment is in Created state with their child tables
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default"
@@ -10846,7 +10846,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
     And I navigate to "Messages" sub tab
     Then I softly see "Messages" page block displayed
 
-  @547427 @validateCarryForwardARamendmentrequestshouldvisibletocrossOrgpeerreviewerifARownersubmitARforreview(WithAllowEdit'Yes')
+  @547427 @validateCarryForwardARamendmentrequestshouldvisibletocrossOrgpeerreviewerifARownersubmitARforreview(WithAllowEdit'Yes') @GranteeFlexP1
   Scenario: Validate Carry Forward amendment request should visible to  cross Org peer reviewer if AR owner submit AR for review (With Allow Edit 'Yes')
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
@@ -11064,7 +11064,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
     And I navigate to "Messages" sub tab
     Then I softly see "Messages" page block displayed
 
-  @547485 @547428 @validateCarryForwardARamendmentrequestshouldnotbevisibletocrossOrguser
+  @547485 @547428 @validateCarryForwardARamendmentrequestshouldnotbevisibletocrossOrguser @GranteeFlexP1
   Scenario Outline: Validate Carry Forward amendment request should not be visible to cross Org user
   /Validate PM,PO, EXE, FO, FD, Auditor, Admin users from cross organization can not see Carry Forward AR when amendment is in Created state with their child tables
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default"
@@ -11221,7 +11221,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
       | FD           |
       | AUDITOR      |
 
-  @547514 @547515 @validatePeriodicRenewalamendmentrequestshouldvisibletocrossOrgpeerreviewerifARownersubmitARforreview(WithAllowEdit'Yes')
+  @547514 @547515 @validatePeriodicRenewalamendmentrequestshouldvisibletocrossOrgpeerreviewerifARownersubmitARforreview(WithAllowEdit'Yes') @GranteeFlexP1
   Scenario: Validate Periodic Renewal amendment request should visible to  cross Org peer reviewer if AR owner submit AR for review (With Allow Edit 'Yes')
   /Validate PM users from cross organization can not see Periodic Renewal AR when amendment is in Created state with their child tables
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default"
@@ -11596,7 +11596,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
     And I navigate to "Messages" sub tab
     Then I softly see "Messages" page block displayed
 
-  @547679 @547276 @validatePM,PO,EXE,FO,FD,Auditor,AdminusersfromsameorganizationcanseebudgetredirectionwhenamendmentisinCreatedstatewiththeirchildtables
+  @547679 @validatePM,PO,EXE,FO,FD,Auditor,AdminusersfromsameorganizationcanseebudgetredirectionwhenamendmentisinCreatedstatewiththeirchildtables @GranteeFlexP1
   Scenario Outline: Validate PM,PO, EXE, FO, FD, Auditor, Admin users from same organization can see budget redirection when amendment is in Created state with their child tables
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
@@ -11791,7 +11791,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
       | GRANTEE ADMIN   |
       | GRANTEE AUDITOR |
 
-  @548493 @548492 @validateFundingChangeamendmentrequestshouldvisibletocrossOrgpeerreviewerifARownersubmitARforreview(WithAllowEdit'Yes')
+  @548493 @548492 @validateFundingChangeamendmentrequestshouldvisibletocrossOrgpeerreviewerifARownersubmitARforreview(WithAllowEdit'Yes') @GranteeFlexP1
   Scenario: Validate Funding Change amendment request should visible to  cross Org peer reviewer if AR owner submit AR for review (With Allow Edit 'Yes')
   /Validate PM users from cross organization can not see Funding Change AR when amendment is in Created state with their child tables
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default"
@@ -12158,7 +12158,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
     And I navigate to "Messages" sub tab
     Then I softly see "Messages" page block displayed
 
-  @547562 @validatethatusershouldseeKeyPersonnelChangesectionwithpropercountonPeriodicRenewalamendmentrequestlayout
+  @547562 @validatethatusershouldseeKeyPersonnelChangesectionwithpropercountonPeriodicRenewalamendmentrequestlayout @GranteeFlexP1
   Scenario Outline: Validate that user should see Key Personnel Change section with proper count on Periodic Renewal amendment request layout
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
@@ -12387,7 +12387,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
       | GRANTEE ADMIN   |
       | GRANTEE AUDITOR |
 
-  @549255 @validateCombinationofamendmentrequestshouldvisibletocrossOrgpeerreviewerifARownersubmitARforreview(WithAllowEdit'Yes')
+  @549255 @validateCombinationofamendmentrequestshouldvisibletocrossOrgpeerreviewerifARownersubmitARforreview(WithAllowEdit'Yes') @GranteeFlexP1
     Scenario: Validate Combination AR amendment request should visible to cross Org peer reviewer if AR owner submit AR for review (Allow Editing as  'Yes')
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
@@ -12744,7 +12744,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
     And I navigate to "Messages" sub tab
     Then I softly see "Messages" page block displayed
 
-  @549266 @validateCombinationofamendmentrequestshouldvisibletocrossOrgpeerreviewerifARownersubmitARforreview(WithAllowEdit'Yes')
+  @549266 @validateCombinationofamendmentrequestshouldvisibletocrossOrgpeerreviewerifARownersubmitARforreview(WithAllowEdit'Yes') @GranteeFlexP1
   Scenario: Validate Combination AR amendment request should visible to cross Org peer reviewer if AR owner submit AR for review (Allow Editing as  'Yes')
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"

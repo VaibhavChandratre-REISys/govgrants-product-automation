@@ -1906,7 +1906,7 @@ Feature: Validate all scenarios for Leads
       | GRANTEE PO  | GRANTEE FD    |
       | GRANTEE EXE | GRANTEE ADMIN |
 
-  @546636 @validatedefaultsharingofqualifiedleadwithallinternalusersPM/PO/FO/FD/EXE/Admin/Auditor
+  @546636 @validatedefaultsharingofqualifiedleadwithallinternalusersPM/PO/FO/FD/EXE/Admin/Auditors @GranteeFlexP1
   Scenario Outline: Validate default sharing of qualified lead with all internal users PM/PO/FO/FD/EXE/Admin/Auditor
     Given I login to "Grantee" app as "GRANTEE PM" user
     And I navigate to "Opportunities" tab
@@ -2062,7 +2062,7 @@ Feature: Validate all scenarios for Leads
       | GRANTEE FD      | softly cannot see | Qualified Leads - All |
       | GRANTEE ADMIN   | softly cannot see | Qualified Leads - All |
 
-  @546659 @546650 @546646 @validateonlyPM/PO/EXEusercanseequalifybuttononlead
+  @546659 @546650 @546646 @validateonlyPM/PO/EXEusercanseequalifybuttononlead @GranteeFlexP1
   Scenario Outline: Validate only PM/PO/EXE user can see qualify button on lead
     Given I login to "Grantee" app as "<User>" user
     And I navigate to "Opportunities" tab
@@ -2136,7 +2136,7 @@ Feature: Validate all scenarios for Leads
       | GRANTEE PO  | GRANTEE FD      |
       | GRANTEE EXE | GRANTEE AUDITOR |
 
-  @546652 @validateonceNotyetqualifiedleadisdeleteitshouldberemovedfromallinteruserslayout
+  @546652 @validateonceNotyetqualifiedleadisdeleteitshouldberemovedfromallinteruserslayout @GranteeFlexP1
   Scenario Outline: Validate once Not yet qualified lead is delete it should be removed from all inter users layout
     Given I login to "Grantee" app as "GRANTEE PM" user
     And I navigate to "Opportunities" tab

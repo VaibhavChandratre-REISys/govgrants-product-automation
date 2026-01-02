@@ -4551,7 +4551,7 @@ Feature: Validate all scenarios for Grantee Progress Report
     And I perform quick search for "{SavedValue:progressEGMSID}" in "---grantee_tableId:-:PendingTask---" panel
     Then I softly see value "Approve Grantee Progress Report" for title "Task Type" against the value "{SavedValue:progressEGMSID}" inside table "---grantee_tableId:-:PendingTask---"
 
-  @547402 @validatead-hocprogressreportshouldbevisibletoallinternaluserPM/PO/FO/FD/admin/auditor/EXEwiththeirchildrecordsincreatedstateinviewonlymodethroughglobalsearch
+  @547402 @validatead-hocprogressreportshouldbevisibletoallinternaluserPM/PO/FO/FD/admin/auditor/EXEwiththeirchildrecordsincreatedstateinviewonlymodethroughglobalsearch @GranteeFlexP1
   Scenario Outline: Valiate ad-hoc progress report should be visible to all internal user PM/PO/FO/FD/admin/auditor/EXE with their child records in created state in view only mode through global search
     And I "Created" standalone subaward "Automation Runtime award" with properties "default"
     And I wait for "2" seconds
@@ -4971,7 +4971,7 @@ Feature: Validate all scenarios for Grantee Progress Report
       | GRANTEE ADMIN   |
       | GRANTEE AUDITOR |
 
-  @547411 @validatad-hocprogressreportshouldsharewithcrossorgreviewertointernalusers(AlloweditYes)
+  @547411 @validatad-hocprogressreportshouldsharewithcrossorgreviewertointernalusers(AlloweditYes) @GranteeFlexP1
   Scenario: Valiate ad-hoc progress report should share with cross org reviewer to internal users (Allow edit - Yes)
     And I "Created" standalone subaward "Automation Runtime award" with properties "default"
     And I updated direct grant award for title "{SavedValue:Automation Runtime award}" with properties "default"
@@ -5462,7 +5462,7 @@ Feature: Validate all scenarios for Grantee Progress Report
     And I navigate to "Messages" sub tab
     Then I softly see "Messages" page block displayed
 
-  @547476 @validateScheduledprogressreportshouldbevisibletoallinternaluserPM/PO/FO/FD/admin/auditor/EXEwiththeirchildrecordsincreatedstateinviewonlymodethroughglobalsearch
+  @547476 @validateScheduledprogressreportshouldbevisibletoallinternaluserPM/PO/FO/FD/admin/auditor/EXEwiththeirchildrecordsincreatedstateinviewonlymodethroughglobalsearch @GranteeFlexP1
   Scenario Outline: Valiate Scheduled progress report should be visible to all internal user PM/PO/FO/FD/admin/auditor/EXE with their child records in created state in view only mode through global search
     And I "Created" standalone subaward "Automation Runtime award" with properties "default"
     And I wait for "2" seconds
@@ -5907,7 +5907,7 @@ Feature: Validate all scenarios for Grantee Progress Report
       | GRANTEE ADMIN   |
       | GRANTEE AUDITOR |
 
-  @547493 @validatscheduledprogressreportshouldsharewithcrossorgreviewertointernalusers(AlloweditYes)
+  @547493 @validatscheduledprogressreportshouldsharewithcrossorgreviewertointernalusers(AlloweditYes) @GranteeFlexP1
   Scenario: Valiate scheduled progress report should share with cross org reviewer to internal users (Allow edit - Yes)
     And I "Created" standalone subaward "Automation Runtime award" with properties "default"
     And I updated direct grant award for title "{SavedValue:Automation Runtime award}" with properties "default"

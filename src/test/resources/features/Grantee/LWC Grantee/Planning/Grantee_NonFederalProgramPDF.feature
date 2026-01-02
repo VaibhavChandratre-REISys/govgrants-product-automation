@@ -842,7 +842,7 @@ Feature: Validate all scenarios for Non Federal Program for PDF
       | User          |
       | GRANTEE ADMIN |
 
-  @549247 @ValidateallinternalusersfromsameOrgshouldabletoviewthcreatedstatenon-federalexternalprogram
+  @549247 @ValidateallinternalusersfromsameOrgshouldabletoviewthcreatedstatenon-federalexternalprogram @GranteeFlexP1
   Scenario Outline: Validate all internal users from same Org should able to view the created state non-federal external program
     When I login to "Grantee" app as "GRANTEE PM" user
     And I navigate to "Planning" tab
