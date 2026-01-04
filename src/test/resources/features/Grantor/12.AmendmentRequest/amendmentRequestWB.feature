@@ -26844,7 +26844,7 @@ Feature: Amendment Request scenarios without background
       | Award Name                                      | Grant Name                                      |
       | {SavedValue:Automation Runtime Amendment Award} | {SavedValue:Automation Runtime Amendment Award} |
 
-  @531429 @validateusershouldabletoseethecreatedBPCamendmenttootherinternaluserfromsameorganization
+  @531429 @validateusershouldabletoseethecreatedBPCamendmenttootherinternaluserfromsameorganization @GrantorFlexP1
   Scenario Outline: Validate user should able to see  the created BPC amendment to other internal user from same organization
     And I activated standalone subaward "Automation Runtime Amendment Award" with properties "default" of type "Competitive"
     Given I login to "Grantor" app as "PM" user
@@ -26924,7 +26924,7 @@ Feature: Amendment Request scenarios without background
       | FD       |
       | ADMIN    |
 
-  @531511 @validateusershouldabletoseethecreatedBPCamendmenttootherinternaluserfromsameorganization
+  @531511 @validateusershouldabletoseethecreatedBPCamendmenttootherinternaluserfromsameorganization @GrantorFlexP1
   Scenario Outline: Validate user should able to see  the created BPC amendment to other internal user from same organization
     And I activated standalone subaward "Automation Runtime Amendment Award" with properties "default" of type "Competitive"
     Given I login to "Grantor" app as "PM" user
@@ -27056,7 +27056,7 @@ Feature: Amendment Request scenarios without background
       | NonOwner | DiffUser    |
       | EXE      | GRANTEE EXE |
 
-  @531279 @validatePMPOEXEFOFDAuditorAdminusercanViewCombinationofamendmentcreatedbyPMuserfromsameorganization
+  @531279 @validatePMPOEXEFOFDAuditorAdminusercanViewCombinationofamendmentcreatedbyPMuserfromsameorganization @GrantorFlexP1
   Scenario Outline: Validate PM, PO, EXE, FO, FD, Auditor, Admin user can View  Combination of amendment  created by PM user from same organization
     And I activated standalone subaward "Automation Runtime Amendment Award" with properties "SECOND_FOCUS_AREA_BUDGET_CATEGORY" of type "Formula_By_Applicant_Focus_Area"
     When I login to "Grantor" app as "PM" user
@@ -27137,7 +27137,7 @@ Feature: Amendment Request scenarios without background
       | FD       |
       | ADMIN    |
 
-  @530812 @validatePMPOEXEFOFDAuditorAdminusercanViewTermsandconditionsamendmentcreatedbyPMuserfromsameorganization
+  @530812 @validatePMPOEXEFOFDAuditorAdminusercanViewTermsandconditionsamendmentcreatedbyPMuserfromsameorganizatio @GrantorFlexP1
   Scenario Outline: Validate PM, PO, EXE, FO, FD, Auditor, Admin user can View Terms and conditions amendment  created by PM user from same organization
     And I activated standalone subaward "Automation Runtime Amendment Award" with properties "default" of type "Competitive"
     Given I login to "Grantor" app as "PM" user
@@ -27217,7 +27217,7 @@ Feature: Amendment Request scenarios without background
       | FD       |
       | ADMIN    |
 
-  @531675 @validatePMPOEXEFOFDAuditorAdminusercanViewFundingChangeamendmentcreatedbyPMuserfromsameorganization
+  @531675 @validatePMPOEXEFOFDAuditorAdminusercanViewFundingChangeamendmentcreatedbyPMuserfromsameorganization @GrantorFlexP1
   Scenario Outline: Validate PM, PO, EXE, FO, FD, Auditor, Admin user can View Funding Change amendment created by PM user from same organization
     And I activated standalone subaward "Automation Runtime Amendment Award" with properties "default" of type "Competitive"
     Given I login to "Grantor" app as "PM" user
@@ -27290,7 +27290,7 @@ Feature: Amendment Request scenarios without background
       | FD       |
       | ADMIN    |
 
-  @532491 @validatePMPOEXEFOFDAuditorAdminusercanViewPeriodicRenewalamendmentcreatedbyPMuserfromsameorganization
+  @532491 @validatePMPOEXEFOFDAuditorAdminusercanViewPeriodicRenewalamendmentcreatedbyPMuserfromsameorganization @GrantorFlexP1
   Scenario Outline: Validate PM, PO, EXE, FO, FD, Auditor, Admin user can View Periodic Renewal amendment created by PM user from same organization
     And I activated standalone subaward "Automation Runtime Amendment Award" with properties "default" of type "Competitive"
     Given I login to "Grantor" app as "PM" user
@@ -27369,7 +27369,7 @@ Feature: Amendment Request scenarios without background
       | FD       |
       | ADMIN    |
 
-    @531287 @validatecombinationofamendmentFlexsharingrecordvisibilitytoSPISPAuser(relatedexternalusers)whenAmendmentrequestisSendtosubrecipient
+    @531287 @validatecombinationofamendmentFlexsharingrecordvisibilitytoSPISPAuser(relatedexternalusers)whenAmendmentrequestisSendtosubrecipient @GrantorFlexP1
     Scenario: Validate Combination of amendment Flexsharing record visibility to SPI,SPA user (related external users) when Amendment request is Send to subrecipient
       And I activated standalone subaward "Automation Runtime Amendment Award" with properties "SECOND_FOCUS_AREA_BUDGET_CATEGORY" of type "Formula_By_Applicant_Focus_Area"
       When I login to "Grantor" app as "PM" user
@@ -27439,7 +27439,7 @@ Feature: Amendment Request scenarios without background
     When I navigate to "Requests" sub tab
     Then I softly see value "{SavedValue:bpcFcScopeId}" for title "EGMS ID" inside table "---amendment:-:SubrecipientGrantAmendmentTableId---"
 
-  @531512 @validateusershouldabletoseethecreatedBPCamendmenttootherinternaluserfromsameorganization
+  @531512 @validateusershouldabletoseethecreatedBPCamendmenttootherinternaluserfromsameorganization @GrantorFlexP1
   Scenario: Validate user should able to see  the created BPC amendment to other internal user from same organization
     And I activated standalone subaward "Automation Runtime Award" with properties "Automation PO user" of type "Competitive"
     When I am on "SUBPORTAL" portal
@@ -27542,7 +27542,7 @@ Feature: Amendment Request scenarios without background
     And I click on "Start" icon for "{SavedValue:BPCId}" inside flex table with id "---subAwardStandAlone:-:pendingTaskTableId---" without waiting for record
     And I "Approve" in the approval decision
 
-  @531380 @validatecombinationofamendmentFlexsharingSPI,SPAusersfromsameorganizationcanViewCombinationofamendmentcreatedbySPIuser
+  @531380 @validatecombinationofamendmentFlexsharingSPI,SPAusersfromsameorganizationcanViewCombinationofamendmentcreatedbySPIuser @GrantorFlexP1
   Scenario: Validate Combination of amendment Flexsharing  SPI, SPA users from same organization can View  Combination of amendment  created by SPI user
     Given I activated standalone subaward "Automation Runtime Award" with properties "SECOND_FOCUS_AREA_BUD_CAT_BUILDUP_YES-Automation PO user" of type "Formula_By_Applicant"
     When I am on "SUBPORTAL" portal
@@ -27651,7 +27651,7 @@ Feature: Amendment Request scenarios without background
     And I "Approve" in the approval decision
     Then I softly see field "Status" as "Approved"
 
-  @532242 @validatetheaccessofkpcamendmentrequest
+  @532242 @validatetheaccessofkpcamendmentrequest @GrantorFlexP1
     Scenario: Validate the Access of KPC Amendment request
     Given I activated standalone subaward "Automation Runtime Award" with properties "Automation EXE user" of type "Competitive"
     When I login to "Grantor" app as "EXE" user
@@ -27712,7 +27712,7 @@ Feature: Amendment Request scenarios without background
     Then I see value "Automation SPI3" for title "Name" inside table "---amendment:-:InternalKeyPersonalTableId---"
     And I "Approve" in the approval decision
 
-  @532358 @validateCarryForwardARInternaluserseetherecordissharedonlywhenCarryForwardamendmentisinSubmittograntorstate
+  @532358 @validateCarryForwardARInternaluserseetherecordissharedonlywhenCarryForwardamendmentisinSubmittograntorstate @GrantorFlexP1
   Scenario: Carry Forward AR - Validate that Internal user see the record is shared only when Carry Forward amendment is in Submit to grantor state
     And I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     When I login to "Grantor" app as "dynamicUser" user
@@ -27817,7 +27817,7 @@ Feature: Amendment Request scenarios without background
     When I click on "Activate" in the page details
     Then I softly see field "Status" as "Activated"
 
-  @532265 @validateCarryForwardARExternaluser(Sameorg)seetherecordissharedincreatedstatewhenCarryForwardamendmentisincreatedstate
+  @532265 @validateCarryForwardARExternaluser(Sameorg)seetherecordissharedincreatedstatewhenCarryForwardamendmentisincreatedstate @GrantorFlexP1
   Scenario: Carry Forward AR - Validate that External user (Same org)see the record is shared in created state when Carry Forward amendment is in created state
     And I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     When I login to "Grantor" app as "dynamicUser" user
@@ -27917,7 +27917,7 @@ Feature: Amendment Request scenarios without background
     When I navigate to "Requests" sub tab
     Then I softly see value "{SavedValue:CFAmendmentId}" for title "EGMS ID" inside table "---amendment:-:SubrecipientGrantAmendmentTableId---"
 
-  @531696 @validateamendmentownercanActivateSubawardfromFundingChangeAmendmentRequest
+  @531696 @validateamendmentownercanActivateSubawardfromFundingChangeAmendmentRequest @GrantorFlexP1
   Scenario: Validate amendment owner can Activate Subaward from Funding Change Amendment Request
     And I activated standalone subaward "Automation Runtime Amendment Award" with properties "default" of type "Competitive"
     Given I login to "Grantor" app as "PM" user
@@ -27997,7 +27997,7 @@ Feature: Amendment Request scenarios without background
     And I wait for "3" seconds
     Then I softly see field "Status" as "Activated"
 
-  @531268 @validateusershouldabletoseethecreatedSOWamendmenttootherinternaluserfromsameorganization
+  @531268 @validateusershouldabletoseethecreatedSOWamendmenttootherinternaluserfromsameorganization @GrantorFlexP1
   Scenario Outline: Validate user should able to see  the created SOW amendment to other internal user from same organization
     And I activated standalone subaward "Automation Runtime Amendment Award" with properties "default" of type "Competitive"
     Given I login to "Grantor" app as "PM" user
@@ -28081,7 +28081,7 @@ Feature: Amendment Request scenarios without background
       | FD       |
       | ADMIN    |
 
-   @531269 @validateSRusershouldabletoseethecreatedSOWamendmenttootherinternaluserfromsameorganization
+   @531269 @validateSRusershouldabletoseethecreatedSOWamendmenttootherinternaluserfromsameorganization @GrantorFlexP1
    Scenario:Validate user should able to see  the created SOW amendment to other internal user from same organization
      And I activated standalone subaward "Automation Runtime Award" with properties "Automation PO user" of type "Competitive"
      When I am on "SUBPORTAL" portal
@@ -28124,7 +28124,7 @@ Feature: Amendment Request scenarios without background
      When I navigate to "Requests" sub tab
      Then I softly see value "{SavedValue:scopeWorkId}" for title "EGMS ID" inside table "---amendment:-:SubrecipientGrantAmendmentTableId---"
 
-  @531690 @validatePMuser(amendmentowner)cansendamendmentrequestbacktosubrecipient
+  @531690 @validatePMuser(amendmentowner)cansendamendmentrequestbacktosubrecipient @GrantorFlexP1
   Scenario: Validate PM user (amendment owner) can send amendment request back to subrecipient
     And I activated standalone subaward "Automation Runtime Amendment Award" with properties "default" of type "Competitive"
     Given I login to "Grantor" app as "PM" user
@@ -28194,7 +28194,7 @@ Feature: Amendment Request scenarios without background
     Then I softly see value "$3,000.00" for title "Revised Award Amount " against the value "Construction" inside table "---amendment:-:budgetChangeTableId---"
     Then I softly see field "Revised Commitment" as "$3,000.00"
 
-  @532495 @532497 @532498 @534334 @validatePeriodicRenewal-PMusercanabletoSendamendmentrequesttosubrecipient&seevisibilityonsection
+  @532495 @532497 @532498 @534334 @validatePeriodicRenewal-PMusercanabletoSendamendmentrequesttosubrecipient&seevisibilityonsection @GrantorFlexP1
   Scenario: Validate PM user can able to Send amendment request to subrecipient & see visibility on section
     And I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     When I login to "Grantor" app as "dynamicUser" user
@@ -28361,7 +28361,7 @@ Feature: Amendment Request scenarios without background
     Then I softly see value "Automation Notes" for title "Title" inside table "---amendment:-:amendmentAddNotesTableId---"
     Then I softly see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
 
-  @531684 @531691 @531696 @validateNewuserscreated(forsameexternalorg)afterAmendmentrequestissenttosubrecipientareabletoView/Submitamendmentrequesttograntor
+  @531684 @531691 @531696 @validateNewuserscreated(forsameexternalorg)afterAmendmentrequestissenttosubrecipientareabletoView/Submitamendmentrequesttograntor @GrantorFlexP1
   Scenario: Validate New users created (for same external org) after Amendment request is sent to subrecipient  are able to View / Submit amendment request to grantor
     And I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     When I login to "Grantor" app as "dynamicUser" user

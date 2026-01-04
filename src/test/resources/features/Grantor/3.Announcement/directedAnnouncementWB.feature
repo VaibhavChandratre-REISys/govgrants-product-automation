@@ -2826,7 +2826,7 @@ Feature: Validate all scenarios in the directed Announcement tab
     Then I see the following headers in table with id "---announcement:-:directedInvitedApplicatsTableId---" :
       | EGMS ID | Applicants | Application EGMS ID | Application Status | Last Updated By | Last Updated |
 
-  @527084 @validateAnnrecordcreatedbyPMusershouldsharedwithsameOrgusersPO/FO/FD/Auditor/EXE/Adminwithviewaccessonlywiththeirchildrecords(createdstate)fordirectedann
+  @527084 @validateAnnrecordcreatedbyPMusershouldsharedwithsameOrgusersPO/FO/FD/Auditor/EXE/Adminwithviewaccessonlywiththeirchildrecords(createdstate)fordirectedann @GrantorFlexP1
   Scenario: Validate Ann record created by PM user should shared with same Org users PO/FO/FD/Auditor/EXE/Admin with view access only with their child records (created state) for directed ann
     When I login to "Grantor" app as "ADMIN" user
     And I navigate to "Announcements" tab

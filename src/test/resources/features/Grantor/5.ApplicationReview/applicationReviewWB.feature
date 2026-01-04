@@ -23238,7 +23238,7 @@ Feature: Validate all scenarios in the Application Review without background
       | {SavedValue:Automation Runtime Announcement Application Review} | {SavedValue:Automation Runtime Announcement Application Review} |
 
 
-  @532529 @ValidateappreviewshouldbevisibletowithallinternalusersifreviewresponsevisibilityasYesinviewmode(Pre-screenreview)
+  @532529 @ValidateappreviewshouldbevisibletowithallinternalusersifreviewresponsevisibilityasYesinviewmode(Pre-screenreview) @GrantorFlexP1
   Scenario: Validate  app review should be visible to with all internal users if review response visibility as Yes in view mode (Pre-screen review)
     When I login to "Grantor" app as "EXE" user
     And I navigate to "Announcements" tab
@@ -23383,7 +23383,7 @@ Feature: Validate all scenarios in the Application Review without background
     Then I cannot see top right button "Decline" in page detail
     Then I softly see the field "Form Name" as "Pre-Screen" on forms
 
-  @532530 @validteappreviewformsshouldnotvisibletoallinternalusersifreviewresponsevisibilityasNo(Prescreenreview)
+  @532530 @validteappreviewformsshouldnotvisibletoallinternalusersifreviewresponsevisibilityasNo(Prescreenreview) @GrantorFlexP1
   Scenario Outline: Validate  app review forms should not visible to all internal users if review response visibility as No (Prescreen review)
     When I login to "Grantor" app as "PM" user
     And I navigate to "Planning" tab
@@ -23614,7 +23614,7 @@ Feature: Validate all scenarios in the Application Review without background
       | Announcement Name                                        | Application Name                                         |
       | {SavedValue:Automation Runtime Competitive Announcement} | {SavedValue:Automation Runtime Competitive Announcement} |
 
-  @532539 @ValidateappreviewnewS\RSPIusershouldabletoseethereviewformsifannowneraddedSPIuserasreviewerandsubmittedforreview
+  @532539 @ValidateappreviewnewS\RSPIusershouldabletoseethereviewformsifannowneraddedSPIuserasreviewerandsubmittedforreview @GrantorFlexP1
   Scenario: Validate new S\R SPI user should able to see the review forms if ann owner added SPI user as reviewer and submitted for review
     When I login to "Grantor" app as "EXE" user
     And I navigate to "Announcements" tab

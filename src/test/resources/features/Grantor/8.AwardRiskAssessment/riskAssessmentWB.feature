@@ -1593,7 +1593,7 @@ Feature: Risk Assessment scenarios without background
       | Award Name                                      | Grant Name                                      |
       | {SavedValue:Automation Runtime Execution Award} | {SavedValue:Automation Runtime Execution Award} |
 
-  @532569 @validateAwardRiskAssessment-Internalusershouldseethecorrectnumberofrecordsinthechildtables
+  @532569 @validateAwardRiskAssessment-Internalusershouldseethecorrectnumberofrecordsinthechildtables @GrantorFlexP1
   Scenario Outline: Validate Award Risk Assessment  -Internal user should see the correct number of records in the child tables
     Given I login to "Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -1687,7 +1687,7 @@ Feature: Risk Assessment scenarios without background
       | FD         |
       | AUDITOR    |
 
-  @532649 @validateAwardRiskAssessment-usershouldabletoseetheAwardriskassessmentsharewithexternaluseronlyaftersendtosubrecipientbutton
+  @532649 @validateAwardRiskAssessment-usershouldabletoseetheAwardriskassessmentsharewithexternaluseronlyaftersendtosubrecipientbutton @GrantorFlexP1
   Scenario Outline: Validate Award Risk Assessment  -Internal user should see the correct number of records in the child tables
     Given I login to "Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab

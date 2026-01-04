@@ -2299,7 +2299,7 @@ Feature: Validate all scenarios in Organizational Site Visit Without Background
     Then I softly see value "Automation FD1" for title "New Value" inside field history table
     Then I softly see value "Automation FD" for title "Original Value" inside field history table
 
-  @531271 @validateorgsvusershouldabletoseethesitevisitsharewithexternaluseronlyaftersendtosubrecipientbutton
+  @531271 @validateorgsvusershouldabletoseethesitevisitsharewithexternaluseronlyaftersendtosubrecipientbutton @GrantorFlexP1
   Scenario: Validate user should able to see the site visit share with external user only after send to subrecipient button
     When I login to "Grantor" app as "PM" user
     And I navigate to "Home" tab

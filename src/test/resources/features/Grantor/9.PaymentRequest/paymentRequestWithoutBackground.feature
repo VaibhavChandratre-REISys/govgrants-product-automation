@@ -7330,7 +7330,7 @@ Feature: Payment Request scenarios without background
     When I perform quick search for "{SavedValue:PayreqId}" in "---paymentRequest:-:pendingTaskTableId---" panel
     Then I do not see value "{SavedValue:PayreqId}" for title "EGMS ID" inside table "---paymentRequest:-:pendingTaskTableId---"
 
-  @530302 @FlexSharing2 @ValidateFlexSharingRelatedScenarioForPaymentrequestAllTables
+  @530302 @FlexSharing2 @ValidateFlexSharingRelatedScenarioForPaymentrequestAllTables @GrantorFlexP1
   Scenario: Validate FlexSharing Related Scenario For Payment Request All Tables
     Given I activated standalone subaward "Automation Runtime Direct Award" with properties "ADVANCE_PERMISSIBLE_YES_FOCUS_AREA_NO" of type "Competitive"
     And I login to "Grantor" app as "PM" user

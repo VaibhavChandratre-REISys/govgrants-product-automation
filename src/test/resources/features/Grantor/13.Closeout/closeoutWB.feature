@@ -5641,7 +5641,7 @@ Feature: Validate all scenarios in Closeout
     Then I softly see value "Created" for title "Status" inside table "---closeout:-:ProjectPeriodCloseoutTableId---"
     Then I softly cannot see row level action button "Delete" against "{SavedValue:closeoutID}" in flex table with id "---closeout:-:ProjectPeriodCloseoutTableId---"
 
-  @535233 @validatecreatedstatePPcloseoutrequestandit’schildrecordsarevisibletoallPM/PO/FO/FDEXE/Auditor/AdmininternalusersfromsameOrg
+  @535233 @validatecreatedstatePPcloseoutrequestandit’schildrecordsarevisibletoallPM/PO/FO/FDEXE/Auditor/AdmininternalusersfromsameOrg @GrantorFlexP1
   Scenario Outline: Validate created state PP closeout request and it’s child records are visible to all PM/PO/FO/FDEXE/Auditor/Admin internal users from same Org
     Given I activated standalone subaward "Automation Runtime Award for closeout" with properties "default" of type "Competitive"
     When I login to "Grantor" app as "PM" user
@@ -5779,7 +5779,7 @@ Feature: Validate all scenarios in Closeout
       | FD       |
       | ADMIN    |
 
-  @535235 @validatecreatedstatePPcloseoutrequestandit’schildrecordsshouldbevisibletoS\Ruserincreatedstateofcloseoutrequest
+  @535235 @validatecreatedstatePPcloseoutrequestandit’schildrecordsshouldbevisibletoS\Ruserincreatedstateofcloseoutrequest @GrantorFlexP1
   Scenario Outline: Validate  created state PP closeout request and it’s child records should be visible to S\R user in created state of closeout request
     Given I activated standalone subaward "Automation Runtime Award for closeout" with properties "default" of type "Competitive"
     When I login to "Grantor" app as "PM" user

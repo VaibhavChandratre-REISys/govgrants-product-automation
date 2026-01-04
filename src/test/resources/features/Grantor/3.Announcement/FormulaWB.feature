@@ -7006,7 +7006,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
       | Announcement Name                                    | Application Name                                     |
       | {SavedValue:Automation Runtime Formula Announcement} | {SavedValue:Automation Runtime Formula Announcement} |
 
-  @527084 @validateAnnrecordcreatedbyPMusershouldsharedwithsameOrgusersPO/FOwithviewaccessonlywiththeirchildrecords(createdstate)forformulaann
+  @527076 @validateAnnrecordcreatedbyPMusershouldsharedwithsameOrgusersPO/FOwithviewaccessonlywiththeirchildrecords(createdstate)forformulaann @GrantorFlexP1
   Scenario: Validate Ann record created by PM user should shared with same Org users PO/FO/FD/Auditor/EXE/Admin with view access only with their child records (created state) for Formula ann
     When I login to "Grantor" app as "PM" user
     And I navigate to "Announcements" tab

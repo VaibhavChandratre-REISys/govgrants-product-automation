@@ -1578,7 +1578,7 @@ Feature: Validate all scenarios in Desk Review
     And I click on "Delete" icon for "Automation.pdf" inside flex table with id "---deskreview:-:deskReviewsFilesTableId---" without waiting for record
     Then I softly do not see value "Automation.pdf" for title "Title" inside table "---deskreview:-:deskReviewsFilesTableId---"
 
-  @532357 @validateAwarddeskreviewInternalusershouldseethecorrectnumberofrecordsinthechildtables
+  @532357 @validateAwarddeskreviewInternalusershouldseethecorrectnumberofrecordsinthechildtables @GrantorFlexP1
   Scenario Outline: Validate Award Desk Review -Internal user should see the correct number of records in the child tables
     Then I softly see status in Progress-bar is "Created" and is "dark blue"
     When I click on "Edit" in the page details

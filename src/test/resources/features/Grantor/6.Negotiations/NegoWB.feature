@@ -730,7 +730,7 @@ Feature: Validate all scenarios in Negotiations
     Then I softly can see row level action button "Edit" against "Standard Assurances Form" in flex table with id "---negotiation:-:filesFormsTableId---"
     Then I softly cannot see row level action button "Edit" against "Program Application Form" in flex table with id "---negotiation:-:filesFormsTableId---"
 
-  @532790 @validateannouncementowner(PM)caninitiatenegotiationwhenpreapplicationissubmittedtograntor
+  @532790 @validateannouncementowner(PM)caninitiatenegotiationwhenpreapplicationissubmittedtograntor @GrantorFlexP1
   Scenario: Validate announcement owner (PM) can initiate negotiation when preapplication is submitted to grantor
     And I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_NEGOTIATION_YES_MULTIPLE_FOCUS_AREA"
     When I am on "SUBPORTAL" portal
@@ -849,7 +849,7 @@ Feature: Validate all scenarios in Negotiations
     And I wait for "2" seconds
     Then I softly see field "Details" as "Automation Test" in "Applicant Response" pageblock
 
-  @532792 @validateExternalusercanviewpreapplicationNegotiationinPreapplicationlistviewwhenPMuserclickonSendtosubrecipientuserafterinitiatingnegotiation
+  @532792 @validateExternalusercanviewpreapplicationNegotiationinPreapplicationlistviewwhenPMuserclickonSendtosubrecipientuserafterinitiatingnegotiation @GrantorFlexP1
   Scenario: Validate External user can view preapplication Negotiation in Preapplication list view when PM user click on Send to subrecipient user after initiating negotiation
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_NEGOTIATION_YES_MULTIPLE_FOCUS_AREA"
     When I am on "SUBPORTAL" portal
@@ -1006,7 +1006,7 @@ Feature: Validate all scenarios in Negotiations
     Then I softly cannot see row level action button "Edit" against "Standard Assurances Form" in flex table with id "---negotiation:-:filesFormsTableId---"
     Then I softly cannot see row level action button "Edit" against "Program Application Form" in flex table with id "---negotiation:-:filesFormsTableId---"
 
-  @532807 @validateannouncementownercaninitiatenegotiationwhenapplicationissubmittedtograntor
+  @532807 @validateannouncementownercaninitiatenegotiationwhenapplicationissubmittedtograntor @GrantorFlexP1
   Scenario: Validate announcement owner can initiate negotiation when Application is submitted to grantor
     And I published "Competitive" type announcement having name "Automation Runtime Competitive Announcement" and properties "NEGOTIATION"
     When I login to "Grantor" app as "PM" user
@@ -1059,7 +1059,7 @@ Feature: Validate all scenarios in Negotiations
     Then I softly can see row level action button "Edit" against "Standard Assurances Form" in flex table with id "---negotiation:-:filesFormsTableId---"
     Then I softly cannot see row level action button "Edit" against "Program Application Form" in flex table with id "---negotiation:-:filesFormsTableId---"
 
-  @532809 @validateSPIusercanviewApplicationnegotiationinApplicationlistviewwhenPMuserclickonSendtosubrecipientuserafterinitiatingnegotiation
+  @532809 @validateSPIusercanviewApplicationnegotiationinApplicationlistviewwhenPMuserclickonSendtosubrecipientuserafterinitiatingnegotiation @GrantorFlexP1
   Scenario: Validate SPI user can view Application Negotiation in Application list view when PM user click on Send to subrecipient user after initiating negotiation
     And I published "Competitive" type announcement having name "Automation Runtime Competitive Announcement" and properties "NEGOTIATION"
     When I login to "Grantor" app as "PM" user

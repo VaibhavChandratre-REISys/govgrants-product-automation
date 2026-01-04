@@ -2660,7 +2660,7 @@ Feature: Application Intake scenarios without background
       | Announcement Name                                |
       | {SavedValue:Automation Runtime FDM Announcement} |
 
-  @526439 @validateSPI/INDuseruserapplicationissubmittedtograntorwhichiscreatedfromqualifiedopportunity
+  @526439 @validateSPI/INDuseruserapplicationissubmittedtograntorwhichiscreatedfromqualifiedopportunity @GrantorFlexP1
   Scenario: Validate SPI/IND user user Application is submitted to grantor which is created from qualified opportunity
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Application" and properties "PROGRAM_FOR_APP_SUPP_DOC_YES"
     Given I am on "SUBPORTAL" portal
@@ -2778,7 +2778,7 @@ Feature: Application Intake scenarios without background
       | Name                       | Is Key Contact |
       | {SavedValue:SPI3 Username} | Checked        |
 
-   @526440 @validateSPIuserapplicationissubmittedtograntorwhichiscreatedfrompreapplication
+   @526440 @validateSPIuserapplicationissubmittedtograntorwhichiscreatedfrompreapplication @GrantorFlexP1
    Scenario: Validate SPI user Application is submitted to grantor which is created from preapplication
      Given I published "Competitive" type announcement having name "Automation Runtime Announcement Application" and properties "PROGRAM_FOR_PREAPP_SUPP_DOC_YES"
      And I am on "SUBPORTAL" portal

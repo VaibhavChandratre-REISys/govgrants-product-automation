@@ -6318,7 +6318,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     And I navigate to "Budget" sub tab
     Then I softly see that "Budgeted Amount" rendered in view mode only
 
-  @530977 @validatecompetitiveGrant/awardrecordshouldsharewithPO/FO/FD/EXE/Auditor/AdminfromsameOrguserin(createdstateofaward)
+  @530977 @validatecompetitiveGrant/awardrecordshouldsharewithPO/FO/FD/EXE/Auditor/AdminfromsameOrguserin(createdstateofaward) @GrantorFlexP1
   Scenario Outline: Validate Competitive Grant/award record should share with PO/FO/FD/EXE/Auditor/Admin from same Org user in (created state of award)
     And I save the field labeled "EGMS ID" as "AwardEGMSID"
     And I navigate to "Overview" sub tab
@@ -6495,7 +6495,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | Auditor  |
       | ADMIN    |
 
-  @533441 @530983 @validateSPI/SPAexternalusershouldseegrantandawardrecordoncegrantorsendthatrecordtoS/Ruser
+  @533441 @530983 @validateSPI/SPAexternalusershouldseegrantandawardrecordoncegrantorsendthatrecordtoS/Ruser @GrantorFlexP1
   Scenario Outline: Validate SPI/SPA external user should see grant and award record once grantor send that record to S/R user
     And I save the field labeled "EGMS ID" as "AwardEGMSID"
     And I navigate to "Overview" sub tab

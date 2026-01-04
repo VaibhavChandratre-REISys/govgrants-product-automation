@@ -8313,7 +8313,7 @@ Feature: Validate all scenarios for program
     Then I softly see field on modal "Office Phone" inside page block
     Then I softly see field on modal "Project Role" inside page block
 
-  @533308 @validateTerms&ConditionMasterRecordPM,PO,EXE,FO,FD,AuditoruserViewTermandconditionscreatedbyAdminuserfromsameorganization
+  @533308 @validateTerms&ConditionMasterRecordPM,PO,EXE,FO,FD,AuditoruserViewTermandconditionscreatedbyAdminuserfromsameorganization @GrantorFlexP1
   Scenario Outline: Validate PM, PO, EXE, FO, FD, Auditor user View Terms and conditions created by Admin user from same organization
     Given I login to "Grantor" app as "ADMIN" user
     When I navigate to "Planning" tab
@@ -8346,7 +8346,7 @@ Feature: Validate all scenarios for program
       | FD      |
       | AUDITOR |
 
-  @527250 @validatethatrecordssharingforInternalProgramwithPO/FO/FD/auditor/Admin/EXEfromsameOrginallstatesofInternalProgram
+  @527118 @527250 @validatethatrecordssharingforInternalProgramwithPO/FO/FD/auditor/Admin/EXEfromsameOrginallstatesofInternalProgram @GrantorFlexP1
   Scenario Outline: Validate that records sharing for Internal Program with PO/FO/FD/auditor/Admin/EXE from same Org in all states of Internal Program
     When I login to "Grantor" app as "dynamicUser" user
     And I navigate to "Planning" tab
@@ -8404,7 +8404,7 @@ Feature: Validate all scenarios for program
       | FD       |
       | AUDITOR  |
 
-  @535723 @535719 @535715 @ValidateExternal/NGOorg1users(PM/PO/EXE)cancreateExternal/NGOProgramthenallusersshouldhaveviewaccesstoitirrespectiveofparticularorganization.
+  @535723 @535719 @535715 @ValidateExternal/NGOorg1users(PM/PO/EXE)cancreateExternal/NGOProgramthenallusersshouldhaveviewaccesstoitirrespectiveofparticularorganization. @GrantorFlexP1
   Scenario Outline: Validate External/NGO org 1 users (PM/PO/EXE)can create External/NGO Program then all users should have view access to it irrespective of particular organization.
   / Validate that Approver section can visible to all internal users once NGO program is created
   /Validate External/ NGO program when submit  External/ NGO program is Activated
@@ -8534,7 +8534,7 @@ Feature: Validate all scenarios for program
       | FD       |
       | AUDITOR  |
 
-  @535717 @ValidatethatInternal/ExternalusersseeContactstablewithallthedetails
+  @535717 @ValidatethatInternal/ExternalusersseeContactstablewithallthedetails @GrantorFlexP1
   Scenario Outline: Validate that Internal/ External users see Contacts table with all the details
     When I login to "Grantor" app as "PM" user
     And I navigate to "Planning" tab

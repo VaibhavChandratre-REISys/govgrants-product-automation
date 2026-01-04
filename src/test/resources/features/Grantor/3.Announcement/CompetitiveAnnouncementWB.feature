@@ -1982,7 +1982,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     Then I see status in Progress-bar is "Published" and is "dark blue"
     Then I see field "Status on Grants.gov" as "Sent"
 
-  @527098 @527029 @validateAnnrecordcreatedbyPMusershouldsharedwithsameOrgusersPO/FO/FD/Auditor/EXE/Adminwithviewaccessonlywiththeirchildrecords(createdstate)
+  @527098 @527029 @validateAnnrecordcreatedbyPMusershouldsharedwithsameOrgusersPO/FO/FD/Auditor/EXE/Adminwithviewaccessonlywiththeirchildrecords(createdstate) @GrantorFlexP1
   Scenario: Validate Ann record created by PM user should shared with same Org users PO/FO/FD/Auditor/EXE/Admin with view access only with their child records (created state)
     When I login to "Grantor" app as "PM" user
     And I navigate to "Announcements" tab
@@ -2336,7 +2336,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     Then I see value "Attachment.pdf" for title "Title" inside table "---announcement:-:AnnouncementAttachmentTableId---"
     Then I softly see value "Notes Record" for title "Title" inside table "---announcement:-:AnnouncementNotestableId---"
 
-  @527131 @VerifyrecordssharingforopportunitywithSPI\SPAfromsameOrg
+  @527131 @VerifyrecordssharingforopportunitywithSPI\SPAfromsameOrg @GrantorFlexP1
   Scenario:Verify records sharing for opportunity with SPI\SPA from same Org
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "Default"
     And I am on "SUBPORTAL" portal

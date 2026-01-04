@@ -10480,7 +10480,7 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     Then I softly see the following messages in the page details :
       | File Automation.pdf deleted successfully. |
 
-  @532407 @532403 @532404 @validateAwarddeskreviewInternalusershouldseethecorrectnumberofrecordsinthechildtables
+  @532407 @532403 @532404 @validateAwarddeskreviewInternalusershouldseethecorrectnumberofrecordsinthechildtables @GrantorFlexP1
   Scenario: Validate Award Desk Review -Internal user should see the correct number of records in the child tables
     Given I activated standalone subaward "Automation Runtime Award Site Visit" with properties "default" of type "Competitive"
     Given I activated standalone subaward "Automation Runtime Award Record" with properties "default" of type "Competitive"
@@ -10758,7 +10758,7 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     And I navigate to "Files" sub tab
     Then I softly see value "Attachment.pdf" for title "Subrecipient Document Link" inside table "---sitevisits:-:siteVisitSupportingDocumentChecklist---"
 
-  @531270 @validateAwardsitevisit-usershouldabletoseetheAwardsitevisitsharewithexternaluseronlyaftersendtosubrecipientbutton
+  @531270 @validateAwardsitevisit-usershouldabletoseetheAwardsitevisitsharewithexternaluseronlyaftersendtosubrecipientbutton @GrantorFlexP1
   Scenario: Validate Award site visit-Verify user should able to see the Award site visit share with external user only after send to subrecipient button
     Given I activated standalone subaward "Automation Runtime Award Record" with properties "default" of type "Competitive"
     When I login to "Grantor" app as "dynamicUser" user

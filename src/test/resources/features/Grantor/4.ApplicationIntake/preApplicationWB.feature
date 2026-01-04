@@ -5737,7 +5737,7 @@ Feature: Pre-Application scenarios without background
     And I navigate to "Budget" sub tab
     Then I softly do not see "Actions" in flex table header "---applicationIntake:-:focusAreaTableAppId---"
 
-  @526117 @validateSPIuserPreapplicationisacceptedwhichiscreatedfromqualifiedannouncement
+  @526117 @validateSPIuserPreapplicationisacceptedwhichiscreatedfromqualifiedannouncement @GrantorFlexP1
   Scenario: SPI user Preapplication is accepted which is created from qualified announcement
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement Application" and properties "PROGRAM_FOR_PREAPP_SUPP_DOC_YES"
     And I am on "SUBPORTAL" portal
