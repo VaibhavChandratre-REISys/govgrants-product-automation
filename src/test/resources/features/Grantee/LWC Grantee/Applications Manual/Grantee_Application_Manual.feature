@@ -533,7 +533,7 @@ Feature: Validate all scenarios for Applications Manual
     Then I softly see value "Sarah PM" for title "Name" inside table "---grantee_tableId:-:ContactTableIdApplication---"
     Then I softly see value "Victor EXE" for title "Name" inside table "---grantee_tableId:-:ContactTableIdApplication---"
     Then I softly see value "Project Director/Principal Investigator(PI/PD)" for title "Project Role" against the value "Sarah PM" inside table "---grantee_tableId:-:ContactTableIdApplication---"
-    Then I softly see value "Checked" for title "Is Key Contact" against the value "Sarah PM" inside table "---grantee_tableId:-:ContactTableIdApplication---"
+    Then I softly see value "True" for title "Is Key Contact" against the value "Sarah PM" inside table "---grantee_tableId:-:ContactTableIdApplication---"
     Then I softly see value "Automation Permanent NGO Program" for title "Title" inside table "---grantee_tableId:-:ApplicationExternalProgramsTableId---"
     Then I softly see value "Automation Permanent NGO Program2" for title "Title" inside table "---grantee_tableId:-:ApplicationExternalProgramsTableId---"
     Then I see total records count "Total Records: 2" in flex table "---grantee_tableId:-:ApplicationExternalProgramsTableId---"

@@ -9837,6 +9837,61 @@ Feature: Validate all scenarios for Grantee Amendment Request
     Then I softly see value "Notes Record" for title "Title" inside table "---grantee_tableId:-:amendmentRequestNotesTableId---"
     Then I softly cannot see row level action button "Edit" against "Notes Record" in flex table with id "---grantee_tableId:-:amendmentRequestNotesTableId---"
     Then I softly cannot see row level action button "Delete" against "Notes Record" in flex table with id "---grantee_tableId:-:amendmentRequestNotesTableId---"
+    When I re-login to "Grantee" app as "GRANTEE AUDITOR" user on "INTERNAL" portal
+    And I navigate to "Grants" tab
+    And I select "Amendment Requests" from dropdown for Global search
+    And I perform quick search inside global search "{SavedValue:SOWEGMSID}"
+    Then I softly cannot see row level action button "Edit" against "{SavedValue:SOWEGMSID}" in global search with id "Amendment Requests"
+    And I navigate to "Grants" tab
+    When I navigate to "Amendment Requests" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+    And I click toggle button to select "Amendment Requests - All"
+    When I perform quick search for "{SavedValue:SOWEGMSID}" in "---grantee_tableId:-:AmendmentTableId---" panel
+    Then I softly can see row level action button "View" against "{SavedValue:SOWEGMSID}" in flex table with id "---grantee_tableId:-:AmendmentTableId---"
+    And I click on "View" icon for "{SavedValue:SOWEGMSID}" inside flex table with id "---grantee_tableId:-:AmendmentTableId---"
+    Then I cannot see top right button "Edit" in page detail
+    Then I cannot see top right button "Delete" in page detail
+    Then I softly can see "Overview" sub tab at view detail page
+    Then I softly can see "Responsibilities" sub tab at view detail page
+    Then I softly can see "Files" sub tab at view detail page
+    Then I softly can see "History" sub tab at view detail page
+    Then I softly can see "Messages" sub tab at view detail page
+    And I navigate to "Overview" sub tab
+    Then I softly see "Details" page block displayed
+    Then I softly see "Award Description" page block displayed
+    Then I softly see "Place of Performance" page block displayed
+    Then I softly see "Objectives" page block displayed
+    Then I softly see "Key Performance Indicators (KPIs)" page block displayed
+    Then I softly see "General Condition" page block displayed
+    Then I softly see "Special Conditions" page block displayed
+    Then I softly see field "Address line 1" as "{SavedValue:Addressline1}"
+    Then I softly see field "Address line 2" as "{SavedValue:Addressline2}"
+    Then I softly see field "City" as "{SavedValue:City}"
+    Then I softly see field "County" as "{SavedValue:County}"
+    Then I softly see field "State" as "{SavedValue:State}"
+    Then I softly see field "Congressional District" as "{SavedValue:CongressionalDistrict}"
+    Then I softly see field "Zip Code" as "{SavedValue:ZipCode}"
+    Then I softly see field "Country" as "{SavedValue:Country}"
+    Then I softly see field "4-Digit Zip Code Extension" as "{SavedValue:ZipCodeExtension}"
+    Then I softly see value "{SavedValue:ObjectiveTitle}" for title "Title" inside table "---grantee_tableId:-:amendmentObjectiveTableId---"
+    Then I softly see value "{SavedValue:KPITitle}" for title "Title" inside table "---grantee_tableId:-:amendmentKPITableId---"
+    Then I softly see value "Terms1" for title "Title" inside table "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
+    Then I softly can see row level action button "View" against "Terms1" in flex table with id "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
+    Then I softly cannot see row level action button "Edit" against "Terms1" in flex table with id "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
+    Then I softly cannot see row level action button "Delete" against "Terms1" in flex table with id "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
+    When I navigate to "Responsibilities" sub tab
+    Then I softly see value "{SavedValue:PM1 Username}" for title "Reviewer Name" inside table "---grantee_tableId:-:amendmentPeerReviewerTableId---"
+    Then I softly see value "Victor EXE" for title "Name" inside table "---grantee_tableId:-:AmendmentApproverRolesTableId---"
+    Then I softly see value "Sarah PM" for title "Name" inside table "---grantee_tableId:-:AmendmentApproverRolesTableId---"
+    When I navigate to "Files" sub tab
+    Then I softly see value "Attachment.pdf" for title "Title" inside table "---grantee_tableId:-:amendmentRequestAddFile---"
+    Then I can see row level action button "Download" against "Terms and Conditions" in flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
+    Then I cannot see row level action button "Delete" against "Terms and Conditions" in flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
+    Then I cannot see row level action button "Edit" against "Terms and Conditions" in flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
+    Then I can see row level action button "View" against "Terms and Conditions" in flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
+    Then I softly do not see top right button "New" inside flex table "---grantee_tableId:-:amendmentRequestNotesTableId---"
+    Then I softly see value "Notes Record" for title "Title" inside table "---grantee_tableId:-:amendmentRequestNotesTableId---"
+    Then I softly cannot see row level action button "Edit" against "Notes Record" in flex table with id "---grantee_tableId:-:amendmentRequestNotesTableId---"
+    Then I softly cannot see row level action button "Delete" against "Notes Record" in flex table with id "---grantee_tableId:-:amendmentRequestNotesTableId---"
     Examples:
       | User            |
       | GRANTEE PO      |
@@ -9844,7 +9899,6 @@ Feature: Validate all scenarios for Grantee Amendment Request
       | GRANTEE FO      |
       | GRANTEE FD      |
       | GRANTEE ADMIN   |
-      | GRANTEE AUDITOR |
 
   @547327 @547286 @validatethatuserseeApplicationshouldbevisibletocrossOrgpeerreviewerifApplicationownersubmitARforreview(WithAllowEdit'Yes') @GranteeFlexP1
   Scenario: Validate that user see Application should be visible to cross Org peer reviewer if Application owner submit AR for review (With Allow Edit 'Yes')
@@ -10503,6 +10557,64 @@ Feature: Validate all scenarios for Grantee Amendment Request
     Then I softly see "Snapshot History" page block displayed
     And I navigate to "Messages" sub tab
     Then I softly see "Messages" page block displayed
+    When I re-login to "Grantee" app as "GRANTEE AUDITOR" user on "INTERNAL" portal
+    And I navigate to "Grants" tab
+    And I select "Amendment Requests" from dropdown for Global search
+    And I perform quick search inside global search "{SavedValue:BPCAMENDID}"
+    Then I softly cannot see row level action button "Edit" against "{SavedValue:BPCAMENDID}" in global search with id "Amendment Requests"
+    And I navigate to "Grants" tab
+    When I navigate to "Amendment Requests" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+    And I click toggle button to select "Amendment Requests - All"
+    When I perform quick search for "{SavedValue:BPCAMENDID}" in "---grantee_tableId:-:AmendmentTableId---" panel
+    Then I softly can see row level action button "View" against "{SavedValue:BPCAMENDID}" in flex table with id "---grantee_tableId:-:AmendmentTableId---"
+    And I click on "View" icon for "{SavedValue:BPCAMENDID}" inside flex table with id "---grantee_tableId:-:AmendmentTableId---"
+    Then I cannot see top right button "Edit" in page detail
+    Then I cannot see top right button "Delete" in page detail
+    Then I cannot see top right button "Submit for Approval" in page detail
+    When I navigate to "Overview" sub tab
+    And I wait for "2" seconds
+    Then I softly see field "EGMS ID" as "{SavedValue:BPCAMENDID}"
+    Then I softly see field "Status" as "Created"
+    Then I softly see field "Initiated By" as "Grantor"
+    Then I softly see field "Amendment Type" as "Budget Period Change"
+    Then I softly see "Details" page block displayed
+    Then I softly see "Budget Period Change" page block displayed
+    Then I softly see "Focus Areas" page block displayed
+    Then I softly see "Indirect Rates" page block displayed
+    Then I softly see "General Condition" page block displayed
+    Then I softly see "Special Conditions" page block displayed
+    Then I softly see "System Information" page block displayed
+    Then I softly see field "Grant EGMS ID" as "{SavedValue:GrantEGMSID}"
+    Then I softly see link "{SavedValue:GrantEGMSID}" inside Page block
+    Then I softly see field "Award EGMS ID" as "{SavedValue:AwardEGMSID}"
+    Then I softly see link "{SavedValue:AwardEGMSID}" inside Page block
+    Then I softly see value "Automation Permanent Focus Area" for title "Title" inside table "---grantee_tableId:-:amendmentFocusAreaTableId---"
+    Then I softly cannot see row level action button "Edit" against "Automation Permanent Focus Area" in flex table with id "---grantee_tableId:-:amendmentFocusAreaTableId---"
+    Then I softly cannot see row level action button "Remove" against "Automation Permanent Focus Area" in flex table with id "---grantee_tableId:-:amendmentFocusAreaTableId---"
+    Then I softly see value "Terms" for title "Title" inside table "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
+    Then I softly can see row level action button "View" against "Terms" in flex table with id "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
+    Then I softly cannot see row level action button "Edit" against "Terms" in flex table with id "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
+    Then I softly cannot see row level action button "Delete" against "Terms" in flex table with id "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
+    When I navigate to "Responsibilities" sub tab
+    Then I softly see "Peer Reviewers" page block displayed
+    Then I softly see "Approvers" page block displayed
+    Then I softly see "Owner" page block displayed
+    Then I softly see value "David FO" for title "Role" inside table "---grantee_tableId:-:amendmentPeerReviewerTableId---"
+    Then I softly see value "Victor EXE" for title "Reviewer Name" inside table "---grantee_tableId:-:amendmentPeerReviewerTableId---"
+    Then I softly see value "Victor EXE" for title "Name" inside table "---grantee_tableId:-:AmendmentApproverRolesTableId---"
+    Then I softly see value "David FO" for title "Name" inside table "---grantee_tableId:-:AmendmentApproverRolesTableId---"
+    And I navigate to "Files" sub tab
+    Then I softly see "Amendment Files" page block displayed
+    Then I softly see "Notes" page block displayed
+    Then I see "Attachment.pdf" has been added in "Amendment Files" flex table
+    Then I softly see value "Notes Record" for title "Title" inside table "---grantee_tableId:-:amendmentRequestNotesTableId---"
+    Then I softly cannot see row level action button "Edit" against "Notes Record" in flex table with id "---grantee_tableId:-:amendmentRequestNotesTableId---"
+    Then I softly cannot see row level action button "Delete" against "Notes Record" in flex table with id "---grantee_tableId:-:amendmentRequestNotesTableId---"
+    And I navigate to "History" sub tab
+    Then I softly see "Approval History" page block displayed
+    Then I softly see "Snapshot History" page block displayed
+    And I navigate to "Messages" sub tab
+    Then I softly see "Messages" page block displayed
     Examples:
       | User            |
       | GRANTEE PO      |
@@ -10510,7 +10622,6 @@ Feature: Validate all scenarios for Grantee Amendment Request
       | GRANTEE FO      |
       | GRANTEE FD      |
       | GRANTEE ADMIN   |
-      | GRANTEE AUDITOR |
 
   @547303 @547304 @validateBudgetPeriodChangeARamendmentrequestshouldvisibletocrossOrgpeerreviewerifARownersubmitARforreview(WithAllowEdit'Yes') @GranteeFlexP1
   Scenario: Validate  Budget Period Change AR  amendment request should visible to  cross Org peer reviewer if AR owner submit AR for review (With Allow Edit 'Yes')
@@ -11209,9 +11320,10 @@ Feature: Validate all scenarios for Grantee Amendment Request
     When I perform quick search for "{SavedValue:CFAMENDID}" in "---grantee_tableId:-:AmendmentTableId---" panel
     Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:AmendmentTableId---"
     And I navigate to "Grants" tab
-    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    And I perform quick search for "{SavedValue:CFAMENDID}" in "---grantee_tableId:-:PendingTask---" panel
-    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:PendingTask---"
+    When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+    And I click toggle button to select "Grants - All"
+    When I perform quick search for "{SavedValue:GrantEGMSID}" in "---grantee_tableId:-:GrantsTable---" panel
+    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:GrantsTable---"
     Examples:
       | CrossOrgUser |
       | PM1          |
@@ -11782,6 +11894,67 @@ Feature: Validate all scenarios for Grantee Amendment Request
     Then I softly see value "Notes Record" for title "Title" inside table "---grantee_tableId:-:amendmentRequestNotesTableId---"
     Then I softly cannot see row level action button "Edit" against "Notes Record" in flex table with id "---grantee_tableId:-:amendmentRequestNotesTableId---"
     Then I softly cannot see row level action button "Delete" against "Notes Record" in flex table with id "---grantee_tableId:-:amendmentRequestNotesTableId---"
+    When I re-login to "Grantee" app as "GRANTEE AUDITOR" user on "INTERNAL" portal
+    And I navigate to "Grants" tab
+    And I select "Amendment Requests" from dropdown for Global search
+    And I perform quick search inside global search "{SavedValue:BDRAMENDID}"
+    Then I softly can see row level action button "Edit" against "{SavedValue:BDRAMENDID}" in global search with id "Amendment Requests"
+    And I navigate to "Grants" tab
+    When I navigate to "Amendment Requests" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+    And I click toggle button to select "Amendment Requests - All"
+    When I perform quick search for "{SavedValue:BDRAMENDID}" in "---grantee_tableId:-:AmendmentTableId---" panel
+    Then I softly can see row level action button "View" against "{SavedValue:BDRAMENDID}" in flex table with id "---grantee_tableId:-:AmendmentTableId---"
+    Then I softly cannot see row level action button "Edit" against "{SavedValue:BDRAMENDID}" in flex table with id "---grantee_tableId:-:AmendmentTableId---"
+    And I click on "View" icon for "{SavedValue:BDRAMENDID}" inside flex table with id "---grantee_tableId:-:AmendmentTableId---" without waiting for record
+    Then I softly cannot see top right button "Edit" in page detail
+    Then I softly see field "EGMS ID" as "{SavedValue:BDRAMENDID}"
+    Then I softly see field "Status" as "Created"
+    Then I softly see field "Initiated By" as "Grantor"
+    Then I softly see field "Amendment Type" as "Budget Redirection"
+    And I wait for "3" seconds
+    Then I softly can see "Overview" sub tab at view detail page
+    Then I softly can see "Responsibilities" sub tab at view detail page
+    Then I softly can see "Files" sub tab at view detail page
+    Then I softly can see "History" sub tab at view detail page
+    Then I softly can see "Messages" sub tab at view detail page
+    When I navigate to "Overview" sub tab
+    Then I softly see "Details" page block displayed
+    Then I softly see "Focus Areas" page block displayed
+    Then I softly see "Budget Change" page block displayed
+    Then I softly see "Indirect Rates" page block displayed
+    Then I softly see "General Condition" page block displayed
+    Then I softly see "Special Conditions" page block displayed
+    Then I softly see "System Information" page block displayed
+    Then I softly see value "Automation Permanent Focus Area" for title "Title" inside table "---grantee_tableId:-:amendmentFocusAreaTableId---"
+    Then I softly cannot see row level action button "Edit" against "Automation Permanent Focus Area" in flex table with id "---grantee_tableId:-:amendmentFocusAreaTableId---"
+    Then I softly see value "{SavedValue:Title}" for title "Title" inside table "---grantee_tableId:-:amendmentIndirectRateTableId---"
+    Then I softly see value "{SavedValue:ApprovedIndirectCostRate}" for title "Approved Indirect Cost Rate(%)" inside table "---grantee_tableId:-:amendmentIndirectRateTableId---"
+    Then I softly see value "{SavedValue:IndirectCostRateType}" for title "Indirect Cost Rate Type" inside table "---grantee_tableId:-:amendmentIndirectRateTableId---"
+    Then I softly cannot see row level action button "Edit" against "{SavedValue:Title}" in flex table with id "---grantee_tableId:-:amendmentIndirectRateTableId---"
+    Then I softly cannot see row level action button "Delete" against "{SavedValue:Title}" in flex table with id "---grantee_tableId:-:amendmentIndirectRateTableId---"
+    Then I softly can see row level action button "View" against "Terms" in flex table with id "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
+    Then I softly cannot see row level action button "Edit" against "Terms" in flex table with id "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
+    Then I softly cannot see row level action button "Delete" against "Terms" in flex table with id "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
+    And I wait for "3" seconds
+    When I navigate to "Responsibilities" sub tab
+    Then I softly see "Peer Reviewers" page block displayed
+    Then I softly cannot see top right button "New" in flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---"
+    Then I softly see value "{SavedValue:PM1 Username}" for title "Reviewer Name" inside table "---grantee_tableId:-:amendmentPeerReviewerTableId---"
+    Then I softly see "Approvers" page block displayed
+    Then I softly cannot see top right button "New" in flex table with id "---grantee_tableId:-:AmendmentApproverRolesTableId---"
+    Then I softly see value "Victor EXE" for title "Name" inside table "---grantee_tableId:-:AmendmentApproverRolesTableId---"
+    Then I softly see value "Sarah PM" for title "Name" inside table "---grantee_tableId:-:AmendmentApproverRolesTableId---"
+    Then I softly see "Owner" page block displayed
+    And I navigate to "Files" sub tab
+    Then I softly cannot see top right button "Add Files" in flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
+    Then I softly see value "Attachment.pdf" for title "Title" inside table "---grantee_tableId:-:amendmentRequestAddFile---"
+    Then I softly do not see top right button "New" inside flex table "---grantee_tableId:-:amendmentRequestNotesTableId---"
+    Then I softly see value "Notes Record1" for title "Title" inside table "---grantee_tableId:-:amendmentRequestNotesTableId---"
+    Then I softly cannot see row level action button "Edit" against "Notes Record1" in flex table with id "---grantee_tableId:-:amendmentRequestNotesTableId---"
+    Then I softly cannot see row level action button "Delete" against "Notes Record1" in flex table with id "---grantee_tableId:-:amendmentRequestNotesTableId---"
+    Then I softly see value "Notes Record" for title "Title" inside table "---grantee_tableId:-:amendmentRequestNotesTableId---"
+    Then I softly cannot see row level action button "Edit" against "Notes Record" in flex table with id "---grantee_tableId:-:amendmentRequestNotesTableId---"
+    Then I softly cannot see row level action button "Delete" against "Notes Record" in flex table with id "---grantee_tableId:-:amendmentRequestNotesTableId---"
     Examples:
       | User            |
       | GRANTEE PO      |
@@ -11789,7 +11962,6 @@ Feature: Validate all scenarios for Grantee Amendment Request
       | GRANTEE FO      |
       | GRANTEE FD      |
       | GRANTEE ADMIN   |
-      | GRANTEE AUDITOR |
 
   @548493 @548492 @validateFundingChangeamendmentrequestshouldvisibletocrossOrgpeerreviewerifARownersubmitARforreview(WithAllowEdit'Yes') @GranteeFlexP1
   Scenario: Validate Funding Change amendment request should visible to  cross Org peer reviewer if AR owner submit AR for review (With Allow Edit 'Yes')

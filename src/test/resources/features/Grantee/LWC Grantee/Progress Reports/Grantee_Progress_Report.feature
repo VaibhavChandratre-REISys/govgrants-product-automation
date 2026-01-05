@@ -4578,6 +4578,7 @@ Feature: Validate all scenarios for Grantee Progress Report
     And I enter "Grantee_Creation" values from "ProgressReport_Field_Values.xlsx"
     And I wait for "3" seconds
     And I click modal button "Save and Continue"
+    And I wait for "3" seconds
     And I click on "Save" in the page details
     And I wait for "2" seconds
     And I save the field labeled "EGMS ID" as "progressEGMSID"
@@ -5181,6 +5182,8 @@ Feature: Validate all scenarios for Grantee Progress Report
     Then I softly see field "Key Accomplishments:" as "Automation Key Accomplishment" in "Key Accomplishments" pageblock
     Then I softly can see top right button "Edit" in page detail
     And I close the tab
+    And I refresh the page
+    And I wait for "2" seconds
     When I click on "View" icon for "Progress Report" inside flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
     And I switch to tab number "1"
     Then I softly see new tab is opened

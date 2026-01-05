@@ -2013,7 +2013,7 @@ Feature: Validate all scenarios for Leads
     And I click toggle button to select "<Toggles>"
     When I perform quick search for "{SavedValue:QualifiedEGMSID}" in "---grantee_tableId:-:qualifiedLeadTableId---" panel
     And I click on "View" icon for "{SavedValue:QualifiedEGMSID}" inside flex table with id "---grantee_tableId:-:qualifiedLeadTableId---" without waiting for record
-    Then I cannot see top right button "Convert to Opportunity" in page detail
+    Then I <Validation> top right button "Convert to Opportunity" in page detail
     Then I softly can see "Overview" sub tab at view detail page
     Then I softly can see "Financials" sub tab at view detail page
     Then I softly can see "Files" sub tab at view detail page
@@ -2042,7 +2042,7 @@ Feature: Validate all scenarios for Leads
     Then I softly see "Qualified Lead Files" page block displayed
     Then I softly see "Notes" page block displayed
     Then I softly cannot see top right button "Add Files" in flex table with id "---grantee_tableId:-:qualifiedLeadsAddFileTableId---"
-    Then I <Validation> top right button "New" in flex table with id "---grantee_tableId:-:qualifiedLeadsNotesTableId---"
+    Then I <Validation Notes> top right button "New" in flex table with id "---grantee_tableId:-:qualifiedLeadsNotesTableId---"
     Then I see value "AttachmentTesting.pdf" for title "Title" inside table "---grantee_tableId:-:qualifiedLeadsAddFileTableId---"
     Then I can see row level action button "Download" against "AttachmentTesting.pdf" in flex table with id "---grantee_tableId:-:qualifiedLeadsAddFileTableId---"
     Then I cannot see row level action button "Edit" against "AttachmentTesting.pdf" in flex table with id "---grantee_tableId:-:qualifiedLeadsAddFileTableId---"
@@ -2054,13 +2054,13 @@ Feature: Validate all scenarios for Leads
     When I navigate to "History" sub tab
     Then I softly see "Snapshot History" page block displayed
     Examples:
-      | User            | Validation        | Toggles               |
-      | GRANTEE AUDITOR | softly cannot see | Qualified Leads - All |
-      | GRANTEE PO      | softly cannot see | Qualified Leads - All |
-      | GRANTEE EXE     | softly cannot see | Qualified Leads - All |
-      | GRANTEE FO      | softly cannot see | Qualified Leads - All |
-      | GRANTEE FD      | softly cannot see | Qualified Leads - All |
-      | GRANTEE ADMIN   | softly cannot see | Qualified Leads - All |
+      | User            | Validation Notes    | Validation     | Toggles               |
+      | GRANTEE AUDITOR | softly cannot see   |  cannot see    | Qualified Leads - All |
+      | GRANTEE PO      | softly can see      |  can see       | Qualified Leads - All |
+      | GRANTEE EXE     | softly can see      |  can see       | Qualified Leads - All |
+      | GRANTEE FO      | softly cannot see   |  cannot see    | Qualified Leads - All |
+      | GRANTEE FD      | softly cannot see   |  cannot see    | Qualified Leads - All |
+      | GRANTEE ADMIN   | softly cannot see   |  cannot see    | Qualified Leads - All |
 
   @546659 @546650 @546646 @validateonlyPM/PO/EXEusercanseequalifybuttononlead @GranteeFlexP1
   Scenario Outline: Validate only PM/PO/EXE user can see qualify button on lead
