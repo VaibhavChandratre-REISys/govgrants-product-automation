@@ -1126,6 +1126,9 @@ public class GrantorPayloads {
 
     private JsonObject updatePreApplicationAndNegotiationAsYesMultipleFAForAnnouncement(JsonObject json) {
         JsonArray serviceArea = new JsonArray();
+        JsonObject serviceAreaA = new JsonObject();
+        serviceAreaA.addProperty("ServiceArea", ProjectWebServices.getIdOf("ServiceArea__c", "Automation Permanent Focus Area"));
+        serviceArea.add(serviceAreaA);
         JsonObject serviceAreaB = new JsonObject();
         serviceAreaB.addProperty("ServiceArea", ProjectWebServices.getIdOf("ServiceArea__c", "Automation Permanent Focus Area2"));
         serviceArea.add(serviceAreaB);

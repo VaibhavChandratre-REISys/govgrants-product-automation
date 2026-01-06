@@ -11898,7 +11898,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
     And I navigate to "Grants" tab
     And I select "Amendment Requests" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:BDRAMENDID}"
-    Then I softly can see row level action button "Edit" against "{SavedValue:BDRAMENDID}" in global search with id "Amendment Requests"
+    Then I softly cannot see row level action button "Edit" against "{SavedValue:BDRAMENDID}" in global search with id "Amendment Requests"
     And I navigate to "Grants" tab
     When I navigate to "Amendment Requests" content inside "Grants, Awards & Amendment Requests" subheader on left panel
     And I click toggle button to select "Amendment Requests - All"

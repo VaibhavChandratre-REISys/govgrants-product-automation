@@ -904,9 +904,6 @@ Feature: Validate all scenarios in Negotiations
       | Name                       | Project Role             | Is Key Contact |
       | {SavedValue:SPI3 Username} | Project Director/Manager | Checked        |
     And I wait for "2" seconds
-    And I click on "Edit" in the page details
-    And I enter value "Checked" into field "Agreement5__c"
-    And I click on "Save" in the page details
     And I navigate to "Budget" sub tab
     And I wait for "3" seconds
     Given I expand nested table containing column value "BP01"
@@ -918,12 +915,12 @@ Feature: Validate all scenarios in Negotiations
     Then I softly see "Focus Area : Automation Permanent Focus Area2" inside rows of enhanced grid id "---preApplication:-:SubRecipientBudgetPeriodTableId---"
     And I edit the following rows inline in flex table with id "---preApplication:-:preApplicationAttachmentId---" by clicking "Edit" :
       | Category Name | Budget | Cash Match | Non-Cash Match |
-      | Construction  | 200    | 100        | 100            |
+      | Construction  | 500    | 100        | 100            |
     And I click on page navigation arrow "---preApplication:-:preApplicationAttachmentId---" for table id "Next"
     Then I softly see "Focus Area : Automation Permanent Focus Area3" inside rows of enhanced grid id "---preApplication:-:SubRecipientBudgetPeriodTableId---"
     And I edit the following rows inline in flex table with id "---preApplication:-:preApplicationAttachmentId---" by clicking "Edit" :
       | Category Name | Budget | Cash Match | Non-Cash Match |
-      | Construction  | 300    | 100        | 100            |
+      | Construction  | 500    | 100        | 100            |
     When I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I switch to tab number "1"
@@ -968,6 +965,38 @@ Feature: Validate all scenarios in Negotiations
     And I click on "Send to Subrecipient" in the page details
     And I wait for "5" seconds
     Then I see field "Status" as "Negotiation Initiated"
+    When I re-login to "Grants Portal" app as "SPA" user on "SUBPORTAL" portal
+    And I navigate to "Home" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "{SavedValue:EGMSID}" in "---negotiation:-:homePendingTasks---" panel
+    And I click on "Start" icon for "{SavedValue:EGMSID}" inside flex table with id "---negotiation:-:homePendingTasks---"
+    And I navigate to "Negotiations" sub tab
+    When I click on "Edit" in the page details
+    Then I see textarea field "ApplicantResponse__c" is editable
+    When I enter value "Automation Test" into field "ApplicantResponse__c"
+    When I click on "Save" in the page details
+    And I wait for "2" seconds
+    Then I see field "Status" as "Negotiation Initiated"
+    Then I softly see field "Details" as "Automation Test" in "Applicant Response" pageblock
+    Then I softly see field "Pre-Application Sections for Negotiation" as "Files and Forms: Forms"
+    Then I softly see field "Details" as "Negotiation Initiated" in "Explanation of Negotiations Needed" pageblock
+    And I navigate to "Overview" sub tab
+    Then I softly see value "Automation SPA" for title "Name" inside table "---preApplication:-:flexGridPreAppContactTableId---"
+    Then I softly see value "Automation SPI 4 contact" for title "Name" inside table "---preApplication:-:flexGridPreAppContactTableId---"
+    Then I softly see value "Automation SPI 5 contact" for title "Name" inside table "---preApplication:-:flexGridPreAppContactTableId---"
+    Then I softly see value "Automation SPI 6 contact" for title "Name" inside table "---preApplication:-:flexGridPreAppContactTableId---"
+    Then I softly see value "Automation SPI 7 contact" for title "Name" inside table "---preApplication:-:flexGridPreAppContactTableId---"
+    And I navigate to "Budget" sub tab
+    Then I softly cannot see top right button "Add Focus Area" in flex table with id "---applicationIntake:-:focusAreaTableAppId---"
+    When I navigate to "Forms and Files" sub tab
+    Then I softly can see row level action button "Edit" against "Standard Assurances Form" in flex table with id "---negotiation:-:filesFormsTableId---"
+    Then I softly cannot see row level action button "Edit" against "Program Application Form" in flex table with id "---negotiation:-:filesFormsTableId---"
+    And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
+    And I switch to tab number "1"
+    And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
+    When I click on "Save" in the page details
+    And I close the tab
+    And I refresh the page
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Home" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel

@@ -2181,3 +2181,4 @@ Feature: Validate all scenarios for Pre-Applications Grants Gov
     And I navigate to "Overview" sub tab
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "PreappEGMSID"
+    Then I softly see field "EGMS ID" as "{SavedValue:PreappEGMSID}"

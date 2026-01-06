@@ -207,6 +207,12 @@ public class UsersAndURL implements UsersController {
             case "SPI3":
                 password = "Auto@2021";
                 break;
+            case "SPA":
+                password = "Auto@2021";
+                break;
+            case "IND":
+                password = "Auto@2021";
+                break;
             default:
                 password = "Auto@2020";
         }

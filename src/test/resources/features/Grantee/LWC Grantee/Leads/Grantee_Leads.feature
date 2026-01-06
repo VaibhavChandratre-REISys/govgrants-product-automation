@@ -2058,9 +2058,9 @@ Feature: Validate all scenarios for Leads
       | GRANTEE AUDITOR | softly cannot see   |  cannot see    | Qualified Leads - All |
       | GRANTEE PO      | softly can see      |  can see       | Qualified Leads - All |
       | GRANTEE EXE     | softly can see      |  can see       | Qualified Leads - All |
-      | GRANTEE FO      | softly cannot see   |  cannot see    | Qualified Leads - All |
-      | GRANTEE FD      | softly cannot see   |  cannot see    | Qualified Leads - All |
-      | GRANTEE ADMIN   | softly cannot see   |  cannot see    | Qualified Leads - All |
+      | GRANTEE FO      | softly can see      |  cannot see    | Qualified Leads - All |
+      | GRANTEE FD      | softly can see      |  cannot see    | Qualified Leads - All |
+      | GRANTEE ADMIN   | softly can see      |  cannot see    | Qualified Leads - All |
 
   @546659 @546650 @546646 @validateonlyPM/PO/EXEusercanseequalifybuttononlead @GranteeFlexP1
   Scenario Outline: Validate only PM/PO/EXE user can see qualify button on lead

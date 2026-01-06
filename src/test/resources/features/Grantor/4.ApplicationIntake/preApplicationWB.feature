@@ -5862,3 +5862,59 @@ Feature: Pre-Application scenarios without background
     Then I cannot see row level action button "Edit" against "Standard Pre-Application form" in flex table with id "---preApplication:-:preAppFormTableId---"
     When I click on "Accept" in the page details
     Then I softly see field "Status" as "Accepted"
+
+    @526093 @validateexternaluserorg1users(SPI/SPA)/INDcancreatePre-applicationonlyif'Pre-applicationrequired'OptionisselectedasYesonopportunity @GrantorFlexP2
+    Scenario Outline: Validate External user org 1 users (SPI/SPA) /IND can create Pre-application only if 'Pre-application required' Option is selected as Yes on Opportunity
+      Given I published "Competitive" type announcement having name "Automation Runtime Announcement Application" and properties "PROGRAM_FOR_PREAPP_SUPP_DOC_YES"
+      And I am on "SUBPORTAL" portal
+      And I login to "Grants Portal" app as "<User>" user
+      When I navigate to "Opportunities" tab
+      And I navigate to "Not Yet Qualified" content inside "Opportunities" subheader on left panel
+      When I click toggle button to select "Not Yet Qualified Opportunities - All"
+      And I perform quick search for "{SavedValue:Automation Runtime Announcement Application}" in "---applicationIntake:-:activeOpportunitiesTableId---" panel
+      When I click on "View" icon for "{SavedValue:Automation Runtime Announcement Application}" inside table
+      And I save the field containing "Leverage Allowed?" as "Yes"
+      And I save the field containing "Maximum # Applications Allowed" as "1"
+      When I click on "Qualify" in the page details
+      Then I softly can see top right button "Create Pre-Application" in page detail
+      And I click on "Create Pre-Application" in the page details
+      And I wait for "3" seconds
+      When I click modal button "Save and Continue"
+      And I get the "EGMS ID"
+      And I save the field labeled "EGMS ID" as "PreAppEGMSID"
+     Examples:
+      |  User  |
+      |  SPI3  |
+      |  SPA   |
+      |  IND   |
+
+  @526096 @validateaccessofPre-applicationusingExternalorganization1users @GrantorFlexP2
+  Scenario Outline: Validate External user org 1 users (SPI/SPA) /IND can create Pre-application only if 'Pre-application required' Option is selected as Yes on Opportunity
+    Given I published "Competitive" type announcement having name "Automation Runtime Announcement Application" and properties "PROGRAM_FOR_PREAPP_SUPP_DOC_YES"
+    And I am on "SUBPORTAL" portal
+    And I login to "Grants Portal" app as "<User1>" user
+    When I navigate to "Opportunities" tab
+    And I navigate to "Not Yet Qualified" content inside "Opportunities" subheader on left panel
+    When I click toggle button to select "Not Yet Qualified Opportunities - All"
+    And I perform quick search for "{SavedValue:Automation Runtime Announcement Application}" in "---applicationIntake:-:activeOpportunitiesTableId---" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement Application}" inside table
+    And I save the field containing "Leverage Allowed?" as "Yes"
+    And I save the field containing "Maximum # Applications Allowed" as "1"
+    When I click on "Qualify" in the page details
+    Then I softly can see top right button "Create Pre-Application" in page detail
+    And I click on "Create Pre-Application" in the page details
+    And I wait for "3" seconds
+    When I click modal button "Save and Continue"
+    And I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "PreAppEGMSID"
+    And I re-login to "Grants Portal" app as "<User2>" user on "SUBPORTAL" portal
+    When I navigate to "Applications" tab
+    And I navigate to "Pre-Applications" content inside "Applications" subheader on left panel
+    When I click toggle button to select "Pre-Applications - All"
+    And I wait for "2" seconds
+    And I perform quick search for "{SavedValue:PreAppEGMSID}" in "---grantee_tableId:-:PreApplication---" panel
+    When I click on "View" icon for "{SavedValue:PreAppEGMSID}" inside table
+    Then I see field "EGMS ID" as "PreappEGMSID"
+    Examples:
+      |  User1 |  User2  |
+      |  SPI3  |   SPA  |

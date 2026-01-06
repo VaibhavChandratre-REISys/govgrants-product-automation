@@ -21029,7 +21029,6 @@ Feature: Validate all scenarios for Grantee Amendment Request
     And I click on hyperlink containing value "View All"
     Then I softly see value "{SavedValue:AwardEGMSID2}" for title "New Value" inside field history table
     Then I softly see value "{SavedValue:AwardEGMSID1}" for title "Original Value" inside field history table
-
     Examples:
       | Owner       | OwnerType       | UserType    | emailIdTo                       | CreatedBy  | Assertion     |
       | GRANTEE EXE | Victor EXE user | GRANTEE EXE | victor.exeqagrantee@yopmail.com | Victor EXE | softly cannot |

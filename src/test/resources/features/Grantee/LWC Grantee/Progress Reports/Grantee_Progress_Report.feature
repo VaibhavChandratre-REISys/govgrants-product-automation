@@ -4713,7 +4713,7 @@ Feature: Validate all scenarios for Grantee Progress Report
     When I enter the following values into flex table with id "---grantee_tableId:-:financialReportPeerReviewTableId---" by clicking "New" :
       | Reviewer Name | Role            | Description            | Due Date | Allow Record Editing |
       | Sarah PM      | Fiscal Reviewer | Automation Description | 5        | No                   |
-    And I wait for "2" seconds
+    And I wait for "1" seconds
     Then I softly see the following messages in the page details contains:
       | Saved Successfully! |
     Then I softly see value "Grantee PO" for title "Reviewer Name" inside table "---grantee_tableId:-:financialReportPeerReviewTableId---"
@@ -5131,7 +5131,6 @@ Feature: Validate all scenarios for Grantee Progress Report
     When I enter the following values into flex table with id "---grantee_tableId:-:financialReportPeerReviewTableId---" by clicking "New" :
       | Reviewer Name | Role            | Description            | Due Date | Allow Record Editing |
       | Sarah PM      | Fiscal Reviewer | Automation Description | 5        | No                   |
-    And I wait for "2" seconds
     Then I softly see the following messages in the page details contains:
       | Saved Successfully! |
     Then I softly see value "Grantee PO" for title "Reviewer Name" inside table "---grantee_tableId:-:financialReportPeerReviewTableId---"
