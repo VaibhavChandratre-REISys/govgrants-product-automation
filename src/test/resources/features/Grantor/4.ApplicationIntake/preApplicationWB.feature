@@ -5772,7 +5772,9 @@ Feature: Pre-Application scenarios without background
     And I save the field labeled "Subaward Ceiling" as "subawardcieling1"
     When I navigate to "Forms and Files" sub tab
     When I click on "Attach" icon for "Mandatory" inside flex table with id "---preApplication:-:preApplicationChecklistId---" without waiting for record
+    And I wait for "2" seconds
     And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
+    And I wait for "2" seconds
     When I click modal button "Close"
     And I wait for "2" seconds
     Then I softly see value "View" for title "Subrecipient Document Link" against the value "Mandatory" inside table "Supporting Documents Checklist"
@@ -5826,6 +5828,7 @@ Feature: Pre-Application scenarios without background
     And I get the "EGMS ID"
     And I wait for "3" seconds
     When I click on "Submit to Grantor" in the page details
+    Then I see field "Status" as "Submitted to Grantor"
     When I re-login to "Grantor" app as "FO" user on "INTERNAL" portal
     When I navigate to "Applications" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel

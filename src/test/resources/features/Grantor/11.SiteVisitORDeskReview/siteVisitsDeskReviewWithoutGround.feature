@@ -10521,6 +10521,7 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     Then I softly see value "Automation SPI3" for title "Name" inside table "---deskreview:-:participantsTableId---"
     And I click on top right button "Associate" in flex table with id "---deskreview:-:associateAwardDeskReviewTableId---"
     When I click "Associate" after selection of "{SavedValue:Automation Runtime Award Record}" in the table "---deskreview:-:awardDeskReviewTableId---"
+    And I refresh the page
     Then I softly see value "{SavedValue:Automation Runtime Award Record}" for title "Subaward Title" inside table "---deskreview:-:associateAwardDeskReviewTableId---"
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---deskreview:-:approverDeskReviewTableId---" by clicking "New" :
@@ -10573,11 +10574,11 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     And I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---deskreview:-:reviewersFlexTableId---" by clicking "New" :
       | Reviewer Name | Responsibility  | Description              | Due Date | Allow Record Editing |
-      | SARAH PM      | Fiscal Reviewer | Review Financial details | 10       | No                   |
+      | {SavedValue:FO Username}     | Fiscal Reviewer | Review Financial details | 10       | No                   |
     And I click on "Send for Review" icon for "{SavedValue:FO Username}" inside table
     And I wait for "3" seconds
     And I get the "EGMS ID"
-    And I re-login to "Grantor" app as "SARAH PM" user on "INTERNAL" portal
+    And I re-login to "Grantor" app as "FO" user on "INTERNAL" portal
     When I navigate to "Monitoring" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record id" in "---deskreview:-:monitoringTabPhasePendingTasks---" panel
@@ -10588,8 +10589,7 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     Then I softly see value "Automation SPI3" for title "Name" inside table "---deskreview:-:participantsTableId---"
     Then I softly see value "{SavedValue:Automation Runtime Award Record}" for title "Subaward Title" inside table "---deskreview:-:associateAwardDeskReviewTableId---"
     When I navigate to "Responsibilities" sub tab
-    Then I softly see value "{SavedValue:EXE1 Username}" for title "Name" inside table "---deskreview:-:approverDeskReviewTableId---"
-    Then I softly see value "{SavedValue:FO Username}" for title "Name" inside table "---deskreview:-:approverDeskReviewTableId---"
+    Then I softly see value "{SavedValue:FO Username}" for title "Name" inside table "---deskreview:-:reviewersFlexTableId---"
     When I navigate to "Files" sub tab
     Then I softly see value "Attachment.pdf" for title "Title" inside table "---deskreview:-:deskReviewsFilesTableId---"
     Then I softly see value "Notes Record" for title "Title" inside table "---deskreview:-:grantordeskReviewNotesTableId---"
@@ -10618,10 +10618,8 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     Then I softly see value "{SavedValue:PM1 Username}" for title "Name" inside table "---deskreview:-:participantsTableId---"
     Then I softly see value "{SavedValue:EXE1 Username}" for title "Name" inside table "---deskreview:-:participantsTableId---"
     Then I softly see value "Automation SPI3" for title "Name" inside table "---deskreview:-:participantsTableId---"
-    And I click on top right button "Associate" in flex table with id "---deskreview:-:associateAwardDeskReviewTableId---"
-    When I click "Associate" after selection of "{SavedValue:Automation Runtime Amendment Award}" in the table "---deskreview:-:awardDeskReviewTableId---"
     Then I softly see value "{SavedValue:Automation Runtime Amendment Award}" for title "Subaward Title" inside table "---deskreview:-:associateAwardDeskReviewTableId---"
-    And I re-login to "Grantor" app as "SARAH PM" user on "INTERNAL" portal
+    And I re-login to "Grantor" app as "PO" user on "INTERNAL" portal
     When I navigate to "Monitoring" tab
     When I navigate to "Desk Reviews" content inside "Monitoring Activities" subheader on left panel
     When I perform quick search for "{SavedValue:DREGMSID}" in "---deskreview:-:deskReviewGridViewTableId---" panel
@@ -10765,14 +10763,14 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
-    And I perform quick search for "{SavedValue:Automation Runtime Award Site Visit}" in "GrantorActiveGrants" panel
-    And I click on "View" icon for "{SavedValue:Automation Runtime Award Site Visit}" inside flex table with id "GrantorActiveGrants"
+    And I perform quick search for "{SavedValue:Automation Runtime Award Record}" in "GrantorActiveGrants" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Award Record}" inside flex table with id "GrantorActiveGrants"
     And I navigate to "Files" sub tab
     When I enter the following values into flex table with id "---subAwardStandAlone:-:flexGridGrantChecklistsTableId---" by clicking "Add" :
       | Description | Required  | Applies To | Status |
       | Automation  | Mandatory | Site Visit | Active |
     When I navigate to "Subawards" sub tab
-    And I click on "View" icon for "{SavedValue:Automation Runtime Award Site Visit}" inside flex table with id "---sitevisits:-:GrantsSubAwardsTableId---"
+    And I click on "View" icon for "{SavedValue:Automation Runtime Award Record}" inside flex table with id "---sitevisits:-:GrantsSubAwardsTableId---"
     Given I navigate to "Management" sub tab
     And I click on top right button "Initiate Site Visit" in flex table with id "---sitevisits:-:InitiateSiteVisitTableId---"
     And I enter "Creation" values from "SiteVisit_Field_Values.xlsx"
@@ -10795,6 +10793,7 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     When I click "Associate" after selection of "Automation SPA" in the table "---sitevisits:-:siteVisitContactsTableId---"
     And I click on top right button "Associate" in flex table with id "---sitevisits:-:associateAwardSiteVisitsTableId---"
     When I click "Associate" after selection of "{SavedValue:Automation Runtime Award Record}" in the table "---sitevisits:-:awardSiteVisitsTableId---"
+    And I refresh the page
     When I re-login to "Grantor" app as "PO" user on "INTERNAL" portal
     When I navigate to "Home" tab
     And I select "Site Visits" from dropdown for Global search
@@ -10817,10 +10816,12 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     Then I see value "{SavedValue:SVEGMSID}" for title "EGMS ID" inside table "---sitevisits:-:manageSiteVisitTableId---"
     And I click on "View" icon for "{SavedValue:SVEGMSID}" inside flex table with id "---sitevisits:-:manageSiteVisitTableId---"
     Given I navigate to "Overview" sub tab
-    And I click on top right button "Associate" in flex table with id "---sitevisits:-:participantsTableId---"
+    And I click on top right button "Associate" in flex table with sid "---sitevisits:-:participantsTableId---"
     When I click "Associate" after selection of "Automation SPA" in the table "---sitevisits:-:siteVisitContactsTableId---"
     And I click on top right button "Associate" in flex table with id "---sitevisits:-:associateAwardSiteVisitsTableId---"
     When I click "Associate" after selection of "{SavedValue:Automation Runtime Award Record}" in the table "---sitevisits:-:awardSiteVisitsTableId---"
+    And I refresh the page
+    And I wait for "2" seconds
     And I click on "Notify" in the page details
     When I click on "Conduct" in the page details
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal

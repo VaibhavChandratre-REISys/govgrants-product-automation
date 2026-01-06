@@ -7341,6 +7341,9 @@ Feature: Payment Request scenarios without background
     And I click on "View" icon for "{SavedValue:Automation Runtime Direct Award}" inside table
     And I navigate to "Files" sub tab
     And I wait for "2" seconds
+    When I enter the following values into flex table with id "---progressreport:-:grantChecklistsTableId---" by clicking "Add" :
+      | Description | Required | Applies To      | Status |
+      | Automation  | Optional | Advance Request | Active |
     And I click on "Upload Template" icon for "Advance Request" inside flex table with id "---progressreport:-:grantChecklistsTableId---" with wait for record
     And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
     And I click modal button "Close"

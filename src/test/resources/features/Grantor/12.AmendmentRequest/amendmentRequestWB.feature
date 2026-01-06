@@ -28473,7 +28473,7 @@ Feature: Amendment Request scenarios without background
     Then I can see top right button "Edit" in page detail
     Then I cannot see top right button "Submit to Grantor" in page detail
     And I navigate to "Messages" sub tab
-    Then I can see top right button "Send Email" in flex table with id "---program:-:collabMessages---"
+    Then I can see top right button "Send Email" in flex table with id "---announcement:-:collabMessages---"
   #531691
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
@@ -28491,7 +28491,7 @@ Feature: Amendment Request scenarios without background
     Then I can see top right button "New" in flex table with id "---amendment:-:SubrecipientAmendmentNotesTableId---"
     Then I softly see value "Automation Notes" for title "Title" inside table "---amendment:-:SubrecipientAmendmentNotesTableId---"
     And I navigate to "Messages" sub tab
-    Then I can see top right button "Send Email" in flex table with id "---program:-:collabMessages---"
+    Then I can see top right button "Send Email" in flex table with id "---announcement:-:collabMessages---"
     Then I softly see status in Progress-bar is "Sent to Subrecipient" and is "dark blue"
     Then I can see top right button "Edit" in page detail
     Then I can see top right button "Submit to Grantor" in page detail

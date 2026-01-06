@@ -795,26 +795,29 @@ Feature: Validate all scenarios in Negotiations
     Then I softly see "Focus Area : Automation Permanent Focus Area" inside rows of enhanced grid id "---preApplication:-:SubRecipientBudgetPeriodTableId---"
     And I edit the following rows inline in flex table with id "---preApplication:-:preApplicationAttachmentId---" by clicking "Edit" :
       | Category Name | Budget | Cash Match | Non-Cash Match |
-      | Construction  | 500    | 100        | 100            |
+      | Construction  | 1000    | 500        | 100            |
     And I click on page navigation arrow "---preApplication:-:preApplicationAttachmentId---" for table id "Next"
     Then I softly see "Focus Area : Automation Permanent Focus Area2" inside rows of enhanced grid id "---preApplication:-:SubRecipientBudgetPeriodTableId---"
     And I edit the following rows inline in flex table with id "---preApplication:-:preApplicationAttachmentId---" by clicking "Edit" :
       | Category Name | Budget | Cash Match | Non-Cash Match |
-      | Construction  | 300    | 100        | 100            |
+      | Construction  | 1000    | 500        | 100            |
     And I click on page navigation arrow "---preApplication:-:preApplicationAttachmentId---" for table id "Next"
     Then I softly see "Focus Area : Automation Permanent Focus Area3" inside rows of enhanced grid id "---preApplication:-:SubRecipientBudgetPeriodTableId---"
     And I edit the following rows inline in flex table with id "---preApplication:-:preApplicationAttachmentId---" by clicking "Edit" :
       | Category Name | Budget | Cash Match | Non-Cash Match |
-      | Construction  | 200    | 100        | 100            |
+      | Construction  | 1000    | 500        | 100            |
     When I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I switch to tab number "1"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
+    And I wait for "2" seconds
     When I click on "Save" in the page details
+    And I wait for "2" seconds
     And I close the tab
     And I refresh the page
     And I wait for "3" seconds
     When I click on "Submit to Grantor" in the page details
+    Then I softly see field "Status" as "Submitted to Grantor"
     And I wait for "3" seconds
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Home" tab
@@ -910,27 +913,30 @@ Feature: Validate all scenarios in Negotiations
     Then I softly see "Focus Area : Automation Permanent Focus Area" inside rows of enhanced grid id "---preApplication:-:SubRecipientBudgetPeriodTableId---"
     And I edit the following rows inline in flex table with id "---preApplication:-:preApplicationAttachmentId---" by clicking "Edit" :
       | Category Name | Budget | Cash Match | Non-Cash Match |
-      | Construction  | 500    | 100        | 100            |
+      | Construction  | 1500    | 800        | 100            |
     And I click on page navigation arrow "---preApplication:-:preApplicationAttachmentId---" for table id "Next"
     Then I softly see "Focus Area : Automation Permanent Focus Area2" inside rows of enhanced grid id "---preApplication:-:SubRecipientBudgetPeriodTableId---"
     And I edit the following rows inline in flex table with id "---preApplication:-:preApplicationAttachmentId---" by clicking "Edit" :
       | Category Name | Budget | Cash Match | Non-Cash Match |
-      | Construction  | 500    | 100        | 100            |
+      | Construction  | 500    | 300        | 100            |
     And I click on page navigation arrow "---preApplication:-:preApplicationAttachmentId---" for table id "Next"
     Then I softly see "Focus Area : Automation Permanent Focus Area3" inside rows of enhanced grid id "---preApplication:-:SubRecipientBudgetPeriodTableId---"
     And I edit the following rows inline in flex table with id "---preApplication:-:preApplicationAttachmentId---" by clicking "Edit" :
       | Category Name | Budget | Cash Match | Non-Cash Match |
-      | Construction  | 500    | 100        | 100            |
+      | Construction  | 1500    | 300        | 100            |
     When I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I switch to tab number "1"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
+    And I wait for "2" seconds
     When I click on "Save" in the page details
+    And I wait for "2" seconds
     And I close the tab
     And I refresh the page
     And I wait for "3" seconds
     When I click on "Submit to Grantor" in the page details
     And I wait for "3" seconds
+    Then I softly see field "Status" as "Submitted to Grantor"
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Home" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -944,9 +950,9 @@ Feature: Validate all scenarios in Negotiations
     Then I softly see value "Automation SPI 7 contact" for title "Name" inside table "---preApplication:-:flexGridPreAppContactTableId---"
     And I navigate to "Budget" sub tab
     Then I softly cannot see top right button "Add Focus Area" in flex table with id "---applicationIntake:-:focusAreaTableAppId---"
-    Then I softly see value "$500.00" for title "Budget" against the value "Automation Permanent Focus Area" inside table "---preApplication:-:preApplicationAttachmentId---"
-    Then I softly see value "$200.00" for title "Budget" against the value "Automation Permanent Focus Area2" inside table "---preApplication:-:preApplicationAttachmentId---"
-    Then I softly see value "$300.00" for title "Budget" against the value "Automation Permanent Focus Area3" inside table "---preApplication:-:preApplicationAttachmentId---"
+    Then I softly see value "$1,500.00" for title "Budget" against the value "Automation Permanent Focus Area" inside table "---preApplication:-:preApplicationAttachmentId---"
+    Then I softly see value "$500.00" for title "Budget" against the value "Automation Permanent Focus Area2" inside table "---preApplication:-:preApplicationAttachmentId---"
+    Then I softly see value "$1,500.00" for title "Budget" against the value "Automation Permanent Focus Area3" inside table "---preApplication:-:preApplicationAttachmentId---"
     When I navigate to "Forms and Files" sub tab
     Then I softly cannot see row level action button "Edit" against "Standard Assurances Form" in flex table with id "---negotiation:-:filesFormsTableId---"
     Then I softly cannot see row level action button "Edit" against "Program Application Form" in flex table with id "---negotiation:-:filesFormsTableId---"

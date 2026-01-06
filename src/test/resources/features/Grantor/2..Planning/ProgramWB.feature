@@ -8364,8 +8364,12 @@ Feature: Validate all scenarios for program
     When I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---program:-:contactsTableId---"
     When I click "Associate" after selection of "{SavedValue:EXE Username}" by showing entries "All" in flex table with id "---program:-:associateContactsTableId---"
+    And I refresh the page
     Then I softly see value "{SavedValue:EXE Username}" for title "Name" inside table "---program:-:contactsTableId---"
     When I navigate to "Setup" sub tab
+    When I enter the following values into flex table with id "---program:-:checklistTableId---" by clicking "Add" :
+      | Description                 | Required  | Applies To  | Status |
+      | Automation test description | Mandatory | Application | Active |
     And I click on top right button "Associate" in flex table with id "---program:-:focusAreaTableId---"
     When I click "Associate" after selection of "Automation Permanent Focus Area" by showing entries "All" in flex table with id "---program:-:associateFocusAreaTableId---"
     And I click on top right button "Associate" in flex table with id "---program:-:objectivesTableId---"
@@ -8383,26 +8387,31 @@ Feature: Validate all scenarios for program
     And I save the value from row "1" for column name "Name" as "OwnerName" from flex table "---program:-:programOwnerTableId---"
     Then I softly see value "{SavedValue:PM Username}" for title "Name" inside table "---program:-:programOwnerTableId---"
     And I pause execution for "5" seconds
+    When I navigate to "Files" sub tab
+    Then I can see top right button "Add Files" in flex table with id "---program:-:GrantorInternalProgramFilesTableId---"
+    Then I can see top right button "New" in flex table with id "---program:-:internalProgramNotesTableId---"
     When I re-login to "Grantor" app as "<NonOwner>" user on "INTERNAL" portal
     And I navigate to "Planning" tab
     When I navigate to "Internal Programs" content inside "Programs" subheader on left panel
     And I click toggle button to select "Internal Programs - Draft"
     When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:programsTableId---" panel
     And I click on "View" icon for "{SavedValue:ProgramEGMSID}" inside flex table with id "---program:-:programsTableId---" without waiting for record
+    And I wait for "2" seconds
+    Then I softly see value "{SavedValue:EXE Username}" for title "Name" inside table "---program:-:contactsTableId---"
     And I navigate to "Setup" sub tab
-    When I enter the following values into flex table with id "---program:-:checklistTableId---" by clicking "Add" :
-      | Description                 | Required  | Applies To  | Status |
-      | Automation test description | Mandatory | Application | Active |
+    Then I softly see value "Mandatory" for title "Required" inside table "---program:-:checklistTableId---"
+    Then I softly see value "Application" for title "Applies To" inside table "---program:-:checklistTableId---"
+    Then I softly see value "Active" for title "Status" inside table "---program:-:checklistTableId---"
     When I navigate to "Files" sub tab
-    Then I can see top right button "Add Files" in flex table with id "---program:-:GrantorInternalProgramFilesTableId---"
-    Then I can see top right button "New" in flex table with id "---program:-:internalProgramNotesTableId---"
+    Then I cannot see top right button "Add Files" in flex table with id "---program:-:GrantorInternalProgramFilesTableId---"
+    Then I <Validation> top right button "New" in flex table with id "---program:-:internalProgramNotesTableId---"
     Examples:
-      | NonOwner |
-      | PO       |
-      | EXE      |
-      | FO       |
-      | FD       |
-      | AUDITOR  |
+      | NonOwner | Validation  |
+      | PO       |  can see    |
+      | EXE      |  can see    |
+      | FO       |  can see    |
+      | FD       |  can see    |
+      | AUDITOR  |  cannot see |
 
   @535723 @535719 @535715 @ValidateExternal/NGOorg1users(PM/PO/EXE)cancreateExternal/NGOProgramthenallusersshouldhaveviewaccesstoitirrespectiveofparticularorganization. @GrantorFlexP1
   Scenario Outline: Validate External/NGO org 1 users (PM/PO/EXE)can create External/NGO Program then all users should have view access to it irrespective of particular organization.
@@ -8497,7 +8506,7 @@ Feature: Validate all scenarios for program
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Planning" tab
     When I navigate to "External Programs" content inside "Programs" subheader on left panel
-    And I click toggle button to select "NGO Programs - Draft"
+    And I click toggle button to select "NGO Programs - All"
     When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:ExternalNGOProgramTableId---" panel
     And I click on "View" icon for "{SavedValue:ProgramEGMSID}" inside flex table with id "---program:-:ExternalNGOProgramTableId---" without waiting for record
     And I wait for "2" seconds
@@ -8506,7 +8515,7 @@ Feature: Validate all scenarios for program
     When I re-login to "Grantor" app as "<NonOwner>" user on "INTERNAL" portal
     And I navigate to "Planning" tab
     When I navigate to "External Programs" content inside "Programs" subheader on left panel
-    And I click toggle button to select "NGO Programs - Draft"
+    And I click toggle button to select "NGO Programs - All"
     When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:ExternalNGOProgramTableId---" panel
     And I click on "View" icon for "{SavedValue:ProgramEGMSID}" inside flex table with id "---program:-:ExternalNGOProgramTableId---" without waiting for record
     Then I softly see status in Progress-bar is "Active" and is "dark blue"
@@ -8577,7 +8586,7 @@ Feature: Validate all scenarios for program
     When I click modal button "Close"
     And I wait for "2" seconds
     Then I softly see value "Attachment.pdf" for title "Title" inside table "---grantee_tableId:-:nonFedAddFilesTableId---"
-    Then I can see top right button "New" in flex table with id "---grantee_tableId:-:nonFedNotesTableId---"
+    Then I can see top right button "New" in flex table with id "---program:-:externalProgramNotesTableId---"
     When I enter the following values into flex table with id "---program:-:externalProgramNotesTableId---" by clicking "New" :
       | Title        | Description      |
       | Notes Record | Automation Notes |

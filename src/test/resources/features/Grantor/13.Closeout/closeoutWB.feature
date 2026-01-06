@@ -5671,14 +5671,14 @@ Feature: Validate all scenarios in Closeout
     Then I softly can see "Messages" sub tab at view detail page
     And I navigate to "Overview" sub tab
     Then I softly see "Grant Overview" page block displayed
-    Then I softly see "Budget Summery By Focus Area" page block displayed
+    Then I softly see "Budget Summary By Focus Area" page block displayed
     Then I softly see "Funding Account Information" page block displayed
     Then I softly see "Closeout Request Details" page block displayed
     Then I softly see "Acknowledgement" page block displayed
     Then I softly see "System Information" page block displayed
     Then I softly see value "Automation Permanent Focus Area" for title "Title" inside table "---closeout:-:grantorBudgetSummaryFocusAreaTableId---"
     Then I softly see value "$0.00" for title "Closeout Deobligation" inside table "---closeout:-:closeoutFundingAccountsTableId---"
-    When I navigate to "Open  Items" sub tab
+    When I navigate to "Open Items" sub tab
     Then I softly see "Pending Amendment Requests" page block displayed
     Then I softly see "Pending Progress Reports" page block displayed
     Then I softly see "Pending Payment Requests" page block displayed
@@ -5746,14 +5746,14 @@ Feature: Validate all scenarios in Closeout
     Then I softly cannot see top right button "Edit" in page detail
     And I navigate to "Overview" sub tab
     Then I softly see "Grant Overview" page block displayed
-    Then I softly see "Budget Summery By Focus Area" page block displayed
+    Then I softly see "Budget Summary By Focus Area" page block displayed
     Then I softly see "Funding Account Information" page block displayed
     Then I softly see "Closeout Request Details" page block displayed
     Then I softly see "Acknowledgement" page block displayed
     Then I softly see "System Information" page block displayed
     Then I softly see value "Automation Permanent Focus Area" for title "Title" inside table "---closeout:-:grantorBudgetSummaryFocusAreaTableId---"
     Then I softly see value "$0.00" for title "Closeout Deobligation" inside table "---closeout:-:closeoutFundingAccountsTableId---"
-    When I navigate to "Open  Items" sub tab
+    When I navigate to "Open Items" sub tab
     Then I softly see "Pending Amendment Requests" page block displayed
     Then I softly see "Pending Progress Reports" page block displayed
     Then I softly see "Pending Payment Requests" page block displayed
@@ -5788,6 +5788,10 @@ Feature: Validate all scenarios in Closeout
     And I click toggle button to select "Grants - Active"
     When I perform quick search for "{SavedValue:Automation Runtime Award for closeout}" in "---closeout:-:grantsTableId---" panel
     And I click on "View" icon for "{SavedValue:Automation Runtime Award for closeout}" inside flex table with id "---closeout:-:grantsTableId---"
+    And I navigate to "Files" sub tab
+    When I enter the following values into flex table with id "---subAwardStandAlone:-:flexGridGrantChecklistsTableId---" by clicking "Add" :
+      | Description | Required  | Applies To              | Status |
+      | Automation  | Mandatory | Project Period Closeout | Active |
     When I navigate to "Requests" sub tab
     And I click on top right button "New" in flex table with id "---closeout:-:closeoutTableId---"
     When I enter in modal "Creation" values from "Closeout_Field_Values.xlsx"
@@ -5839,6 +5843,7 @@ Feature: Validate all scenarios in Closeout
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
+    And I wait for "3" seconds
     When I perform quick search for "{SavedValue:Automation Runtime Award for closeout}" in "---closeout:-:grantsTableId---" panel
     And I click on "View" icon for "{SavedValue:Automation Runtime Award for closeout}" inside flex table with id "---closeout:-:grantsTableId---"
     When I navigate to "Requests" sub tab
@@ -5867,7 +5872,7 @@ Feature: Validate all scenarios in Closeout
     Then I softly see "Acknowledgement" page block displayed
     Then I softly see "System Information" page block displayed
     Then I softly see value "Automation Permanent Focus Area" for title "Title" inside table "---closeout:-:grantorBudgetSummaryFocusAreaTableId---"
-    When I navigate to "Open  Items" sub tab
+    When I navigate to "Open Items" sub tab
     Then I softly see "Pending Amendment Requests" page block displayed
     Then I softly see "Pending Progress Reports" page block displayed
     Then I softly see "Pending Payment Requests" page block displayed

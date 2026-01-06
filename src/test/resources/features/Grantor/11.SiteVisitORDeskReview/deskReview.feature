@@ -1599,6 +1599,8 @@ Feature: Validate all scenarios in Desk Review
     And I wait for "2" seconds
     When I click "Associate" after selection of "{SavedValue:Automation Runtime Award Record}" in the table "---deskreview:-:awardDeskReviewTableId---"
     And I wait for "2" seconds
+    And I refresh the page
+    And I wait for "2" seconds
     Then I softly see value "{SavedValue:Automation Runtime Award Record}" for title "Subaward Title" inside table "---deskreview:-:associateAwardDeskReviewTableId---"
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---deskreview:-:approverDeskReviewTableId---" by clicking "New" :

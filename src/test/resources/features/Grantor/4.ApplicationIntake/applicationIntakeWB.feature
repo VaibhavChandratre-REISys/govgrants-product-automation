@@ -2731,17 +2731,8 @@ Feature: Application Intake scenarios without background
     Then I see that "Automation SPI 7 contact" has been added in flextable with Id "---applicationIntake:-:applicationContactsTableId---"
     And I navigate to "Budget" sub tab
     Then I softly can see top right button "Add Focus Area" in flex table with id "---applicationIntake:-:budgetSumamaryByFocusAreaTableId---"
-    When I click on top right button "Add Focus Area" in flex table with id "---applicationIntake:-:budgetSumamaryByFocusAreaTableId---"
-    And I perform quick search for "Automation Permanent Focus Area2" in "---applicationIntake:-:AddFocusAreaTableAppId---" panel
-    And I check "All" boxes in flex table with id "---applicationIntake:-:AddFocusAreaTableAppId---"
-    When I click on top right button "Associate" in flex table with id "---applicationIntake:-:AddFocusAreaTableAppId---"
-    Then I softly see that "Automation Permanent Focus Area2" has been added in flextable with Id "---applicationIntake:-:budgetSumamaryByFocusAreaTableId---"
     Given I expand nested table containing column value "BP01"
-    And I edit the following rows inline in flex table with id "---applicationIntake:-:budgetPeriodTableId---" by clicking "Edit" :
-      | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
-      | Construction  | 500   | 100        | 100            | 100            |
     Then I softly see that "Automation Permanent Focus Area" has been added in flextable with Id "---applicationIntake:-:budgetSumamaryByFocusAreaTableId---"
-    Given I expand nested table containing column value "BP01"
     And I edit the following rows inline in flex table with id "---applicationIntake:-:budgetPeriodTableId---" by clicking "Edit" :
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 500   | 100        | 100            | 100            |

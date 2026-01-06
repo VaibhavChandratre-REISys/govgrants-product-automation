@@ -213,6 +213,9 @@ public class UsersAndURL implements UsersController {
             case "IND":
                 password = "Auto@2021";
                 break;
+            case "ADMIN":
+                password = "Auto@2021";
+                break;
             default:
                 password = "Auto@2020";
         }

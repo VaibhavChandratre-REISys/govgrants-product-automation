@@ -6484,16 +6484,16 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     Then I softly cannot see row level action button "Edit" against "Attachment.pdf" in flex table with id "---subAwardStandAlone:-:addFilesTableId---"
     Then I softly cannot see row level action button "Delete" against "Attachment.pdf" in flex table with id "---subAwardStandAlone:-:addFilesTableId---"
     Then I softly can see row level action button "Download" against "Attachment.pdf" in flex table with id "---subAwardStandAlone:-:addFilesTableId---"
-    Then I can see top right button "New" in flex table with id "---subAwardStandAlone:-:notesAwardTableId---"
+    Then I <Validation> top right button "New" in flex table with id "---subAwardStandAlone:-:notesAwardTableId---"
     Then I softly see value "Notes Record" for title "Title" inside table "---subAwardStandAlone:-:notesAwardTableId---"
     Examples:
-      | NonOwner |
-      | EXE      |
-      | PO       |
-      | FO       |
-      | FD       |
-      | Auditor  |
-      | ADMIN    |
+      | NonOwner | Validation |
+      | EXE      | can see    |
+      | PO       | can see    |
+      | FO       | can see    |
+      | FD       | can see    |
+      | Auditor  | cannot see |
+      | ADMIN    | can see    |
 
   @533441 @530983 @validateSPI/SPAexternalusershouldseegrantandawardrecordoncegrantorsendthatrecordtoS/Ruser @GrantorFlexP1
   Scenario Outline: Validate SPI/SPA external user should see grant and award record once grantor send that record to S/R user
@@ -6659,10 +6659,10 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     Then I softly see field "Status" as "Sent to Subrecipient"
     And I re-login to "Grants Portal" app as "<SrUser>" user on "SUBPORTAL" portal
     When I navigate to "Grants" tab
-    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    And I perform quick search for "Record Id" in "---subAwardStandAlone:-:pendingTaskTableId---" panel
+    When I navigate to "{SavedValue:AwardEGMSID}" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "{SavedValue:AwardEGMSID}" in "---subAwardStandAlone:-:pendingTaskTableId---" panel
     And I wait for "2" seconds
-    When I click on "Start" icon for "Record Id" inside flex table with id "---subAwardStandAlone:-:pendingTaskTableId---" without waiting for record
+    When I click on "Start" icon for "{SavedValue:AwardEGMSID}" inside flex table with id "---subAwardStandAlone:-:pendingTaskTableId---" without waiting for record
     Then I see value "Automation Permanent NGO Program" for title "Program Title" inside table "---subAwardStandAlone:-:subawardFederalProgramTableId---"
     Then I see value "Automation SPI3" for title "Name" inside table "---subAwardStandAlone:-:associateContactTableId---"
     And I navigate to "Budget" sub tab

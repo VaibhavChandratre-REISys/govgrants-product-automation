@@ -23237,7 +23237,6 @@ Feature: Validate all scenarios in the Application Review without background
       | Announcement Name                                               | Application Name                                                |
       | {SavedValue:Automation Runtime Announcement Application Review} | {SavedValue:Automation Runtime Announcement Application Review} |
 
-
   @532529 @ValidateappreviewshouldbevisibletowithallinternalusersifreviewresponsevisibilityasYesinviewmode(Pre-screenreview) @GrantorFlexP1
   Scenario: Validate  app review should be visible to with all internal users if review response visibility as Yes in view mode (Pre-screen review)
     When I login to "Grantor" app as "EXE" user
@@ -23286,19 +23285,17 @@ Feature: Validate all scenarios in the Application Review without background
       | Budget Period Name | Start Date | End Date |
       | BP01               | 50         | 150      |
     And I click on "Save" in the page details
-    And I navigate to "Setup" sub tab
+    When I navigate to "Setup" sub tab
+    And I click on top right button "Associate" in flex table with id "---announcement:-:objectivesTableId---"
+    When I click "Associate" after selection of "Automation Permanent Objective2" by showing entries "All" in flex table with id "---announcement:-:goalsTableId---"
+    And I click on "Edit" in the page details
     And I expand nested table containing column value "Pre-Screen Review"
-    When I enter the following values into flex table with id "---announcement:-:annReviewFormsTableId---" by clicking "New" :
-      | Form Name       |
-      | Automation Test |
-#    And I expand nested table containing column value "Pre-Screen Review"
-    And I click on "Review Form" icon for "Automation Test" inside flex table with id "---announcement:-:annReviewFormsTableId---" without waiting for record
-    When I enter the following values into flex table with id "---applicationReview:-:reviewPanelCategoriesTableId---" by clicking "New" :
-      | Section Order | Section Header  |
-      | 1             | Automation Test |
-    And I close "Review Form" modal by clicking the top right x button
+    And I edit the following rows inline in flex table with id "---announcement:-:AnnouncementReviewPanel---" by clicking "Edit" :
+      | Form Name  | Review Response Shared |
+      | Pre-Screen | Yes                     |
     And I refresh the page
     And I click on "Submit For Approval" in the page details
+    And I halt execution
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Announcements" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel

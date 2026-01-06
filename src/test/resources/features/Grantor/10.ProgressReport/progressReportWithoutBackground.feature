@@ -10711,6 +10711,9 @@ Feature: Validate scenarios in Progress Report without background
     When I perform quick search for "{SavedValue:Automation Runtime Direct Award}" in "---progressReport:-:activeGrantsTableId---" panel
     And I click on "View" icon for "{SavedValue:Automation Runtime Direct Award}" inside table
     And I navigate to "Files" sub tab
+    When I enter the following values into flex table with id "---progressreport:-:grantChecklistsTableId---" by clicking "Add" :
+      | Description | Required  | Applies To      | Status |
+      | Automation  | Mandatory | Progress Report | Active |
     And I click on "Upload Template" icon for "Progress Report" inside flex table with id "---progressreport:-:grantChecklistsTableId---" with wait for record
     And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
     And I click modal button "Close"
