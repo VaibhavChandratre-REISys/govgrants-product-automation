@@ -81,7 +81,7 @@ public final class Modal {
      */
     public void acceptPopUpForEditPage() {
         try {
-            if (I.amPerforming().checkToSee().IsElementPresentQuick(By.xpath("//div[contains(@class,'modal__container')]//div[contains(@class,'modal-header')]//h1[text()='Save Changes?']"))) {
+            if (I.amPerforming().checkToSee().isDisplayed(By.xpath("//div[contains(@class,'modal__container')]//div[contains(@class,'modal-header')]//h1[text()='Save Changes?']"))) {
                 WebElement popup = I.amPerforming().getElementReference().of(By.xpath("//div[contains(@class,'modal__container')]"));
                 I.amPerforming().click().on(I.amPerforming().getElementReference().ofNested(popup, By.xpath("//div[contains(@class,'modal__container')]//button[text()='Discard Changes']")));
             }
