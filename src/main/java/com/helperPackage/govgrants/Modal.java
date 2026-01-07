@@ -144,6 +144,21 @@ public final class Modal {
     public void clickAlertContentSpecificButtonForLwc(String buttonName) {
         I.amPerforming().click().on(By.xpath("//div[contains(@class,'modal__footer')]//button[text()='" + buttonName + "']"));
     }
+
+    /**
+     * Accept modal based on pop up for discard changes
+     */
+    public void acceptPopUpForEditPage() {
+        try {
+            if (I.amPerforming().checkToSee().isDisplayed(By.xpath("//div[contains(@class,'modal__container')]//div[contains(@class,'modal-header')]//h1[text()='Save Changes?']"))) {
+                WebElement popup = I.amPerforming().getElementReference().of(By.xpath("//div[contains(@class,'modal__container')]"));
+                I.amPerforming().click().on(I.amPerforming().getElementReference().ofNested(popup, By.xpath("//div[contains(@class,'modal__container')]//button[text()='Discard Changes']")));
+            }
+        } catch (Exception e) {
+
+        }
+
+    }
 }
 
 
