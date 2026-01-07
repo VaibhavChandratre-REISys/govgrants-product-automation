@@ -151,9 +151,9 @@ public final class Modal {
      */
     public void acceptPopUpForEditPage() {
         try {
-            if (I.amPerforming().checkToSee().isDisplayed(By.xpath("//div[contains(@class,'modal__container')]//div[contains(@class,'modal-header')]//h1[text()='Save Changes?']"))) {
+            if (I.amPerforming().checkToSee().isDisplayed(By.xpath("//div[contains(@class,'modal__container')]//div[contains(@class,'modal-header')]//h1[text()='Save Changes?'] | //div[contains(@class,'modal__container')]//header[contains(@class,'modal__header')]//h2[text()='Saved Changes'] | //div[contains(@class,'modal__container')]//div[contains(@class,'modal__header')]//h1[text()='Confirm']"))) {
                 WebElement popup = I.amPerforming().getElementReference().of(By.xpath("//div[contains(@class,'modal__container')]"));
-                I.amPerforming().click().on(I.amPerforming().getElementReference().ofNested(popup, By.xpath("//div[contains(@class,'modal__container')]//button[text()='Discard Changes']")));
+                I.amPerforming().click().on(I.amPerforming().getElementReference().ofNested(popup, By.xpath("//div[contains(@class,'modal__container')]//button[text()='Discard Changes' or text()='OK' or contains(text(),'Discard Changes')]")));
             }
         } catch (Exception e) {
 
