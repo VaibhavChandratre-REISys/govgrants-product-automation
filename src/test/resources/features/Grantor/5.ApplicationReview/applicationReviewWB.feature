@@ -23295,7 +23295,6 @@ Feature: Validate all scenarios in the Application Review without background
       | Pre-Screen | Yes                     |
     And I refresh the page
     And I click on "Submit For Approval" in the page details
-    And I halt execution
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Announcements" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel

@@ -5818,7 +5818,7 @@ Feature: Pre-Application scenarios without background
     Then I softly see value "Automation SPI 7 contact" for title "Name" inside table "---preApplication:-:flexGridPreAppContactTableId---"
     And I edit the following rows inline in flex table with id "---preApplication:-:preAppContactTableId---" by clicking "Edit" :
       | Name                       | Is Key Contact |
-      | {SavedValue:SPI3 Username} | Checked        |
+      | {SavedValue:SPA Username} | Checked        |
     And I wait for "2" seconds
     When I navigate to "Budget" sub tab
     Given I expand nested table containing column value "BP01"
@@ -5910,14 +5910,114 @@ Feature: Pre-Application scenarios without background
     When I click modal button "Save and Continue"
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "PreAppEGMSID"
+    And I enter "Edition1" values from "PreApplication_Field_Values.xlsx"
+    When I click on "Save" in the page details
+    And I wait for "5" seconds
+    When I navigate to "Overview" sub tab
+   And I click table top right button "Associate" in flex table with id "---preApplication:-:flexGridPreAppContactTableId---"
+    When I click "Add" after selection of "Automation SPI 4 contact" by showing entries "All" in flex table with id "---preApplication:-:associatePreAppContactsTableId---"
+    And I wait for "3" seconds
+    When I close "Associate Contacts" modal by clicking the top right x button
+    Then I softly see value "Automation SPI 4 contact" for title "Name" inside table "---preApplication:-:flexGridPreAppContactTableId---"
+    And I click table top right button "Associate" in flex table with id "---preApplication:-:flexGridPreAppContactTableId---"
+    When I click "Add" after selection of "Automation SPI 5 contact" by showing entries "All" in flex table with id "---preApplication:-:associatePreAppContactsTableId---"
+    And I wait for "3" seconds
+    When I close "Associate Contacts" modal by clicking the top right x button
+    Then I softly see value "Automation SPI 5 contact" for title "Name" inside table "---preApplication:-:flexGridPreAppContactTableId---"
+    And I click table top right button "Associate" in flex table with id "---preApplication:-:flexGridPreAppContactTableId---"
+    When I click "Add" after selection of "Automation SPI 6 contact" by showing entries "All" in flex table with id "---preApplication:-:associatePreAppContactsTableId---"
+    And I wait for "3" seconds
+    When I close "Associate Contacts" modal by clicking the top right x button
+    Then I softly see value "Automation SPI 6 contact" for title "Name" inside table "---preApplication:-:flexGridPreAppContactTableId---"
+    And I click table top right button "Associate" in flex table with id "---preApplication:-:flexGridPreAppContactTableId---"
+    When I click "Add" after selection of "Automation SPI 7 contact" by showing entries "All" in flex table with id "---preApplication:-:associatePreAppContactsTableId---"
+    And I wait for "3" seconds
+    When I close "Associate Contacts" modal by clicking the top right x button
+    Then I softly see value "Automation SPI 7 contact" for title "Name" inside table "---preApplication:-:flexGridPreAppContactTableId---"
+    And I edit the following rows inline in flex table with id "---preApplication:-:preAppContactTableId---" by clicking "Edit" :
+      | Name                       | Is Key Contact |
+      | {SavedValue:SPA Username} | Checked        |
+    And I wait for "2" seconds
+    When I navigate to "Budget" sub tab
+    And I save the field labeled "Subaward Floor" as "subawardfloor"
+    And I save the field labeled "Subaward Ceiling" as "subawardceiling"
+    Given I expand nested table containing column value "BP01"
+    And I edit the following rows inline in flex table with id "---preApplication:-:budgetCategoryGridTableId---" by clicking "Edit" :
+      | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
+      | Construction  | 5000   | 500       | 50             | 100            |
+    And I refresh the page
+    When I navigate to "Forms and Files" sub tab
+    When I click on "Attach" icon for "Mandatory" inside flex table with id "---preApplication:-:preApplicationChecklistId---" without waiting for record
+    And I wait for "2" seconds
+    And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
+    And I wait for "2" seconds
+    When I click modal button "Close"
+    And I wait for "2" seconds
+    Then I softly see value "View" for title "Subrecipient Document Link" against the value "Mandatory" inside table "Supporting Documents Checklist"
+    And I click on top right button "Add Files" in flex table with id "---preApplication:-:ExternalPreApplicationFilesTableId---"
+    And I upload attachment without random number "Attachment.pdf" of type "Other" from computer
+    And I wait for "2" seconds
+    When I click modal button "Close"
+    Then I softly see value "Attachment.pdf" for title "Title" inside table "---preApplication:-:ExternalPreApplicationFilesTableId---"
+    And I refresh the page
+    And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
+    And I switch to tab number "1"
+    And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
+    When I click on "Save" in the page details
+    And I click on "Back" in the page details
+    Then I softly see top right button "New" inside flex table "---preApplication:-:preApplicationNotesTableId---"
+    When I enter the following values into flex table with id "---preApplication:-:preApplicationNotesTableId---" by clicking "New" :
+      | Title        | Description      |
+      | Notes Record | Automation Notes |
+    Then I softly see value "Notes Record" for title "Title" inside table "---preApplication:-:preApplicationNotesTableId---"
+    And I get the "EGMS ID"
+    And I wait for "3" seconds
     And I re-login to "Grants Portal" app as "<User2>" user on "SUBPORTAL" portal
     When I navigate to "Applications" tab
     And I navigate to "Pre-Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Pre-Applications - All"
     And I wait for "2" seconds
-    And I perform quick search for "{SavedValue:PreAppEGMSID}" in "---grantee_tableId:-:PreApplication---" panel
+    And I perform quick search for "{SavedValue:PreAppEGMSID}" in "---preApplication:-:recipientPreApplicationsTableId---" panel
     When I click on "View" icon for "{SavedValue:PreAppEGMSID}" inside table
-    Then I see field "EGMS ID" as "PreappEGMSID"
+    Then I see field "EGMS ID" as "{SavedValue:PreAppEGMSID}"
+    Then I softly can see top right button "Edit" in page detail
+    Then I <Validation> top right button "Submit to Grantor" in page detail
+    When I navigate to "Overview" sub tab
+    Then I softly see value "Automation SPI 4 contact" for title "Name" inside table "---preApplication:-:flexGridPreAppContactTableId---"
+    Then I softly see value "Automation SPI 5 contact" for title "Name" inside table "---preApplication:-:flexGridPreAppContactTableId---"
+    Then I softly see value "Automation SPI 6 contact" for title "Name" inside table "---preApplication:-:flexGridPreAppContactTableId---"
+    Then I softly see value "Automation SPI 7 contact" for title "Name" inside table "---preApplication:-:flexGridPreAppContactTableId---"
+    When I navigate to "Budget" sub tab
+    Then I see field "Subaward Floor" as "{SavedValue:subawardfloor}"
+    Then I see field "Subaward Ceiling" as "{SavedValue:subawardceiling}"
+    Given I expand nested table containing column value "BP01"
+    And I edit the following rows inline in flex table with id "---preApplication:-:budgetCategoryGridTableId---" by clicking "Edit" :
+      | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
+      | Construction  | 5000   | 500       | 50             | 100            |
+    When I navigate to "Forms and Files" sub tab
+    Then I softly see value "View" for title "Subrecipient Document Link" against the value "Mandatory" inside table "Supporting Documents Checklist"
+    Then I softly see value "Attachment.pdf" for title "Title" inside table "---preApplication:-:ExternalPreApplicationFilesTableId---"
+    Then I softly see value "Standard Pre-Application form" for title "Form Name" inside table "---preApplication:-:preAppFormTableId---"
+    Then I softly can see row level action button "Splitview" against "Standard Pre-Application form" in flex table with id "---preApplication:-:preAppFormTableId---"
+    Then I softly can see row level action button "View" against "Standard Pre-Application form" in flex table with id "---preApplication:-:preAppFormTableId---"
+    Then I softly can see row level action button "Edit" against "Standard Pre-Application form" in flex table with id "---preApplication:-:preAppFormTableId---"
+    Then I can see row level action button "Preview" against "Standard Pre-Application form" in flex table with id "---preApplication:-:preAppFormTableId---"
+    And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
+    And I switch to tab number "1"
+    When I click on "Save" in the page details
+    And I click on "Back" in the page details
+    Then I softly see value "Standard Pre-Application form" for title "Form Name" inside table "---preApplication:-:preAppFormTableId---"
+    Then I softly see value "Notes Record" for title "Title" inside table "---preApplication:-:preApplicationNotesTableId---"
+    Then I softly cannot see row level action button "Edit" against "Notes Record" in flex table with id "---preApplication:-:preApplicationNotesTableId---"
+    Then I softly cannot see row level action button "Delete" against "Notes Record" in flex table with id "---preApplication:-:preApplicationNotesTableId---"
+    Then I softly see top right button "New" inside flex table "---preApplication:-:preApplicationNotesTableId---"
+    When I enter the following values into flex table with id "---preApplication:-:preApplicationNotesTableId---" by clicking "New" :
+      | Title        | Description      |
+      | Notes Record1 | Automation Notes1 |
+    Then I softly see value "Notes Record1" for title "Title" inside table "---preApplication:-:preApplicationNotesTableId---"
+    Then I softly can see row level action button "Edit" against "Notes Record" in flex table with id "---preApplication:-:preApplicationNotesTableId---"
+    Then I softly can see row level action button "Delete" against "Notes Record" in flex table with id "---preApplication:-:preApplicationNotesTableId---"
     Examples:
-      |  User1 |  User2  |
-      |  SPI3  |   SPA  |
+      |  User1 |  User2  | Validation             |
+      |  SPI3  |   SPA   | softly cannot see      |
+      |  SPA   |   SPI3  | softly can see         |
