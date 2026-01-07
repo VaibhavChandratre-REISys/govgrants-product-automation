@@ -10482,7 +10482,6 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
 
   @532407 @532403 @532404 @validateAwarddeskreviewInternalusershouldseethecorrectnumberofrecordsinthechildtables @GrantorFlexP1
   Scenario: Validate Award Desk Review -Internal user should see the correct number of records in the child tables
-    Given I activated standalone subaward "Automation Runtime Award Site Visit" with properties "default" of type "Competitive"
     Given I activated standalone subaward "Automation Runtime Award Record" with properties "default" of type "Competitive"
     When I login to "Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -10771,6 +10770,7 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
       | Automation  | Mandatory | Site Visit | Active |
     When I navigate to "Subawards" sub tab
     And I click on "View" icon for "{SavedValue:Automation Runtime Award Record}" inside flex table with id "---sitevisits:-:GrantsSubAwardsTableId---"
+    When I save the field labeled "EGMS ID" as "awardEGMSID"
     Given I navigate to "Management" sub tab
     And I click on top right button "Initiate Site Visit" in flex table with id "---sitevisits:-:InitiateSiteVisitTableId---"
     And I enter "Creation" values from "SiteVisit_Field_Values.xlsx"
@@ -10791,9 +10791,12 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     Given I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---sitevisits:-:participantsTableId---"
     When I click "Associate" after selection of "Automation SPA" in the table "---sitevisits:-:siteVisitContactsTableId---"
-    And I click on top right button "Associate" in flex table with id "---sitevisits:-:associateAwardSiteVisitsTableId---"
-    When I click "Associate" after selection of "{SavedValue:Automation Runtime Award Record}" in the table "---sitevisits:-:awardSiteVisitsTableId---"
     And I refresh the page
+    And I click on top right button "Associate" in flex table with id "---sitevisits:-:associateAwardSiteVisitsTableId---"
+    When I click "Associate" after selection of "{SavedValue:awardEGMSID}" in the table "---sitevisits:-:awardSiteVisitsTableId---"
+    And I refresh the page
+    And I wait for "3" seconds
+    Then I softly see value "{SavedValue:AwardEGMSID}" for title "EGMS ID" inside table "---sitevisits:-:awardSiteVisitsTableId---"
     When I re-login to "Grantor" app as "PO" user on "INTERNAL" portal
     When I navigate to "Home" tab
     And I select "Site Visits" from dropdown for Global search
