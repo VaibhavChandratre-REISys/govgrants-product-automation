@@ -5817,14 +5817,14 @@ Feature: Pre-Application scenarios without background
     When I close "Associate Contacts" modal by clicking the top right x button
     Then I softly see value "Automation SPI 7 contact" for title "Name" inside table "---preApplication:-:flexGridPreAppContactTableId---"
     And I edit the following rows inline in flex table with id "---preApplication:-:preAppContactTableId---" by clicking "Edit" :
-      | Name                       | Is Key Contact |
+      | Name                      | Is Key Contact |
       | {SavedValue:SPA Username} | Checked        |
     And I wait for "2" seconds
     When I navigate to "Budget" sub tab
     Given I expand nested table containing column value "BP01"
     And I edit the following rows inline in flex table with id "---preApplication:-:budgetCategoryGridTableId---" by clicking "Edit" :
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
-      | Construction  | 5000   | 500       | 50             | 100            |
+      | Construction  | 5000   | 500        | 50             | 100            |
     And I get the "EGMS ID"
     And I wait for "3" seconds
     When I click on "Submit to Grantor" in the page details
@@ -5866,30 +5866,30 @@ Feature: Pre-Application scenarios without background
     When I click on "Accept" in the page details
     Then I softly see field "Status" as "Accepted"
 
-    @526093 @validateexternaluserorg1users(SPI/SPA)/INDcancreatePre-applicationonlyif'Pre-applicationrequired'OptionisselectedasYesonopportunity @GrantorFlexP2
-    Scenario Outline: Validate External user org 1 users (SPI/SPA) /IND can create Pre-application only if 'Pre-application required' Option is selected as Yes on Opportunity
-      Given I published "Competitive" type announcement having name "Automation Runtime Announcement Application" and properties "PROGRAM_FOR_PREAPP_SUPP_DOC_YES"
-      And I am on "SUBPORTAL" portal
-      And I login to "Grants Portal" app as "<User>" user
-      When I navigate to "Opportunities" tab
-      And I navigate to "Not Yet Qualified" content inside "Opportunities" subheader on left panel
-      When I click toggle button to select "Not Yet Qualified Opportunities - All"
-      And I perform quick search for "{SavedValue:Automation Runtime Announcement Application}" in "---applicationIntake:-:activeOpportunitiesTableId---" panel
-      When I click on "View" icon for "{SavedValue:Automation Runtime Announcement Application}" inside table
-      And I save the field containing "Leverage Allowed?" as "Yes"
-      And I save the field containing "Maximum # Applications Allowed" as "1"
-      When I click on "Qualify" in the page details
-      Then I softly can see top right button "Create Pre-Application" in page detail
-      And I click on "Create Pre-Application" in the page details
-      And I wait for "3" seconds
-      When I click modal button "Save and Continue"
-      And I get the "EGMS ID"
-      And I save the field labeled "EGMS ID" as "PreAppEGMSID"
-     Examples:
-      |  User  |
-      |  SPI3  |
-      |  SPA   |
-      |  IND   |
+  @526093 @validateexternaluserorg1users(SPI/SPA)/INDcancreatePre-applicationonlyif'Pre-applicationrequired'OptionisselectedasYesonopportunity @GrantorFlexP2
+  Scenario Outline: Validate External user org 1 users (SPI/SPA) /IND can create Pre-application only if 'Pre-application required' Option is selected as Yes on Opportunity
+    Given I published "Competitive" type announcement having name "Automation Runtime Announcement Application" and properties "PROGRAM_FOR_PREAPP_SUPP_DOC_YES"
+    And I am on "SUBPORTAL" portal
+    And I login to "Grants Portal" app as "<User>" user
+    When I navigate to "Opportunities" tab
+    And I navigate to "Not Yet Qualified" content inside "Opportunities" subheader on left panel
+    When I click toggle button to select "Not Yet Qualified Opportunities - All"
+    And I perform quick search for "{SavedValue:Automation Runtime Announcement Application}" in "---applicationIntake:-:activeOpportunitiesTableId---" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement Application}" inside table
+    And I save the field containing "Leverage Allowed?" as "Yes"
+    And I save the field containing "Maximum # Applications Allowed" as "1"
+    When I click on "Qualify" in the page details
+    Then I softly can see top right button "Create Pre-Application" in page detail
+    And I click on "Create Pre-Application" in the page details
+    And I wait for "3" seconds
+    When I click modal button "Save and Continue"
+    And I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "PreAppEGMSID"
+    Examples:
+      | User |
+      | SPI3 |
+      | SPA  |
+      | IND  |
 
   @526096 @validateaccessofPre-applicationusingExternalorganization1users @GrantorFlexP2
   Scenario Outline: Validate External user org 1 users (SPI/SPA) /IND can create Pre-application only if 'Pre-application required' Option is selected as Yes on Opportunity
@@ -5914,7 +5914,7 @@ Feature: Pre-Application scenarios without background
     When I click on "Save" in the page details
     And I wait for "5" seconds
     When I navigate to "Overview" sub tab
-   And I click table top right button "Associate" in flex table with id "---preApplication:-:flexGridPreAppContactTableId---"
+    And I click table top right button "Associate" in flex table with id "---preApplication:-:flexGridPreAppContactTableId---"
     When I click "Add" after selection of "Automation SPI 4 contact" by showing entries "All" in flex table with id "---preApplication:-:associatePreAppContactsTableId---"
     And I wait for "3" seconds
     When I close "Associate Contacts" modal by clicking the top right x button
@@ -5935,7 +5935,7 @@ Feature: Pre-Application scenarios without background
     When I close "Associate Contacts" modal by clicking the top right x button
     Then I softly see value "Automation SPI 7 contact" for title "Name" inside table "---preApplication:-:flexGridPreAppContactTableId---"
     And I edit the following rows inline in flex table with id "---preApplication:-:preAppContactTableId---" by clicking "Edit" :
-      | Name                       | Is Key Contact |
+      | Name                      | Is Key Contact |
       | {SavedValue:SPA Username} | Checked        |
     And I wait for "2" seconds
     When I navigate to "Budget" sub tab
@@ -5944,7 +5944,7 @@ Feature: Pre-Application scenarios without background
     Given I expand nested table containing column value "BP01"
     And I edit the following rows inline in flex table with id "---preApplication:-:budgetCategoryGridTableId---" by clicking "Edit" :
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
-      | Construction  | 5000   | 500       | 50             | 100            |
+      | Construction  | 5000   | 500        | 50             | 100            |
     And I refresh the page
     When I navigate to "Forms and Files" sub tab
     When I click on "Attach" icon for "Mandatory" inside flex table with id "---preApplication:-:preApplicationChecklistId---" without waiting for record
@@ -5993,7 +5993,7 @@ Feature: Pre-Application scenarios without background
     Given I expand nested table containing column value "BP01"
     And I edit the following rows inline in flex table with id "---preApplication:-:budgetCategoryGridTableId---" by clicking "Edit" :
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
-      | Construction  | 5000   | 500       | 50             | 100            |
+      | Construction  | 5000   | 500        | 50             | 100            |
     When I navigate to "Forms and Files" sub tab
     Then I softly see value "View" for title "Subrecipient Document Link" against the value "Mandatory" inside table "Supporting Documents Checklist"
     Then I softly see value "Attachment.pdf" for title "Title" inside table "---preApplication:-:ExternalPreApplicationFilesTableId---"
@@ -6012,12 +6012,12 @@ Feature: Pre-Application scenarios without background
     Then I softly cannot see row level action button "Delete" against "Notes Record" in flex table with id "---preApplication:-:preApplicationNotesTableId---"
     Then I softly see top right button "New" inside flex table "---preApplication:-:preApplicationNotesTableId---"
     When I enter the following values into flex table with id "---preApplication:-:preApplicationNotesTableId---" by clicking "New" :
-      | Title        | Description      |
+      | Title         | Description       |
       | Notes Record1 | Automation Notes1 |
     Then I softly see value "Notes Record1" for title "Title" inside table "---preApplication:-:preApplicationNotesTableId---"
     Then I softly can see row level action button "Edit" against "Notes Record" in flex table with id "---preApplication:-:preApplicationNotesTableId---"
     Then I softly can see row level action button "Delete" against "Notes Record" in flex table with id "---preApplication:-:preApplicationNotesTableId---"
     Examples:
-      |  User1 |  User2  | Validation             |
-      |  SPI3  |   SPA   | softly cannot see      |
-      |  SPA   |   SPI3  | softly can see         |
+      | User1 | User2 | Validation        |
+      | SPI3  | SPA   | softly cannot see |
+      | SPA   | SPI3  | softly can see    |
