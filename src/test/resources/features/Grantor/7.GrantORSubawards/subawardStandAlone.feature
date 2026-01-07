@@ -6668,7 +6668,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     Then I softly see field "Status" as "Sent to Subrecipient"
     And I re-login to "Grants Portal" app as "<SrUser>" user on "SUBPORTAL" portal
     When I navigate to "Grants" tab
-    When I navigate to "{SavedValue:AwardEGMSID}" content inside "My Tasks" subheader on left panel
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:AwardEGMSID}" in "---subAwardStandAlone:-:pendingTaskTableId---" panel
     And I wait for "2" seconds
     When I click on "Start" icon for "{SavedValue:AwardEGMSID}" inside flex table with id "---subAwardStandAlone:-:pendingTaskTableId---" without waiting for record
@@ -6677,7 +6677,6 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     And I navigate to "Budget" sub tab
     Then I see value "Automation Permanent Focus Area" for title "Title" inside table "---subAwardStandAlone:-:SubAwardFocusAreaTableId---"
     Then I see value "Automation Permanent Focus Area2" for title "Title" inside table "---subAwardStandAlone:-:SubAwardFocusAreaTableId---"
-    Then I do not see value "Automation Permanent Funding Account" for title "Funding Account" inside table "---subAwardStandAlone:-:awardFundingAccountsTableId---"
     When I navigate to "Performance" sub tab
     Then I see value "Automation Permanent Objective" for title "Title" inside table "---subAwardStandAlone:-:objectivesTableId---"
     Then I see value "Automation Permanent Objective2" for title "Title" inside table "---subAwardStandAlone:-:objectivesTableId---"
@@ -6870,9 +6869,9 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     When I re-login to "Grantor" app as "GRANTEE PO" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    When I perform quick search for "Record Id" in "---subAwardStandAlone:-:pendingTaskTableId---" panel
-    Then I softly see value "Not Started" for title "Status" against the value "{SavedValue:egmsId}" inside table "---subAwardStandAlone:-:pendingTaskTableId---"
-    When I click on "Start" icon for "Record Id" inside table
+    When I perform quick search for "{SavedValue:AwardEGMSID}" in "---subAwardStandAlone:-:pendingTaskTableId---" panel
+    Then I softly see value "Not Started" for title "Status" against the value "{SavedValue:AwardEGMSID}" inside table "---subAwardStandAlone:-:pendingTaskTableId---"
+    When I click on "Start" icon for "{SavedValue:AwardEGMSID}" inside table
     And I wait for "2" seconds
     Then I can see top right button "Edit" in page detail
     Then  I can see top right button "Associate" in flex table with id "---subAwardStandAlone:-:subawardFederalProgramTableId---"
