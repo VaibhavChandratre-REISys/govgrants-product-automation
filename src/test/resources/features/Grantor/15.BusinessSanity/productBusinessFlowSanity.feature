@@ -498,7 +498,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click on "Publish" in the page details
     Then I see status in Progress-bar is "Published" and is "dark blue"
 
-  @72342 @publishingDirectedAnnouncement @ProdSan2 @ProdSan2_2 @ProdSan2_2_1
+  @72342 @publishingDirectedAnnouncement @ProdSan2 @ProdSan2_2 @ProdSan2_2_1 @wip
   Scenario: Validate the activation of Directed Announcement and the status changes to published and is green
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
