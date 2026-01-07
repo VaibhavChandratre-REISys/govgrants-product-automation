@@ -8533,15 +8533,15 @@ Feature: Validate all scenarios for program
     When I navigate to "Files" sub tab
     Then I cannot see top right button "Add Files" in flex table with id "---grantee_tableId:-:nonFedAddFilesTableId---"
     Then I softly see value "Attachment.pdf" for title "Title" inside table "---grantee_tableId:-:nonFedAddFilesTableId---"
-    Then I cannot see top right button "New" in flex table with id "---program:-:externalProgramNotesTableId---"
+    Then I <Validation> top right button "New" in flex table with id "---program:-:externalProgramNotesTableId---"
     Then I softly see value "Notes Record" for title "Title" inside table "---program:-:externalProgramNotesTableId---"
     Examples:
-      | NonOwner |
-      | PO       |
-      | EXE      |
-      | FO       |
-      | FD       |
-      | AUDITOR  |
+      | NonOwner | Validation  |
+      | PO       |  can see    |
+      | EXE      |  can see    |
+      | FO       |  can see    |
+      | FD       |  can see    |
+      | AUDITOR  |  cannot see |
 
   @535717 @ValidatethatInternal/ExternalusersseeContactstablewithallthedetails @GrantorFlexP1
   Scenario Outline: Validate that Internal/ External users see Contacts table with all the details
@@ -8591,12 +8591,13 @@ Feature: Validate all scenarios for program
       | Title        | Description      |
       | Notes Record | Automation Notes |
     Then I softly see value "Notes Record" for title "Title" inside table "---program:-:externalProgramNotesTableId---"
-    When I re-login to "Grants Portal" app as "<SrUser>" user on "SUBPORTAL" portal
+    When I re-login to "Grantor" app as "<NonOwner>" user on "INTERNAL" portal
     And I navigate to "Planning" tab
     When I navigate to "External Programs" content inside "Programs" subheader on left panel
-    And I click toggle button to select "NGO Programs - Draft"
+    And I click toggle button to select "NGO Programs - All"
     When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:ExternalNGOProgramTableId---" panel
     And I click on "View" icon for "{SavedValue:ProgramEGMSID}" inside flex table with id "---program:-:ExternalNGOProgramTableId---" without waiting for record
+    Then I softly see status in Progress-bar is "Active" and is "dark blue"
     When I navigate to "Overview" sub tab
     Then I softly see "Program Information" page block displayed
     Then I softly see "Details" page block displayed
@@ -8604,13 +8605,19 @@ Feature: Validate all scenarios for program
     Then I softly see "System Information" page block displayed
     Then I cannot see top right button "Associate" in flex table with id "---program:-:ExternalNGOProgramContactTableId---"
     Then I softly see value "NGO Contact" for title "Name" inside table "---program:-:ExternalNGOProgramContactTableId---"
-    Then I softly cannot see "Responsibilities" sub tab at view detail page
+    When I navigate to "Responsibilities" sub tab
+    Then I cannot see top right button "New" in flex table with id "---program:-:extapproverTableId---"
+    Then I softly see value "{SavedValue:PM Username}" for title "Name" inside table "---program:-:extapproverTableId---"
+    Then I softly see value "{SavedValue:EXE Username}" for title "Name" inside table "---program:-:extapproverTableId---"
     When I navigate to "Files" sub tab
     Then I cannot see top right button "Add Files" in flex table with id "---grantee_tableId:-:nonFedAddFilesTableId---"
     Then I softly see value "Attachment.pdf" for title "Title" inside table "---grantee_tableId:-:nonFedAddFilesTableId---"
-    Then I cannot see top right button "New" in flex table with id "---program:-:externalProgramNotesTableId---"
+    Then I <Validation> top right button "New" in flex table with id "---program:-:externalProgramNotesTableId---"
     Then I softly see value "Notes Record" for title "Title" inside table "---program:-:externalProgramNotesTableId---"
     Examples:
-      | SrUser |
-      | SPI    |
-      | SPA    |
+      | NonOwner | Validation  |
+      | PO       |  can see    |
+      | EXE      |  can see    |
+      | FO       |  can see    |
+      | FD       |  can see    |
+      | AUDITOR  |  cannot see |

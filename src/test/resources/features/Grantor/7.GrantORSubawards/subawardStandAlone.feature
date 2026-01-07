@@ -6669,36 +6669,37 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     And I re-login to "Grants Portal" app as "<SrUser>" user on "SUBPORTAL" portal
     When I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    And I perform quick search for "{SavedValue:AwardEGMSID}" in "---subAwardStandAlone:-:pendingTaskTableId---" panel
+    And I perform quick search for "{SavedValue:AwardEGMSID}" in "---subAwardStandAlone:-:subrecipientPendingtaskTableId---" panel
     And I wait for "2" seconds
-    When I click on "Start" icon for "{SavedValue:AwardEGMSID}" inside flex table with id "---subAwardStandAlone:-:pendingTaskTableId---" without waiting for record
-    Then I see value "Automation Permanent NGO Program" for title "Program Title" inside table "---subAwardStandAlone:-:subawardFederalProgramTableId---"
-    Then I see value "Automation SPI3" for title "Name" inside table "---subAwardStandAlone:-:associateContactTableId---"
+    When I click on "Start" icon for "{SavedValue:AwardEGMSID}" inside flex table with id "---subAwardStandAlone:-:subrecipientPendingtaskTableId---" without waiting for record
+    And I wait for "2" seconds
+    Then I see value "Automation Permanent NGO Program" for title "Program Title" inside table "---subAwardStandAlone:-:SubrecipientFederalProgramTableId---"
+    Then I see value "Automation SPI3" for title "Name" inside table "---subAwardStandAlone:-:RecipientassociatedContactsTableId---"
     And I navigate to "Budget" sub tab
-    Then I see value "Automation Permanent Focus Area" for title "Title" inside table "---subAwardStandAlone:-:SubAwardFocusAreaTableId---"
-    Then I see value "Automation Permanent Focus Area2" for title "Title" inside table "---subAwardStandAlone:-:SubAwardFocusAreaTableId---"
+    Then I see value "Automation Permanent Focus Area" for title "Title" inside table "---subAwardStandAlone:-:subrecipientFocusAreaTableId---"
+    Then I see value "Automation Permanent Focus Area2" for title "Title" inside table "---subAwardStandAlone:-:subrecipientFocusAreaTableId---"
     When I navigate to "Performance" sub tab
-    Then I see value "Automation Permanent Objective" for title "Title" inside table "---subAwardStandAlone:-:objectivesTableId---"
-    Then I see value "Automation Permanent Objective2" for title "Title" inside table "---subAwardStandAlone:-:objectivesTableId---"
-    Then I see value "Automation Permanent KPI" for title "Title" inside table "---subAwardStandAlone:-:kpiTableId---"
-    Then I see value "Automation Permanent KPI2" for title "Title" inside table "---subAwardStandAlone:-:kpiTableId---"
+    Then I see value "Automation Permanent Objective" for title "Title" inside table "---subAwardStandAlone:-:subrecipientAwardGoalsObjectives---"
+    Then I see value "Automation Permanent Objective2" for title "Title" inside table "---subAwardStandAlone:-:subrecipientAwardGoalsObjectives---"
+    Then I see value "Automation Permanent KPI" for title "Title" inside table "---subAwardStandAlone:-:subrecipientAwardKeyOutcomes---"
+    Then I see value "Automation Permanent KPI2" for title "Title" inside table "---subAwardStandAlone:-:subrecipientAwardKeyOutcomes---"
     And I navigate to "Terms" sub tab
     And I expand nested table containing column value "Payment Request"
-    Then I see total records count "{SavedValue:totalRecordsPaymentSchedule}" in flex table "---subAwardStandAlone:-:paymentRequestSchedulesTableId---"
+    Then I see total records count "{SavedValue:totalRecordsPaymentSchedule}" in flex table "---subAwardStandAlone:-:SubrecipientPaymentSchedules---"
     And I expand nested table containing column value "Progress Report"
     Then I softly see total records count "{SavedValue:totalRecordsProgressSchedule}" in flex table "---subAwardStandAlone:-:progressReportScheduleTableId---"
-    Then I softly see total records count "{SavedValue:totalRecordsTnC}" in flex table "---subAwardStandAlone:-:termsndConditionsTableId---"
+    Then I softly see total records count "{SavedValue:totalRecordsTnC}" in flex table "---subAwardStandAlone:-:SubrecipientTermsandConditions---"
     And I navigate to "Files" sub tab
     When I click on "Attach" icon for "Mandatory" inside flex table with id "---subAwardStandAlone:-:RecipientSubAwardChecklistTableId---" without waiting for record
     And I switch to iframe with id "---subAwardStandAlone:-:RecipientSubAwardChecklistTableFrameId---"
     When I upload file "Program_Field_Values.xlsx" into library
     And I click modal button "Save"
-    Then I softly see value "Attachment.pdf" for title "Title" inside table "---subAwardStandAlone:-:addFilesTableId---"
-    Then I softly cannot see row level action button "Edit" against "Attachment.pdf" in flex table with id "---subAwardStandAlone:-:addFilesTableId---"
-    Then I softly cannot see row level action button "Delete" against "Attachment.pdf" in flex table with id "---subAwardStandAlone:-:addFilesTableId---"
-    Then I softly can see row level action button "Download" against "Attachment.pdf" in flex table with id "---subAwardStandAlone:-:addFilesTableId---"
-    Then I can see top right button "New" in flex table with id "---subAwardStandAlone:-:notesAwardTableId---"
-    Then I softly see value "Notes Record" for title "Title" inside table "---subAwardStandAlone:-:notesAwardTableId---"
+    Then I softly see value "Attachment.pdf" for title "Title" inside table "---subAwardStandAlone:-:subrecipientExternalAwardFiles---"
+    Then I softly cannot see row level action button "Edit" against "Attachment.pdf" in flex table with id "---subAwardStandAlone:-:subrecipientExternalAwardFiles---"
+    Then I softly cannot see row level action button "Delete" against "Attachment.pdf" in flex table with id "---subAwardStandAlone:-:subrecipientExternalAwardFiles---"
+    Then I softly can see row level action button "Download" against "Attachment.pdf" in flex table with id "---subAwardStandAlone:-:subrecipientExternalAwardFiles---"
+    Then I can see top right button "New" in flex table with id "---subAwardStandAlone:-:srAwardContentNotes---"
+    Then I softly see value "Notes Record" for title "Title" inside table "---subAwardStandAlone:-:srAwardContentNotes---"
     When I re-login to "Grantor" app as "dynamicUser" user on "INTERNAL" portal
     When I navigate to "Planning" tab
     When I navigate to "Focus Areas" content inside "Setup" subheader on left panel

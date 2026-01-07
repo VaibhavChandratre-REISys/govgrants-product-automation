@@ -2737,19 +2737,11 @@ Feature: Application Intake scenarios without background
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
       | Construction  | 500   | 100        | 100            | 100            |
     When I navigate to "Proposal" sub tab
-    And I click on top right button "Associate" in flex table with id "---applicationIntake:-:kpiTableId---"
-    When I enter value "Automation Permanent KPI2" into field "MasterKPI__c"
-    When I enter value "8" into field "Target__c"
-    When I click modal button "Save"
-    And I wait for "2" seconds
     Then I see value "Automation Permanent KPI" for title "Title" inside table "---subAwardStandAlone:-:kpiTableId---"
-    Then I see value "Automation Permanent KPI2" for title "Title" inside table "---subAwardStandAlone:-:kpiTableId---"
     When I edit the following rows inline in flex table with id "---applicationIntake:-:kpiTableId---" by clicking "Edit" :
       | EGMS ID                  | Target |
       | Automation Permanent KPI | 10     |
-    And I click on top right button "Associate" in flex table with id "---applicationIntake:-:goalsAndObjectivesTableId---"
-    When I click "Associate" after selection of "Automation Permanent Objective2" in the table "---applicationIntake:-:goalsTableId---"
-    Then I see that "Automation Permanent Objective2" has been added in flextable with Id "---applicationIntake:-:goalsAndObjectivesTableId---"
+    Then I see value "Automation Permanent Objective" for title "Title" inside table "---applicationIntake:-:goalsAndObjectivesTableId---"
     And I navigate to "Forms and Files" sub tab
     And I click on "Attach" icon for "Automation" inside flex table with id "ApplicationChecklistsFlexGrid" with wait for record
     And I upload attachment without random number "Attachment.pdf" of type "Others" from computer

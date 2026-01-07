@@ -785,9 +785,6 @@ Feature: Validate all scenarios in Negotiations
       | Name                       | Project Role             | Is Key Contact |
       | {SavedValue:SPI3 Username} | Project Director/Manager | Checked        |
     And I wait for "2" seconds
-    And I click on "Edit" in the page details
-    And I enter value "Checked" into field "Agreement5__c"
-    And I click on "Save" in the page details
     And I navigate to "Budget" sub tab
     Then I softly can see top right button "Add Focus Area" in flex table with id "---applicationIntake:-:focusAreaTableAppId---"
     And I wait for "3" seconds
@@ -1097,10 +1094,8 @@ Feature: Validate all scenarios in Negotiations
   @532809 @validateSPIusercanviewApplicationnegotiationinApplicationlistviewwhenPMuserclickonSendtosubrecipientuserafterinitiatingnegotiation @GrantorFlexP1
   Scenario: Validate SPI user can view Application Negotiation in Application list view when PM user click on Send to subrecipient user after initiating negotiation
     And I published "Competitive" type announcement having name "Automation Runtime Competitive Announcement" and properties "NEGOTIATION"
-    When I login to "Grantor" app as "PM" user
     And I initiated an application review for application "{SavedValue:Automation Runtime Competitive Announcement}" on announcement "{SavedValue:Automation Runtime Competitive Announcement}" with properties "default"
-    And I created approved FDM on application "{SavedValue:Automation Runtime Competitive Announcement}"
-    And I delete the record "{SavedValue:Automation Runtime Competitive Announcement}" from the object "FDM"
+    When I login to "Grantor" app as "PM" user
     And I navigate to "Applications" tab
     When I navigate to "Funding Decision Memos (FDM)" content inside "Application Reviews" subheader on left panel
     And I click toggle button to select "Approved Funding Decision Memos (FDM)"

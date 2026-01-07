@@ -5682,7 +5682,7 @@ Feature: Validate all scenarios in Closeout
     Then I softly see "Pending Amendment Requests" page block displayed
     Then I softly see "Pending Progress Reports" page block displayed
     Then I softly see "Pending Payment Requests" page block displayed
-    Then I softly see "Pending Site Visits/Desk Reviews" page block displayed
+    Then I softly see "Pending Site Visits / Desk Reviews" page block displayed
     When I navigate to "Responsibilities" sub tab
     Then I softly see "Peer Reviewers" page block displayed
     Then I softly see "Approvers" page block displayed
@@ -5757,7 +5757,7 @@ Feature: Validate all scenarios in Closeout
     Then I softly see "Pending Amendment Requests" page block displayed
     Then I softly see "Pending Progress Reports" page block displayed
     Then I softly see "Pending Payment Requests" page block displayed
-    Then I softly see "Pending Site Visits/Desk Reviews" page block displayed
+    Then I softly see "Pending Site Visits / Desk Reviews" page block displayed
     And I navigate to "Files" sub tab
     Then I softly see "Supporting Documents Checklist" page block displayed
     Then I softly see "Closeout Files" page block displayed
@@ -5843,18 +5843,17 @@ Feature: Validate all scenarios in Closeout
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
-    And I wait for "3" seconds
-    When I perform quick search for "{SavedValue:Automation Runtime Award for closeout}" in "---closeout:-:grantsTableId---" panel
-    And I click on "View" icon for "{SavedValue:Automation Runtime Award for closeout}" inside flex table with id "---closeout:-:grantsTableId---"
+    When I perform quick search for "{SavedValue:Automation Runtime Award for closeout}" in "---paymentRequest:-:recipientGrantTableId---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Award for closeout}" inside flex table with id "---paymentRequest:-:recipientGrantTableId---" without waiting for record
     When I navigate to "Requests" sub tab
-    Then I softly can see row level action button "View" against "Created" in flex table with id "---closeout:-:RequestTabCloseoutRequestTableId---"
-    Then I softly cannot see row level action button "Edit" against "Created" in flex table with id "---closeout:-:RequestTabCloseoutRequestTableId---"
+    Then I softly can see row level action button "View" against "Created" in flex table with id "---closeout:-:RecipientCloseoutRequestTableId---"
+    Then I softly cannot see row level action button "Edit" against "Created" in flex table with id "---closeout:-:RecipientCloseoutRequestTableId---"
     And I navigate to "Closeout" tab
     When I navigate to "Project Period Closeouts" content inside "Closeouts" subheader on left panel
     And I click toggle button to select "Project Period Closeouts - All"
-    When I perform quick search for "{SavedValue:closeoutRequestNo}" in "---closeout:-:ProjectPeriodCloseoutTableId---" panel
-    Then I softly cannot see row level action button "Edit" against "{SavedValue:closeoutID}" in flex table with id "---closeout:-:ProjectPeriodCloseoutTableId---"
-    When I click on "View" icon for "{SavedValue:closeoutRequestNo}" inside flex table with id "---closeout:-:ProjectPeriodCloseoutTableId---"
+    When I perform quick search for "{SavedValue:closeoutRequestNo}" in "---closeout:-:CloseoutTableId---" panel
+    Then I softly cannot see row level action button "Edit" against "{SavedValue:closeoutID}" in flex table with id "---closeout:-:CloseoutTableId---"
+    When I click on "View" icon for "{SavedValue:closeoutRequestNo}" inside flex table with id "---closeout:-:CloseoutTableId---"
     Then I cannot see top right button "Edit" in page detail
     Then I softly can see "Overview" sub tab at view detail page
     Then I softly can see "Open Items" sub tab at view detail page
@@ -5876,7 +5875,7 @@ Feature: Validate all scenarios in Closeout
     Then I softly see "Pending Amendment Requests" page block displayed
     Then I softly see "Pending Progress Reports" page block displayed
     Then I softly see "Pending Payment Requests" page block displayed
-    Then I softly see "Pending Site Visits/Desk Reviews" page block displayed
+    Then I softly see "Pending Site Visits / Desk Reviews" page block displayed
     And I navigate to "Files" sub tab
     Then I softly see "Supporting Documents Checklist" page block displayed
     Then I softly see "Closeout Files" page block displayed

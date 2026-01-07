@@ -6004,7 +6004,9 @@ Feature: Pre-Application scenarios without background
     Then I can see row level action button "Preview" against "Standard Pre-Application form" in flex table with id "---preApplication:-:preAppFormTableId---"
     And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I switch to tab number "1"
+    And I wait for "3" seconds
     When I click on "Save" in the page details
+    And I wait for "2" seconds
     And I click on "Back" in the page details
     Then I softly see value "Standard Pre-Application form" for title "Form Name" inside table "---preApplication:-:preAppFormTableId---"
     Then I softly see value "Notes Record" for title "Title" inside table "---preApplication:-:preApplicationNotesTableId---"

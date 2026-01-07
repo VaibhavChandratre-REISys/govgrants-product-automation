@@ -27469,7 +27469,9 @@ Feature: Amendment Request scenarios without background
     Then I softly see field "Status" as "Created"
     Then I see status in Progress-bar is "Created" and is "dark blue"
     And I navigate to "Grants" tab
+    And I wait for "2" seconds
     When I navigate to "Amendment Requests" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I wait for "2" seconds
     And I click toggle button to select "Amendment Requests - All"
     And I perform quick search for "{SavedValue:BPCId}" in "---amendment:-:recipientSideAmendmentRequestTableId---" panel
     Then I softly see value "{SavedValue:BPCId}" for title "EGMS ID" inside table "---amendment:-:recipientSideAmendmentRequestTableId---"
@@ -27766,7 +27768,7 @@ Feature: Amendment Request scenarios without background
     And I save the field labeled "EGMS ID" as "ActivatedSubAwardId"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
-    And I navigate to "Subawards" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I navigate to "Subawards" content inside "Grants, Subawards & Amendment Requests" subheader on left panel
     And I click toggle button to select "Subawards  - Active"
     When I perform quick search for "{SavedValue:ActivatedSubAwardId}" in "---amendment:-:recipientsSubawardTableId---" panel
     And I click on "View" icon for "{SavedValue:ActivatedSubAwardId}" inside flex table with id "---amendment:-:recipientsSubawardTableId---" without waiting for record
@@ -27872,7 +27874,7 @@ Feature: Amendment Request scenarios without background
     And I save the field labeled "EGMS ID" as "ActivatedSubAwardId"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
-    And I navigate to "Subawards" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I navigate to "Subawards" content inside "Grants, Subawards & Amendment Requests" subheader on left panel
     And I click toggle button to select "Subawards  - Active"
     When I perform quick search for "{SavedValue:ActivatedSubAwardId}" in "---amendment:-:recipientsSubawardTableId---" panel
     And I click on "View" icon for "{SavedValue:ActivatedSubAwardId}" inside flex table with id "---amendment:-:recipientsSubawardTableId---" without waiting for record
@@ -28109,7 +28111,7 @@ Feature: Amendment Request scenarios without background
      Then I softly see field "Status" as "Created"
      Then I see status in Progress-bar is "Created" and is "dark blue"
      And I navigate to "Grants" tab
-     When I navigate to "Amendment Requests" content inside "Grants, Subawards & Amendments" subheader on left panel
+     When I navigate to "Amendment Requests" content inside "Grants, Subawards & Amendment Requests" subheader on left panel
      And I click toggle button to select "Amendment Requests - All"
      And I perform quick search for "{SavedValue:scopeWorkId}" in "---amendment:-:recipientSideAmendmentRequestTableId---" panel
      Then I softly see value "{SavedValue:scopeWorkId}" for title "EGMS ID" inside table "---amendment:-:recipientSideAmendmentRequestTableId---"
@@ -28424,7 +28426,7 @@ Feature: Amendment Request scenarios without background
     Then I can see top right button "New" in flex table with id "---amendment:-:amendmentAddNotesTableId---"
     Then I softly see value "Automation Notes" for title "Title" inside table "---amendment:-:amendmentAddNotesTableId---"
     And I navigate to "Messages" sub tab
-    Then I can see top right button "Send Email" in flex table with id "---program:-:collabMessages---"
+    Then I can see top right button "Send Email" in flex table with id "---announcement:-:collabMessages---"
     Then I softly see status in Progress-bar is "Sent to Subrecipient" and is "dark blue"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
@@ -28448,7 +28450,7 @@ Feature: Amendment Request scenarios without background
     Then I can see top right button "New" in flex table with id "---amendment:-:SubrecipientAmendmentNotesTableId---"
     Then I softly see value "Automation Notes" for title "Title" inside table "---amendment:-:SubrecipientAmendmentNotesTableId---"
     And I navigate to "Messages" sub tab
-    Then I can see top right button "Send Email" in flex table with id "---program:-:collabMessages---"
+    Then I can see top right button "Send Email" in flex table with id "---announcement:-:collabMessages---"
     Then I softly see status in Progress-bar is "Sent to Subrecipient" and is "dark blue"
     Then I can see top right button "Edit" in page detail
     Then I can see top right button "Submit to Grantor" in page detail
