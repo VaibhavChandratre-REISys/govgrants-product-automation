@@ -5936,7 +5936,7 @@ Feature: Pre-Application scenarios without background
     Then I softly see value "Automation SPI 7 contact" for title "Name" inside table "---preApplication:-:flexGridPreAppContactTableId---"
     And I edit the following rows inline in flex table with id "---preApplication:-:preAppContactTableId---" by clicking "Edit" :
       | Name                       | Is Key Contact |
-      | {Automation SPI 4 contact} | Checked        |
+      | Automation SPI 4 contact   | Checked        |
     And I wait for "2" seconds
     When I navigate to "Budget" sub tab
     And I save the field labeled "Subaward Floor" as "subawardfloor"
