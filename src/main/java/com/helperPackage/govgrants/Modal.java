@@ -20,9 +20,10 @@ public final class Modal {
             I.amPerforming().click().on(modalButton, false);
             govgrants.perform().mainPage().waitForNavigationLogoToDisappear();
         } catch (Exception ee) {
-                I.amPerforming().click().withJavaScript(modalButton);
-                govgrants.perform().mainPage().waitForNavigationLogoToDisappear();
+            I.amPerforming().click().withJavaScript(modalButton);
+            govgrants.perform().mainPage().waitForNavigationLogoToDisappear();
         }
+        govgrants.perform().modal().acceptPopUp();
     }
 
     public By getModalContentSpecificButton(String buttonName) {
