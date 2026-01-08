@@ -14678,7 +14678,6 @@ Feature: Grantee Forms Scenario
     And I click modal button "Save"
     And I click modal button "Close"
     Then I softly see field "Status" as "Awarded"
-    Then I softly see status in Progress-bar is "Awarded" and is "dark blue"
     When I navigate to "Forms and Files" sub tab
     And I select value inside table "---grantee_tableId:-:applicationBusinessFormTableId---" is "All"
     Then I can see row level action button "Preview" against "Budget Narrative Attachment Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
@@ -14699,6 +14698,7 @@ Feature: Grantee Forms Scenario
     Then I softly cannot see top right button "Validate" in page detail
     Then I softly cannot see top right button "Edit" in page detail
     And I close the tab
+    Then I softly see status in Progress-bar is "Awarded" and is "dark blue"
 
   @480750 @validateifformisoptionalotherattachmentissetoptionalthenabletocompletewithdata.  @GranteeP_Q4
   Scenario: Validate if form is optional other attachment is set optional then able to complete with data.
