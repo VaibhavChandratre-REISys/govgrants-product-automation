@@ -3602,7 +3602,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click modal button "Save and Continue"
     And I enter value "Automation Justification" into field "PurposeRTA__c"
     And I enter value "700" into field "RequestedChangeInBudget__c"
-    And I enter value "3700" into field "RevisedCommitment__c"
+#    And I enter value "3700" into field "RevisedCommitment__c"
     And I wait for "5" seconds
     When I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "CFAmendmentId"
