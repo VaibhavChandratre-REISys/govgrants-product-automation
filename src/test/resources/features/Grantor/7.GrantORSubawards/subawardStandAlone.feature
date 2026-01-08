@@ -6722,6 +6722,8 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     And I perform quick search for "{SavedValue:FocusAreaTitle}" in "---subAwardStandAlone:-:AssociateFocusArea---" panel
     When I click "Associate" after selection of "{SavedValue:FocusAreaTitle}" in the table "---subAwardStandAlone:-:AssociateFocusArea---"
     And I wait for "3" seconds
+    And I click modal button "Close"
+    And I wait for "2" seconds
     Then I see value "{SavedValue:FocusAreaTitle}" for title "Title" inside table "---subAwardStandAlone:-:focusAreaTableId---"
     Examples:
       | SrUser |
@@ -7184,12 +7186,14 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     And I click modal button "Close"
     And I refresh the page
     Then I softly see value "{SavedValue:fundingAccount}" for title "Funding Account" inside table "---subAwardStandAlone:-:fundingAccountsTableId---"
+    And I wait for "3" seconds
     And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:focusAreaTableId---" by clicking "Edit" :
       | Title                           | Start Date | End Date |
       | Automation Permanent Focus Area | 0          | 3650     |
     And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:focusAreaTableId---" by clicking "Edit" :
       | Title                            | Start Date | End Date |
       | Automation Permanent Focus Area2 | 0          | 3650     |
+    And I wait for "3" seconds
     When I edit the following rows inline in flex table with id "---subAwardStandAlone:-:fundingAccountsTableId---" by clicking "Edit" :
       | Funding Account             | Encumbrance |
       | {SavedValue:fundingAccount} | 1000        |
@@ -7321,6 +7325,10 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     And I click modal button "Close"
     And I wait for "3" seconds
     Then I see value "{SavedValue:FocusAreaTitle}" for title "Title" inside table "---subAwardStandAlone:-:focusAreaTableId---"
+    And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:focusAreaTableId---" by clicking "Edit" :
+      | Title                            | Start Date | End Date |
+      | {SavedValue:FocusAreaTitle}      | 0          | 3650     |
+    And I wait for "3" seconds
     And I click on "Send to Subrecipient" in the page details
     Then I softly see field "Status" as "Sent to Subrecipient"
     And I re-login to "Grants Portal" app as "<SrUser>" user on "SUBPORTAL" portal

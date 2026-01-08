@@ -28724,7 +28724,9 @@ Feature: Amendment Request scenarios without background
     And I click modal button "Save and Continue"
     When I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "bpcFcScopeId"
+    And I wait for "2" seconds
     And I get the updated budget end date by offset "1" for award "{SavedValue:Automation Runtime Amendment Award}"
+    And I wait for "2" seconds
     When I click on "Edit" in the page details
     And I enter "BudgetPeriodChange_Edition" values from "AmendmentRequest_Field_Values.xlsx"
     And I enter value "4000" into field "NewBudgetPeriodEndDate__c"
