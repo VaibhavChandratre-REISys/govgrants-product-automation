@@ -27466,6 +27466,7 @@ Feature: Amendment Request scenarios without background
     When I re-login to "Grants Portal" app as "SPA" user on "SUBPORTAL" portal
     And I perform quick search inside global search "{SavedValue:BPCId}"
     And I click on hyperlink containing value "{SavedValue:BPCId}"
+    And I wait for "3" seconds
     Then I softly see field "Status" as "Created"
     Then I see status in Progress-bar is "Created" and is "dark blue"
     And I navigate to "Grants" tab
