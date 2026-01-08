@@ -27465,6 +27465,7 @@ Feature: Amendment Request scenarios without background
     And I save the field labeled "EGMS ID" as "BPCId"
     When I re-login to "Grants Portal" app as "SPA" user on "SUBPORTAL" portal
     And I perform quick search inside global search "{SavedValue:BPCId}"
+    And I wait for "2" seconds
     And I click on hyperlink containing value "{SavedValue:BPCId}"
     And I wait for "3" seconds
     Then I softly see field "Status" as "Created"
@@ -27490,10 +27491,12 @@ Feature: Amendment Request scenarios without background
     Then I softly see value "{SavedValue:BPCId}" for title "EGMS ID" inside table "---amendment:-:SubrecipientGrantAmendmentTableId---"
     When I re-login to "Grants Portal" app as "IND" user on "SUBPORTAL" portal
     And I perform quick search inside global search "{SavedValue:BPCId}"
+    And I wait for "2" seconds
     Then I softly do not see value "{SavedValue:BPCId}" for title "EGMS ID" inside table "Amendment Requests"
-    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PO" user on "INTERNAL" portal
+    And I select "Amendment Requests" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:BPCId}"
-    Then I softly do not see value "{SavedValue:BPCId}" for title "EGMS ID" inside table "Amendment Requests"
+    Then I softly see the text containing "No results"
     And I navigate to "Grants" tab
     When I navigate to "Amendment Requests" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Amendment Requests - All"
@@ -27769,7 +27772,8 @@ Feature: Amendment Request scenarios without background
     And I save the field labeled "EGMS ID" as "ActivatedSubAwardId"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
-    And I navigate to "Subawards" content inside "Grants, Subawards & Amendment Requests" subheader on left panel
+    And I wait for "2" seconds
+    And I navigate to "Subawards" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Subawards  - Active"
     When I perform quick search for "{SavedValue:ActivatedSubAwardId}" in "---amendment:-:recipientsSubawardTableId---" panel
     And I click on "View" icon for "{SavedValue:ActivatedSubAwardId}" inside flex table with id "---amendment:-:recipientsSubawardTableId---" without waiting for record
@@ -27875,7 +27879,7 @@ Feature: Amendment Request scenarios without background
     And I save the field labeled "EGMS ID" as "ActivatedSubAwardId"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
-    And I navigate to "Subawards" content inside "Grants, Subawards & Amendment Requests" subheader on left panel
+    And I navigate to "Subawards" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Subawards  - Active"
     When I perform quick search for "{SavedValue:ActivatedSubAwardId}" in "---amendment:-:recipientsSubawardTableId---" panel
     And I click on "View" icon for "{SavedValue:ActivatedSubAwardId}" inside flex table with id "---amendment:-:recipientsSubawardTableId---" without waiting for record
@@ -28112,7 +28116,7 @@ Feature: Amendment Request scenarios without background
      Then I softly see field "Status" as "Created"
      Then I see status in Progress-bar is "Created" and is "dark blue"
      And I navigate to "Grants" tab
-     When I navigate to "Amendment Requests" content inside "Grants, Subawards & Amendment Requests" subheader on left panel
+     When I navigate to "Amendment Requests" content inside "Grants, Subawards & Amendments" subheader on left panel
      And I click toggle button to select "Amendment Requests - All"
      And I perform quick search for "{SavedValue:scopeWorkId}" in "---amendment:-:recipientSideAmendmentRequestTableId---" panel
      Then I softly see value "{SavedValue:scopeWorkId}" for title "EGMS ID" inside table "---amendment:-:recipientSideAmendmentRequestTableId---"
