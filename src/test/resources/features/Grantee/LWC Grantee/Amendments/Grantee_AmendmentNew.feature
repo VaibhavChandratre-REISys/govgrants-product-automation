@@ -9303,7 +9303,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
     And I wait for "2" seconds
     And I click on "Submit for Approval" in the page details
     Then I softly see field "Status" as "Submitted for Approval"
-    And I "Submitted to Grantor" the "Financial Report" for title "{SavedValue:Automation Runtime award}" with properties "ADMIN_OWNER"
+    And I "Submitted to Grantor" the "Financial Report" for title "{SavedValue:Automation Runtime award}" with properties "default-DEMO ADMIN user"
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
     And I click toggle button to select "Grants - All"
@@ -9316,7 +9316,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
     And I click on "View" icon for "Submitted to Grantor" inside flex table with id "---grantee_tableId:-:FinancialsReportTableId---"
     And I save the field labeled "EGMS ID" as "financialEGMSID2"
     Then I softly see field "Status" as "Submitted to Grantor"
-    And I "Created" the "Financial Report" for title "{SavedValue:Automation Runtime award}" with properties "ADMIN_OWNER"
+    And I "Created" the "Financial Report" for title "{SavedValue:Automation Runtime award}" with properties "default-DEMO ADMIN user"
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
     And I click toggle button to select "Grants - All"

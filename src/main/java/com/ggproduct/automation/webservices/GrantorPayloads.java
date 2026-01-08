@@ -4576,8 +4576,6 @@ public class GrantorPayloads {
                 return updateNoApproverWithEXEOwner(defaultJson, title, type, status);
             case "PO_OWNER":
                 return updatePOOwner(defaultJson, title, type, status);
-            case "ADMIN_OWNER":
-                return updateADMINOwner(defaultJson, title, type, status);
             default:
                 return defaultJson;
         }
@@ -4613,35 +4611,7 @@ public class GrantorPayloads {
         return defaultJson;
     }
 
-    private JsonObject updateADMINOwner(JsonObject defaultJson, String title, String type, String status) {
-        JsonObject progressReportDetails = new JsonObject();
-        // Basic progress report details
-        progressReportDetails.addProperty("AwardTitle", title);
-        if(type.equalsIgnoreCase("Progress Report")) {
-            progressReportDetails.addProperty("ReportType", "Program");
-        }else{
-            progressReportDetails.addProperty("ReportType", "Fiscal");
-        }
-        progressReportDetails.addProperty("OwnerID", ProjectWebServices.getIdOf("User", "DEMO ADMIN"));
-        progressReportDetails.addProperty("ReportDueDate", I.amPerforming().dateOperationsToGet().currentDateWithOffsetInDesiredFormat(3650, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
-        progressReportDetails.addProperty("KeyAccomplishments", "Automation Test Key Accomplishments");
-        progressReportDetails.addProperty("Obstacles", "Automation Test Obstacles");
-        progressReportDetails.addProperty("Plans", "Automation Test Plans");
-        progressReportDetails.addProperty("SubmittedtoGrantor", I.amPerforming().dateOperationsToGet().currentDateWithOffsetInDesiredFormat(1, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
-        progressReportDetails.addProperty("isCreatedOrApprovedProgressReport", status);
-        progressReportDetails.addProperty("isFinalReport", false);
-        JsonArray approvers = new JsonArray();
-        JsonObject approver = new JsonObject();
-        approver.addProperty("name", ProjectWebServices.getIdOf("User", "Victor EXE"));
-        approver.addProperty("progressreport", "NA");
-        approvers.add(approver);
-        progressReportDetails.add("approvers", approvers);
-        // Creating the progress report data array and adding the progress report object
-        JsonArray progressReportDataArray = new JsonArray();
-        progressReportDataArray.add(progressReportDetails);
-        defaultJson.add("progressReportData", progressReportDataArray);
-        return defaultJson;
-    }
+
     private JsonObject updateNoApproverWithEXEOwner(JsonObject defaultJson, String title, String type, String status) {
         JsonObject progressReportDetails = new JsonObject();
 

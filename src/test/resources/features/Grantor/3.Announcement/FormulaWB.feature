@@ -989,7 +989,6 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I click "OK" on modal confirmation box
     When I click modal button "Close"
     And I wait for "2" seconds
-#    And I click on "Edit" in the page details
     #226440
     When I click on top right button "Associate" in flex table with id "---announcement:-:AnnouncementServiceArea1TableId---"
     When I click "Associate" after selection of "Automation Permanent Focus Area2" by showing entries "All" in flex table with id "---announcement:-:selectAnnouncementServiceArea1TableId---"
@@ -1000,7 +999,6 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I click "Add" after selection of "SAN DIEGO ELECTRICAL TRAINING TRUST" in the table "---announcement:-:formulaAddInviteApplicantTableId---"
     When I close "Add Organizations" modal by clicking the top right x button
     And I wait for "4" seconds
-#    And I click on "Edit" in the page details
     And I wait for "2" seconds
     When I click on "Removes" icon for "SAN DIEGO ELECTRICAL TRAINING TRUST" inside table with table id "---announcement:-:addOrganizationByAppFocusAreaTableId---" without processing
     Then I see confirmation box with body "This action will delete the Organization and associated focus areas and Unsaved data will be lost due to page refresh . Please save the record to continue." is displayed
@@ -1574,7 +1572,6 @@ Feature: Validate all scenarios in the Formula Announcement tab
     Then I softly see field "Status" as "Under Revision"
     When I navigate to "Overview" sub tab
     Then I check "SAN DIEGO ELECTRICAL TRAINING TRUST" boxes in flex table with id "---announcement:-:addOrganizationByAppFocusAreaTableId---"
-#    And I expand nested table containing column value "SAN DIEGO ELECTRICAL TRAINING TRUST"
     Then I softly can see row level action button "Edit" against "Automation Permanent Focus Area" in flex table with id "---announcement:-:formulaFocusAreaInvitedTableId---"
     Then I click on "Edit" icon for "Automation Permanent Focus Area" inside flex table with id "---announcement:-:formulaFocusAreaInvitedTableId---"
 
@@ -2160,11 +2157,9 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I perform quick search for "{SavedValue:NegoEGMSID}" in "---negotiation:-:homePendingTasks---" panel
     And I click on "Start" icon for "{SavedValue:NegoEGMSID}" inside flex table with id "---negotiation:-:homePendingTasks---"
     And I navigate to "Negotiations" sub tab
-#   Added below extra steps due to bug once resolved remove the step
     And I click on "Edit" in the page details
     When I enter value "Automation Test" into field "ApplicantResponse__c"
     And I navigate to "Budget" sub tab
-#    When I expand nested table containing column value "BP01"
     And I edit the following rows inline in flex table with id "---applicationReview:-:budgetTableId---" by clicking "Edit" :
       | Category Name | Budget | Cash Match | Non-Cash Match |
       | Construction  | 2000   | 100        | 100            |
@@ -2600,7 +2595,6 @@ Feature: Validate all scenarios in the Formula Announcement tab
     When I perform quick search for "<Announcement Name>" in "---announcement:-:formulaAnnouncementTableId---" panel
     When I click on "View" icon for "<Announcement Name>" inside flex table with id "---announcement:-:formulaAnnouncementTableId---" without waiting for record
     When I navigate to "Overview" sub tab
-#    And I expand nested table containing column value "SAN DIEGO ELECTRICAL TRAINING TRUST"
     And I edit the following rows inline in flex table with id "---announcement:-:formulaFocusAreaInvitedTableId---" by clicking "Edit" :
       | Title                           | Allocation Amount |
       | Automation Permanent Focus Area | 5000              |
@@ -4024,13 +4018,11 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I switch to tab number "1"
     When I enter "Form Fields 1" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the page details
-#    And I click on "Back" in the page details
     And I close the tab
     And I click on "Edit" icon for "Program Application Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
     And I switch to tab number "1"
     When I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the page details
-#    And I click on "Back" in the page details
     And I switch to parent tab
     When I click on "Submit Application" in the page details
     Then I softly see field "Status" as "Submitted to Grantor"
@@ -5761,7 +5753,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     Then I softly see field "Allocation Amount" as "$1,000.00"
     When I click on "Submit to Grantor" in the page details
     #226384
-    Then I cannot see the following messages in the page details contains:
+    Then I softly cannot see the following messages in the page details contains:
       | Budget Tab: The Budgeted Amount must be equal to the Allocation Amount. |
     Then I softly see field "Status" as "Negotiation Submitted"
 
@@ -6854,13 +6846,11 @@ Feature: Validate all scenarios in the Formula Announcement tab
     And I switch to tab number "1"
     When I enter "Form Fields 1" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the page details
-#    And I click on "Back" in the page details
     And I close the tab
     And I click on "Edit" icon for "Program Application Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
     And I switch to tab number "1"
     When I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
     And I click on "Save" in the page details
-#    And I click on "Back" in the page details
     And I switch to parent tab
     And I save the field labeled "EGMS ID" as "AppEgmdId"
     When I click on "Submit Application" in the page details
@@ -7104,11 +7094,11 @@ Feature: Validate all scenarios in the Formula Announcement tab
       | Automation Permanent Focus Area | 5000              |
     When I navigate to "Financials" sub tab
     And I click on "Edit" in the page details
-#    And I enter value "Justified" into field "Justification__c"
+    And I enter value "Justified" into field "Justification__c"
     And I enter value "4000" into field "---announcement:-:subawardfloor---"
     And I enter value "6000" into field "---announcement:-:subawardceiling---"
     And I click on "Save" in the page details
-#    Then I softly see field "Justification for Deficit Amount" as "Justified"
+    Then I softly see field "Justification for Deficit Amount" as "Justified"
     Then I softly see field "Subaward Floor" as "$4,000.00"
     Then I softly see field "Subaward Ceiling" as "$6,000.00"
     And I click on top right button "Associate" in flex table with id "---announcement:-:fundingAccountsTableId---"
@@ -7239,7 +7229,6 @@ Feature: Validate all scenarios in the Formula Announcement tab
       | Question Order | Question  | Type    | Max Score |
       | 1              | Question1 | Written | 100       |
     And I pause execution for "3" seconds
-#    And I collapse nested table containing column value "Impact"
     When I close "Review Form" modal by clicking the top right x button
     And I pause execution for "2" seconds
     When I collapse nested table containing column value "SME Review"
@@ -7350,7 +7339,7 @@ Feature: Validate all scenarios in the Formula Announcement tab
     Then I softly see field "Eligibility Information" as "Test Eligibility Information"
     Then I softly see field "Link For Additional Information" as "www.google.com"
     When I navigate to "Financials" sub tab
-#    Then I softly see field "Justification for Deficit Amount" as "Justified"
+    Then I softly see field "Justification for Deficit Amount" as "Justified"
     Then I softly see field "Subaward Floor" as "$4,000.00"
     Then I softly see field "Subaward Ceiling" as "$6,000.00"
     Then I softly see that "{SavedValue:fundingAccount}" has been added in flextable with Id "---announcement:-:fundingAccountsTableId---"
