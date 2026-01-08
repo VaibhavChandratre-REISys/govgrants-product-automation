@@ -2763,5 +2763,4 @@ Feature: Validate all scenarios for Financial Report
     And I navigate to "Home" tab
     And I logout
     Given I login to "Grantee" app as "GRANTEE PM" user
-    And I halt execution
     Then I navigate to url "https://test8-internal--ggmergeqa2.sandbox.lightning.force.com/lightning/n/GranteeHome"
