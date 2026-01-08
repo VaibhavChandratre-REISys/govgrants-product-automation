@@ -6691,9 +6691,11 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     Then I softly see total records count "{SavedValue:totalRecordsTnC}" in flex table "---subAwardStandAlone:-:SubrecipientTermsandConditions---"
     And I navigate to "Files" sub tab
     When I click on "Attach" icon for "Mandatory" inside flex table with id "---subAwardStandAlone:-:RecipientSubAwardChecklistTableId---" without waiting for record
-    And I switch to iframe with id "---subAwardStandAlone:-:RecipientSubAwardChecklistTableFrameId---"
-    When I upload file "Program_Field_Values.xlsx" into library
-    And I click modal button "Save"
+    And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
+    And I wait for "2" seconds
+    When I click modal button "Close"
+    And I wait for "2" seconds
+    Then I see "View" has been added in "Supporting Documents Checklist" flex table
     Then I softly see value "Attachment.pdf" for title "Title" inside table "---subAwardStandAlone:-:subrecipientExternalAwardFiles---"
     Then I softly cannot see row level action button "Edit" against "Attachment.pdf" in flex table with id "---subAwardStandAlone:-:subrecipientExternalAwardFiles---"
     Then I softly cannot see row level action button "Delete" against "Attachment.pdf" in flex table with id "---subAwardStandAlone:-:subrecipientExternalAwardFiles---"
