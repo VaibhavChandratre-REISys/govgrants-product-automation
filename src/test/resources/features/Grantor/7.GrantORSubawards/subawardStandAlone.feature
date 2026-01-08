@@ -6732,7 +6732,10 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     And I save the field labeled "EGMS ID" as "AwardEGMSID"
     And I navigate to "Overview" sub tab
     And I save the field labeled "Subaward Title" as "Automation Runtime award"
+    And I click on "Edit" in the page details
+    And I wait for "2" seconds
     When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
+    And I wait for "2" seconds
     And I click on "Save" in the page details
     And I save the field labeled "Grant ID" as "GrantEGMSID"
     And I click on hyperlink containing value "{SavedValue:GrantEGMSID}"
@@ -7113,7 +7116,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     Then I softly cannot see row level action button "Edit" against "Attachment.pdf" in flex table with id "---subAwardStandAlone:-:addFilesTableId---"
     Then I softly cannot see row level action button "Delete" against "Attachment.pdf" in flex table with id "---subAwardStandAlone:-:addFilesTableId---"
     Then I softly can see row level action button "Download" against "Attachment.pdf" in flex table with id "---subAwardStandAlone:-:addFilesTableId---"
-    Then I cannot see top right button "New" in flex table with id "---subAwardStandAlone:-:notesAwardTableId---"
+    Then I can see top right button "New" in flex table with id "---subAwardStandAlone:-:notesAwardTableId---"
     Then I softly see value "Notes Record" for title "Title" inside table "---subAwardStandAlone:-:notesAwardTableId---"
     When I navigate to "Responsibilities" sub tab
     When I click on "Enter Review" icon for "{SavedValue:FO Username}" inside flex table with id "---subAwardStandAlone:-:peerReviewersTableId---" without waiting for record
