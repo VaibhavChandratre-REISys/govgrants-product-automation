@@ -9281,7 +9281,7 @@ Feature: Validate all scenarios for Grantee Amendment Request
     And I updated direct grant award for title "{SavedValue:Automation Runtime award}" with properties "default"
     And I activate the award for title "{SavedValue:Automation Runtime award}"
     Given I login to "Grantee" app as "GRANTEE ADMIN" user
-    And I "Created" the "Financial Report" for title "{SavedValue:Automation Runtime award}" with properties "ADMIN_OWNER"
+    And I "Created" the "Financial Report" for title "{SavedValue:Automation Runtime award}" with properties "default-DEMO ADMIN user"
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
     And I click toggle button to select "Grants - All"

@@ -9751,7 +9751,6 @@ Feature: Grantee Forms Scenario
     Then I can see row level action button "View" against "Budget Information for Non-Construction Programs (SF-424A)" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
     Then I can see row level action button "Splitview" against "Budget Information for Non-Construction Programs (SF-424A)" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
     Then I softly see value "0.00%" for title "Percentage" against the value "Assurances for Non-Construction Programs (SF-424B)" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
-#    Then I softly see value "No" for title "Validated" against the value "Assurances for Non-Construction Programs (SF-424B)Assurances for Non-Construction Programs (SF-424B)" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
    #480083
     Then I softly see value "Assurances for Non-Construction Programs (SF-424B)" for title "Form Name" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
     Then I softly see "cross" symbol against the value "Assurances for Non-Construction Programs (SF-424B)" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
@@ -9760,7 +9759,6 @@ Feature: Grantee Forms Scenario
     Then I can see row level action button "View" against "Assurances for Non-Construction Programs (SF-424B)" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
     Then I can see row level action button "Splitview" against "Assurances for Non-Construction Programs (SF-424B)" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
     Then I softly see value "0.00%" for title "Percentage" against the value "Assurances for Non-Construction Programs (SF-424B)" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
-#    Then I softly see value "No" for title "Validated" against the value "Assurances for Non-Construction Programs (SF-424B)Assurances for Non-Construction Programs (SF-424B)" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
     And I click on "Submit For Approval" in the page details
     Then I softly see status in Progress-bar is "Submitted For Approval" and is "dark blue"
     When I re-login to "Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
@@ -9871,7 +9869,6 @@ Feature: Grantee Forms Scenario
     And I close the tab
     And I refresh the page
     And I wait for "2" seconds
-#    And I select value inside table "---grantee_tableId:-:applicationBusinessFormTableId---" is "All"
     Then I softly see value "100.00%" for title "Percentage" against the value "Budget Information for Non-Construction Programs (SF-424A)" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
     And I click on "Submit For Approval" in the page details
     Then I softly see status in Progress-bar is "Submitted For Approval" and is "dark blue"
@@ -10222,10 +10219,10 @@ Feature: Grantee Forms Scenario
     And I navigate to "Quickview" sub tab in split screen
     When I navigate to "Forms and Files" sub tab
     Then I softly see value "Budget Narrative Attachment Form" for title "Form Name" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
-#    Then I can see row level action button "Preview" against "Budget Narrative Attachment Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
-#    Then I can see row level action button "SplitView" against "Budget Narrative Attachment Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
-#    Then I can see row level action button "View" against "Budget Narrative Attachment Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
-#    Then I can see row level action button "Edit" against "Budget Narrative Attachment Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    Then I can see row level action button "Preview" against "Budget Narrative Attachment Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    Then I can see row level action button "SplitView" against "Budget Narrative Attachment Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    Then I can see row level action button "View" against "Budget Narrative Attachment Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    Then I can see row level action button "Edit" against "Budget Narrative Attachment Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
     When I click on "SplitView" icon for "Budget Narrative Attachment Form" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
     Then I softly can see top right button "Edit" in the split screen page details
     Then I softly can see top right button "Validate" in the split screen page details
@@ -13935,7 +13932,6 @@ Feature: Grantee Forms Scenario
     And I switch to tab number "1"
     Then I softly see value "Attachment.pdf" for title "Title" inside table "---grantee_tableId:-:applicationFormAddFileTableId---"
     And I close the tab
-#    Then I softly see value "Sarah PM" for title "Last Modified By Name" against the value "Attachments" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
     Then I softly see value "Sarah PM" for title "Last Modified By Name" against the value "Project Narrative Attachment Form" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
 
   @492397 @Validatetheerrormessageshouldnotbedisplayifusernotedit&validatetheoptionalform @GranteeP_Q4
@@ -15071,7 +15067,6 @@ Feature: Grantee Forms Scenario
     Then I can see top right button "Edit" in the split screen page details
     Then I can see top right button "Validate" in the split screen page details
     Then I softly can see top right button "Download as PDF" in the split screen page details
-    #Optional form
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default-Grantee PO user"
     And I navigate to "Opportunities" tab

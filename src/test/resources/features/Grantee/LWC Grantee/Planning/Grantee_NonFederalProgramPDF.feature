@@ -85,7 +85,6 @@ Feature: Validate all scenarios for Non Federal Program for PDF
     Then I softly see value "Automation.pdf" for title "Classification" inside table "---grantee_tableId:-:nonFedAddFilesTableId---"
     Then I softly see value "Other Artifacts" for title "Classification" inside table "---grantee_tableId:-:nonFedAddFilesTableId---"
     And I click on "Download" icon for "Other Artifacts" inside flex table with id "---grantee_tableId:-:nonFedAddFilesTableId---" without waiting for record
-#    And I switch to tab number "1"
     And I download the file
     And I wait for "3" seconds
     Then I softly verify that the file "govgrant.pdf" is downloaded
@@ -951,8 +950,8 @@ Feature: Validate all scenarios for Non Federal Program for PDF
        Examples:
       | User            |
       | GRANTEE PO      |
-#      | GRANTEE EXE     |
-#      | GRANTEE FO      |
-#      | GRANTEE FD      |
-#      | GRANTEE ADMIN   |
-#      | GRANTEE AUDITOR |
+      | GRANTEE EXE     |
+      | GRANTEE FO      |
+      | GRANTEE FD      |
+      | GRANTEE ADMIN   |
+      | GRANTEE AUDITOR |
