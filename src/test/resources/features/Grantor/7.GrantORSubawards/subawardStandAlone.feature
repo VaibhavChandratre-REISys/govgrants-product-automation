@@ -6709,6 +6709,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     When I enter value "Automation Runtime Focus Area for flexsharing" into field "Title__c"
     When I click modal button "Save and Continue"
     And I click on "Save" in the page details
+    And I save the field labeled "Title" as "FocusAreaTitle"
     When I click on "Activate" in the page details
     Then I see status in Progress-bar is "Active" and is "dark blue"
     And I navigate to "Grants" tab
@@ -6718,10 +6719,10 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     When I click on "View" icon for "{SavedValue:AwardEGMSID}" inside flex table with id "---subAwardStandAlone:-:SubAwardTableId---"
     And I navigate to "Budget" sub tab
     And I click on top right button "Associate" in flex table with id "---subAwardStandAlone:-:focusAreaTableId---"
-    And I perform quick search for "Automation Runtime Focus Area for flexsharing" in "---subAwardStandAlone:-:AssociateFocusArea---" panel
-    When I click "Associate" after selection of "Automation Runtime Focus Area for flexsharing" in the table "---subAwardStandAlone:-:AssociateFocusArea---"
+    And I perform quick search for "{SavedValue:FocusAreaTitle}" in "---subAwardStandAlone:-:AssociateFocusArea---" panel
+    When I click "Associate" after selection of "{SavedValue:FocusAreaTitle}" in the table "---subAwardStandAlone:-:AssociateFocusArea---"
     And I wait for "3" seconds
-    Then I see value "Automation Runtime Focus Area for flexsharing" for title "Title" inside table "---subAwardStandAlone:-:focusAreaTableId---"
+    Then I see value "{SavedValue:FocusAreaTitle}" for title "Title" inside table "---subAwardStandAlone:-:focusAreaTableId---"
     Examples:
       | SrUser |
       | SPI3   |
@@ -6920,7 +6921,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | Notes Record1 | Automation Notes1 |
     Then I softly see value "Notes Record1" for title "Title" inside table "---subAwardStandAlone:-:notesAwardTableId---"
     When I navigate to "Responsibilities" sub tab
-    When I click on "Enter Review" icon for "{SavedValue:FO Username}" inside flex table with id "---subAwardStandAlone:-:peerReviewersTableId---" without waiting for record
+    When I click on "Enter Review" icon for "GRANTEE PO" inside flex table with id "---subAwardStandAlone:-:peerReviewersTableId---" without waiting for record
     And I enter a review as "Passed"
     When I click modal button "Save"
     Then I can softly see modal button "Submit Review"
@@ -7119,7 +7120,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     Then I can see top right button "New" in flex table with id "---subAwardStandAlone:-:notesAwardTableId---"
     Then I softly see value "Notes Record" for title "Title" inside table "---subAwardStandAlone:-:notesAwardTableId---"
     When I navigate to "Responsibilities" sub tab
-    When I click on "Enter Review" icon for "{SavedValue:FO Username}" inside flex table with id "---subAwardStandAlone:-:peerReviewersTableId---" without waiting for record
+    When I click on "Enter Review" icon for "GRANTEE PO" inside flex table with id "---subAwardStandAlone:-:peerReviewersTableId---" without waiting for record
     And I enter a review as "Passed"
     When I click modal button "Save"
     Then I can softly see modal button "Submit Review"
@@ -7304,6 +7305,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     When I enter value "Automation Runtime Focus Area for flexsharing" into field "Title__c"
     When I click modal button "Save and Continue"
     And I click on "Save" in the page details
+    And I save the field labeled "Title" as "FocusAreaTitle"
     When I click on "Activate" in the page details
     Then I see status in Progress-bar is "Active" and is "dark blue"
     And I navigate to "Grants" tab
@@ -7314,11 +7316,11 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     And I wait for "2" seconds
     And I navigate to "Budget" sub tab
     And I click on top right button "Associate" in flex table with id "---subAwardStandAlone:-:focusAreaTableId---"
-    And I perform quick search for "Automation Runtime Focus Area for flexsharing" in "---subAwardStandAlone:-:AssociateFocusArea---" panel
-    When I click "Associate" after selection of "Automation Runtime Focus Area for flexsharing" in the table "---subAwardStandAlone:-:AssociateFocusArea---"
+    And I perform quick search for "{SavedValue:FocusAreaTitle}" in "---subAwardStandAlone:-:AssociateFocusArea---" panel
+    When I click "Associate" after selection of "{SavedValue:FocusAreaTitle}" in the table "---subAwardStandAlone:-:AssociateFocusArea---"
     And I click modal button "Close"
     And I wait for "3" seconds
-    Then I see value "Automation Runtime Focus Area for flexsharing" for title "Title" inside table "---subAwardStandAlone:-:focusAreaTableId---"
+    Then I see value "{SavedValue:FocusAreaTitle}" for title "Title" inside table "---subAwardStandAlone:-:focusAreaTableId---"
     And I click on "Send to Subrecipient" in the page details
     Then I softly see field "Status" as "Sent to Subrecipient"
     And I re-login to "Grants Portal" app as "<SrUser>" user on "SUBPORTAL" portal
@@ -7331,7 +7333,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     Then I see value "Automation Permanent NGO Program" for title "Program Title" inside table "---subAwardStandAlone:-:SubrecipientFederalProgramTableId---"
     Then I see value "Automation SPI3" for title "Name" inside table "---subAwardStandAlone:-:RecipientassociatedContactsTableId---"
     And I navigate to "Budget" sub tab
-    Then I see value "Automation Runtime Focus Area for flexsharing" for title "Title" inside table "---subAwardStandAlone:-:subrecipientFocusAreaTableId---"
+    Then I see value "{SavedValue:FocusAreaTitle}" for title "Title" inside table "---subAwardStandAlone:-:subrecipientFocusAreaTableId---"
     Then I see value "Automation Permanent Focus Area" for title "Title" inside table "---subAwardStandAlone:-:subrecipientFocusAreaTableId---"
     Then I see value "Automation Permanent Focus Area2" for title "Title" inside table "---subAwardStandAlone:-:subrecipientFocusAreaTableId---"
     And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:subAwardBudgetTableId---" by clicking "Edit" :
@@ -7398,7 +7400,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     Then I can see top right button "Associate" in flex table with id "---subAwardStandAlone:-:focusAreaTableId---"
     Then I see value "Automation Permanent Focus Area" for title "Title" inside table "---subAwardStandAlone:-:focusAreaTableId---"
     Then I see value "Automation Permanent Focus Area2" for title "Title" inside table "---subAwardStandAlone:-:focusAreaTableId---"
-    Then I see value "Automation Runtime Focus Area for flexsharing" for title "Title" inside table "---subAwardStandAlone:-:focusAreaTableId---"
+    Then I see value "{SavedValue:FocusAreaTitle}" for title "Title" inside table "---subAwardStandAlone:-:focusAreaTableId---"
     Then I can see top right button "Associate" in flex table with id "---subAwardStandAlone:-:fundingAccountsTableId---"
     Then I softly see value "{SavedValue:fundingAccount}" for title "Funding Account" inside table "---subAwardStandAlone:-:fundingAccountsTableId---"
     When I navigate to "Performance" sub tab
