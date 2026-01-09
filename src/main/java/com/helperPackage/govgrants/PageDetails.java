@@ -79,6 +79,7 @@ public final class PageDetails {
             govgrants.perform().modal().acceptPopUp();
         }
     }
+
     /**
      * click any button on right header inside detail page. Submit, submit for
      * approval without processing
@@ -118,7 +119,7 @@ public final class PageDetails {
         By topRightButton = By.xpath("//c-flex-layout-quick-view//lightning-button//button[@title='" + buttonName + "'] | //lightning-button-menu[contains(@class,'" + buttonName + "')]");
         try {
             I.amPerforming().waitFor().ElementToBeClickable(topRightButton);
-               I.amPerforming().click().withJavaScript(topRightButton);
+            I.amPerforming().click().withJavaScript(topRightButton);
             govgrants.perform().modal().acceptPopUp();
         } catch (Exception ex) {
             I.amPerforming().waitFor().ElementToBeClickable(By.xpath("//c-flex-layout-quick-view//lightning-button-menu//button[contains(@class,'slds-button_last')]"));
@@ -175,30 +176,31 @@ public final class PageDetails {
      * @modifier yugandhara.chibade Added new xpath at line 122 and updated method logic for click on more tab element
      */
     public void clickSubTabsInsideTableViewForLWC(String tabName) {
-            By desiredTab = By.xpath("//div[@class='slds-tabs_default']//ul//li[@title='" + tabName + "']");
-            By moreTabs = By.xpath("//div[@class='slds-tabs_default']//li[not(contains(@style,'hidden'))]//button[@title='More Tabs'] | //button[@title='More Tabs']");
-
-            try {
-                if (I.amPerforming().checkToSee().isDisplayed(desiredTab)) {
-                    I.amPerforming().scroll().toMoveToElement(desiredTab);
-                    I.amPerforming().click().withJavaScript(desiredTab);
-                } else {
-                    I.amPerforming().scroll().toMoveToElement(moreTabs);
-                    I.amPerforming().click().withJavaScript(moreTabs);
-                    I.amPerforming().waitFor().ElementToBePresent(desiredTab);
-                    I.amPerforming().scroll().toMoveToElement(desiredTab);
-                    I.amPerforming().click().withJavaScript(desiredTab);
-                }
-            } catch (Exception ex) {
-                I.amPerforming().updatingOfReportWith().write(LogLevel.BUSINESS_LAYER_ERROR, "     An exception is thrown - Retrying with javaScript");
-                if (I.amPerforming().checkToSee().isDisplayed(desiredTab)) {
-                    I.amPerforming().click().withJavaScript(desiredTab, false);
-                } else {
-                    I.amPerforming().click().on(moreTabs);
-                    I.amPerforming().waitFor().ElementToBePresent(desiredTab);
-                    I.amPerforming().click().withJavaScript(desiredTab, false);
-                }
+        By desiredTab = By.xpath("//div[@class='slds-tabs_default']//ul//li[@title='" + tabName + "']");
+        By moreTabs = By.xpath("//div[@class='slds-tabs_default']//li[not(contains(@style,'hidden'))]//button[@title='More Tabs'] | //button[@title='More Tabs']");
+        I.amPerforming().waitFor().ElementToBeClickable(By.xpath("//div[@class='slds-tabs_default']//ul[@role='tablist']"));
+        By desiredTabDropdown = By.xpath("//div[contains(@class,'slds-dropdown__item')]//span[text()='" + tabName + "']");
+        try {
+            if (I.amPerforming().checkToSee().IsElementPresentQuick(desiredTab)) {
+                I.amPerforming().scroll().toMoveToElement(desiredTab);
+                I.amPerforming().click().withJavaScript(desiredTab);
+            } else {
+                I.amPerforming().scroll().toMoveToElement(moreTabs);
+                I.amPerforming().click().on(moreTabs);
+                I.amPerforming().waitFor().ElementToBePresent(desiredTabDropdown);
+                I.amPerforming().scroll().toMoveToElement(desiredTabDropdown);
+                I.amPerforming().click().on(desiredTabDropdown);
             }
+        } catch (Exception ex) {
+            I.amPerforming().updatingOfReportWith().write(LogLevel.BUSINESS_LAYER_ERROR, "     An exception is thrown - Retrying with javaScript");
+            if (I.amPerforming().checkToSee().isDisplayed(desiredTab)) {
+                I.amPerforming().click().withJavaScript(desiredTab, false);
+            } else {
+                I.amPerforming().click().on(moreTabs);
+                I.amPerforming().waitFor().ElementToBePresent(desiredTab);
+                I.amPerforming().click().withJavaScript(desiredTab, false);
+            }
+        }
     }
 
     public void clickSubTabsInsideTableViewForSplitScreen(String tabName) {
@@ -294,24 +296,24 @@ public final class PageDetails {
      * @return * @modified meenakshi.jha updated xpath at 240 line(10/15/2020)
      */
     public WebElement getSpecificStatusFromProgressBar(String statusName) {
-        if(statusName.equalsIgnoreCase("Published")){
+        if (statusName.equalsIgnoreCase("Published")) {
             By progressBarStatusLocator = By.xpath("//lightning-progress-step[@data-id='" + statusName + "' and contains(@class,'active')] | //c-step-progressbar//span[text()='" + statusName + "']/ancestor::li[contains(@class,'active')]");
             try {
                 I.amPerforming().checkToSee().isElementDisplayed(I.amPerforming().getElementReference().of(progressBarStatusLocator));
-            } catch(Exception e){
-                for(int i = 0; i<2; i++){
-                    try{
-                        if(I.amPerforming().checkToSee().isElementDisplayed(I.amPerforming().getElementReference().of(progressBarStatusLocator))){
+            } catch (Exception e) {
+                for (int i = 0; i < 2; i++) {
+                    try {
+                        if (I.amPerforming().checkToSee().isElementDisplayed(I.amPerforming().getElementReference().of(progressBarStatusLocator))) {
                             break;
                         }
-                    } catch(Exception xe){
+                    } catch (Exception xe) {
                         I.amPerforming().browserOperationsTo().refreshPage();
                         I.amPerforming().waitFor().makeThreadSleep(2000);
                     }
                 }
             }
             return I.amPerforming().getElementReference().of(progressBarStatusLocator);
-        } else{
+        } else {
             By progressBarStatusLocator = By.xpath("//lightning-progress-step[@data-id='" + statusName + "' and contains(@class,'active')] | //c-step-progressbar//span[text()='" + statusName + "']/ancestor::li[contains(@class,'active')]");
             return I.amPerforming().getElementReference().of(progressBarStatusLocator);
         }
@@ -426,7 +428,7 @@ public final class PageDetails {
      */
     public boolean isHelpTextDisplayedwithQuotes(String helpText) {
         boolean flag = false;
-      if (I.amPerforming().actionToGet().text(textInsideHelpText).contains(helpText) || I.amPerforming().actionToGet().text(textInsideHelpText).equalsIgnoreCase(helpText) || I.amPerforming().actionToGet().attribute(textInsideHelpText, "title").equalsIgnoreCase(helpText))
+        if (I.amPerforming().actionToGet().text(textInsideHelpText).contains(helpText) || I.amPerforming().actionToGet().text(textInsideHelpText).equalsIgnoreCase(helpText) || I.amPerforming().actionToGet().attribute(textInsideHelpText, "title").equalsIgnoreCase(helpText))
             flag = true;
         I.amPerforming().updatingOfReportWith().write(LogLevel.BUSINESS_LAYER_INFO, String.format("actual Text--->", I.amPerforming().actionToGet().text(textInsideHelpText)));
         return flag;
@@ -505,14 +507,14 @@ public final class PageDetails {
 
     public String getFieldValueOnModal(String fieldLabel, boolean matchLabelExactly) {
         By fieldLabelLocator = null;
-            fieldLabelLocator = By.xpath(String.format(""
-                                    // This option should work in all situations, if using the latest version of GovGrants
-                                    + "//div[contains(@class,'modal__container')]//div//label[contains(@class,'label') and %s]",
-                            matchLabelExactly
-                                    ? I.amPerforming().sanityOfXpathTo().equals(".", fieldLabel)
-                                    : I.amPerforming().sanityOfXpathTo().contains(".", fieldLabel)
-                    )
-            );
+        fieldLabelLocator = By.xpath(String.format(""
+                                // This option should work in all situations, if using the latest version of GovGrants
+                                + "//div[contains(@class,'modal__container')]//div//label[contains(@class,'label') and %s]",
+                        matchLabelExactly
+                                ? I.amPerforming().sanityOfXpathTo().equals(".", fieldLabel)
+                                : I.amPerforming().sanityOfXpathTo().contains(".", fieldLabel)
+                )
+        );
         String fieldValue;
         WebElement fieldData = I.amPerforming().getElementReference().of(fieldLabelLocator)
                 .findElement(By.xpath("./parent::div//div[not(@part='help-text')] | ./parent::slot//div[not(@part='help-text')] | ./parent::slot//lightning-formatted-text[not(@part='help-text')] | ./parent::div//li[not(@part='help-text')] | ./parent::div//div//lightning-formatted-text[not(@part='help-text')]"));
@@ -849,9 +851,9 @@ public final class PageDetails {
             } else {
                 I.amPerforming().click().withJavaScript(By.xpath("//td//a[contains(text(),'" + linkName + "')]"));
             }
-        }else if (usage.equalsIgnoreCase("hyperlink for invisible fields")) {
+        } else if (usage.equalsIgnoreCase("hyperlink for invisible fields")) {
             I.amPerforming().click().withJavaScript(By.xpath("//a[text()='" + linkName + "']"));
-        }else if (usage.equalsIgnoreCase("subaward dashboard")) {
+        } else if (usage.equalsIgnoreCase("subaward dashboard")) {
             I.amPerforming().click().on(ByUsing.xpath("//div[@id='" + linkName + "']//a//img[@src='/resource/GovGrantsImages/PieChartIcon.jpg']"));
         } else if (usage.equalsIgnoreCase("hyperlink for global search")) {
             I.amPerforming().click().on(ByUsing.xpath("//div[@data-aura-class='forceInlineEditGrid']//table//a[contains(text(),'" + linkName + "')]"));
@@ -1058,8 +1060,8 @@ public final class PageDetails {
     }
 
     public void getNotificationIcon() {
-        I.amPerforming().waitFor().ElementToBeVisible(By.xpath("//div[@class='headerButtonBody']//lightning-icon"));
-        I.amPerforming().click().withJavaScript(By.xpath("//div[@class='headerButtonBody']//lightning-icon"));
+        I.amPerforming().waitFor().ElementToBeVisible(By.xpath("//div[@class='headerButtonBody']//lightning-icon | //div[@class='forceHeaderButton']//div//div//lightning-icon"));
+        I.amPerforming().click().withJavaScript(By.xpath("//div[@class='headerButtonBody']//lightning-icon | //div[@class='forceHeaderButton']//div//div//lightning-icon"));
     }
 
     public void getHelpTextAtPageBlockDetailForInvisibleElement(String pageBlockDetailTitle) {

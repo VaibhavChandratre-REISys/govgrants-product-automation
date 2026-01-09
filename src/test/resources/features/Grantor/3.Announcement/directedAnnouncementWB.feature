@@ -2825,3 +2825,362 @@ Feature: Validate all scenarios in the directed Announcement tab
     And I wait for "3" seconds
     Then I see the following headers in table with id "---announcement:-:directedInvitedApplicatsTableId---" :
       | EGMS ID | Applicants | Application EGMS ID | Application Status | Last Updated By | Last Updated |
+
+  @527084 @validateAnnrecordcreatedbyPMusershouldsharedwithsameOrgusersPO/FO/FD/Auditor/EXE/Adminwithviewaccessonlywiththeirchildrecords(createdstate)fordirectedann @GrantorFlexP1
+  Scenario: Validate Ann record created by PM user should shared with same Org users PO/FO/FD/Auditor/EXE/Admin with view access only with their child records (created state) for directed ann
+    When I login to "Grantor" app as "ADMIN" user
+    And I navigate to "Announcements" tab
+    When I navigate to "Directed" content inside "Announcements" subheader on left panel
+    And I click on top right button "New" in flex table with id "---announcement:-:annoucementTableId---"
+    And I enter "DirectedAnnouncementForAdmin" values from "Announcement_Field_Values.xlsx"
+    And I click modal button "Continue"
+    When I enter "Creation Second Modal" values from "Announcement_Field_Values.xlsx"
+    And I click modal button "Save and Continue"
+    When I click on "Save" in the page details
+    And I wait for "3" seconds
+    And I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "AnnEGMSID"
+    When I navigate to "Overview" sub tab
+    And I pause execution for "3" seconds
+    Then I softly see status in Progress-bar is "Created" and is "dark blue"
+    When I navigate to "Overview" sub tab
+    Then I softly see value "Description" for the field "Automation test description"
+    And I navigate to "Overview" sub tab
+    When I click on top right button "Associate" in flex table with id "---announcement:-:contactTableId---"
+    When I click "Associate" after selection of "{SavedValue:PM Username}" by showing entries "All" in flex table with id "---announcement:-:annoucementContactTableId---"
+    When I click modal button "Close"
+    Then I softly see value "{SavedValue:PM Username}" for title "Name" inside table "---announcement:-:contactTableId---"
+    And I click on top right button "New" in flex table with id "---announcement:-:contactTableId---"
+    And I generate the random EmailID and save as "uniqueEmailID1"
+    And I enter values into fields
+      | Value                       | Field     |
+      | ab                          | Title     |
+      | SecondTest                  | FirstName |
+      | SecondLast                  | LastName  |
+      | {SavedValue:uniqueEmailID1} | Email     |
+    When I enter value "ab" into field "Title"
+    When I enter value "SecondTest" into field "FirstName"
+    When I enter value "SecondLast" into field "LastName"
+    When I enter value "{SavedValue:uniqueEmailID1}" into field "Email"
+    And I click modal button "Save"
+    And I pause execution for "1" seconds
+    Then I softly see value "SecondTest SecondLast" for title "Name" inside table "---announcement:-:contactTableId---"
+    And I click on top right button "Associate" in flex table with id "---announcement:-:relatedAnnouncementTableId---"
+    And I click "Associate" after selection of "10.028" in the table "---announcement:-:associateForRelated---"
+    When I click modal button "Close"
+    And I wait for "2" seconds
+    Then I softly see value "Wildlife Services" for title "Program Title" inside table "---announcement:-:relatedAnnouncementTableId---"
+    Then I softly see value "Federal" for title "Type" inside table "---announcement:-:relatedAnnouncementTableId---"
+    And I click on top right button "Associate" in flex table with id "---announcement:-:relatedAnnouncementTableId---"
+    And I click "Associate" after selection of "Bus Testing" in the table "---announcement:-:associateForRelated---"
+    When I click modal button "Close"
+    And I refresh the page
+    And I wait for "4" seconds
+    Then I softly see value "Bus Testing" for title "Program Title" inside table "---announcement:-:relatedAnnouncementTableId---"
+    When I click on top right button "Associate" in flex table with id "---announcement:-:AnnouncementServiceArea1TableId---"
+    When I click "Associate" after selection of "Automation Permanent Focus Area2" by showing entries "All" in flex table with id "---announcement:-:selectAnnouncementServiceArea1TableId---"
+    When I click modal button "Close"
+    And I wait for "2" seconds
+    And I refresh the page
+    And I wait for "2" seconds
+    Then I softly see that "Automation Permanent Focus Area2" has been added in flextable with Id "---announcement:-:AnnouncementServiceArea1TableId---"
+    And I click on "Edit" in the page details
+    And I enter value "www.google.com" into field "LinkforAdditionalInformation__c"
+    And I clear the value from field "EligibleApplicantTypes__c"
+    And I enter value "State Governments" into field "EligibleApplicantTypes__c"
+    Then I softly see multiple selected options in "SelectPicklistCell":
+      | Chosen            |
+      | State Governments |
+    And I enter value "Yes" into field "QAAvailability__c"
+    Then I softly see the text containing "Question Deadline"
+    Then I softly see the text containing "Response Deadline"
+    Then I softly see the text containing "Submit questions to:"
+    And I enter value "20" into field "ApplicationDueDate__c"
+    And I enter value "15" into field "QSubmissionDeadline__c"
+    And I enter value "25" into field "AResponseDeadline__c"
+    And I enter value "reisystemsqa@yopmail.com" into field "QAContactEmailAddress__c"
+    And I enter value "Test Eligibility Information" into field "AdditionalInformation__c"
+    And I click on "Save" in the page details
+    And I wait for "2" seconds
+    And I save the field labeled "Application Due Date" as "ADD"
+    And I save the field labeled "Question Deadline" as "QDD"
+    And I save the field labeled "Response Deadline" as "RDD"
+    And I pause execution for "2" seconds
+    Then I softly see field "Application Due Date" as "{SavedValue:ADD}"
+    Then I softly see field "Question Deadline" as "{SavedValue:QDD}"
+    Then I softly see field "Response Deadline" as "{SavedValue:RDD}"
+    Then I softly see field "Submit questions to:" as "reisystemsqa@yopmail.com"
+    Then I softly see field "Eligibility Information" as "Test Eligibility Information"
+    Then I softly see field "Link For Additional Information" as "www.google.com"
+    And I click on top right button "Add Organizations" in flex table with id "---announcement:-:directedInvitedApplicatsTableId---"
+    When I click "Add" after selection of "SAN DIEGO ELECTRICAL TRAINING TRUST" in the table "---announcement:-:directedAddInviteApplicantTableId---"
+    When I close "Add Organizations" modal by clicking the top right x button
+    Then I softly see that "SAN DIEGO ELECTRICAL TRAINING TRUST" has been added in flextable with Id "---announcement:-:directedInvitedApplicatsTableId---"
+    When I navigate to "Financials" sub tab
+    And I click on "Edit" in the page details
+#    And I enter value "Justified" into field "Justification__c"
+    And I enter value "4000" into field "---announcement:-:subawardfloor---"
+    And I enter value "6000" into field "---announcement:-:subawardceiling---"
+    And I click on "Save" in the page details
+#    Then I softly see field "Justification for Deficit Amount" as "Justified"
+    Then I softly see field "Subaward Floor" as "$4,000.00"
+    Then I softly see field "Subaward Ceiling" as "$6,000.00"
+    And I click on top right button "Associate" in flex table with id "---announcement:-:fundingAccountsTableId---"
+    When I click "Associate" after selection of "{SavedValue:fundingAccount}" by showing entries "All" in flex table with id "---announcement:-:fundingAccTableId---"
+    When I close "Associate Funding Accounts" modal by clicking the top right x button
+    When I edit the following rows inline in flex table with id "---announcement:-:fundingAccountsTableId---" by clicking "Edit" :
+      | Funding Account             | Pre-Encumbrance |
+      | {SavedValue:fundingAccount} | 100             |
+    Then I softly see that "{SavedValue:fundingAccount}" has been added in flextable with Id "---announcement:-:fundingAccountsTableId---"
+    And I click on top right button "Add Budget Period" in flex table with id "---announcement:-:budgetPeriodTableId---"
+    Then I softly see the following messages in the page details :
+      | Budget period added successfully. |
+    And I edit the following rows inline in flex table with id "---announcement:-:budgetPeriodTableId---" by clicking "Edit" :
+      | Budget Period Name | Start Date | End Date   |
+      | BP01               | 03/13/2030 | 04/13/2030 |
+    And I click on top right button "Add Budget Period" in flex table with id "---announcement:-:budgetPeriodTableId---"
+    Then I softly see value "03/13/2030" for title "Start Date" against the value "BP01" inside table "---announcement:-:budgetPeriodTableId---"
+    Then I softly see value "04/13/2030" for title "End Date" against the value "BP01" inside table "---announcement:-:budgetPeriodTableId---"
+    And I navigate to "Setup" sub tab
+    And I expand nested table containing column value "Pre-Screen Review"
+    When I click on "Review Form" icon for "Pre-Screen" inside flex table with id "---announcement:-:subReviewPanelTableId---" without waiting for record
+    And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
+      | Section Header | Section Weight (%) |
+      | Eligibility    | 50                 |
+    And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
+      | Section Header | Section Weight (%) |
+      | Completeness   | 50                 |
+    And I pause execution for "3" seconds
+    And I expand nested table containing column value "Eligibility"
+    When I enter the following values into flex table with id "---announcement:-:reviewPanelQuestionsTableId---" by clicking "New" :
+      | Question Order | Question  | Type    | Max Score |
+      | 1              | Question1 | Written | 100       |
+    And I pause execution for "3" seconds
+    And I collapse nested table containing column value "Eligibility"
+    And I expand nested table containing column value "Completeness"
+    When I enter the following values into flex table with id "---announcement:-:reviewPanelQuestionsTableId---" by clicking "New" :
+      | Question Order | Question  | Type    | Max Score |
+      | 1              | Question1 | Written | 100       |
+    And I pause execution for "3" seconds
+    When I close "Review Form" modal by clicking the top right x button
+    When I collapse nested table containing column value "Pre-Screen Review"
+    And I expand nested table containing column value "SME Review"
+    When I click on "Review Form" icon for "Compliance Review" inside flex table with id "---announcement:-:preScreenReviewFormTableId---" without waiting for record
+    And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
+      | Section Header | Section Weight (%) |
+      | Schedule       | 30                 |
+    And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
+      | Section Header | Section Weight (%) |
+      | Environment    | 30                 |
+    And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
+      | Section Header | Section Weight (%) |
+      | Permits        | 40                 |
+    And I pause execution for "3" seconds
+    And I expand nested table containing column value "Schedule"
+    When I enter the following values into flex table with id "---announcement:-:reviewPanelQuestionsTableId---" by clicking "New" :
+      | Question Order | Question  | Type    | Max Score |
+      | 1              | Question1 | Written | 100       |
+    And I pause execution for "3" seconds
+    And I collapse nested table containing column value "Schedule"
+    And I expand nested table containing column value "Environment"
+    When I enter the following values into flex table with id "---announcement:-:reviewPanelQuestionsTableId---" by clicking "New" :
+      | Question Order | Question  | Type    | Max Score |
+      | 1              | Question1 | Written | 100       |
+    And I pause execution for "3" seconds
+    And I collapse nested table containing column value "Environment"
+    And I expand nested table containing column value "Permits"
+    When I enter the following values into flex table with id "---announcement:-:reviewPanelQuestionsTableId---" by clicking "New" :
+      | Question Order | Question  | Type    | Max Score |
+      | 1              | Question1 | Written | 100       |
+    And I pause execution for "3" seconds
+    And I collapse nested table containing column value "Permits"
+    When I close "Review Form" modal by clicking the top right x button
+    When I click on "Review Form" icon for "Fiscal Review" inside flex table with id "---announcement:-:preScreenReviewFormTableId---" without waiting for record
+    And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
+      | Section Header | Section Weight (%) |
+      | Budget         | 30                 |
+    And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
+      | Section Header | Section Weight (%) |
+      | Match          | 40                 |
+    And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
+      | Section Header | Section Weight (%) |
+      | Program Income | 30                 |
+    And I pause execution for "3" seconds
+    And I expand nested table containing column value "Budget"
+    When I enter the following values into flex table with id "---announcement:-:reviewPanelQuestionsTableId---" by clicking "New" :
+      | Question Order | Question  | Type    | Max Score |
+      | 1              | Question1 | Written | 100       |
+    And I pause execution for "3" seconds
+    And I collapse nested table containing column value "Budget"
+    And I expand nested table containing column value "Match"
+    When I enter the following values into flex table with id "---announcement:-:reviewPanelQuestionsTableId---" by clicking "New" :
+      | Question Order | Question  | Type    | Max Score |
+      | 1              | Question1 | Written | 100       |
+    And I pause execution for "3" seconds
+    And I collapse nested table containing column value "Match"
+    And I expand nested table containing column value "Program Income"
+    When I enter the following values into flex table with id "---announcement:-:reviewPanelQuestionsTableId---" by clicking "New" :
+      | Question Order | Question  | Type    | Max Score |
+      | 1              | Question1 | Written | 100       |
+    And I pause execution for "3" seconds
+    And I collapse nested table containing column value "Program Income"
+    When I close "Review Form" modal by clicking the top right x button
+    When I click on "Review Form" icon for "Program Review" inside flex table with id "---announcement:-:preScreenReviewFormTableId---" without waiting for record
+    And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
+      | Section Header | Section Weight (%) |
+      | Capability     | 30                 |
+    And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
+      | Section Header | Section Weight (%) |
+      | Approach       | 30                 |
+    And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
+      | Section Header | Section Weight (%) |
+      | Impact         | 40                 |
+    And I pause execution for "3" seconds
+    And I expand nested table containing column value "Capability"
+    When I enter the following values into flex table with id "---announcement:-:reviewPanelQuestionsTableId---" by clicking "New" :
+      | Question Order | Question  | Type    | Max Score |
+      | 1              | Question1 | Written | 100       |
+    And I pause execution for "3" seconds
+    And I collapse nested table containing column value "Capability"
+    And I expand nested table containing column value "Approach"
+    When I enter the following values into flex table with id "---announcement:-:reviewPanelQuestionsTableId---" by clicking "New" :
+      | Question Order | Question  | Type    | Max Score |
+      | 1              | Question1 | Written | 100       |
+    And I pause execution for "3" seconds
+    And I collapse nested table containing column value "Approach"
+    And I expand nested table containing column value "Impact"
+    When I enter the following values into flex table with id "---announcement:-:reviewPanelQuestionsTableId---" by clicking "New" :
+      | Question Order | Question  | Type    | Max Score |
+      | 1              | Question1 | Written | 100       |
+    And I pause execution for "3" seconds
+#    And I collapse nested table containing column value "Impact"
+    When I close "Review Form" modal by clicking the top right x button
+    And I pause execution for "2" seconds
+    When I collapse nested table containing column value "SME Review"
+    And I pause execution for "2" seconds
+    And I expand nested table containing column value "Management Review"
+    And I wait for "5" seconds
+    When I click on "Review Form" icon for "Management Review" inside flex table with id "---announcement:-:annReviewFormsTableId---" without waiting for record
+    And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
+      | Section Header             | Section Weight (%) |
+      | Return on Investment (ROI) | 50                 |
+    And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
+      | Section Header      | Section Weight (%) |
+      | Strategic Alignment | 50                 |
+    And I pause execution for "3" seconds
+    And I expand nested table containing column value "Return on Investment (ROI)"
+    When I enter the following values into flex table with id "---announcement:-:reviewPanelQuestionsTableId---" by clicking "New" :
+      | Question Order | Question  | Type    | Max Score |
+      | 1              | Question1 | Written | 100       |
+    And I pause execution for "3" seconds
+    And I collapse nested table containing column value "Return on Investment (ROI)"
+    And I expand nested table containing column value "Strategic Alignment"
+    When I enter the following values into flex table with id "---announcement:-:reviewPanelQuestionsTableId---" by clicking "New" :
+      | Question Order | Question  | Type    | Max Score |
+      | 1              | Question1 | Written | 100       |
+    And I pause execution for "3" seconds
+    When I close "Review Form" modal by clicking the top right x button
+    When I collapse nested table containing column value "Management Review"
+    And I click on top right button "Validate" in flex table with id "---announcement:-:preScreenReviewFormTableId---"
+    Then I softly see value "Automation" for title "Description" inside table "---announcement:-:annChecklist---"
+    Then I softly see value "Grantor Application Forms" for title "Package Name" inside table "---announcement:-:businessFormlistTableId---"
+    Then I softly see value "Organization Desk Review" for title "Package Name" inside table "---announcement:-:businessFormlistTableId---"
+    Then I softly see value "Grantor Progress Report Forms" for title "Package Name" inside table "---announcement:-:businessFormlistTableId---"
+    And I click on "Edit" icon for "Grantor Application Forms" inside flex table with id "---announcement:-:businessFormlistTableId---" without waiting for record
+    And I click on remove for lookup from field "PackageConfig__c"
+    And I enter in modal value "Grantor Application Forms" into field "PackageConfig__c"
+    And I click modal button "Save"
+    Then I softly see value "Grantor Application Forms" for title "Package Name" inside table "---announcement:-:businessFormlistTableId---"
+    When I enter the following values into flex table with id "---announcement:-:annChecklist---" by clicking "Add" :
+      | Description                 | Required  | Applies To | Status |
+      | Automation test description | Mandatory | Award      | Active |
+    When I click on "Upload Template" icon for "Automation test description" inside flex table with id "---announcement:-:annChecklist---" without waiting for record
+    And I upload attachment without random number "Attachment.pdf" of type "Template for Announcement" from computer
+    When I click modal button "Close"
+    And I refresh the page
+    And I wait for "2" seconds
+    And I click on hyperlink containing value "View"
+    Then I softly see value "Mandatory" for title "Required" inside table "---announcement:-:annChecklist---"
+    Then I softly see value "Award" for title "Applies To" inside table "---announcement:-:annChecklist---"
+    Then I softly see value "Active" for title "Status" inside table "---announcement:-:annChecklist---"
+    Then I softly see value "Automation Permanent KPI" for title "Title" inside table "---announcement:-:kpiflextableid---"
+    Then I softly see value "Automation Permanent Objective" for title "Title" inside table "---announcement:-:objectivesTableId---"
+    When I navigate to "Responsibilities" sub tab
+    When I enter the following values into flex table with id "---announcement:-:ApproverRolesGrantorgridTableId---" by clicking "New" :
+      | Name                     | Responsibility  | Description              | Due Date | Allow Record Editing |
+      | {SavedValue:FO Username} | Fiscal Reviewer | Review Financial details | 10       | No                   |
+    Then I softly see value "{SavedValue:FO Username}" for title "Name" inside table "---announcement:-:ApproverRolesGrantorgridTableId---"
+    When I enter the following values into flex table with id "---announcement:-:approversTableId---" by clicking "New" :
+      | Name                     | Announcement |
+      | {SavedValue:PM Username} | Step 1       |
+    When I enter the following values into flex table with id "---announcement:-:approversTableId---" by clicking "New" :
+      | Name                      | Announcement |
+      | {SavedValue:EXE Username} | Step 2       |
+    When I enter the following values into flex table with id "---announcement:-:approversTableId---" by clicking "New" :
+      | Name                     | Announcement |
+      | {SavedValue:FO Username} | Step 3       |
+    Then I softly see value "{SavedValue:PM Username}" for title "Title" inside table "---announcement:-:approversTableId---"
+    Then I softly see value "{SavedValue:EXE Username}" for title "Title" inside table "---announcement:-:approversTableId---"
+    Then I softly see value "{SavedValue:FO Username}" for title "Title" inside table "---announcement:-:approversTableId---"
+    And I navigate to "Files" sub tab
+    When I enter the following values into flex table with id "---announcement:-:AnnouncementNotestableId---" by clicking "New" :
+      | Title        | Description      |
+      | Notes Record | Automation Notes |
+    Then I softly see value "Notes Record" for title "Title" inside table "---announcement:-:AnnouncementNotestableId---"
+    And I click on top right button "Add Files" in flex table with id "---announcement:-:AnnouncementAttachmentTableId---"
+    And I upload attachment without random number "Attachment.pdf" of type "Funding Opportunity Announcement" from computer
+    When I close "Add File" modal by clicking the top right x button
+    Then I see value "Attachment.pdf" for title "Title" inside table "---announcement:-:AnnouncementAttachmentTableId---"
+    And I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
+    #527098
+    And I select "Announcements" from dropdown for Global search
+    And I perform quick search inside global search "{SavedValue:AnnEGMSID}"
+    And I click on row level action button "Edit" against "{SavedValue:AnnEGMSID}" in global search with id "Announcements"
+    Then I softly see field "Status" as "Created"
+    Then I cannot see top right button "Save" in page detail
+    Then I cannot see top right button "Cancel" in page detail
+    Then I softly see the text containing "You dont have sufficient access to edit this record"
+    And I navigate to "Announcements" tab
+    When I navigate to "Competitive" content inside "Announcements" subheader on left panel
+    And I click toggle button to select "Draft Competitive Announcements"
+    And I click on "View" icon for "{SavedValue:Automation Runtime Competitive Announcement}" inside flex table with id "---announcement:-:competitiveAnnouncementTableId---" without waiting for record
+    Then I softly see status in Progress-bar is "Created" and is "dark blue"
+    And I navigate to "Overview" sub tab
+    Then I softly see value "Description" for the field "Automation test description"
+    Then I softly see value "{SavedValue:PM Username}" for title "Name" inside table "---announcement:-:contactTableId---"
+    Then I softly see value "TestFirst TestLast" for title "Name" inside table "---announcement:-:contactTableId---"
+    Then I softly see value "Wildlife Services" for title "Program Title" inside table "---announcement:-:relatedAnnouncementTableId---"
+    Then I softly see value "Federal" for title "Type" inside table "---announcement:-:relatedAnnouncementTableId---"
+    Then I softly see value "Bus Testing" for title "Program Title" inside table "---announcement:-:relatedAnnouncementTableId---"
+    Then I softly see that "Automation Permanent Focus Area2" has been added in flextable with Id "---announcement:-:AnnouncementServiceArea1TableId---"
+    Then I softly see field "LinkforAdditionalInformation__c" as "www.google.com"
+    Then I softly see multiple selected options in "SelectPicklistCell":
+      | Chosen            |
+      | State Governments |
+    Then I softly see field "Application Due Date" as "{SavedValue:ADD}"
+    Then I softly see field "Question Deadline" as "{SavedValue:QDD}"
+    Then I softly see field "Response Deadline" as "{SavedValue:RDD}"
+    Then I softly see field "Submit questions to:" as "reisystemsqa@yopmail.com"
+    Then I softly see field "Eligibility Information" as "Test Eligibility Information"
+    Then I softly see field "Link For Additional Information" as "www.google.com"
+    When I navigate to "Financials" sub tab
+#    Then I softly see field "Justification for Deficit Amount" as "Justified"
+    Then I softly see field "Subaward Floor" as "$4,000.00"
+    Then I softly see field "Subaward Ceiling" as "$6,000.00"
+    Then I softly see that "{SavedValue:fundingAccount}" has been added in flextable with Id "---announcement:-:fundingAccountsTableId---"
+    Then I softly see value "03/13/2030" for title "Start Date" against the value "BP01" inside table "---announcement:-:budgetPeriodTableId---"
+    Then I softly see value "04/13/2030" for title "End Date" against the value "BP01" inside table "---announcement:-:budgetPeriodTableId---"
+    And I navigate to "Setup" sub tab
+    Then I softly see value "Mandatory" for title "Required" inside table "---announcement:-:annChecklist---"
+    Then I softly see value "Award" for title "Applies To" inside table "---announcement:-:annChecklist---"
+    Then I softly see value "Active" for title "Status" inside table "---announcement:-:annChecklist---"
+    Then I softly see value "Automation Permanent KPI" for title "Tffitle" inside table "---announcement:-:kpiflextableid---"
+    Then I softly see value "Automation Permanent Objective" for title "Title" inside table "---announcement:-:objectivesTableId---"
+    When I navigate to "Responsibilities" sub tab
+    Then I softly see value "{SavedValue:FO Username}" for title "Name" inside table "---announcement:-:ApproverRolesGrantorgridTableId---"
+    Then I softly see value "{SavedValue:PM Username}" for title "Title" inside table "---announcement:-:approversTableId---"
+    Then I softly see value "{SavedValue:EXE Username}" for title "Title" inside table "---announcement:-:approversTableId---"
+    Then I softly see value "{SavedValue:FO Username}" for title "Title" inside table "---announcement:-:approversTableId---"
+    And I navigate to "Files" sub tab
+    Then I see value "Attachment.pdf" for title "Title" inside table "---announcement:-:AnnouncementAttachmentTableId---"
+    Then I softly see value "Notes Record" for title "Title" inside table "---announcement:-:AnnouncementNotestableId---"

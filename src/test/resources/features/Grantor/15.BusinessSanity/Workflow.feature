@@ -2529,8 +2529,7 @@ Feature: Validate all scenarios of every modules flow
     And I wait for "3" seconds
     Then I see that "Subaward" is in "Activated" status
 
-  @testgranteesf @debug
+  @testgranteesf
   Scenario:
-    When I login to "As a Grantor" app as "PM" user
-    And I navigate to "Grants" tab
-    Then I softly see value "{Date:MM/dd/yyyy::d+X}" for title "FFATA Report Due Date" inside table "---subAwardStandAlone:-:SrOrgSubawardDetailsFFATAComplianceTableId---"
+    When I login to "Grantee" app as "GRANTEE PM" user
+    And I re-login to "Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal

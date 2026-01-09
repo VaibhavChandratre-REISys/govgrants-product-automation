@@ -435,7 +435,7 @@ Feature: Validate all scenarios for Grants & Awards
     And I update title as "Automation.pdf" on upload file modal
     And I select Classification as "Interim Award Document" at upload file modal
     When I click modal button "Save"
-    And I click modal button "Close"
+#    And I click modal button "Close"
     And I refresh the page
     And I wait for "3" seconds
     Then I softly see value "Automation.pdf" for title "Title" inside table "---grantee_tableId:-:awardAddFilesTableId---"
@@ -1025,7 +1025,7 @@ Feature: Validate all scenarios for Grants & Awards
     And I update title as "Automation.pdf" on upload file modal
     And I select Classification as "Award Documents" at upload file modal
     When I click modal button "Save"
-    And I click modal button "Close"
+#    And I click modal button "Close"
     And I refresh the page
     And I wait for "2" seconds
     Then I softly see value "Automation.pdf" for title "Title" inside table "---grantee_tableId:-:grantAddFilesTableId---"
@@ -1238,6 +1238,29 @@ Feature: Validate all scenarios for Grants & Awards
     Then I softly see that "Created Date" rendered in view mode only
     Then I softly see that "Last Modified by" rendered in view mode only
     Then I softly see that "Last Modified Date" rendered in view mode only
+    And I navigate to "Projections" sub tab
+    Then I softly see fields "BudgetRedirectionThreshhold__c" is in edit mode
+    Then I softly see fields "BudgetPeriodEndDate__c" is in edit mode
+    Then I softly see fields "ApprovedIndirectCostRate__c" is in edit mode
+    Then I softly see fields "ProgramIncomeType__c" is in edit mode
+    Then I softly see that "Project Period End Date" rendered in view mode only
+    Then I softly see that "Award Amount to Date" rendered in view mode only
+    Then I softly see that "Budget Period Start Date" rendered in view mode only
+    And I click on "Save" in the page details
+    Then I softly see the following messages in the page details contains:
+      | To Save, Award Issue Date is required in the Overview tab under the Details section.                               |
+      | To Save, Funder Payment System is required in the Overview tab under the Details section.                          |
+      | To Save, Congressional District is required in the Overview tab under the Primary Place of Performance section.    |
+      | To Save, Program Income Treatment Type is required in the Projections tab under the Budget Period Details section. |
+    When I enter "Grantee_Award_Edition" values from "Award_Field_Values.xlsx"
+    And I click on "Save" in the page details
+    And I navigate to "Overview" sub tab
+    Then I softly see link "{SavedValue:GrantEGMSID}" inside Page block
+    And I click on hyperlink containing value "{SavedValue:GrantEGMSID}"
+    Then I see the header is "Grant" in the page details
+    Then I softly see field "EGMS ID" as "{SavedValue:GrantEGMSID}"
+    And I click on back arrow
+    And I wait for "2" seconds
     And I save the field labeled "Funding Organization" as "FundingOrganization"
     Then I softly see link "{SavedValue:FundingOrganization}" inside Page block
     And I click on hyperlink containing value "{SavedValue:FundingOrganization}"
@@ -1270,14 +1293,6 @@ Feature: Validate all scenarios for Grants & Awards
     Then I softly see that "Project Period End Date" rendered in view mode only
     Then I softly see that "Award Amount to Date" rendered in view mode only
     Then I softly see that "Budget Period Start Date" rendered in view mode only
-    And I click on "Save" in the page details
-    Then I softly see the following messages in the page details contains:
-      | To Save, Award Issue Date is required in the Overview tab under the Details section.                               |
-      | To Save, Funder Payment System is required in the Overview tab under the Details section.                          |
-      | To Save, Congressional District is required in the Overview tab under the Primary Place of Performance section.    |
-      | To Save, Program Income Treatment Type is required in the Projections tab under the Budget Period Details section. |
-    When I enter "Grantee_Award_Edition" values from "Award_Field_Values.xlsx"
-    And I click on "Save" in the page details
     And I navigate to "Overview" sub tab
     Then I softly see link "{SavedValue:GrantEGMSID}" inside Page block
     And I click on hyperlink containing value "{SavedValue:GrantEGMSID}"
@@ -5059,7 +5074,7 @@ Feature: Validate all scenarios for Grants & Awards
     Then I softly see value "{SavedValue:progressEGMSID3}" for title "EGMS ID" inside table "---grantee_tableId:-:ProgressReportTableId---"
     Then I softly see value "{SavedValue:AwardEGMSID}" for title "Award EGMS ID" against the value "{SavedValue:progressEGMSID3}" inside table "---grantee_tableId:-:ProgressReportTableId---"
 
-  @463588 @ValidateOtherTypeARtheReparentingthefinancialreportfromothertypeofamendmentrequest @PO_Grantee @P2_Grantee @GRegression5
+  @463657 @463588 @ValidateOtherTypeARtheReparentingthefinancialreportfromothertypeofamendmentrequest @PO_Grantee @P2_Grantee @GRegression5
   Scenario: Validate Other Type AR the Reparenting the financial report from other type of amendment request
     And I "Created" standalone subaward "Automation Runtime award" with properties "default-Grantee PO user"
     And I updated direct grant award for title "{SavedValue:Automation Runtime award}" with properties "default"
@@ -5584,9 +5599,9 @@ Feature: Validate all scenarios for Grants & Awards
     Scenario: Validate if search the report through global search then selected report able to see "Active Grant Summary by Agency".
       When I login to "Grantee" app as "GRANTEE ADMIN" user
       And I perform quick search inside global search "Active Grant Summary by Agency"
-      Then I softly see value "Active Grant Summary by Agency" for title "Report Name" inside table "Reports"
       Then I softly can see row level action button "Run" against "Active Grant Summary by Agency" in global search with id "Reports"
       And I click on row level action button "Run" against "Active Grant Summary by Agency" in global search with id "Reports"
+      Then I see the header is "Report: Grant with Funding Agency" in the page details
       Then I see the header is "Active Grant Summary by Agency" in the page details
       Then I see the sub-header is "This report provides a consolidated view of all active grants associated with each Funding Organization." in the page details
 
@@ -5636,3 +5651,61 @@ Feature: Validate all scenarios for Grants & Awards
       | Notes Record | Automation Notes |
     Then I softly see the following messages in the page details contains:
       | Saved Successfully! |
+
+ @485913 @validatethatpmprojectroleismandatoryincontacttable
+ Scenario: Validate that PM Project Role is mandatory in Contact table
+   And I "Created" standalone subaward "Automation Runtime award" with properties "default"
+   And I updated direct grant award for title "{SavedValue:Automation Runtime award}" with properties "default"
+   When I login to "Grantee" app as "GRANTEE PM" user
+   And I navigate to "Grants" tab
+   When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+   And I click toggle button to select "Grants - All"
+   When I perform quick search for "{SavedValue:Automation Runtime award}" in "---grantee_tableId:-:GrantsTable---" panel
+   And I click on "View" icon for "{SavedValue:Automation Runtime award}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
+   Then I softly see field "Status" as "Draft"
+   Then I softly see status in Progress-bar is "Created" and is "dark blue"
+   And I save the field labeled "EGMS ID" as "GrantEGMSID"
+   When I navigate to "Awards" sub tab
+   And I click on "View" icon for "Created" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
+   Then I softly see field "Status" as "Created"
+   And I get the "EGMS ID"
+   And I save the field labeled "EGMS ID" as "AwardEGMSID"
+   Then I can see top right button "New" in flex table with id "---grantee_tableId:-:awardContactTableId---"
+   And I click on top right button "New" in flex table with id "---grantee_tableId:-:awardContactTableId---"
+   Then I softly see "Create Contact" opens in overLay window
+   Then I softly see field on modal "Organization" inside page block
+   Then I softly see field on modal "Project Role" inside page block
+   Then I softly see field on modal "Title" inside page block
+   Then I softly see field on modal "First Name" inside page block
+   Then I softly see field on modal "Last Name" inside page block
+   Then I softly see field on modal "Phone" inside page block
+   Then I softly see field on modal "Mobile Phone" inside page block
+   Then I softly see field on modal "Email" inside page block
+   Then I softly see field on modal "Address Line 1" inside page block
+   Then I softly see field on modal "Address Line 2" inside page block
+   Then I softly see field on modal "State" inside page block
+   Then I softly see field on modal "Congressional District" inside page block
+   Then I softly see field on modal "City" inside page block
+   Then I softly see field on modal "Country" inside page block
+   Then I softly see field on modal "County" inside page block
+   Then I softly see field on modal "4-Digit Zip Code Extension" inside page block
+   Then I softly see field on modal "Zip Code" inside page block
+   When I enter in modal value "Automation Runtime Title" into field "Title"
+   When I enter in modal value "Automation Runtime" into field "FirstName"
+   When I enter in modal value "Execution" into field "LastName"
+   When I enter in modal value "8967093890" into field "Phone"
+   When I enter in modal value "8967093440" into field "MobilePhone"
+   And I generate the random EmailID and save as "uniqueEmailID"
+   And I enter in modal value "{SavedValue:uniqueEmailID}" into field "Email"
+   When I enter in modal value "Mail Street" into field "MailingStreet"
+   When I enter in modal value "Howard Lane" into field "Address2__c"
+   When I enter in modal value "AK: Alaska" into field "State__c"
+   When I enter in modal value "VA" into field "MailingCity"
+   When I enter in modal value "123" into field "CongressionalDistrict__c"
+   When I enter in modal value "USA" into field "MailingCountry"
+   When I enter in modal value "United" into field "County__c"
+   When I enter in modal value "1234" into field "X4DigitZipCodeExtension__c"
+   When I enter in modal value "12345" into field "MailingPostalCode"
+   When I click modal button "Save"
+   Then I softly see the following messages in the page details contains:
+     | To Save, Project Role is required in the Contact Information section.   |

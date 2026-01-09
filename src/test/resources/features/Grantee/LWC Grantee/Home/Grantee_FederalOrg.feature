@@ -78,7 +78,7 @@ Feature: Validate all scenarios for Federal Organization
     And I save the field labeled "Mobile Phone" as "MobilePhone" on modal
     Then I see field "Mobile Phone" as "{SavedValue:MobilePhone}" on modal
     And I save the field labeled "Email" as "Email" on modal
-    Then I see field "Email" as " {SavedValue:Email}" on modal
+    Then I see field "Email" as "{SavedValue:Email}" on modal
     And I save the field labeled "Address Line 1" as "AddressLine1" on modal
     Then I see field "Address Line 1" as "{SavedValue:AddressLine1}" on modal
     And I save the field labeled "Address Line 2" as "AddressLine2" on modal

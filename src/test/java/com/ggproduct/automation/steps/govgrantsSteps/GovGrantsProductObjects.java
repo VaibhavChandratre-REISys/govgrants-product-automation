@@ -700,4 +700,5 @@ public final class GovGrantsProductObjects {
         I.amPerforming().textInput().in(inputBox, message);
         I.amPerforming().click().withJavaScript(By.xpath("//button[text()='Share']"));
     }
-}
+
+    }

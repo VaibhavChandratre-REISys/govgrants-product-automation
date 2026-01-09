@@ -88,6 +88,11 @@ public class CommonSteps {
         projectManager.clickOnCOIOption(radioButtonName);
     }
 
+    @And("I click radio button {string} in form")
+    public void iClickRadioButtonInForm(String radioButtonName) {
+        projectManager.clickOnFormOption(radioButtonName);
+    }
+
     @And("I reset the table")
     public void iResetTheTable() {
         I.amPerforming().click().withJavaScript(By.xpath("//div[@class='resetIcon']//button"));
@@ -105,6 +110,11 @@ public class CommonSteps {
     @Then("I (see|softly see) radio button \"([^\"]*)\" in view mode for COI section$")
     public void iSeeRadioButtonInViewModeForCOISection(String usage, String radioButtonName) {
         projectManager.assertCOISectionInViewMode(radioButtonName, usage.contains("softly"));
+    }
+
+    @Then("I (see|softly see) radio button \"([^\"]*)\" in view mode for form sections$")
+    public void iSeeRadioButtonInViewModeForFormSections(String usage, String radioButtonName) {
+        projectManager.assertformSectionInViewMode(radioButtonName, usage.contains("softly"));
     }
 
     @And("I click on {string} icon for {string} inside flex table with id {string} without Split")

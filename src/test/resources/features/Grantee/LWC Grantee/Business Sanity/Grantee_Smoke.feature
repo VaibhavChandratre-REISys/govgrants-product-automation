@@ -1277,7 +1277,7 @@ Feature: Grantee Smoke scenarios
       | userType   | emailId                         |
       | GRANTEE PM | sarah.pm.ggmergeqa2@yopmail.com |
 
-  @477437 @BudgetNarrativeattachmentformVerifyPMusercanaddfilesinBudgetnarrativeattachmentinViewmodeandsuccessfullysubmitapplicationtograntsgov @Grantee_Smoke1 @GranteeTBE
+  @477437 @BudgetNarrativeattachmentformVerifyPMusercanaddfilesinBudgetnarrativeattachmentinViewmodeandsuccessfullysubmitapplicationtograntsgov @Grantee_Smoke1 @GranteeTBE @GranteeP_Q4
   Scenario: Budget Narrative attachment form - Verify PM user can add files in Budget narrative attachment in View mode and successfully submit application to grants.gov
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default"
@@ -6501,7 +6501,7 @@ Feature: Grantee Smoke scenarios
     When I click on "Revise" in the page details
     Then I softly see field "Status" as "Revision in Progress"
 
-  @481574 @ValidateProjectabstractsummaryPOusershouldabletoseethetrackingnumberaftersubmissiontograntsgovverifyrecorddecision @Grantee_Smoke1
+  @481574 @ValidateProjectabstractsummaryPOusershouldabletoseethetrackingnumberaftersubmissiontograntsgovverifyrecorddecision @Grantee_Smoke1 @GranteeP_Q4
   Scenario: Validate Project abstract summary PO user should able to see the tracking number after submission to grants gov verify record decision
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default-Grantee PO user"
@@ -6590,7 +6590,7 @@ Feature: Grantee Smoke scenarios
     Then I softly see value "{SavedValue:TrackingNumber}" for title "Tracking Number" against the value "S2SReceived" inside table "---grantee_tableId:-:submissionHistoryTableId---"
     Then I can see top right button "Record Decision" in page detail
 
-  @478407 @ValidateProjectNarrativeAttachmentformPMusershouldtosubmittheapplicationtograntsgovwhenifusernotfilledtheoptionalform @Grantee_Smoke1
+  @478407 @ValidateProjectNarrativeAttachmentformPMusershouldtosubmittheapplicationtograntsgovwhenifusernotfilledtheoptionalform @Grantee_Smoke1 @GranteeP_Q4
   Scenario: Project Narrative Attachment form -Verify PM user should to submit the application to grants.gov when if user not filled the optional form
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default"
@@ -13646,7 +13646,6 @@ Feature: Grantee Smoke scenarios
       | GRANTEE ADMIN | DEMO ADMIN |
       | GRANTEE PM    | Sarah PM   |
       | GRANTEE EXE   | Victor EXE |
-
 
   @477571 @ValidateAttachmentsformPMusercanaddfilesinAttachmentsforminViewmodeandsuccessfullysubmitapplicationtograntsgov @Grantee_Smoke1
   Scenario: Validate Attachments form PM user can add files in Attachments form in View mode and successfully submit application to grants gov

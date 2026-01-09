@@ -338,8 +338,8 @@ Feature: Validate all scenarios for Applications Manual
     When I navigate to "Overview" sub tab
     Then I softly see field "Pre-Application Required?" as "No"
     Examples:
-      | filter          | userName   | userType        |
-      | Sarah PM user   | GRANTEE PM | GRANTEE AUDITOR |
+      | filter        | userName   | userType        |
+      | Sarah PM user | GRANTEE PM | GRANTEE AUDITOR |
 
   @487158 @ValidateNotYetConvertedOpportunityManualADMINusercannotcreateApplicationfromOpportunityifPreApplicationRequiredisselectedasNoonOpportunityrecord @P3_Grantee @ADMIN_Grantee @GRegression2
   Scenario Outline: Validate Not Yet Converted Opportunity Manual ADMIN user cannot create Application from Opportunity if Pre-Application Required? is selected as No on Opportunity record
@@ -364,8 +364,8 @@ Feature: Validate all scenarios for Applications Manual
     When I navigate to "Overview" sub tab
     Then I softly see field "Pre-Application Required?" as "No"
     Examples:
-      | filter          | userName   | userType        |
-      | Grantee PO user | GRANTEE PO | GRANTEE ADMIN   |
+      | filter          | userName   | userType      |
+      | Grantee PO user | GRANTEE PO | GRANTEE ADMIN |
 
   @472391 @Validatethatuserabletocreatetheapplicationfromthequalifiedleads @P2_Grantee @PM_Grantee @GRegression1
   Scenario: Validate that user able to create the application from the qualified leads
@@ -394,3 +394,491 @@ Feature: Validate all scenarios for Applications Manual
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "appEGMSID"
     Then I softly see field "Status" as "Created"
+
+  @472827 @PMuserVerifyPMuserseesubmittoGrantorbuttononapprovedapplication
+  Scenario:Verify PM user see submit to Grantor button on approved application
+    And I create "Manual" qualified lead for title "Automation Runtime Opportunity" and opportunity number "Automation Runtime" with properties "default"
+    Given I login to "Grantee" app as "GRANTEE PM" user
+    And I navigate to "Opportunities" tab
+    When I navigate to "Qualified" content inside "Leads" subheader on left panel
+    And I click toggle button to select "Qualified Leads - All"
+    When I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:qualifiedLeadTableId---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside flex table with id "---grantee_tableId:-:qualifiedLeadTableId---" without waiting for record
+    When I click on "Convert to Opportunity" in the page details
+    And I save the field labeled "EGMS ID" as "opportunityEGMSID"
+    And I create opportunity with state "Approved" for opportunity number "{SavedValue:Automation Runtime}" with properties "default"
+    And I create Application "{SavedValue:Automation Runtime Opportunity}" with state "Approved" for opportunity number "{SavedValue:Automation Runtime}" with properties "DAVID_FO_APPROVER"
+    When I navigate to "Applications" tab
+    And I navigate to "Applications" content inside "Applications" subheader on left panel
+    When I click toggle button to select "Applications - All"
+    And I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:ApplicationTableId---" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside table
+    And I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "appEGMSID"
+    Then I softly see field "Status" as "Approved"
+    When I click on "Submit To Grantor" in the page details
+    And I click modal button "Save"
+    Then I softly see the following messages in the page details contains:
+      | To Save, Submitted to Grantor On is required. |
+    When I enter values into fields
+      | Value | Field          |
+      | 0     | SubmittedOn__c |
+    And I click modal button "Save"
+    And I save the field labeled "Submitted to Grantor On" as "SubmittedtoGrantorOn"
+    And I click modal button "Close"
+    Then I softly see field "Status" as "Submitted to Grantor"
+    When I navigate to "Overview" sub tab
+    Then I see field "Submitted to Grantor On" as "{SavedValue:SubmittedtoGrantorOn}"
+
+  @494024 @Validateimpactonalreadycreatedapplicationafterapplicationduedateispassed
+  Scenario Outline: PreApp - Verify with PO Profile ,when preapplication due date is crossed for grants.gov lead then unable to see the create pre application button.
+    When I login to "Grantee" app as "<User>" user
+    When I navigate to "Applications" tab
+    And I navigate to "Applications" content inside "Applications" subheader on left panel
+    When I click toggle button to select "Applications - All"
+    And I perform quick search for "{AUTOEnvData:AutomationPermanentApplicationExpired}" in "---grantee_tableId:-:ApplicationTableId---" panel
+    When I click on "View" icon for "{AUTOEnvData:AutomationPermanentApplicationExpired}" inside table
+    And I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "appEGMSID"
+    Then I softly see field "Status" as "Created"
+    And I click on "Submit For Approval" in the page details
+    Then I softly see the following messages in the page details contains:
+      | This application cannot be submitted. The application due date has passed. |
+
+    Examples:
+      | User       |
+      | GRANTEE PM |
+
+  @547375 @547368 @547354 @validatethatContactsectionshouldbevisiblewithcorrectrecordscounttoallInternalUsers @GranteeFlexP1
+  Scenario Outline: Validate that Contact section should be visible with correct records count to all Internal Users
+    And I create "Manual" qualified lead for title "Automation Runtime Opportunity" and opportunity number "Automation Runtime" with properties "default"
+    When I login to "Grantee" app as "GRANTEE PM" user
+    And I navigate to "Opportunities" tab
+    When I navigate to "Qualified" content inside "Leads" subheader on left panel
+    And I click toggle button to select "Qualified Leads - All"
+    When I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:qualifiedLeadTableId---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside flex table with id "---grantee_tableId:-:qualifiedLeadTableId---" without waiting for record
+    When I click on "Convert to Opportunity" in the page details
+    And I save the field labeled "EGMS ID" as "opportunityEGMSID"
+    And I create opportunity with state "Approved" for opportunity number "{SavedValue:Automation Runtime}" with properties "default"
+    And I navigate to "Opportunities" tab
+    And I navigate to "Not Converted" content inside "Opportunities" subheader on left panel
+    When I click toggle button to select "Opportunities Not Converted to Application - All"
+    And I perform quick search for "{SavedValue:opportunityEGMSID}" in "---grantee_tableId:-:OpportunityNotConvertedToApplication---" panel
+    When I click on "View" icon for "{SavedValue:opportunityEGMSID}" inside table
+    Then I softly can see top right button "Create Application" in page detail
+    And I click on "Create Application" in the page details
+    And I wait for "5" seconds
+    And I click modal button "Save and Continue"
+    And I enter "Grantee_Edition" values from "Application_Field_Values.xlsx"
+    And I wait for "2" seconds
+    When I click on "Save" in the page details
+    And I pause execution for "2" seconds
+    And I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "appEGMSID"
+    Then I softly see field "Status" as "Created"
+    And I navigate to "Overview" sub tab
+    Then I softly see "Application Overview" page block displayed
+    Then I softly see "Opportunity Overview" page block displayed
+    Then I softly see "External Programs" page block displayed
+    Then I softly see "Contacts" page block displayed
+    Then I softly see "Project Abstract" page block displayed
+    Then I softly see "Primary Place of Performance" page block displayed
+    Then I softly see "System Information" page block displayed
+    Then I can see top right button "New" in flex table with id "---grantee_tableId:-:ContactTableIdApplication---"
+    Then I can see top right button "Associate" in flex table with id "---grantee_tableId:-:ContactTableIdApplication---"
+    And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:ContactTableIdApplication---"
+    When I click "Associate" after selection of "Sarah PM" in the table "---grantee_tableId:-:ContactModalTableIdApplication---"
+    When I click modal button "Close"
+    And I wait for "2" seconds
+    And I refresh the page
+    And I wait for "3" seconds
+    And I edit the following rows inline in flex table with id "---grantee_tableId:-:ContactTableIdApplication---" by clicking "Edit" :
+      | Name     | Project Role                                   |
+      | Sarah PM | Project Director/Principal Investigator(PI/PD) |
+    And I edit the following rows inline in flex table with id "---grantee_tableId:-:ContactTableIdApplication---" by clicking "Edit" :
+      | Name     | Is Key Contact |
+      | Sarah PM | Checked        |
+    And I wait for "2" seconds
+    Then I softly see value "Sarah PM" for title "Name" inside table "---grantee_tableId:-:ContactTableIdApplication---"
+    And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:ContactTableIdApplication---"
+    When I click "Associate" after selection of "Victor EXE" in the table "---grantee_tableId:-:ContactModalTableIdApplication---"
+    When I click modal button "Close"
+    And I wait for "2" seconds
+    Then I softly see value "Victor EXE" for title "Name" inside table "---grantee_tableId:-:ContactTableIdApplication---"
+    And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:ApplicationExternalProgramsTableId---"
+    And I wait for "2" seconds
+    When I perform quick search for "Automation Permanent NGO Program2" in "---grantee_tableId:-:applicationAssociateExternalProgramsTableId---" panel
+    When I click "Associate" after selection of "Automation Permanent NGO Program2" in the table "---grantee_tableId:-:applicationAssociateExternalProgramsTableId---"
+    And I wait for "2" seconds
+    When I click modal button "Close"
+    Then I softly see value "Automation Permanent NGO Program" for title "Title" inside table "---grantee_tableId:-:ApplicationExternalProgramsTableId---"
+    Then I softly see value "Automation Permanent NGO Program2" for title "Title" inside table "---grantee_tableId:-:ApplicationExternalProgramsTableId---"
+    Then I see total records count "Total Records: 2" in flex table "---grantee_tableId:-:ApplicationExternalProgramsTableId---"
+    When I re-login to "Grantee" app as "<User>" user on "INTERNAL" portal
+    When I navigate to "Applications" tab
+    And I navigate to "Applications" content inside "Applications" subheader on left panel
+    When I click toggle button to select "Applications - All"
+    And I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:ApplicationTableId---" panel
+    When I click on "View" icon for "{SavedValue:appEGMSID}" inside table
+    Then I softly see field "Status" as "Created"
+    And I navigate to "Overview" sub tab
+    Then I softly see "Application Overview" page block displayed
+    Then I softly see "Opportunity Overview" page block displayed
+    Then I softly see "External Programs" page block displayed
+    Then I softly see "Contacts" page block displayed
+    Then I softly see "Project Abstract" page block displayed
+    Then I softly see "Primary Place of Performance" page block displayed
+    Then I softly see value "Project Director/Principal Investigator(PI/PD)" for title "Project Role" against the value "Sarah PM" inside table "---grantee_tableId:-:ContactTableIdApplication---"
+    Then I softly see value "Sarah PM" for title "Name" inside table "---grantee_tableId:-:ContactTableIdApplication---"
+    Then I softly see value "Victor EXE" for title "Name" inside table "---grantee_tableId:-:ContactTableIdApplication---"
+    Then I softly see value "Project Director/Principal Investigator(PI/PD)" for title "Project Role" against the value "Sarah PM" inside table "---grantee_tableId:-:ContactTableIdApplication---"
+    Then I softly see value "True" for title "Is Key Contact" against the value "Sarah PM" inside table "---grantee_tableId:-:ContactTableIdApplication---"
+    Then I softly see value "Automation Permanent NGO Program" for title "Title" inside table "---grantee_tableId:-:ApplicationExternalProgramsTableId---"
+    Then I softly see value "Automation Permanent NGO Program2" for title "Title" inside table "---grantee_tableId:-:ApplicationExternalProgramsTableId---"
+    Then I see total records count "Total Records: 2" in flex table "---grantee_tableId:-:ApplicationExternalProgramsTableId---"
+    Examples:
+      | User            |
+      | GRANTEE PO      |
+      | GRANTEE EXE     |
+      | GRANTEE FO      |
+      | GRANTEE FD      |
+      | GRANTEE ADMIN   |
+      | GRANTEE AUDITOR |
+
+  @547490 @validateKeyContactsectionshouldnotbevisiblewithcorrectrecordscounttocrossorguser @GranteeFlexP1
+  Scenario Outline: Validate Key Contact section should not be visible to cross org user
+  /Validate that Application record should not be visible to cross org users if record is not assigned through the Peer Review
+    And I create "Manual" qualified lead for title "Automation Runtime Opportunity" and opportunity number "Automation Runtime" with properties "default"
+    When I login to "Grantee" app as "GRANTEE PM" user
+    And I navigate to "Opportunities" tab
+    When I navigate to "Qualified" content inside "Leads" subheader on left panel
+    And I click toggle button to select "Qualified Leads - All"
+    When I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:qualifiedLeadTableId---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside flex table with id "---grantee_tableId:-:qualifiedLeadTableId---" without waiting for record
+    When I click on "Convert to Opportunity" in the page details
+    And I save the field labeled "EGMS ID" as "opportunityEGMSID"
+    And I create opportunity with state "Approved" for opportunity number "{SavedValue:Automation Runtime}" with properties "default"
+    And I navigate to "Opportunities" tab
+    And I navigate to "Not Converted" content inside "Opportunities" subheader on left panel
+    When I click toggle button to select "Opportunities Not Converted to Application - All"
+    And I perform quick search for "{SavedValue:opportunityEGMSID}" in "---grantee_tableId:-:OpportunityNotConvertedToApplication---" panel
+    When I click on "View" icon for "{SavedValue:opportunityEGMSID}" inside table
+    Then I softly can see top right button "Create Application" in page detail
+    And I click on "Create Application" in the page details
+    And I wait for "5" seconds
+    And I click modal button "Save and Continue"
+    And I enter "Grantee_Edition" values from "Application_Field_Values.xlsx"
+    And I wait for "2" seconds
+    When I click on "Save" in the page details
+    And I pause execution for "2" seconds
+    And I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "appEGMSID"
+    Then I softly see field "Status" as "Created"
+    And I navigate to "Overview" sub tab
+    Then I can see top right button "New" in flex table with id "---grantee_tableId:-:ContactTableIdApplication---"
+    Then I can see top right button "Associate" in flex table with id "---grantee_tableId:-:ContactTableIdApplication---"
+    And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:ContactTableIdApplication---"
+    When I click "Associate" after selection of "Sarah PM" in the table "---grantee_tableId:-:ContactModalTableIdApplication---"
+    When I click modal button "Close"
+    And I wait for "3" seconds
+    And I edit the following rows inline in flex table with id "---grantee_tableId:-:ContactTableIdApplication---" by clicking "Edit" :
+      | Name     | Project Role                                   |
+      | Sarah PM | Project Director/Principal Investigator(PI/PD) |
+    And I wait for "3" seconds
+    And I edit the following rows inline in flex table with id "---grantee_tableId:-:ContactTableIdApplication---" by clicking "Edit" :
+      | Name     | Is Key Contact |
+      | Sarah PM | Checked        |
+    And I wait for "2" seconds
+    Then I softly see value "Sarah PM" for title "Name" inside table "---grantee_tableId:-:ContactTableIdApplication---"
+    Then I softly see value "Project Director/Principal Investigator(PI/PD)" for title "Project Role" against the value "Sarah PM" inside table "---grantee_tableId:-:ContactTableIdApplication---"
+    And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:ContactTableIdApplication---"
+    When I click "Associate" after selection of "Victor EXE" in the table "---grantee_tableId:-:ContactModalTableIdApplication---"
+    When I click modal button "Close"
+    And I wait for "2" seconds
+    And I refresh the page
+    And I wait for "3" seconds
+    Then I softly see value "Victor EXE" for title "Name" inside table "---grantee_tableId:-:ContactTableIdApplication---"
+    When I re-login to "Grantee" app as "<NonUser>" user on "INTERNAL" portal
+    When I navigate to "Applications" tab
+    And I navigate to "Applications" content inside "Applications" subheader on left panel
+    When I click toggle button to select "Applications - All"
+    And I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:ApplicationTableId---" panel
+    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:ApplicationTableId---"
+    And I navigate to "Home" tab
+    And I select "Applications" from dropdown for Global search
+    And I wait for "2" seconds
+    And I perform quick search inside global search "{SavedValue:appEGMSID}"
+    Then I softly see the text containing "No results"
+    Examples:
+      | NonUser |
+      | PM1     |
+
+  @547381 @validatethatBudgetPeriodsectionshouldbevisiblewithcorrectrecordscounttoallInternalUsers @GranteeFlexP1
+  Scenario Outline: Validate Budget Period section should be visible with correct records count
+    And I create "Manual" qualified lead for title "Automation Runtime Opportunity" and opportunity number "Automation Runtime" with properties "default"
+    When I login to "Grantee" app as "GRANTEE PM" user
+    And I navigate to "Opportunities" tab
+    When I navigate to "Qualified" content inside "Leads" subheader on left panel
+    And I click toggle button to select "Qualified Leads - All"
+    When I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:qualifiedLeadTableId---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside flex table with id "---grantee_tableId:-:qualifiedLeadTableId---" without waiting for record
+    When I click on "Convert to Opportunity" in the page details
+    And I save the field labeled "EGMS ID" as "opportunityEGMSID"
+    And I create opportunity with state "Approved" for opportunity number "{SavedValue:Automation Runtime}" with properties "default"
+    And I navigate to "Opportunities" tab
+    And I navigate to "Not Converted" content inside "Opportunities" subheader on left panel
+    When I click toggle button to select "Opportunities Not Converted to Application - All"
+    And I perform quick search for "{SavedValue:opportunityEGMSID}" in "---grantee_tableId:-:OpportunityNotConvertedToApplication---" panel
+    When I click on "View" icon for "{SavedValue:opportunityEGMSID}" inside table
+    Then I softly can see top right button "Create Application" in page detail
+    And I click on "Create Application" in the page details
+    And I wait for "5" seconds
+    And I click modal button "Save and Continue"
+    And I enter "Grantee_Edition" values from "Application_Field_Values.xlsx"
+    And I wait for "2" seconds
+    When I click on "Save" in the page details
+    And I pause execution for "2" seconds
+    And I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "appEGMSID"
+    Then I softly see field "Status" as "Created"
+    When I navigate to "Setup" sub tab
+    Then I softly see "Project Period" page block displayed
+    Then I softly see "Budget Period Details" page block displayed
+    Then I can see top right button "Create New Budget Period" in flex table with id "---grantee_tableId:-:BudgetPeriodDetailsFromSetup---"
+    Then I can see top right button "Associate Focus Area" in flex table with id "---grantee_tableId:-:BudgetPeriodDetailsFromSetup---"
+    And I click on top right button "Associate Focus Area" in flex table with id "---grantee_tableId:-:BudgetPeriodDetailsFromSetup---"
+    When I click "Next" after selection of "BP01" in the table "---grantee_tableId:-:ApplicationBudgetPeriodModalTableId---"
+    When I click "Associate" after selection of "Automation Permanent Focus Area" in the table "---grantee_tableId:-:ApplicationSelectFocusAreaModalTableId---"
+    And I wait for "2" seconds
+    When I click "Associate" after selection of "Automation Permanent Focus Area2" in the table "---grantee_tableId:-:ApplicationSelectFocusAreaModalTableId---"
+    And I wait for "2" seconds
+    And I click modal button "Close"
+    Then I softly can see row level action button "Delete" against "BP01" in flex table with id "---grantee_tableId:-:BudgetPeriodDetailsFromSetup---"
+    Then I softly can see row level action button "Edit" against "BP01" in flex table with id "---grantee_tableId:-:BudgetPeriodDetailsFromSetup---"
+    And I click on "Edit" icon for "BP01" inside flex table with id "---grantee_tableId:-:BudgetPeriodDetailsFromSetup---"
+    When I enter in modal value "360" into field "BudgetEndDate__c"
+    When I click modal button "Save"
+    Given I expand nested table containing column value "BP01"
+    Then I softly see value "Automation Permanent Focus Area" for title "Focus Area Title" inside table "---grantee_tableId:-:BudgetPeriodDetailsFromSetup---"
+    Then I softly see value "Automation Permanent Focus Area2" for title "Focus Area Title" inside table "---grantee_tableId:-:BudgetPeriodDetailsFromSetup---"
+    Then I softly can see row level action button "Remove" against "Automation Permanent Focus Area" in flex table with id "---grantee_tableId:-:BudgetPeriodDetailsFromSetup---"
+    Then I softly can see row level action button "Remove" against "Automation Permanent Focus Area2" in flex table with id "---grantee_tableId:-:BudgetPeriodDetailsFromSetup---"
+    Then I see total records count "Total Records: 2" in flex table "---grantee_tableId:-:ChildBudgetPeriodDetailsFromBudgetOfSetUp---"
+    When I collapse nested table containing column value "BP01"
+    And I click on top right button "Create New Budget Period" in flex table with id "---grantee_tableId:-:BudgetPeriodDetailsFromSetup---"
+    When I enter in modal value "361" into field "BudgetStartDate__c"
+    When I enter in modal value "365" into field "BudgetEndDate__c"
+    When I click modal button "Save"
+    And I wait for "2" seconds
+    And I click on top right button "Associate Focus Area" in flex table with id "---grantee_tableId:-:BudgetPeriodDetailsFromSetup---"
+    When I click "Next" after selection of "BP02" in the table "---grantee_tableId:-:ApplicationBudgetPeriodModalTableId---"
+    And I wait for "3" seconds
+    When I click "Associate" after selection of "Automation Permanent Focus Area2" in the table "---grantee_tableId:-:ApplicationSelectFocusAreaModalTableId---"
+    And I click modal button "Close"
+    Then I softly can see row level action button "Delete" against "BP02" in flex table with id "---grantee_tableId:-:BudgetPeriodDetailsFromSetup---"
+    Then I softly can see row level action button "Edit" against "BP02" in flex table with id "---grantee_tableId:-:BudgetPeriodDetailsFromSetup---"
+    Given I expand nested table containing column value "BP02"
+    Then I softly see value "Automation Permanent Focus Area2" for title "Focus Area Title" inside table "---grantee_tableId:-:BudgetPeriodDetailsFromSetup---"
+    Then I softly can see row level action button "Remove" against "Automation Permanent Focus Area2" in flex table with id "---grantee_tableId:-:BudgetPeriodDetailsFromSetup---"
+    Then I see total records count "Total Records: 1" in flex table "---grantee_tableId:-:ChildBudgetPeriodDetailsFromBudgetOfSetUp---"
+    When I re-login to "Grantee" app as "<User>" user on "INTERNAL" portal
+    When I navigate to "Applications" tab
+    And I navigate to "Applications" content inside "Applications" subheader on left panel
+    When I click toggle button to select "Applications - All"
+    And I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:ApplicationTableId---" panel
+    When I click on "View" icon for "{SavedValue:appEGMSID}" inside table
+    Then I softly see field "Status" as "Created"
+    When I navigate to "Setup" sub tab
+    Then I softly see "Project Period" page block displayed
+    Then I softly see "Budget Period Details" page block displayed
+    Then I cannot see top right button "Create New Budget Period" in flex table with id "---grantee_tableId:-:BudgetPeriodDetailsFromSetup---"
+    Then I cannot see top right button "Associate Focus Area" in flex table with id "---grantee_tableId:-:BudgetPeriodDetailsFromSetup---"
+    Then I softly see value "BP01" for title "Budget Period #" inside table "---grantee_tableId:-:BudgetPeriodDetailsFromSetup---"
+    Then I softly see value "BP02" for title "Budget Period #" inside table "---grantee_tableId:-:BudgetPeriodDetailsFromSetup---"
+    Then I softly cannot see row level action button "Delete" against "BP01" in flex table with id "---grantee_tableId:-:BudgetPeriodDetailsFromSetup---"
+    Then I softly cannot see row level action button "Edit" against "BP01" in flex table with id "---grantee_tableId:-:BudgetPeriodDetailsFromSetup---"
+    Then I softly cannot see row level action button "Delete" against "BP02" in flex table with id "---grantee_tableId:-:BudgetPeriodDetailsFromSetup---"
+    Then I softly cannot see row level action button "Edit" against "BP02" in flex table with id "---grantee_tableId:-:BudgetPeriodDetailsFromSetup---"
+    Given I expand nested table containing column value "BP01"
+    Then I softly see value "Automation Permanent Focus Area" for title "Focus Area Title" inside table "---grantee_tableId:-:BudgetPeriodDetailsFromSetup---"
+    Then I softly see value "Automation Permanent Focus Area2" for title "Focus Area Title" inside table "---grantee_tableId:-:BudgetPeriodDetailsFromSetup---"
+    Then I softly cannot see row level action button "Remove" against "Automation Permanent Focus Area" in flex table with id "---grantee_tableId:-:BudgetPeriodDetailsFromSetup---"
+    Then I softly cannot see row level action button "Remove" against "Automation Permanent Focus Area2" in flex table with id "---grantee_tableId:-:BudgetPeriodDetailsFromSetup---"
+    Then I see total records count "Total Records: 2" in flex table "---grantee_tableId:-:ChildBudgetPeriodDetailsFromBudgetOfSetUp---"
+    When I collapse nested table containing column value "BP01"
+    Given I expand nested table containing column value "BP02"
+    Then I softly see value "Automation Permanent Focus Area2" for title "Focus Area Title" inside table "---grantee_tableId:-:BudgetPeriodDetailsFromSetup---"
+    Then I softly cannot see row level action button "Remove" against "Automation Permanent Focus Area2" in flex table with id "---grantee_tableId:-:BudgetPeriodDetailsFromSetup---"
+    Then I see total records count "Total Records: 1" in flex table "---grantee_tableId:-:ChildBudgetPeriodDetailsFromBudgetOfSetUp---"
+    Examples:
+      | User            |
+      | GRANTEE PO      |
+      | GRANTEE EXE     |
+      | GRANTEE FO      |
+      | GRANTEE FD      |
+      | GRANTEE ADMIN   |
+      | GRANTEE AUDITOR |
+
+  @547384 @validatethatBudgetCategoriessectionshouldbevisiblewithcorrectrecordscounttoallInternalUsers @GranteeFlexP1
+  Scenario Outline: Validate Budget Categories section should be visible with correct records count
+    And I create "Manual" qualified lead for title "Automation Runtime Opportunity" and opportunity number "Automation Runtime" with properties "default"
+    When I login to "Grantee" app as "GRANTEE PM" user
+    And I navigate to "Opportunities" tab
+    When I navigate to "Qualified" content inside "Leads" subheader on left panel
+    And I click toggle button to select "Qualified Leads - All"
+    When I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:qualifiedLeadTableId---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside flex table with id "---grantee_tableId:-:qualifiedLeadTableId---" without waiting for record
+    When I click on "Convert to Opportunity" in the page details
+    And I save the field labeled "EGMS ID" as "opportunityEGMSID"
+    And I create opportunity with state "Approved" for opportunity number "{SavedValue:Automation Runtime}" with properties "default"
+    And I navigate to "Opportunities" tab
+    And I navigate to "Not Converted" content inside "Opportunities" subheader on left panel
+    When I click toggle button to select "Opportunities Not Converted to Application - All"
+    And I perform quick search for "{SavedValue:opportunityEGMSID}" in "---grantee_tableId:-:OpportunityNotConvertedToApplication---" panel
+    When I click on "View" icon for "{SavedValue:opportunityEGMSID}" inside table
+    Then I softly can see top right button "Create Application" in page detail
+    And I click on "Create Application" in the page details
+    And I wait for "5" seconds
+    And I click modal button "Save and Continue"
+    And I enter "Grantee_Edition" values from "Application_Field_Values.xlsx"
+    And I wait for "2" seconds
+    When I click on "Save" in the page details
+    And I pause execution for "2" seconds
+    And I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "appEGMSID"
+    Then I softly see field "Status" as "Created"
+    When I navigate to "Setup" sub tab
+    Then I softly see "Project Period" page block displayed
+    Then I softly see "Budget Period Details" page block displayed
+    Then I can see top right button "Associate Focus Area" in flex table with id "---grantee_tableId:-:BudgetPeriodDetailsFromSetup---"
+    And I click on top right button "Associate Focus Area" in flex table with id "---grantee_tableId:-:BudgetPeriodDetailsFromSetup---"
+    When I click "Next" after selection of "BP01" in the table "---grantee_tableId:-:ApplicationBudgetPeriodModalTableId---"
+    When I click "Associate" after selection of "Automation Permanent Focus Area" in the table "---grantee_tableId:-:ApplicationSelectFocusAreaModalTableId---"
+    And I wait for "2" seconds
+    And I click modal button "Close"
+    When I navigate to "Budget" sub tab
+    Then I softly see "Budget Details" page block displayed
+    Given I expand nested table containing column value "BP01"
+    Then I softly see "Focus Area : Automation Permanent Focus Area - BP01" inside rows of enhanced grid id "---grantee_tableId:-:ApplicationBudgetCategoryTableId---"
+    Then I softly see total records count "Total Records: 12" in flex table "---grantee_tableId:-:ApplicationBudgetCategoryTableId---"
+    When I re-login to "Grantee" app as "<User>" user on "INTERNAL" portal
+    When I navigate to "Applications" tab
+    And I navigate to "Applications" content inside "Applications" subheader on left panel
+    When I click toggle button to select "Applications - All"
+    And I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:ApplicationTableId---" panel
+    When I click on "View" icon for "{SavedValue:appEGMSID}" inside table
+    Then I softly see field "Status" as "Created"
+    When I navigate to "Budget" sub tab
+    Then I softly see "Budget Details" page block displayed
+    Given I expand nested table containing column value "BP01"
+    Then I softly see "Focus Area : Automation Permanent Focus Area - BP01" inside rows of enhanced grid id "---grantee_tableId:-:ApplicationBudgetCategoryTableId---"
+    Then I softly see total records count "Total Records: 12" in flex table "---grantee_tableId:-:ApplicationBudgetCategoryTableId---"
+    Examples:
+      | User            |
+      | GRANTEE PO      |
+      | GRANTEE EXE     |
+      | GRANTEE FO      |
+      | GRANTEE FD      |
+      | GRANTEE ADMIN   |
+      | GRANTEE AUDITOR |
+
+  @547389 @547387 @547388 @validatethatIndirectRatessectionshouldbevisiblewithcorrectrecordscounttoallInternalUsers @GranteeFlexP1
+  Scenario Outline: Validate Indirect Rates section should be visible with correct records count
+  /Validate Program Income section should be visible with correct records count
+  /Validate Approvers section should be visible with correct records count
+    And I create "Manual" qualified lead for title "Automation Runtime Opportunity" and opportunity number "Automation Runtime" with properties "default"
+    When I login to "Grantee" app as "GRANTEE PM" user
+    And I navigate to "Opportunities" tab
+    When I navigate to "Qualified" content inside "Leads" subheader on left panel
+    And I click toggle button to select "Qualified Leads - All"
+    When I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:qualifiedLeadTableId---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside flex table with id "---grantee_tableId:-:qualifiedLeadTableId---" without waiting for record
+    When I click on "Convert to Opportunity" in the page details
+    And I save the field labeled "EGMS ID" as "opportunityEGMSID"
+    And I create opportunity with state "Approved" for opportunity number "{SavedValue:Automation Runtime}" with properties "default"
+    And I navigate to "Opportunities" tab
+    And I navigate to "Not Converted" content inside "Opportunities" subheader on left panel
+    When I click toggle button to select "Opportunities Not Converted to Application - All"
+    And I perform quick search for "{SavedValue:opportunityEGMSID}" in "---grantee_tableId:-:OpportunityNotConvertedToApplication---" panel
+    When I click on "View" icon for "{SavedValue:opportunityEGMSID}" inside table
+    Then I softly can see top right button "Create Application" in page detail
+    And I click on "Create Application" in the page details
+    And I wait for "5" seconds
+    And I click modal button "Save and Continue"
+    And I enter "Grantee_Edition" values from "Application_Field_Values.xlsx"
+    And I wait for "2" seconds
+    When I click on "Save" in the page details
+    And I pause execution for "2" seconds
+    And I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "appEGMSID"
+    Then I softly see field "Status" as "Created"
+    When I navigate to "Setup" sub tab
+    Then I softly see "Project Period" page block displayed
+    Then I softly see "Budget Period Details" page block displayed
+    Then I can see top right button "Associate Focus Area" in flex table with id "---grantee_tableId:-:BudgetPeriodDetailsFromSetup---"
+    And I click on top right button "Associate Focus Area" in flex table with id "---grantee_tableId:-:BudgetPeriodDetailsFromSetup---"
+    When I click "Next" after selection of "BP01" in the table "---grantee_tableId:-:ApplicationBudgetPeriodModalTableId---"
+    When I click "Associate" after selection of "Automation Permanent Focus Area" in the table "---grantee_tableId:-:ApplicationSelectFocusAreaModalTableId---"
+    And I wait for "2" seconds
+    And I click modal button "Close"
+    When I navigate to "Budget" sub tab
+    Then I softly see "Program Income" page block displayed
+    Then I softly see value "Automation Permanent Focus Area - BP01" for title "Focus Area Name" inside table "---grantee_tableId:-:ApplicationProgramIncomeTableID---"
+    Then I softly can see row level action button "Edit" against "Automation Permanent Focus Area - BP01" in flex table with id "---grantee_tableId:-:ApplicationProgramIncomeTableID---"
+    Then I softly see total records count "Total Records: 1" in flex table "---grantee_tableId:-:ApplicationProgramIncomeTableID---"
+    Then I softly see "Indirect Rates" page block displayed
+    Then I softly see "Actions" in flex table header "---grantee_tableId:-:indirectRatesApplicationtableId---"
+    Then I softly see "Title" in flex table header "---grantee_tableId:-:indirectRatesApplicationtableId---"
+    Then I softly see "Date From" in flex table header "---grantee_tableId:-:indirectRatesApplicationtableId---"
+    Then I softly see "Date To" in flex table header "---grantee_tableId:-:indirectRatesApplicationtableId---"
+    Then I softly see "Approved Indirect Cost Rate(%)" in flex table header "---grantee_tableId:-:indirectRatesApplicationtableId---"
+    Then I softly see "Indirect Cost Rate Type" in flex table header "---grantee_tableId:-:indirectRatesApplicationtableId---"
+    When I enter the following values into flex table with id "---grantee_tableId:-:indirectRatesApplicationtableId---" by clicking "New" :
+      | Title | Date From | Date To | Approved Indirect Cost Rate(%) | Indirect Cost Rate Type |
+      | Rate  | 15        | 30      | 10                             | Final                   |
+    Then I softly see value "Rate" for title "Title" inside table "---grantee_tableId:-:indirectRatesApplicationtableId---"
+    When I navigate to "Responsibilities" sub tab
+    Then I softly see "Approvers" page block displayed
+    When I enter the following values into flex table with id "---grantee_tableId:-:ApplicationApprovers---" by clicking "New" :
+      | Name     | Application |
+      | David FO | Step 1      |
+    When I enter the following values into flex table with id "---grantee_tableId:-:ApplicationApprovers---" by clicking "New" :
+      | Name       | Application |
+      | Grantee PO | Step 2      |
+    Then I softly see value "David FO" for title "Name" inside table "---grantee_tableId:-:ApplicationApprovers---"
+    Then I softly see value "Grantee PO" for title "Name" inside table "---grantee_tableId:-:ApplicationApprovers---"
+    Then I softly see value "Victor EXE" for title "Name" inside table "---grantee_tableId:-:ApplicationApprovers---"
+    When I re-login to "Grantee" app as "<User>" user on "INTERNAL" portal
+    When I navigate to "Applications" tab
+    And I navigate to "Applications" content inside "Applications" subheader on left panel
+    When I click toggle button to select "Applications - All"
+    And I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:ApplicationTableId---" panel
+    When I click on "View" icon for "{SavedValue:appEGMSID}" inside table
+    Then I softly see field "Status" as "Created"
+    When I navigate to "Budget" sub tab
+    Then I softly see "Program Income" page block displayed
+    Then I softly see value "Automation Permanent Focus Area - BP01" for title "Focus Area Name" inside table "---grantee_tableId:-:ApplicationProgramIncomeTableID---"
+    Then I softly cannot see row level action button "Edit" against "Automation Permanent Focus Area - BP01" in flex table with id "---grantee_tableId:-:ApplicationProgramIncomeTableID---"
+    Then I softly see total records count "Total Records: 1" in flex table "---grantee_tableId:-:ApplicationProgramIncomeTableID---"
+    Then I softly see "Indirect Rates" page block displayed
+    Then I softly see "Actions" in flex table header "---grantee_tableId:-:indirectRatesApplicationtableId---"
+    Then I softly see "Title" in flex table header "---grantee_tableId:-:indirectRatesApplicationtableId---"
+    Then I softly see "Date From" in flex table header "---grantee_tableId:-:indirectRatesApplicationtableId---"
+    Then I softly see "Date To" in flex table header "---grantee_tableId:-:indirectRatesApplicationtableId---"
+    Then I softly see "Approved Indirect Cost Rate(%)" in flex table header "---grantee_tableId:-:indirectRatesApplicationtableId---"
+    Then I softly see "Indirect Cost Rate Type" in flex table header "---grantee_tableId:-:indirectRatesApplicationtableId---"
+    Then I softly see value "Rate" for title "Title" inside table "---grantee_tableId:-:indirectRatesApplicationtableId---"
+    When I navigate to "Responsibilities" sub tab
+    Then I softly see "Approvers" page block displayed
+    Then I softly see value "David FO" for title "Name" inside table "---grantee_tableId:-:ApplicationApprovers---"
+    Then I softly see value "Grantee PO" for title "Name" inside table "---grantee_tableId:-:ApplicationApprovers---"
+    Then I softly see value "Victor EXE" for title "Name" inside table "---grantee_tableId:-:ApplicationApprovers---"
+    Examples:
+      | User            |
+      | GRANTEE PO      |
+      | GRANTEE EXE     |
+      | GRANTEE FO      |
+      | GRANTEE FD      |
+      | GRANTEE ADMIN   |
+      | GRANTEE AUDITOR |

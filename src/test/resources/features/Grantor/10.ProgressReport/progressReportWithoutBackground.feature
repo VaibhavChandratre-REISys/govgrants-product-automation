@@ -330,7 +330,7 @@ Feature: Validate scenarios in Progress Report without background
       | Award Name                            | Grant Name                            |
       | {SavedValue:Automation Runtime Award} | {SavedValue:Automation Runtime Award} |
 
-  @34944 @validateInternalUserIsAbleToSeeSchedulesGeneratedUnderScheduledActivitiesOnActiveAward   @
+  @34944 @validateInternalUserIsAbleToSeeSchedulesGeneratedUnderScheduledActivitiesOnActiveAward
   Scenario Outline: Validate Internal User is able to see the Schedules generated under Scheduled Activities on active award
     Given I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     When I login to "Grantor" app as "dynamicUser" user
@@ -10700,3 +10700,232 @@ Feature: Validate scenarios in Progress Report without background
     Then I softly can see top right button "New" in flex table with id "---progressReport:-:GrantorNotesProgressReporttableId---"
     Then I cannot see row level action button "Delete" against "Notes Record" in flex table with id "---progressReport:-:GrantorNotesProgressReporttableId---"
     Then I cannot see row level action button "Edit" against "Notes Record" in flex table with id "---progressReport:-:GrantorNotesProgressReporttableId---"
+
+  @532028 @531936 @validateprogressreportrecordshouldsharewithSPI/SPAuserfromsameorgincreatedstate @GrantorFlexP1
+  Scenario Outline: Validate progress report record should share with SPI/SPA user from same org in created state
+    Given I activated standalone subaward "Automation Runtime Direct Award" with properties "default" of type "Competitive"
+    And I login to "Grantor" app as "PM" user
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click toggle button to select "Grants - Active"
+    When I perform quick search for "{SavedValue:Automation Runtime Direct Award}" in "---progressReport:-:activeGrantsTableId---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Direct Award}" inside table
+    And I navigate to "Files" sub tab
+    When I enter the following values into flex table with id "---progressreport:-:grantChecklistsTableId---" by clicking "Add" :
+      | Description | Required  | Applies To      | Status |
+      | Automation  | Mandatory | Progress Report | Active |
+    And I click on "Upload Template" icon for "Progress Report" inside flex table with id "---progressreport:-:grantChecklistsTableId---" with wait for record
+    And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
+    And I click modal button "Close"
+    And I wait for "2" seconds
+    Then I softly see value "View" for title "Template Link" against the value "Progress Report" inside table "---progressreport:-:grantChecklistsTableId---"
+    And I save the value from row "1" for column name "Template Link" as "TemplateLink" from flex table "---progressreport:-:grantChecklistsTableId---"
+    When I navigate to "Subawards" sub tab
+    And I click on "View" icon for "{SavedValue:Automation Runtime Direct Award}" inside flex table with id "---progressreport:-:GrantsSubAwardsTableId---" without waiting for record
+    When I navigate to "Performance" sub tab
+    And I save the value from row "1" for column name "EGMS ID" as "strategicPlanEGMSID" from flex table "GrantorAwardGoalsObjectives"
+    And I save the value from row "2" for column name "EGMS ID" as "objectiveEGMSID" from flex table "GrantorAwardGoalsObjectives"
+    And I save the value from row "1" for column name "Title" as "KPIEGMSID" from flex table "GrantorAwardKeyOutcomes"
+    When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
+    Given I delete the record "{SavedValue:Automation Runtime Direct Award}" from the object "Progress Report"
+    When I create a post award record "ProgressReport" for the Award "{SavedValue:Automation Runtime Direct Award}" having object api name as "ProgressReports__c"
+    And I navigate to "Monitoring" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    When I perform quick search for "{SavedValue:Record Id}" in "---progressReport:-:pendingTaskTableId---" panel
+    When I click on "Start" icon for "{SavedValue:Record Id}" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
+    When I navigate to "Forms and Files" sub tab
+    Then I softly see value "{SavedValue:TemplateLink}" for title "Template Link" inside table "---progressReport:-:progressReportChecklistsTableId---"
+    And I click on hyperlink for the field "ContentVersionLink__c" containing value "{SavedValue:TemplateLink}"
+    And I download the file without rename
+    And I wait for "3" seconds
+    Then I softly verify that the file "Attachment.pdf" is downloaded
+    And I close the tab
+    And I wait for "2" seconds
+    And I click on "Attach" icon for "Active" inside flex table with id "---progressReport:-:progressReportChecklistsTableId---" without waiting for record
+    And I upload attachment without random number "AttachmentTesting.pdf" of type "Others" from computer
+    When I click modal button "Close"
+    And I wait for "2" seconds
+    When I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "progID"
+    And I save the field labeled "Subaward ID" as "SubAwardID"
+    And I click on "Edit" in the page details
+    And I wait for "2" seconds
+    When I enter "Edition" values from "ProgressReport_Field_Values.xlsx"
+    And I wait for "2" seconds
+    And I click on "Save" in the page details
+    And I navigate to "Performance" sub tab
+    And I save the value from row "1" for column name "Title" as "objectiveEGMSID" from flex table "---progressReport:-:objectivesTableId---"
+    And I save the value from row "1" for column name "Title" as "KPIEGMSID" from flex table "---progressReport:-:kpiTableId---"
+    When I edit the following rows inline in flex table with id "---progressReport:-:kpiTableId---" by clicking "Edit" :
+      | Title                    | Reported Date | Actual |
+      | Automation Permanent KPI | 7             | 7      |
+    When I navigate to "Forms and Files" sub tab
+    And I click on "Edit" icon for "Community Initiative Progress Report" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
+    And I switch to tab number "1"
+    And I enter "Form Fields" values from "ProgressReport_Field_Values.xlsx"
+    And I click on "Save" in the page details
+    And I close the tab
+    And I refresh the page
+    When I re-login to "Grants Portal" app as "SPA" user on "SUBPORTAL" portal
+    And I navigate to "Monitoring" tab
+    And I navigate to "Progress Reports" content inside "Monitoring Activities" subheader on left panel
+    When I click toggle button to select "Progress Reports - All"
+    When I perform quick search for "{SavedValue:progID}" in "---progressReport:-:progressReportFlexTableId---" panel
+    And I click on "View" icon for "{SavedValue:progID}" inside flex table with id "---progressReport:-:progressReportFlexTableId---" without waiting for record
+    And I click on "Edit" in the page details
+    And I wait for "2" seconds
+    When I enter "Edition" values from "ProgressReport_Field_Values.xlsx"
+    And I wait for "2" seconds
+    And I navigate to "Overview" sub tab
+    When I enter value "Checked" into field "Agreement1__c"
+    And I click on "Save" in the page details
+    And I navigate to "Performance" sub tab
+    Then I softly see value "{SavedValue:KPITitle}" for title "Title" inside table "---progressReport:-:kpiTableId---"
+    Then I softly see value "{SavedValue:objectiveTitle}" for title "Title" inside table "---progressReport:-:objectivesTableId---"
+    And I softly see value "7" for title "Actual" inside table "---progressReport:-:kpiTableId---"
+    When I edit the following rows inline in flex table with id "---progressReport:-:kpiTableId---" by clicking "Edit" :
+      | Title                    | Reported Date | Actual |
+      | Automation Permanent KPI | 7             | 3     |
+    When I navigate to "Forms and Files" sub tab
+    And I click on "Edit" icon for "Community Initiative Progress Report" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
+    And I switch to tab number "1"
+    And I enter "Form Fields" values from "ProgressReport_Field_Values.xlsx"
+    And I click on "Save" in the page details
+    And I close the tab
+    And I refresh the page
+    Then I softly cannot see top right button "Submit to Grantor" in page detail
+    When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
+    And I navigate to "Monitoring" tab
+    And I navigate to "Progress Reports" content inside "Monitoring Activities" subheader on left panel
+    When I click toggle button to select "Progress Reports - All"
+    When I perform quick search for "{SavedValue:progID}" in "---progressReport:-:progressReportFlexTableId---" panel
+    And I click on "View" icon for "{SavedValue:progID}" inside flex table with id "---progressReport:-:progressReportFlexTableId---" without waiting for record
+    And I navigate to "Performance" sub tab
+    Then I softly see value "{SavedValue:KPITitle}" for title "Title" inside table "---progressReport:-:kpiTableId---"
+    Then I softly see value "{SavedValue:objectiveTitle}" for title "Title" inside table "---progressReport:-:objectivesTableId---"
+    And I softly see value "3" for title "Actual" inside table "---progressReport:-:kpiTableId---"
+   #532028
+    And I click on "Submit to Grantor" in the page details
+    Then I softly see field "Status" as "Submitted to Grantor"
+    When I re-login to "Grantor" app as "<NonOwner>" user on "INTERNAL" portal
+    And I navigate to "Monitoring" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "{SavedValue:progID}" in "---progressReport:-:pendingTaskTableId---" panel
+    Then I softly do not see value "Review Progress Report" for title "Task Type" inside table "---progressReport:-:pendingTaskTableId---"
+    And I navigate to "Monitoring" tab
+    And I navigate to "Progress Reports" content inside "Monitoring Activities" subheader on left panel
+    When I click toggle button to select "Progress Reports - All"
+    And I perform quick search for "{SavedValue:progID}" in "---progressReport:-:internalProgressReportFlexTableId---" panel
+    Then I softly see value "{SavedValue:progID}" for title "EGMS ID" inside table "---progressReport:-:internalProgressReportFlexTableId---"
+    And I click on "View" icon for "{SavedValue:progID}" inside flex table with id "---progressreport:-:internalProgressReportFlexTableId---" without waiting for record
+    When I navigate to "Performance" sub tab
+    Then I softly see value "{SavedValue:KPITitle}" for title "Title" inside table "---progressReport:-:kpiTableId---"
+    Then I softly see value "{SavedValue:objectiveTitle}" for title "Title" inside table "---progressReport:-:objectivesTableId---"
+    And I click on hyperlink containing value "{SavedValue:objectiveEGMSID}"
+    Then I see the header is "Objective" in the page details
+    Then I see the sub-header is "Automation Permanent Objective" in the page details
+    And I wait for "2" seconds
+    And I click on back arrow
+    And I wait for "2" seconds
+    When I navigate to "Forms and Files" sub tab
+    Then I softly see value "{SavedValue:checkList}" for title "Required" inside table "---progressReport:-:progressReportChecklistsTableId---"
+    And I click on hyperlink for the field "ContentVersionLink__c" containing value "{SavedValue:TemplateLink}"
+    And I download the file without rename
+    And I wait for "3" seconds
+    Then I softly verify that the file "Attachment.pdf" is downloaded
+    And I close the tab
+    And I wait for "2" seconds
+    And I click on hyperlink for the field "ContentVersionSubrecipientLink__c" containing value "{SavedValue:SubrecipientDocumentLink}"
+    And I download the file without rename
+    And I wait for "3" seconds
+    Then I softly verify that the file "AttachmentTesting.pdf" is downloaded
+    And I close the tab
+    And I wait for "2" seconds
+    Then I softly can see top right button "Add Files" in flex table with id "---progressReport:-:RecipientProgressReportFilesTableId---"
+    Then I softly see value "Attachment.pdf" for title "Title" inside table "---progressReport:-:RecipientProgressReportFilesTableId---"
+    Then I softly see value "Other" for title "Classification" inside table "---progressReport:-:RecipientProgressReportFilesTableId---"
+    Then I can see row level action button "View" against "Attachment.pdf" in flex table with id "---progressReport:-:RecipientProgressReportFilesTableId---"
+    Then I cannot see row level action button "Delete" against "Attachment.pdf" in flex table with id "---progressReport:-:RecipientProgressReportFilesTableId---"
+    Then I cannot see row level action button "Edit" against "Attachment.pdf" in flex table with id "---progressReport:-:RecipientProgressReportFilesTableId---"
+    Then I can see row level action button "Download" against "Attachment.pdf" in flex table with id "---progressReport:-:RecipientProgressReportFilesTableId---"
+    Then I softly see value "Attachment.pdf" for title "Title" inside table "---progressReport:-:RecipientProgressReportFilesTableId---"
+    Then I softly can see top right button "New" in flex table with id "---progressReport:-:GrantorNotesProgressReporttableId---"
+    Then I cannot see row level action button "Delete" against "Notes Record" in flex table with id "---progressReport:-:GrantorNotesProgressReporttableId---"
+    Then I cannot see row level action button "Edit" against "Notes Record" in flex table with id "---progressReport:-:GrantorNotesProgressReporttableId---"
+    When I navigate to "Responsibilities" sub tab
+    And I enter the following values into flex table with id "---progressReport:-:peerReviewersTableId---" by clicking "New" :
+      | Reviewer Name            | Responsibility  | Description                 | Due Date |
+      | {SavedValue:FO Username} | Fiscal Reviewer | Automation Test Description | 7        |
+    When I enter the following values into flex table with id "---progressReport:-:approversTableId---" by clicking "New" :
+      | Name                     | Progress Report |
+      | {SavedValue:PM Username} | Step 1          |
+    When I enter the following values into flex table with id "---progressReport:-:approversTableId---" by clicking "New" :
+      | Name                     | Progress Report |
+      | {SavedValue:FO Username} | Step 2          |
+    Then I softly see value "{SavedValue:FO Username}" for title "Name" inside table "---progressReport:-:peerReviewersTableId---"
+    Then I softly see value "{SavedValue:PM Username}" for title "Name" inside table "---progressReport:-:approversTableId---"
+    Then I softly see value "{SavedValue:FO Username}" for title "Name" inside table "---progressReport:-:approversTableId---"
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
+    And I navigate to "Monitoring" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "{SavedValue:progID}" in "---progressReport:-:pendingTaskTableId---" panel
+    Then I softly see value "Review Progress Report" for title "Task Type" inside table "---progressReport:-:pendingTaskTableId---"
+    When I click on "Start" icon for "{SavedValue:progID}" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
+    And I navigate to "Monitoring" tab
+    And I navigate to "Progress Reports" content inside "Monitoring Activities" subheader on left panel
+    When I click toggle button to select "Progress Reports - All"
+    And I perform quick search for "{SavedValue:progID}" in "---progressReport:-:internalProgressReportFlexTableId---" panel
+    Then I softly see value "{SavedValue:progID}" for title "EGMS ID" inside table "---progressReport:-:internalProgressReportFlexTableId---"
+    And I click on "View" icon for "{SavedValue:progID}" inside flex table with id "---progressreport:-:internalProgressReportFlexTableId---" without waiting for record
+    When I navigate to "Performance" sub tab
+    Then I softly see value "{SavedValue:KPITitle}" for title "Title" inside table "---progressReport:-:kpiTableId---"
+    Then I softly see value "{SavedValue:objectiveTitle}" for title "Title" inside table "---progressReport:-:objectivesTableId---"
+    And I click on hyperlink containing value "{SavedValue:objectiveEGMSID}"
+    Then I see the header is "Objective" in the page details
+    Then I see the sub-header is "Automation Permanent Objective" in the page details
+    And I wait for "2" seconds
+    And I click on back arrow
+    And I wait for "2" seconds
+    When I navigate to "Forms and Files" sub tab
+    Then I softly see value "{SavedValue:checkList}" for title "Required" inside table "---progressReport:-:progressReportChecklistsTableId---"
+    And I download the file without rename
+    And I wait for "3" seconds
+    Then I softly verify that the file "Attachment.pdf" is downloaded
+    And I close the tab
+    And I wait for "2" seconds
+    And I download the file without rename
+    And I wait for "3" seconds
+    Then I softly verify that the file "AttachmentTesting.pdf" is downloaded
+    And I close the tab
+    And I wait for "2" seconds
+    Then I softly can see top right button "Add Files" in flex table with id "---progressReport:-:RecipientProgressReportFilesTableId---"
+    Then I softly see value "Attachment.pdf" for title "Title" inside table "---progressReport:-:RecipientProgressReportFilesTableId---"
+    Then I softly see value "Other" for title "Classification" inside table "---progressReport:-:RecipientProgressReportFilesTableId---"
+    Then I can see row level action button "View" against "Attachment.pdf" in flex table with id "---progressReport:-:RecipientProgressReportFilesTableId---"
+    Then I cannot see row level action button "Delete" against "Attachment.pdf" in flex table with id "---progressReport:-:RecipientProgressReportFilesTableId---"
+    Then I cannot see row level action button "Edit" against "Attachment.pdf" in flex table with id "---progressReport:-:RecipientProgressReportFilesTableId---"
+    Then I can see row level action button "Download" against "Attachment.pdf" in flex table with id "---progressReport:-:RecipientProgressReportFilesTableId---"
+    Then I softly see value "Attachment.pdf" for title "Title" inside table "---progressReport:-:RecipientProgressReportFilesTableId---"
+    Then I softly can see top right button "New" in flex table with id "---progressReport:-:GrantorNotesProgressReporttableId---"
+    Then I cannot see row level action button "Delete" against "Notes Record" in flex table with id "---progressReport:-:GrantorNotesProgressReporttableId---"
+    Then I cannot see row level action button "Edit" against "Notes Record" in flex table with id "---progressReport:-:GrantorNotesProgressReporttableId---"
+    When I navigate to "Responsibilities" sub tab
+    And I enter the following values into flex table with id "---progressReport:-:peerReviewersTableId---" by clicking "New" :
+      | Reviewer Name            | Responsibility  | Description                 | Due Date |
+      | {SavedValue:FO Username} | Fiscal Reviewer | Automation Test Description | 7        |
+    When I enter the following values into flex table with id "---progressReport:-:approversTableId---" by clicking "New" :
+      | Name                     | Progress Report |
+      | {SavedValue:PM Username} | Step 1          |
+    When I enter the following values into flex table with id "---progressReport:-:approversTableId---" by clicking "New" :
+      | Name                     | Progress Report |
+      | {SavedValue:FO Username} | Step 2          |
+    Then I softly see value "{SavedValue:FO Username}" for title "Name" inside table "---progressReport:-:peerReviewersTableId---"
+    Then I softly see value "{SavedValue:PM Username}" for title "Name" inside table "---progressReport:-:approversTableId---"
+    Then I softly see value "{SavedValue:FO Username}" for title "Name" inside table "---progressReport:-:approversTableId---"
+    Examples:
+      | NonOwner |
+      | PO       |
+      | EXE      |
+      | FO       |
+      | FD       |
+      | ADMIN    |

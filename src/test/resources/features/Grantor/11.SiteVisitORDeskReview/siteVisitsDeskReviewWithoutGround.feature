@@ -10479,3 +10479,396 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     And I wait for "2" seconds
     Then I softly see the following messages in the page details :
       | File Automation.pdf deleted successfully. |
+
+  @532407 @532403 @532404 @validateAwarddeskreviewInternalusershouldseethecorrectnumberofrecordsinthechildtables @GrantorFlexP1
+  Scenario: Validate Award Desk Review -Internal user should see the correct number of records in the child tables
+    Given I activated standalone subaward "Automation Runtime Award Record" with properties "default" of type "Competitive"
+    When I login to "Grantor" app as "dynamicUser" user
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click toggle button to select "Grants - Active"
+    And I perform quick search for "{SavedValue:Automation Runtime Award Site Visit}" in "GrantorActiveGrants" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Award Site Visit}" inside flex table with id "GrantorActiveGrants"
+    And I navigate to "Files" sub tab
+    When I enter the following values into flex table with id "---subAwardStandAlone:-:flexGridGrantChecklistsTableId---" by clicking "Add" :
+      | Description | Required  | Applies To | Status |
+      | Automation  | Mandatory | Site Visit | Active |
+    When I navigate to "Subawards" sub tab
+    And I click on "View" icon for "{SavedValue:Automation Runtime Award Site Visit}" inside flex table with id "---sitevisits:-:GrantsSubAwardsTableId---"
+    Given I navigate to "Management" sub tab
+    And I click on top right button "Initiate Desk Review" in flex table with id "---deskreview:-:managementInitiateDRtableid---"
+    And I enter "Creation" values from "DeskReview_Field_Values.xlsx"
+    When I click modal button "Save and Continue"
+    And I enter "Edition" values from "DeskReview_Field_Values.xlsx"
+    When I click on "Save" in the page details
+    And I wait for "3" seconds
+    And I get the "EGMS ID"
+    Then I softly see status in Progress-bar is "Created" and is "dark blue"
+    When I click on "Edit" in the page details
+    And I enter value "Automation Description" into field "Description__c"
+    When I click on "Save" in the page details
+    Then I softly see status in Progress-bar is "Created" and is "dark blue"
+    And I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "DREGMSID"
+    Given I navigate to "Overview" sub tab
+    And I click on top right button "Associate" in flex table with id "---deskreview:-:participantsTableId---"
+    When I click "Associate" after selection of "{SavedValue:EXE1 Username}" in the table "---deskreview:-:deskReviewContactsTableId---"
+    And I click modal button "Close"
+    And I pause execution for "3" seconds
+    And I refresh the page
+    Then I softly see value "{SavedValue:EXE1 Username}" for title "Name" inside table "---deskreview:-:participantsTableId---"
+    Then I softly see value "Automation SPI3" for title "Name" inside table "---deskreview:-:participantsTableId---"
+    And I click on top right button "Associate" in flex table with id "---deskreview:-:associateAwardDeskReviewTableId---"
+    When I click "Associate" after selection of "{SavedValue:Automation Runtime Award Record}" in the table "---deskreview:-:awardDeskReviewTableId---"
+    And I refresh the page
+    Then I softly see value "{SavedValue:Automation Runtime Award Record}" for title "Subaward Title" inside table "---deskreview:-:associateAwardDeskReviewTableId---"
+    When I navigate to "Responsibilities" sub tab
+    When I enter the following values into flex table with id "---deskreview:-:approverDeskReviewTableId---" by clicking "New" :
+      | Name                       | Desk Review |
+      | {SavedValue:EXE1 Username} | Step 1      |
+    When I enter the following values into flex table with id "---deskreview:-:approverDeskReviewTableId---" by clicking "New" :
+      | Name                     | Desk Review |
+      | {SavedValue:FO Username} | Step 2      |
+    Then I softly see value "{SavedValue:EXE1 Username}" for title "Name" inside table "---deskreview:-:approverDeskReviewTableId---"
+    Then I softly see value "{SavedValue:FO Username}" for title "Name" inside table "---deskreview:-:approverDeskReviewTableId---"
+    When I navigate to "Files" sub tab
+    Then I can see top right button "Add" in flex table with id "---sitevisits:-:siteVisitSupportingDocumentChecklist---"
+    And I click on top right button "Add Files" in flex table with id "---deskreview:-:deskReviewsFilesTableId---"
+    And I upload attachment without random number "Attachment.pdf" of type "Supporting Documents" from computer
+    When I click modal button "Close"
+    And I wait for "2" seconds
+    Then I softly see value "Attachment.pdf" for title "Title" inside table "---deskreview:-:deskReviewsFilesTableId---"
+    Then I can see top right button "New" in flex table with id "---deskreview:-:grantordeskReviewNotesTableId---"
+    When I enter the following values into flex table with id "---deskreview:-:grantordeskReviewNotesTableId---" by clicking "New" :
+      | Title        | Description      |
+      | Notes Record | Automation Notes |
+    Then I softly see value "Notes Record" for title "Title" inside table "---deskreview:-:grantordeskReviewNotesTableId---"
+    When I re-login to "Grantor" app as "SARAH PM" user on "INTERNAL" portal
+    When I navigate to "Home" tab
+    And I select "Site Visits" from dropdown for Global search
+    And I perform quick search inside global search "{SavedValue:DeskReview}"
+    Then I softly see the text containing "No results"
+    When I re-login to "Grantor" app as "PO" user on "INTERNAL" portal
+    When I navigate to "Home" tab
+    And I select "Site Visits" from dropdown for Global search
+    And I perform quick search inside global search "{SavedValue:DeskReview}"
+    And I click on row level action button "Edit" against "{SavedValue:DeskReview}" in global search with id "Site Visits"
+    Then I softly see field "Status" as "Created"
+    Then I softly see the text containing "You dont have sufficient access to edit this record"
+    When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
+    When I navigate to "Home" tab
+    And I select "Site Visits" from dropdown for Global search
+    And I perform quick search inside global search "{SavedValue:DeskReview}"
+    Then I softly see the text containing "No results"
+    When I login to "Grantor" app as "dynamicUser" user
+    Given I navigate to "Monitoring" tab
+    When I navigate to "Desk Reviews" content inside "Monitoring Activities" subheader on left panel
+    And I click toggle button to select "Desk Review Reports - All"
+    When I perform quick search for "{SavedValue:DREGMSID}" in "---deskreview:-:deskReviewGridViewTableId---" panel
+    Then I softly can see row level action button "View" against "{SavedValue:DREGMSID}" in flex table with id "---deskreview:-:deskReviewGridViewTableId---"
+    And I click on "View" icon for "{SavedValue:DREGMSID}" inside flex table with id "---deskreview:-:deskReviewGridViewTableId---"
+    And I click on "Notify" in the page details
+    Given I click on "Conduct" in the page details
+    And I pause execution for "4" seconds
+    And I navigate to "Responsibilities" sub tab
+    When I enter the following values into flex table with id "---deskreview:-:reviewersFlexTableId---" by clicking "New" :
+      | Reviewer Name | Responsibility  | Description              | Due Date | Allow Record Editing |
+      | {SavedValue:FO Username}     | Fiscal Reviewer | Review Financial details | 10       | No                   |
+    And I click on "Send for Review" icon for "{SavedValue:FO Username}" inside table
+    And I wait for "3" seconds
+    And I get the "EGMS ID"
+    And I re-login to "Grantor" app as "FO" user on "INTERNAL" portal
+    When I navigate to "Monitoring" tab
+    And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    When I perform quick search for "Record id" in "---deskreview:-:monitoringTabPhasePendingTasks---" panel
+    When I click on "Start" icon for "Record Id" inside flex table with id "---deskreview:-:monitoringTabPhasePendingTasks---"
+    And I wait for "3" seconds
+    When I navigate to "Overview" sub tab
+    Then I softly see value "{SavedValue:EXE1 Username}" for title "Name" inside table "---deskreview:-:participantsTableId---"
+    Then I softly see value "Automation SPI3" for title "Name" inside table "---deskreview:-:participantsTableId---"
+    Then I softly see value "{SavedValue:Automation Runtime Award Record}" for title "Subaward Title" inside table "---deskreview:-:associateAwardDeskReviewTableId---"
+    When I navigate to "Responsibilities" sub tab
+    Then I softly see value "{SavedValue:FO Username}" for title "Name" inside table "---deskreview:-:reviewersFlexTableId---"
+    When I navigate to "Files" sub tab
+    Then I softly see value "Attachment.pdf" for title "Title" inside table "---deskreview:-:deskReviewsFilesTableId---"
+    Then I softly see value "Notes Record" for title "Title" inside table "---deskreview:-:grantordeskReviewNotesTableId---"
+    When I navigate to "Responsibilities" sub tab
+    When I click on "Enter Review" icon for "{SavedValue:FO Username}" inside flex table with id "---deskreview:-:reviewersFlexTableId---"
+    And I enter values into fields
+      | Value  | Field             |
+      | Passed | Rating__c         |
+      | Passed | ReviewComments__c |
+    When I click modal button "Save"
+    And I click on submit review
+    And I wait for "3" seconds
+    And I refresh the page
+    Then I softly cannot see top right button "Edit" in page detail
+    When I re-login to "Grantor" app as "dynamicUser" user on "INTERNAL" portal
+    And I navigate to "Monitoring" tab
+    When I navigate to "Desk Reviews" content inside "Monitoring Activities" subheader on left panel
+    When I perform quick search for "{SavedValue:DREGMSID}" in "---deskreview:-:deskReviewGridViewTableId---" panel
+    And I click on "View" icon for "{SavedValue:DREGMSID}" inside flex table with id "---deskreview:-:deskReviewGridViewTableId---"
+    Given I navigate to "Overview" sub tab
+    And I click on top right button "Associate" in flex table with id "---deskreview:-:participantsTableId---"
+    When I click "Associate" after selection of "{SavedValue:PM1 Username}" in the table "---deskreview:-:deskReviewContactsTableId---"
+    And I click modal button "Close"
+    And I pause execution for "3" seconds
+    And I refresh the page
+    Then I softly see value "{SavedValue:PM1 Username}" for title "Name" inside table "---deskreview:-:participantsTableId---"
+    Then I softly see value "{SavedValue:EXE1 Username}" for title "Name" inside table "---deskreview:-:participantsTableId---"
+    Then I softly see value "Automation SPI3" for title "Name" inside table "---deskreview:-:participantsTableId---"
+    Then I softly see value "{SavedValue:Automation Runtime Amendment Award}" for title "Subaward Title" inside table "---deskreview:-:associateAwardDeskReviewTableId---"
+    And I re-login to "Grantor" app as "PO" user on "INTERNAL" portal
+    When I navigate to "Monitoring" tab
+    When I navigate to "Desk Reviews" content inside "Monitoring Activities" subheader on left panel
+    When I perform quick search for "{SavedValue:DREGMSID}" in "---deskreview:-:deskReviewGridViewTableId---" panel
+    And I click on "View" icon for "{SavedValue:DREGMSID}" inside flex table with id "---deskreview:-:deskReviewGridViewTableId---"
+    Given I navigate to "Overview" sub tab
+    Then I softly do not see value "{SavedValue:PM1 Username}" for title "Name" inside table "---deskreview:-:participantsTableId---"
+    Then I softly see value "{SavedValue:EXE1 Username}" for title "Name" inside table "---deskreview:-:participantsTableId---"
+    Then I softly see value "Automation SPI3" for title "Name" inside table "---deskreview:-:participantsTableId---"
+    Then I softly do not see value "{SavedValue:Automation Runtime Amendment Award}" for title "Subaward Title" inside table "---deskreview:-:associateAwardDeskReviewTableId---"
+    Then I softly see value "{SavedValue:Automation Runtime Award Record}" for title "Subaward Title" inside table "---deskreview:-:associateAwardDeskReviewTableId---"
+    When I re-login to "Grantor" app as "Admin" user on "INTERNAL" portal
+    And I navigate to "Home" tab
+    Then I see "Ownership" inside "Reassign" is displayed
+    When I navigate to "Ownership" content inside "Reassign" subheader on left panel
+    And I select value "Automation PM" into field "input-1"
+    And I select value "Automation PM1" into field "input-2"
+    And I select module "Closeout" from reassign ownership dropdown
+    When I perform quick search for "{SavedValue:DREGMSID}" in "---deskreview:-:deskReviewSourceTableId---" panel
+    Then I see value "{SavedValue:DREGMSID}" for title "Site Visit ID" inside table "---deskreview:-:deskReviewSourceTableId---"
+    When I perform quick search for "{SavedValue:DREGMSID}" in "---deskreview:-:deskReviewSourceTableId---" panel
+    When I check "{SavedValue:DREGMSID}" boxes in flex table with id "---deskreview:-:deskReviewSourceTableId---"
+    When I click table top right button "Transfer Ownership" in flex table with id "---deskreview:-:deskReviewSourceTableId---"
+    Then I softly see confirmation box with body "When the ownership of the record is changed, all pending tasks assigned to the owner of the record will be reassigned automatically as well. Do you wish to proceed?" is displayed
+    And I click "OK" on modal confirmation box
+    And I pause execution for "30" seconds
+    And I reset the table
+    When I navigate to "Records of Target User" sub tab
+    When I perform quick search for "{SavedValue:DREGMSID}" in "---deskreview:-:deskReviewSourceTableId---" panel
+    Then I see value "{SavedValue:DREGMSID}" for title "Site Visit ID" inside table "---deskreview:-:deskReviewSourceTableId---"
+    And I pause execution for "2" seconds
+    When I re-login to "Grantor" app as "dynamicUser" user on "INTERNAL" portal
+    And I navigate to "Monitoring" tab
+    When I navigate to "Desk Reviews" content inside "Monitoring Activities" subheader on left panel
+    When I perform quick search for "{SavedValue:DREGMSID}" in "---deskreview:-:deskReviewGridViewTableId---" panel
+    And I click on "View" icon for "{SavedValue:DREGMSID}" inside flex table with id "---deskreview:-:deskReviewGridViewTableId---"
+    Given I navigate to "Overview" sub tab
+    Then I cannot see top right button "Associate" in flex table with id "---deskreview:-:participantsTableId---"
+    Then I cannot see top right button "Associate" in flex table with id "---deskreview:-:associateAwardDeskReviewTableId---"
+    When I re-login to "Grantor" app as "PM1" user on "INTERNAL" portal
+    And I navigate to "Monitoring" tab
+    When I navigate to "Desk Reviews" content inside "Monitoring Activities" subheader on left panel
+    When I perform quick search for "{SavedValue:DREGMSID}" in "---deskreview:-:deskReviewGridViewTableId---" panel
+    And I click on "View" icon for "{SavedValue:DREGMSID}" inside flex table with id "---deskreview:-:deskReviewGridViewTableId---"
+    Given I navigate to "Overview" sub tab
+    Then I can see top right button "Associate" in flex table with id "---deskreview:-:participantsTableId---"
+    Then I can see top right button "Associate" in flex table with id "---deskreview:-:associateAwardDeskReviewTableId---"
+    When I click on "Submit for Approval" in the page details
+    When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
+    And I navigate to "Monitoring" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    When I perform quick search for "Record Id" in "---deskreview:-:monitoringTabPhasePendingTasks---" panel
+    And I click on "Start" icon for "Record Id" inside flex table with id "---deskreview:-:monitoringTabPhasePendingTasks---"
+    And I "Approve" in the approval decision
+    And I navigate to "Overview" sub tab
+    Then I softly see value "{SavedValue:PM1 Username}" for title "Name" inside table "---deskreview:-:participantsTableId---"
+    Then I softly see value "{SavedValue:EXE1 Username}" for title "Name" inside table "---deskreview:-:participantsTableId---"
+    Then I softly see value "Automation SPI3" for title "Name" inside table "---deskreview:-:participantsTableId---"
+    Then I softly see value "{SavedValue:Automation Runtime Amendment Award}" for title "Subaward Title" inside table "---deskreview:-:associateAwardDeskReviewTableId---"
+    Then I softly see value "{SavedValue:Automation Runtime Award Record}" for title "Subaward Title" inside table "---deskreview:-:associateAwardDeskReviewTableId---"
+    When I re-login to "Grantor" app as "FO" user on "INTERNAL" portal
+    And I navigate to "Monitoring" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    When I perform quick search for "Record Id" in "---deskreview:-:monitoringTabPhasePendingTasks---" panel
+    And I click on "Start" icon for "Record Id" inside flex table with id "---deskreview:-:monitoringTabPhasePendingTasks---"
+    And I "Approve" in the approval decision
+    Then I softly see status in Progress-bar is "Approved" and is "dark blue"
+    And I navigate to "Overview" sub tab
+    Then I softly see value "{SavedValue:PM1 Username}" for title "Name" inside table "---deskreview:-:participantsTableId---"
+    Then I softly see value "{SavedValue:EXE1 Username}" for title "Name" inside table "---deskreview:-:participantsTableId---"
+    Then I softly see value "Automation SPI3" for title "Name" inside table "---deskreview:-:participantsTableId---"
+    Then I softly see value "{SavedValue:Automation Runtime Amendment Award}" for title "Subaward Title" inside table "---deskreview:-:associateAwardDeskReviewTableId---"
+    Then I softly see value "{SavedValue:Automation Runtime Award Record}" for title "Subaward Title" inside table "---deskreview:-:associateAwardDeskReviewTableId---"
+    When I re-login to "Grantor" app as "PM1" user on "INTERNAL" portal
+    And I navigate to "Monitoring" tab
+    When I navigate to "Desk Reviews" content inside "Monitoring Activities" subheader on left panel
+    When I perform quick search for "{SavedValue:DREGMSID}" in "---deskreview:-:deskReviewGridViewTableId---" panel
+    And I click on "View" icon for "{SavedValue:DREGMSID}" inside flex table with id "---deskreview:-:deskReviewGridViewTableId---"
+    Given I navigate to "Overview" sub tab
+    Then I cannot see top right button "Associate" in flex table with id "---deskreview:-:participantsTableId---"
+    Then I cannot see top right button "Associate" in flex table with id "---deskreview:-:associateAwardDeskReviewTableId---"
+    Given I click on "Send to Subrecipient" in the page details
+    Then I softly see status in Progress-bar is "Sent to Subrecipient" and is "dark blue"
+    When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
+    When I navigate to "Monitoring" tab
+    And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    When I perform quick search for "Record Id" in "---deskreview:-:monitoringTabPhasePendingTasks---" panel
+    Then I softly see value "Record Id" for title "EGMS ID" inside table "---deskreview:-:monitoringTabPhasePendingTasks---"
+    When I click on "Start" icon for "Record Id" inside flex table with id "---deskreview:-:monitoringTabPhasePendingTasks---"
+    Then I softly see value "{SavedValue:PM1 Username}" for title "Name" inside table "---deskreview:-:participantsTableId---"
+    Then I softly see value "{SavedValue:EXE1 Username}" for title "Name" inside table "---deskreview:-:participantsTableId---"
+    Then I softly see value "Automation SPI3" for title "Name" inside table "---deskreview:-:participantsTableId---"
+    Then I softly see value "{SavedValue:Automation Runtime Amendment Award}" for title "Subaward Title" inside table "---deskreview:-:associateAwardDeskReviewTableId---"
+    Then I softly see value "{SavedValue:Automation Runtime Award Record}" for title "Subaward Title" inside table "---deskreview:-:associateAwardDeskReviewTableId---"
+    When I navigate to "Reports and Outcomes" sub tab
+    And I expand nested table containing column value "Automation Observation"
+    When I enter the following values into flex table with id "---deskreview:-:deskReviewCorrectiveTableId---" by clicking "New" :
+      | Title                               | Description            | Status      | Due Date | Assigned To                |
+      | Automation Observation Subrecipient | Automation Description | In-Progress | 30       | {SavedValue:SPI3 Username} |
+    When I collapse nested table containing column value "Automation Observation"
+    And I expand nested table containing column value "Automation Concern"
+    When I enter the following values into flex table with id "---deskreview:-:deskReviewCorrectiveTableId---" by clicking "New" :
+      | Title                           | Description            | Status      | Due Date | Assigned To                |
+      | Automation Concern Subrecipient | Automation Description | In-Progress | 30       | {SavedValue:SPI3 Username} |
+    When I collapse nested table containing column value "Automation Concern"
+    And I expand nested table containing column value "Automation Finding"
+    When I enter the following values into flex table with id "---deskreview:-:deskReviewCorrectiveTableId---" by clicking "New" :
+      | Title                           | Description            | Status      | Due Date | Assigned To                |
+      | Automation Finding Subrecipient | Automation Description | In-Progress | 30       | {SavedValue:SPI3 Username} |
+    And I collapse nested table containing column value "Automation Finding"
+    And I navigate to "Files" sub tab
+    When I click on "Upload Template" icon for "Automation" inside flex table with id "---sitevisits:-:siteVisitSupportingDocumentChecklist---" without waiting for record
+    And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
+    And I click modal button "Close"
+    Then I softly see value "Attachment.pdf" for title "Subrecipient Document Link" inside table "---sitevisits:-:siteVisitSupportingDocumentChecklist---"
+    Then I softly can see top right button "Submit to Grantor" in page detail
+    When I re-login to "Grantor" app as "PM1" user on "INTERNAL" portal
+    And I navigate to "Monitoring" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    When I perform quick search for "Record Id" in "---deskreview:-:monitoringTabPhasePendingTasks---" panel
+    And I click on "Start" icon for "Record Id" inside flex table with id "---deskreview:-:monitoringTabPhasePendingTasks---"
+    And I navigate to "Overview" sub tab
+    Then I softly see value "{SavedValue:PM1 Username}" for title "Name" inside table "---deskreview:-:participantsTableId---"
+    Then I softly see value "{SavedValue:EXE1 Username}" for title "Name" inside table "---deskreview:-:participantsTableId---"
+    Then I softly see value "Automation SPI3" for title "Name" inside table "---deskreview:-:participantsTableId---"
+    Then I softly see value "{SavedValue:Automation Runtime Amendment Award}" for title "Subaward Title" inside table "---deskreview:-:associateAwardDeskReviewTableId---"
+    Then I softly see value "{SavedValue:Automation Runtime Award Record}" for title "Subaward Title" inside table "---deskreview:-:associateAwardDeskReviewTableId---"
+    When I navigate to "Reports and Outcomes" sub tab
+    And I expand nested table containing column value "Automation Observation"
+    Then I softly see value "Automation Observation Subrecipient" for title "Title" inside table "---deskreview:-:deskReviewCorrectiveTableId---"
+    And I expand nested table containing column value "Automation Concern"
+    Then I softly see value "Automation Concern Subrecipient" for title "Title" inside table "---deskreview:-:deskReviewCorrectiveTableId---"
+    And I expand nested table containing column value "Automation Finding"
+    Then I softly see value "Automation Finding Subrecipient" for title "Title" inside table "---deskreview:-:deskReviewCorrectiveTableId---"
+    And I navigate to "Files" sub tab
+    Then I softly see value "Attachment.pdf" for title "Subrecipient Document Link" inside table "---sitevisits:-:siteVisitSupportingDocumentChecklist---"
+
+  @531270 @validateAwardsitevisit-usershouldabletoseetheAwardsitevisitsharewithexternaluseronlyaftersendtosubrecipientbutton @GrantorFlexP1
+  Scenario: Validate Award site visit-Verify user should able to see the Award site visit share with external user only after send to subrecipient button
+    Given I activated standalone subaward "Automation Runtime Award Record" with properties "default" of type "Competitive"
+    When I login to "Grantor" app as "dynamicUser" user
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click toggle button to select "Grants - Active"
+    And I perform quick search for "{SavedValue:Automation Runtime Award Record}" in "GrantorActiveGrants" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Award Record}" inside flex table with id "GrantorActiveGrants"
+    And I navigate to "Files" sub tab
+    When I enter the following values into flex table with id "---subAwardStandAlone:-:flexGridGrantChecklistsTableId---" by clicking "Add" :
+      | Description | Required  | Applies To | Status |
+      | Automation  | Mandatory | Site Visit | Active |
+    When I navigate to "Subawards" sub tab
+    And I click on "View" icon for "{SavedValue:Automation Runtime Award Record}" inside flex table with id "---sitevisits:-:GrantsSubAwardsTableId---"
+    When I save the field labeled "EGMS ID" as "awardEGMSID"
+    Given I navigate to "Management" sub tab
+    And I click on top right button "Initiate Site Visit" in flex table with id "---sitevisits:-:InitiateSiteVisitTableId---"
+    And I enter "Creation" values from "SiteVisit_Field_Values.xlsx"
+    When I click modal button "Save and Continue"
+    And I enter "Edition" values from "SiteVisit_Field_Values.xlsx"
+    When I click on "Save" in the page details
+    And I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "SiteVisitID"
+    Given I navigate to "Responsibilities" sub tab
+    When I enter the following values into flex table with id "---sitevisits:-:approverSiteVisitTableId---" by clicking "New" :
+      | Name                      | Site Visit |
+      | {SavedValue:EXE Username} | Step 1     |
+    When I save the field labeled "EGMS ID" as "SVEGMSID"
+    When I navigate to "Files" sub tab
+    And I click on "Upload Template" icon for "Automation" inside flex table with id "---sitevisits:-:siteVisitSupportingDocumentChecklist---" with wait for record
+    And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
+    And I click modal button "Close"
+    Given I navigate to "Overview" sub tab
+    And I click on top right button "Associate" in flex table with id "---sitevisits:-:participantsTableId---"
+    When I click "Associate" after selection of "Automation SPA" in the table "---sitevisits:-:siteVisitContactsTableId---"
+    And I refresh the page
+    And I click on top right button "Associate" in flex table with id "---sitevisits:-:associateAwardSiteVisitsTableId---"
+    When I click "Associate" after selection of "{SavedValue:awardEGMSID}" in the table "---sitevisits:-:awardSiteVisitsTableId---"
+    And I refresh the page
+    And I wait for "3" seconds
+    Then I softly see value "{SavedValue:AwardEGMSID}" for title "EGMS ID" inside table "---sitevisits:-:awardSiteVisitsTableId---"
+    When I re-login to "Grantor" app as "PO" user on "INTERNAL" portal
+    When I navigate to "Home" tab
+    And I select "Site Visits" from dropdown for Global search
+    And I perform quick search inside global search "{SavedValue:SVEGMSID}"
+    And I click on row level action button "Edit" against "{SavedValue:SVEGMSID}" in global search with id "Site Visits"
+    Then I softly see field "Status" as "Created"
+    Then I softly see the text containing "You dont have sufficient access to edit this record"
+    When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
+    When I navigate to "Home" tab
+    And I perform quick search inside global search "{SavedValue:SVEGMSID}"
+    Then I softly see the text containing "No results"
+    And I navigate to "Monitoring" tab
+    When I navigate to "Site Visits" content inside "Monitoring Activities" subheader on left panel
+    When I perform quick search for "{SavedValue:SitevVisitId}" in "---sitevisits:-:monitoringSiteVisitSubTableId---" panel
+    Then I softly see "No Records Found" inside flex table with id "---sitevisits:-:manageSiteVisitTableId---"
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
+    And I navigate to "Monitoring" tab
+    When I navigate to "Site Visits" content inside "Monitoring Activities" subheader on left panel
+    When I perform quick search for "{SavedValue:SVEGMSID}" in "---sitevisits:-:manageSiteVisitTableId---" panel
+    Then I see value "{SavedValue:SVEGMSID}" for title "EGMS ID" inside table "---sitevisits:-:manageSiteVisitTableId---"
+    And I click on "View" icon for "{SavedValue:SVEGMSID}" inside flex table with id "---sitevisits:-:manageSiteVisitTableId---"
+    Given I navigate to "Overview" sub tab
+    And I click on top right button "Associate" in flex table with sid "---sitevisits:-:participantsTableId---"
+    When I click "Associate" after selection of "Automation SPA" in the table "---sitevisits:-:siteVisitContactsTableId---"
+    And I click on top right button "Associate" in flex table with id "---sitevisits:-:associateAwardSiteVisitsTableId---"
+    When I click "Associate" after selection of "{SavedValue:Automation Runtime Award Record}" in the table "---sitevisits:-:awardSiteVisitsTableId---"
+    And I refresh the page
+    And I wait for "2" seconds
+    And I click on "Notify" in the page details
+    When I click on "Conduct" in the page details
+    When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
+    And I navigate to "Monitoring" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    When I perform quick search for "Record Id" in "---sitevisits:-:monitoringTabPhasePendingTasks---" panel
+    When I click on "Start" icon for "Record Id" inside flex table with id "---sitevisits:-:monitoringTabPhasePendingTasks---"
+    Then I softly do not see value "Record Id" for title "EGMS ID" inside table "---sitevisits:-:monitoringTabPhasePendingTasks---"
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
+    And I navigate to "Monitoring" tab
+    When I navigate to "Site Visits" content inside "Monitoring Activities" subheader on left panel
+    When I perform quick search for "Record Id" in "---sitevisits:-:manageSiteVisitTableId---" panel
+    And I click on "View" icon for "Record Id" inside flex table with id "---sitevisits:-:manageSiteVisitTableId---"
+    And I navigate to "Reports and Outcomes" sub tab
+    When I click on "Edit" icon for "General Review Form" inside flex table with id "---sitevisits:-:reportsTableId---"
+    And I switch to tab number "1"
+    And I enter "Form Fields" values from "DeskReview_Field_Values.xlsx"
+    And I click on "Save" in the page details
+    And I close the tab
+    When I enter the following values into flex table with id "---sitevisits:-:correctiveTableId---" by clicking "New" :
+      | Title                  | Description            | Type        |
+      | Automation Finding     | Automation Description | Finding     |
+      | Automation Concern     | Automation Description | Concern     |
+      | Automation Observation | Automation Description | Observation |
+    When I click on "Submit for Approval" in the page details
+    And I navigate to "Responsibilities" sub tab
+    Then I cannot see top right button "New" in flex table with id "---sitevisits:-:approverSiteVisitTableId---"
+    Then I cannot see top right button "New" in flex table with id "---sitevisits:-:reviewersFlexTableId---"
+    When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
+    And I navigate to "Monitoring" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    When I perform quick search for "Record Id" in "---deskreview:-:monitoringTabPhasePendingTasks---" panel
+    And I click on "Start" icon for "Record Id" inside flex table with id "---deskreview:-:monitoringTabPhasePendingTasks---"
+    And I "Approve" in the approval decision
+    Then I softly see status in Progress-bar is "Approved" and is "dark blue"
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
+    And I navigate to "Monitoring" tab
+    When I navigate to "Site Visits" content inside "Monitoring Activities" subheader on left panel
+    When I perform quick search for "Record Id" in "---sitevisits:-:manageSiteVisitTableId---" panel
+    And I click on "View" icon for "Record Id" inside flex table with id "---sitevisits:-:manageSiteVisitTableId---"
+    And I click on "Send to Subrecipient" in the page details
+    Then I softly see status in Progress-bar is "Sent to Subrecipient" and is "dark blue"
+    When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
+    And I navigate to "Monitoring" tab
+    When I navigate to "Site Visits" content inside "Monitoring Activities" subheader on left panel
+    When I perform quick search for "{SavedValue:SVEGMSID}" in "---sitevisits:-:monitoringSiteVisitSubTableId---" panel
+    Then I see value "{SavedValue:SVEGMSID}" for title "EGMS ID" inside table "---sitevisits:-:monitoringSiteVisitSubTableId---"

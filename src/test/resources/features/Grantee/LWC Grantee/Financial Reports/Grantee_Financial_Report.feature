@@ -2756,3 +2756,11 @@ Feature: Validate all scenarios for Financial Report
     And I click modal button "Save and Continue"
     And I wait for "2" seconds
     Then I softly see field "Status" as "Created"
+
+  @451429 @Validatewhenpmuserlogoutthepmuserthepageshouldredirectstotheloginpage
+  Scenario: Validate when PM user logout the pm user the page should redirects to the login page
+    Given I login to "Grantee" app as "GRANTEE PM" user
+    And I navigate to "Home" tab
+    And I logout
+    Given I login to "Grantee" app as "GRANTEE PM" user
+    Then I navigate to url "https://test8-internal--ggmergeqa2.sandbox.lightning.force.com/lightning/n/GranteeHome"

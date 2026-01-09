@@ -149,7 +149,7 @@ Feature: Validate all scenarios for Non Federal Organization
     Then I see field "Last Name" as "{SavedValue:LastName}" on modal
     Then I see field "Phone" as "{SavedValue:Phone}" on modal
     Then I see field "Mobile Phone" as "{SavedValue:MobilePhone}" on modal
-    Then I see field "Email" as " {SavedValue:Email}" on modal
+    Then I see field "Email" as "{SavedValue:Email}" on modal
     Then I see field "Address Line 1" as "{SavedValue:AddressLine1}" on modal
     Then I see field "Address Line 2" as "{SavedValue:AddressLine2}" on modal
     Then I see field "State" as "{SavedValue:State}" on modal
@@ -1167,7 +1167,7 @@ Feature: Validate all scenarios for Non Federal Organization
       | userType   | attachment     | Notes        | userName   | userProfile | NotesProfile         | updatedTitle                |
       | GRANTEE PM | Attachment.pdf | Notes Record | Victor EXE | GRANTEE EXE | Notes Record for EXE | Notes Record for Victor EXE |
 
-  @477510 @NonFederalVerifyusershouldseeallfieldsandsectiononNonfederalOrg
+   @443729 @477510 @NonFederalVerifyusershouldseeallfieldsandsectiononNonfederalOrg
   Scenario Outline: Non Federal Verify user should see all fields and section on Non federal Org
     When I login to "Grantee" app as "<userType>" user
     When I navigate to "Home" tab
@@ -1197,10 +1197,13 @@ Feature: Validate all scenarios for Non Federal Organization
     When I enter in modal value "vegas" into field "County__c"
     And I click modal button "Save and Continue"
     Then I softly see the following messages in the page details contains:
-      | To Save, City is required.     |
-      | To Save, State is required.    |
-      | To Save, Country is required.  |
-      | To Save, Zip Code is required. |
+      | To Save, Organization Name is required.                  |
+      | To Save, Non-Federal Organization Type is required.      |
+      | To Save, Address Line 1 is required.                     |
+      | To Save, City is required.                               |
+      | To Save, State is required.                              |
+      | To Save, Country is required.                            |
+      | To Save, Zip Code is required.                           |
     And I wait for "2" seconds
     When I enter in modal value "Automation Runtime Organization" into field "Name"
     When I enter in modal value "NGO" into field "NonFederalOrganizationType__c"
@@ -1372,8 +1375,9 @@ Feature: Validate all scenarios for Non Federal Organization
     Then I softly see "Snapshot History" page block displayed
 
     Examples:
-      | userType      | attachment     | Notes           | userName   | Title |
-      | GRANTEE ADMIN | Attachment.pdf | Notes for ADMIN | DEMO ADMIN | Test2 |
+      | userType      | attachment     | Notes            | userName   | Title |
+      | GRANTEE ADMIN | Attachment.pdf | Notes for ADMIN  | DEMO ADMIN | Test2 |
+      | GRANTEE PM    | Attachment.pdf | Notes for PM     | Sarah PM   | Test2 |
 
   @443741 @ValidateNonFederalusershouldnotdeletetheparentOrgwhohavechildOrg @GRegression5 @PM_Grantee @P2_Grantee
   Scenario: Validate Non Federal user should not delete the parent Org who have child Org

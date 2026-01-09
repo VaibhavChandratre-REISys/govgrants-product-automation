@@ -99,7 +99,7 @@ public class QuickSearch {
 
     public void performTableSpecificQuickSearchLwc(String tableId, String searchTerm) throws TestingBlazeCustomException {
         boolean flag = false;
-        By searchInputBox = By.xpath("//c-lwc-flex-table[@data-flextablename='"+ tableId +"']//input[@placeholder='Search...' and @type='search']");
+        By searchInputBox = By.xpath("//c-lwc-flex-table[@data-flextablename='"+ tableId +"']//input[@placeholder='Search...' and @type='search'] | //c-lwc-flex-table[@data-flextablename='"+ tableId +"']//div//input[@type='search']");
 
         List<Elements> quickSearchElements = I.amPerforming().getElementReference().forListOfElements().of(searchInputBox);
         for (Elements quickSearch : quickSearchElements) {
