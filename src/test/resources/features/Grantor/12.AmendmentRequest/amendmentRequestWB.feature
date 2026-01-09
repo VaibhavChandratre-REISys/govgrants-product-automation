@@ -29021,7 +29021,7 @@ Feature: Amendment Request scenarios without background
     Then I softly see value "Attachment.pdf" for title "Title" inside table "---progressreport:-:AmendmentAttachmentTableId---"
     Then I softly see value "Automation Notes" for title "Title" inside table "---amendment:-:amendmentAddNotesTableId---"
 
-  @531290 @validateCombinationofamendmentFlexsharing-SPIusercanAcknowledgeamendmentrequest
+  @531386 @531290 @validateCombinationofamendmentFlexsharing-SPIusercanAcknowledgeamendmentrequest
   Scenario: Validate Combination of amendment Flexsharing - Verify SPI user can Acknowledge amendment request
      And I activated standalone subaward "Automation Runtime Amendment Award" with properties "SECOND_FOCUS_AREA_BUDGET_CATEGORY" of type "Formula_By_Applicant_Focus_Area"
      When I login to "Grantor" app as "PM" user
@@ -29304,57 +29304,3 @@ Feature: Amendment Request scenarios without background
     When I click on "Activate" in the page details
     And I wait for "3" seconds
     Then I softly see field "Status" as "Activated"
-
-
-
-
-  @
-   Scenario: Combination
-    Given I activated standalone subaward "Automation Runtime Award" with properties "SECOND_BUD_CAT_SECOND_FOCUS_BUILD_UP_IND_ORG-Automation PO user" of type "Formula_By_Applicant"
-    When I am on "SUBPORTAL" portal
-    When I login to "Grants Portal" app as "IND" user
-    And I navigate to "Grants" tab
-    And I navigate to "Subawards" content inside "Grants, Subawards & Amendments" subheader on left panel
-    And I click toggle button to select "Subawards  - All"
-    When I perform quick search for "{SavedValue:Automation Runtime Award}" in "---amendment:-:recipientsSubawardTableId---" panel
-    And I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside flex table with id "---amendment:-:recipientsSubawardTableId---" without waiting for record
-    Given I navigate to "Management" sub tab
-    And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:recipientAwardAmendmentRequestTableId---"
-    When I enter "Sub_BR_KPC_SOW_creation" values from "AmendmentRequest_Field_Values.xlsx"
-    And I click modal button "Save and Continue"
-    And I enter value "Automation Justification" into field "Justification__c"
-    And I enter value "Automation Justification" into field "ContactChangeDescription__c"
-    And I enter "Subrecipient_SOW_Edition" values from "AmendmentRequest_Field_Values.xlsx"
-    When I click on "Save" in the page details
-    And I save the field labeled "EGMS ID" as "budRedKPCSOWId"
-    And I navigate to "Overview" sub tab
-    And I edit the following rows inline in flex table with id "---amendment:-:RecipientKeyPersonalTableId---" by clicking "Edit" :
-      | Name                       | Project Role |
-      | {SavedValue:SPI3 Username} | Other        |
-    Then I softly see status in Progress-bar is "Created" and is "dark blue"
-    When I click on "Add Line Items" icon for "Construction" inside flex table with id "---amendment:-:budgetChangeTableId---"
-    And I edit the following rows inline in flex table with id "---amendment:-:amendmentLineItemsTableId---" by clicking "Edit" :
-      | Title        | Award Amount |
-      | Construction | 450          |
-    And I click modal button "Close"
-    When I click on "Add Line Items" icon for "Indirect costs" inside flex table with id "---amendment:-:budgetChangeTableId---"
-    And I enter the following values into flex table with id "---amendment:-:amendmentLineItemsTableId---" by clicking "New" :
-      | Title        | Narrative     | Award Amount |
-      | Construction | The Narrative | 50           |
-    And I click modal button "Close"
-    And I wait for "3" seconds
-    And I click on page navigation arrow "---amendment:-:budgetChangeTableId---" for table id "Next"
-    And I wait for "3" seconds
-    When I click on "Add Line Items" icon for "Construction" inside flex table with id "---amendment:-:budgetChangeTableId---"
-    And I edit the following rows inline in flex table with id "---amendment:-:amendmentLineItemsTableId---" by clicking "Edit" :
-      | Title        | Award Amount |
-      | Construction | 450          |
-    And I click modal button "Close"
-    And I wait for "3" seconds
-    When I click on "Add Line Items" icon for "Indirect costs" inside flex table with id "---amendment:-:budgetChangeTableId---"
-    And I enter the following values into flex table with id "---amendment:-:amendmentLineItemsTableId---" by clicking "New" :
-      | Title        | Narrative     | Award Amount |
-      | Construction | The Narrative | 50           |
-    And I click modal button "Close"
-    And I click on "Submit to Grantor" in the page details
-    Then I softly see field "Status" as "Submitted to Grantor"
