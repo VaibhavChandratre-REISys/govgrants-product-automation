@@ -7344,7 +7344,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     Then I see value "{SavedValue:FocusAreaTitle}" for title "Title" inside table "---subAwardStandAlone:-:subrecipientFocusAreaTableId---"
     Then I see value "Automation Permanent Focus Area" for title "Title" inside table "---subAwardStandAlone:-:subrecipientFocusAreaTableId---"
     Then I see value "Automation Permanent Focus Area2" for title "Title" inside table "---subAwardStandAlone:-:subrecipientFocusAreaTableId---"
-    And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:subAwardBudgetTableId---" by clicking "Edit" :
+    And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:sRBudgetCategoryTableId---" by clicking "Edit" :
       | Budget Category | Award Amount | Cash Match | Non-Cash Match |
       | Construction    | 2000         | 100        | 100            |
     When I navigate to "Performance" sub tab

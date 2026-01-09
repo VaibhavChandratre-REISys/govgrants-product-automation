@@ -28876,4 +28876,3 @@ Feature: Amendment Request scenarios without background
     And I wait for "2" seconds
     Then I softly see field "Status" as "Rejected"
     Then I softly see status in Progress-bar is "Rejected" and is "Red"
-      
