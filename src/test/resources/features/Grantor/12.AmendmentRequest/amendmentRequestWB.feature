@@ -28653,8 +28653,17 @@ Feature: Amendment Request scenarios without background
     When I enter the following values into flex table with id "---amendment:-:fundingChangeApproversTableId---" by clicking "New" :
       | Name                     | Amendment Request |
       | {SavedValue:PM Username} | Step 1            |
-    When I get the "EGMS ID"
+    When I navigate to "Files" sub tab
+    And I click on top right button "Add Files" in flex table with id "---progressreport:-:AmendmentAttachmentTableId---"
+    And I upload attachment without random number "Attachment.pdf" of type "Terms and Conditions" from computer
+    When I click modal button "Close"
+    And I wait for "2" seconds
+    Then I softly see value "Attachment.pdf" for title "Title" inside table "---progressreport:-:AmendmentAttachmentTableId---"
+    When I enter the following values into flex table with id "---amendment:-:amendmentAddNotesTableId---" by clicking "New" :
+      | Title            | Description      |
+      | Automation Notes | Automation Notes |
     And I wait for "3" seconds
+    When I get the "EGMS ID"
     And I click on "Send to Subrecipient" in the page details
     And I wait for "2" seconds
     Then I see field "Status" as "Sent to Subrecipient"
@@ -28695,7 +28704,6 @@ Feature: Amendment Request scenarios without background
     When I navigate to "Files" sub tab
     Then I can see top right button "Add Files" in flex table with id "---amendment:-:RecipientAttachmentTableId---"
     Then I softly see value "Attachment.pdf" for title "Title" inside table "---amendment:-:RecipientAttachmentTableId---"
-    Then I softly see value "Attachment1.pdf" for title "Title" inside table "---amendment:-:RecipientAttachmentTableId---"
     Then I can see top right button "New" in flex table with id "---amendment:-:SubrecipientAmendmentNotesTableId---"
     Then I softly see value "Automation Notes" for title "Title" inside table "---amendment:-:SubrecipientAmendmentNotesTableId---"
     And I navigate to "Messages" sub tab
@@ -28743,7 +28751,15 @@ Feature: Amendment Request scenarios without background
     And I edit the following rows inline in flex table with id "---amendment:-:projectAreasTableId---" by clicking "Edit" :
       | Title                            | End Date                             | New Obligation |
       | Automation Permanent Focus Area2 | {SavedValue:updatedBudgetPeriodDate} | 1000           |
-    When I get the "EGMS ID"
+    When I navigate to "Files" sub tab
+    And I click on top right button "Add Files" in flex table with id "---progressreport:-:AmendmentAttachmentTableId---"
+    And I upload attachment without random number "Attachment.pdf" of type "Terms and Conditions" from computer
+    When I click modal button "Close"
+    And I wait for "2" seconds
+    Then I softly see value "Attachment.pdf" for title "Title" inside table "---progressreport:-:AmendmentAttachmentTableId---"
+    When I enter the following values into flex table with id "---amendment:-:amendmentAddNotesTableId---" by clicking "New" :
+      | Title            | Description      |
+      | Automation Notes | Automation Notes |
     And I wait for "3" seconds
     And I click on "Send to Subrecipient" in the page details
     And I wait for "2" seconds
@@ -28784,7 +28800,6 @@ Feature: Amendment Request scenarios without background
     When I navigate to "Files" sub tab
     Then I can see top right button "Add Files" in flex table with id "---amendment:-:RecipientAttachmentTableId---"
     Then I softly see value "Attachment.pdf" for title "Title" inside table "---amendment:-:RecipientAttachmentTableId---"
-    Then I softly see value "Attachment1.pdf" for title "Title" inside table "---amendment:-:RecipientAttachmentTableId---"
     Then I can see top right button "New" in flex table with id "---amendment:-:SubrecipientAmendmentNotesTableId---"
     Then I softly see value "Automation Notes" for title "Title" inside table "---amendment:-:SubrecipientAmendmentNotesTableId---"
     And I navigate to "Messages" sub tab
@@ -28876,3 +28891,318 @@ Feature: Amendment Request scenarios without background
     And I wait for "2" seconds
     Then I softly see field "Status" as "Rejected"
     Then I softly see status in Progress-bar is "Rejected" and is "Red"
+
+  @531284 @validateCombinationofamendmentFlexsharing-PMusercaneditdatainCombinationofamendmentandotherinternalusersfromsameorganizationcanseetheupdateddata
+  Scenario: Validate Combination of amendment Flexsharing - PM user can edit data in Combination of amendment and other internal users from same organization can see the updated data
+    And I activated standalone subaward "Automation Runtime Amendment Award" with properties "SECOND_FOCUS_AREA_BUDGET_CATEGORY" of type "Formula_By_Applicant_Focus_Area"
+    When I login to "Grantor" app as "PM" user
+    And I navigate to "Grants" tab
+    And I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click toggle button to select "Grants - Active"
+    When I perform quick search for "{SavedValue:Automation Runtime Amendment Award}" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Amendment Award}" inside flex table with id "---subAwardStandAlone:-:activeGrantsTableId---" without waiting for record
+    And I save the field labeled "EGMS ID" as "GrantEGMSID"
+    When I navigate to "Subawards" sub tab
+    When I perform quick search for "Activated" in "---subAwardStandAlone:-:subawardsTableId---" panel
+    And I click on "View" icon for "Activated" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
+    And I save the field labeled "EGMS ID" as "AwardEGMSID"
+    And I navigate to "Management" sub tab
+    And I click on top right button "New" in flex table with id "---amendment:-:amendmentRequestTableId---"
+    When I enter "BPC_SOW_FC_TNC_Creation" values from "AmendmentRequest_Field_Values.xlsx"
+    And I click modal button "Save and Continue"
+    When I click on "Save" in the page details
+    And I save the field labeled "EGMS ID" as "bpcFcSowTncId"
+    And I wait for "2" seconds
+    And I get the updated budget end date by offset "1" for award "{SavedValue:Automation Runtime Amendment Award}"
+    And I wait for "2" seconds
+    When I click on "Edit" in the page details
+    And I enter "BudgetPeriodChange_Edition" values from "AmendmentRequest_Field_Values.xlsx"
+    And I enter value "4000" into field "NewBudgetPeriodEndDate__c"
+    And I enter "ScopeOfWork_Edition" values from "AmendmentRequest_Field_Values.xlsx"
+    And I wait for "2" seconds
+    When I enter values into fields
+      | Value                       | Field                         |
+      | Automation Test Description | FundingChangeJustification__c |
+      | 2000                        | RequestedChangeInBudget__c    |
+      | Automation Justification    | TncComments__c                |
+    Then I softly see fields "AreTCspartofNGAAttachments__c" is in edit mode
+    And I enter value "Checked" into field "AreTCspartofNGAAttachments__c"
+    Then I softly see fields "FederalTCLink__c" is in edit mode
+    When I click on "Save" in the page details
+    And I wait for "2" seconds
+    And I save the field labeled "New Budget Period End Date" as "updatedBudgetPeriodDate"
+    And I edit the following rows inline in flex table with id "---amendment:-:projectAreasTableId---" by clicking "Edit" :
+      | Title                           | End Date                             | New Obligation |
+      | Automation Permanent Focus Area | {SavedValue:updatedBudgetPeriodDate} | 1000           |
+    And I edit the following rows inline in flex table with id "---amendment:-:projectAreasTableId---" by clicking "Edit" :
+      | Title                            | End Date                             | New Obligation |
+      | Automation Permanent Focus Area2 | {SavedValue:updatedBudgetPeriodDate} | 1000           |
+    And I click on top right button "Associate" in flex table with id "---amendment:-:goalsAndObjectivesTableId---"
+    When I click "Associate" after selection of "Automation Permanent Objective2" in the table "---amendment:-:objectivesTableId---"
+    And I click modal button "Close"
+    And I wait for "2" seconds
+    Then I see value "Automation Permanent Objective" for title "Title" inside table "---amendment:-:goalsAndObjectivesTableId---"
+    Then I see value "Automation Permanent Objective2" for title "Title" inside table "---amendment:-:goalsAndObjectivesTableId---"
+    And I click on top right button "Associate" in flex table with id "---amendment:-:AmendmentKPITableId---"
+    And I wait for "2" seconds
+    When I enter value "Automation Permanent KPI2" into field "MasterKPI__c"
+    When I enter value "8" into field "Target__c"
+    When I click modal button "Save"
+    And I wait for "2" seconds
+    Then I see value "Automation Permanent KPI" for title "Title" inside table "---amendment:-:AmendmentKPITableId---"
+    Then I see value "Automation Permanent KPI2" for title "Title" inside table "---amendment:-:AmendmentKPITableId---"
+    And I edit the following rows inline in flex table with id "---amendment:-:AmendmentKPITableId---" by clicking "Edit" :
+      | EGMS ID                  | Target |
+      | Automation Permanent KPI | 10     |
+    And I edit the following rows inline in flex table with id "---amendment:-:AmendmentKPITableId---" by clicking "Edit" :
+      | EGMS ID                   | Target |
+      | Automation Permanent KPI2 | 20     |
+    Then I softly see top right button "Associate" inside flex table "---amendment:-:AmendmentSpecialConditionTableId---"
+    Then I softly see value "Automation Permanent TNC" for title "Title" inside table "---amendment:-:AmendmentSpecialConditionTableId---"
+    Then I softly see value "Automation Permanent TNC1" for title "Title" inside table "---amendment:-:AmendmentSpecialConditionTableId---"
+    And I click on top right button "New" in flex table with id "---amendment:-:AmendmentSpecialConditionTableId---"
+    And I enter in modal value "Automation Special Conditions" into field "Title__c"
+    And I enter in modal value "Automation Special Conditions description" into field "Description__c"
+    And I enter in modal value "1" into field "Sequence__c"
+    And I enter in modal value "0" into field "EffectiveFrom__c"
+    And I enter in modal value "1" into field "EffectiveTill__c"
+    And I click modal button "Save"
+    And I refresh the page
+    And I wait for "2" seconds
+    When I perform quick search for "Automation Special Conditions" in "---amendment:-:AmendmentSpecialConditionTableId---" panel
+    Then I softly see value "Automation Special Conditions" for title "Name" inside table "---amendment:-:AmendmentSpecialConditionTableId---"
+    And I click on "Edit" icon for "Automation Special Conditions" inside flex table with id "---amendment:-:AmendmentSpecialConditionTableId---" without waiting for record
+    And I enter in modal value "Automation Special Conditions1" into field "Title__c"
+    And I enter in modal value "Automation Special Conditions description1" into field "Description__c"
+    And I click modal button "Save"
+    And I refresh the page
+    And I wait for "2" seconds
+    When I perform quick search for "Automation Special Conditions1" in "---amendment:-:AmendmentSpecialConditionTableId---" panel
+    Then I softly see value "Automation Special Conditions1" for title "Name" inside table "---amendment:-:AmendmentSpecialConditionTableId---"
+    And I navigate to "Responsibilities" sub tab
+    When I enter the following values into flex table with id "---amendment:-:fundingChangeApproversTableId---" by clicking "New" :
+      | Name                     | Amendment Request |
+      | {SavedValue:FO Username} | Step 1            |
+    When I enter the following values into flex table with id "---amendment:-:fundingChangeApproversTableId---" by clicking "New" :
+      | Name                     | Amendment Request |
+      | {SavedValue:PO Username} | Step 2            |
+    Then I softly see value "{SavedValue:FO Username}" for title "Name" inside table "---amendment:-:fundingChangeApproversTableId---"
+    Then I softly see value "{SavedValue:PO Username}" for title "Name" inside table "---amendment:-:fundingChangeApproversTableId---"
+    When I navigate to "Files" sub tab
+    And I click on top right button "Add Files" in flex table with id "---progressreport:-:AmendmentAttachmentTableId---"
+    And I upload attachment without random number "Attachment.pdf" of type "Terms and Conditions" from computer
+    When I click modal button "Close"
+    And I wait for "2" seconds
+    Then I softly see value "Attachment.pdf" for title "Title" inside table "---progressreport:-:AmendmentAttachmentTableId---"
+    When I enter the following values into flex table with id "---amendment:-:amendmentAddNotesTableId---" by clicking "New" :
+      | Title            | Description      |
+      | Automation Notes | Automation Notes |
+    Then I softly see value "Automation Notes" for title "Title" inside table "---amendment:-:amendmentAddNotesTableId---"
+    When I get the "EGMS ID"
+    When I re-login to "Grantor" app as "FD" user on "INTERNAL" portal
+    And I navigate to "Grants" tab
+    When I navigate to "Amendment Requests" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click toggle button to select "Amendment Requests - All"
+    And I perform quick search for "{SavedValue:bpcFcSowTncId}" in "---amendment:-:grantorAmendmentRequestsTableId---" panel
+    When I click on "View" icon for "{SavedValue:bpcFcSowTncId}" inside flex table with id "---amendment:-:grantorAmendmentRequestsTableId---" without waiting for record
+    When I navigate to "Overview" sub tab
+    Then I see value "Automation Permanent Objective" for title "Title" inside table "---amendment:-:goalsAndObjectivesTableId---"
+    Then I see value "Automation Permanent Objective2" for title "Title" inside table "---amendment:-:goalsAndObjectivesTableId---"
+    Then I see value "Automation Permanent KPI" for title "Title" inside table "---amendment:-:AmendmentKPITableId---"
+    Then I see value "Automation Permanent KPI2" for title "Title" inside table "---amendment:-:AmendmentKPITableId---"
+    Then I softly see value "Automation Permanent TNC" for title "Title" inside table "---amendment:-:AmendmentSpecialConditionTableId---"
+    Then I softly see value "Automation Permanent TNC1" for title "Title" inside table "---amendment:-:AmendmentSpecialConditionTableId---"
+    Then I softly see value "Automation Special Conditions1" for title "Name" inside table "---amendment:-:AmendmentSpecialConditionTableId---"
+    And I navigate to "Responsibilities" sub tab
+    Then I softly see value "{SavedValue:FO Username}" for title "Name" inside table "---amendment:-:fundingChangeApproversTableId---"
+    Then I softly see value "{SavedValue:PO Username}" for title "Name" inside table "---amendment:-:fundingChangeApproversTableId---"
+    Then I softly see value "Attachment.pdf" for title "Title" inside table "---progressreport:-:AmendmentAttachmentTableId---"
+    Then I softly see value "Automation Notes" for title "Title" inside table "---amendment:-:amendmentAddNotesTableId---"
+
+  @531290 @validateCombinationofamendmentFlexsharing-SPIusercanAcknowledgeamendmentrequest
+  Scenario: Validate Combination of amendment Flexsharing - Verify SPI user can Acknowledge amendment request
+     And I activated standalone subaward "Automation Runtime Amendment Award" with properties "SECOND_FOCUS_AREA_BUDGET_CATEGORY" of type "Formula_By_Applicant_Focus_Area"
+     When I login to "Grantor" app as "PM" user
+     And I navigate to "Grants" tab
+     And I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+     And I click toggle button to select "Grants - Active"
+     When I perform quick search for "{SavedValue:Automation Runtime Amendment Award}" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
+     And I click on "View" icon for "{SavedValue:Automation Runtime Amendment Award}" inside flex table with id "---subAwardStandAlone:-:activeGrantsTableId---" without waiting for record
+     And I save the field labeled "EGMS ID" as "GrantEGMSID"
+     When I navigate to "Subawards" sub tab
+     When I perform quick search for "Activated" in "---subAwardStandAlone:-:subawardsTableId---" panel
+     And I click on "View" icon for "Activated" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
+     And I save the field labeled "EGMS ID" as "AwardEGMSID"
+     And I navigate to "Management" sub tab
+     And I click on top right button "New" in flex table with id "---amendment:-:amendmentRequestTableId---"
+     When I enter "BPC_SOW_FC_TNC_Creation" values from "AmendmentRequest_Field_Values.xlsx"
+     And I click modal button "Save and Continue"
+     When I click on "Save" in the page details
+     And I save the field labeled "EGMS ID" as "bpcFcSowTncId"
+     And I wait for "2" seconds
+     And I get the updated budget end date by offset "1" for award "{SavedValue:Automation Runtime Amendment Award}"
+     And I wait for "2" seconds
+     When I click on "Edit" in the page details
+     And I enter "BudgetPeriodChange_Edition" values from "AmendmentRequest_Field_Values.xlsx"
+     And I enter value "4000" into field "NewBudgetPeriodEndDate__c"
+     And I enter "ScopeOfWork_Edition" values from "AmendmentRequest_Field_Values.xlsx"
+     And I wait for "2" seconds
+     When I enter values into fields
+       | Value                       | Field                         |
+       | Automation Test Description | FundingChangeJustification__c |
+       | 2000                        | RequestedChangeInBudget__c    |
+       | Automation Justification    | TncComments__c                |
+     Then I softly see fields "AreTCspartofNGAAttachments__c" is in edit mode
+     And I enter value "Checked" into field "AreTCspartofNGAAttachments__c"
+     Then I softly see fields "FederalTCLink__c" is in edit mode
+     When I click on "Save" in the page details
+     And I wait for "2" seconds
+     And I save the field labeled "New Budget Period End Date" as "updatedBudgetPeriodDate"
+     And I edit the following rows inline in flex table with id "---amendment:-:projectAreasTableId---" by clicking "Edit" :
+       | Title                           | End Date                             | New Obligation |
+       | Automation Permanent Focus Area | {SavedValue:updatedBudgetPeriodDate} | 1000           |
+     And I edit the following rows inline in flex table with id "---amendment:-:projectAreasTableId---" by clicking "Edit" :
+       | Title                            | End Date                             | New Obligation |
+       | Automation Permanent Focus Area2 | {SavedValue:updatedBudgetPeriodDate} | 1000           |
+     And I click on top right button "Associate" in flex table with id "---amendment:-:goalsAndObjectivesTableId---"
+     When I click "Associate" after selection of "Automation Permanent Objective2" in the table "---amendment:-:objectivesTableId---"
+     And I click modal button "Close"
+     And I wait for "2" seconds
+     Then I see value "Automation Permanent Objective" for title "Title" inside table "---amendment:-:goalsAndObjectivesTableId---"
+     Then I see value "Automation Permanent Objective2" for title "Title" inside table "---amendment:-:goalsAndObjectivesTableId---"
+     And I click on top right button "Associate" in flex table with id "---amendment:-:AmendmentKPITableId---"
+     And I wait for "2" seconds
+     When I enter value "Automation Permanent KPI2" into field "MasterKPI__c"
+     When I enter value "8" into field "Target__c"
+     When I click modal button "Save"
+     And I wait for "2" seconds
+     Then I see value "Automation Permanent KPI" for title "Title" inside table "---amendment:-:AmendmentKPITableId---"
+     Then I see value "Automation Permanent KPI2" for title "Title" inside table "---amendment:-:AmendmentKPITableId---"
+     And I edit the following rows inline in flex table with id "---amendment:-:AmendmentKPITableId---" by clicking "Edit" :
+       | EGMS ID                  | Target |
+       | Automation Permanent KPI | 10     |
+     And I edit the following rows inline in flex table with id "---amendment:-:AmendmentKPITableId---" by clicking "Edit" :
+       | EGMS ID                   | Target |
+       | Automation Permanent KPI2 | 20     |
+     Then I softly see top right button "Associate" inside flex table "---amendment:-:AmendmentSpecialConditionTableId---"
+     Then I softly see value "Automation Permanent TNC" for title "Title" inside table "---amendment:-:AmendmentSpecialConditionTableId---"
+     Then I softly see value "Automation Permanent TNC1" for title "Title" inside table "---amendment:-:AmendmentSpecialConditionTableId---"
+     And I click on top right button "New" in flex table with id "---amendment:-:AmendmentSpecialConditionTableId---"
+     And I enter in modal value "Automation Special Conditions" into field "Title__c"
+     And I enter in modal value "Automation Special Conditions description" into field "Description__c"
+     And I enter in modal value "1" into field "Sequence__c"
+     And I enter in modal value "0" into field "EffectiveFrom__c"
+     And I enter in modal value "1" into field "EffectiveTill__c"
+     And I click modal button "Save"
+     And I refresh the page
+     And I wait for "2" seconds
+     When I perform quick search for "Automation Special Conditions" in "---amendment:-:AmendmentSpecialConditionTableId---" panel
+     Then I softly see value "Automation Special Conditions" for title "Name" inside table "---amendment:-:AmendmentSpecialConditionTableId---"
+     And I click on "Edit" icon for "Automation Special Conditions" inside flex table with id "---amendment:-:AmendmentSpecialConditionTableId---" without waiting for record
+     And I enter in modal value "Automation Special Conditions1" into field "Title__c"
+     And I enter in modal value "Automation Special Conditions description1" into field "Description__c"
+     And I click modal button "Save"
+     And I refresh the page
+     And I wait for "2" seconds
+     When I perform quick search for "Automation Special Conditions1" in "---amendment:-:AmendmentSpecialConditionTableId---" panel
+     Then I softly see value "Automation Special Conditions1" for title "Name" inside table "---amendment:-:AmendmentSpecialConditionTableId---"
+     When I get the "EGMS ID"
+     And I wait for "3" seconds
+     And I click on "Send to Subrecipient" in the page details
+     And I wait for "2" seconds
+     Then I see field "Status" as "Sent to Subrecipient"
+     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
+     And I navigate to "Grants" tab
+     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+     When I perform quick search for "{SavedValue:bpcFcSowTncId}" in "---amendment:-:pendingTaskTableId---" panel
+     Then I softly see value "{SavedValue:bpcFcSowTncId}" for title "EGMS ID" inside table "---amendment:-:pendingTaskTableId---"
+     And I click on "Start" icon for "{SavedValue:bpcFcSowTncId}" inside flex table with id "---amendment:-:recipientSideAmendmentRequestTableId---" without waiting for record
+     When I navigate to "Overview" sub tab
+     Then I softly see value "Automation Permanent Focus Area" for title "Title" inside table "---amendment:-:subrecipientProjectAreasTableId---"
+     And I edit the following rows inline in flex table with id "---amendment:-:budgetChangeTableId---" by clicking "Edit" :
+       | Budget Category | Revised Award Amount | Cash Match | Non Cash Match |
+       | Construction    | 1000                 | 100        | 0              |
+     And I click on page navigation arrow "---amendment:-:budgetChangeTableId---" for table id "Next"
+     And I edit the following rows inline in flex table with id "---amendment:-:budgetChangeTableId---" by clicking "Edit" :
+       | Budget Category | Revised Award Amount | Cash Match | Non Cash Match |
+       | Construction    | 1000                 | 100        | 0              |
+     Then I see value "Automation Permanent KPI" for title "Title" inside table "---amendment:-:RecipientKPITableId---"
+     Then I see value "Automation Permanent KPI2" for title "Title" inside table "---amendment:-:RecipientKPITableId---"
+     Then I see value "Automation Permanent Objective" for title "Title" inside table "---amendment:-:SubrecipientgoalsAndObjectivesTableId---"
+     Then I see value "Automation Permanent Objective2" for title "Title" inside table "---amendment:-:SubrecipientgoalsAndObjectivesTableId---"
+     Then I softly see value "Automation Special Conditions1" for title "Name" inside table "---amendment:-:RecipientTermsandConditionsTableId---"
+     Then I softly see value "Automation Permanent TNC" for title "Title" inside table "---amendment:-:RecipientTermsandConditionsTableId---"
+     Then I softly see value "Automation Permanent TNC1" for title "Title" inside table "---amendment:-:RecipientTermsandConditionsTableId---"
+     When I navigate to "Files" sub tab
+     Then I can see top right button "Add Files" in flex table with id "---amendment:-:RecipientAttachmentTableId---"
+     Then I softly see value "Attachment.pdf" for title "Title" inside table "---amendment:-:RecipientAttachmentTableId---"
+     Then I softly see value "Attachment1.pdf" for title "Title" inside table "---amendment:-:RecipientAttachmentTableId---"
+     Then I can see top right button "New" in flex table with id "---amendment:-:SubrecipientAmendmentNotesTableId---"
+     Then I softly see value "Automation Notes" for title "Title" inside table "---amendment:-:SubrecipientAmendmentNotesTableId---"
+     And I navigate to "Messages" sub tab
+     Then I can see top right button "Send Email" in flex table with id "---announcement:-:collabMessages---"
+     Then I softly see status in Progress-bar is "Sent to Subrecipient" and is "dark blue"
+     Then I can see top right button "Edit" in page detail
+     Then I can see top right button "Submit to Grantor" in page detail
+     Then I softly cannot see top right button "Acknowledge" in page detail
+
+
+
+
+
+
+
+
+
+
+
+  @
+   Scenario: Combination
+    Given I activated standalone subaward "Automation Runtime Award" with properties "SECOND_BUD_CAT_SECOND_FOCUS_BUILD_UP_IND_ORG-Automation PO user" of type "Formula_By_Applicant"
+    When I am on "SUBPORTAL" portal
+    When I login to "Grants Portal" app as "IND" user
+    And I navigate to "Grants" tab
+    And I navigate to "Subawards" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click toggle button to select "Subawards  - All"
+    When I perform quick search for "{SavedValue:Automation Runtime Award}" in "---amendment:-:recipientsSubawardTableId---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside flex table with id "---amendment:-:recipientsSubawardTableId---" without waiting for record
+    Given I navigate to "Management" sub tab
+    And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:recipientAwardAmendmentRequestTableId---"
+    When I enter "Sub_BR_KPC_SOW_creation" values from "AmendmentRequest_Field_Values.xlsx"
+    And I click modal button "Save and Continue"
+    And I enter value "Automation Justification" into field "Justification__c"
+    And I enter value "Automation Justification" into field "ContactChangeDescription__c"
+    And I enter "Subrecipient_SOW_Edition" values from "AmendmentRequest_Field_Values.xlsx"
+    When I click on "Save" in the page details
+    And I save the field labeled "EGMS ID" as "budRedKPCSOWId"
+    And I navigate to "Overview" sub tab
+    And I edit the following rows inline in flex table with id "---amendment:-:RecipientKeyPersonalTableId---" by clicking "Edit" :
+      | Name                       | Project Role |
+      | {SavedValue:SPI3 Username} | Other        |
+    Then I softly see status in Progress-bar is "Created" and is "dark blue"
+    When I click on "Add Line Items" icon for "Construction" inside flex table with id "---amendment:-:budgetChangeTableId---"
+    And I edit the following rows inline in flex table with id "---amendment:-:amendmentLineItemsTableId---" by clicking "Edit" :
+      | Title        | Award Amount |
+      | Construction | 450          |
+    And I click modal button "Close"
+    When I click on "Add Line Items" icon for "Indirect costs" inside flex table with id "---amendment:-:budgetChangeTableId---"
+    And I enter the following values into flex table with id "---amendment:-:amendmentLineItemsTableId---" by clicking "New" :
+      | Title        | Narrative     | Award Amount |
+      | Construction | The Narrative | 50           |
+    And I click modal button "Close"
+    And I wait for "3" seconds
+    And I click on page navigation arrow "---amendment:-:budgetChangeTableId---" for table id "Next"
+    And I wait for "3" seconds
+    When I click on "Add Line Items" icon for "Construction" inside flex table with id "---amendment:-:budgetChangeTableId---"
+    And I edit the following rows inline in flex table with id "---amendment:-:amendmentLineItemsTableId---" by clicking "Edit" :
+      | Title        | Award Amount |
+      | Construction | 450          |
+    And I click modal button "Close"
+    And I wait for "3" seconds
+    When I click on "Add Line Items" icon for "Indirect costs" inside flex table with id "---amendment:-:budgetChangeTableId---"
+    And I enter the following values into flex table with id "---amendment:-:amendmentLineItemsTableId---" by clicking "New" :
+      | Title        | Narrative     | Award Amount |
+      | Construction | The Narrative | 50           |
+    And I click modal button "Close"
+    And I click on "Submit to Grantor" in the page details
+    Then I softly see field "Status" as "Submitted to Grantor"
