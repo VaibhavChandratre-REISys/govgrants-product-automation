@@ -183,8 +183,11 @@ public class ProjectManager extends ProjectWebServices {
         }
     }
 
-    //Pranita
-
+    /**
+     * Click on radio button on form
+     *
+     * @param radioButtonName
+     */
     public void clickOnFormOption(String radioButtonName) {
         try {
             By FormRadioButton = By.xpath("//span//input[@type='radio'][@value='" + radioButtonName + "']");
