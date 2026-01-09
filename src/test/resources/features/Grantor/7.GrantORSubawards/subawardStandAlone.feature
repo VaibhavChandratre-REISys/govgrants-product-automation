@@ -7401,6 +7401,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     And I perform quick search for "{SavedValue:AwardEGMSID}" in "---subAwardStandAlone:-:SubAwardTableId---" panel
     When I click on "View" icon for "{SavedValue:AwardEGMSID}" inside flex table with id "---subAwardStandAlone:-:SubAwardTableId---"
     And I wait for "2" seconds
+    And I navigate to "Overview" sub tab
     Then I see value "Automation Permanent NGO Program" for title "Program Title" inside table "---subAwardStandAlone:-:subawardFederalProgramTableId---"
     Then I can see top right button "Associate" in flex table with id "---subAwardStandAlone:-:associatedContactsTableId---"
     Then I see value "Automation SPI3" for title "Name" inside table "---subAwardStandAlone:-:associatedContactsTableId---"
