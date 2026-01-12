@@ -29475,7 +29475,7 @@ Feature: Amendment Request scenarios without background
     Then I softly can see top right button "Edit" in page detail
     Then I softly cannot see top right button "Submit to Grantor" in page detail
 
-  @534340 @534333 @534328 @validateSPIusercanSendamendmentrequesttoGrantor
+  @534337 @534340 @534333 @534328 @validateSPIusercanSendamendmentrequesttoGrantor
   Scenario: Validate SPI user can Send BR amendment request to Grantor
    / PM user (amendment owner) can submit amendment for approval
     And I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
@@ -29669,7 +29669,6 @@ Feature: Amendment Request scenarios without background
     And I click on "Submit to Grantor" in the page details
     And I wait for "2" seconds
     Then I softly see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
-    #534337
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
