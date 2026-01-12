@@ -27513,7 +27513,7 @@ Feature: Amendment Request scenarios without background
     When I re-login to "Grantor" app as "PO" user on "INTERNAL" portal
     And I select "Amendment Requests" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:BPCId}"
-    Then I softly see the text containing "No results"
+    Then I softly can see row level action button "Edit" against "{SavedValue:BPCId}" in global search with id "Amendment Requests"
     And I navigate to "Grants" tab
     When I navigate to "Amendment Requests" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Amendment Requests - All"
@@ -28389,7 +28389,7 @@ Feature: Amendment Request scenarios without background
     Then I softly see value "Automation Notes" for title "Title" inside table "---amendment:-:amendmentAddNotesTableId---"
     Then I softly see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
 
-  @531684 @531691 @531696 @validateNewuserscreated(forsameexternalorg)afterAmendmentrequestissenttosubrecipientareabletoView/Submitamendmentrequesttograntor @GrantorFlexP1
+  @531684 @531691 @validateNewuserscreated(forsameexternalorg)afterAmendmentrequestissenttosubrecipientareabletoView/Submitamendmentrequesttograntor @GrantorFlexP1
   Scenario: Validate New users created (for same external org) after Amendment request is sent to subrecipient  are able to View / Submit amendment request to grantor
     And I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     When I login to "Grantor" app as "dynamicUser" user
@@ -28430,7 +28430,7 @@ Feature: Amendment Request scenarios without background
     And I click on "Send to Subrecipient" in the page details
     When I navigate to "Overview" sub tab
     Then I softly see value "Automation Permanent Focus Area" for title "Title" inside table "---amendment:-:FundingChangeFocusAreaTableId---"
-    Then I softly see top right button "Associate" inside flex table "---amendment:-:FundingChangeFocusAreaTableId---"
+    Then I softly do not see top right button "Associate" inside flex table "---amendment:-:FundingChangeFocusAreaTableId---"
     Then I softly see value "$1,000.00" for title "Revised Encumbrance" against the value "{SavedValue:fundingAccount}" inside table "---amendment:-:amendmentFundingAccountsTableId---"
     Then I softly can see row level action button "Edit" against "{SavedValue:fundingAccount}" in flex table with id "---amendment:-:amendmentFundingAccountsTableId---"
     Then I softly can see row level action button "Remove" against "{SavedValue:fundingAccount}" in flex table with id "---amendment:-:amendmentFundingAccountsTableId---"
@@ -28441,7 +28441,7 @@ Feature: Amendment Request scenarios without background
     When I navigate to "Files" sub tab
     Then I can see top right button "Add Files" in flex table with id "---amendment:-:amendmentAddFilesTableId---"
     Then I softly see value "Attachment.pdf" for title "Title" inside table "---amendment:-:amendmentAddFilesTableId---"
-    Then I can see top right button "New" in flex table with id "---amendment:-:amendmentAddNotesTableId---"
+    Then I cannot see top right button "New" in flex table with id "---amendment:-:amendmentAddNotesTableId---"
     Then I softly see value "Automation Notes" for title "Title" inside table "---amendment:-:amendmentAddNotesTableId---"
     And I navigate to "Messages" sub tab
     Then I can see top right button "Send Email" in flex table with id "---announcement:-:collabMessages---"
@@ -28545,7 +28545,6 @@ Feature: Amendment Request scenarios without background
       | Value | Field                |
       | 3100  | RevisedCommitment__c |
     And I click on "Save" in the page details
-    #531696
     And I click on "Submit for Approval" in the page details
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     And I "Approve" in the approval decision
@@ -29176,7 +29175,6 @@ Feature: Amendment Request scenarios without background
     And I enter "BudgetPeriodChange_Edition" values from "AmendmentRequest_Field_Values.xlsx"
     And I enter value "4000" into field "NewBudgetPeriodEndDate__c"
     And I enter "ScopeOfWork_Edition" values from "AmendmentRequest_Field_Values.xlsx"
-    And I halt execution
     And I wait for "2" seconds
     When I enter values into fields
       | Value                       | Field                         |
@@ -29398,14 +29396,14 @@ Feature: Amendment Request scenarios without background
     Then I softly see "System Information" page block displayed
     And I edit the following rows inline in flex table with id "---amendment:-:budgetChangeTableId---" by clicking "Edit" :
       | Category Name | Revised Award Amount |
-      | Construction  | 450                  |
+      | Construction  | 900                  |
     And I edit the following rows inline in flex table with id "---amendment:-:budgetChangeTableId---" by clicking "Edit" :
       | Category Name  | Revised Award Amount |
-      | Indirect costs | 50                   |
-    Then I softly see value "$500.00" for title "Budgeted Amount" against the value "Grand Total" inside table "---amendment:-:subrecipientProjectAreasTableId---"
+      | Indirect costs | 100                   |
+    Then I softly see value "$1,000.00" for title "Budgeted Amount" against the value "Grand Total" inside table "---amendment:-:subrecipientProjectAreasTableId---"
     Then I see the following rows under the following headers in table with id "---amendment:-:BudgetChangeTableId---" :
-      | Revised Award Amount |
-      | $500.00              |
+      | Revised Award Amount  |
+      | $1,000.00             |
     Then I softly cannot see top right button "Associate" in flex table with id "---amendment:-:subrecipientProjectAreasTableId---"
     When I navigate to "Files" sub tab
     Then I can see top right button "Add Files" in flex table with id "---amendment:-:RecipientAttachmentTableId---"
@@ -29446,14 +29444,14 @@ Feature: Amendment Request scenarios without background
     Then I softly see "System Information" page block displayed
     And I edit the following rows inline in flex table with id "---amendment:-:budgetChangeTableId---" by clicking "Edit" :
       | Category Name | Revised Award Amount |
-      | Construction  | 450                  |
+      | Construction  | 900                  |
     And I edit the following rows inline in flex table with id "---amendment:-:budgetChangeTableId---" by clicking "Edit" :
       | Category Name  | Revised Award Amount |
-      | Indirect costs | 50                   |
-    Then I softly see value "$500.00" for title "Budgeted Amount" against the value "Grand Total" inside table "---amendment:-:subrecipientProjectAreasTableId---"
+      | Indirect costs | 100                   |
+    Then I softly see value "$1,000.00" for title "Budgeted Amount" against the value "Grand Total" inside table "---amendment:-:subrecipientProjectAreasTableId---"
     Then I see the following rows under the following headers in table with id "---amendment:-:BudgetChangeTableId---" :
-      | Revised Award Amount |
-      | $500.00              |
+      | Revised Award Amount  |
+      | $1,000.00             |
     Then I softly cannot see top right button "Associate" in flex table with id "---amendment:-:subrecipientProjectAreasTableId---"
     When I navigate to "Files" sub tab
     Then I can see top right button "Add Files" in flex table with id "---amendment:-:RecipientAttachmentTableId---"
@@ -29477,8 +29475,9 @@ Feature: Amendment Request scenarios without background
     Then I softly can see top right button "Edit" in page detail
     Then I softly cannot see top right button "Submit to Grantor" in page detail
 
-  @534329 @534328 @validateSPIusercanSendamendmentrequesttoGrantor
+  @534340 @534333 @534328 @validateSPIusercanSendamendmentrequesttoGrantor
   Scenario: Validate SPI user can Send BR amendment request to Grantor
+   / PM user (amendment owner) can submit amendment for approval
     And I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     Given I am on "SUBPORTAL" portal
     When I login to "Grants Portal" app as "SPI3" user
@@ -29505,14 +29504,14 @@ Feature: Amendment Request scenarios without background
     Then I softly see "System Information" page block displayed
     And I edit the following rows inline in flex table with id "---amendment:-:budgetChangeTableId---" by clicking "Edit" :
       | Category Name | Revised Award Amount |
-      | Construction  | 450                  |
+      | Construction  | 900                  |
     And I edit the following rows inline in flex table with id "---amendment:-:budgetChangeTableId---" by clicking "Edit" :
       | Category Name  | Revised Award Amount |
-      | Indirect costs | 50                   |
-    Then I softly see value "$500.00" for title "Budgeted Amount" against the value "Grand Total" inside table "---amendment:-:subrecipientProjectAreasTableId---"
+      | Indirect costs | 100                   |
+    Then I softly see value "$1,000.00" for title "Budgeted Amount" against the value "Grand Total" inside table "---amendment:-:subrecipientProjectAreasTableId---"
     Then I see the following rows under the following headers in table with id "---amendment:-:BudgetChangeTableId---" :
-      | Revised Award Amount |
-      | $500.00              |
+      | Revised Award Amount  |
+      | $1,000.00             |
     Then I softly cannot see top right button "Associate" in flex table with id "---amendment:-:subrecipientProjectAreasTableId---"
     When I navigate to "Files" sub tab
     Then I can see top right button "Add Files" in flex table with id "---amendment:-:RecipientAttachmentTableId---"
@@ -29540,10 +29539,15 @@ Feature: Amendment Request scenarios without background
     When I perform quick search for "{SavedValue:BUDGETREDIRECTIONID}" in "---amendment:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "{SavedValue:BUDGETREDIRECTIONID}" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
     And I wait for "2" seconds
-    And I navigate to "Overview" sub tab
-    When I edit the following rows inline in flex table with id "---amendment:-:amendmentFundingAccountsTableId---" by clicking "Edit" :
-      | Funding Account             | Revised Encumbrance |
-      | {SavedValue:fundingAccount} | 2000                |
+    When I navigate to "Overview" sub tab
+    Then I softly see "Overview" page block displayed
+    Then I softly see "Budget Summary" page block displayed
+    Then I softly see "Budget Summary by Focus Area" page block displayed
+    Then I softly cannot see row level action button "Edit" against "Automation Permanent Focus Area" in flex table with id "---amendment:-:projectAreasTableId---"
+    Then I softly see "Budget Change" page block displayed
+    Then I softly see "System Information" page block displayed
+    Then I see value "$900.00" for title "Revised Award Amount" against the value "Construction" inside table "---amendment:-:BudgetChangeTableId---"
+    Then I see value "$100.00" for title "Revised Award Amount" against the value "Construction" inside table "---amendment:-:BudgetChangeTableId---"
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---amendment:-:approversTableId---" by clicking "New" :
       | Name                     | Amendment Request |
@@ -29551,11 +29555,293 @@ Feature: Amendment Request scenarios without background
     And I wait for "2" seconds
     Then I softly can see top right button "Submit for Approval" in page detail
     Then I softly can see top right button "Send Back to Subrecipient" in page detail
+    When I navigate to "Responsibilities" sub tab
+    When I enter the following values into flex table with id "---amendment:-:fundingChangeApproversTableId---" by clicking "New" :
+      | Name                     | Amendment Request |
+      | {SavedValue:PO Username} | Step 1            |
+    When I enter the following values into flex table with id "---amendment:-:fundingChangeApproversTableId---" by clicking "New" :
+      | Name                     | Amendment Request |
+      | {SavedValue:FO Username} | Step 2            |
+    When I get the "EGMS ID"
     And I click on "Submit for Approval" in the page details
+    Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
+    When I re-login to "Grantor" app as "{SavedValue:PO Username}" user on "INTERNAL" portal
+    And I navigate to "Grants" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "Record Id" in "---amendment:-:pendingTaskTableId---" panel
+    When I click on "Start" icon for "Record Id" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
+    Then I see only the following ordered radio buttons in the approval decision :
+      | Approve | Reject | Forward | Send to Owner |
+    When I navigate to "Overview" sub tab
+    Then I softly see "Overview" page block displayed
+    Then I softly see "Budget Summary" page block displayed
+    Then I softly see "Budget Summary by Focus Area" page block displayed
+    Then I softly cannot see row level action button "Edit" against "Automation Permanent Focus Area" in flex table with id "---amendment:-:projectAreasTableId---"
+    Then I softly see "Budget Change" page block displayed
+    Then I softly see "System Information" page block displayed
+    Then I see value "$900.00" for title "Revised Award Amount" against the value "Construction" inside table "---amendment:-:BudgetChangeTableId---"
+    Then I see value "$100.00" for title "Revised Award Amount" against the value "Construction" inside table "---amendment:-:BudgetChangeTableId---"
+    When I navigate to "Responsibilities" sub tab
+    Then I softly see value "{SavedValue:PO Username}" for title "Title" inside table "---amendment:-:fundingChangeApproversTableId---"
+    Then I softly see value "{SavedValue:FO Username}" for title "Title" inside table "---amendment:-:fundingChangeApproversTableId---"
+    When I navigate to "Overview" sub tab
+    And I "Approve" in the approval decision
+    When I re-login to "Grantor" app as "{SavedValue:FO Username}" user on "INTERNAL" portal
+    And I navigate to "Grants" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "Record Id" in "---amendment:-:pendingTaskTableId---" panel
+    When I click on "Start" icon for "Record Id" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
+    Then I see only the following ordered radio buttons in the approval decision :
+      | Approve | Reject | Forward | Send to Owner |
+    When I navigate to "Overview" sub tab
+    Then I softly see "Overview" page block displayed
+    Then I softly see "Budget Summary" page block displayed
+    Then I softly see "Budget Summary by Focus Area" page block displayed
+    Then I softly cannot see row level action button "Edit" against "Automation Permanent Focus Area" in flex table with id "---amendment:-:projectAreasTableId---"
+    Then I softly see "Budget Change" page block displayed
+    Then I softly see "System Information" page block displayed
+    Then I see value "$900.00" for title "Revised Award Amount" against the value "Construction" inside table "---amendment:-:BudgetChangeTableId---"
+    Then I see value "$100.00" for title "Revised Award Amount" against the value "Construction" inside table "---amendment:-:BudgetChangeTableId---"
+    When I navigate to "Responsibilities" sub tab
+    Then I softly see value "{SavedValue:PO Username}" for title "Title" inside table "---amendment:-:fundingChangeApproversTableId---"
+    Then I softly see value "{SavedValue:FO Username}" for title "Title" inside table "---amendment:-:fundingChangeApproversTableId---"
+    When I navigate to "Overview" sub tab
+    And I "Approve" in the approval decision
+    Then I see field "Status" as "Approved"
+
+  @534339 @534338 @534329 @534330 @ValidaterecordvisibilitytoSPI,SPAuser(relatedexternalusers)whenAmendmentrequestisSendtosubrecipient
+  Scenario: record visibility to SPI,SPA user (related external users) when Amendment request is Send to subrecipient
+  /Validate Notification, Task and email is generated to SPI,SPA user (related external users) when Amendment request is Send to subrecipient
+    And I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
+    Given I am on "SUBPORTAL" portal
+    When I login to "Grants Portal" app as "SPI3" user
+    And I navigate to "Grants" tab
+    And I navigate to "Subawards" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click toggle button to select "Subawards  - Active"
+    When I perform quick search for "{SavedValue:Automation Runtime Award}" in "---amendment:-:recipientsSubawardTableId---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside flex table with id "---amendment:-:recipientsSubawardTableId---" without waiting for record
+    And I save the field labeled "EGMS ID" as "AwardEGMSID"
+    Given I navigate to "Management" sub tab
+    And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:recipientAwardAmendmentRequestTableId---"
+    When I enter "Subrecipient_BRedirection" values from "AmendmentRequest_Field_Values.xlsx"
+    And I click modal button "Save and Continue"
+    Then I softly see status in Progress-bar is "Created" and is "dark blue"
+    And I enter value "Automation Justification" into field "Justification__c"
+    And I click on "Save" in the page details
+    And I save the field labeled "EGMS ID" as "BUDGETREDIRECTIONID"
+    When I navigate to "Overview" sub tab
+    Then I softly see "Overview" page block displayed
+    Then I softly see "Budget Summary" page block displayed
+    Then I softly see "Budget Summary by Focus Area" page block displayed
+    Then I softly cannot see row level action button "Edit" against "Automation Permanent Focus Area" in flex table with id "---amendment:-:subrecipientProjectAreasTableId---"
+    Then I softly see "Budget Change" page block displayed
+    Then I softly see "System Information" page block displayed
+    And I edit the following rows inline in flex table with id "---amendment:-:budgetChangeTableId---" by clicking "Edit" :
+      | Category Name | Revised Award Amount |
+      | Construction  | 900                  |
+    And I edit the following rows inline in flex table with id "---amendment:-:budgetChangeTableId---" by clicking "Edit" :
+      | Category Name  | Revised Award Amount |
+      | Indirect costs | 100                   |
+    Then I softly see value "$1,000.00" for title "Budgeted Amount" against the value "Grand Total" inside table "---amendment:-:subrecipientProjectAreasTableId---"
+    Then I see the following rows under the following headers in table with id "---amendment:-:BudgetChangeTableId---" :
+      | Revised Award Amount  |
+      | $1,000.00             |
+    Then I softly cannot see top right button "Associate" in flex table with id "---amendment:-:subrecipientProjectAreasTableId---"
+    When I navigate to "Files" sub tab
+    Then I can see top right button "Add Files" in flex table with id "---amendment:-:RecipientAttachmentTableId---"
+    And I click on top right button "Add Files" in flex table with id "---amendment:-:RecipientAttachmentTableId---"
+    And I wait for "2" seconds
+    And I upload attachment without random number "Attachment.pdf" of type "Terms and Conditions" from computer
+    And I wait for "2" seconds
+    When I click modal button "Close"
+    And I wait for "2" seconds
+    Then I softly see value "Attachment.pdf" for title "Title" inside table "---amendment:-:RecipientAttachmentTableId---"
+    Then I can see top right button "New" in flex table with id "---amendment:-:SubrecipientAmendmentNotesTableId---"
+    When I enter the following values into flex table with id "---amendment:-:SubrecipientAmendmentNotesTableId---" by clicking "New" :
+      | Title            | Description      |
+      | Automation Notes | Automation Notes |
+    Then I softly see value "Automation Notes" for title "Title" inside table "---amendment:-:SubrecipientAmendmentNotesTableId---"
+    When I navigate to "History" sub tab
+    Then I softly see "Snapshot History" page block displayed
+    And I navigate to "Messages" sub tab
+    Then I softly see "Messages" page block displayed
+    Then I softly can see top right button "Submit to Grantor" in page detail
+    And I click on "Submit to Grantor" in the page details
+    And I wait for "2" seconds
+    Then I softly see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
+    #534337
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
+    And I navigate to "Grants" tab
+    And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    When I perform quick search for "{SavedValue:BUDGETREDIRECTIONID}" in "---amendment:-:pendingTaskTableId---" panel
+    And I click on "Start" icon for "{SavedValue:BUDGETREDIRECTIONID}" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
+    And I wait for "2" seconds
+    When I navigate to "Overview" sub tab
+    When I navigate to "Responsibilities" sub tab
+    When I enter the following values into flex table with id "---amendment:-:approversTableId---" by clicking "New" :
+      | Name                     | Amendment Request |
+      | {SavedValue:PM Username} | Step 1            |
+    And I wait for "2" seconds
+    Then I softly can see top right button "Submit for Approval" in page detail
+    Then I softly can see top right button "Send Back to Subrecipient" in page detail
     And I click on "Send Back to Subrecipient" in the page details
     And I wait for "2" seconds
     Then I softly see field "Status" as "Under Revision"
+    When I re-login to "Grants Portal" app as "SPA" user on "SUBPORTAL" portal
+    And I perform quick search inside global search "{SavedValue:BUDGETREDIRECTIONID}"
+    And I click on hyperlink containing value "{SavedValue:BUDGETREDIRECTIONID}"
+    Then I softly see field "Status" as "Under Revision"
+    Then I see status in Progress-bar is "Created" and is "dark blue"
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:BUDGETREDIRECTIONID}" in "---amendment:-:pendingTaskTableId---" panel
     Then I softly see value "{SavedValue:BUDGETREDIRECTIONID}" for title "EGMS ID" inside table "---amendment:-:pendingTaskTableId---"
+    And I navigate to "Grants" tab
+    When I navigate to "Amendment Requests" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click toggle button to select "Amendment Requests - All"
+    And I perform quick search for "{SavedValue:BUDGETREDIRECTIONID}" in "---amendment:-:recipientSideAmendmentRequestTableId---" panel
+    Then I softly see value "{SavedValue:BUDGETREDIRECTIONID}" for title "EGMS ID" inside table "---amendment:-:recipientSideAmendmentRequestTableId---"
+    And I navigate to "Grants" tab
+    When I navigate to "Subawards" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I perform quick search for "{SavedValue:AwardEGMSID}" in "---paymentRequest:-:recipientsSubawardTableId---" panel
+    When I click on "View" icon for "{SavedValue:AwardEGMSID}" inside flex table with id "---paymentRequest:-:recipientsSubawardTableId---" without waiting for record
+    When I navigate to "Management" sub tab
+    Then I softly see value "{SavedValue:BUDGETREDIRECTIONID}" for title "EGMS ID" inside table "---amendment:-:recipientAwardAmendmentRequestTableId---"
+    When I navigate to "Overview" sub tab
+    And I save the field labeled "Grant ID" as "GrantEGMSID"
+    When I click on hyperlink containing value "{SavedValue:GrantEGMSID}"
+    When I navigate to "Requests" sub tab
+    Then I softly see "{SavedValue:BUDGETREDIRECTIONID}" inside flex table with id "---amendment:-:SubrecipientGrantAmendmentTableId---"
+    When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
+    And I perform quick search inside global search "{SavedValue:BUDGETREDIRECTIONID}"
+    And I click on hyperlink containing value "{SavedValue:BUDGETREDIRECTIONID}"
+    Then I softly see field "Status" as "Under Revision"
+    Then I see status in Progress-bar is "Created" and is "dark blue"
+    And I navigate to "Grants" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    When I perform quick search for "{SavedValue:BUDGETREDIRECTIONID}" in "---amendment:-:pendingTaskTableId---" panel
+    Then I softly see value "{SavedValue:BUDGETREDIRECTIONID}" for title "EGMS ID" inside table "---amendment:-:pendingTaskTableId---"
+    And I navigate to "Grants" tab
+    When I navigate to "Amendment Requests" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click toggle button to select "Amendment Requests - All"
+    And I perform quick search for "{SavedValue:BUDGETREDIRECTIONID}" in "---amendment:-:recipientSideAmendmentRequestTableId---" panel
+    Then I softly see value "{SavedValue:BUDGETREDIRECTIONID}" for title "EGMS ID" inside table "---amendment:-:recipientSideAmendmentRequestTableId---"
+    And I navigate to "Grants" tab
+    When I navigate to "Subawards" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I perform quick search for "{SavedValue:AwardEGMSID}" in "---paymentRequest:-:recipientsSubawardTableId---" panel
+    When I click on "View" icon for "{SavedValue:AwardEGMSID}" inside flex table with id "---paymentRequest:-:recipientsSubawardTableId---" without waiting for record
+    When I navigate to "Management" sub tab
+    Then I softly see value "{SavedValue:BUDGETREDIRECTIONID}" for title "EGMS ID" inside table "---amendment:-:recipientAwardAmendmentRequestTableId---"
+    When I navigate to "Overview" sub tab
+    And I save the field labeled "Grant ID" as "GrantEGMSID"
+    When I click on hyperlink containing value "{SavedValue:GrantEGMSID}"
+    When I navigate to "Requests" sub tab
+    Then I softly see "{SavedValue:BUDGETREDIRECTIONID}" inside flex table with id "---amendment:-:SubrecipientGrantAmendmentTableId---"
+    And I click on "View" icon for "{SavedValue:BUDGETREDIRECTIONID}" inside flex table with id "---amendment:-:SubrecipientGrantAmendmentTableId---"
+    #534339
+    When I navigate to "Overview" sub tab
+    And I edit the following rows inline in flex table with id "---amendment:-:budgetChangeTableId---" by clicking "Edit" :
+      | Category Name | Revised Award Amount |
+      | Construction  | 900                  |
+    And I edit the following rows inline in flex table with id "---amendment:-:budgetChangeTableId---" by clicking "Edit" :
+      | Category Name  | Revised Award Amount |
+      | Indirect costs | 100                   |
+    Then I softly see value "$1,000.00" for title "Budgeted Amount" against the value "Grand Total" inside table "---amendment:-:subrecipientProjectAreasTableId---"
+    Then I see the following rows under the following headers in table with id "---amendment:-:BudgetChangeTableId---" :
+      | Revised Award Amount  |
+      | $1,000.00             |
+    Then I softly can see top right button "Submit to Grantor" in page detail
+    And I click on "Submit to Grantor" in the page details
+    And I wait for "2" seconds
+    Then I softly see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
+
+  @534336 @ValidateTaskreassignmentfromPMuser(amendmentowner)toanotheruserwhenamendmentrequestisinSubmittoGrantorstate
+  Scenario: Validate Task reassignment from PM user(amendment owner) to another user when amendment request is in  Submit to Grantor state
+    And I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
+    Given I am on "SUBPORTAL" portal
+    When I login to "Grants Portal" app as "SPI3" user
+    And I navigate to "Grants" tab
+    And I navigate to "Subawards" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click toggle button to select "Subawards  - Active"
+    When I perform quick search for "{SavedValue:Automation Runtime Award}" in "---amendment:-:recipientsSubawardTableId---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside flex table with id "---amendment:-:recipientsSubawardTableId---" without waiting for record
+    And I save the field labeled "EGMS ID" as "AwardEGMSID"
+    Given I navigate to "Management" sub tab
+    And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:recipientAwardAmendmentRequestTableId---"
+    When I enter "Subrecipient_BRedirection" values from "AmendmentRequest_Field_Values.xlsx"
+    And I click modal button "Save and Continue"
+    Then I softly see status in Progress-bar is "Created" and is "dark blue"
+    And I enter value "Automation Justification" into field "Justification__c"
+    And I click on "Save" in the page details
+    And I save the field labeled "EGMS ID" as "BUDGETREDIRECTIONID"
+    When I navigate to "Overview" sub tab
+    Then I softly see "Overview" page block displayed
+    Then I softly see "Budget Summary" page block displayed
+    Then I softly see "Budget Summary by Focus Area" page block displayed
+    Then I softly cannot see row level action button "Edit" against "Automation Permanent Focus Area" in flex table with id "---amendment:-:subrecipientProjectAreasTableId---"
+    Then I softly see "Budget Change" page block displayed
+    Then I softly see "System Information" page block displayed
+    And I edit the following rows inline in flex table with id "---amendment:-:budgetChangeTableId---" by clicking "Edit" :
+      | Category Name | Revised Award Amount |
+      | Construction  | 900                  |
+    And I edit the following rows inline in flex table with id "---amendment:-:budgetChangeTableId---" by clicking "Edit" :
+      | Category Name  | Revised Award Amount |
+      | Indirect costs | 100                   |
+    Then I softly see value "$1,000.00" for title "Budgeted Amount" against the value "Grand Total" inside table "---amendment:-:subrecipientProjectAreasTableId---"
+    Then I see the following rows under the following headers in table with id "---amendment:-:BudgetChangeTableId---" :
+      | Revised Award Amount  |
+      | $1,000.00             |
+    Then I softly cannot see top right button "Associate" in flex table with id "---amendment:-:subrecipientProjectAreasTableId---"
+    When I navigate to "Files" sub tab
+    Then I can see top right button "Add Files" in flex table with id "---amendment:-:RecipientAttachmentTableId---"
+    And I click on top right button "Add Files" in flex table with id "---amendment:-:RecipientAttachmentTableId---"
+    And I upload attachment without random number "Attachment.pdf" of type "Terms and Conditions" from computer
+    When I click modal button "Close"
+    And I wait for "2" seconds
+    Then I softly see value "Attachment.pdf" for title "Title" inside table "---amendment:-:RecipientAttachmentTableId---"
+    Then I can see top right button "New" in flex table with id "---amendment:-:SubrecipientAmendmentNotesTableId---"
+    When I enter the following values into flex table with id "---amendment:-:SubrecipientAmendmentNotesTableId---" by clicking "New" :
+      | Title            | Description      |
+      | Automation Notes | Automation Notes |
+    Then I softly see value "Automation Notes" for title "Title" inside table "---amendment:-:SubrecipientAmendmentNotesTableId---"
+    When I navigate to "History" sub tab
+    Then I softly see "Snapshot History" page block displayed
+    And I navigate to "Messages" sub tab
+    Then I softly see "Messages" page block displayed
+    Then I softly can see top right button "Submit to Grantor" in page detail
+    And I click on "Submit to Grantor" in the page details
+    And I wait for "2" seconds
+    Then I softly see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
+    And I navigate to "Home" tab
+    When I navigate to "My Tasks" content inside "Reassign" subheader on left panel
+    When I reassign task to "Automation PM1"
+    When I perform quick search for "{SavedValue:BUDGETREDIRECTIONID}" in "---program:-:grantorTaskReassignTableId---" panel
+    When I check "{SavedValue:BUDGETREDIRECTIONID}" boxes in flex table with id "---program:-:grantorTaskReassignTableId---"
+    And I click on top right button "Reassign Selected" in flex table with id "---program:-:grantorTaskReassignTableId---"
+    And I pause execution for "40" seconds
+    And I reset the table
+    When I perform quick search for "{SavedValue:BUDGETREDIRECTIONID}" in "---program:-:grantorTaskReassignTableId---" panel
+    Then I softly do not see value "{SavedValue:BUDGETREDIRECTIONID}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
+    When I re-login to "Grantor" app as "PM1" user on "INTERNAL" portal
+    And I navigate to "Grants" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "{SavedValue:BUDGETREDIRECTIONID}" in "---amendment:-:pendingTaskTableId---" panel
+    Then I see value "{SavedValue:BUDGETREDIRECTIONID}" for title "EGMS ID" inside table "---amendment:-:pendingTaskTableId---"
+    When I click on "Start" icon for "{SavedValue:BUDGETREDIRECTIONID}" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
+    And I navigate to "Overview" sub tab
+    Then I softly see "Overview" page block displayed
+    Then I softly see "Budget Summary" page block displayed
+    Then I softly see "Budget Summary by Focus Area" page block displayed
+    Then I softly cannot see row level action button "Edit" against "Automation Permanent Focus Area" in flex table with id "---amendment:-:projectAreasTableId---"
+    Then I softly see "Budget Change" page block displayed
+    Then I softly see "System Information" page block displayed
+    Then I see value "$900.00" for title "Revised Award Amount" against the value "Construction" inside table "---amendment:-:BudgetChangeTableId---"
+    Then I see value "$100.00" for title "Revised Award Amount" against the value "Construction" inside table "---amendment:-:BudgetChangeTableId---"
+    When I navigate to "Responsibilities" sub tab
+    When I enter the following values into flex table with id "---amendment:-:approversTableId---" by clicking "New" :
+      | Name                     | Amendment Request |
+      | {SavedValue:PM Username} | Step 1            |
+    And I wait for "2" seconds
+    Then I softly can see top right button "Submit for Approval" in page detail
+    Then I softly can see top right button "Send Back to Subrecipient" in page detail
