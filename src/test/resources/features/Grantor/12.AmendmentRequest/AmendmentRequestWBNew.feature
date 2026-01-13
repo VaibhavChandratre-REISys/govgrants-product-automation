@@ -2686,8 +2686,8 @@ Feature: Amendment Request scenarios without background
     Then I softly cannot see row level action button "Edit" against "Automation Permanent Focus Area" in flex table with id "---amendment:-:projectAreasTableId---"
     Then I softly see "Budget Change" page block displayed
     Then I softly see "System Information" page block displayed
-    Then I softly see value "$900.00" for title "Revised Award Amount" against the value "Construction" inside table "---amendment:-:BudgetChangeTableId---"
-    Then I softly see value "$100.00" for title "Revised Award Amount" against the value "Construction" inside table "---amendment:-:BudgetChangeTableId---"
+    Then I softly see value "$900.00" for title "Revised Award Amount" against the value "Construction" inside table "---amendment:-:grantorBudgetChangeTableId---"
+    Then I softly see value "$100.00" for title "Revised Award Amount" against the value "Construction" inside table "---amendment:-:grantorBudgetChangeTableId---"
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---amendment:-:approversTableId---" by clicking "New" :
       | Name                     | Amendment Request |
@@ -2719,8 +2719,8 @@ Feature: Amendment Request scenarios without background
     Then I softly cannot see row level action button "Edit" against "Automation Permanent Focus Area" in flex table with id "---amendment:-:projectAreasTableId---"
     Then I softly see "Budget Change" page block displayed
     Then I softly see "System Information" page block displayed
-    Then I softly see value "$900.00" for title "Revised Award Amount" against the value "Construction" inside table "---amendment:-:BudgetChangeTableId---"
-    Then I softly see value "$100.00" for title "Revised Award Amount" against the value "Construction" inside table "---amendment:-:BudgetChangeTableId---"
+    Then I softly see value "$900.00" for title "Revised Award Amount" against the value "Construction" inside table "---amendment:-:grantorBudgetChangeTableId---"
+    Then I softly see value "$100.00" for title "Revised Award Amount" against the value "Construction" inside table "---amendment:-:grantorBudgetChangeTableId---"
     When I navigate to "Responsibilities" sub tab
     Then I softly see value "{SavedValue:PO Username}" for title "Title" inside table "---amendment:-:fundingChangeApproversTableId---"
     Then I softly see value "{SavedValue:FO Username}" for title "Title" inside table "---amendment:-:fundingChangeApproversTableId---"
@@ -2740,8 +2740,8 @@ Feature: Amendment Request scenarios without background
     Then I softly cannot see row level action button "Edit" against "Automation Permanent Focus Area" in flex table with id "---amendment:-:projectAreasTableId---"
     Then I softly see "Budget Change" page block displayed
     Then I softly see "System Information" page block displayed
-    Then I softly see value "$900.00" for title "Revised Award Amount" against the value "Construction" inside table "---amendment:-:BudgetChangeTableId---"
-    Then I softly see value "$100.00" for title "Revised Award Amount" against the value "Construction" inside table "---amendment:-:BudgetChangeTableId---"
+    Then I softly see value "$900.00" for title "Revised Award Amount" against the value "Construction" inside table "---amendment:-:grantorBudgetChangeTableId---"
+    Then I softly see value "$100.00" for title "Revised Award Amount" against the value "Construction" inside table "---amendment:-:grantorBudgetChangeTableId---"
     When I navigate to "Responsibilities" sub tab
     Then I softly see value "{SavedValue:PO Username}" for title "Title" inside table "---amendment:-:fundingChangeApproversTableId---"
     Then I softly see value "{SavedValue:FO Username}" for title "Title" inside table "---amendment:-:fundingChangeApproversTableId---"
@@ -2975,8 +2975,8 @@ Feature: Amendment Request scenarios without background
     Then I softly cannot see row level action button "Edit" against "Automation Permanent Focus Area" in flex table with id "---amendment:-:projectAreasTableId---"
     Then I softly see "Budget Change" page block displayed
     Then I softly see "System Information" page block displayed
-    Then I softly see value "$900.00" for title "Revised Award Amount" against the value "Construction" inside table "---amendment:-:BudgetChangeTableId---"
-    Then I softly see value "$100.00" for title "Revised Award Amount" against the value "Construction" inside table "---amendment:-:BudgetChangeTableId---"
+    Then I softly see value "$900.00" for title "Revised Award Amount" against the value "Construction" inside table "---amendment:-:grantorBudgetChangeTableId---"
+    Then I softly see value "$100.00" for title "Revised Award Amount" against the value "Construction" inside table "---amendment:-:grantorBudgetChangeTableId---"
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---amendment:-:approversTableId---" by clicking "New" :
       | Name                     | Amendment Request |
