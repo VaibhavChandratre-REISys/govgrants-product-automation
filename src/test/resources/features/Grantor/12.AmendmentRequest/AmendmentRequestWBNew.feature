@@ -3074,7 +3074,7 @@ Feature: Amendment Request scenarios without background
       When I get the "EGMS ID"
       And I click on "Submit for Approval" in the page details
       Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
-      When I re-login to "Grantor" app as "{SavedValue:PO Username}" user on "INTERNAL" portal
+      When I re-login to "Grantor" app as "PO" user on "INTERNAL" portal
       And I navigate to "Grants" tab
       When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
       And I perform quick search for "Record Id" in "---amendment:-:pendingTaskTableId---" panel
@@ -3095,7 +3095,7 @@ Feature: Amendment Request scenarios without background
       Then I softly see value "{SavedValue:FO Username}" for title "Title" inside table "---amendment:-:fundingChangeApproversTableId---"
       When I navigate to "Overview" sub tab
       And I "Approve" in the approval decision
-      When I re-login to "Grantor" app as "{SavedValue:FO Username}" user on "INTERNAL" portal
+      When I re-login to "Grantor" app as "FO" user on "INTERNAL" portal
       And I navigate to "Grants" tab
       When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
       And I perform quick search for "Record Id" in "---amendment:-:pendingTaskTableId---" panel
