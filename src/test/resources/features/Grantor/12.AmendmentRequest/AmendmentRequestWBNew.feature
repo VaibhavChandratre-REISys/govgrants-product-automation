@@ -1257,22 +1257,6 @@ Feature: Amendment Request scenarios without background
     Then I cannot see top right button "Edit" in page detail
     Then I softly see field "Status" as "Created"
     Then I see status in Progress-bar is "Created" and is "dark blue"
-    When I re-login to "Grantor" app as "AUDITOR" user on "INTERNAL" portal
-    And I perform quick search inside global search "{SavedValue:SOWAMENDMENTREQUEST}"
-    Then I softly cannot see row level action button "Edit" against "{SavedValue:SOWAMENDMENTREQUEST}" in global search with id "Amendment Requests"
-    When I click on hyperlink containing value "{SavedValue:SOWAMENDMENTREQUEST}"
-    Then I softly see field "Status" as "Created"
-    Then I see status in Progress-bar is "Created" and is "dark blue"
-    Then I cannot see top right button "Save" in page detail
-    Then I cannot see top right button "Cancel" in page detail
-    And I navigate to "Grants" tab
-    When I navigate to "Amendment Requests" content inside "Grants, Subawards & Amendments" subheader on left panel
-    And I click toggle button to select "Amendment Requests - All"
-    And I perform quick search for "{SavedValue:SOWAMENDMENTREQUEST}" in "---amendment:-:grantorAmendmentRequestsTableId---" panel
-    When I click on "View" icon for "{SavedValue:SOWAMENDMENTREQUEST}" inside flex table with id "---amendment:-:grantorAmendmentRequestsTableId---" without waiting for record
-    Then I cannot see top right button "Edit" in page detail
-    Then I softly see field "Status" as "Created"
-    Then I see status in Progress-bar is "Created" and is "dark blue"
     When I re-login to "Grantor" app as "FO" user on "INTERNAL" portal
     And I perform quick search inside global search "{SavedValue:SOWAMENDMENTREQUEST}"
     And I click on row level action button "Edit" against "{SavedValue:SOWAMENDMENTREQUEST}" in global search with id "Amendment Requests"
@@ -1281,22 +1265,6 @@ Feature: Amendment Request scenarios without background
     Then I cannot see top right button "Save" in page detail
     Then I cannot see top right button "Cancel" in page detail
     Then I softly see the text containing "You dont have sufficient access to edit this record"
-    And I navigate to "Grants" tab
-    When I navigate to "Amendment Requests" content inside "Grants, Subawards & Amendments" subheader on left panel
-    And I click toggle button to select "Amendment Requests - All"
-    And I perform quick search for "{SavedValue:SOWAMENDMENTREQUEST}" in "---amendment:-:grantorAmendmentRequestsTableId---" panel
-    When I click on "View" icon for "{SavedValue:SOWAMENDMENTREQUEST}" inside flex table with id "---amendment:-:grantorAmendmentRequestsTableId---" without waiting for record
-    Then I cannot see top right button "Edit" in page detail
-    Then I softly see field "Status" as "Created"
-    Then I see status in Progress-bar is "Created" and is "dark blue"
-    When I re-login to "Grantor" app as "AUDITOR" user on "INTERNAL" portal
-    And I perform quick search inside global search "{SavedValue:SOWAMENDMENTREQUEST}"
-    Then I softly cannot see row level action button "Edit" against "{SavedValue:SOWAMENDMENTREQUEST}" in global search with id "Amendment Requests"
-    When I click on hyperlink containing value "{SavedValue:SOWAMENDMENTREQUEST}"
-    Then I softly see field "Status" as "Created"
-    Then I see status in Progress-bar is "Created" and is "dark blue"
-    Then I cannot see top right button "Save" in page detail
-    Then I cannot see top right button "Cancel" in page detail
     And I navigate to "Grants" tab
     When I navigate to "Amendment Requests" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Amendment Requests - All"
@@ -1321,22 +1289,6 @@ Feature: Amendment Request scenarios without background
     Then I cannot see top right button "Edit" in page detail
     Then I softly see field "Status" as "Created"
     Then I see status in Progress-bar is "Created" and is "dark blue"
-    When I re-login to "Grantor" app as "AUDITOR" user on "INTERNAL" portal
-    And I perform quick search inside global search "{SavedValue:SOWAMENDMENTREQUEST}"
-    Then I softly cannot see row level action button "Edit" against "{SavedValue:SOWAMENDMENTREQUEST}" in global search with id "Amendment Requests"
-    When I click on hyperlink containing value "{SavedValue:SOWAMENDMENTREQUEST}"
-    Then I softly see field "Status" as "Created"
-    Then I see status in Progress-bar is "Created" and is "dark blue"
-    Then I cannot see top right button "Save" in page detail
-    Then I cannot see top right button "Cancel" in page detail
-    And I navigate to "Grants" tab
-    When I navigate to "Amendment Requests" content inside "Grants, Subawards & Amendments" subheader on left panel
-    And I click toggle button to select "Amendment Requests - All"
-    And I perform quick search for "{SavedValue:SOWAMENDMENTREQUEST}" in "---amendment:-:grantorAmendmentRequestsTableId---" panel
-    When I click on "View" icon for "{SavedValue:SOWAMENDMENTREQUEST}" inside flex table with id "---amendment:-:grantorAmendmentRequestsTableId---" without waiting for record
-    Then I cannot see top right button "Edit" in page detail
-    Then I softly see field "Status" as "Created"
-    Then I see status in Progress-bar is "Created" and is "dark blue"
     When I re-login to "Grantor" app as "ADMIN" user on "INTERNAL" portal
     And I perform quick search inside global search "{SavedValue:SOWAMENDMENTREQUEST}"
     And I click on row level action button "Edit" against "{SavedValue:SOWAMENDMENTREQUEST}" in global search with id "Amendment Requests"
@@ -1345,54 +1297,6 @@ Feature: Amendment Request scenarios without background
     Then I cannot see top right button "Save" in page detail
     Then I cannot see top right button "Cancel" in page detail
     Then I softly see the text containing "You dont have sufficient access to edit this record"
-    And I navigate to "Grants" tab
-    When I navigate to "Amendment Requests" content inside "Grants, Subawards & Amendments" subheader on left panel
-    And I click toggle button to select "Amendment Requests - All"
-    And I perform quick search for "{SavedValue:SOWAMENDMENTREQUEST}" in "---amendment:-:grantorAmendmentRequestsTableId---" panel
-    When I click on "View" icon for "{SavedValue:SOWAMENDMENTREQUEST}" inside flex table with id "---amendment:-:grantorAmendmentRequestsTableId---" without waiting for record
-    Then I cannot see top right button "Edit" in page detail
-    Then I softly see field "Status" as "Created"
-    Then I see status in Progress-bar is "Created" and is "dark blue"
-    When I re-login to "Grantor" app as "AUDITOR" user on "INTERNAL" portal
-    And I perform quick search inside global search "{SavedValue:SOWAMENDMENTREQUEST}"
-    Then I softly cannot see row level action button "Edit" against "{SavedValue:SOWAMENDMENTREQUEST}" in global search with id "Amendment Requests"
-    When I click on hyperlink containing value "{SavedValue:SOWAMENDMENTREQUEST}"
-    Then I softly see field "Status" as "Created"
-    Then I see status in Progress-bar is "Created" and is "dark blue"
-    Then I cannot see top right button "Save" in page detail
-    Then I cannot see top right button "Cancel" in page detail
-    And I navigate to "Grants" tab
-    When I navigate to "Amendment Requests" content inside "Grants, Subawards & Amendments" subheader on left panel
-    And I click toggle button to select "Amendment Requests - All"
-    And I perform quick search for "{SavedValue:SOWAMENDMENTREQUEST}" in "---amendment:-:grantorAmendmentRequestsTableId---" panel
-    When I click on "View" icon for "{SavedValue:SOWAMENDMENTREQUEST}" inside flex table with id "---amendment:-:grantorAmendmentRequestsTableId---" without waiting for record
-    Then I cannot see top right button "Edit" in page detail
-    Then I softly see field "Status" as "Created"
-    Then I see status in Progress-bar is "Created" and is "dark blue"
-    When I re-login to "Grantor" app as "AUDITOR" user on "INTERNAL" portal
-    And I perform quick search inside global search "{SavedValue:SOWAMENDMENTREQUEST}"
-    And I click on row level action button "Edit" against "{SavedValue:SOWAMENDMENTREQUEST}" in global search with id "Amendment Requests"
-    Then I softly see field "Status" as "Created"
-    Then I see status in Progress-bar is "Created" and is "dark blue"
-    Then I cannot see top right button "Save" in page detail
-    Then I cannot see top right button "Cancel" in page detail
-    Then I softly see the text containing "You dont have sufficient access to edit this record"
-    And I navigate to "Grants" tab
-    When I navigate to "Amendment Requests" content inside "Grants, Subawards & Amendments" subheader on left panel
-    And I click toggle button to select "Amendment Requests - All"
-    And I perform quick search for "{SavedValue:SOWAMENDMENTREQUEST}" in "---amendment:-:grantorAmendmentRequestsTableId---" panel
-    When I click on "View" icon for "{SavedValue:SOWAMENDMENTREQUEST}" inside flex table with id "---amendment:-:grantorAmendmentRequestsTableId---" without waiting for record
-    Then I cannot see top right button "Edit" in page detail
-    Then I softly see field "Status" as "Created"
-    Then I see status in Progress-bar is "Created" and is "dark blue"
-    When I re-login to "Grantor" app as "AUDITOR" user on "INTERNAL" portal
-    And I perform quick search inside global search "{SavedValue:SOWAMENDMENTREQUEST}"
-    Then I softly cannot see row level action button "Edit" against "{SavedValue:SOWAMENDMENTREQUEST}" in global search with id "Amendment Requests"
-    When I click on hyperlink containing value "{SavedValue:SOWAMENDMENTREQUEST}"
-    Then I softly see field "Status" as "Created"
-    Then I see status in Progress-bar is "Created" and is "dark blue"
-    Then I cannot see top right button "Save" in page detail
-    Then I cannot see top right button "Cancel" in page detail
     And I navigate to "Grants" tab
     When I navigate to "Amendment Requests" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Amendment Requests - All"
@@ -2938,9 +2842,9 @@ Feature: Amendment Request scenarios without background
     And I navigate to "Grants" tab
     When I navigate to "Amendment Requests" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Amendment Requests - All"
-    And I perform quick search for "{SavedValue:BUDGETREDIRECTIONID}" in "---amendment:-:recipientSideAmendmentRequestTableId---" panel
-    Then I softly see value "{SavedValue:BUDGETREDIRECTIONID}" for title "EGMS ID" inside table "---amendment:-:recipientSideAmendmentRequestTableId---"
-    And I click on "View" icon for "{SavedValue:BUDGETREDIRECTIONID}" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
+    And I perform quick search for "{SavedValue:BUDGETREDIRECTIONID}" in "---amendment:-:grantorAmendmentRequestsTableId---" panel
+    Then I softly see value "{SavedValue:BUDGETREDIRECTIONID}" for title "EGMS ID" inside table "---amendment:-:grantorAmendmentRequestsTableId---"
+    And I click on "View" icon for "{SavedValue:BUDGETREDIRECTIONID}" inside flex table with id "---amendment:-:grantorAmendmentRequestsTableId---" without waiting for record
     And I wait for "2" seconds
     And I click on "Amend Subaward" in the page details
     And I pause execution for "5" seconds
@@ -3401,7 +3305,6 @@ Feature: Amendment Request scenarios without background
       Then I softly see "Snapshot History" page block displayed
       And I navigate to "Messages" sub tab
       Then I softly see "Messages" page block displayed
-      And I navigate to "Field Audit" sub tab in split screen
       And I click on hyperlink containing value "View All"
       Then I softly see value "Rejected" for title "New Value" inside field history table
       Then I softly see value "Submitted for Approval" for title "Original Value" inside field history table
