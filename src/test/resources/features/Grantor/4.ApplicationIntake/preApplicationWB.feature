@@ -5187,7 +5187,6 @@ Feature: Pre-Application scenarios without background
       Notification: Pre Application Negotiation {SavedValue:Automation Runtime Announcement for Pre-App}: Pre Application {SavedValue:PreappEGMSID}has been Resubmitted by the Subrecipient
       """
     Then I see the mail text is as follows :
-
       """
       Hello,
 
@@ -5375,7 +5374,6 @@ Feature: Pre-Application scenarios without background
       Notification: Pre-Application Submitted for Announcement {SavedValue:AnnEGMSID} by SAN DIEGO ELECTRICAL TRAINING TRUST
       """
     Then I see the mail text is as follows :
-
       """
       Hello Automation,
 

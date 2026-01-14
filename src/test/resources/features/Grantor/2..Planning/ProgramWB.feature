@@ -3750,7 +3750,6 @@ Feature: Validate all scenarios for program
       """
       Sandbox: Task Reassignment Report
       """
-
     Then I see the mail text is as follows :
       """
       Hello,
@@ -3824,7 +3823,6 @@ Feature: Validate all scenarios for program
       """
       Sandbox: Task Reassignment Report
       """
-
     Then I see the mail text is as follows :
       """
       Hello,
@@ -3941,7 +3939,6 @@ Feature: Validate all scenarios for program
       """
       Sandbox: Task Reassignment Report
       """
-
     Then I see the mail text is as follows :
       """
       Hello,
@@ -4802,7 +4799,6 @@ Feature: Validate all scenarios for program
       """
       Sandbox: Task Reassignment Report
       """
-
     Then I see the mail text is as follows :
       """
       Hello,
@@ -4875,7 +4871,6 @@ Feature: Validate all scenarios for program
       """
      Sandbox: Task Reassignment Report
       """
-
     Then I see the mail text is as follows :
       """
       Hello,

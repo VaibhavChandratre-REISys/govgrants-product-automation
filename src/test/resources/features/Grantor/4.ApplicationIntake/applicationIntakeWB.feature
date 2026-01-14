@@ -2209,7 +2209,6 @@ Feature: Application Intake scenarios without background
       Sandbox: Notification: Application Negotiation {SavedValue:Automation Runtime Announcement Application Review} : Application {SavedValue:EGMSID} hasbeen Resubmitted by the Subrecipient
       """
     Then I see the mail text is as follows :
-
       """
       Hello,
 

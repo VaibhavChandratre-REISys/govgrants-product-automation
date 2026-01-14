@@ -1924,9 +1924,7 @@ Feature: Validate all scenarios in Closeout
       """
       Sandbox: Notification: Closeout Request {SavedValue:closeoutID} has beenRejected
       """
-
     Then I see the mail text is as follows :
-
       """
       Hello ,
       This email is to notify you that the Closeout Request {SavedValue:closeoutID} has been rejected by the Approver.
@@ -2582,9 +2580,7 @@ Feature: Validate all scenarios in Closeout
       """
       Sandbox: Notification: Closeout Request {SavedValue:closeoutID} has beenapproved
       """
-
     Then I see the mail text is as follows :
-
       """
       Hello ,
 
@@ -5287,9 +5283,7 @@ Feature: Validate all scenarios in Closeout
       """
       Notification: Closeout Request {SavedValue:closeoutID} has beenRejected
       """
-
     Then I see the mail text is as follows :
-
       """
       Hello ,
       This email is to notify you that the Closeout Request {SavedValue:closeoutID} has been rejected by the Approver.

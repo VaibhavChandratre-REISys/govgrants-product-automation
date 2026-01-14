@@ -12658,9 +12658,7 @@ Feature: Amendment Request scenarios without background
       """
       Sandbox: Notification: Amendment Request #{SavedValue:FundingID} has beenRejected
       """
-
     Then I see the mail text is as follows :
-
       """
       Hello,
       This email is to notify you that Amendment Request for the Award {SavedValue:Automation Runtime Amendment Award} has been Rejected.
@@ -13365,9 +13363,7 @@ Feature: Amendment Request scenarios without background
       """
       Sandbox: Notification: Amendment Request #{SavedValue:PERIODICRENEWAL} has beenRejected
       """
-
     Then I see the mail text is as follows :
-
       """
       Hello,
       This email is to notify you that Amendment Request for the Award {SavedValue:Automation Runtime Amendment Award} has been Rejected.
@@ -14328,9 +14324,7 @@ Feature: Amendment Request scenarios without background
       """
       Sandbox: Notification: Amendment Request #{SavedValue:PERIODICRENEWAL} has been SentBack by an Approver
       """
-
     Then I see the mail text is as follows :
-
       """
       Hello,
 
@@ -14780,9 +14774,7 @@ Feature: Amendment Request scenarios without background
       """
       Sandbox: Notification: Amendment Request #{SavedValue:TermsCondId} has beenRejected
       """
-
     Then I see the mail text is as follows :
-
       """
       Hello,
       This email is to notify you that Amendment Request for the Award {SavedValue:Automation Runtime Award} has been Rejected.
@@ -14865,9 +14857,7 @@ Feature: Amendment Request scenarios without background
       """
       Sandbox: Notification: Amendment Request #{SavedValue:TermsCondId} has been SentBack by an Approver
       """
-
     Then I see the mail text is as follows :
-
       """
       Hello,
       This email is to inform you that the amendment request #{SavedValue:TermsCondId} which has been created for the award #{SavedValue:AwardEGMSID} has been sent back by the approver.
@@ -15983,9 +15973,7 @@ Feature: Amendment Request scenarios without background
       """
       Sandbox: Notification: Amendment Request #{SavedValue:CFAmendmentId} has been SentBack by an Approver
       """
-
     Then I see the mail text is as follows :
-
       """
       Hello,
 
@@ -16507,9 +16495,7 @@ Feature: Amendment Request scenarios without background
       """
       Sandbox: Notification: Amendment Request #{SavedValue:BudgetRedirectId} hasbeen Rejected
       """
-
     Then I see the mail text is as follows :
-
       """
       Hello,
 
@@ -16595,9 +16581,7 @@ Feature: Amendment Request scenarios without background
       """
       Sandbox: Notification: Amendment Request #{SavedValue:BudgetRedirectId} has been SentBack by an Approver
       """
-
     Then I see the mail text is as follows :
-
       """
       Hello,
       This email is to inform you that the amendment request #{SavedValue:BudgetRedirectId} which has been created for the award # has been sent back by the approver.
@@ -17015,9 +16999,7 @@ Feature: Amendment Request scenarios without background
       """
       Sandbox: Notification: Amendment Request #{SavedValue:kpcId} hasbeen Rejected
       """
-
     Then I see the mail text is as follows :
-
      """
       Hello,
       This email is to notify you that Amendment Request for the Award {SavedValue:Automation Runtime Award} has been Rejected.
@@ -17103,9 +17085,7 @@ Feature: Amendment Request scenarios without background
       """
       Sandbox: Notification: Amendment Request #{SavedValue:kpcId} hasbeen Sent Back by an Approver
       """
-
     Then I see the mail text is as follows :
-
       """
       Hello,
       This email is to inform you that the amendment request #{SavedValue:kpcId} which has been created for the award #{SavedValue:AwardEGMSID} has been sent back by the approver.
@@ -17193,9 +17173,7 @@ Feature: Amendment Request scenarios without background
      """
       Sandbox: Notification: Amendment Request #{SavedValue:kpcId} hasbeen Approved
       """
-
     Then I see the mail text is as follows :
-
      """
       Hello,
       This email is to inform you that the amendment request #{SavedValue:kpcId} for the award # {SavedValue:AwardEGMSID} has been approved and a new award can be created.
@@ -17394,9 +17372,7 @@ Feature: Amendment Request scenarios without background
      """
       Sandbox: Notification: Amendment Request #{SavedValue:CFAmendmentId} hasbeen Rejected
       """
-
     Then I see the mail text is as follows :
-
      """
       Hello,
       This email is to notify you that Amendment Request for the Award {SavedValue:Automation Runtime Award} has been Rejected.
@@ -17536,9 +17512,7 @@ Feature: Amendment Request scenarios without background
       """
       Sandbox: Notification: Amendment Request #{SavedValue:CFAmendmentId} has beenApproved
       """
-
     Then I see the mail text is as follows :
-
       """
       Hello,
       This email is to inform you that the amendment request #{SavedValue:CFAmendmentId} for the award # {SavedValue:AwardEGMSID} has been approved and a new award can be created.
@@ -18439,9 +18413,7 @@ Feature: Amendment Request scenarios without background
       """
       Sandbox: Notification: Amendment Request #{SavedValue:BudgetRedirectId} hasbeen Approved
       """
-
     Then I see the mail text is as follows :
-
       """
       Hello,
       This email is to inform you that the amendment request #{SavedValue:BudgetRedirectId} for the award # {SavedValue:AwardEGMSID} has been approved and a new award can be created.
@@ -18745,7 +18717,6 @@ Feature: Amendment Request scenarios without background
       Sandbox: Notification: Amendment Request #{SavedValue:FundingID} hasbeen submitted
       """
     Then I see the mail text is as follows :
-
       """
       Hello,
       This email is to inform you that the amendment request #{SavedValue:FundingID} for the award #{SavedValue:AwardEGMSID} has been submitted by subrecipient. You are requested to review the amendment made for the award.
@@ -18852,9 +18823,7 @@ Feature: Amendment Request scenarios without background
       """
       Sandbox: Notification: Amendment Request #{SavedValue:FundingID} hasbeen Sent Back by an Approver
       """
-
     Then I see the mail text is as follows :
-
       """
       Hello,
       This email is to inform you that the amendment request #{SavedValue:FundingID} which has been created for the award #{SavedValue:AwardEGMSID} has been sent back by the approver.
@@ -18956,9 +18925,7 @@ Feature: Amendment Request scenarios without background
       """
       Sandbox: Notification: Amendment Request #{SavedValue:FundingID} hasbeen Approved
       """
-
     Then I see the mail text is as follows :
-
       """
       Hello,
       This email is to inform you that the amendment request #{SavedValue:FundingID} for the award # {SavedValue:AwardEGMSID} has been approved and a new award can be created.
@@ -19056,9 +19023,7 @@ Feature: Amendment Request scenarios without background
       """
       Sandbox: Notification: Amendment Request #{SavedValue:PERIODICRENEWAL} hasbeen Approved
       """
-
     Then I see the mail text is as follows :
-
       """
       Hello,
       This email is to inform you that the amendment request #{SavedValue:PERIODICRENEWAL} for the award # {SavedValue:AwardEGMSID} has been approved and a new award can be created.
@@ -19143,9 +19108,7 @@ Feature: Amendment Request scenarios without background
       """
       Sandbox: Notification: Amendment Request #{SavedValue:TermsCondId} hasbeen Approved
       """
-
     Then I see the mail text is as follows :
-
       """
       Hello,
       This email is to inform you that the amendment request #{SavedValue:TermsCondId} for the award # {SavedValue:AwardEGMSID} has been approved and a new award can be created.
@@ -19254,9 +19217,7 @@ Feature: Amendment Request scenarios without background
       """
       Sandbox: Notification: Amendment Request #{SavedValue:TermsCondId} hasbeen Approved
       """
-
     Then I see the mail text is as follows :
-
       """
       Hello,
       This email is to inform you that the amendment request #{SavedValue:TermsCondId} for the award # {SavedValue:AwardEGMSID} has been approved and a new award can be created.
@@ -19688,7 +19649,6 @@ Feature: Amendment Request scenarios without background
       Sandbox: Notification: Amendment Request #{SavedValue:CFAmendmentId} hasbeen submitted
       """
     Then I see the mail text is as follows :
-
       """
       Hello,
       This email is to inform you that the amendment request #{SavedValue:CFAmendmentId} for the award #{SavedValue:AwardEGMSID} has been submitted by the subrecipient. You are requested to review the amendment made for the award.
@@ -20048,9 +20008,7 @@ Feature: Amendment Request scenarios without background
       """
       Sandbox: Notification: Amendment Request #{SavedValue:CFAmendmentId} hasbeen Rejected
       """
-
     Then I see the mail text is as follows :
-
       """
       Hello,
       This email is to notify you that Amendment Request for the Award {SavedValue:Automation Runtime Award} has been Rejected.
@@ -20151,9 +20109,7 @@ Feature: Amendment Request scenarios without background
       """
       Sandbox: Notification: Amendment Request #{SavedValue:FundingID} hasbeen Approved
       """
-
     Then I see the mail text is as follows :
-
       """
       Hello,
       This email is to inform you that the amendment request #{SavedValue:FundingID} for the award # {SavedValue:AwardEGMSID} has been approved and a new award can be created.
@@ -20482,9 +20438,7 @@ Feature: Amendment Request scenarios without background
       """
       Sandbox: Notification: Amendment Request #{SavedValue:FundingID} hasbeen Rejected
       """
-
     Then I see the mail text is as follows :
-
       """
       Hello,
       This email is to notify you that Amendment Request for the Award {SavedValue:Automation Runtime Amendment Award} has been Rejected.
@@ -20614,9 +20568,7 @@ Feature: Amendment Request scenarios without background
       """
       Sandbox: Notification: Amendment Request #{SavedValue:FundingID} hasbeen Approved
       """
-
     Then I see the mail text is as follows :
-
       """
       Hello,
       This email is to inform you that the amendment request #{SavedValue:FundingID} for the award # {SavedValue:AwardEGMSID} has been approved and a new award can be created.
@@ -20819,9 +20771,7 @@ Feature: Amendment Request scenarios without background
       """
       Sandbox: Notification: Amendment Request #{SavedValue:PERIODICRENEWAL} hasbeen Rejected
       """
-
     Then I see the mail text is as follows :
-
       """
       Hello,
       This email is to notify you that Amendment Request for the Award {SavedValue:Automation Runtime Award} has been Rejected.
@@ -20922,9 +20872,7 @@ Feature: Amendment Request scenarios without background
       """
       Sandbox: Notification: Amendment Request #{SavedValue:PERIODICRENEWAL} hasbeen Approved
       """
-
     Then I see the mail text is as follows :
-
       """
       Hello,
       This email is to inform you that the amendment request #{SavedValue:PERIODICRENEWAL} for the award # {SavedValue:AwardEGMSID} has been approved and a new award can be created.
@@ -21267,9 +21215,7 @@ Feature: Amendment Request scenarios without background
       """
       Sandbox: Notification: Amendment Request #{SavedValue:TermsCondId} hasbeen Approved
       """
-
     Then I see the mail text is as follows :
-
       """
       Hello,
       This email is to inform you that the amendment request #{SavedValue:TermsCondId} for the award # {SavedValue:AwardEGMSID} has been approved and a new award can be created.
@@ -23610,9 +23556,7 @@ Feature: Amendment Request scenarios without background
       """
       Notification: Amendment Request #{SavedValue:budgetPC&ScopeId} has beenRejected
       """
-
     Then I see the mail text is as follows :
-
       """
       Hello,
       This email is to notify you that Amendment Request for the Award {SavedValue:Automation Runtime Amendment Award} has been Rejected.
@@ -23705,7 +23649,6 @@ Feature: Amendment Request scenarios without background
       Notification: Amendment Request #{SavedValue:budgetPC&ScopeId} has been SentBack by an Approver
       """
     Then I see the mail text is as follows :
-
       """
      Hello,
      This email is to inform you that the amendment request #{SavedValue:budgetPC&ScopeId} which has been created for the award #{SavedValue:AwardEGMSID} has been sent back by the approver.
@@ -23797,9 +23740,7 @@ Feature: Amendment Request scenarios without background
       """
       Sandbox: Notification: Amendment Request #{SavedValue:budgetPC&ScopeId} has beenApproved
       """
-
     Then I see the mail text is as follows :
-
       """
       Hello,
       This email is to inform you that the amendment request #{SavedValue:budgetPC&ScopeId} for the award #   has been approved and a new award can be created.
@@ -23924,9 +23865,7 @@ Feature: Amendment Request scenarios without background
       """
       Notification: Amendment Request #{SavedValue:budgetPC&ScopeId} has beenRejected
       """
-
     Then I see the mail text is as follows :
-
       """
       Hello,
       This email is to notify you that Amendment Request for the Award {SavedValue:Automation Runtime Amendment Award} has been Rejected.
@@ -24053,7 +23992,6 @@ Feature: Amendment Request scenarios without background
       Notification: Amendment Request #{SavedValue:budgetPC&ScopeId} has been SentBack by an Approver
       """
     Then I see the mail text is as follows :
-
       """
      Hello,
      This email is to inform you that the amendment request #{SavedValue:budgetPC&ScopeId} which has been created for the award #{SavedValue:AwardEGMSID} has been sent back by the approver.
@@ -24178,9 +24116,7 @@ Feature: Amendment Request scenarios without background
       """
       Sandbox: Notification: Amendment Request #{SavedValue:budgetPC&ScopeId} has beenApproved
       """
-
     Then I see the mail text is as follows :
-
       """
       Hello,
       This email is to inform you that the amendment request #{SavedValue:budgetPC&ScopeId} for the award #   has been approved and a new award can be created.
@@ -24300,9 +24236,7 @@ Feature: Amendment Request scenarios without background
       """
       Notification: Amendment Request #{SavedValue:budgetSOWChangeId} has beenRejected
       """
-
     Then I see the mail text is as follows :
-
       """
       Hello,
       This email is to notify you that Amendment Request for the Award {SavedValue:Automation Runtime Award} has been Rejected.
@@ -24419,7 +24353,6 @@ Feature: Amendment Request scenarios without background
       Notification: Amendment Request #{SavedValue:budgetSOWChangeId} has been SentBack by an Approver
       """
     Then I see the mail text is as follows :
-
       """
      Hello,
      This email is to inform you that the amendment request #{SavedValue:budgetSOWChangeId} which has been created for the award #{SavedValue:AwardEGMSID} has been sent back by the approver.
@@ -24538,7 +24471,6 @@ Feature: Amendment Request scenarios without background
       Notification: Amendment Request #{SavedValue:budgetSOWChangeId} has been SentBack by an Approver
       """
     Then I see the mail text is as follows :
-
       """
      Hello,
      This email is to inform you that the amendment request #{SavedValue:budgetSOWChangeId} which has been created for the award #{SavedValue:AwardEGMSID} has been sent back by the approver.
@@ -24625,9 +24557,7 @@ Feature: Amendment Request scenarios without background
       """
       Notification: Amendment Request #{SavedValue:budgetSOWChangeId} has beenApproved
       """
-
     Then I see the mail text is as follows :
-
       """
       Hello,
       This email is to inform you that the amendment request #{SavedValue:budgetSOWChangeId} for the award #{SavedValue:AwardEGMSID}   has been approved and a new award can be created.
@@ -24746,9 +24676,7 @@ Feature: Amendment Request scenarios without background
       """
       Notification: Amendment Request #{SavedValue:budgetSOWChangeId} has beenApproved
       """
-
     Then I see the mail text is as follows :
-
       """
       Hello,
       This email is to inform you that the amendment request #{SavedValue:budgetSOWChangeId} for the award #{SavedValue:AwardEGMSID}   has been approved and a new award can be created.
