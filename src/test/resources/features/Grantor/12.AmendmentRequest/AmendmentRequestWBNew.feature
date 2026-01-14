@@ -3758,7 +3758,7 @@ Feature: Amendment Request scenarios without background
     Then I softly cannot see top right button "Edit" in page detail
     Then I softly cannot see top right button "Acknowledge" in page detail
     And I wait for "3" seconds
-    When I navigate to "Overview" tab
+    When I navigate to "Overview" sub tab
     Then I softly do not see top right button "Associate" inside flex table "---amendment:-:AmendmentSpecialConditionTableId---"
     And I select value inside table "---amendment:-:RecipientTermsandConditionsTableId---" is "All"
     Then I softly see value "Automation Permanent TNC" for title "Title" inside table "---amendment:-:RecipientTermsandConditionsTableId---"
