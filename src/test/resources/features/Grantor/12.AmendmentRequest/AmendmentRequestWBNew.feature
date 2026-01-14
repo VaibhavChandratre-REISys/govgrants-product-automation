@@ -329,6 +329,7 @@ Feature: Amendment Request scenarios without background
     When I navigate to "Files" sub tab
     And I click on top right button "Add Files" in flex table with id "---progressreport:-:AmendmentAttachmentTableId---"
     And I upload attachment without random number "Attachment.pdf" of type "Terms and Conditions" from computer
+    And I wait for "2" seconds
     When I click modal button "Close"
     And I wait for "2" seconds
     Then I softly see value "Attachment.pdf" for title "Title" inside table "---progressreport:-:AmendmentAttachmentTableId---"
@@ -3506,7 +3507,7 @@ Feature: Amendment Request scenarios without background
     And I perform quick search for "{SavedValue:AwardEGMSID}" in "---paymentRequest:-:recipientsSubawardTableId---" panel
     Then I softly see "No Records Found" inside flex table with id "---paymentRequest:-:recipientsSubawardTableId---"
 
-  @528720 @validateusershouldabletoseetheSOWamendmentrequestiseditablewithinternaluseraftersubmittedtograntor(withsameorg)
+  @528720 @validateusershouldabletoseetheSOWamendmentrequestiseditablewithinternaluseraftersubmittedtograntor(withsameorg) @GrantorFlexP2
   Scenario: Validate user should able to see the SOW amendment request is editable with internal user after submitted to grantor (with same org)
     And I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     When I am on "SUBPORTAL" portal
@@ -3590,7 +3591,7 @@ Feature: Amendment Request scenarios without background
       | fAutomation Notesf | Automation Notes |
     Then I softly see value "Automation Notes" for title "Title" inside table "---amendment:-:amendmentAddNotesTableId---"
 
-  @530817 @validatePMusercanassociatenewlycreatedtermsandconditionrecordsbyotherusersinAssociateTermsandconditionmodal
+  @530817 @validatePMusercanassociatenewlycreatedtermsandconditionrecordsbyotherusersinAssociateTermsandconditionmodal @GrantorFlexP2
   Scenario: Validate PM user can associate newly created terms and condition records by other users in Associate Terms and condition modal
     Given I login to "Grantor" app as "PM" user
     When I navigate to "Planning" tab
@@ -3601,7 +3602,7 @@ Feature: Amendment Request scenarios without background
     When I save the field labeled "EGMS ID" as "TNCID"
     And I click modal button "Close"
     And I pause execution for "3" seconds
-     And I activated standalone subaward "Automation Runtime Amendment Award" with properties "default" of type "Competitive"
+    And I activated standalone subaward "Automation Runtime Amendment Award" with properties "default" of type "Competitive"
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
@@ -3630,3 +3631,147 @@ Feature: Amendment Request scenarios without background
     And I wait for "3" seconds
     When I click "Associate" after selection of "{SavedValue:TNCID}" in the table "---amendment:-:TNCTableID---"
     And I click modal button "Close"
+    Then I softly see value "{SavedValue:TNCID}" for title "Title" inside table "---amendment:-:AmendmentSpecialConditionTableId---"
+
+  @530828 @530824 @530822 @530819 @validatePMusercanusercanSendamendmentrequesttosubrecipient @GrantorFlexP2
+  Scenario: Validate PM user can associate newly created terms and condition records by other users in Associate Terms and condition modal
+    And I activated standalone subaward "Automation Runtime Amendment Award" with properties "default" of type "Competitive"
+    Given I login to "Grantor" app as "PM" user
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click toggle button to select "Grants - All"
+    When I perform quick search for "{SavedValue:Automation Runtime Amendment Award}" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Amendment Award}" inside table
+    And I save the field labeled "EGMS ID" as "GrantEGMSID"
+    When I navigate to "Subawards" sub tab
+    And I click on "View" icon for "{SavedValue:Automation Runtime Amendment Award}" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
+    And I save the field labeled "EGMS ID" as "AwardEGMSID"
+    Then I softly see that "Subaward" is in "Activated" status
+    And I navigate to "Management" sub tab
+    And I click on top right button "New" in flex table with id "---amendment:-:amendmentRequestTableId---"
+    When I enter "TermsAndConditions_Creation" values from "AmendmentRequest_Field_Values.xlsx"
+    And I click modal button "Save and Continue"
+    When I enter value "Automation Justification" into field "TncComments__c"
+    When I click on "Save" in the page details
+    And I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "TnCEGMSID"
+    Then I softly see top right button "Associate" inside flex table "---amendment:-:AmendmentSpecialConditionTableId---"
+    And I select value inside table "---amendment:-:AmendmentSpecialConditionTableId---" is "All"
+    Then I softly see value "Automation Permanent TNC" for title "Title" inside table "---amendment:-:AmendmentSpecialConditionTableId---"
+    Then I softly see value "Automation Permanent TNC1" for title "Title" inside table "---amendment:-:AmendmentSpecialConditionTableId---"
+    When I navigate to "Responsibilities" sub tab
+    When I enter the following values into flex table with id "---amendment:-:approversTableId---" by clicking "New" :
+      | Name          | Amendment Request |
+      | Automation PM | Step 1            |
+    When I navigate to "Files" sub tab
+    Then I can see top right button "Add Files" in flex table with id "---amendment:-:amendmentAddFilesTableId---"
+    And I click on top right button "Add Files" in flex table with id "---amendment:-:amendmentAddFilesTableId---"
+    And I upload attachment without random number "Attachment.pdf" of type "Terms and Conditions" from computer
+    And I pause execution for "3" seconds
+    And I click modal button "Close"
+    Then I softly see value "Attachment.pdf" for title "Title" inside table "---amendment:-:amendmentAddFilesTableId---"
+    Then I can see top right button "New" in flex table with id "---amendment:-:amendmentAddNotesTableId---"
+    When I enter the following values into flex table with id "---amendment:-:amendmentAddNotesTableId---" by clicking "New" :
+      | Title            | Description      |
+      | Automation Notes | Automation Notes |
+    Then I softly see value "Automation Notes" for title "Title" inside table "---amendment:-:amendmentAddNotesTableId---"
+    And I click on "Send to Subrecipient" in the page details
+    Then I softly cannot see top right button "Edit" in page detail
+    When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
+    And I navigate to "Grants" tab
+    And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    When I perform quick search for "{SavedValue:TnCEGMSID}" in "---amendment:-:pendingTaskTableId---" panel
+    And I click on "Start" icon for "{SavedValue:TnCEGMSID}" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
+    Then I softly cannot see top right button "Edit" in page detail
+    Then I softly can see top right button "Acknowledge" in page detail
+    Then I softly do not see top right button "Associate" inside flex table "---amendment:-:AmendmentSpecialConditionTableId---"
+    And I select value inside table "---amendment:-:RecipientTermsandConditionsTableId---" is "All"
+    Then I softly see value "Automation Permanent TNC" for title "Title" inside table "---amendment:-:RecipientTermsandConditionsTableId---"
+    Then I softly see value "Automation Permanent TNC1" for title "Title" inside table "---amendment:-:RecipientTermsandConditionsTableId---"
+    When I navigate to "Files" sub tab
+    Then I can see top right button "Add Files" in flex table with id "---amendment:-:RecipientAttachmentTableId---"
+    Then I softly see value "Attachment.pdf" for title "Title" inside table "---amendment:-:RecipientAttachmentTableId---"
+    And I click on top right button "Add Files" in flex table with id "---amendment:-:RecipientAttachmentTableId---"
+    And I upload attachment without random number "AttachmentTesting.pdf" of type "Terms and Conditions" from computer
+    When I click modal button "Close"
+    And I wait for "2" seconds
+    Then I softly see value "AttachmentTesting.pdf" for title "Title" inside table "---amendment:-:RecipientAttachmentTableId---"
+    Then I softly see value "Automation Notes" for title "Title" inside table "---amendment:-:SubrecipientAmendmentNotesTableId---"
+    Then I can see top right button "New" in flex table with id "---amendment:-:SubrecipientAmendmentNotesTableId---"
+    When I enter the following values into flex table with id "---amendment:-:SubrecipientAmendmentNotesTableId---" by clicking "New" :
+      | Title             | Description       |
+      | Automation Notes1 | Automation Notes1 |
+    Then I softly see value "Automation Notes1" for title "Title" inside table "---amendment:-:SubrecipientAmendmentNotesTableId---"
+    When I re-login to "Grants Portal" app as "SPA" user on "SUBPORTAL" portal
+    And I navigate to "Grants" tab
+    And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    When I perform quick search for "{SavedValue:TnCEGMSID}" in "---amendment:-:pendingTaskTableId---" panel
+    And I click on "Start" icon for "{SavedValue:TnCEGMSID}" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
+    Then I softly cannot see top right button "Acknowledge" in page detail
+    Then I softly cannot see top right button "Edit" in page detail
+    Then I softly do not see top right button "Associate" inside flex table "---amendment:-:AmendmentSpecialConditionTableId---"
+    And I select value inside table "---amendment:-:RecipientTermsandConditionsTableId---" is "All"
+    Then I softly see value "Automation Permanent TNC" for title "Title" inside table "---amendment:-:RecipientTermsandConditionsTableId---"
+    Then I softly see value "Automation Permanent TNC1" for title "Title" inside table "---amendment:-:RecipientTermsandConditionsTableId---"
+    When I navigate to "Files" sub tab
+    Then I can see top right button "Add Files" in flex table with id "---amendment:-:RecipientAttachmentTableId---"
+    Then I softly see value "Attachment.pdf" for title "Title" inside table "---amendment:-:RecipientAttachmentTableId---"
+    Then I softly see value "AttachmentTesting.pdf" for title "Title" inside table "---amendment:-:RecipientAttachmentTableId---"
+    Then I softly see value "Automation Notes" for title "Title" inside table "---amendment:-:SubrecipientAmendmentNotesTableId---"
+    Then I softly see value "Automation Notes1" for title "Title" inside table "---amendment:-:SubrecipientAmendmentNotesTableId---"
+    Then I can see top right button "New" in flex table with id "---amendment:-:SubrecipientAmendmentNotesTableId---"
+    When I enter the following values into flex table with id "---amendment:-:SubrecipientAmendmentNotesTableId---" by clicking "New" :
+      | Title             | Description       |
+      | Automation Notes2 | Automation Notes1 |
+    Then I softly see value "Automation Notes2" for title "Title" inside table "---amendment:-:SubrecipientAmendmentNotesTableId---"
+    When I re-login to "Grants Portal" app as "IND" user on "SUBPORTAL" portal
+    And I perform quick search inside global search "{SavedValue:TnCEGMSID}"
+    And I wait for "2" seconds
+    Then I softly see the text containing "No results"
+    And I navigate to "Grants" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    When I perform quick search for "{SavedValue:TnCEGMSID}" in "---amendment:-:pendingTaskTableId---" panel
+    Then I softly see "No Records Found" inside flex table with id "---amendment:-:pendingTaskTableId---"
+    And I navigate to "Grants" tab
+    When I navigate to "Amendment Requests" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click toggle button to select "Amendment Requests - All"
+    And I perform quick search for "{SavedValue:TnCEGMSID}" in "---amendment:-:recipientSideAmendmentRequestTableId---" panel
+    Then I softly see "No Records Found" inside flex table with id "---amendment:-:recipientSideAmendmentRequestTableId---"
+    When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
+    And I navigate to "Grants" tab
+    And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    When I perform quick search for "{SavedValue:TnCEGMSID}" in "---amendment:-:pendingTaskTableId---" panel
+    And I click on "Start" icon for "{SavedValue:TnCEGMSID}" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
+    Then I softly can see top right button "Acknowledge" in page detail
+    When I navigate to "Files" sub tab
+    Then I softly see value "Attachment.pdf" for title "Title" inside table "---amendment:-:RecipientAttachmentTableId---"
+    Then I softly see value "AttachmentTesting.pdf" for title "Title" inside table "---amendment:-:RecipientAttachmentTableId---"
+    Then I softly see value "Automation Notes" for title "Title" inside table "---amendment:-:SubrecipientAmendmentNotesTableId---"
+    Then I softly see value "Automation Notes1" for title "Title" inside table "---amendment:-:SubrecipientAmendmentNotesTableId---"
+    Then I softly see value "Automation Notes2" for title "Title" inside table "---amendment:-:SubrecipientAmendmentNotesTableId---"
+    And I navigate to "Messages" sub tab
+    Then I can see top right button "Send Email" in flex table with id "---announcement:-:collabMessages---"
+    And I click on "Acknowledge" in the page details
+    Then I softly see field "Status" as "Acknowledged"
+    Then I softly see status in Progress-bar is "Acknowledged" and is "dark blue"
+    Then I softly cannot see top right button "Edit" in page detail
+    Then I softly cannot see top right button "Acknowledge" in page detail
+    When I navigate to "Overview" tab
+    Then I softly do not see top right button "Associate" inside flex table "---amendment:-:AmendmentSpecialConditionTableId---"
+    And I select value inside table "---amendment:-:RecipientTermsandConditionsTableId---" is "All"
+    Then I softly see value "Automation Permanent TNC" for title "Title" inside table "---amendment:-:RecipientTermsandConditionsTableId---"
+    Then I softly see value "Automation Permanent TNC1" for title "Title" inside table "---amendment:-:RecipientTermsandConditionsTableId---"
+    When I navigate to "Files" sub tab
+    Then I cannot see top right button "Add Files" in flex table with id "---amendment:-:RecipientAttachmentTableId---"
+    Then I softly see value "Attachment.pdf" for title "Title" inside table "---amendment:-:RecipientAttachmentTableId---"
+    Then I softly see value "AttachmentTesting.pdf" for title "Title" inside table "---amendment:-:RecipientAttachmentTableId---"
+    Then I cannot see top right button "New" in flex table with id "---amendment:-:SubrecipientAmendmentNotesTableId---"
+    Then I softly see value "Automation Notes" for title "Title" inside table "---amendment:-:SubrecipientAmendmentNotesTableId---"
+    Then I softly see value "Automation Notes1" for title "Title" inside table "---amendment:-:SubrecipientAmendmentNotesTableId---"
+    Then I softly see value "Automation Notes2" for title "Title" inside table "---amendment:-:SubrecipientAmendmentNotesTableId---"
+    And I navigate to "Messages" sub tab
+    Then I can see top right button "Send Email" in flex table with id "---announcement:-:collabMessages---"
+    And I click on Menu icon present on top right corner of the page
+    Then I see option "Download as PDF" present in parallel dropdown
+    Then I see option "Take Snapshot" present in parallel dropdown
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
