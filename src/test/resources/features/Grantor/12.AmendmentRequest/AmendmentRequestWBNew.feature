@@ -3593,16 +3593,16 @@ Feature: Amendment Request scenarios without background
   @530817 @validatePMusercanassociatenewlycreatedtermsandconditionrecordsbyotherusersinAssociateTermsandconditionmodal
   Scenario: Validate PM user can associate newly created terms and condition records by other users in Associate Terms and condition modal
     Given I login to "Grantor" app as "PM" user
-#    When I navigate to "Planning" tab
-#    And I navigate to "Terms and Conditions" content inside "Setup" subheader on left panel
-#    When I click on top right button "New" in flex table with id "---home:-:termsAndConditionsTableId---"
-#    And I enter "Creation" values from "TermsandConditions_Field_Values.xlsx"
-#    When I click modal button "Save"
-#    When I save the field labeled "EGMS ID" as "TNCID"
-#    And I click modal button "Close"
-#    And I pause execution for "3" seconds
+    When I navigate to "Planning" tab
+    And I navigate to "Terms and Conditions" content inside "Setup" subheader on left panel
+    When I click on top right button "New" in flex table with id "---home:-:termsAndConditionsTableId---"
+    And I enter "Creation" values from "TermsandConditions_Field_Values.xlsx"
+    When I click modal button "Save"
+    When I save the field labeled "EGMS ID" as "TNCID"
+    And I click modal button "Close"
+    And I pause execution for "3" seconds
      And I activated standalone subaward "Automation Runtime Amendment Award" with properties "default" of type "Competitive"
-#    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - All"
