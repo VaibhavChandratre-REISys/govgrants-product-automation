@@ -3633,8 +3633,8 @@ Feature: Amendment Request scenarios without background
     And I click modal button "Close"
     Then I softly see value "{SavedValue:TNCID}" for title "Title" inside table "---amendment:-:AmendmentSpecialConditionTableId---"
 
-  @530828 @530824 @530822 @530819 @validatePMusercanusercanSendamendmentrequesttosubrecipient @GrantorFlexP2
-  Scenario: Validate PM user can associate newly created terms and condition records by other users in Associate Terms and condition modal
+  @530830 @530828 @530824 @530822 @530819 @validatePMusercanusercanSendamendmentrequesttosubrecipient @GrantorFlexP2
+  Scenario: Validate PM user can associate newly created terms and condition records by other users in Associate Terms and condition modal | Validate SPI user can Acknowledge amendment request after send back to subrecipient
     And I activated standalone subaward "Automation Runtime Amendment Award" with properties "default" of type "Competitive"
     Given I login to "Grantor" app as "PM" user
     And I navigate to "Grants" tab
@@ -3661,8 +3661,8 @@ Feature: Amendment Request scenarios without background
     Then I softly see value "Automation Permanent TNC1" for title "Title" inside table "---amendment:-:AmendmentSpecialConditionTableId---"
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---amendment:-:approversTableId---" by clicking "New" :
-      | Name          | Amendment Request |
-      | Automation PM | Step 1            |
+      | Name                     | Amendment Request |
+      | {SavedValue:PM Username} | Step 1            |
     When I navigate to "Files" sub tab
     Then I can see top right button "Add Files" in flex table with id "---amendment:-:amendmentAddFilesTableId---"
     And I click on top right button "Add Files" in flex table with id "---amendment:-:amendmentAddFilesTableId---"
@@ -3741,7 +3741,7 @@ Feature: Amendment Request scenarios without background
     And I navigate to "Grants" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:TnCEGMSID}" in "---amendment:-:pendingTaskTableId---" panel
-    And I click on "Start" icon for "{SavedValue:TnCEGMSID}" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
+    And I click on "View" icon for "{SavedValue:TnCEGMSID}" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
     Then I softly can see top right button "Acknowledge" in page detail
     When I navigate to "Files" sub tab
     Then I softly see value "Attachment.pdf" for title "Title" inside table "---amendment:-:RecipientAttachmentTableId---"
@@ -3751,6 +3751,7 @@ Feature: Amendment Request scenarios without background
     Then I softly see value "Automation Notes2" for title "Title" inside table "---amendment:-:SubrecipientAmendmentNotesTableId---"
     And I navigate to "Messages" sub tab
     Then I can see top right button "Send Email" in flex table with id "---announcement:-:collabMessages---"
+    #530828
     And I click on "Acknowledge" in the page details
     Then I softly see field "Status" as "Acknowledged"
     Then I softly see status in Progress-bar is "Acknowledged" and is "dark blue"
@@ -3775,3 +3776,53 @@ Feature: Amendment Request scenarios without background
     Then I see option "Download as PDF" present in parallel dropdown
     Then I see option "Take Snapshot" present in parallel dropdown
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
+    And I navigate to "Grants" tab
+    And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    When I perform quick search for "{SavedValue:TnCEGMSID}" in "---amendment:-:pendingTaskTableId---" panel
+    And I click on "Start" icon for "{SavedValue:TnCEGMSID}" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
+    And I wait for "2" seconds
+    Then I softly see field "Status" as "Acknowledged"
+    Then I softly see status in Progress-bar is "Acknowledged" and is "dark blue"
+    And I navigate to "Overview" sub tab
+    Then I softly do not see top right button "Associate" inside flex table "---amendment:-:AmendmentSpecialConditionTableId---"
+    And I select value inside table "---amendment:-:AmendmentSpecialConditionTableId---" is "All"
+    Then I softly see value "Automation Permanent TNC" for title "Title" inside table "---amendment:-:AmendmentSpecialConditionTableId---"
+    Then I softly see value "Automation Permanent TNC1" for title "Title" inside table "---amendment:-:AmendmentSpecialConditionTableId---"
+    When I navigate to "Responsibilities" sub tab
+    Then I softly see value "{SavedValue:PM Username}" for title "Name" inside table "---amendment:-:approversTableId---"
+    When I navigate to "Files" sub tab
+    Then I can see top right button "Add Files" in flex table with id "---amendment:-:amendmentAddFilesTableId---"
+    Then I softly see value "Attachment.pdf" for title "Title" inside table "---amendment:-:amendmentAddFilesTableId---"
+    Then I softly see value "AttachmentTesting.pdf" for title "Title" inside table "---amendment:-:amendmentAddFilesTableId---"
+    Then I can see top right button "New" in flex table with id "---amendment:-:amendmentAddNotesTableId---"
+    Then I softly see value "Automation Notes" for title "Title" inside table "---amendment:-:amendmentAddNotesTableId---"
+    Then I softly see value "Automation Notes1" for title "Title" inside table "---amendment:-:amendmentAddNotesTableId---"
+    Then I softly see value "Automation Notes2" for title "Title" inside table "---amendment:-:amendmentAddNotesTableId---"
+    And I navigate to "Messages" sub tab
+    Then I can see top right button "Send Email" in flex table with id "---announcement:-:collabMessages---"
+    And I click on Menu icon present on top right corner of the page
+    Then I see option "Download as PDF" present in parallel dropdown
+    Then I see option "Take Snapshot" present in parallel dropdown
+    #530830
+    Then I softly can see top right button "Submit for Approval" in page detail
+    Then I softly can see top right button "Send Back to Subrecipient" in page detail
+    And I click on "Send Back to Subrecipient" in the page details
+    And I wait for "2" seconds
+    Then I softly see field "Status" as "Under Revision"
+    When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
+    And I navigate to "Grants" tab
+    And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    When I perform quick search for "{SavedValue:TnCEGMSID}" in "---amendment:-:pendingTaskTableId---" panel
+    And I click on "View" icon for "{SavedValue:TnCEGMSID}" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
+    Then I softly can see top right button "Acknowledge" in page detail
+    When I navigate to "Files" sub tab
+    Then I softly see value "Attachment.pdf" for title "Title" inside table "---amendment:-:RecipientAttachmentTableId---"
+    Then I softly see value "AttachmentTesting.pdf" for title "Title" inside table "---amendment:-:RecipientAttachmentTableId---"
+    Then I softly see value "Automation Notes" for title "Title" inside table "---amendment:-:SubrecipientAmendmentNotesTableId---"
+    Then I softly see value "Automation Notes1" for title "Title" inside table "---amendment:-:SubrecipientAmendmentNotesTableId---"
+    Then I softly see value "Automation Notes2" for title "Title" inside table "---amendment:-:SubrecipientAmendmentNotesTableId---"
+    And I navigate to "Messages" sub tab
+    Then I can see top right button "Send Email" in flex table with id "---announcement:-:collabMessages---"
+    And I click on "Acknowledge" in the page details
+    Then I softly see field "Status" as "Acknowledged"
+    Then I softly see status in Progress-bar is "Acknowledged" and is "dark blue"
