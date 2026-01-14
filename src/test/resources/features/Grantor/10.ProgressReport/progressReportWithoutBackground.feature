@@ -7678,7 +7678,6 @@ Feature: Validate scenarios in Progress Report without background
       """
       Sandbox: Notification: Progress Report {SavedValue:progID} has beensubmitted.
       """
-
     Then I see the mail text is as follows :
       """
      Hello Automation PM1,
@@ -8230,7 +8229,6 @@ Feature: Validate scenarios in Progress Report without background
       """
       Notification: Progress Report {SavedValue:progID} has beensubmitted.
       """
-
     Then I see the mail text is as follows :
       """
      Hello Automation PM1,

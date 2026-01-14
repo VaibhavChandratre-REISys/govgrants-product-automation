@@ -5519,9 +5519,7 @@ Feature: Validate all scenarios in the Risk Assessment
       """
       Sandbox: Notification: Approver Rejected Subaward Risk Assessmentfor {SavedValue:AwardEGMSID}
       """
-
     Then I see the mail text is as follows :
-
       """
       Hello,
       This email is to inform you that the Subaward Risk Assessment for {SavedValue:AwardEGMSID} has been rejected by the Approver.
@@ -5708,9 +5706,7 @@ Feature: Validate all scenarios in the Risk Assessment
       """
       Notification: Subaward Risk Assessment for {SavedValue:AwardEGMSID} hasbeen approved by approver
       """
-
     Then I see the mail text is as follows :
-
       """
       Hello,
       This email is to inform you that the Subaward Risk Assessment for {SavedValue:AwardEGMSID} has been approved.

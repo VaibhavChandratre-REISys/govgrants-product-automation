@@ -392,11 +392,11 @@ Feature: Validate all scenarios in the Formula Announcement tab
     Then I refresh the page
     And I pause execution for "120" seconds
     And I see the mail subject is as follows :
-      """
-      Sandbox: Notification: New Opportunity #{SavedValue:AnnEGMSID}has beenPublished
-      """
+    """
+    Sandbox: Notification: New Opportunity #{SavedValue:AnnEGMSID}has beenPublished
+    """
     Then I see the mail text is as follows :
-      """
+    """
     Hello,
 
     This email is to notify you that Opportunity #{SavedValue:AnnEgmsId} has been published.
@@ -407,16 +407,16 @@ Feature: Validate all scenarios in the Formula Announcement tab
 
     Opportunity Type: Formula
 
-     Focus Areas	Allocation Amount
-     Automation Permanent Focus Area	1000
-     SubTotal	1000
+    Focus Areas	Allocation Amount
+    Automation Permanent Focus Area	1000
+    SubTotal	1000
 
-     Log in to EGMS and click on click here to access the assigned record.
-     Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrantssupport@reisystems.com if you have any questions or need assistance with this task.
+    Log in to EGMS and click on click here to access the assigned record.
+    Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrantssupport@reisystems.com if you have any questions or need assistance with this task.
 
-     Thank you,
-     The EGMS Team.
-      """
+    Thank you,
+    The EGMS Team.
+    """
 
   @219086 @ValidateAdminusershouldabletoseethetwocolumnsinpublishedstateforFormulaAnnouncementwhenAllocationisbyApplicants @sprint-8-US-208408  @Allocation
   Scenario: Validate Admin user should able to see the two columns in published state for Formula Announcement when Allocation is by Applicants.

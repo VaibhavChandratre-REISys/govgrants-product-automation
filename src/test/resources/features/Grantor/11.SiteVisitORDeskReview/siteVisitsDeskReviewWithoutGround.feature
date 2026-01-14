@@ -1669,7 +1669,6 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
       Sandbox: Notification: Site Visit/Desk Review Report for {SavedValue:SitevVisitId}has been Sent Back
       """
     Then I see the mail text is as follows :
-
       """
       Hello,
 
@@ -2970,7 +2969,6 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
       Sandbox: Notification: Site Visit/Desk Review Report for {SavedValue:DeskReview}has been Sent Back
       """
     Then I see the mail text is as follows :
-
       """
       Hello,
 
@@ -6836,7 +6834,6 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
       Sandbox: Notification: Site Visit Report Submitted by Subrecipient
       """
     Then I see the mail text is as follows :
-
       """
       Hello Automation PM1,
       The desk review report for Automation Site Visit and {SavedValue:SitevVisitId} has been submitted by the Subrecipient.
@@ -6926,7 +6923,6 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
       Sandbox: Notification: You are Requested to Review the Desk Reviewfor SAN DIEGO ELECTRICAL TRAINING TRUST
       """
     Then I see the mail text is as follows :
-
       """
       Hello Automation PM1,
       This email is to notify you of the details of the Desk Review "Automation Site Visit". You are requested to review the desk review report.

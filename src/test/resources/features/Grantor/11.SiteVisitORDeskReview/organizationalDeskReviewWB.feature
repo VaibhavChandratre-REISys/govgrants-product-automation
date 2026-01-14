@@ -1024,7 +1024,6 @@ Feature: Validate all scenarios in Organizational Desk Review Without Background
       Notification: The Peer Review for {SavedValue:Automation Desk Review Org level} for has been completed.
       """
     Then I see the mail text is as follows :
-
       """
       Hello Automation PO1,
 
@@ -1475,7 +1474,6 @@ Feature: Validate all scenarios in Organizational Desk Review Without Background
       Notification: Desk Review Report Submitted by Subrecipient
       """
     Then I see the mail text is as follows :
-
       """
       Hello Automation EXE1,
       The site visit report for {SavedValue:Automation Desk Review Org level} and {SavedValue:DeskReviewID} has been submitted by the Subrecipient.
