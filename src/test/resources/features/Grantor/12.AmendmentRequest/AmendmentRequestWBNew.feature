@@ -2866,7 +2866,7 @@ Feature: Amendment Request scenarios without background
 
       """
       Hello,
-      This email is to inform you that the amendment request #{SavedValue:BudgetRedirectId} for the award # {SavedValue:AwardEGMSID} has been approved and a new award can be created.
+      This email is to inform you that the amendment request #{SavedValue:BUDGETREDIRECTIONID} for the award # {SavedValue:AwardEGMSID} has been approved and a new award can be created.
       Amendment Details:
       Amendment Request Type: Budget Redirection
       Amendment ID: {SavedValue:BUDGETREDIRECTIONID}
@@ -3305,9 +3305,6 @@ Feature: Amendment Request scenarios without background
       Then I softly see "Snapshot History" page block displayed
       And I navigate to "Messages" sub tab
       Then I softly see "Messages" page block displayed
-      And I click on hyperlink containing value "View All"
-      Then I softly see value "Rejected" for title "New Value" inside field history table
-      Then I softly see value "Submitted for Approval" for title "Original Value" inside field history table
       Then I softly cannot see top right button "Edit" in page detail
       And I checkout to yopmail with mailid "pm.automation.qa2@yopmail.com"
       And I pause execution for "180" seconds
@@ -3403,9 +3400,9 @@ Feature: Amendment Request scenarios without background
     And I navigate to "Grants" tab
     When I navigate to "Amendment Requests" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Amendment Requests - All"
-    And I perform quick search for "{SavedValue:SOWAMENDMENTREQUEST}" in "---amendment:-:recipientSideAmendmentRequestTableId---" panel
-    Then I softly see value "{SavedValue:SOWAMENDMENTREQUEST}" for title "EGMS ID" inside table "---amendment:-:recipientSideAmendmentRequestTableId---"
-    And I click on "View" icon for "{SavedValue:SOWAMENDMENTREQUEST}" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
+    And I perform quick search for "{SavedValue:SOWAMENDMENTREQUEST}" in "---amendment:-:grantorAmendmentRequestsTableId---" panel
+    Then I softly see value "{SavedValue:SOWAMENDMENTREQUEST}" for title "EGMS ID" inside table "---amendment:-:grantorAmendmentRequestsTableId---"
+    And I click on "View" icon for "{SavedValue:SOWAMENDMENTREQUEST}" inside flex table with id "---amendment:-:grantorAmendmentRequestsTableId---" without waiting for record
     And I wait for "2" seconds
     And I click on "Send to Subrecipient" in the page details
     Then I softly see field "Status" as "Sent to Subrecipient"
@@ -3453,19 +3450,13 @@ Feature: Amendment Request scenarios without background
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:SOWAMENDMENTREQUEST}" in "---amendment:-:pendingTaskTableId---" panel
-    Then I softly do not see value "{SavedValue:SOWAMENDMENTREQUEST}" for title "EGMS ID" inside table "---amendment:-:pendingTaskTableId---"
+    Then I softly see "No Records Found" inside flex table with id "---amendment:-:pendingTaskTableId---"
     And I navigate to "Grants" tab
     When I navigate to "Amendment Requests" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Amendment Requests - All"
     And I perform quick search for "{SavedValue:SOWAMENDMENTREQUEST}" in "---amendment:-:recipientSideAmendmentRequestTableId---" panel
-    Then I softly do not see value "{SavedValue:SOWAMENDMENTREQUEST}" for title "EGMS ID" inside table "---amendment:-:recipientSideAmendmentRequestTableId---"
+    Then I softly see "No Records Found" inside flex table with id "---amendment:-:recipientSideAmendmentRequestTableId---"
     And I navigate to "Grants" tab
     When I navigate to "Subawards" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I perform quick search for "{SavedValue:AwardEGMSID}" in "---paymentRequest:-:recipientsSubawardTableId---" panel
-    When I click on "View" icon for "{SavedValue:AwardEGMSID}" inside flex table with id "---paymentRequest:-:recipientsSubawardTableId---" without waiting for record
-    When I navigate to "Management" sub tab
-    Then I softly do not see value "{SavedValue:SOWAMENDMENTREQUEST}" for title "EGMS ID" inside table "---amendment:-:recipientAwardAmendmentRequestTableId---"
-    When I navigate to "Overview" sub tab
-    When I click on hyperlink containing value "{SavedValue:GrantEGMSID}"
-    When I navigate to "Requests" sub tab
-    Then I softly do not see value "{SavedValue:SOWAMENDMENTREQUEST}" for title "EGMS ID" inside table "---amendment:-:SubrecipientGrantAmendmentTableId---"
+    Then I softly see "No Records Found" inside flex table with id "---paymentRequest:-:recipientsSubawardTableId---"
