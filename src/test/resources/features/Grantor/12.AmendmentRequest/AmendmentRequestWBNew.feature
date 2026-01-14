@@ -3809,7 +3809,7 @@ Feature: Amendment Request scenarios without background
     Then I softly can see top right button "Send Back to Subrecipient" in page detail
     And I click on "Send Back to Subrecipient" in the page details
     And I wait for "2" seconds
-    Then I softly see field "Status" as "Under Revision"
+    Then I softly see field "Status" as "Sent to Subrecipient"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Grants" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
