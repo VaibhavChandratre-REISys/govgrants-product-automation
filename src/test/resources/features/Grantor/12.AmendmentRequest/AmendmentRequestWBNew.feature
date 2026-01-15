@@ -4133,6 +4133,171 @@ Feature: Amendment Request scenarios without background
     When I navigate to "Files" sub tab
     Then I softly cannot see top right button "Add Files" in flex table with id "---amendment:-:amendmentAddFilesTableId---"
     Then I softly see value "Attachment.pdf" for title "Title" inside table "---amendment:-:amendmentAddFilesTableId---"
+    Then I softly can see top right button "New" in flex table with id "---amendment:-:amendmentAddNotesTableId---"
+    Then I softly see value "Automation Notes" for title "Title" inside table "---amendment:-:amendmentAddNotesTableId---"
+    When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
+    And I perform quick search inside global search "{SavedValue:SOWAMENDMENTREQUEST}"
+    And I click on row level action button "Edit" against "{SavedValue:SOWAMENDMENTREQUEST}" in global search with id "Amendment Requests"
+    Then I softly see field "Status" as "Created"
+    Then I see status in Progress-bar is "Created" and is "dark blue"
+    Then I cannot see top right button "Save" in page detail
+    Then I cannot see top right button "Cancel" in page detail
+    Then I softly see the text containing "You dont have sufficient access to edit this record"
+    And I navigate to "Grants" tab
+    When I navigate to "Amendment Requests" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click toggle button to select "Amendment Requests - All"
+    And I perform quick search for "{SavedValue:SOWAMENDMENTREQUEST}" in "---amendment:-:grantorAmendmentRequestsTableId---" panel
+    When I click on "View" icon for "{SavedValue:SOWAMENDMENTREQUEST}" inside flex table with id "---amendment:-:grantorAmendmentRequestsTableId---" without waiting for record
+    Then I cannot see top right button "Edit" in page detail
+    Then I softly see field "Status" as "Created"
+    Then I see status in Progress-bar is "Created" and is "dark blue"
+    When I navigate to "Overview" sub tab
+    Then I softly see "Overview" page block displayed
+    Then I softly see "Change in Scope – Subaward Description" page block displayed
+    Then I softly see "Change in Scope – Place of Performance" page block displayed
+    Then I softly do not see "Change in Scope – Goals and Objectives" page block displayed
+    Then I softly do not see "Change in Scope – Key Performance Indicators (KPIs)" page block displayed
+    Then I softly see "System Information" page block displayed
+    Then I softly do not see "Budget Summary" page block displayed
+    Then I softly do not see "Budget Summary by Focus Area" page block displayed
+    When I navigate to "Responsibilities" sub tab
+    Then I softly see value "{SavedValue:PO Username}" for title "Title" inside table "---amendment:-:approversTableId---"
+    Then I softly see value "{SavedValue:EXE Username}" for title "Title" inside table "---amendment:-:approversTableId---"
+    When I navigate to "Files" sub tab
+    Then I softly cannot see top right button "Add Files" in flex table with id "---amendment:-:amendmentAddFilesTableId---"
+    Then I softly see value "Attachment.pdf" for title "Title" inside table "---amendment:-:amendmentAddFilesTableId---"
+    Then I softly can see top right button "New" in flex table with id "---amendment:-:amendmentAddNotesTableId---"
+    Then I softly see value "Automation Notes" for title "Title" inside table "---amendment:-:amendmentAddNotesTableId---"
+    When I re-login to "Grantor" app as "FO" user on "INTERNAL" portal
+    And I perform quick search inside global search "{SavedValue:SOWAMENDMENTREQUEST}"
+    And I click on row level action button "Edit" against "{SavedValue:SOWAMENDMENTREQUEST}" in global search with id "Amendment Requests"
+    Then I softly see field "Status" as "Created"
+    Then I see status in Progress-bar is "Created" and is "dark blue"
+    Then I cannot see top right button "Save" in page detail
+    Then I cannot see top right button "Cancel" in page detail
+    Then I softly see the text containing "You dont have sufficient access to edit this record"
+    And I navigate to "Grants" tab
+    When I navigate to "Amendment Requests" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click toggle button to select "Amendment Requests - All"
+    And I perform quick search for "{SavedValue:SOWAMENDMENTREQUEST}" in "---amendment:-:grantorAmendmentRequestsTableId---" panel
+    When I click on "View" icon for "{SavedValue:SOWAMENDMENTREQUEST}" inside flex table with id "---amendment:-:grantorAmendmentRequestsTableId---" without waiting for record
+    Then I cannot see top right button "Edit" in page detail
+    Then I softly see field "Status" as "Created"
+    Then I see status in Progress-bar is "Created" and is "dark blue"
+    When I navigate to "Overview" sub tab
+    Then I softly see "Overview" page block displayed
+    Then I softly see "Change in Scope – Subaward Description" page block displayed
+    Then I softly see "Change in Scope – Place of Performance" page block displayed
+    Then I softly do not see "Change in Scope – Goals and Objectives" page block displayed
+    Then I softly do not see "Change in Scope – Key Performance Indicators (KPIs)" page block displayed
+    Then I softly see "System Information" page block displayed
+    Then I softly do not see "Budget Summary" page block displayed
+    Then I softly do not see "Budget Summary by Focus Area" page block displayed
+    When I navigate to "Responsibilities" sub tab
+    Then I softly see value "{SavedValue:PO Username}" for title "Title" inside table "---amendment:-:approversTableId---"
+    Then I softly see value "{SavedValue:EXE Username}" for title "Title" inside table "---amendment:-:approversTableId---"
+    When I navigate to "Files" sub tab
+    Then I softly cannot see top right button "Add Files" in flex table with id "---amendment:-:amendmentAddFilesTableId---"
+    Then I softly see value "Attachment.pdf" for title "Title" inside table "---amendment:-:amendmentAddFilesTableId---"
+    Then I softly can see top right button "New" in flex table with id "---amendment:-:amendmentAddNotesTableId---"
+    Then I softly see value "Automation Notes" for title "Title" inside table "---amendment:-:amendmentAddNotesTableId---"
+    When I re-login to "Grantor" app as "FD" user on "INTERNAL" portal
+    And I perform quick search inside global search "{SavedValue:SOWAMENDMENTREQUEST}"
+    And I click on row level action button "Edit" against "{SavedValue:SOWAMENDMENTREQUEST}" in global search with id "Amendment Requests"
+    Then I softly see field "Status" as "Created"
+    Then I see status in Progress-bar is "Created" and is "dark blue"
+    Then I cannot see top right button "Save" in page detail
+    Then I cannot see top right button "Cancel" in page detail
+    Then I softly see the text containing "You dont have sufficient access to edit this record"
+    And I navigate to "Grants" tab
+    When I navigate to "Amendment Requests" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click toggle button to select "Amendment Requests - All"
+    And I perform quick search for "{SavedValue:SOWAMENDMENTREQUEST}" in "---amendment:-:grantorAmendmentRequestsTableId---" panel
+    When I click on "View" icon for "{SavedValue:SOWAMENDMENTREQUEST}" inside flex table with id "---amendment:-:grantorAmendmentRequestsTableId---" without waiting for record
+    Then I cannot see top right button "Edit" in page detail
+    Then I softly see field "Status" as "Created"
+    Then I see status in Progress-bar is "Created" and is "dark blue"
+    When I navigate to "Overview" sub tab
+    Then I softly see "Overview" page block displayed
+    Then I softly see "Change in Scope – Subaward Description" page block displayed
+    Then I softly see "Change in Scope – Place of Performance" page block displayed
+    Then I softly do not see "Change in Scope – Goals and Objectives" page block displayed
+    Then I softly do not see "Change in Scope – Key Performance Indicators (KPIs)" page block displayed
+    Then I softly see "System Information" page block displayed
+    Then I softly do not see "Budget Summary" page block displayed
+    Then I softly do not see "Budget Summary by Focus Area" page block displayed
+    When I navigate to "Responsibilities" sub tab
+    Then I softly see value "{SavedValue:PO Username}" for title "Title" inside table "---amendment:-:approversTableId---"
+    Then I softly see value "{SavedValue:EXE Username}" for title "Title" inside table "---amendment:-:approversTableId---"
+    When I navigate to "Files" sub tab
+    Then I softly cannot see top right button "Add Files" in flex table with id "---amendment:-:amendmentAddFilesTableId---"
+    Then I softly see value "Attachment.pdf" for title "Title" inside table "---amendment:-:amendmentAddFilesTableId---"
+    Then I softly can see top right button "New" in flex table with id "---amendment:-:amendmentAddNotesTableId---"
+    Then I softly see value "Automation Notes" for title "Title" inside table "---amendment:-:amendmentAddNotesTableId---"
+    When I re-login to "Grantor" app as "ADMIN" user on "INTERNAL" portal
+    And I perform quick search inside global search "{SavedValue:SOWAMENDMENTREQUEST}"
+    And I click on row level action button "Edit" against "{SavedValue:SOWAMENDMENTREQUEST}" in global search with id "Amendment Requests"
+    Then I softly see field "Status" as "Created"
+    Then I see status in Progress-bar is "Created" and is "dark blue"
+    Then I cannot see top right button "Save" in page detail
+    Then I cannot see top right button "Cancel" in page detail
+    Then I softly see the text containing "You dont have sufficient access to edit this record"
+    And I navigate to "Grants" tab
+    When I navigate to "Amendment Requests" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click toggle button to select "Amendment Requests - All"
+    And I perform quick search for "{SavedValue:SOWAMENDMENTREQUEST}" in "---amendment:-:grantorAmendmentRequestsTableId---" panel
+    When I click on "View" icon for "{SavedValue:SOWAMENDMENTREQUEST}" inside flex table with id "---amendment:-:grantorAmendmentRequestsTableId---" without waiting for record
+    Then I cannot see top right button "Edit" in page detail
+    Then I softly see field "Status" as "Created"
+    Then I see status in Progress-bar is "Created" and is "dark blue"
+    When I navigate to "Overview" sub tab
+    Then I softly see "Overview" page block displayed
+    Then I softly see "Change in Scope – Subaward Description" page block displayed
+    Then I softly see "Change in Scope – Place of Performance" page block displayed
+    Then I softly do not see "Change in Scope – Goals and Objectives" page block displayed
+    Then I softly do not see "Change in Scope – Key Performance Indicators (KPIs)" page block displayed
+    Then I softly see "System Information" page block displayed
+    Then I softly do not see "Budget Summary" page block displayed
+    Then I softly do not see "Budget Summary by Focus Area" page block displayed
+    When I navigate to "Responsibilities" sub tab
+    Then I softly see value "{SavedValue:PO Username}" for title "Title" inside table "---amendment:-:approversTableId---"
+    Then I softly see value "{SavedValue:EXE Username}" for title "Title" inside table "---amendment:-:approversTableId---"
+    When I navigate to "Files" sub tab
+    Then I softly cannot see top right button "Add Files" in flex table with id "---amendment:-:amendmentAddFilesTableId---"
+    Then I softly see value "Attachment.pdf" for title "Title" inside table "---amendment:-:amendmentAddFilesTableId---"
+    Then I softly can see top right button "New" in flex table with id "---amendment:-:amendmentAddNotesTableId---"
+    Then I softly see value "Automation Notes" for title "Title" inside table "---amendment:-:amendmentAddNotesTableId---"
+    When I re-login to "Grantor" app as "AUDITOR" user on "INTERNAL" portal
+    And I perform quick search inside global search "{SavedValue:SOWAMENDMENTREQUEST}"
+    Then I softly cannot see row level action button "Edit" against "{SavedValue:SOWAMENDMENTREQUEST}" in global search with id "Amendment Requests"
+    When I click on hyperlink containing value "{SavedValue:SOWAMENDMENTREQUEST}"
+    Then I softly see field "Status" as "Created"
+    Then I see status in Progress-bar is "Created" and is "dark blue"
+    Then I cannot see top right button "Save" in page detail
+    Then I cannot see top right button "Cancel" in page detail
+    And I navigate to "Grants" tab
+    When I navigate to "Amendment Requests" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click toggle button to select "Amendment Requests - All"
+    And I perform quick search for "{SavedValue:SOWAMENDMENTREQUEST}" in "---amendment:-:grantorAmendmentRequestsTableId---" panel
+    When I click on "View" icon for "{SavedValue:SOWAMENDMENTREQUEST}" inside flex table with id "---amendment:-:grantorAmendmentRequestsTableId---" without waiting for record
+    Then I cannot see top right button "Edit" in page detail
+    Then I softly see field "Status" as "Created"
+    Then I see status in Progress-bar is "Created" and is "dark blue"
+    When I navigate to "Overview" sub tab
+    Then I softly see "Overview" page block displayed
+    Then I softly see "Change in Scope – Subaward Description" page block displayed
+    Then I softly see "Change in Scope – Place of Performance" page block displayed
+    Then I softly do not see "Change in Scope – Goals and Objectives" page block displayed
+    Then I softly do not see "Change in Scope – Key Performance Indicators (KPIs)" page block displayed
+    Then I softly see "System Information" page block displayed
+    Then I softly do not see "Budget Summary" page block displayed
+    Then I softly do not see "Budget Summary by Focus Area" page block displayed
+    When I navigate to "Responsibilities" sub tab
+    Then I softly see value "{SavedValue:PO Username}" for title "Title" inside table "---amendment:-:approversTableId---"
+    Then I softly see value "{SavedValue:EXE Username}" for title "Title" inside table "---amendment:-:approversTableId---"
+    When I navigate to "Files" sub tab
+    Then I softly cannot see top right button "Add Files" in flex table with id "---amendment:-:amendmentAddFilesTableId---"
+    Then I softly see value "Attachment.pdf" for title "Title" inside table "---amendment:-:amendmentAddFilesTableId---"
     Then I softly cannot see top right button "New" in flex table with id "---amendment:-:amendmentAddNotesTableId---"
     Then I softly see value "Automation Notes" for title "Title" inside table "---amendment:-:amendmentAddNotesTableId---"
 
