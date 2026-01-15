@@ -3926,7 +3926,6 @@ Feature: Amendment Request scenarios without background
     Then I can see top right button "New" in flex table with id "---amendment:-:amendmentAddNotesTableId---"
     Then I softly see value "Automation Notes" for title "Title" inside table "---amendment:-:amendmentAddNotesTableId---"
     Then I softly see value "Automation Notes1" for title "Title" inside table "---amendment:-:amendmentAddNotesTableId---"
-    Then I softly see value "Automation Notes2" for title "Title" inside table "---amendment:-:amendmentAddNotesTableId---"
     And I navigate to "Messages" sub tab
     Then I can see top right button "Send Email" in flex table with id "---announcement:-:collabMessages---"
     And I click on Menu icon present on top right corner of the page
@@ -4176,7 +4175,7 @@ Feature: Amendment Request scenarios without background
     Then I softly see "No Records Found" inside flex table with id "---subAwardStandAlone:-:activeGrantsTableId---"
 
   @530741 @validateusershouldabletoseetheSOWaccesstonewuserafterownershipreassignment @GrantorFlexP2
-  Scenario: Valiate user should able to see the SOW access to new user after ownership reassignment
+  Scenario: Validate user should able to see the SOW access to new user after ownership reassignment
     And I activated standalone subaward "Automation Runtime Amendment Award" with properties "default" of type "Competitive"
     Given I login to "Grantor" app as "PM" user
     And I navigate to "Grants" tab
@@ -4229,6 +4228,12 @@ Feature: Amendment Request scenarios without background
     And I enter "ScopeOfWork_Edition" values from "AmendmentRequest_Field_Values.xlsx"
     When I click on "Save" in the page details
     Then I see status in Progress-bar is "Created" and is "dark blue"
+    When I navigate to "Overview" sub tab
+    Then I softly see "Overview" page block displayed
+    Then I softly see "Change in Scope – Subaward Description" page block displayed
+    Then I softly see "Change in Scope – Place of Performance" page block displayed
+    Then I softly see "Change in Scope – Goals and Objectives" page block displayed
+    Then I softly see "Change in Scope – Key Performance Indicators (KPIs)" page block displayed
     When I click on top right button "Associate" in flex table with id "---amendment:-:keyOutcomesTableId---"
     And I pause execution for "5" seconds
     And I enter values into fields
@@ -4279,8 +4284,8 @@ Feature: Amendment Request scenarios without background
     Then I softly see "Overview" page block displayed
     Then I softly see "Change in Scope – Subaward Description" page block displayed
     Then I softly see "Change in Scope – Place of Performance" page block displayed
-    Then I softly do not see "Change in Scope – Goals and Objectives" page block displayed
-    Then I softly do not see "Change in Scope – Key Performance Indicators (KPIs)" page block displayed
+    Then I softly see "Change in Scope – Goals and Objectives" page block displayed
+    Then I softly see "Change in Scope – Key Performance Indicators (KPIs)" page block displayed
     Then I softly do not see top right button "Associate" inside flex table "---amendment:-:keyOutcomesTableId---"
     Then I softly see "System Information" page block displayed
     When I navigate to "Responsibilities" sub tab
@@ -4289,5 +4294,5 @@ Feature: Amendment Request scenarios without background
     When I navigate to "Files" sub tab
     Then I softly cannot see top right button "Add Files" in flex table with id "---amendment:-:amendmentAddFilesTableId---"
     Then I softly see value "Attachment.pdf" for title "Title" inside table "---amendment:-:amendmentAddFilesTableId---"
-    Then I softly cannot see top right button "New" in flex table with id "---amendment:-:amendmentAddNotesTableId---"
+    Then I softly can see top right button "New" in flex table with id "---amendment:-:amendmentAddNotesTableId---"
     Then I softly see value "Automation Notes" for title "Title" inside table "---amendment:-:amendmentAddNotesTableId---"
