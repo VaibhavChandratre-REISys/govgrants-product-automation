@@ -4021,7 +4021,7 @@ Feature: Amendment Request scenarios without background
     And I navigate to "Messages" sub tab
     Then I can see top right button "Send Email" in flex table with id "---announcement:-:collabMessages---"
     And I wait for "2" seconds
-     #530834
+    #530834
     And I click on "Amend Subaward" in the page details
     And I pause execution for "5" seconds
     Then I softly see status in Progress-bar is "Pending Activation" and is "dark blue"
@@ -4033,23 +4033,23 @@ Feature: Amendment Request scenarios without background
     And I pause execution for "180" seconds
     Then I refresh the page
     Then I see the mail subject is as follows :
-      """
-      Sandbox: Notification: Amendment Request #{SavedValue:TnCEGMSID} hasbeen Approved
-      """
+    """
+    Sandbox: Notification: Amendment Request #{SavedValue:TnCEGMSID} hasbeen Approved
+    """
     Then I see the mail text is as follows :
-      """
-      Hello,
-      This email is to inform you that the amendment request #{SavedValue:TnCEGMSID} for the award # {SavedValue:AwardEGMSID} has been approved and a new award can be created.
-      Amendment Details:
-      Amendment Request Type: Terms and Conditions Change
-      Amendment ID: {SavedValue:TnCEGMSID}
-      Status: Approved
-      Grant: {SavedValue:GrantEGMSID}
-      Log in to EGMS, and click here to access the record.
-      Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrantssupport@reisystems.com if you have any questions or need assistance with this task.
-      Thank you.
-      The EGMS Team
-      """
+    """
+    Hello,
+    This email is to inform you that the amendment request #{SavedValue:TnCEGMSID} for the award # {SavedValue:AwardEGMSID} has been approved and a new award can be created.
+    Amendment Details:
+    Amendment Request Type: Terms and Conditions Change
+    Amendment ID: {SavedValue:TnCEGMSID}
+    Status: Approved
+    Grant: {SavedValue:GrantEGMSID}
+    Log in to EGMS, and click here to access the record.
+    Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrantssupport@reisystems.com if you have any questions or need assistance with this task.
+    Thank you.
+    The EGMS Team
+    """
 
   @530943 @validateusershouldabletoseethecreatedSOWamendmentfromsameorganization(withnosetting)
   Scenario: Validate user should able to see the created SOW amendment from same organization (with no setting)
