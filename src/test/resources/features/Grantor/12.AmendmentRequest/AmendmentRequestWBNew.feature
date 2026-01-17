@@ -4707,7 +4707,6 @@ Feature: Amendment Request scenarios without background
     And I save the field labeled "EGMS ID" as "ActivatedSubAwardId1"
     When I click on "Activate" in the page details
     Then I softly see field "Status" as "Activated"
-    And I halt execution
     When I navigate to "Performance" sub tab
     Then I see value "Automation Permanent Objective2" for title "Title" inside table "---subAwardStandAlone:-:objectivesTableId---"
     Then I see value "Automation Permanent KPI" for title "Title" inside table "---subAwardStandAlone:-:kpiTableId---"
