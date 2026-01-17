@@ -7653,7 +7653,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     And I expand nested table containing column value "Payment Request"
     And I save the total records from the flex table id "---subAwardStandAlone:-:paymentRequestSchedulesTableId---" as "totalRecordsPaymentSchedule"
     Then I see total records count "{SavedValue:totalRecordsPaymentSchedule}" in flex table "---subAwardStandAlone:-:SubrecipientPaymentSchedules---"
-    Then I softly see total records count "{SavedValue:totalRecordsProgressSchedule}" in flex table "---subAwardStandAlone:-:RecipientprogressReportScheduleTableId---"
+    Then I softly see total records count "{SavedValue:totalRecordsProgressSchedule}" in flex table "---progressreport:-:RecipientprogressReportScheduleTableId---"
     Then I softly see total records count "{SavedValue:totalRecordsTnC}" in flex table "---subAwardStandAlone:-:SubrecipientTermsandConditions---"
     And I navigate to "Home" tab
     When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
@@ -7722,7 +7722,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     And I expand nested table containing column value "Payment Request"
      And I save the total records from the flex table id "---subAwardStandAlone:-:paymentRequestSchedulesTableId---" as "totalRecordsPaymentSchedule"
     Then I see total records count "{SavedValue:totalRecordsPaymentSchedule}" in flex table "---subAwardStandAlone:-:SubrecipientPaymentSchedules---"
-    Then I softly see total records count "{SavedValue:totalRecordsProgressSchedule}" in flex table "---subAwardStandAlone:-:RecipientprogressReportScheduleTableId---"
+    Then I softly see total records count "{SavedValue:totalRecordsProgressSchedule}" in flex table "---progressreport:-:RecipientprogressReportScheduleTableId---"
     Then I softly see total records count "{SavedValue:totalRecordsTnC}" in flex table "---subAwardStandAlone:-:SubrecipientTermsandConditions---"
     And I navigate to "Files" sub tab
     When I click on "Attach" icon for "Mandatory" inside flex table with id "---subAwardStandAlone:-:RecipientSubAwardChecklistTableId---" without waiting for record
@@ -8211,8 +8211,8 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     When I re-login to "Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    When I perform quick search for "Record Id" in "---subAwardStandAlone:-:pendingTaskTableId---" panel
-    And I click on "Start" icon for "Record Id" inside flex table with id "---subAwardStandAlone:-:pendingTaskTableId---" without waiting for record
+    When I perform quick search for "{SavedValue:AwardEGMSID}" in "---subAwardStandAlone:-:pendingTaskTableId---" panel
+    And I click on "Start" icon for "{SavedValue:AwardEGMSID}" inside flex table with id "---subAwardStandAlone:-:pendingTaskTableId---" without waiting for record
     When I navigate to "Overview" sub tab
     Then I see value "Automation Permanent NGO Program" for title "Program Title" inside table "---subAwardStandAlone:-:subawardFederalProgramTableId---"
     Then I see value "Automation SPI3" for title "Name" inside table "---subAwardStandAlone:-:associatedContactsTableId---"
@@ -8247,8 +8247,8 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    When I perform quick search for "Record Id" in "---subAwardStandAlone:-:pendingTaskTableId---" panel
-    And I click on "Start" icon for "Record Id" inside flex table with id "---subAwardStandAlone:-:pendingTaskTableId---" without waiting for record
+    When I perform quick search for "{SavedValue:AwardEGMSID}" in "---subAwardStandAlone:-:pendingTaskTableId---" panel
+    And I click on "Start" icon for "{SavedValue:AwardEGMSID}" inside flex table with id "---subAwardStandAlone:-:pendingTaskTableId---" without waiting for record
     Then I see only the following ordered radio buttons in the approval decision :
       | Approve | Reject | Forward | Send to Owner |
     When I navigate to "Overview" sub tab
@@ -8483,7 +8483,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     And I expand nested table containing column value "Payment Request"
     And I save the total records from the flex table id "---subAwardStandAlone:-:paymentRequestSchedulesTableId---" as "totalRecordsPaymentSchedule"
     Then I see total records count "{SavedValue:totalRecordsPaymentSchedule}" in flex table "---subAwardStandAlone:-:SubrecipientPaymentSchedules---"
-    Then I softly see total records count "{SavedValue:totalRecordsProgressSchedule}" in flex table "---subAwardStandAlone:-:RecipientprogressReportScheduleTableId---"
+    Then I softly see total records count "{SavedValue:totalRecordsProgressSchedule}" in flex table "---progressreport:-:RecipientprogressReportScheduleTableId---"
     Then I softly see total records count "{SavedValue:totalRecordsTnC}" in flex table "---subAwardStandAlone:-:SubrecipientTermsandConditions---"
     And I navigate to "Files" sub tab
     When I click on "Attach" icon for "Mandatory" inside flex table with id "---subAwardStandAlone:-:RecipientSubAwardChecklistTableId---" without waiting for record
@@ -8547,7 +8547,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     And I expand nested table containing column value "Payment Request"
     And I save the total records from the flex table id "---subAwardStandAlone:-:paymentRequestSchedulesTableId---" as "totalRecordsPaymentSchedule"
     Then I see total records count "{SavedValue:totalRecordsPaymentSchedule}" in flex table "---subAwardStandAlone:-:SubrecipientPaymentSchedules---"
-    Then I softly see total records count "{SavedValue:totalRecordsProgressSchedule}" in flex table "---subAwardStandAlone:-:RecipientprogressReportScheduleTableId---"
+    Then I softly see total records count "{SavedValue:totalRecordsProgressSchedule}" in flex table "---progressreport:-:RecipientprogressReportScheduleTableId---"
     Then I softly see total records count "{SavedValue:totalRecordsTnC}" in flex table "---subAwardStandAlone:-:SubrecipientTermsandConditions---"
     And I navigate to "Files" sub tab
     When I click on "Attach" icon for "Mandatory" inside flex table with id "---subAwardStandAlone:-:RecipientSubAwardChecklistTableId---" without waiting for record
