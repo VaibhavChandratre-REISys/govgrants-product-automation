@@ -8240,7 +8240,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     Then I softly see value "Notes Record" for title "Title" inside table "---subAwardStandAlone:-:notesAwardTableId---"
     When I navigate to "Overview" sub tab
     Then I see only the following ordered radio buttons in the approval decision :
-      | Approve | Reject | Forward | Send to Owner |
+      | Approve | Reject | Send back | Forward |
     And I "Reassign" to user "{SavedValue:EXE Username}" in the approval decision
     And I pause execution for "2" seconds
     And I refresh the page
@@ -8251,7 +8251,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     When I perform quick search for "{SavedValue:AwardEGMSID}" in "---subAwardStandAlone:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "{SavedValue:AwardEGMSID}" inside flex table with id "---subAwardStandAlone:-:pendingTaskTableId---" without waiting for record
     Then I see only the following ordered radio buttons in the approval decision :
-      | Approve | Reject | Forward | Send to Owner |
+      | Approve | Reject | Send back | Forward |
     When I navigate to "Overview" sub tab
     Then I see value "Automation Permanent NGO Program" for title "Program Title" inside table "---subAwardStandAlone:-:subawardFederalProgramTableId---"
     Then I see value "Automation SPI3" for title "Name" inside table "---subAwardStandAlone:-:associatedContactsTableId---"
