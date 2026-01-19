@@ -7660,7 +7660,9 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     Then I see the header is "Subrecipient Organization" in the page details
     #Create Secondary User
     And I click on top right button "New" in flex table with id "---home:-:userContactsTableId---"
+    And I wait for "2" seconds
     And I enter "Secondary_User" values from "SubrecipientOrganization_Field_Values.xlsx"
+    And I wait for "2" seconds
     And I generate the random EmailID and save as "uniqueEmailID1"
     And I enter value "{SavedValue:uniqueEmailID1}" into field "fieldEmail"
     When I click on "Save" in the page details
