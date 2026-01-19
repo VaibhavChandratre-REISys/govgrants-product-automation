@@ -1228,6 +1228,8 @@ Feature: Validate sanity testing of Complete Business Flow
 #    To Do:- Button is not display hence commented also added below step for now
 #    And I click on "Back" in the page details
     And I get the "EGMS ID"
+    And I wait for "3" seconds
+    And I get current URL
     When I click on "Submit Application" in the page details
     And I wait for "3" seconds
     Then I see status in Progress-bar is "Submitted" and is "dark blue"
@@ -1491,6 +1493,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I enter values into fields
       | Value                              | Field                |
       | Automation Negotiation Iniatiation | ApplicantResponse__c |
+    And I wait for "3" seconds
     When I click on "Save" in the page details
     When I click on "Submit to Grantor" in the page details
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
