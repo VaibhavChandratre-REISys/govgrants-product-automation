@@ -3822,6 +3822,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I click modal button "Close"
     And I wait for "9" seconds
     When I click on "Validate" in the page details
+    And I click on button "Validate" for succes or error validation
     Then I softly see the following messages in the page details :
       | Selecting at least one that apply in 'Report' is required. |
     When I click on "Edit" in the page details
@@ -3841,7 +3842,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I clear the value from field "SellingandHandlingAllowance__c"
     When I click on "Save" in the page details
     And I wait for "3" seconds
-    When I click on "Validate" in the page details
+    And I click on button "Validate" for succes or error validation
     Then I softly see the following messages in the page details :
       | If "1d" is checked, uncheck "1a", "1b" and "1c" in 'Report' section.                                                                            |
       | One selection is required in "2a. Federally-owned Property", if "1a" is checked in 'Report' section.                                            |
