@@ -3656,6 +3656,7 @@ Feature: Validate sanity testing of Complete Business Flow
 #    And I wait for "5" seconds
 #    And I enter value "3700" into field "RevisedCommitment__c"
 #    When I click on "Save" in the page details
+    And I get current URL
     When I click on "Submit for Approval" in the page details
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     When I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
