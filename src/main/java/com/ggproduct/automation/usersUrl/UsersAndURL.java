@@ -71,6 +71,8 @@ public class UsersAndURL implements UsersController {
             userName = getWashingtonEnvironmentUser(setUpUserLevel(userLevel));
         } else if ((EnvironmentFactory.getEnvironmentName() != null) && (EnvironmentFactory.getEnvironmentName().contains("FWLWC"))) {
             userName = getFwLwcEnvironmentUser(setUpUserLevel(userLevel));
+        } else if ((EnvironmentFactory.getEnvironmentName() != null) && (EnvironmentFactory.getEnvironmentName().contains("AFSPATCH-GRANTOR"))) {
+            userName = getAFSLWCPatchEnvironmentUser(setUpUserLevel(userLevel));
         } else if ((EnvironmentFactory.getEnvironmentName() != null) && (EnvironmentFactory.getEnvironmentName().contains("LWCPATCH"))) {
             userName = getLwcPatchEnvironmentUser(setUpUserLevel(userLevel));
         } else {
@@ -94,7 +96,10 @@ public class UsersAndURL implements UsersController {
             password = getWashingtonEnvironmentPassword(setUpUserLevel(userLevel));
         } else if (EnvironmentFactory.getEnvironmentName().contains("FWLWC")) {
             password = getFwLwcEnvironmentPassword(setUpUserLevel(userLevel));
-        } else if ((EnvironmentFactory.getEnvironmentName() != null) && (EnvironmentFactory.getEnvironmentName().contains("LWCPATCH"))) {
+        }else if (EnvironmentFactory.getEnvironmentName().contains("AFSPATCH-GRANTOR")) {
+            password = getAFSLWCPatchEnvironmentPassword(setUpUserLevel(userLevel));
+        }
+        else if ((EnvironmentFactory.getEnvironmentName() != null) && (EnvironmentFactory.getEnvironmentName().contains("LWCPATCH"))) {
             password = getLwcPatchEnvironmentPassword(setUpUserLevel(userLevel));
         } else
             password = getAUTOEnvironmentPassword(setUpUserLevel(userLevel));

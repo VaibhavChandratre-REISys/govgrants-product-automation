@@ -3823,11 +3823,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I click modal button "Close"
     And I wait for "9" seconds
     When I click on "Validate" in the page details
-<<<<<<< HEAD
-    #And I click on button "Validate" for succes or error validation
-=======
     And I click on button "Validate" for succes or error validation
->>>>>>> cf84e58e3388991651f931d9d1c3e7a9b19cc1b1
     Then I softly see the following messages in the page details :
       | Selecting at least one that apply in 'Report' is required. |
     When I click on "Edit" in the page details
@@ -3847,12 +3843,9 @@ Feature: Validate sanity testing of Complete Business Flow
     And I clear the value from field "SellingandHandlingAllowance__c"
     When I click on "Save" in the page details
     And I wait for "3" seconds
-<<<<<<< HEAD
     When I click on "Validate" in the page details
     #And I click on button "Validate" for succes or error validation
-=======
     And I click on button "Validate" for succes or error validation
->>>>>>> cf84e58e3388991651f931d9d1c3e7a9b19cc1b1
     Then I softly see the following messages in the page details :
       | If "1d" is checked, uncheck "1a", "1b" and "1c" in 'Report' section.                                                                            |
       | One selection is required in "2a. Federally-owned Property", if "1a" is checked in 'Report' section.                                            |
@@ -4315,11 +4308,7 @@ Feature: Validate sanity testing of Complete Business Flow
     Then I softly see status in Progress-bar is "In Progress" and is "dark blue"
     Then I softly see field "EGMS ID" as "{SavedValue:DeskReview}"
 
-<<<<<<< HEAD
-  @SF425FormsNegativeValidationCheckAndSF428ABlankvalueValidationCheckAlsoSF429Bformnegativevaluesenteredvalidationcheck @ProdSan4 @SF425Forms
-=======
   @SF425FormsNegativeValidationCheckAndSF428ABlankvalueValidationCheckAlsoSF429Bformnegativevaluesenteredvalidationcheck @ProdSan4 @ProdSan4_2
->>>>>>> cf84e58e3388991651f931d9d1c3e7a9b19cc1b1
   Scenario: SF425 Forms Negative Validation Check and SF 428 A Blank value Validation Check also SF429B form negative values entered validation check
     Given I activated standalone subaward "Automation Runtime Direct Award" with properties "default" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Direct Award}" from the object "Progress Report"
@@ -4549,16 +4538,11 @@ Feature: Validate sanity testing of Complete Business Flow
     And I enter "AuthorizedRepresentativeDetails" values from "UserRegistration_Field_Values.xlsx"
     And I generate the random maildropEmail and save as "uniqueEmailID"
     And I enter value "{SavedValue:uniqueEmailID}" into field "PrimaryRepEmail__c"
-<<<<<<< HEAD
     And I pause execution for "4" seconds
     When I click on "Save" in the page details
     And I pause execution for "3" seconds
     When I click on "Submit" in the page details
     And I pause execution for "30" seconds
-=======
-    When I click on "Save" in the page details
-    When I click on "Submit" in the page details
->>>>>>> cf84e58e3388991651f931d9d1c3e7a9b19cc1b1
     And I am on "INTERNAL" portal
     And I login to "As a Grantor" app as "PM" user
     When I navigate to "Pending Subrecipient Registrations" content inside "Organization" subheader on left panel
