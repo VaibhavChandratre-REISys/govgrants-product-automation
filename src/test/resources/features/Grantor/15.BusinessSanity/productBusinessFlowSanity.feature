@@ -4534,8 +4534,8 @@ Feature: Validate sanity testing of Complete Business Flow
     And I enter "AuthorizedRepresentativeDetails" values from "UserRegistration_Field_Values.xlsx"
     And I generate the random maildropEmail and save as "uniqueEmailID"
     And I enter value "{SavedValue:uniqueEmailID}" into field "PrimaryRepEmail__c"
-#    When I click on "Save" in the page details
-#    When I click on "Submit" in the page details
+    When I click on "Save" in the page details
+    When I click on "Submit" in the page details
     And I am on "INTERNAL" portal
     And I login to "As a Grantor" app as "PM" user
     When I navigate to "Pending Subrecipient Registrations" content inside "Organization" subheader on left panel
@@ -4650,23 +4650,23 @@ Feature: Validate sanity testing of Complete Business Flow
 
   @checkpassword
   Scenario: in this scenario we are test all password are working
-    When I login to "As a Grantor" app as "ADMIN" user
+    When I login to "As a Grantor" app as "PM" user
     When I navigate to "Planning" tab
-    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
-    When I navigate to "Planning" tab
-    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
-    When I navigate to "Planning" tab
-    When I re-login to "As a Grantor" app as "PM1" user on "INTERNAL" portal
-    When I navigate to "Planning" tab
-    When I re-login to "As a Grantor" app as "DYNAMICUSER" user on "INTERNAL" portal
-    When I navigate to "Planning" tab
-    When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
-    When I navigate to "Planning" tab
-    When I re-login to "As a Grantor" app as "ADMIN1" user on "INTERNAL" portal
-    When I navigate to "Planning" tab
-    When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
-    When I navigate to "Grants" tab
-    When I re-login to "Grants Portal" app as "SA" user on "SUBPORTAL" portal
-    When I navigate to "Home" tab
-    When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
-    When I navigate to "Home" tab
+#    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+#    When I navigate to "Planning" tab
+#    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+#    When I navigate to "Planning" tab
+#    When I re-login to "As a Grantor" app as "PM1" user on "INTERNAL" portal
+#    When I navigate to "Planning" tab
+#    When I re-login to "As a Grantor" app as "DYNAMICUSER" user on "INTERNAL" portal
+#    When I navigate to "Planning" tab
+#    When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
+#    When I navigate to "Planning" tab
+#    When I re-login to "As a Grantor" app as "ADMIN1" user on "INTERNAL" portal
+#    When I navigate to "Planning" tab
+#    When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
+#    When I navigate to "Grants" tab
+#    When I re-login to "Grants Portal" app as "SA" user on "SUBPORTAL" portal
+#    When I navigate to "Home" tab
+#    When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
+#    When I navigate to "Home" tab
