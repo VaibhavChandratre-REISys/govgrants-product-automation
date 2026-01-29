@@ -19,7 +19,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I click on "Activate" in the page details
     Then I see status in Progress-bar is "Active" and is "dark blue"
 
-  @72340 @activateKPI @ProdSan2
+  @72340 @activateKPI @ProdSan2 @ProdSan2_1
   Scenario: Validate the activation of KPI and the status changes to Active
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Planning" tab
@@ -54,7 +54,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click on "Activate" in the page details
     Then I see status in Progress-bar is "Active" and is "dark blue"
 
-  @StrategicPlanCreation @ProdSan2
+  @StrategicPlanCreation @ProdSan2 @ProdSan2_1
   Scenario: Creation of Strategic plan
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Planning" tab
@@ -87,7 +87,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I click on "Back To Strategic Plan" in the page details
     Then I softly see status in Progress-bar is "Created" and is "dark blue"
 
-  @SubrecipientContactCreation @ProdSan2
+  @SubrecipientContactCreation @ProdSan2 @ProdSan2_1
   Scenario: Subrecipient Contact Creation
     Given I login to "As a Grantor" app as "PM" user
     When I navigate to "Home" tab
@@ -191,7 +191,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I wait for "2" seconds
     Then I see status in Progress-bar is "Active" and is "dark blue"
 
-  @ExternalProgramActivation @ProdSan2
+  @ExternalProgramActivation @ProdSan2 @ProdSan2_1
   Scenario: Validate External Program Activation
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Planning" tab
@@ -232,7 +232,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click on "Activate" in the page details
     Then I softly see status in Progress-bar is "Active" and is "dark blue"
 
-  @65077 @publishingCompetitiveAnnouncementCA @ProdSan2
+  @65077 @publishingCompetitiveAnnouncementCA @ProdSan2 @ProdSan2_2
   Scenario: Validate the activation of Competitive Announcement
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Announcements" tab
@@ -298,7 +298,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click on submit review
     And I pause execution for "2" seconds
     # To do - remove comment for package execution
-#    When I close "Enter Review" modal by clicking the top right x button
+    When I close "Enter Review" modal by clicking the top right x button
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Announcements" tab
     When I navigate to "Competitive" content inside "Announcements" subheader on left panel
@@ -498,7 +498,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click on "Publish" in the page details
     Then I see status in Progress-bar is "Published" and is "dark blue"
 
-  @72342 @publishingDirectedAnnouncement @ProdSan2
+  @72342 @publishingDirectedAnnouncement @ProdSan2 @ProdSan2_2
   Scenario: Validate the activation of Directed Announcement and the status changes to published and is green
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
@@ -765,7 +765,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click on "Publish" in the page details
     Then I softly see status in Progress-bar is "Published" and is "dark blue"
 
-  @72343_1 @publishingFormulaAnnouncementByApplicantFocusArea @ProdSan2
+  @72343_1 @publishingFormulaAnnouncementByApplicantFocusArea @ProdSan2 @ProdSan2_2
   Scenario: Validate the activation of Formula By Applicant Focus Area Announcement and the status changes to published and is green
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
@@ -1050,7 +1050,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I wait for "2" seconds
     Then I softly see field "Status" as "Published"
 
-  @72343 @publishingFormulaAnnouncementByApplicant @ProdSan2
+  @72343 @publishingFormulaAnnouncementByApplicant @ProdSan2 @ProdSan2_1
   Scenario: Validate the activation of Formula By Applicant Announcement and the status changes to published and is green
     When I login to "As a Grantor" app as "ADMIN" user
     And I navigate to "Announcements" tab
@@ -1126,7 +1126,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click on "Publish" in the page details
     Then I softly see field "Status" as "Published"
 
-  @72344 @preApplicationSubmittedToGrantor @ProdSan2
+  @72344 @preApplicationSubmittedToGrantor @ProdSan2 @ProdSan2_1
   Scenario: Validate once the Grantor accepts the submitted pre-application then the changes status to Accepted
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Pre-App" and properties "PRE_APPLICATION_NEGOTIATION_YES"
     When I am on "SUBPORTAL" portal
@@ -1232,7 +1232,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I wait for "3" seconds
     Then I see status in Progress-bar is "Submitted" and is "dark blue"
 
-  @72346 @applicationReviewHappyPath @ProdSan2
+  @72346 @applicationReviewHappyPath @ProdSan2 @ProdSan2_2
   Scenario Outline: Validate the complete review process for an application
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement Application Review" and properties "default"
     And I initiated an application review for application "{SavedValue:Automation Runtime Announcement Application Review}" on announcement "{SavedValue:Automation Runtime Announcement Application Review}" with properties "default"
@@ -1258,7 +1258,9 @@ Feature: Validate sanity testing of Complete Business Flow
     When I enter the following values into flex table with id "---applicationReview:-:reviewersTableId---" by clicking "Add" :
       | Reviewer                 |
       | {SavedValue:FO Username} |
+    And I get current URL
     And I click on "Assign" icon for "{SavedValue:FO Username}" inside flex table with id "---applicationReview:-:reviewersTableId---"
+#Bug ID - 550282
     When I perform quick search for "<Announcement Name>" in "---applicationReview:-:assignApplicationsTableId---" panel
     And I check "<Announcement Name>" boxes in flex table with id "---applicationReview:-:assignApplicationsTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:assignApplicationsTableId---"
@@ -1304,6 +1306,7 @@ Feature: Validate sanity testing of Complete Business Flow
       | {SavedValue:PM Username}  |
     When I expand nested table containing column value "<Announcement Name>"
     And I click on "Assign" icon for "Program Review" inside flex table with id "---applicationReview:-:reviewFormsTableId---" with wait for record
+#Bug ID - 550282
     And I perform quick search for "{SavedValue:PM Username}" in "---applicationReview:-:panelAppTableId---" panel
     And I check "{SavedValue:PM Username}" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:panelAppTableId---"
@@ -1311,6 +1314,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I refresh the page
     And I wait for "2" seconds
     And I click on "Assign" icon for "Fiscal Review" inside flex table with id "---applicationReview:-:reviewFormsTableId---" with wait for record
+#Bug ID - 550282
     And I perform quick search for "{SavedValue:FO Username}" in "---applicationReview:-:panelAppTableId---" panel
     And I check "{SavedValue:FO Username}" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:panelAppTableId---"
@@ -1318,6 +1322,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I refresh the page
     And I wait for "2" seconds
     And I click on "Assign" icon for "Compliance Review" inside flex table with id "---applicationReview:-:reviewFormsTableId---" with wait for record
+#Bug ID - 550282
     And I perform quick search for "{SavedValue:EXE Username}" in "---applicationReview:-:panelAppTableId---" panel
     And I check "{SavedValue:EXE Username}" boxes in flex table with id "---applicationReview:-:panelAppTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:panelAppTableId---"
@@ -1385,6 +1390,7 @@ Feature: Validate sanity testing of Complete Business Flow
       | Reviewer                 |
       | {SavedValue:FO Username} |
     And I click on "Assign" icon for "{SavedValue:FO Username}" inside flex table with id "---applicationReview:-:reviewersTableId---"
+#Bug ID - 550282
     When I perform quick search for "<Announcement Name>" in "---applicationReview:-:assignApplicationsTableId---" panel
     And I check "<Announcement Name>" boxes in flex table with id "---applicationReview:-:assignApplicationsTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:assignApplicationsTableId---"
@@ -1499,7 +1505,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I navigate to "Negotiations" content inside "Application Reviews" subheader on left panel
     Then I can see row level action button "View" against "{SavedValue:Automation Runtime FDM Announcement}" in flex table with id "---negotiation:-:negotiationCompletedTaskTableId---"
 
-  @38224 @awardHappyPathFromFDM @ProdSan2
+  @38224 @awardHappyPathFromFDM @ProdSan2 @ProdSan2_2
   Scenario Outline: Validate  the activation of subaward from FDM happy path and the status changes to Activated
     Given I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "NO_RISK_ASSESSMENT"
     When I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -1576,7 +1582,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click on submit review
     And I wait for "1" seconds
     #To do - Remove comment for package execution
-#    When I close "Enter Review" modal by clicking the top right x button
+    When I close "Enter Review" modal by clicking the top right x button
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
@@ -1762,7 +1768,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I wait for "3" seconds
     Then I see that "Subaward" is in "Activated" status
 
-  @72360 @activeRiskAssessment @ProdSan2
+  @72360 @activeRiskAssessment @ProdSan2 @ProdSan2_1
   Scenario: Validate the Activation of Risk Assessment and the status changes to Active
     Given I login to "As a Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -1819,8 +1825,9 @@ Feature: Validate sanity testing of Complete Business Flow
     And I pause execution for "15" seconds
     And I click on submit review
     #To do remove comment for package execution
-#    When I close "Enter Review" modal by clicking the top right x button
+    When I close "Enter Review" modal by clicking the top right x button
 #    When I click modal button "Close"
+    And I pause execution for "5" seconds
     When I re-login to "As a Grantor" app as "DynamicUser" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Risk Assessments" content inside "Monitoring Activities" subheader on left panel
@@ -1848,7 +1855,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I click on "View" icon for "Record Id" inside flex table with id "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---" without waiting for record
     Then I see status in Progress-bar is "Active" and is "dark blue"
 
-  @72361 @activeOrgRiskAssessment @ProdSan2
+  @72361 @activeOrgRiskAssessment @ProdSan2 @ProdSan2_1
   Scenario: Validate the Activation of Org Risk Assessment and the status changes to Active
     Given I delete the record "Automation Permanent Organization for Risk Assessment" from the object "ORGANIZATION RISKASSESSMENT"
     Given I am on "SUBPORTAL" portal
@@ -2159,6 +2166,7 @@ Feature: Validate sanity testing of Complete Business Flow
       | {SavedValue:EXE Username} | Step 1        |
     When I get the "EGMS ID"
     When I click on "Submit for Approval" in the page details
+    And I pause execution for "5" seconds
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -2356,7 +2364,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click on "Accept and Close" in the page details
     Then I see status in Progress-bar is "Closed" and is "dark blue"
 
-  @72354 @deskReviewAcceptAndClose @ProdSan2
+  @72354 @deskReviewAcceptAndClose @ProdSan2 @ProdSan2_1
   Scenario: Validate once the Award level Desk Review is clicked on Accept and Close butted then status changes to closed
     Given I activated standalone subaward "Automation Runtime Award Desk Review" with properties "default" of type "Formula_By_Applicant"
     Given I activated standalone subaward "Automation Runtime Award Record" with properties "default" of type "Formula_By_Applicant"
@@ -2445,7 +2453,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click on "Accept And Close" in the page details
     Then I see status in Progress-bar is "Closed" and is "dark blue"
 
-  @72355 @siteVisitAcceptAndCloseOrgLevel @ProdSan2
+  @72355 @siteVisitAcceptAndCloseOrgLevel @ProdSan2 @ProdSan2_1
   Scenario: Validate once the Org Level Site Visit is clicked on Accept and Close butted then status changes to closed
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Home" tab
@@ -2525,7 +2533,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click on "Accept and Close" in the page details
     Then I see status in Progress-bar is "Closed" and is "dark blue"
 
-  @72357 @deskReviewAcceptAndCloseOrgLevel @ProdSan2
+  @72357 @deskReviewAcceptAndCloseOrgLevel @ProdSan2 @ProdSan2_1
   Scenario: Validate once the Org level Desk Review is clicked on Accept and Close butted then status changes to closed
     Given I login to "As a Grantor" app as "PM" user
     And I navigate to "Home" tab
@@ -2605,7 +2613,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click on "Accept And Close" in the page details
     Then I see status in Progress-bar is "Closed" and is "dark blue"
 
-  @72358 @activationOfBudgetPeriodAmendmentRequest @ProdSan2
+  @72358 @activationOfBudgetPeriodAmendmentRequest @ProdSan2 @ProdSan2_1
   Scenario: Validate the Budget period amendment activation
     And I activated standalone subaward "Automation Runtime Award" with properties "AMENDMENT_REQUEST" of type "Competitive"
     When I login to "As a Grantor" app as "dynamicUser" user
@@ -2752,7 +2760,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click on "View" icon for "{SavedValue:closeoutID}" inside flex table with id "---closeout:-:CloseoutTableId---"
     Then I softly see field "Status" as "Completed"
 
-  @CompletedSchedulesCloseout @ProdSan2
+  @CompletedSchedulesCloseout @ProdSan2 @ProdSan2_1
   Scenario: Validate Complete Scheduled Closeout End to End flow
     Given I activated standalone subaward "Automation Runtime Award for closeout" with properties "default" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Award for closeout}" from the object "Closeout"
@@ -2900,7 +2908,7 @@ Feature: Validate sanity testing of Complete Business Flow
       | User | Properties                            |
       | SPI3 | ADVANCE_PERMISSIBLE_YES_FOCUS_AREA_NO |
 
-  @PeriodicRenewalAmendmentRequests @ProdSan2
+  @PeriodicRenewalAmendmentRequests @ProdSan2 @ProdSan2_1
   Scenario: validate the end to end flow for Periodic Renewal Amendment Request
     And I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     When I login to "As a Grantor" app as "PM" user
@@ -2961,7 +2969,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I wait for "3" seconds
     Then I softly see field "Status" as "Activated"
 
-  @ScopeOfWorkChangeAmendmentRequest @ProdSan2
+  @ScopeOfWorkChangeAmendmentRequest @ProdSan2 @ProdSan2_1
   Scenario Outline: Validate end to end flow for scope of work change amendment request
     Given I activated standalone subaward "Automation Runtime Amendment Award" with properties "default" of type "Competitive"
     And I login to "As a Grantor" app as "PM" user
@@ -3019,7 +3027,7 @@ Feature: Validate sanity testing of Complete Business Flow
       | Award Name                                      | Grant Name                                      |
       | {SavedValue:Automation Runtime Amendment Award} | {SavedValue:Automation Runtime Amendment Award} |
 
-  @SubrecipientKeyPersonnelChangeAmendmentRequest @ProdSan2
+  @SubrecipientKeyPersonnelChangeAmendmentRequest @ProdSan2 @ProdSan2_1
   Scenario: Validate end to end flow for key personnel change amendment request
     Given I activated standalone subaward "Automation Runtime Amendment Award" with properties "default" of type "Competitive"
     And I am on "SUBPORTAL" portal
@@ -3144,7 +3152,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I wait for "3" seconds
     Then I softly see that "Subaward" is in "Activated" status
 
-  @ValidatedDetailBudgetYesScenarioInAward @ProdSan2
+  @ValidatedDetailBudgetYesScenarioInAward @ProdSan2 @ProdSan2_1
   Scenario: Validate Detail Budget Yes Scenario In Award
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
@@ -3195,7 +3203,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I wait for "5" seconds
     Then I softly see "No Records Found" inside flex table with id "---subAwardStandAlone:-:subAwardBudgetTableId---"
 
-  @TermsandConditionAmendmentRequest @ProdSan2
+  @TermsandConditionAmendmentRequest @ProdSan2 @ProdSan2_1
   Scenario: Validate Terms and Conditions Amendment Request End to End flow
     Given I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     When I am on "INTERNAL" portal
@@ -3263,7 +3271,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I wait for "3" seconds
     Then I softly see that "Subaward" is in "Activated" status
 
-  @SubrecipientBudgetPeriodAmendmentRequest @ProdSan2
+  @SubrecipientBudgetPeriodAmendmentRequest @ProdSan2 @ProdSan2_1
   Scenario: Validate Subrecipient Amendment Request End to End flow
     And I activated standalone subaward "Automation Runtime Award" with properties "Automation PO user" of type "Competitive"
     When I am on "SUBPORTAL" portal
@@ -3378,10 +3386,10 @@ Feature: Validate sanity testing of Complete Business Flow
       | Construction | 1500         |
     And I wait for "2" seconds
     When I close "Add Line Items" modal by clicking the top right x button
-    And I wait for "2" seconds
-    And I refresh the page
+    And I wait for "5" seconds
     And I click on "Submit to Grantor" in the page details
-    And I pause execution for "20" seconds
+    And I refresh the page
+    And I wait for "5" seconds
     Then I softly see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Grants" tab
@@ -3418,7 +3426,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I wait for "3" seconds
     Then I softly see that "Subaward" is in "Activated" status
 
-  @CombinationOfSubrecipientBRandKPCandSOW @ProdSan2
+  @CombinationOfSubrecipientBRandKPCandSOW @ProdSan2 @ProdSan2_2
   Scenario: Validate Combinations of Subrecipient BR and KPC and SOW
     Given I activated standalone subaward "Automation Runtime Award" with properties "SECOND_FOCUS_AREA_BUD_CAT_BUILDUP_YES-Automation PO user" of type "Formula_By_Applicant"
     When I am on "SUBPORTAL" portal
@@ -3509,7 +3517,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I wait for "3" seconds
     Then I softly see that "Subaward" is in "Activated" status
 
-  @CarryForwardAmendmentRequest @ProdSan2
+  @CarryForwardAmendmentRequest @ProdSan2 @ProdSan2_1
   Scenario: Validate Carry Forward Amendment Request End to End flow
     And I activated standalone subaward "Automation Runtime award" with properties "SECOND_FOCUS_AREA_BUDGET_CATEGORY" of type "Competitive"
     When I login to "As a Grantor" app as "PM" user
@@ -3637,11 +3645,14 @@ Feature: Validate sanity testing of Complete Business Flow
     When I enter the following values into flex table with id "---amendment:-:approversTableId---" by clicking "New" :
       | Name                     | Amendment Request |
       | {SavedValue:PO Username} | Step 1            |
-    And I wait for "2" seconds
+    And I wait for "5" seconds
     #To do after refresh 3700 value need to add
-    When I click on "Edit" in the page details
-    And I enter value "3700" into field "RevisedCommitment__c"
-    When I click on "Save" in the page details
+#    When I click on "Submit for Approval" in the page details
+#    And I wait for "5" seconds
+#    When I click on "Edit" in the page details
+#    And I wait for "5" seconds
+#    And I enter value "3700" into field "RevisedCommitment__c"
+#    When I click on "Save" in the page details
     When I click on "Submit for Approval" in the page details
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     When I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
@@ -3713,6 +3724,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I click modal button "Close"
     And I wait for "9" seconds
     When I click on "Validate" in the page details
+    And I click on button "Validate" for succes or error validation
     Then I softly see the following messages in the page details :
       | Form Validated Successfully. |
 
@@ -3759,6 +3771,7 @@ Feature: Validate sanity testing of Complete Business Flow
     Then I softly can see top right button "Edit" in page detail
     Then I softly can see top right button "Back" in page detail
     When I click on "Validate" in the page details
+    And I click on button "Validate" for succes or error validation
     Then I softly see the following messages in the page details :
       | Form Validated Successfully. |
 
@@ -3805,6 +3818,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I click modal button "Close"
     And I wait for "9" seconds
     When I click on "Validate" in the page details
+    #And I click on button "Validate" for succes or error validation
     Then I softly see the following messages in the page details :
       | Selecting at least one that apply in 'Report' is required. |
     When I click on "Edit" in the page details
@@ -3825,6 +3839,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I click on "Save" in the page details
     And I wait for "3" seconds
     When I click on "Validate" in the page details
+    #And I click on button "Validate" for succes or error validation
     Then I softly see the following messages in the page details :
       | If "1d" is checked, uncheck "1a", "1b" and "1c" in 'Report' section.                                                                            |
       | One selection is required in "2a. Federally-owned Property", if "1a" is checked in 'Report' section.                                            |
@@ -4287,7 +4302,7 @@ Feature: Validate sanity testing of Complete Business Flow
     Then I softly see status in Progress-bar is "In Progress" and is "dark blue"
     Then I softly see field "EGMS ID" as "{SavedValue:DeskReview}"
 
-  @SF425FormsNegativeValidationCheckAndSF428ABlankvalueValidationCheckAlsoSF429Bformnegativevaluesenteredvalidationcheck @ProdSan4
+  @SF425FormsNegativeValidationCheckAndSF428ABlankvalueValidationCheckAlsoSF429Bformnegativevaluesenteredvalidationcheck @ProdSan4 @SF425Forms
   Scenario: SF425 Forms Negative Validation Check and SF 428 A Blank value Validation Check also SF429B form negative values entered validation check
     Given I activated standalone subaward "Automation Runtime Direct Award" with properties "default" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Direct Award}" from the object "Progress Report"
@@ -4306,6 +4321,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click on "Save" in the page details
     And I wait for "2" seconds
     When I navigate to "Forms and Files" sub tab
+    And I get current URL
     And I select value inside table "---progressReport:-:formTableId---" is "All"
     And I wait for "2" seconds
     And I click on "View" icon for "Federal Financial Report - SF-425" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
@@ -4345,6 +4361,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I refresh the page
     And I wait for "5" seconds
     When I click on "Validate" in the page details
+    And I click on button "Validate" for succes or error validation
     Then I softly see the following messages in the page details :
       | If year is selected, report type As of Year is required. |
     And I close the tab
@@ -4360,6 +4377,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I wait for "3" seconds
     When I click on "Save" in the page details
     When I click on "Validate" in the page details
+    And I click on button "Validate" for succes or error validation
     Then I softly see the following messages in the page details :
       | If "Other" option is selected in "14k", Justification in specify is required.                                                                |
       | If "Other" option is selected in "14l", Justification in specify is required.                                                                |

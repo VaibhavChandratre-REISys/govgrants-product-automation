@@ -2,6 +2,7 @@ package com.ggproduct.automation.steps;
 
 import com.ggproduct.automation.projectmanager.ProjectManager;
 import com.ggproduct.automation.webservices.ProjectWebServices;
+import com.helperPackage.actionsfactory.api.ByUsing;
 import com.helperPackage.controller.DeviceBucket;
 import com.helperPackage.handlers.govgrants;
 import com.helperPackage.objects.InstanceRecording;
@@ -68,13 +69,13 @@ public class CommonSteps {
 
     @Description("Validate field is not editable")
     @Then("I (softly see|see) field \"([^\"]*)\" not in edit mode$")
-    public void iSoftlySeeFieldNotInEditMode(String usage,String fieldAPIName) {
+    public void iSoftlySeeFieldNotInEditMode(String usage, String fieldAPIName) {
         projectManager.assertFieldIsNotInEditMode(fieldAPIName, usage.contains("softly"));
     }
 
 
     @Then("I (softly see|see) field inside table \"([^\"]*)\" not in edit mode$")
-    public void iSoftlySeeFieldInsideTableNotInEditMode(String usage,String fieldAPIName) {
+    public void iSoftlySeeFieldInsideTableNotInEditMode(String usage, String fieldAPIName) {
         projectManager.assertFieldIsNotInEditModeForTable(fieldAPIName, usage.contains("softly"));
 
     }
@@ -93,6 +94,7 @@ public class CommonSteps {
     public void iResetTheTable() {
         I.amPerforming().click().withJavaScript(By.xpath("//div[@class='resetIcon']//button"));
     }
+
     @And("I click on remove for lookup from field \"([^\"]*)\"$")
     public void iRemovelookupvalue(String fieldApiName) {
         I.amPerforming().click().withJavaScript(By.xpath("//div[@data-field_api_name='" + fieldApiName + "']//div[contains(@class,'pillDiv slds-show')]//*[@title='Remove selected option'] | //c-fieldlwc[@data-fieldapiname='" + fieldApiName + "']//div[contains(@class,'pillDiv slds-show')]//*[@title='Remove selected option']"));
@@ -110,18 +112,18 @@ public class CommonSteps {
 
     @And("I click on {string} icon for {string} inside flex table with id {string} without Split")
     public void iClickOnIconForInsideFlexTableWithIdWithQuotes(String actionIcon, String anyUniqueColumnValues, String flexTableId) {
-            govgrants.perform().flexTable().clickTableActionIcon(flexTableId, actionIcon, anyUniqueColumnValues);
+        govgrants.perform().flexTable().clickTableActionIcon(flexTableId, actionIcon, anyUniqueColumnValues);
     }
 
     @When("I {string} page block contaninig value {string}")
     public void iPageBlockContaninigValue(String actionIcon, String pageBlockTitle) {
-        govgrants.perform().pageDetails().pageBlockExpandedOrCollapse(pageBlockTitle,actionIcon);
+        govgrants.perform().pageDetails().pageBlockExpandedOrCollapse(pageBlockTitle, actionIcon);
     }
 
 
     @When("I {string} left navigation contaninig value {string}")
     public void iLeftNavigationContaninigValue(String actionIcon, String leftNavigationButton) {
-        govgrants.perform().pageDetails().leftNavigationContaninigValue(actionIcon,leftNavigationButton);
+        govgrants.perform().pageDetails().leftNavigationContaninigValue(actionIcon, leftNavigationButton);
     }
 
     @And("^I delete the grantee record \"([^\"]*)\"$")
@@ -141,7 +143,7 @@ public class CommonSteps {
 
     @Then("^I (softly see|softly do not see|see) notification \"([^\"]*)\" contains \"([^\"]*)\"$")
     public void iSoftlySeeNotificationContains(String usage, String messageTitle, String messageValue) {
-        projectManager.assertNotificationValues(usage,messageTitle,messageValue);
+        projectManager.assertNotificationValues(usage, messageTitle, messageValue);
     }
 
     @And("I click on {string} button for view files page")
@@ -169,6 +171,12 @@ public class CommonSteps {
     public void iGetCurrentURL() {
         String currentURL = (InstanceRecording.getInstance(DeviceBucket.class)).getDriver().getCurrentUrl();
         System.out.println("current URL : " + currentURL);
+    }
+
+    @And("I click on button {string} for succes or error validation")
+    public void iClickOnButtonForSuccesOrErrorValidation(String button) {
+        I.amPerforming().waitFor().makeThreadSleep(5000);
+        I.amPerforming().click().on(ByUsing.xpath("//lightning-button//button[@title='" + button + "' or text()='" + button + "'] | //div[contains(@class,'dropdown__item')]//span[text()='" + button + "'] | //lightning-menu-item//div//*[text()='" + button + "'] | //li/a/div[@title='" + button + "']"));
     }
 }
 

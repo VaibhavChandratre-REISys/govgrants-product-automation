@@ -173,6 +173,9 @@ public class ProjectWebServices {
         else if (EnvironmentFactory.getEnvironmentName().contains("LWCPATCH-GRANTOR")) {
             defaultEndPointGetToken = "/services/oauth2/token?grant_type=password&client_secret=71C1948068ABD5AC136C8B6E9E0257675A7D5B9BA610C8570DF139468051AE25&client_id=3MVG9qbIpUScOGtaYVc_ZPdfH29RD06hpZTxHQ_.KFS.Pdg0YwBq1p4yCdi.9GQE70qlnfMgz5.09oLRlPtoU&username=govgrantsautomation@yopmail.com.fwautopach&password=Jupiter@2026";
         }
+        else if (EnvironmentFactory.getEnvironmentName().contains("AFSPATCH-GRANTOR")) {
+            defaultEndPointGetToken = "/services/oauth2/token?grant_type=password&client_secret=395B858859FD7B50E4D3963784345B3E86FAA3BDB38075A763096E8D4DCDDBFE&client_id=3MVG98im9TK34CUW45zaL1fTHaPKmB3.VyfQGR3VRUIlPiPu0fez1UV87ZFXKq6IIPztNfaFwgZkL.yCrlGZ8&username=govgrantsauto@yopmail.com.afspatch&password=Support@3032";
+        }
         else if (EnvironmentFactory.getEnvironmentName().contains("NYLWC"))
             defaultEndPointGetToken = "/services/oauth2/token?grant_type=password&client_id=3MVG90D5vR7Utjboc8b3nxgWl_TIAtGV_TgV2OQsaOZNGnhetFSjnMGSvL67KfRN99.Z0ne32YZHHlzdyCb_a&client_secret=F1F4C218C1E6AB1ECA2DD46CDCFB204D66FCEFA2DB939003C5C4B207DAF0A736&username=govgrantsautomation@yopmail.com.lctcsgap&password=Salesforce@2025";
 
