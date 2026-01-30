@@ -226,7 +226,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Planning" tab
     When I navigate to "External Programs" content inside "Programs" subheader on left panel
-    And I click toggle button to select "All NGO Programs"
+    And I click toggle button to select "NGO Programs - All"
     When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:ExternalNGOProgramTableId---" panel
     And I click on "View" icon for "{SavedValue:ProgramEGMSID}" inside flex table with id "---program:-:ExternalNGOProgramTableId---" without waiting for record
     And I click on "Activate" in the page details
@@ -298,7 +298,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click on submit review
     And I pause execution for "2" seconds
     # To do - remove comment for package execution
-    When I close "Enter Review" modal by clicking the top right x button
+#    When I close "Enter Review" modal by clicking the top right x button
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Announcements" tab
     When I navigate to "Competitive" content inside "Announcements" subheader on left panel
@@ -565,7 +565,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I wait for "2" seconds
     When I click on submit review
     #To do - Remove comment for package execution
-    When I close "Enter Review" modal by clicking the top right x button
+#    When I close "Enter Review" modal by clicking the top right x button
     And I wait for "2" seconds
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Announcements" tab
@@ -832,7 +832,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I wait for "2" seconds
     When I click on submit review
     #To do - Remove comment for package execution
-    When I close "Enter Review" modal by clicking the top right x button
+#    When I close "Enter Review" modal by clicking the top right x button
     And I wait for "2" seconds
     And I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     When I navigate to "Announcements" tab
@@ -1582,7 +1582,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click on submit review
     And I wait for "1" seconds
     #To do - Remove comment for package execution
-    When I close "Enter Review" modal by clicking the top right x button
+#    When I close "Enter Review" modal by clicking the top right x button
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
@@ -1825,7 +1825,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I pause execution for "15" seconds
     And I click on submit review
     #To do remove comment for package execution
-    When I close "Enter Review" modal by clicking the top right x button
+#    When I close "Enter Review" modal by clicking the top right x button
 #    When I click modal button "Close"
     And I pause execution for "5" seconds
     When I re-login to "As a Grantor" app as "DynamicUser" user on "INTERNAL" portal
@@ -3456,13 +3456,13 @@ Feature: Validate sanity testing of Complete Business Flow
       | Title        | Award Amount |
       | Construction | 450          |
     And I wait for "2" seconds
-    When I close "Payment Line Items" modal by clicking the top right x button
+    When I close "Amendment Line Items" modal by clicking the top right x button
     When I click on "Add Line Items" icon for "Indirect costs" inside flex table with id "---amendment:-:budgetChangeTableId---"
     And I enter the following values into flex table with id "---amendment:-:amendmentLineItemsTableId---" by clicking "New" :
       | Title        | Narrative     | Award Amount |
       | Construction | The Narrative | 50           |
     And I wait for "2" seconds
-    When I close "Payment Line Items" modal by clicking the top right x button
+    When I close "Amendment Line Items" modal by clicking the top right x button
     And I wait for "3" seconds
     And I click on page navigation arrow "---amendment:-:budgetChangeTableId---" for table id "Next"
     And I wait for "3" seconds
@@ -3478,7 +3478,7 @@ Feature: Validate sanity testing of Complete Business Flow
       | Title        | Narrative     | Award Amount |
       | Construction | The Narrative | 50           |
     And I wait for "2" seconds
-    When I close "Payment Line Items" modal by clicking the top right x button
+    When I close "Amendment Line Items" modal by clicking the top right x button
     And I wait for "2" seconds
     And I click on "Submit to Grantor" in the page details
     And I pause execution for "5" seconds
