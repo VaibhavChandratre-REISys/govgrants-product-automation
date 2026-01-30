@@ -254,7 +254,6 @@ Feature: Validate sanity testing of Complete Business Flow
     When I close "Associate Funding Accounts" modal by clicking the top right x button
     And I refresh the page
     When I navigate to "Financials" sub tab
-    And I halt execution
     Given I edit the following rows inline in flex table with id "---announcement:-:fundingAccountsTableId---" by clicking "Edit" :
       | Funding Account                | Pre-Encumbrance |
       | {SavedValue:AFSfundingAccount} | 2000            |
