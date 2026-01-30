@@ -87,7 +87,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I click on "Back To Strategic Plan" in the page details
     Then I softly see status in Progress-bar is "Created" and is "dark blue"
 
-  @SubrecipientContactCreation @ProdSan2 @ProdSan2_1 @ProdSan2_1_1
+  @SubrecipientContactCreation @ProdSan2
   Scenario: Subrecipient Contact Creation
     Given I login to "As a Grantor" app as "PM" user
     When I navigate to "Home" tab
@@ -127,6 +127,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I get the "EGMS ID"
     When I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---program:-:contactsTableId---"
+    When I perform quick search for "{SavedValue:EXE Username}" in "---program:-:associateContactsTableId---" panel
     When I click "Associate" after selection of "{SavedValue:EXE Username}" in the table "---program:-:associateContactsTableId---"
     When I click modal button "Close"
     When I navigate to "Setup" sub tab
