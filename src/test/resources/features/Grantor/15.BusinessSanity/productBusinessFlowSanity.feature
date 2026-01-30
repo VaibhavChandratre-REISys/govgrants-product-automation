@@ -2857,6 +2857,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "FundingID"
     When I navigate to "Responsibilities" sub tab
+    And I pause execution for "5" seconds
     When I enter the following values into flex table with id "---amendment:-:fundingChangeApproversTableId---" by clicking "New" :
       | Name                     | Amendment Request |
       | {SavedValue:PM Username} | NA                |
@@ -2889,6 +2890,9 @@ Feature: Validate sanity testing of Complete Business Flow
       | Value | Field                |
       | 3000  | RevisedCommitment__c |
     And I click on "Save" in the page details
+    When I click on top right button "Associate" in flex table with id "---amendment:-:amendmentFundingAccountsTableId---"
+    When I click "Add" after selection of "{SavedValue:AFSfundingAccount}" in the table "---amendment:-:AssociateFundingAccountTableId---"
+    When I close "Associate Funding Accounts" modal by clicking the top right x button
     When I edit the following rows inline in flex table with id "---amendment:-:amendmentFundingAccountsTableId---" by clicking "Edit" :
       | Funding Account                | Revised Encumbrance |
       | {SavedValue:AFSfundingAccount} | 3000                |
