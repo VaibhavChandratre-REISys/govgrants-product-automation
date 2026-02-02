@@ -536,22 +536,22 @@ public class UsersAndURL implements UsersController {
 
     private String getFwLwcEnvironmentPassword(String userType) {
         Map<String, String> password = new HashMap<>();
-        password.put("ADMIN", "Jupiter@2026");
-        password.put("ADMIN1", "Jupiter@20266");
-        password.put("EXE", "Jupiter@2026");
-        password.put("PM", "Jupiter@2026");
-        password.put("FO", "Jupiter@2026");
-        password.put("SPI3", "Jupiter@2026");
-        password.put("PM1", "Jupiter@2026");
-        password.put("Automation PM", "Jupiter@2026");
-        password.put("SA", "Jupiter@2026");
-        password.put("PO", "Jupiter@2026");
-        password.put("IND", "Jupiter@2026");
-        password.put("FD", "Jupiter@2026");
-        password.put("AUDITOR", "Jupiter@2026");
-        password.put("FO1", "Jupiter@2026");
-        password.put("PO1", "Jupiter@2026");
-        password.put("EXE1", "Jupiter@2026");
+        password.put("ADMIN", "Support@3032");
+        password.put("ADMIN1", "Support@3032");
+        password.put("EXE", "Support@3032");
+        password.put("PM", "Support@3032");
+        password.put("FO", "Support@3032");
+        password.put("SPI3", "Support@3032");
+        password.put("PM1", "Support@3032");
+        password.put("Automation PM", "Support@3032");
+        password.put("SA", "Support@3032");
+        password.put("PO", "Support@3032");
+        password.put("IND", "Support@3032");
+        password.put("FD", "Support@3032");
+        password.put("AUDITOR", "Support@3032");
+        password.put("FO1", "Support@3032");
+        password.put("PO1", "Support@3032");
+        password.put("EXE1", "Support@3032");
         if (userType.toUpperCase() != null) {
             return password.get(userType.toUpperCase());
         } else {
