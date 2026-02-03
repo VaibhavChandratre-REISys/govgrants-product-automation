@@ -322,6 +322,12 @@ public class GrantorProjectManager extends ProjectManager {
             } catch (IOException e) {
 
             }
+        } else if (null != EnvironmentFactory.getEnvironmentName() && !"".equalsIgnoreCase(EnvironmentFactory.getEnvironmentName()) && EnvironmentFactory.getEnvironmentName().equalsIgnoreCase("AFSPATCH-GRANTOR")) {
+            try {
+                p.load(this.getClass().getResourceAsStream("/properties/afspatch.properties"));
+            } catch (IOException e) {
+
+            }
         } else {
             try {
                 p.load(this.getClass().getResourceAsStream("/properties/AUTOEnvData.properties"));
@@ -698,10 +704,10 @@ public class GrantorProjectManager extends ProjectManager {
             if (rowValues2.get(counter).getText().equalsIgnoreCase("No Records Found")) {
                 counter++;
             } else {
-                    I.amPerforming().click().on(columnSelector);
-                    I.amPerforming().click().on(By.xpath("//*[@data-flextablename='" + flextableId + "']//td//*[text()='Delete']"));
-                    govgrants.perform().modal().acceptPopUp();
-                    I.amPerforming().waitFor().makeThreadSleep(2000);
+                I.amPerforming().click().on(columnSelector);
+                I.amPerforming().click().on(By.xpath("//*[@data-flextablename='" + flextableId + "']//td//*[text()='Delete']"));
+                govgrants.perform().modal().acceptPopUp();
+                I.amPerforming().waitFor().makeThreadSleep(2000);
             }
         }
     }
