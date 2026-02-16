@@ -72,7 +72,7 @@ public final class Modal {
         try {
             if (I.amPerforming().checkToSee().IsElementPresentQuick(By.xpath("//div[contains(@class,'modal__container')]//lightning-prompt//input | //div[contains(@class,'modal__container')]//div[@class='confirm-modal']//input | //button[text()='Edit']"))) {
                 I.amPerforming().textInput().in(By.xpath("//div[contains(@class,'modal__container')]//lightning-prompt//input | //div[contains(@class,'modal__container')]//div[@class='confirm-modal']//input"), "Automated Test");
-                I.amPerforming().click().on(By.xpath("//div[contains(@class,'modal__container')]//button[text()='OK' or text()='Yes' or text()='Continue'] | //button[text()='Edit']"));
+                I.amPerforming().click().on(By.xpath("//div[contains(@class,'modal__container')]//button[text()='OK' or text()='Yes' or text()='Continue']"));
             }
         } catch (Exception e) {
 

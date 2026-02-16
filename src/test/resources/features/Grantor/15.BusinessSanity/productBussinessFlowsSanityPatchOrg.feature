@@ -1,4 +1,4 @@
-@productBusinessFlowSanity @product @grantor-regression
+@productBusinessFlowSanity @product @grantor-regression @wip
 Feature: Validate sanity testing of Complete Business Flow
 
   @72335  @72335@activationOfFocusArea @ProdSan1
@@ -4660,3 +4660,5 @@ Feature: Validate sanity testing of Complete Business Flow
     When I navigate to "Home" tab
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     When I navigate to "Home" tab
+
+    And I select value inside table "---flexgrid:-:TestAutomationFlexGrid1---" is "All"
