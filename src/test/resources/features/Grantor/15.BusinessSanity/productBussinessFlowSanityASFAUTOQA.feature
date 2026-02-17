@@ -1228,6 +1228,7 @@ Feature: Validate sanity testing of Complete Business Flow
 #    To Do:- Button is not display hence commented also added below step for now
 #    And I click on "Back" in the page details
     And I get the "EGMS ID"
+    And I get current URL
     When I click on "Submit Application" in the page details
     And I wait for "3" seconds
     Then I see status in Progress-bar is "Submitted" and is "dark blue"
@@ -2723,9 +2724,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "closeoutID"
     When I navigate to "Responsibilities" sub tab
-    When I enter the following values into flex table with id "---closeout:-:closeoutApproverTableId---" by clicking "New" :
-      | Name                      | Closeout |
-      | {SavedValue:EXE Username} | NA       |
+    And I get current URL
     When I enter the following values into flex table with id "---closeout:-:closeoutApproverTableId---" by clicking "New" :
       | Name                      | Closeout |
       | {SavedValue:EXE Username} | Step 1   |
@@ -3109,13 +3108,13 @@ Feature: Validate sanity testing of Complete Business Flow
     And I edit the following rows inline in flex table with id "---amendment:-:amendmentLineItemsTableId---" by clicking "Edit" :
       | Title        | Award Amount |
       | Construction | 900          |
-    When I close "Payment Line Items" modal by clicking the top right x button
+    When I close "Amendment Line Items" modal by clicking the top right x button
     And I wait for "2" seconds
     When I click on "Add Line Items" icon for "Indirect costs" inside flex table with id "---amendment:-:budgetChangeTableId---"
     And I enter the following values into flex table with id "---amendment:-:amendmentLineItemsTableId---" by clicking "New" :
       | Title        | Narrative     | Award Amount |
       | Construction | The Narrative | 100          |
-    When I close "Payment Line Items" modal by clicking the top right x button
+    When I close "Amendment Line Items" modal by clicking the top right x button
     And I click on "Submit to Grantor" in the page details
     And I wait for "2" seconds
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
