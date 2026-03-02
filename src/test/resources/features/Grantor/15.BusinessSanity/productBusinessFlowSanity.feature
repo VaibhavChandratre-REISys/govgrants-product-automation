@@ -2893,6 +2893,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I click on top right button "Associate" in flex table with id "---amendment:-:amendmentFundingAccountsTableId---"
     When I click "Add" after selection of "{SavedValue:fundingAccount}" in the table "---amendment:-:AssociateFundingAccountTableId---"
     When I close "Associate Funding Accounts" modal by clicking the top right x button
+    And I halt execution
     When I edit the following rows inline in flex table with id "---amendment:-:amendmentFundingAccountsTableId---" by clicking "Edit" :
       | Funding Account             | Revised Encumbrance |
       | {SavedValue:fundingAccount} | 3000                |
