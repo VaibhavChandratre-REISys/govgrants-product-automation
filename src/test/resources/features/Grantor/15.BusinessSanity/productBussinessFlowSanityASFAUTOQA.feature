@@ -3375,7 +3375,7 @@ Feature: Validate sanity testing of Complete Business Flow
       | Title        | Award Amount |
       | Construction | 1500         |
     And I wait for "2" seconds
-    When I close "Payment Line Items" modal by clicking the top right x button
+    When I close "Amendment Lime Items" modal by clicking the top right x button
     And I wait for "2" seconds
     And I click on page navigation arrow "---amendment:-:budgetChangeTableId---" for table id "Next"
     When I click on "Add Line Items" icon for "Construction" inside flex table with id "---amendment:-:budgetChangeTableId---"
@@ -3383,7 +3383,7 @@ Feature: Validate sanity testing of Complete Business Flow
       | Title        | Award Amount |
       | Construction | 1500         |
     And I wait for "2" seconds
-    When I close "Payment Line Items" modal by clicking the top right x button
+    When I close "Amendment Lime Items" modal by clicking the top right x button
     And I wait for "5" seconds
     And I click on "Submit to Grantor" in the page details
     And I refresh the page
