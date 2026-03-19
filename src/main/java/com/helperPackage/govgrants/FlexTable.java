@@ -883,7 +883,7 @@ public final class FlexTable implements FlexTableComponent {
      * @author Dilip.Hatagale
      */
     private void HandleTextArea(WebElement fieldWrapper, String fieldValue) {
-        By editForMoreButton = By.xpath("//lightning-icon[@icon-name='utility:new_window']");
+        By editForMoreButton = By.xpath("//span[@role='button' and (@aria-label='Add text' or @aria-label='Edit')]");
         By richTextArea = By.xpath("//div[@part='modal-body']//textarea[@part='textarea'] |//div[@part='rich-text-editor']//div[contains(@class,'rich-text-area')]");
         By saveButtonOnModal = By.xpath("//div[@class='confirm-modal']//button[@title='Save' or text()='Save']");
         I.amPerforming().click().withJavaScript(editForMoreButton);
