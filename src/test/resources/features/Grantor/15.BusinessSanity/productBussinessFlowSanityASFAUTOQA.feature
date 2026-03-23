@@ -498,7 +498,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click on "Publish" in the page details
     Then I see status in Progress-bar is "Published" and is "dark blue"
 
-  @72342 @publishingDirectedAnnouncement @ProdSan2 @ProdSan2_2 @ProdSan2_2_1 @wip
+  @72342 @publishingDirectedAnnouncement @ProdSan2 @ProdSan2_2 @ProdSan2_2_1
   Scenario: Validate the activation of Directed Announcement and the status changes to published and is green
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
@@ -565,7 +565,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I wait for "2" seconds
     When I click on submit review
     #To do - Remove comment for package execution
-#    When I close "Enter Review" modal by clicking the top right x button
+    When I close "Enter Review" modal by clicking the top right x button
     And I wait for "2" seconds
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Announcements" tab
@@ -1583,7 +1583,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click on submit review
     And I wait for "1" seconds
     #To do - Remove comment for package execution
-#    When I close "Enter Review" modal by clicking the top right x button
+    When I close "Enter Review" modal by clicking the top right x button
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
