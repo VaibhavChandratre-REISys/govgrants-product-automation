@@ -1197,6 +1197,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I wait for "3" seconds
     And I navigate to "Budget" sub tab
     When I expand nested table containing column value "BP01"
+    And I get current URL
     And I edit the following rows inline in flex table with id "---applicationReview:-:budgetTableId---" by clicking "Edit" :
       | Category Name | Budget | Cash Match | Non-Cash Match |
       | Construction  | 1000   | 100        | 100            |
