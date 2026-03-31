@@ -3,6 +3,7 @@ package com.helperPackage.govgrants;
 import com.helperPackage.handlers.govgrants;
 import com.helperPackage.register.I;
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 
 public final class Modal {
@@ -20,9 +21,10 @@ public final class Modal {
             I.amPerforming().click().on(modalButton, false);
             govgrants.perform().mainPage().waitForNavigationLogoToDisappear();
         } catch (Exception ee) {
-                I.amPerforming().click().withJavaScript(modalButton);
-                govgrants.perform().mainPage().waitForNavigationLogoToDisappear();
+            I.amPerforming().click().withJavaScript(modalButton);
+            govgrants.perform().mainPage().waitForNavigationLogoToDisappear();
         }
+        govgrants.perform().modal().acceptPopUp();
     }
 
     public By getModalContentSpecificButton(String buttonName) {
@@ -54,14 +56,12 @@ public final class Modal {
      * Accept modal based pop up
      */
     public void acceptPopUp() {
-        I.amPerforming().waitFor().makeThreadSleep(3000);
         try {
             if (I.amPerforming().checkToSee().IsElementPresentQuick(By.xpath("//div[contains(@class,'modal__container')]//lightning-confirm | //div[contains(@class,'modal__container')]//header//h2[text()='Confirm']"))) {
                 WebElement popup = I.amPerforming().getElementReference().of(By.xpath("//div[contains(@class,'modal__container')]"));
                 I.amPerforming().click().on(I.amPerforming().getElementReference().ofNested(popup, By.xpath("//div[contains(@class,'modal__container')]//button[text()='OK' or text()='Yes' or text()='Continue']")));
             }
         } catch (Exception e) {
-
         }
 
         //Comment box handler
@@ -143,6 +143,21 @@ public final class Modal {
 
     public void clickAlertContentSpecificButtonForLwc(String buttonName) {
         I.amPerforming().click().on(By.xpath("//div[contains(@class,'modal__footer')]//button[text()='" + buttonName + "']"));
+    }
+
+    /**
+     * Accept modal based on pop up for discard changes
+     */
+    public void acceptPopUpForEditPage() {
+        try {
+            if (I.amPerforming().checkToSee().isDisplayed(By.xpath("//div[contains(@class,'modal__container')]//div[contains(@class,'modal-header')]//h1[text()='Save Changes?'] | //div[contains(@class,'modal__container')]//header[contains(@class,'modal__header')]//h2[text()='Saved Changes'] | //div[contains(@class,'modal__container')]//div[contains(@class,'modal__header')]//h1[text()='Confirm']"))) {
+                WebElement popup = I.amPerforming().getElementReference().of(By.xpath("//div[contains(@class,'modal__container')]"));
+                I.amPerforming().click().on(I.amPerforming().getElementReference().ofNested(popup, By.xpath("//div[contains(@class,'modal__container')]//button[text()='Discard Changes' or text()='OK' or contains(text(),'Discard Changes')]")));
+            }
+        } catch (Exception e) {
+
+        }
+
     }
 }
 

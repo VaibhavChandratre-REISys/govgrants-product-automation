@@ -1,4 +1,4 @@
-@productBusinessFlowSanity @product @grantor-regression
+@productBusinessFlowSanity @product @grantor-regression @wip
 Feature: Validate sanity testing of Complete Business Flow
 
   @72335  @72335@activationOfFocusArea @ProdSan1 @ProdSan1_1
@@ -1228,6 +1228,8 @@ Feature: Validate sanity testing of Complete Business Flow
 #    To Do:- Button is not display hence commented also added below step for now
 #    And I click on "Back" in the page details
     And I get the "EGMS ID"
+    And I wait for "3" seconds
+    And I get current URL
     When I click on "Submit Application" in the page details
     And I wait for "3" seconds
     Then I see status in Progress-bar is "Submitted" and is "dark blue"
@@ -1491,6 +1493,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I enter values into fields
       | Value                              | Field                |
       | Automation Negotiation Iniatiation | ApplicantResponse__c |
+    And I wait for "3" seconds
     When I click on "Save" in the page details
     When I click on "Submit to Grantor" in the page details
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
@@ -3602,6 +3605,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click modal button "Save and Continue"
     And I enter value "Automation Justification" into field "PurposeRTA__c"
     And I enter value "700" into field "RequestedChangeInBudget__c"
+#    And I enter value "3700" into field "RevisedCommitment__c"
     And I wait for "5" seconds
     When I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "CFAmendmentId"
@@ -3652,6 +3656,7 @@ Feature: Validate sanity testing of Complete Business Flow
 #    And I wait for "5" seconds
 #    And I enter value "3700" into field "RevisedCommitment__c"
 #    When I click on "Save" in the page details
+    And I get current URL
     When I click on "Submit for Approval" in the page details
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     When I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
@@ -3817,6 +3822,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I click modal button "Close"
     And I wait for "9" seconds
     When I click on "Validate" in the page details
+    And I click on button "Validate" for succes or error validation
     Then I softly see the following messages in the page details :
       | Selecting at least one that apply in 'Report' is required. |
     When I click on "Edit" in the page details
@@ -3836,7 +3842,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I clear the value from field "SellingandHandlingAllowance__c"
     When I click on "Save" in the page details
     And I wait for "3" seconds
-    When I click on "Validate" in the page details
+    And I click on button "Validate" for succes or error validation
     Then I softly see the following messages in the page details :
       | If "1d" is checked, uncheck "1a", "1b" and "1c" in 'Report' section.                                                                            |
       | One selection is required in "2a. Federally-owned Property", if "1a" is checked in 'Report' section.                                            |
@@ -4528,8 +4534,8 @@ Feature: Validate sanity testing of Complete Business Flow
     And I enter "AuthorizedRepresentativeDetails" values from "UserRegistration_Field_Values.xlsx"
     And I generate the random maildropEmail and save as "uniqueEmailID"
     And I enter value "{SavedValue:uniqueEmailID}" into field "PrimaryRepEmail__c"
-#    When I click on "Save" in the page details
-#    When I click on "Submit" in the page details
+    When I click on "Save" in the page details
+    When I click on "Submit" in the page details
     And I am on "INTERNAL" portal
     And I login to "As a Grantor" app as "PM" user
     When I navigate to "Pending Subrecipient Registrations" content inside "Organization" subheader on left panel
@@ -4644,7 +4650,7 @@ Feature: Validate sanity testing of Complete Business Flow
 
   @checkpassword
   Scenario: in this scenario we are test all password are working
-    When I login to "As a Grantor" app as "ADMIN" user
+    When I login to "As a Grantor" app as "PM" user
     When I navigate to "Planning" tab
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     When I navigate to "Planning" tab

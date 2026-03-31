@@ -164,7 +164,10 @@ public final class GovGrantsSteps {
     @Description("Navigate to any specific Main tab")
     @When("^I navigate to \"([^\"]*)\" tab$")
     public void navigateToMenutab(String tabName) {
+        I.amPerforming().browserOperationsTo().CheckPageLoadingStatus();
+        I.amPerforming().waitFor().makeThreadSleep(2000);
         govgrants.perform().mainPage().clickMainMenuBarForLwc(tabName);
+        govgrants.perform().modal().acceptPopUpForEditPage();
     }
 
     @Description("Navigate to sidebar content inside a sidebar subheader")

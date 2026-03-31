@@ -105,31 +105,31 @@ public class UsersAndURL implements UsersController {
         String password;
         switch (userLevel.toUpperCase()) {
             case "PM":
-                password = "Salesforce@2042";
+                password = "Support@3032";
                 break;
             case "EXE":
-                password = "Salesforce@2042";
+                password = "Support@3032";
                 break;
             case "FO":
-                password = "Salesforce@2042";
+                password = "Support@3032";
                 break;
             case "FD":
-                password = "Salesforce@2042";
+                password = "Support@3032";
                 break;
             case "PO":
-                password = "Salesforce@2042";
+                password = "Support@3032";
                 break;
             case "SPI3":
-                password = "Salesforce@2042";
+                password = "Support@3032";
                 break;
             case "ADMIN":
-                password = "Salesforce@2030";
+                password = "Support@3032";
                 break;
             case "ADMIN1":
-                password = "Salesforce@2030";
+                password = "Support@3032";
                 break;
             default:
-                password = "Salesforce@2040";
+                password = "Support@3032";
         }
         return password;
     }
@@ -295,26 +295,26 @@ public class UsersAndURL implements UsersController {
 
     private String getProLwcEnvironmentUser(String userLevel) {
         Map<String, String> username = new HashMap<>();
-        username.put("ADMIN", "govgrantsautomation@yopmail.com.prolwcut");
-        username.put("ADMIN1", "manu.admin@ggp.test8.prolwcut");
-        username.put("EXE", "test@gmaildemo.com.prolwcut");
-        username.put("PM", "donald_pm@ggp.test7.atm.prolwcut");
-        username.put("FO", "auto.fm@auto.com.prolwcut");
-        username.put("PO", "automationpo@yopmail.com.prolwcut");
-        username.put("FD", "automationfd@yopmail.com.prolwcut");
-        username.put("PM1", "pm1.automation@yopmail.com.prolwcut");
-        username.put("EXE1", "exe1.automation@yopmail.com.prolwcut");
-        username.put("PO1", "automationpo1@yopmail.com.prolwcut");
-        username.put("FO1", "fo1.automation@yopmail.com.prolwcut");
-        username.put("FD1", "automationfd1@yopmail.com.prolwcut");
-        username.put("SPI3", "aspi3@grants.gov");
-        username.put("SPA", "spaautomation12@yopmail.com");
-        username.put("SA", "asa@grants.gov");
+        username.put("ADMIN", "govgrantsauto@yopmail.com.afsautoqa");
+        username.put("ADMIN1", "manu.admin@ggp.test8.afsautoqa");
+        username.put("EXE", "test@gmaildemo.com.afsautoqa");
+        username.put("PM", "donald_pm@ggp.test7.atm.afsautoqa");
+        username.put("FO", "auto.fm@auto.com.afsautoqa");
+        username.put("PO", "automationpo@yopmail.com.afsautoqa");
+        username.put("FD", "automationfd@yopmail.com.afsautoqa");
+        username.put("PM1", "pm1.automation@yopmail.com.afsautoqa");
+        username.put("EXE1", "exe1.automation@yopmail.com.afsautoqa");
+        username.put("PO1", "automationpo1@yopmail.com.afsautoqa");
+        username.put("FO1", "fo1.automation@yopmail.com.afsautoqa");
+        username.put("FD1", "automationfd1@yopmail.com.afsautoqa");
+        username.put("SPI3", "aspi3@grants.gov.afsautoqa");
+        username.put("SPA", "spaautomation12@yopmail.com.afsautoqa");
+        username.put("SA", "asa@grants.gov.afsautoqa");
         username.put("IND", "ind12.automation@yopmail.com");
-        username.put("AUDITOR", "automationauditor@yopmail.com.prolwcut");
+        username.put("AUDITOR", "automationauditor@yopmail.com.afsautoqa");
         username.put("SME", "sme11@yopmail.com");
-        username.put("SPI4", "spi4@yopmail.com.prolwcut");
-        username.put("SARAH PM", "sarah.pm@ggp.test8.prolwcut");
+        username.put("SPI4", "spi4@yopmail.com.afsautoqa");
+        username.put("SARAH PM", "sarah.pm@ggp.test8.afsautoqa");
 
         if (userLevel.toUpperCase() != null) {
             return username.get(userLevel.toUpperCase());
@@ -536,22 +536,22 @@ public class UsersAndURL implements UsersController {
 
     private String getFwLwcEnvironmentPassword(String userType) {
         Map<String, String> password = new HashMap<>();
-        password.put("ADMIN", "Jupiter@2026");
-        password.put("ADMIN1", "Jupiter@20266");
-        password.put("EXE", "Jupiter@2026");
-        password.put("PM", "Jupiter@2026");
-        password.put("FO", "Jupiter@2026");
-        password.put("SPI3", "Jupiter@2026");
-        password.put("PM1", "Jupiter@2026");
-        password.put("Automation PM", "Jupiter@2026");
-        password.put("SA", "Jupiter@2026");
-        password.put("PO", "Jupiter@2026");
-        password.put("IND", "Jupiter@2026");
-        password.put("FD", "Jupiter@2026");
-        password.put("AUDITOR", "Jupiter@2026");
-        password.put("FO1", "Jupiter@2026");
-        password.put("PO1", "Jupiter@2026");
-        password.put("EXE1", "Jupiter@2026");
+        password.put("ADMIN", "Support@3032");
+        password.put("ADMIN1", "Support@3032");
+        password.put("EXE", "Support@3032");
+        password.put("PM", "Support@3032");
+        password.put("FO", "Support@3032");
+        password.put("SPI3", "Support@3032");
+        password.put("PM1", "Support@3032");
+        password.put("Automation PM", "Support@3032");
+        password.put("SA", "Support@3032");
+        password.put("PO", "Support@3032");
+        password.put("IND", "Support@3032");
+        password.put("FD", "Support@3032");
+        password.put("AUDITOR", "Support@3032");
+        password.put("FO1", "Support@3032");
+        password.put("PO1", "Support@3032");
+        password.put("EXE1", "Support@3032");
         if (userType.toUpperCase() != null) {
             return password.get(userType.toUpperCase());
         } else {
