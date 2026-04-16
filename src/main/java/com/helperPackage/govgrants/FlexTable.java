@@ -556,6 +556,7 @@ public final class FlexTable implements FlexTableComponent {
             I.amPerforming().click().withJavaScript(By.xpath("//*[" + I.amPerforming().sanityOfXpathTo().equals("@id", flexTableDivId) + "]/ancestor::div[contains(@class, 'tab-content')]//*[text()='Save' or @value='Save' or @type='Save'] | //c-lwc-flex-table[@data-flextablename='" + flexTableDivId + "']//*[@title='Save' or @text()='Save'] | //c-lwc-flex-table[@data-flextablename='" + flexTableDivId + "']//ancestor::c-lwc-flex-table[2]//button[text()='Save'] | //c-lwc-flex-table[@data-flextablename='" + flexTableDivId + "']//ancestor::c-lwc-flex-table[1]//button[text()='Save']"));
         }
     }
+
     public void editFlexTableRowsInlineForLWC(String flexTableDivId, String editButtonName, Map<String, Map<String, String>> flexTableMap) {
         Set<String> headerRows = flexTableMap.values().iterator().next().keySet();
         Map<String, Integer> mapColumnHeaderToColumnPosition = null;
@@ -868,10 +869,7 @@ public final class FlexTable implements FlexTableComponent {
             } else if (I.amPerforming().getElementReference().forListOfElements().ofNested(fieldWrapper, By.xpath(".//input[@type='checkbox']")).size() > 0) {
                 handleCheckBoxInput(fieldWrapper, fieldValue);
                 break;
-            } else if (I.amPerforming().getElementReference().forListOfElements().ofNested(fieldWrapper, By.xpath("//c-fieldlwc[@class='fields']//*[@class='empty-placeholder clickable-text']//*[@class='edit-text']")).size() > 0) {
-                HandleTextArea(fieldWrapper, fieldValue);
-                break;
-            }else if (I.amPerforming().getElementReference().forListOfElements().ofNested(fieldWrapper, By.xpath("//lightning-icon[@icon-name='utility:new_window'] | //c-fieldlwc[@class='fields']//*[@class='empty-placeholder clickable-text']//*[@class='edit-text']")).size() > 0) {
+            } else if (I.amPerforming().getElementReference().forListOfElements().ofNested(fieldWrapper, By.xpath("//div[@class='wrap_text']//lightning-icon[@icon-name='utility:add'] | //div[@class='wrap_text']//lightning-icon[@icon-name='utility:edit']|//c-fieldlwc[@class='fields']//*[@class='empty-placeholder clickable-text']//*[@class='edit-text']")).size() > 0) {
                 HandleTextArea(fieldWrapper, fieldValue);
                 break;
             }
@@ -885,7 +883,7 @@ public final class FlexTable implements FlexTableComponent {
      * @author Dilip.Hatagale
      */
     private void HandleTextArea(WebElement fieldWrapper, String fieldValue) {
-        By editForMoreButton = By.xpath("//c-fieldlwc[@class='fields']//*[@class='empty-placeholder clickable-text']//*[@class='edit-text'] | //span[@part='formatted-rich-text' and not(normalize-space())]/parent::lightning-formatted-rich-text//following-sibling::lightning-icon[@icon-name='utility:new_window']");
+        By editForMoreButton = By.xpath("//div[@class='wrap_text']//lightning-icon[@icon-name='utility:add'] | //div[@class='wrap_text']//lightning-icon[@icon-name='utility:edit'] | //c-fieldlwc[@class='fields']//*[@class='empty-placeholder clickable-text']//*[@class='edit-text'] | //span[@part='formatted-rich-text' and not(normalize-space())]/parent::lightning-formatted-rich-text//following-sibling::lightning-icon[@icon-name='utility:new_window']");
         By richTextArea = By.xpath("//div[@part='modal-body']//textarea[@part='textarea'] |//div[@part='rich-text-editor']//div[contains(@class,'rich-text-area')]");
         By saveButtonOnModal = By.xpath("//div[@class='confirm-modal']//button[@title='Save' or text()='Save']");
         I.amPerforming().click().withJavaScript(editForMoreButton);
@@ -902,12 +900,12 @@ public final class FlexTable implements FlexTableComponent {
      */
 
     private void handleFlexTableLookupInputForLWC(WebElement fieldWrapper, String fieldValue) {
-            By lookupInputBoxSelector = By.xpath(".//input[@type='search']");
-            I.amPerforming().click().withJavaScript(I.amPerforming().getElementReference().ofNested(fieldWrapper, lookupInputBoxSelector));
-            I.amPerforming().textInput().toClear(lookupInputBoxSelector);
-            I.amPerforming().textInput().withJavaScript(lookupInputBoxSelector, fieldValue);
-            By selectButtonLocator = By.xpath("//div[@title='" + fieldValue + "']");
-            I.amPerforming().click().withJavaScript(selectButtonLocator);
+        By lookupInputBoxSelector = By.xpath(".//input[@type='search']");
+        I.amPerforming().click().withJavaScript(I.amPerforming().getElementReference().ofNested(fieldWrapper, lookupInputBoxSelector));
+        I.amPerforming().textInput().toClear(lookupInputBoxSelector);
+        I.amPerforming().textInput().withJavaScript(lookupInputBoxSelector, fieldValue);
+        By selectButtonLocator = By.xpath("//div[@title='" + fieldValue + "']");
+        I.amPerforming().click().withJavaScript(selectButtonLocator);
     }
 
     /**
@@ -926,7 +924,7 @@ public final class FlexTable implements FlexTableComponent {
 //                  I.amPerforming().scroll().withMouseToElement(inputBox);
             try {
                 I.amPerforming().click().on(inputBox);
-            }catch (Exception j){
+            } catch (Exception j) {
                 I.amPerforming().click().withJavaScript(inputBox);
             }
             if (I.amPerforming().checkToSee().IsElementPresentQuick(selectText)) {
