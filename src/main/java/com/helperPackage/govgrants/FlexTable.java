@@ -532,7 +532,7 @@ public final class FlexTable implements FlexTableComponent {
         try {
             I.amPerforming().getElementReference().of((By.xpath("//c-lwc-flex-table[@data-flextablename='" + flexTableDivId + "']//td")));
         } catch (Exception ee) {
-            I.amPerforming().waitFor().makeThreadSleep(3000);
+            I.amPerforming().waitFor().makeThreadSleep(4000);
             I.amPerforming().getElementReference().of((By.xpath("//c-lwc-flex-table[@data-flextablename='" + flexTableDivId + "']//td")));
         }
         for (String key : flexTableMap.keySet()) {
@@ -546,7 +546,7 @@ public final class FlexTable implements FlexTableComponent {
             govgrants.perform().flexTable().clickTableActionIcon(flexTableDivId, editButtonName, key);
             for (String columnName : currentRowValues.keySet()) {
                 WebElement rowCell = I.amPerforming().getElementReference().ofNested(currentRow, By.xpath(".//td[not(contains(@class, 'ng-hide'))][" + mapColumnHeaderToColumnPosition.get(columnName) + "]"));
-                I.amPerforming().waitFor().makeThreadSleep(1000);
+                I.amPerforming().waitFor().makeThreadSleep(3000);
                 this.handleFlexTableDataInputs(rowCell, currentRowValues.get(columnName));
             }
         }
@@ -556,7 +556,6 @@ public final class FlexTable implements FlexTableComponent {
             I.amPerforming().click().withJavaScript(By.xpath("//*[" + I.amPerforming().sanityOfXpathTo().equals("@id", flexTableDivId) + "]/ancestor::div[contains(@class, 'tab-content')]//*[text()='Save' or @value='Save' or @type='Save'] | //c-lwc-flex-table[@data-flextablename='" + flexTableDivId + "']//*[@title='Save' or @text()='Save'] | //c-lwc-flex-table[@data-flextablename='" + flexTableDivId + "']//ancestor::c-lwc-flex-table[2]//button[text()='Save'] | //c-lwc-flex-table[@data-flextablename='" + flexTableDivId + "']//ancestor::c-lwc-flex-table[1]//button[text()='Save']"));
         }
     }
-
     public void editFlexTableRowsInlineForLWC(String flexTableDivId, String editButtonName, Map<String, Map<String, String>> flexTableMap) {
         Set<String> headerRows = flexTableMap.values().iterator().next().keySet();
         Map<String, Integer> mapColumnHeaderToColumnPosition = null;
@@ -872,6 +871,9 @@ public final class FlexTable implements FlexTableComponent {
             } else if (I.amPerforming().getElementReference().forListOfElements().ofNested(fieldWrapper, By.xpath("//c-fieldlwc[@class='fields']//*[@class='empty-placeholder clickable-text']//*[@class='edit-text']")).size() > 0) {
                 HandleTextArea(fieldWrapper, fieldValue);
                 break;
+            }else if (I.amPerforming().getElementReference().forListOfElements().ofNested(fieldWrapper, By.xpath("//lightning-icon[@icon-name='utility:new_window'] | //c-fieldlwc[@class='fields']//*[@class='empty-placeholder clickable-text']//*[@class='edit-text']")).size() > 0) {
+                HandleTextArea(fieldWrapper, fieldValue);
+                break;
             }
             postTestTime = System.nanoTime();
         }
@@ -883,7 +885,7 @@ public final class FlexTable implements FlexTableComponent {
      * @author Dilip.Hatagale
      */
     private void HandleTextArea(WebElement fieldWrapper, String fieldValue) {
-        By editForMoreButton = By.xpath("//c-fieldlwc[@class='fields']//*[@class='empty-placeholder clickable-text']//*[@class='edit-text']");
+        By editForMoreButton = By.xpath("//c-fieldlwc[@class='fields']//*[@class='empty-placeholder clickable-text']//*[@class='edit-text'] | //span[@part='formatted-rich-text' and not(normalize-space())]/parent::lightning-formatted-rich-text//following-sibling::lightning-icon[@icon-name='utility:new_window']");
         By richTextArea = By.xpath("//div[@part='modal-body']//textarea[@part='textarea'] |//div[@part='rich-text-editor']//div[contains(@class,'rich-text-area')]");
         By saveButtonOnModal = By.xpath("//div[@class='confirm-modal']//button[@title='Save' or text()='Save']");
         I.amPerforming().click().withJavaScript(editForMoreButton);
