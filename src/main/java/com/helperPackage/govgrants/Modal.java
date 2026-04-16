@@ -66,7 +66,7 @@ public final class Modal {
 
         //Comment box handler
         try {
-            if (I.amPerforming().checkToSee().isDisplayed(By.xpath("//div[contains(@class,'modal__container')]//lightning-prompt//input | //div[contains(@class,'modal__container')]//div[@class='confirm-modal']//input | //button[text()='Edit']"))) {
+            if (I.amPerforming().checkToSee().isDisplayed(By.xpath("//div[contains(@class,'modal__container')]//lightning-prompt//input | //div[contains(@class,'modal__container')]//div[@class='confirm-modal']//input | //div[contains(@class,'modal__container')]//div[@class='confirm-modal']//lightning-modal-footer[contains(@class,'confirm-modalfooter')]"))) {
                 I.amPerforming().textInput().in(By.xpath("//div[contains(@class,'modal__container')]//lightning-prompt//input | //div[contains(@class,'modal__container')]//div[@class='confirm-modal']//input"), "Automated Test");
                 I.amPerforming().click().on(By.xpath("//div[contains(@class,'modal__container')]//button[text()='OK' or text()='Yes' or text()='Continue']"));
             }
@@ -74,7 +74,6 @@ public final class Modal {
 
         }
     }
-
 
     /**
      * Accept/reject modal based pop up with passed parameter
