@@ -1784,4 +1784,3 @@ Feature: Validate all scenarios of every modules flow
     And I activate the award for title "{SavedValue:Automation Runtime award}"
     And I "Submitted For Approval" the "Progress Report" for title "{SavedValue:Automation Runtime award}" with properties "PO_OWNER"
 #    And I "Submitted for Approval" the "Progress Report" for title "{SavedValue:Automation Runtime award}" with properties "PO_OWNER"
-    And I halt execution

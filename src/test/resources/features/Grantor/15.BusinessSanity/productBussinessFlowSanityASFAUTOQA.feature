@@ -298,7 +298,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click on submit review
     And I pause execution for "2" seconds
     # To do - remove comment for package execution
-#    When I close "Enter Review" modal by clicking the top right x button
+    When I close "Enter Review" modal by clicking the top right x button
     When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Announcements" tab
     When I navigate to "Competitive" content inside "Announcements" subheader on left panel
@@ -498,7 +498,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click on "Publish" in the page details
     Then I see status in Progress-bar is "Published" and is "dark blue"
 
-  @72342 @publishingDirectedAnnouncement @ProdSan2 @ProdSan2_2 @ProdSan2_2_1 @wip
+  @72342 @publishingDirectedAnnouncement @ProdSan2 @ProdSan2_2 @ProdSan2_2_1
   Scenario: Validate the activation of Directed Announcement and the status changes to published and is green
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
@@ -565,7 +565,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I wait for "2" seconds
     When I click on submit review
     #To do - Remove comment for package execution
-#    When I close "Enter Review" modal by clicking the top right x button
+    When I close "Enter Review" modal by clicking the top right x button
     And I wait for "2" seconds
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Announcements" tab
@@ -832,7 +832,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I wait for "2" seconds
     When I click on submit review
     #To do - Remove comment for package execution
-#    When I close "Enter Review" modal by clicking the top right x button
+    When I close "Enter Review" modal by clicking the top right x button
     And I wait for "2" seconds
     And I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     When I navigate to "Announcements" tab
@@ -1099,6 +1099,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I close "Add Organizations" modal by clicking the top right x button
     When I navigate to "Overview" sub tab
     And I pause execution for "4" seconds
+    And I refresh the page
     When I edit the following rows inline in flex table with id "---announcement:-:formulaInvitedApplicatsTableId---" by clicking "Edit" :
       | Applicants                          | Allocated Amount |
       | SAN DIEGO ELECTRICAL TRAINING TRUST | 1000             |
@@ -1196,6 +1197,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I wait for "3" seconds
     And I navigate to "Budget" sub tab
     When I expand nested table containing column value "BP01"
+    And I get current URL
     And I edit the following rows inline in flex table with id "---applicationReview:-:budgetTableId---" by clicking "Edit" :
       | Category Name | Budget | Cash Match | Non-Cash Match |
       | Construction  | 1000   | 100        | 100            |
@@ -1228,6 +1230,7 @@ Feature: Validate sanity testing of Complete Business Flow
 #    To Do:- Button is not display hence commented also added below step for now
 #    And I click on "Back" in the page details
     And I get the "EGMS ID"
+    And I get current URL
     When I click on "Submit Application" in the page details
     And I wait for "3" seconds
     Then I see status in Progress-bar is "Submitted" and is "dark blue"
@@ -1582,7 +1585,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click on submit review
     And I wait for "1" seconds
     #To do - Remove comment for package execution
-#    When I close "Enter Review" modal by clicking the top right x button
+    When I close "Enter Review" modal by clicking the top right x button
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
@@ -1825,7 +1828,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I pause execution for "15" seconds
     And I click on submit review
     #To do remove comment for package execution
-#    When I close "Enter Review" modal by clicking the top right x button
+    When I close "Enter Review" modal by clicking the top right x button
 #    When I click modal button "Close"
     And I pause execution for "5" seconds
     When I re-login to "As a Grantor" app as "DynamicUser" user on "INTERNAL" portal
@@ -2723,9 +2726,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "closeoutID"
     When I navigate to "Responsibilities" sub tab
-    When I enter the following values into flex table with id "---closeout:-:closeoutApproverTableId---" by clicking "New" :
-      | Name                      | Closeout |
-      | {SavedValue:EXE Username} | NA       |
+    And I get current URL
     When I enter the following values into flex table with id "---closeout:-:closeoutApproverTableId---" by clicking "New" :
       | Name                      | Closeout |
       | {SavedValue:EXE Username} | Step 1   |
@@ -3109,13 +3110,13 @@ Feature: Validate sanity testing of Complete Business Flow
     And I edit the following rows inline in flex table with id "---amendment:-:amendmentLineItemsTableId---" by clicking "Edit" :
       | Title        | Award Amount |
       | Construction | 900          |
-    When I close "Payment Line Items" modal by clicking the top right x button
+    When I close "Amendment Line Items" modal by clicking the top right x button
     And I wait for "2" seconds
     When I click on "Add Line Items" icon for "Indirect costs" inside flex table with id "---amendment:-:budgetChangeTableId---"
     And I enter the following values into flex table with id "---amendment:-:amendmentLineItemsTableId---" by clicking "New" :
       | Title        | Narrative     | Award Amount |
       | Construction | The Narrative | 100          |
-    When I close "Payment Line Items" modal by clicking the top right x button
+    When I close "Amendment Line Items" modal by clicking the top right x button
     And I click on "Submit to Grantor" in the page details
     And I wait for "2" seconds
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
@@ -3376,7 +3377,7 @@ Feature: Validate sanity testing of Complete Business Flow
       | Title        | Award Amount |
       | Construction | 1500         |
     And I wait for "2" seconds
-    When I close "Payment Line Items" modal by clicking the top right x button
+    When I close "Amendment Line Items" modal by clicking the top right x button
     And I wait for "2" seconds
     And I click on page navigation arrow "---amendment:-:budgetChangeTableId---" for table id "Next"
     When I click on "Add Line Items" icon for "Construction" inside flex table with id "---amendment:-:budgetChangeTableId---"
@@ -3384,7 +3385,7 @@ Feature: Validate sanity testing of Complete Business Flow
       | Title        | Award Amount |
       | Construction | 1500         |
     And I wait for "2" seconds
-    When I close "Payment Line Items" modal by clicking the top right x button
+    When I close "Amendment Line Items" modal by clicking the top right x button
     And I wait for "5" seconds
     And I click on "Submit to Grantor" in the page details
     And I refresh the page
@@ -3471,7 +3472,7 @@ Feature: Validate sanity testing of Complete Business Flow
       | Title        | Award Amount |
       | Construction | 450          |
     And I wait for "2" seconds
-    When I close "Payment Line Items" modal by clicking the top right x button
+    When I close "Amendment Line Items" modal by clicking the top right x button
     And I wait for "3" seconds
     When I click on "Add Line Items" icon for "Indirect costs" inside flex table with id "---amendment:-:budgetChangeTableId---"
     And I enter the following values into flex table with id "---amendment:-:amendmentLineItemsTableId---" by clicking "New" :
