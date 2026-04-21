@@ -7330,7 +7330,7 @@ Feature: Payment Request scenarios without background
     When I perform quick search for "{SavedValue:PayreqId}" in "---paymentRequest:-:pendingTaskTableId---" panel
     Then I do not see value "{SavedValue:PayreqId}" for title "EGMS ID" inside table "---paymentRequest:-:pendingTaskTableId---"
 
-  @FlexSharing2 @ValidateFlexSharingRelatedScenarioForPaymentrequestAllTables
+  @530302 @FlexSharing2 @ValidateFlexSharingRelatedScenarioForPaymentrequestAllTables @GrantorFlexP1
   Scenario: Validate FlexSharing Related Scenario For Payment Request All Tables
     Given I activated standalone subaward "Automation Runtime Direct Award" with properties "ADVANCE_PERMISSIBLE_YES_FOCUS_AREA_NO" of type "Competitive"
     And I login to "Grantor" app as "PM" user
@@ -7341,6 +7341,9 @@ Feature: Payment Request scenarios without background
     And I click on "View" icon for "{SavedValue:Automation Runtime Direct Award}" inside table
     And I navigate to "Files" sub tab
     And I wait for "2" seconds
+    When I enter the following values into flex table with id "---progressreport:-:grantChecklistsTableId---" by clicking "Add" :
+      | Description | Required | Applies To      | Status |
+      | Automation  | Optional | Advance Request | Active |
     And I click on "Upload Template" icon for "Advance Request" inside flex table with id "---progressreport:-:grantChecklistsTableId---" with wait for record
     And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
     And I click modal button "Close"
@@ -7348,7 +7351,7 @@ Feature: Payment Request scenarios without background
     And I refresh the page
     And I wait for "3" seconds
     Then I softly see value "View" for title "Template Link" against the value "Advance Request" inside table "---progressreport:-:grantChecklistsTableId---"
-    And I save the value from row "3" for column name "Template Link" as "TemplateLink" from flex table "---progressreport:-:grantChecklistsTableId---"
+    And I save the value from row "1" for column name "Template Link" as "TemplateLink" from flex table "---progressreport:-:grantChecklistsTableId---"
     When I navigate to "Subawards" sub tab
     And I click on "View" icon for "{SavedValue:Automation Runtime Direct Award}" inside flex table with id "---progressreport:-:GrantsSubAwardsTableId---" without waiting for record
     And I navigate to "Budget" sub tab
@@ -7386,15 +7389,16 @@ Feature: Payment Request scenarios without background
     Then I softly see value "$10.00" for title "Advance Requested This Action" against the value "Construction" inside table "---paymentRequest:-:budgetTableId---"
     Then I softly see value "$10.00" for title "Total Advance" against the value "Construction" inside table "---paymentRequest:-:budgetTableId---"
     When I navigate to "Forms and Files" sub tab
-    Then I softly see value "{SavedValue:TemplateLink}" for title "Template Link" inside table "---paymentRequest:-:recipientAdvanceSupportiveDocumentChecklistTableId---"
-    And I click on hyperlink for the field "ContentVersionLink__c" containing value "{SavedValue:TemplateLink}"
-    And I download the file without rename
+    Then I softly see value "View" for title "Template Link" inside table "---paymentRequest:-:recipientAdvanceSupportiveDocumentChecklistTableId---"
+    And I click on hyperlink containing value "View"
     And I wait for "3" seconds
     Then I softly verify that the file "Attachment.pdf" is downloaded
+    And I wait for "3" seconds
     And I close the tab
     And I wait for "2" seconds
     When I click on "Attach" icon for "Mandatory" inside flex table with id "---paymentRequest:-:recipientAdvanceSupportiveDocumentChecklistTableId---" without waiting for record
     And I upload attachment without random number "AttachmentTesting.pdf" of type "Others" from computer
+    And I wait for "2" seconds
     And I click modal button "Close"
     And I wait for "2" seconds
     Then I softly see value "View" for title "Subrecipient Document Link" inside table "---paymentRequest:-:recipientAdvanceSupportiveDocumentChecklistTableId---"
@@ -7428,13 +7432,13 @@ Feature: Payment Request scenarios without background
     Then I softly see value "$10.00" for title "Advance Requested This Action" against the value "Construction" inside table "---paymentRequest:-:budgetTableId---"
     Then I softly see value "$10.00" for title "Total Advance" against the value "Construction" inside table "---paymentRequest:-:budgetTableId---"
     When I navigate to "Forms and Files" sub tab
-    And I click on hyperlink for the field "ContentVersionLink__c" containing value "{SavedValue:TemplateLink}"
+    And I click on hyperlink for the field "View" containing value "{SavedValue:TemplateLink}"
     And I download the file without rename
     And I wait for "3" seconds
     Then I softly verify that the file "Attachment.pdf" is downloaded
     And I close the tab
     And I wait for "2" seconds
-    And I click on hyperlink for the field "ContentVersionSubrecipientLink__c" containing value "{SavedValue:SubrecipientDocumentLink}"
+    And I click on hyperlink for the field "View" containing value "{SavedValue:SubrecipientDocumentLink}"
     And I download the file without rename
     And I wait for "3" seconds
     Then I softly verify that the file "AttachmentTesting.pdf" is downloaded

@@ -183,6 +183,22 @@ public class ProjectManager extends ProjectWebServices {
         }
     }
 
+    /**
+     * Click on radio button on form
+     *
+     * @param radioButtonName
+     */
+    public void clickOnFormOption(String radioButtonName) {
+        try {
+            By FormRadioButton = By.xpath("//span//input[@type='radio'][@value='" + radioButtonName + "']");
+            if (I.amPerforming().checkToSee().IsElementPresentQuick(FormRadioButton)) {
+                I.amPerforming().click().withJavaScript(FormRadioButton);
+            }
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+    }
+
 
     public void assertFieldValues(String usage, String labelName, String labelValue) {
         if (usage.equalsIgnoreCase("softly see")) {
@@ -205,6 +221,24 @@ public class ProjectManager extends ProjectWebServices {
 
     public void assertCOISectionInViewMode(String radioButtonName, boolean isSoftly) {
         By pageBlockFields = By.xpath("//span//label[text()='"+radioButtonName+"']/../input[@readonly or @disabled] | //span//input[@type='radio'][@value='" + radioButtonName + "' and @disabled]");
+        if (isSoftly) {
+            I.amPerforming().assertionsTo().assertThat(I.amPerforming().checkToSee().isDisplayed(pageBlockFields)).isTrue();
+        } else {
+            Assert.assertTrue(I.amPerforming().checkToSee().isDisplayed(pageBlockFields));
+        }
+    }
+
+    public void assertformSectionInViewMode(String radioButtonName, boolean isSoftly) {
+        By pageBlockFields = By.xpath("*//div//span//input[@type='radio'][@value='" + radioButtonName + "' and @disabled] | *//span//input[@type='radio'][@value='" + radioButtonName + "' and @disabled]");
+        if (isSoftly) {
+            I.amPerforming().assertionsTo().assertThat(I.amPerforming().checkToSee().isDisplayed(pageBlockFields)).isTrue();
+        } else {
+            Assert.assertTrue(I.amPerforming().checkToSee().isDisplayed(pageBlockFields));
+        }
+    }
+
+    public void assertformSectionInEditMode(String radioButtonName, boolean isSoftly) {
+        By pageBlockFields = By.xpath("*//div//span//input[@type='radio'][@value='" + radioButtonName + "' and @disabled] | *//span//input[@type='radio'][@value='" + radioButtonName + "' and @disabled]");
         if (isSoftly) {
             I.amPerforming().assertionsTo().assertThat(I.amPerforming().checkToSee().isDisplayed(pageBlockFields)).isTrue();
         } else {

@@ -132,7 +132,6 @@ Feature: Pre-Application scenarios without background
     And I switch to tab number "1"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     And I click on "Save" in the page details
-#    And I click on "Back" in the page details
     And I switch to parent tab
     When I click on "Submit to Grantor" in the page details
     Then I softly see field "Status" as "Submitted to Grantor"
@@ -239,15 +238,12 @@ Feature: Pre-Application scenarios without background
     When I navigate to "Budget" sub tab
     And I save the field labeled "Subaward Floor" as "subawardfloor1"
     And I save the field labeled "Subaward Ceiling" as "subawardcieling1"
-    #And I save the field labeled "Match Required?" as "matchrequired"
     When I navigate to "Forms and Files" sub tab
-#    And I upload attachment without random number "Attachment.pdf" of type "Other" from computer
     And I navigate to "Quickview" sub tab in split screen
     And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
     And I switch to tab number "1"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     And I click on "Save" in the page details
-#    And I click on "Back" in the page details
     And I close the tab
     When I click on "Submit to Grantor" in the page details
     And I pause execution for "2" seconds
@@ -381,7 +377,6 @@ Feature: Pre-Application scenarios without background
     And I switch to tab number "1"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     And I click on "Save" in the page details
-#   And I click on "Back" in the page details
     And I switch to parent tab
     When I click on "Submit to Grantor" in the page details
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
@@ -663,7 +658,6 @@ Feature: Pre-Application scenarios without background
     And I switch to tab number "1"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     And I click on "Save" in the page details
-#   And I click on "Back" in the page details
     And I switch to parent tab
     And I click on top right button "Add Files" in flex table with id "---preApplication:-:ExternalPreApplicationFilesTableId---"
     And I upload attachment without random number "Attachment.pdf" of type "Other" from computer
@@ -921,7 +915,6 @@ Feature: Pre-Application scenarios without background
     And I switch to tab number "1"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     And I click on "Save" in the page details
-#   And I click on "Back" in the page details
     And I switch to parent tab
     When I click on "Submit to Grantor" in the page details
     Then I softly see status in Progress-bar is "Submitted" and is "dark blue"
@@ -1043,7 +1036,6 @@ Feature: Pre-Application scenarios without background
     And I switch to tab number "1"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     And I click on "Save" in the page details
-#   And I click on "Back" in the page details
     And I switch to parent tab
     When I click on "Submit to Grantor" in the page details
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
@@ -1125,7 +1117,6 @@ Feature: Pre-Application scenarios without background
     And I switch to tab number "1"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     And I click on "Save" in the page details
-#   And I click on "Back" in the page details
     And I switch to parent tab
     When I click on "Submit to Grantor" in the page details
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
@@ -1175,7 +1166,6 @@ Feature: Pre-Application scenarios without background
     And I switch to tab number "1"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     And I click on "Save" in the page details
-#   And I click on "Back" in the page details
     And I switch to parent tab
     When I click on "Submit to Grantor" in the page details
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
@@ -1225,7 +1215,6 @@ Feature: Pre-Application scenarios without background
     And I switch to tab number "1"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     And I click on "Save" in the page details
-#   And I click on "Back" in the page details
     And I switch to parent tab
     When I click on "Submit to Grantor" in the page details
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
@@ -1283,7 +1272,6 @@ Feature: Pre-Application scenarios without background
     And I switch to tab number "1"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     And I click on "Save" in the page details
-#   And I click on "Back" in the page details
     And I switch to parent tab
     When I click on "Submit to Grantor" in the page details
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
@@ -1346,7 +1334,6 @@ Feature: Pre-Application scenarios without background
     And I switch to tab number "1"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     And I click on "Save" in the page details
-#   And I click on "Back" in the page details
     And I switch to parent tab
     When I click on "Submit to Grantor" in the page details
     And I wait for "2" seconds
@@ -1414,7 +1401,6 @@ Feature: Pre-Application scenarios without background
     And I switch to tab number "1"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     And I click on "Save" in the page details
-#   And I click on "Back" in the page details
     And I switch to parent tab
     When I click on "Submit to Grantor" in the page details
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
@@ -1459,7 +1445,6 @@ Feature: Pre-Application scenarios without background
     And I switch to tab number "1"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     And I click on "Save" in the page details
-#   And I click on "Back" in the page details
     And I switch to parent tab
     When I click on "Submit to Grantor" in the page details
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
@@ -1581,7 +1566,6 @@ Feature: Pre-Application scenarios without background
     And I switch to tab number "1"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     And I click on "Save" in the page details
-#   And I click on "Back" in the page details
     And I switch to parent tab
     When I click on "Submit to Grantor" in the page details
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
@@ -1636,7 +1620,6 @@ Feature: Pre-Application scenarios without background
     And I switch to tab number "1"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     And I click on "Save" in the page details
-#    And I click on "Back" in the page details
     And I switch to parent tab
     When I click on "Submit to Grantor" in the page details
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
@@ -1693,7 +1676,6 @@ Feature: Pre-Application scenarios without background
     And I switch to tab number "1"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     And I click on "Save" in the page details
-#   And I click on "Back" in the page details
     And I switch to parent tab
     When I click on "Submit to Grantor" in the page details
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
@@ -1742,7 +1724,6 @@ Feature: Pre-Application scenarios without background
     And I switch to tab number "1"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     And I click on "Save" in the page details
-#   And I click on "Back" in the page details
     And I switch to parent tab
     When I click on "Submit to Grantor" in the page details
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
@@ -1813,7 +1794,6 @@ Feature: Pre-Application scenarios without background
     And I switch to tab number "1"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     And I click on "Save" in the page details
-#   And I click on "Back" in the page details
     And I switch to parent tab
     When I click on "Submit to Grantor" in the page details
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
@@ -1860,7 +1840,6 @@ Feature: Pre-Application scenarios without background
     And I switch to tab number "1"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     And I click on "Save" in the page details
-#   And I click on "Back" in the page details
     And I switch to parent tab
     When I click on "Submit to Grantor" in the page details
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
@@ -1920,7 +1899,6 @@ Feature: Pre-Application scenarios without background
     And I switch to tab number "1"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     And I click on "Save" in the page details
-#   And I click on "Back" in the page details
     And I switch to parent tab
     When I click on "Submit to Grantor" in the page details
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
@@ -1977,7 +1955,6 @@ Feature: Pre-Application scenarios without background
     And I switch to tab number "1"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     And I click on "Save" in the page details
-#   And I click on "Back" in the page details
     And I switch to parent tab
     When I click on "Submit to Grantor" in the page details
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
@@ -2038,7 +2015,6 @@ Feature: Pre-Application scenarios without background
     And I switch to tab number "1"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     And I click on "Save" in the page details
-#   And I click on "Back" in the page details
     And I switch to parent tab
     When I click on "Submit to Grantor" in the page details
     And I wait for "2" seconds
@@ -2090,7 +2066,6 @@ Feature: Pre-Application scenarios without background
     And I switch to tab number "1"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     And I click on "Save" in the page details
-#   And I click on "Back" in the page details
     And I switch to parent tab
     When I click on "Submit to Grantor" in the page details
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
@@ -2156,7 +2131,6 @@ Feature: Pre-Application scenarios without background
     And I switch to tab number "1"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     And I click on "Save" in the page details
-#   And I click on "Back" in the page details
     And I switch to parent tab
     When I click on "Submit to Grantor" in the page details
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
@@ -2239,7 +2213,6 @@ Feature: Pre-Application scenarios without background
     Then I softly can see top right button "Edit" in page detail
      #169932
     Then I softly can see top right button "Validate" in page detail
-#    And I click on "Back" in the page details
     And I switch to parent tab
     And I refresh the page
     When I navigate to "Forms and Files" sub tab
@@ -2329,13 +2302,11 @@ Feature: Pre-Application scenarios without background
     Then I softly see the following messages in the page details :
       | Form validated successfully. |
      #170097
-#    And I click on "Back" in the page details
     And I switch to parent tab
     And I refresh the page
     When I navigate to "Forms and Files" sub tab
     Then I softly see value "100.00%" for title "Percentage" against the value "Standard Pre-Application form" inside table "---preApplication:-:preAppFormTableId---"
      #170101
-#    And I click on "Save" in the page details
     When I click on "Submit to Grantor" in the page details
     When I navigate to "Forms and Files" sub tab
     Then I can see row level action button "View" against "Standard Pre-Application form" in flex table with id "---preApplication:-:preAppFormTableId---"
@@ -2377,7 +2348,6 @@ Feature: Pre-Application scenarios without background
     And I switch to tab number "1"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     And I click on "Save" in the page details
-#    And I click on "Back" in the page details
     And I switch to parent tab
     Then I can see row level action button "Edit" against "Standard Pre-Application form" in flex table with id "---preApplication:-:preAppFormTableId---"
     Examples:
@@ -2422,7 +2392,6 @@ Feature: Pre-Application scenarios without background
     And I click on "Save" in the page details
     Then I softly can see top right button "Edit" in page detail
     Then I softly can see top right button "Validate" in page detail
-#    Then I softly can see top right button "Back" in page detail
 
   @174520 @Validatepreapplicationisaccepted/rejectedthenusershouldonlyviewpreviewtheforminformtable @sprint-7
   Scenario Outline: Validate preapplication is accepted/rejected then user should only view preview the form in form table
@@ -2459,7 +2428,6 @@ Feature: Pre-Application scenarios without background
     And I switch to tab number "1"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     And I click on "Save" in the page details
-#   And I click on "Back" in the page details
     And I switch to parent tab
     When I click on "Submit to Grantor" in the page details
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
@@ -2512,7 +2480,6 @@ Feature: Pre-Application scenarios without background
     And I switch to tab number "1"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     And I click on "Save" in the page details
-#   And I click on "Back" in the page details
     And I switch to parent tab
     When I click on "Submit to Grantor" in the page details
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
@@ -2570,7 +2537,6 @@ Feature: Pre-Application scenarios without background
     And I switch to tab number "1"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     And I click on "Save" in the page details
-#   And I click on "Back" in the page details
     And I switch to parent tab
     When I click on "Submit to Grantor" in the page details
     And I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
@@ -2633,7 +2599,6 @@ Feature: Pre-Application scenarios without background
     And I switch to tab number "1"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     And I click on "Save" in the page details
-#   And I click on "Back" in the page details
     And I switch to parent tab
     When I click on "Submit to Grantor" in the page details
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
@@ -2707,7 +2672,6 @@ Feature: Pre-Application scenarios without background
     And I switch to tab number "1"
     And I enter "Form_v" values from "PreApplication_Field_Values.xlsx"
     And I click on "Save" in the page details
-#   And I click on "Back" in the page details
     And I switch to parent tab
     When I click on "Submit to Grantor" in the page details
     Then I softly see the following messages in the page details contains:
@@ -2748,7 +2712,6 @@ Feature: Pre-Application scenarios without background
     And I switch to tab number "1"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     And I click on "Save" in the page details
-#   And I click on "Back" in the page details
     And I switch to parent tab
     When I click on "Submit to Grantor" in the page details
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
@@ -2796,7 +2759,6 @@ Feature: Pre-Application scenarios without background
     And I switch to tab number "1"
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     And I click on "Save" in the page details
-#   And I click on "Back" in the page details
     And I switch to parent tab
     When I click on "Submit to Grantor" in the page details
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
@@ -2863,7 +2825,6 @@ Feature: Pre-Application scenarios without background
     And I click on "Edit" in the split screen page details
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
-#    And I click on "Back" in the page details
     When I click on "Submit to Grantor" in the page details
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -3000,7 +2961,6 @@ Feature: Pre-Application scenarios without background
     And I click on "Edit" in the split screen page details
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
-#    And I click on "Back" in the page details
     When I click on "Submit to Grantor" in the page details
     And I wait for "2" seconds
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
@@ -3041,7 +3001,6 @@ Feature: Pre-Application scenarios without background
     And I perform quick search for "Record Id" in "<TableId Type>" panel
     And I click on "View" icon for "Record Id" inside flex table with id "<TableId Type>" without waiting for record
     And I navigate to "Setup" sub tab
-    #And I perform quick search for "Grantor Pre-application Form" in "---announcement:-:businessFormlistTableId---" panel
     Then I softly see value "Grantor Pre-application Form" for title "Package Name" inside table "---announcement:-:businessFormlistTableId---"
     Examples:
       | Announcement Type | TableId Type                                        | Excel Data                   |
@@ -3084,7 +3043,6 @@ Feature: Pre-Application scenarios without background
     And I click on "Edit" in the split screen page details
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
-#    And I click on "Back" in the page details
     When I click on "Submit to Grantor" in the page details
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Home" tab
@@ -3142,7 +3100,6 @@ Feature: Pre-Application scenarios without background
     And I click on "Edit" in the split screen page details
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
-#    And I click on "Back" in the page details
     When I click on "Submit to Grantor" in the page details
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Home" tab
@@ -3204,7 +3161,6 @@ Feature: Pre-Application scenarios without background
     And I click on "Edit" in the split screen page details
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
-#    And I click on "Back" in the page details
     When I click on "Submit to Grantor" in the page details
     And I wait for "2" seconds
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
@@ -3276,7 +3232,6 @@ Feature: Pre-Application scenarios without background
     And I click on "Edit" in the split screen page details
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
-#    And I click on "Back" in the page details
     When I click on "Submit to Grantor" in the page details
     When I re-login to "Grantor" app as "ADMIN" user on "INTERNAL" portal
     And I navigate to "Home" tab
@@ -3318,7 +3273,6 @@ Feature: Pre-Application scenarios without background
     And I click on "Edit" in the split screen page details
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
-#    And I click on "Back" in the page details
     When I click on "Submit to Grantor" in the page details
     When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Home" tab
@@ -3361,7 +3315,6 @@ Feature: Pre-Application scenarios without background
     And I click on "Edit" in the split screen page details
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
-#    And I click on "Back" in the page details
     When I click on "Submit to Grantor" in the page details
     When I re-login to "Grantor" app as "PO" user on "INTERNAL" portal
     And I navigate to "Home" tab
@@ -3404,7 +3357,6 @@ Feature: Pre-Application scenarios without background
     And I click on "Edit" in the split screen page details
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
-#    And I click on "Back" in the page details
     When I click on "Submit to Grantor" in the page details
     When I re-login to "Grantor" app as "ADMIN" user on "INTERNAL" portal
     And I navigate to "Home" tab
@@ -3471,7 +3423,6 @@ Feature: Pre-Application scenarios without background
     And I click on "Edit" in the split screen page details
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
-#    And I click on "Back" in the page details
     When I click on "Submit to Grantor" in the page details
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Home" tab
@@ -3539,7 +3490,6 @@ Feature: Pre-Application scenarios without background
     And I click on "Edit" in the split screen page details
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
-#    And I click on "Back" in the page details
     When I click on "Submit to Grantor" in the page details
     When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Home" tab
@@ -3607,7 +3557,6 @@ Feature: Pre-Application scenarios without background
     And I click on "Edit" in the split screen page details
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
-#    And I click on "Back" in the page details
     When I click on "Submit to Grantor" in the page details
     When I re-login to "Grantor" app as "PO" user on "INTERNAL" portal
     And I navigate to "Home" tab
@@ -3674,7 +3623,6 @@ Feature: Pre-Application scenarios without background
     And I click on "Edit" in the split screen page details
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
-#    And I click on "Back" in the page details
     When I click on "Submit to Grantor" in the page details
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Home" tab
@@ -3747,7 +3695,6 @@ Feature: Pre-Application scenarios without background
     And I click on "Edit" in the split screen page details
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
-#    And I click on "Back" in the page details
     When I click on "Submit to Grantor" in the page details
     When I re-login to "Grantor" app as "PM1" user on "INTERNAL" portal
     And I navigate to "Home" tab
@@ -3823,7 +3770,6 @@ Feature: Pre-Application scenarios without background
     And I wait for "2" seconds
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
-#    And I click on "Back" in the page details
     When I click on "Submit to Grantor" in the page details
     When I re-login to "Grantor" app as "EXE1" user on "INTERNAL" portal
     And I navigate to "Home" tab
@@ -3900,7 +3846,6 @@ Feature: Pre-Application scenarios without background
     And I click on "Edit" in the split screen page details
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
-#    And I click on "Back" in the page details
     When I click on "Submit to Grantor" in the page details
     When I re-login to "Grantor" app as "PM1" user on "INTERNAL" portal
     And I navigate to "Home" tab
@@ -4015,7 +3960,6 @@ Feature: Pre-Application scenarios without background
     And I click on "Edit" in the split screen page details
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
-#    And I click on "Back" in the page details
     When I click on "Submit to Grantor" in the page details
     When I re-login to "Grantor" app as "EXE1" user on "INTERNAL" portal
     And I navigate to "Home" tab
@@ -4130,7 +4074,6 @@ Feature: Pre-Application scenarios without background
     And I click on "Edit" in the split screen page details
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
-#    And I click on "Back" in the page details
     When I click on "Submit to Grantor" in the page details
     When I re-login to "Grantor" app as "PO1" user on "INTERNAL" portal
     And I navigate to "Home" tab
@@ -4199,7 +4142,6 @@ Feature: Pre-Application scenarios without background
     And I click on "Edit" in the split screen page details
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
-#    And I click on "Back" in the page details
     When I click on "Submit to Grantor" in the page details
     When I re-login to "Grantor" app as "EXE1" user on "INTERNAL" portal
     And I navigate to "Home" tab
@@ -4251,7 +4193,6 @@ Feature: Pre-Application scenarios without background
     And I click on "Edit" in the split screen page details
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
-#    And I click on "Back" in the page details
     When I click on "Submit to Grantor" in the page details
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Home" tab
@@ -4382,7 +4323,6 @@ Feature: Pre-Application scenarios without background
     And I click on "Edit" in the split screen page details
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
-#    And I click on "Back" in the page details
     When I click on "Submit to Grantor" in the page details
     When I re-login to "Grantor" app as "PM1" user on "INTERNAL" portal
     And I navigate to "Home" tab
@@ -4454,7 +4394,6 @@ Feature: Pre-Application scenarios without background
     And I click on "Edit" in the split screen page details
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
-#    And I click on "Back" in the page details
     When I click on "Submit to Grantor" in the page details
     When I re-login to "Grantor" app as "PO" user on "INTERNAL" portal
     And I navigate to "Home" tab
@@ -4496,7 +4435,6 @@ Feature: Pre-Application scenarios without background
     And I click on "Edit" in the split screen page details
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
-#    And I click on "Back" in the page details
     When I click on "Submit to Grantor" in the page details
     Then I softly see field "Status" as "Submitted to Grantor"
     When I re-login to "Grantor" app as "ADMIN" user on "INTERNAL" portal
@@ -4561,7 +4499,6 @@ Feature: Pre-Application scenarios without background
     And I click on "Edit" in the split screen page details
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
-#    And I click on "Back" in the page details
     When I click on "Submit to Grantor" in the page details
     Then I softly see field "Status" as "Submitted to Grantor"
     When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
@@ -4635,7 +4572,6 @@ Feature: Pre-Application scenarios without background
     And I click on "Edit" in the split screen page details
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
-#    And I click on "Back" in the page details
     When I click on "Submit to Grantor" in the page details
     Then I softly see field "Status" as "Submitted to Grantor"
     When I re-login to "Grantor" app as "ADMIN" user on "INTERNAL" portal
@@ -4765,7 +4701,6 @@ Feature: Pre-Application scenarios without background
     And I click on "Edit" in the split screen page details
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
-#    And I click on "Back" in the page details
     When I click on "Submit to Grantor" in the page details
     Then I softly see field "Status" as "Submitted to Grantor"
     When I re-login to "Grantor" app as "PO" user on "INTERNAL" portal
@@ -4839,7 +4774,6 @@ Feature: Pre-Application scenarios without background
     And I click on "Edit" in the split screen page details
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
-#    And I click on "Back" in the page details
     When I click on "Submit to Grantor" in the page details
     Then I softly see field "Status" as "Submitted to Grantor"
     When I re-login to "Grantor" app as "EXE1" user on "INTERNAL" portal
@@ -4915,7 +4849,6 @@ Feature: Pre-Application scenarios without background
     And I click on "Edit" in the split screen page details
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
-#    And I click on "Back" in the page details
     When I click on "Submit to Grantor" in the page details
     Then I softly see field "Status" as "Submitted to Grantor"
     When I re-login to "Grantor" app as "EXE1" user on "INTERNAL" portal
@@ -4993,7 +4926,6 @@ Feature: Pre-Application scenarios without background
     And I click on "Edit" in the split screen page details
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
-#    And I click on "Back" in the page details
     When I click on "Submit to Grantor" in the page details
     When I re-login to "Grantor" app as "EXE1" user on "INTERNAL" portal
     And I navigate to "Home" tab
@@ -5107,7 +5039,6 @@ Feature: Pre-Application scenarios without background
     And I click on "Edit" in the split screen page details
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
-#    And I click on "Back" in the page details
     When I click on "Submit to Grantor" in the page details
     When I re-login to "Grantor" app as "PM1" user on "INTERNAL" portal
     And I navigate to "Home" tab
@@ -5196,7 +5127,6 @@ Feature: Pre-Application scenarios without background
     And I click on "Edit" in the split screen page details
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
-#    And I click on "Back" in the page details
     When I click on "Submit to Grantor" in the page details
     When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Home" tab
@@ -5257,7 +5187,6 @@ Feature: Pre-Application scenarios without background
       Notification: Pre Application Negotiation {SavedValue:Automation Runtime Announcement for Pre-App}: Pre Application {SavedValue:PreappEGMSID}has been Resubmitted by the Subrecipient
       """
     Then I see the mail text is as follows :
-
       """
       Hello,
 
@@ -5305,7 +5234,6 @@ Feature: Pre-Application scenarios without background
     And I click on "Edit" in the split screen page details
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
-#    And I click on "Back" in the page details
     When I click on "Submit to Grantor" in the page details
     Then I softly see field "Status" as "Submitted to Grantor"
     When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
@@ -5387,7 +5315,6 @@ Feature: Pre-Application scenarios without background
     And I click on "Edit" in the split screen page details
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
-#    And I click on "Back" in the page details
     When I click on "Submit to Grantor" in the page details
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Home" tab
@@ -5447,7 +5374,6 @@ Feature: Pre-Application scenarios without background
       Notification: Pre-Application Submitted for Announcement {SavedValue:AnnEGMSID} by SAN DIEGO ELECTRICAL TRAINING TRUST
       """
     Then I see the mail text is as follows :
-
       """
       Hello Automation,
 
@@ -5501,7 +5427,6 @@ Feature: Pre-Application scenarios without background
     And I click on "Edit" in the split screen page details
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
-#    And I click on "Back" in the page details
     When I click on "Submit to Grantor" in the page details
     When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Home" tab
@@ -5583,7 +5508,6 @@ Feature: Pre-Application scenarios without background
     And I click on "Edit" in the split screen page details
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
-#    And I click on "Back" in the page details
     When I click on "Submit to Grantor" in the page details
     And I wait for "2" seconds
     When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
@@ -5650,7 +5574,6 @@ Feature: Pre-Application scenarios without background
     And I click on "Edit" in the split screen page details
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
-#    And I click on "Back" in the page details
     When I click on "Submit to Grantor" in the page details
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Home" tab
@@ -5713,7 +5636,6 @@ Feature: Pre-Application scenarios without background
     And I click on "Edit" in the split screen page details
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
-#    And I click on "Back" in the page details
     When I click on "Submit to Grantor" in the page details
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Home" tab
@@ -5736,3 +5658,289 @@ Feature: Pre-Application scenarios without background
     Then I cannot see top right button "Edit" in page detail
     And I navigate to "Budget" sub tab
     Then I softly do not see "Actions" in flex table header "---applicationIntake:-:focusAreaTableAppId---"
+
+  @526117 @validateSPIuserPreapplicationisacceptedwhichiscreatedfromqualifiedannouncement @GrantorFlexP1
+  Scenario: SPI user Preapplication is accepted which is created from qualified announcement
+    Given I published "Competitive" type announcement having name "Automation Runtime Announcement Application" and properties "PROGRAM_FOR_PREAPP_SUPP_DOC_YES"
+    And I am on "SUBPORTAL" portal
+    And I login to "Grants Portal" app as "SPI3" user
+    When I navigate to "Opportunities" tab
+    And I navigate to "Not Yet Qualified" content inside "Opportunities" subheader on left panel
+    When I click toggle button to select "Not Yet Qualified Opportunities - All"
+    And I perform quick search for "{SavedValue:Automation Runtime Announcement Application}" in "---applicationIntake:-:activeOpportunitiesTableId---" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement Application}" inside table
+    And I save the field containing "Leverage Allowed?" as "Yes"
+    And I save the field containing "Maximum # Applications Allowed" as "1"
+    When I click on "Qualify" in the page details
+    And I click on "Create Pre-Application" in the page details
+    And I wait for "3" seconds
+    When I click modal button "Save and Continue"
+    And I get the "EGMS ID"
+    And I enter "Edition1" values from "PreApplication_Field_Values.xlsx"
+    When I click on "Save" in the page details
+    And I wait for "5" seconds
+    When I navigate to "Applications" tab
+    And I navigate to "Pre-Applications" content inside "Applications" subheader on left panel
+    Then I softly see toggle option "Pre-Applications - All" inside flex table id "RecipientPreApplications"
+    Then I softly see toggle option "Pre-Applications - Draft" inside flex table id "RecipientPreApplications"
+    Then I softly see toggle option "Pre-Applications - Submitted" inside flex table id "RecipientPreApplications"
+    Then I softly see toggle option "Pre-Applications - Expired" inside flex table id "RecipientPreApplications"
+    Then I softly see toggle option "Pre-Applications - My Records" inside flex table id "RecipientPreApplications"
+    When I perform quick search for "Record Id" in "RecipientPreApplications" panel
+    And I click on "View" icon for "Record id" inside table
+    And I wait for "2" seconds
+    When I navigate to "Budget" sub tab
+    And I save the field labeled "Subaward Floor" as "subawardfloor1"
+    And I save the field labeled "Subaward Ceiling" as "subawardcieling1"
+    When I navigate to "Forms and Files" sub tab
+    When I click on "Attach" icon for "Mandatory" inside flex table with id "---preApplication:-:preApplicationChecklistId---" without waiting for record
+    And I wait for "2" seconds
+    And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
+    And I wait for "2" seconds
+    When I click modal button "Close"
+    And I wait for "2" seconds
+    Then I softly see value "View" for title "Subrecipient Document Link" against the value "Mandatory" inside table "Supporting Documents Checklist"
+    And I click on top right button "Add Files" in flex table with id "---preApplication:-:ExternalPreApplicationFilesTableId---"
+    And I upload attachment without random number "Attachment.pdf" of type "Other" from computer
+    And I wait for "2" seconds
+    When I click modal button "Close"
+    Then I softly see value "Attachment.pdf" for title "Title" inside table "---preApplication:-:ExternalPreApplicationFilesTableId---"
+    And I refresh the page
+    And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
+    And I switch to tab number "1"
+    And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
+    When I click on "Save" in the page details
+    And I click on "Back" in the page details
+    When I navigate to "Overview" sub tab
+    And I click table top right button "Associate" in flex table with id "---preApplication:-:flexGridPreAppContactTableId---"
+    When I click "Add" after selection of "Automation SPA" by showing entries "All" in flex table with id "---preApplication:-:associatePreAppContactsTableId---"
+    And I wait for "3" seconds
+    When I close "Associate Contacts" modal by clicking the top right x button
+    Then I softly see value "Automation SPA" for title "Name" inside table "---preApplication:-:flexGridPreAppContactTableId---"
+    And I click table top right button "Associate" in flex table with id "---preApplication:-:flexGridPreAppContactTableId---"
+    When I click "Add" after selection of "Automation SPI 4 contact" by showing entries "All" in flex table with id "---preApplication:-:associatePreAppContactsTableId---"
+    And I wait for "3" seconds
+    When I close "Associate Contacts" modal by clicking the top right x button
+    Then I softly see value "Automation SPI 4 contact" for title "Name" inside table "---preApplication:-:flexGridPreAppContactTableId---"
+    And I click table top right button "Associate" in flex table with id "---preApplication:-:flexGridPreAppContactTableId---"
+    When I click "Add" after selection of "Automation SPI 5 contact" by showing entries "All" in flex table with id "---preApplication:-:associatePreAppContactsTableId---"
+    And I wait for "3" seconds
+    When I close "Associate Contacts" modal by clicking the top right x button
+    Then I softly see value "Automation SPI 5 contact" for title "Name" inside table "---preApplication:-:flexGridPreAppContactTableId---"
+    And I click table top right button "Associate" in flex table with id "---preApplication:-:flexGridPreAppContactTableId---"
+    When I click "Add" after selection of "Automation SPI 6 contact" by showing entries "All" in flex table with id "---preApplication:-:associatePreAppContactsTableId---"
+    And I wait for "3" seconds
+    When I close "Associate Contacts" modal by clicking the top right x button
+    Then I softly see value "Automation SPI 6 contact" for title "Name" inside table "---preApplication:-:flexGridPreAppContactTableId---"
+    And I click table top right button "Associate" in flex table with id "---preApplication:-:flexGridPreAppContactTableId---"
+    When I click "Add" after selection of "Automation SPI 7 contact" by showing entries "All" in flex table with id "---preApplication:-:associatePreAppContactsTableId---"
+    And I wait for "3" seconds
+    When I close "Associate Contacts" modal by clicking the top right x button
+    Then I softly see value "Automation SPI 7 contact" for title "Name" inside table "---preApplication:-:flexGridPreAppContactTableId---"
+    And I edit the following rows inline in flex table with id "---preApplication:-:preAppContactTableId---" by clicking "Edit" :
+      | Name                      | Is Key Contact |
+      | {SavedValue:SPA Username} | Checked        |
+    And I wait for "2" seconds
+    When I navigate to "Budget" sub tab
+    Given I expand nested table containing column value "BP01"
+    And I edit the following rows inline in flex table with id "---preApplication:-:budgetCategoryGridTableId---" by clicking "Edit" :
+      | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
+      | Construction  | 5000   | 500        | 50             | 100            |
+    And I get the "EGMS ID"
+    And I wait for "3" seconds
+    When I click on "Submit to Grantor" in the page details
+    Then I see field "Status" as "Submitted to Grantor"
+    When I re-login to "Grantor" app as "FO" user on "INTERNAL" portal
+    When I navigate to "Applications" tab
+    And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    When I perform quick search for "Record Id" in "---preApplication:-:pendingTaskTableId---" panel
+    Then I softly see "No Records Found" inside flex table with id "---preApplication:-:pendingTaskTableId---"
+    When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
+    When I navigate to "Applications" tab
+    And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    When I perform quick search for "Record Id" in "---preApplication:-:pendingTaskTableId---" panel
+    And I softly see "No Records Found" inside flex table with id "---preApplication:-:pendingTaskTableId---"
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
+    When I navigate to "Applications" tab
+    And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    When I perform quick search for "Record Id" in "---preApplication:-:pendingTaskTableId---" panel
+    And I click on "Start" icon for "Record Id" inside table
+    When I navigate to "Overview" sub tab
+    Then I softly see value "Automation SPA" for title "Name" inside table "---preApplication:-:flexGridPreAppContactTableId---"
+    Then I softly see value "Automation SPI 4 contact" for title "Name" inside table "---preApplication:-:flexGridPreAppContactTableId---"
+    Then I softly see value "Automation SPI 5 contact" for title "Name" inside table "---preApplication:-:flexGridPreAppContactTableId---"
+    Then I softly see value "Automation SPI 6 contact" for title "Name" inside table "---preApplication:-:flexGridPreAppContactTableId---"
+    Then I softly see value "Automation SPI 7 contact" for title "Name" inside table "---preApplication:-:flexGridPreAppContactTableId---"
+    When I navigate to "Budget" sub tab
+    Then I softly see field "Subaward Floor" as "{SavedValue:subawardfloor1}"
+    Then I softly see field "Subaward Ceiling" as "{SavedValue:subawardcieling1}"
+    Given I expand nested table containing column value "BP01"
+    Then I softly see value "$5,000.00" for title "Budget" against the value "Construction" inside table "---preApplication:-:budgetCategoryGridTableId---"
+    Then I softly see value "$500.00" for title "Cash Match" against the value "Construction" inside table "---preApplication:-:budgetCategoryGridTableId---"
+    Then I softly see value "$50.00" for title "Non-Cash Match" against the value "Construction" inside table "---preApplication:-:budgetCategoryGridTableId---"
+    When I navigate to "Forms and Files" sub tab
+    Then I softly see "View" has been added in "Supporting Documents Checklist" flex table
+    Then I softly see value "Attachment.pdf" for title "Title" inside table "---preApplication:-:ExternalPreApplicationFilesTableId---"
+    Then I can see row level action button "View" against "Standard Pre-Application form" in flex table with id "---preApplication:-:preAppFormTableId---"
+    Then I can see row level action button "Preview" against "Standard Pre-Application form" in flex table with id "---preApplication:-:preAppFormTableId---"
+    Then I cannot see row level action button "Edit" against "Standard Pre-Application form" in flex table with id "---preApplication:-:preAppFormTableId---"
+    When I click on "Accept" in the page details
+    Then I softly see field "Status" as "Accepted"
+
+  @526093 @validateexternaluserorg1users(SPI/SPA)/INDcancreatePre-applicationonlyif'Pre-applicationrequired'OptionisselectedasYesonopportunity @GrantorFlexP2
+  Scenario Outline: Validate External user org 1 users (SPI/SPA) /IND can create Pre-application only if 'Pre-application required' Option is selected as Yes on Opportunity
+    Given I published "Competitive" type announcement having name "Automation Runtime Announcement Application" and properties "PROGRAM_FOR_PREAPP_SUPP_DOC_YES"
+    And I am on "SUBPORTAL" portal
+    And I login to "Grants Portal" app as "<User>" user
+    When I navigate to "Opportunities" tab
+    And I navigate to "Not Yet Qualified" content inside "Opportunities" subheader on left panel
+    When I click toggle button to select "Not Yet Qualified Opportunities - All"
+    And I perform quick search for "{SavedValue:Automation Runtime Announcement Application}" in "---applicationIntake:-:activeOpportunitiesTableId---" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement Application}" inside table
+    And I save the field containing "Leverage Allowed?" as "Yes"
+    And I save the field containing "Maximum # Applications Allowed" as "1"
+    When I click on "Qualify" in the page details
+    Then I softly can see top right button "Create Pre-Application" in page detail
+    And I click on "Create Pre-Application" in the page details
+    And I wait for "3" seconds
+    When I click modal button "Save and Continue"
+    And I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "PreAppEGMSID"
+    Examples:
+      | User |
+      | SPI3 |
+      | SPA  |
+      | IND  |
+
+  @526096 @validateaccessofPre-applicationusingExternalorganization1users @GrantorFlexP2
+  Scenario Outline: Validate External user org 1 users (SPI/SPA) /IND can create Pre-application only if 'Pre-application required' Option is selected as Yes on Opportunity
+    Given I published "Competitive" type announcement having name "Automation Runtime Announcement Application" and properties "PROGRAM_FOR_PREAPP_SUPP_DOC_YES"
+    And I am on "SUBPORTAL" portal
+    And I login to "Grants Portal" app as "<User1>" user
+    When I navigate to "Opportunities" tab
+    And I navigate to "Not Yet Qualified" content inside "Opportunities" subheader on left panel
+    When I click toggle button to select "Not Yet Qualified Opportunities - All"
+    And I perform quick search for "{SavedValue:Automation Runtime Announcement Application}" in "---applicationIntake:-:activeOpportunitiesTableId---" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement Application}" inside table
+    And I save the field containing "Leverage Allowed?" as "Yes"
+    And I save the field containing "Maximum # Applications Allowed" as "1"
+    When I click on "Qualify" in the page details
+    Then I softly can see top right button "Create Pre-Application" in page detail
+    And I click on "Create Pre-Application" in the page details
+    And I wait for "3" seconds
+    When I click modal button "Save and Continue"
+    And I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "PreAppEGMSID"
+    And I enter "Edition1" values from "PreApplication_Field_Values.xlsx"
+    When I click on "Save" in the page details
+    And I wait for "5" seconds
+    When I navigate to "Overview" sub tab
+    And I click table top right button "Associate" in flex table with id "---preApplication:-:flexGridPreAppContactTableId---"
+    When I click "Add" after selection of "Automation SPI 4 contact" by showing entries "All" in flex table with id "---preApplication:-:associatePreAppContactsTableId---"
+    And I wait for "3" seconds
+    When I close "Associate Contacts" modal by clicking the top right x button
+    Then I softly see value "Automation SPI 4 contact" for title "Name" inside table "---preApplication:-:flexGridPreAppContactTableId---"
+    And I click table top right button "Associate" in flex table with id "---preApplication:-:flexGridPreAppContactTableId---"
+    When I click "Add" after selection of "Automation SPI 5 contact" by showing entries "All" in flex table with id "---preApplication:-:associatePreAppContactsTableId---"
+    And I wait for "3" seconds
+    When I close "Associate Contacts" modal by clicking the top right x button
+    Then I softly see value "Automation SPI 5 contact" for title "Name" inside table "---preApplication:-:flexGridPreAppContactTableId---"
+    And I click table top right button "Associate" in flex table with id "---preApplication:-:flexGridPreAppContactTableId---"
+    When I click "Add" after selection of "Automation SPI 6 contact" by showing entries "All" in flex table with id "---preApplication:-:associatePreAppContactsTableId---"
+    And I wait for "3" seconds
+    When I close "Associate Contacts" modal by clicking the top right x button
+    Then I softly see value "Automation SPI 6 contact" for title "Name" inside table "---preApplication:-:flexGridPreAppContactTableId---"
+    And I click table top right button "Associate" in flex table with id "---preApplication:-:flexGridPreAppContactTableId---"
+    When I click "Add" after selection of "Automation SPI 7 contact" by showing entries "All" in flex table with id "---preApplication:-:associatePreAppContactsTableId---"
+    And I wait for "3" seconds
+    When I close "Associate Contacts" modal by clicking the top right x button
+    Then I softly see value "Automation SPI 7 contact" for title "Name" inside table "---preApplication:-:flexGridPreAppContactTableId---"
+    And I edit the following rows inline in flex table with id "---preApplication:-:preAppContactTableId---" by clicking "Edit" :
+      | Name                       | Is Key Contact |
+      | Automation SPI 4 contact   | Checked        |
+    And I wait for "2" seconds
+    When I navigate to "Budget" sub tab
+    And I save the field labeled "Subaward Floor" as "subawardfloor"
+    And I save the field labeled "Subaward Ceiling" as "subawardceiling"
+    Given I expand nested table containing column value "BP01"
+    And I edit the following rows inline in flex table with id "---preApplication:-:budgetCategoryGridTableId---" by clicking "Edit" :
+      | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
+      | Construction  | 5000   | 500        | 50             | 100            |
+    And I refresh the page
+    When I navigate to "Forms and Files" sub tab
+    When I click on "Attach" icon for "Mandatory" inside flex table with id "---preApplication:-:preApplicationChecklistId---" without waiting for record
+    And I wait for "2" seconds
+    And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
+    And I wait for "2" seconds
+    When I click modal button "Close"
+    And I wait for "2" seconds
+    Then I softly see value "View" for title "Subrecipient Document Link" against the value "Mandatory" inside table "Supporting Documents Checklist"
+    And I click on top right button "Add Files" in flex table with id "---preApplication:-:ExternalPreApplicationFilesTableId---"
+    And I upload attachment without random number "Attachment.pdf" of type "Other" from computer
+    And I wait for "2" seconds
+    When I click modal button "Close"
+    Then I softly see value "Attachment.pdf" for title "Title" inside table "---preApplication:-:ExternalPreApplicationFilesTableId---"
+    And I refresh the page
+    And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
+    And I switch to tab number "1"
+    And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
+    When I click on "Save" in the page details
+    And I click on "Back" in the page details
+    Then I softly see top right button "New" inside flex table "---preApplication:-:preApplicationNotesTableId---"
+    When I enter the following values into flex table with id "---preApplication:-:preApplicationNotesTableId---" by clicking "New" :
+      | Title        | Description      |
+      | Notes Record | Automation Notes |
+    Then I softly see value "Notes Record" for title "Title" inside table "---preApplication:-:preApplicationNotesTableId---"
+    And I get the "EGMS ID"
+    And I wait for "3" seconds
+    And I re-login to "Grants Portal" app as "<User2>" user on "SUBPORTAL" portal
+    When I navigate to "Applications" tab
+    And I navigate to "Pre-Applications" content inside "Applications" subheader on left panel
+    When I click toggle button to select "Pre-Applications - All"
+    And I wait for "2" seconds
+    And I perform quick search for "{SavedValue:PreAppEGMSID}" in "---preApplication:-:recipientPreApplicationsTableId---" panel
+    When I click on "View" icon for "{SavedValue:PreAppEGMSID}" inside table
+    Then I see field "EGMS ID" as "{SavedValue:PreAppEGMSID}"
+    Then I softly can see top right button "Edit" in page detail
+    Then I <Validation> top right button "Submit to Grantor" in page detail
+    When I navigate to "Overview" sub tab
+    Then I softly see value "Automation SPI 4 contact" for title "Name" inside table "---preApplication:-:flexGridPreAppContactTableId---"
+    Then I softly see value "Automation SPI 5 contact" for title "Name" inside table "---preApplication:-:flexGridPreAppContactTableId---"
+    Then I softly see value "Automation SPI 6 contact" for title "Name" inside table "---preApplication:-:flexGridPreAppContactTableId---"
+    Then I softly see value "Automation SPI 7 contact" for title "Name" inside table "---preApplication:-:flexGridPreAppContactTableId---"
+    When I navigate to "Budget" sub tab
+    Then I see field "Subaward Floor" as "{SavedValue:subawardfloor}"
+    Then I see field "Subaward Ceiling" as "{SavedValue:subawardceiling}"
+    Given I expand nested table containing column value "BP01"
+    And I edit the following rows inline in flex table with id "---preApplication:-:budgetCategoryGridTableId---" by clicking "Edit" :
+      | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
+      | Construction  | 5000   | 500        | 50             | 100            |
+    When I navigate to "Forms and Files" sub tab
+    Then I softly see value "View" for title "Subrecipient Document Link" against the value "Mandatory" inside table "Supporting Documents Checklist"
+    Then I softly see value "Attachment.pdf" for title "Title" inside table "---preApplication:-:ExternalPreApplicationFilesTableId---"
+    Then I softly see value "Standard Pre-Application form" for title "Form Name" inside table "---preApplication:-:preAppFormTableId---"
+    Then I softly can see row level action button "Splitview" against "Standard Pre-Application form" in flex table with id "---preApplication:-:preAppFormTableId---"
+    Then I softly can see row level action button "View" against "Standard Pre-Application form" in flex table with id "---preApplication:-:preAppFormTableId---"
+    Then I softly can see row level action button "Edit" against "Standard Pre-Application form" in flex table with id "---preApplication:-:preAppFormTableId---"
+    Then I can see row level action button "Preview" against "Standard Pre-Application form" in flex table with id "---preApplication:-:preAppFormTableId---"
+    And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
+    And I switch to tab number "1"
+    And I wait for "3" seconds
+    When I click on "Save" in the page details
+    And I wait for "2" seconds
+    And I click on "Back" in the page details
+    Then I softly see value "Standard Pre-Application form" for title "Form Name" inside table "---preApplication:-:preAppFormTableId---"
+    Then I softly see value "Notes Record" for title "Title" inside table "---preApplication:-:preApplicationNotesTableId---"
+    Then I softly cannot see row level action button "Edit" against "Notes Record" in flex table with id "---preApplication:-:preApplicationNotesTableId---"
+    Then I softly cannot see row level action button "Delete" against "Notes Record" in flex table with id "---preApplication:-:preApplicationNotesTableId---"
+    Then I softly see top right button "New" inside flex table "---preApplication:-:preApplicationNotesTableId---"
+    When I enter the following values into flex table with id "---preApplication:-:preApplicationNotesTableId---" by clicking "New" :
+      | Title         | Description       |
+      | Notes Record1 | Automation Notes1 |
+    Then I softly see value "Notes Record1" for title "Title" inside table "---preApplication:-:preApplicationNotesTableId---"
+    Then I softly can see row level action button "Edit" against "Notes Record" in flex table with id "---preApplication:-:preApplicationNotesTableId---"
+    Then I softly can see row level action button "Delete" against "Notes Record" in flex table with id "---preApplication:-:preApplicationNotesTableId---"
+    Examples:
+      | User1 | User2 | Validation        |
+      | SPI3  | SPA   | softly cannot see |
+      | SPA   | SPI3  | softly can see    |

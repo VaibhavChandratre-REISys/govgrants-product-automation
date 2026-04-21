@@ -1948,8 +1948,8 @@ Feature: Validate all scenarios for Opportunity
       | Evaluation Tab - Provide a value for How will the program be sustained, should funding end.                                            |
       | Responsibilities - At least one approver is required                                                                                   |
 
-    @463538 @validateOpportunitiesnotcoverted-verifyasPMuserListviewfunctionalityofopportunities-Notconverted @Gregression2 @P2_Grantee @PM_Grantee
-    Scenario: Validate as PM user, List view functionality of opportunities - Not converted
+  @463538 @validateOpportunitiesnotcoverted-verifyasPMuserListviewfunctionalityofopportunities-Notconverted @Gregression2 @P2_Grantee @PM_Grantee
+  Scenario: Validate as PM user, List view functionality of opportunities - Not converted
     Given I login to "Grantee" app as "GRANTEE PM" user
     And I navigate to "Opportunities" tab
     And I navigate to "Not Converted" content inside "Opportunities" subheader on left panel
@@ -2058,8 +2058,8 @@ Feature: Validate all scenarios for Opportunity
       | Evaluation Tab - Provide a value for How will the program be sustained, should funding end.                                            |
       | Responsibilities - At least one approver is required                                                                                   |
     Examples:
-      | Owner          | OwnerType          |
-      | GRANTEE EXE    | Victor EXE user    |
+      | Owner       | OwnerType       |
+      | GRANTEE EXE | Victor EXE user |
 
   @487224 @OpportunitiesNotconvertedGrantsgovVerifyasEXEuservalidationisdisplayedonSaveforrequiredforsavefieldsandisdisplayedforrequiredfields @P2_Grantee @PM_Grantee @GRegression1
   Scenario Outline: Opportunities Not converted (Manual) - Verify as EXE user, validation is displayed on Save for required for save fields and * is displayed for required fields
@@ -2114,8 +2114,8 @@ Feature: Validate all scenarios for Opportunity
       | Estimated Project Period Start Date should be after Application Due Date             |
       | Anticipated award date should be between application due date and project start date |
     Examples:
-      | Owner          | OwnerType          |
-      | GRANTEE EXE    | Victor EXE user    |
+      | Owner       | OwnerType       |
+      | GRANTEE EXE | Victor EXE user |
 
   @480700 @ValidatePMusercannavigatetoOpportunitydetailspageafterclickingonviewactionfortheOpportunitywhichisconvertedtoPre-application
   Scenario Outline: Opportunities converted to Pre-Application (Grants.gov) - Verify PM user can navigate to Opportunity details page after clicking on view action for the Opportunity which is converted to Pre-application
@@ -2315,85 +2315,422 @@ Feature: Validate all scenarios for Opportunity
 
   @463561 @Opportunities(manual)-VerifyPMusershouldabletosubmitandapproved/senttoowner/forward/RejecttheOpportunityrecord @Gregression2 @P2_Grantee @PM_Grantee
   Scenario: Opportunities Not converted (Manual) - Verify PM user should able to submit and approved/sent to owner/forward/Reject the Opportunity record
-  And I create "Manual" qualified lead for title "Automation Runtime Opportunity" and opportunity number "Automation Runtime" with properties "default"
-  Given I login to "Grantee" app as "GRANTEE PM" user
-  And I navigate to "Opportunities" tab
-  When I navigate to "Qualified" content inside "Leads" subheader on left panel
-  And I click toggle button to select "Qualified Leads - All"
-  When I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:qualifiedLeadTableId---" panel
-  And I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside flex table with id "---grantee_tableId:-:qualifiedLeadTableId---" without waiting for record
-  When I click on "Convert to Opportunity" in the page details
-  And I click on "Edit" in the page details
-  And I enter "Grantee_Opp_PreAppYes_Edition" values from "Announcement_Field_Values.xlsx"
-  And I enter value "50%" into field "ProbabilityofWinningreceivingaGrant__c"
-  And I click on "Save" in the page details
-  When I navigate to "Overview" sub tab
-  And I wait for "2" seconds
-  When I save the field labeled "Application Due Date" as "ApplicationDueDate"
-  And I click on "Edit" in the page details
-  And I enter value "{SavedValue:ApplicationDueDate}" into field "PreApplicationDueDate__c"
-  And I navigate to "Evaluation" sub tab
-  And I enter value "Yes" into field "MaintenanceEffortRequire__c"
-  And I enter value "Automation Test" into field "StatutoryMaintenanceOfEffort__c"
-  And I click on "Save" in the page details
-  And I wait for "2" seconds
-  And I save the field labeled "EGMS ID" as "opportunityEGMSID"
-  And I navigate to "Responsibilities" sub tab
-  When I enter the following values into flex table with id "---grantee_tableId:-:opportunityApproverTableId---" by clicking "New" :
+    And I create "Manual" qualified lead for title "Automation Runtime Opportunity" and opportunity number "Automation Runtime" with properties "default"
+    Given I login to "Grantee" app as "GRANTEE PM" user
+    And I navigate to "Opportunities" tab
+    When I navigate to "Qualified" content inside "Leads" subheader on left panel
+    And I click toggle button to select "Qualified Leads - All"
+    When I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:qualifiedLeadTableId---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside flex table with id "---grantee_tableId:-:qualifiedLeadTableId---" without waiting for record
+    When I click on "Convert to Opportunity" in the page details
+    And I click on "Edit" in the page details
+    And I enter "Grantee_Opp_PreAppYes_Edition" values from "Announcement_Field_Values.xlsx"
+    And I enter value "50%" into field "ProbabilityofWinningreceivingaGrant__c"
+    And I click on "Save" in the page details
+    When I navigate to "Overview" sub tab
+    And I wait for "2" seconds
+    When I save the field labeled "Application Due Date" as "ApplicationDueDate"
+    And I click on "Edit" in the page details
+    And I enter value "{SavedValue:ApplicationDueDate}" into field "PreApplicationDueDate__c"
+    And I navigate to "Evaluation" sub tab
+    And I enter value "Yes" into field "MaintenanceEffortRequire__c"
+    And I enter value "Automation Test" into field "StatutoryMaintenanceOfEffort__c"
+    And I click on "Save" in the page details
+    And I wait for "2" seconds
+    And I save the field labeled "EGMS ID" as "opportunityEGMSID"
+    And I navigate to "Responsibilities" sub tab
+    When I enter the following values into flex table with id "---grantee_tableId:-:opportunityApproverTableId---" by clicking "New" :
       | Name       | Opportunity |
       | Victor EXE | Step 1      |
-  When I click on "Submit for Approval" in the page details
-  Then I softly see field "Status" as "Submitted for Approval"
-  And I get the "EGMS ID"
-  When I re-login to "Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
-  And I navigate to "Opportunities" tab
-  When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-  And I perform quick search for "Record Id" in "---grantee_tableId:-:PendingTask---" panel
-  When I click on "Start" icon for "Record Id" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
-  Then I softly see field "Status" as "Submitted for Approval"
-  When I select radio button "Forward" in the approval decision
-  And I select user "David FO" in the approval decision
-  When I enter comment "Automation testing" in the approval decision
-  And I submit the approval in the approval decision without processing
-  Then I softly see the following messages in the page details contains:
+    When I click on "Submit for Approval" in the page details
+    Then I softly see field "Status" as "Submitted for Approval"
+    And I get the "EGMS ID"
+    When I re-login to "Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
+    And I navigate to "Opportunities" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "Record Id" in "---grantee_tableId:-:PendingTask---" panel
+    When I click on "Start" icon for "Record Id" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
+    Then I softly see field "Status" as "Submitted for Approval"
+    When I select radio button "Forward" in the approval decision
+    And I select user "David FO" in the approval decision
+    When I enter comment "Automation testing" in the approval decision
+    And I submit the approval in the approval decision without processing
+    Then I softly see the following messages in the page details contains:
       | Successfully Re-Assigned |
-  Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
-  When I re-login to "Grantee" app as "GRANTEE FO" user on "INTERNAL" portal
-  And I navigate to "Opportunities" tab
-  When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-  And I perform quick search for "Record Id" in "---grantee_tableId:-:PendingTask---" panel
-  When I click on "Start" icon for "Record Id" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
-  Then I softly see field "Status" as "Submitted for Approval"
-  When I "Send to Owner" in the approval decision
-  Then I softly see field "Status" as "Draft"
-  And I wait for "100" seconds
-  When I re-login to "Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
-  And I navigate to "Opportunities" tab
-  And I navigate to "Not Converted" content inside "Opportunities" subheader on left panel
-  When I click toggle button to select "Opportunities Not Converted to Application - All"
-  And I perform quick search for "{SavedValue:opportunityEGMSID}" in "---grantee_tableId:-:OpportunityNotConvertedToApplication---" panel
-  When I click on "View" icon for "{SavedValue:opportunityEGMSID}" inside table
-  Then I softly see field "Status" as "Draft"
-  Then I softly see status in Progress-bar is "Created" and is "dark blue"
-  When I click on "Submit for Approval" in the page details
-  And I get the "EGMS ID"
-  When I re-login to "Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
-  And I navigate to "Opportunities" tab
-  When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-  And I perform quick search for "Record Id" in "---grantee_tableId:-:PendingTask---" panel
-  When I click on "Start" icon for "Record Id" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
-  Then I softly see field "Status" as "Submitted for Approval"
-  When I select radio button "Forward" in the approval decision
-  When I "Reject" in the approval decision
-  Then I softly see status in Progress-bar is "Rejected" and is "Red"
-  When I re-login to "Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
-  And I navigate to "Opportunities" tab
-  And I navigate to "Not Converted" content inside "Opportunities" subheader on left panel
-  When I click toggle button to select "Opportunities Not Converted to Application - All"
-  And I perform quick search for "{SavedValue:opportunityEGMSID}" in "---grantee_tableId:-:OpportunityNotConvertedToApplication---" panel
-  When I click on "View" icon for "{SavedValue:opportunityEGMSID}" inside table
-  Then I softly see field "Status" as "Rejected"
-  Then I softly see status in Progress-bar is "Rejected" and is "Red"
-  Then I softly cannot see top right button "Validate" in page detail
-  Then I softly cannot see top right button "Edit" in page detail
-  Then I softly cannot see top right button "Submit for Approval" in page detail
+    Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
+    When I re-login to "Grantee" app as "GRANTEE FO" user on "INTERNAL" portal
+    And I navigate to "Opportunities" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "Record Id" in "---grantee_tableId:-:PendingTask---" panel
+    When I click on "Start" icon for "Record Id" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
+    Then I softly see field "Status" as "Submitted for Approval"
+    When I "Send to Owner" in the approval decision
+    Then I softly see field "Status" as "Draft"
+    And I wait for "100" seconds
+    When I re-login to "Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
+    And I navigate to "Opportunities" tab
+    And I navigate to "Not Converted" content inside "Opportunities" subheader on left panel
+    When I click toggle button to select "Opportunities Not Converted to Application - All"
+    And I perform quick search for "{SavedValue:opportunityEGMSID}" in "---grantee_tableId:-:OpportunityNotConvertedToApplication---" panel
+    When I click on "View" icon for "{SavedValue:opportunityEGMSID}" inside table
+    Then I softly see field "Status" as "Draft"
+    Then I softly see status in Progress-bar is "Created" and is "dark blue"
+    When I click on "Submit for Approval" in the page details
+    And I get the "EGMS ID"
+    When I re-login to "Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
+    And I navigate to "Opportunities" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "Record Id" in "---grantee_tableId:-:PendingTask---" panel
+    When I click on "Start" icon for "Record Id" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
+    Then I softly see field "Status" as "Submitted for Approval"
+    When I select radio button "Forward" in the approval decision
+    When I "Reject" in the approval decision
+    Then I softly see status in Progress-bar is "Rejected" and is "Red"
+    When I re-login to "Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
+    And I navigate to "Opportunities" tab
+    And I navigate to "Not Converted" content inside "Opportunities" subheader on left panel
+    When I click toggle button to select "Opportunities Not Converted to Application - All"
+    And I perform quick search for "{SavedValue:opportunityEGMSID}" in "---grantee_tableId:-:OpportunityNotConvertedToApplication---" panel
+    When I click on "View" icon for "{SavedValue:opportunityEGMSID}" inside table
+    Then I softly see field "Status" as "Rejected"
+    Then I softly see status in Progress-bar is "Rejected" and is "Red"
+    Then I softly cannot see top right button "Validate" in page detail
+    Then I softly cannot see top right button "Edit" in page detail
+    Then I softly cannot see top right button "Submit for Approval" in page detail
+
+  @546590 @validatetherecordssharingforOppwithPO/FO/FD/auditor/Admin/EXEfromsameOrginallstatesofOpp @GranteeFlexP1
+  Scenario: Validate the records sharing for Opp with PO/FO/FD/auditor/Admin/EXE from same Org in all states of Opp
+    And I create "Manual" qualified lead for title "Automation Runtime Opportunity" and opportunity number "Automation Runtime" with properties "default"
+    Given I login to "Grantee" app as "GRANTEE PM" user
+    And I wait for "2" seconds
+    And I navigate to "Opportunities" tab
+    When I navigate to "Qualified" content inside "Leads" subheader on left panel
+    And I click toggle button to select "Qualified Leads - All"
+    When I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:qualifiedLeadTableId---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside flex table with id "---grantee_tableId:-:qualifiedLeadTableId---" without waiting for record
+    When I click on "Convert to Opportunity" in the page details
+    And I click on "Edit" in the page details
+    And I enter "Grantee_Opp_PreAppYes_Edition" values from "Announcement_Field_Values.xlsx"
+    And I enter value "50%" into field "ProbabilityofWinningreceivingaGrant__c"
+    And I click on "Save" in the page details
+    When I navigate to "Overview" sub tab
+    And I wait for "2" seconds
+    When I save the field labeled "Application Due Date" as "ApplicationDueDate"
+    And I click on "Edit" in the page details
+    And I enter value "{SavedValue:ApplicationDueDate}" into field "PreApplicationDueDate__c"
+    And I navigate to "Evaluation" sub tab
+    And I enter value "Yes" into field "MaintenanceEffortRequire__c"
+    And I enter value "Automation Test" into field "StatutoryMaintenanceOfEffort__c"
+    And I click on "Save" in the page details
+    And I wait for "2" seconds
+    And I save the field labeled "EGMS ID" as "opportunityEGMSID"
+    When I navigate to "Overview" sub tab
+    And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:opportunityExternalProgramTableId---"
+    When I click "Associate" after selection of "Automation Permanent NGO Program2" in the table "---grantee_tableId:-:opportunityExternalProgramModalTableId---"
+    When I click modal button "Close"
+    And I wait for "3" seconds
+    Then I see value "Automation Permanent NGO Program2" for title "Title" inside table "---grantee_tableId:-:opportunityExternalProgramTableId---"
+    Then I see value "Automation Permanent NGO Program" for title "Title" inside table "---grantee_tableId:-:opportunityExternalProgramTableId---"
+    And I navigate to "Responsibilities" sub tab
+    When I enter the following values into flex table with id "---grantee_tableId:-:OpportunityPeerReviewers---" by clicking "New" :
+      | Reviewer Name | Role            | Description            | Due Date | Allow Record Editing |
+      | David FO      | Fiscal Reviewer | Automation Description | 5        | NO                   |
+    When I enter the following values into flex table with id "---grantee_tableId:-:OpportunityPeerReviewers---" by clicking "New" :
+      | Reviewer Name | Role             | Description            | Due Date | Allow Record Editing |
+      | Victor EXE    | Program Reviewer | Automation Description | 5        | Yes                  |
+    When I enter the following values into flex table with id "---grantee_tableId:-:opportunityApproverTableId---" by clicking "New" :
+      | Name       | Opportunity |
+      | Grantee PO | Step 1      |
+    When I enter the following values into flex table with id "---grantee_tableId:-:opportunityApproverTableId---" by clicking "New" :
+      | Name               | Opportunity |
+      | Danielle FD Garcia | Step 2      |
+    Then I see value "David FO" for title "Reviewer Name" inside table "---grantee_tableId:-:OpportunityPeerReviewers---"
+    Then I see value "Victor EXE" for title "Reviewer Name" inside table "---grantee_tableId:-:OpportunityPeerReviewers---"
+    Then I see value "Grantee PO" for title "Name" inside table "---grantee_tableId:-:opportunityApproverTableId---"
+    Then I see value "Danielle FD Garcia" for title "Name" inside table "---grantee_tableId:-:opportunityApproverTableId---"
+    And I click on "Send for Review" icon for "David FO" inside flex table with id "---grantee_tableId:-:OpportunityPeerReviewers---" without waiting for record
+    And I click on "Send for Review" icon for "Victor EXE" inside flex table with id "---grantee_tableId:-:OpportunityPeerReviewers---" without waiting for record
+    And I pause execution for "3" seconds
+    Then I softly see value "Sent for Review" for title "Status" against the value "Victor EXE" inside table "---grantee_tableId:-:OpportunityPeerReviewers---"
+    Then I softly see value "Sent for Review" for title "Status" against the value "David FO" inside table "---grantee_tableId:-:OpportunityPeerReviewers---"
+    And I navigate to "Files" sub tab
+    And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:opportunityFilesTableId---"
+    And I upload attachment without random number "AttachmentTesting.pdf" of type "FOA Documents" from computer
+    And I wait for "2" seconds
+    When I click modal button "Close"
+    And I wait for "2" seconds
+    Then I see value "AttachmentTesting.pdf" for title "Title" inside table "---grantee_tableId:-:opportunityFilesTableId---"
+    When I enter the following values into flex table with id "---grantee_tableId:-:opportunityNotesTableId---" by clicking "New" :
+      | Title        | Description      |
+      | Notes Record | Automation Notes |
+    Then I softly see value "Notes Record" for title "Title" inside table "---grantee_tableId:-:opportunityNotesTableId---"
+    When I re-login to "Grantee" app as "GRANTEE PO" user on "INTERNAL" portal
+    And I perform quick search inside global search "{SavedValue:opportunityEGMSID}"
+    Then I softly can see row level action button "Edit" against "{SavedValue:opportunityEGMSID}" in global search with id "Announcements"
+    Then I softly cannot see row level action button "Change Owner" against "{SavedValue:opportunityEGMSID}" in global search with id "Announcements"
+    And I click on row level action button "Edit" against "{SavedValue:opportunityEGMSID}" in global search with id "Announcements"
+    Then I softly see field "Status" as "Submitted for Review"
+    Then I cannot see top right button "Save" in page detail
+    Then I cannot see top right button "Cancel" in page detail
+    Then I softly see the text containing "You dont have sufficient access to edit this record"
+    And I navigate to "Opportunities" tab
+    And I navigate to "Not Converted" content inside "Opportunities" subheader on left panel
+    When I click toggle button to select "Opportunities Not Converted to Application - All"
+    And I perform quick search for "{SavedValue:opportunityEGMSID}" in "---grantee_tableId:-:OpportunityNotConvertedToApplication---" panel
+    When I click on "View" icon for "{SavedValue:opportunityEGMSID}" inside table
+    Then I softly see field "Status" as "Submitted for Review"
+    And I navigate to "Overview" sub tab
+    Then I see value "Automation Permanent NGO Program2" for title "Title" inside table "---grantee_tableId:-:opportunityExternalProgramTableId---"
+    Then I see value "Automation Permanent NGO Program" for title "Title" inside table "---grantee_tableId:-:opportunityExternalProgramTableId---"
+    And I navigate to "Responsibilities" sub tab
+    Then I see value "David FO" for title "Reviewer Name" inside table "---grantee_tableId:-:OpportunityPeerReviewers---"
+    Then I see value "Victor EXE" for title "Reviewer Name" inside table "---grantee_tableId:-:OpportunityPeerReviewers---"
+    Then I see value "Grantee PO" for title "Name" inside table "---grantee_tableId:-:opportunityApproverTableId---"
+    Then I see value "Danielle FD Garcia" for title "Name" inside table "---grantee_tableId:-:opportunityApproverTableId---"
+    And I navigate to "Files" sub tab
+    Then I see value "AttachmentTesting.pdf" for title "Title" inside table "---grantee_tableId:-:opportunityFilesTableId---"
+    Then I softly see value "Notes Record" for title "Title" inside table "---grantee_tableId:-:opportunityNotesTableId---"
+    When I re-login to "Grantee" app as "GRANTEE FO" user on "INTERNAL" portal
+    And I navigate to "Opportunities" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "{SavedValue:opportunityEGMSID}" in "---grantee_tableId:-:PendingTask---" panel
+    Then I softly see value "{SavedValue:opportunityEGMSID}" for title "EGMS ID" inside table "---grantee_tableId:-:PendingTask---"
+    When I click on "Start" icon for "{SavedValue:opportunityEGMSID}" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
+    And I navigate to "Overview" sub tab
+    Then I softly cannot see top right button "Edit" in page detail
+    Then I see value "Automation Permanent NGO Program2" for title "Title" inside table "---grantee_tableId:-:opportunityExternalProgramTableId---"
+    Then I see value "Automation Permanent NGO Program" for title "Title" inside table "---grantee_tableId:-:opportunityExternalProgramTableId---"
+    And I navigate to "Responsibilities" sub tab
+    Then I see value "David FO" for title "Reviewer Name" inside table "---grantee_tableId:-:OpportunityPeerReviewers---"
+    Then I see value "Victor EXE" for title "Reviewer Name" inside table "---grantee_tableId:-:OpportunityPeerReviewers---"
+    Then I see value "Grantee PO" for title "Name" inside table "---grantee_tableId:-:opportunityApproverTableId---"
+    Then I see value "Danielle FD Garcia" for title "Name" inside table "---grantee_tableId:-:opportunityApproverTableId---"
+    And I navigate to "Files" sub tab
+    Then I see value "AttachmentTesting.pdf" for title "Title" inside table "---grantee_tableId:-:opportunityFilesTableId---"
+    Then I softly see value "Notes Record" for title "Title" inside table "---grantee_tableId:-:opportunityNotesTableId---"
+    And I navigate to "Responsibilities" sub tab
+    When I click on "Enter Review" icon for "David FO" inside flex table with id "---grantee_tableId:-:OpportunityPeerReviewers---" without waiting for record
+    And I wait for "2" seconds
+    When I click modal button "Save"
+    And I wait for "2" seconds
+    Then I softly see the following messages in the page details contains:
+      | To Save, Rating is required.   |
+      | To Save, Comments is required. |
+    And I enter a review as "Passed"
+    When I click modal button "Save"
+    And I click on submit review
+    And I wait for "3" seconds
+    Then I softly see value "Submitted" for title "Status" against the value "David FO" inside table "---grantee_tableId:-:OpportunityPeerReviewers---"
+    Then I softly cannot see row level action button "Enter Review" against "David FO" in flex table with id "---grantee_tableId:-:OpportunityPeerReviewers---"
+    Then I softly cannot see row level action button "Edit" against "David FO" in flex table with id "---grantee_tableId:-:OpportunityPeerReviewers---"
+    When I re-login to "Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
+    And I navigate to "Opportunities" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "{SavedValue:opportunityEGMSID}" in "---grantee_tableId:-:PendingTask---" panel
+    Then I softly see value "{SavedValue:opportunityEGMSID}" for title "EGMS ID" inside table "---grantee_tableId:-:PendingTask---"
+    When I click on "Start" icon for "{SavedValue:opportunityEGMSID}" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
+    And I navigate to "Overview" sub tab
+    Then I softly can see top right button "Edit" in page detail
+    Then I see value "Automation Permanent NGO Program2" for title "Title" inside table "---grantee_tableId:-:opportunityExternalProgramTableId---"
+    Then I see value "Automation Permanent NGO Program" for title "Title" inside table "---grantee_tableId:-:opportunityExternalProgramTableId---"
+    And I navigate to "Responsibilities" sub tab
+    Then I see value "David FO" for title "Reviewer Name" inside table "---grantee_tableId:-:OpportunityPeerReviewers---"
+    Then I see value "Victor EXE" for title "Reviewer Name" inside table "---grantee_tableId:-:OpportunityPeerReviewers---"
+    Then I see value "Grantee PO" for title "Name" inside table "---grantee_tableId:-:opportunityApproverTableId---"
+    Then I see value "Danielle FD Garcia" for title "Name" inside table "---grantee_tableId:-:opportunityApproverTableId---"
+    And I navigate to "Files" sub tab
+    Then I see value "AttachmentTesting.pdf" for title "Title" inside table "---grantee_tableId:-:opportunityFilesTableId---"
+    Then I softly see value "Notes Record" for title "Title" inside table "---grantee_tableId:-:opportunityNotesTableId---"
+    And I navigate to "Responsibilities" sub tab
+    When I click on "Enter Review" icon for "Victor EXE" inside flex table with id "---grantee_tableId:-:OpportunityPeerReviewers---" without waiting for record
+    And I wait for "2" seconds
+    When I click modal button "Save"
+    And I wait for "2" seconds
+    Then I softly see the following messages in the page details contains:
+      | To Save, Rating is required.   |
+      | To Save, Comments is required. |
+    And I enter a review as "Passed"
+    When I click modal button "Save"
+    And I click on submit review
+    And I wait for "3" seconds
+    Then I softly see value "Submitted" for title "Status" against the value "Victor EXE" inside table "---grantee_tableId:-:OpportunityPeerReviewers---"
+    Then I softly cannot see row level action button "Enter Review" against "Victor EXE" in flex table with id "---grantee_tableId:-:OpportunityPeerReviewers---"
+    Then I softly cannot see row level action button "Edit" against "Victor EXE" in flex table with id "---grantee_tableId:-:OpportunityPeerReviewers---"
+    Then I softly cannot see top right button "Edit" in page detail
+    When I re-login to "Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
+    And I navigate to "Opportunities" tab
+    And I navigate to "Not Converted" content inside "Opportunities" subheader on left panel
+    When I click toggle button to select "Opportunities Not Converted to Application - All"
+    And I perform quick search for "{SavedValue:opportunityEGMSID}" in "---grantee_tableId:-:OpportunityNotConvertedToApplication---" panel
+    When I click on "View" icon for "{SavedValue:opportunityEGMSID}" inside table
+    And I navigate to "Overview" sub tab
+    Then I see value "Automation Permanent NGO Program2" for title "Title" inside table "---grantee_tableId:-:opportunityExternalProgramTableId---"
+    Then I see value "Automation Permanent NGO Program" for title "Title" inside table "---grantee_tableId:-:opportunityExternalProgramTableId---"
+    And I navigate to "Responsibilities" sub tab
+    Then I see value "David FO" for title "Reviewer Name" inside table "---grantee_tableId:-:OpportunityPeerReviewers---"
+    Then I see value "Victor EXE" for title "Reviewer Name" inside table "---grantee_tableId:-:OpportunityPeerReviewers---"
+    Then I see value "Grantee PO" for title "Name" inside table "---grantee_tableId:-:opportunityApproverTableId---"
+    Then I see value "Danielle FD Garcia" for title "Name" inside table "---grantee_tableId:-:opportunityApproverTableId---"
+    And I navigate to "Files" sub tab
+    Then I see value "AttachmentTesting.pdf" for title "Title" inside table "---grantee_tableId:-:opportunityFilesTableId---"
+    Then I softly see value "Notes Record" for title "Title" inside table "---grantee_tableId:-:opportunityNotesTableId---"
+    When I click on "Complete Review" in the page details
+    Then I softly see field "Status" as "Reviewed"
+    When I re-login to "Grantee" app as "GRANTEE PO" user on "INTERNAL" portal
+    And I perform quick search inside global search "{SavedValue:opportunityEGMSID}"
+    Then I softly can see row level action button "Edit" against "{SavedValue:opportunityEGMSID}" in global search with id "Announcements"
+    Then I softly cannot see row level action button "Change Owner" against "{SavedValue:opportunityEGMSID}" in global search with id "Announcements"
+    And I click on row level action button "Edit" against "{SavedValue:opportunityEGMSID}" in global search with id "Announcements"
+    Then I softly see field "Status" as "Reviewed"
+    Then I cannot see top right button "Save" in page detail
+    Then I cannot see top right button "Cancel" in page detail
+    Then I softly see the text containing "You dont have sufficient access to edit this record"
+    And I navigate to "Opportunities" tab
+    And I navigate to "Not Converted" content inside "Opportunities" subheader on left panel
+    When I click toggle button to select "Opportunities Not Converted to Application - All"
+    And I perform quick search for "{SavedValue:opportunityEGMSID}" in "---grantee_tableId:-:OpportunityNotConvertedToApplication---" panel
+    When I click on "View" icon for "{SavedValue:opportunityEGMSID}" inside table
+    Then I softly see field "Status" as "Reviewed"
+    And I navigate to "Overview" sub tab
+    Then I see value "Automation Permanent NGO Program2" for title "Title" inside table "---grantee_tableId:-:opportunityExternalProgramTableId---"
+    Then I see value "Automation Permanent NGO Program" for title "Title" inside table "---grantee_tableId:-:opportunityExternalProgramTableId---"
+    And I navigate to "Responsibilities" sub tab
+    Then I see value "David FO" for title "Reviewer Name" inside table "---grantee_tableId:-:OpportunityPeerReviewers---"
+    Then I see value "Victor EXE" for title "Reviewer Name" inside table "---grantee_tableId:-:OpportunityPeerReviewers---"
+    Then I see value "Grantee PO" for title "Name" inside table "---grantee_tableId:-:opportunityApproverTableId---"
+    Then I see value "Danielle FD Garcia" for title "Name" inside table "---grantee_tableId:-:opportunityApproverTableId---"
+    And I navigate to "Files" sub tab
+    Then I see value "AttachmentTesting.pdf" for title "Title" inside table "---grantee_tableId:-:opportunityFilesTableId---"
+    Then I softly see value "Notes Record" for title "Title" inside table "---grantee_tableId:-:opportunityNotesTableId---"
+    When I re-login to "Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
+    And I navigate to "Opportunities" tab
+    And I navigate to "Not Converted" content inside "Opportunities" subheader on left panel
+    When I click toggle button to select "Opportunities Not Converted to Application - All"
+    And I perform quick search for "{SavedValue:opportunityEGMSID}" in "---grantee_tableId:-:OpportunityNotConvertedToApplication---" panel
+    When I click on "View" icon for "{SavedValue:opportunityEGMSID}" inside table
+    Then I softly see field "Status" as "Reviewed"
+    When I click on "Submit for Approval" in the page details
+    Then I softly see field "Status" as "Submitted for Approval"
+    And I navigate to "Overview" sub tab
+    Then I softly cannot see top right button "Edit" in page detail
+    Then I see value "Automation Permanent NGO Program2" for title "Title" inside table "---grantee_tableId:-:opportunityExternalProgramTableId---"
+    Then I see value "Automation Permanent NGO Program" for title "Title" inside table "---grantee_tableId:-:opportunityExternalProgramTableId---"
+    And I navigate to "Responsibilities" sub tab
+    Then I see value "David FO" for title "Reviewer Name" inside table "---grantee_tableId:-:OpportunityPeerReviewers---"
+    Then I see value "Victor EXE" for title "Reviewer Name" inside table "---grantee_tableId:-:OpportunityPeerReviewers---"
+    Then I see value "Grantee PO" for title "Name" inside table "---grantee_tableId:-:opportunityApproverTableId---"
+    Then I see value "Danielle FD Garcia" for title "Name" inside table "---grantee_tableId:-:opportunityApproverTableId---"
+    And I navigate to "Files" sub tab
+    Then I see value "AttachmentTesting.pdf" for title "Title" inside table "---grantee_tableId:-:opportunityFilesTableId---"
+    Then I softly see value "Notes Record" for title "Title" inside table "---grantee_tableId:-:opportunityNotesTableId---"
+    When I re-login to "Grantee" app as "GRANTEE PO" user on "INTERNAL" portal
+    And I perform quick search inside global search "{SavedValue:opportunityEGMSID}"
+    Then I softly can see row level action button "Edit" against "{SavedValue:opportunityEGMSID}" in global search with id "Announcements"
+    Then I softly cannot see row level action button "Change Owner" against "{SavedValue:opportunityEGMSID}" in global search with id "Announcements"
+    And I click on row level action button "Edit" against "{SavedValue:opportunityEGMSID}" in global search with id "Announcements"
+    Then I softly see field "Status" as "Submitted for Approval"
+    Then I cannot see top right button "Save" in page detail
+    Then I cannot see top right button "Cancel" in page detail
+    Then I softly see the text containing "You dont have sufficient access to edit this record"
+    And I navigate to "Opportunities" tab
+    And I navigate to "Not Converted" content inside "Opportunities" subheader on left panel
+    When I click toggle button to select "Opportunities Not Converted to Application - All"
+    And I perform quick search for "{SavedValue:opportunityEGMSID}" in "---grantee_tableId:-:OpportunityNotConvertedToApplication---" panel
+    When I click on "View" icon for "{SavedValue:opportunityEGMSID}" inside table
+    Then I softly see field "Status" as "Submitted for Approval"
+    And I navigate to "Overview" sub tab
+    Then I see value "Automation Permanent NGO Program2" for title "Title" inside table "---grantee_tableId:-:opportunityExternalProgramTableId---"
+    Then I see value "Automation Permanent NGO Program" for title "Title" inside table "---grantee_tableId:-:opportunityExternalProgramTableId---"
+    And I navigate to "Responsibilities" sub tab
+    Then I see value "David FO" for title "Reviewer Name" inside table "---grantee_tableId:-:OpportunityPeerReviewers---"
+    Then I see value "Victor EXE" for title "Reviewer Name" inside table "---grantee_tableId:-:OpportunityPeerReviewers---"
+    Then I see value "Grantee PO" for title "Name" inside table "---grantee_tableId:-:opportunityApproverTableId---"
+    Then I see value "Danielle FD Garcia" for title "Name" inside table "---grantee_tableId:-:opportunityApproverTableId---"
+    And I navigate to "Files" sub tab
+    Then I see value "AttachmentTesting.pdf" for title "Title" inside table "---grantee_tableId:-:opportunityFilesTableId---"
+    Then I softly see value "Notes Record" for title "Title" inside table "---grantee_tableId:-:opportunityNotesTableId---"
+    And I navigate to "Opportunities" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "Record Id" in "---grantee_tableId:-:PendingTask---" panel
+    When I click on "Start" icon for "Record Id" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
+    Then I softly see field "Status" as "Submitted for Approval"
+    When I "Approve" in the approval decision
+    Then I softly see field "Status" as "Submitted for Approval"
+    And I navigate to "Overview" sub tab
+    Then I see value "Automation Permanent NGO Program2" for title "Title" inside table "---grantee_tableId:-:opportunityExternalProgramTableId---"
+    Then I see value "Automation Permanent NGO Program" for title "Title" inside table "---grantee_tableId:-:opportunityExternalProgramTableId---"
+    And I navigate to "Responsibilities" sub tab
+    Then I see value "David FO" for title "Reviewer Name" inside table "---grantee_tableId:-:OpportunityPeerReviewers---"
+    Then I see value "Victor EXE" for title "Reviewer Name" inside table "---grantee_tableId:-:OpportunityPeerReviewers---"
+    Then I see value "Grantee PO" for title "Name" inside table "---grantee_tableId:-:opportunityApproverTableId---"
+    Then I see value "Danielle FD Garcia" for title "Name" inside table "---grantee_tableId:-:opportunityApproverTableId---"
+    And I navigate to "Files" sub tab
+    Then I see value "AttachmentTesting.pdf" for title "Title" inside table "---grantee_tableId:-:opportunityFilesTableId---"
+    Then I softly see value "Notes Record" for title "Title" inside table "---grantee_tableId:-:opportunityNotesTableId---"
+    When I re-login to "Grantee" app as "GRANTEE FD" user on "INTERNAL" portal
+    And I navigate to "Opportunities" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "Record Id" in "---grantee_tableId:-:PendingTask---" panel
+    When I click on "Start" icon for "Record Id" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
+    Then I softly see field "Status" as "Submitted for Approval"
+    And I navigate to "Overview" sub tab
+    Then I see value "Automation Permanent NGO Program2" for title "Title" inside table "---grantee_tableId:-:opportunityExternalProgramTableId---"
+    Then I see value "Automation Permanent NGO Program" for title "Title" inside table "---grantee_tableId:-:opportunityExternalProgramTableId---"
+    And I navigate to "Responsibilities" sub tab
+    Then I see value "David FO" for title "Reviewer Name" inside table "---grantee_tableId:-:OpportunityPeerReviewers---"
+    Then I see value "Victor EXE" for title "Reviewer Name" inside table "---grantee_tableId:-:OpportunityPeerReviewers---"
+    Then I see value "Grantee PO" for title "Name" inside table "---grantee_tableId:-:opportunityApproverTableId---"
+    Then I see value "Danielle FD Garcia" for title "Name" inside table "---grantee_tableId:-:opportunityApproverTableId---"
+    And I navigate to "Files" sub tab
+    Then I see value "AttachmentTesting.pdf" for title "Title" inside table "---grantee_tableId:-:opportunityFilesTableId---"
+    Then I softly see value "Notes Record" for title "Title" inside table "---grantee_tableId:-:opportunityNotesTableId---"
+    When I "Approve" in the approval decision
+    Then I softly see field "Status" as "Approved"
+    Then I softly see status in Progress-bar is "Approved" and is "dark blue"
+    And I navigate to "Overview" sub tab
+    Then I see value "Automation Permanent NGO Program2" for title "Title" inside table "---grantee_tableId:-:opportunityExternalProgramTableId---"
+    Then I see value "Automation Permanent NGO Program" for title "Title" inside table "---grantee_tableId:-:opportunityExternalProgramTableId---"
+    And I navigate to "Responsibilities" sub tab
+    Then I see value "David FO" for title "Reviewer Name" inside table "---grantee_tableId:-:OpportunityPeerReviewers---"
+    Then I see value "Victor EXE" for title "Reviewer Name" inside table "---grantee_tableId:-:OpportunityPeerReviewers---"
+    Then I see value "Grantee PO" for title "Name" inside table "---grantee_tableId:-:opportunityApproverTableId---"
+    Then I see value "Danielle FD Garcia" for title "Name" inside table "---grantee_tableId:-:opportunityApproverTableId---"
+    And I navigate to "Files" sub tab
+    Then I see value "AttachmentTesting.pdf" for title "Title" inside table "---grantee_tableId:-:opportunityFilesTableId---"
+    Then I softly see value "Notes Record" for title "Title" inside table "---grantee_tableId:-:opportunityNotesTableId---"
+    When I re-login to "Grantee" app as "GRANTEE PO" user on "INTERNAL" portal
+    And I navigate to "Opportunities" tab
+    And I navigate to "Not Converted" content inside "Opportunities" subheader on left panel
+    When I click toggle button to select "Opportunities Not Converted to Application - All"
+    And I perform quick search for "{SavedValue:opportunityEGMSID}" in "---grantee_tableId:-:OpportunityNotConvertedToApplication---" panel
+    When I click on "View" icon for "{SavedValue:opportunityEGMSID}" inside table
+    And I navigate to "Overview" sub tab
+    Then I see value "Automation Permanent NGO Program2" for title "Title" inside table "---grantee_tableId:-:opportunityExternalProgramTableId---"
+    Then I see value "Automation Permanent NGO Program" for title "Title" inside table "---grantee_tableId:-:opportunityExternalProgramTableId---"
+    And I navigate to "Responsibilities" sub tab
+    Then I see value "David FO" for title "Reviewer Name" inside table "---grantee_tableId:-:OpportunityPeerReviewers---"
+    Then I see value "Victor EXE" for title "Reviewer Name" inside table "---grantee_tableId:-:OpportunityPeerReviewers---"
+    Then I see value "Grantee PO" for title "Name" inside table "---grantee_tableId:-:opportunityApproverTableId---"
+    Then I see value "Danielle FD Garcia" for title "Name" inside table "---grantee_tableId:-:opportunityApproverTableId---"
+    And I navigate to "Files" sub tab
+    Then I see value "AttachmentTesting.pdf" for title "Title" inside table "---grantee_tableId:-:opportunityFilesTableId---"
+    Then I softly see value "Notes Record" for title "Title" inside table "---grantee_tableId:-:opportunityNotesTableId---"
+    When I re-login to "Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
+    And I navigate to "Opportunities" tab
+    And I navigate to "Not Converted" content inside "Opportunities" subheader on left panel
+    When I click toggle button to select "Opportunities Not Converted to Application - All"
+    And I perform quick search for "{SavedValue:opportunityEGMSID}" in "---grantee_tableId:-:OpportunityNotConvertedToApplication---" panel
+    When I click on "View" icon for "{SavedValue:opportunityEGMSID}" inside table
+    Then I softly see field "Status" as "Approved"
+    Then I softly see status in Progress-bar is "Approved" and is "dark blue"
+    And I navigate to "Overview" sub tab
+    Then I see value "Automation Permanent NGO Program2" for title "Title" inside table "---grantee_tableId:-:opportunityExternalProgramTableId---"
+    Then I see value "Automation Permanent NGO Program" for title "Title" inside table "---grantee_tableId:-:opportunityExternalProgramTableId---"
+    And I navigate to "Responsibilities" sub tab
+    Then I see value "David FO" for title "Reviewer Name" inside table "---grantee_tableId:-:OpportunityPeerReviewers---"
+    Then I see value "Victor EXE" for title "Reviewer Name" inside table "---grantee_tableId:-:OpportunityPeerReviewers---"
+    Then I see value "Grantee PO" for title "Name" inside table "---grantee_tableId:-:opportunityApproverTableId---"
+    Then I see value "Danielle FD Garcia" for title "Name" inside table "---grantee_tableId:-:opportunityApproverTableId---"
+    And I navigate to "Files" sub tab
+    Then I see value "AttachmentTesting.pdf" for title "Title" inside table "---grantee_tableId:-:opportunityFilesTableId---"
+    Then I softly see value "Notes Record" for title "Title" inside table "---grantee_tableId:-:opportunityNotesTableId---"

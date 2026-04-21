@@ -151,7 +151,7 @@ public class UsersAndURL implements UsersController {
         String password;
         switch (userLevel.toUpperCase()) {
             case "GRANTEE ADMIN":
-                password = "QaTest@2025";
+                password = "QaTest@2026";
                 break;
             case "GRANTEE ADMIN1":
                 password = "Dev@3030";
@@ -160,19 +160,19 @@ public class UsersAndURL implements UsersController {
                 password = "Auto@2020";
                 break;
             case "GRANTEE PM":
-                password = "Merge@2025";
+                password = "Merge@2026";
                 break;
             case "GRANTEE EXE":
-                password = "Merge@2025";
+                password = "Merge@2026";
                 break;
             case "GRANTEE EXE1":
                 password = "Auto@2020";
                 break;
             case "GRANTEE FO":
-                password = "Merge@2025";
+                password = "Merge@2026";
                 break;
             case "GRANTEE FD":
-                password = "Merge@2025";
+                password = "Merge@2026";
                 break;
             case "GRANTEE PO":
                 password = "Merge@2025";
@@ -181,12 +181,42 @@ public class UsersAndURL implements UsersController {
                 password = "Merge@2026";
                 break;
             case "SARAH PM":
-                password = "Merge@2025";
+                password = "Merge@2026";
                 break;
             case "PO":
-                password = "Auto@2021";
+                password = "Auto@2020";
                 break;
             case "AUDITOR":
+                password = "Auto@2022";
+                break;
+            case "PM":
+                password = "Auto@2021";
+                break;
+            case "PM1":
+                password = "Auto@2021";
+                break;
+            case "EXE":
+                password = "Auto@2021";
+                break;
+            case "FO":
+                password = "Auto@2021";
+                break;
+            case "FD":
+                password = "Auto@2021";
+                break;
+            case "SPI3":
+                password = "Auto@2021";
+                break;
+            case "SPA":
+                password = "Auto@2021";
+                break;
+            case "IND":
+                password = "Auto@2021";
+                break;
+            case "ADMIN":
+                password = "Auto@2021";
+                break;
+            case "SPI4":
                 password = "Auto@2021";
                 break;
             default:

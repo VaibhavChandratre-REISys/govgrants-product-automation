@@ -34,7 +34,6 @@ Feature: Pre-Application scenarios without background
     And I click on "Edit" in the split screen page details
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
-#    And I click on "Back" in the page details
     Then I softly see top right button "New" inside flex table "---preApplication:-:preApplicationNotesTableId---"
     When I enter the following values into flex table with id "---preApplication:-:preApplicationNotesTableId---" by clicking "New" :
       | Title        | Description      |
@@ -167,7 +166,6 @@ Feature: Pre-Application scenarios without background
     And I click on "Edit" in the split screen page details
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
-#    And I click on "Back" in the page details
     Then I softly see top right button "New" inside flex table "---preApplication:-:preApplicationNotesTableId---"
     When I enter the following values into flex table with id "---preApplication:-:preApplicationNotesTableId---" by clicking "New" :
       | Title        | Description      |
@@ -300,7 +298,6 @@ Feature: Pre-Application scenarios without background
     And I click on "Edit" in the split screen page details
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
-#    And I click on "Back" in the page details
     Then I softly see top right button "New" inside flex table "---preApplication:-:preApplicationNotesTableId---"
     When I enter the following values into flex table with id "---preApplication:-:preApplicationNotesTableId---" by clicking "New" :
       | Title        | Description      |
@@ -397,7 +394,6 @@ Feature: Pre-Application scenarios without background
     And I click on "Edit" in the split screen page details
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
-#    And I click on "Back" in the page details
     Then I softly see top right button "New" inside flex table "---preApplication:-:preApplicationNotesTableId---"
     When I enter the following values into flex table with id "---preApplication:-:preApplicationNotesTableId---" by clicking "New" :
       | Title        | Description      |
@@ -501,7 +497,6 @@ Feature: Pre-Application scenarios without background
     And I click on "Edit" in the split screen page details
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
-#    And I click on "Back" in the page details
     Then I softly see top right button "New" inside flex table "---preApplication:-:preApplicationNotesTableId---"
     When I enter the following values into flex table with id "---preApplication:-:preApplicationNotesTableId---" by clicking "New" :
       | Title        | Description      |
@@ -577,7 +572,6 @@ Feature: Pre-Application scenarios without background
     And I click on "Edit" in the split screen page details
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
-#    And I click on "Back" in the page details
     Then I softly see top right button "New" inside flex table "---preApplication:-:preApplicationNotesTableId---"
     When I enter the following values into flex table with id "---preApplication:-:preApplicationNotesTableId---" by clicking "New" :
       | Title        | Description      |
@@ -673,7 +667,6 @@ Feature: Pre-Application scenarios without background
     And I click on "Edit" in the split screen page details
     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
     And I click on "Save" in the split screen page details
-#    And I click on "Back" in the page details
     Then I softly see top right button "New" inside flex table "---preApplication:-:preApplicationNotesTableId---"
     When I enter the following values into flex table with id "---preApplication:-:preApplicationNotesTableId---" by clicking "New" :
       | Title        | Description      |
