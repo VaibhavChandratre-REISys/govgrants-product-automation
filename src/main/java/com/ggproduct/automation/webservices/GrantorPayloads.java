@@ -3060,6 +3060,7 @@ public class GrantorPayloads {
         JsonArray newA = new JsonArray();
 
         grant.addProperty("IsGoalsRequired", "No");
+        grant.addProperty("KPIsRequired", "No");
         grant.addProperty("IsBuildUpFunctionality", "Yes");
         grant.addProperty("WBSRequired", "No");
         newA.add(grant);
