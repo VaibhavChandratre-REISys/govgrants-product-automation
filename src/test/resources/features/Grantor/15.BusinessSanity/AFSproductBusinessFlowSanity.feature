@@ -226,7 +226,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Planning" tab
     When I navigate to "External Programs" content inside "Programs" subheader on left panel
-    And I click toggle button to select "All NGO Programs"
+    And I click toggle button to select "NGO Programs - All"
     When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:ExternalNGOProgramTableId---" panel
     And I click on "View" icon for "{SavedValue:ProgramEGMSID}" inside flex table with id "---program:-:ExternalNGOProgramTableId---" without waiting for record
     And I click on "Activate" in the page details
@@ -3113,7 +3113,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I edit the following rows inline in flex table with id "---amendment:-:amendmentLineItemsTableId---" by clicking "Edit" :
       | Title        | Award Amount |
       | Construction | 900          |
-    When I close "Add Line Items" modal by clicking the top right x button
+    When I close "Amendment Line Items" modal by clicking the top right x button
     And I wait for "2" seconds
     When I click on "Add Line Items" icon for "Indirect costs" inside flex table with id "---amendment:-:budgetChangeTableId---"
     And I enter the following values into flex table with id "---amendment:-:amendmentLineItemsTableId---" by clicking "New" :
@@ -3461,7 +3461,7 @@ Feature: Validate sanity testing of Complete Business Flow
       | Construction | 450          |
     And I wait for "2" seconds
     When I close "Amendment Line Items" modal by clicking the top right x button
-    When I click on "Amendment Line Items" icon for "Indirect costs" inside flex table with id "---amendment:-:budgetChangeTableId---"
+    When I click on "Add Line Items" icon for "Indirect costs" inside flex table with id "---amendment:-:budgetChangeTableId---"
     And I enter the following values into flex table with id "---amendment:-:amendmentLineItemsTableId---" by clicking "New" :
       | Title        | Narrative     | Award Amount |
       | Construction | The Narrative | 50           |
@@ -3477,7 +3477,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I wait for "2" seconds
     When I close "Amendment Line Items" modal by clicking the top right x button
     And I wait for "3" seconds
-    When I click on "Amendment Line Items" icon for "Indirect costs" inside flex table with id "---amendment:-:budgetChangeTableId---"
+    When I click on "Add Line Items" icon for "Indirect costs" inside flex table with id "---amendment:-:budgetChangeTableId---"
     And I enter the following values into flex table with id "---amendment:-:amendmentLineItemsTableId---" by clicking "New" :
       | Title        | Narrative     | Award Amount |
       | Construction | The Narrative | 50           |
