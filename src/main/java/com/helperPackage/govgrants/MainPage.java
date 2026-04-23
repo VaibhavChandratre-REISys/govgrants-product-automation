@@ -324,6 +324,9 @@ public final class MainPage {
     public void setUpCustomAppDropDown(String appName) {
         I.amPerforming().waitFor().ElementToBeClickable(By.xpath("//button[@title='App Launcher']"));
         I.amPerforming().click().on(By.xpath("//button[@title='App Launcher']"));
+        By search= By.xpath("//div[contains(@class,'appLauncherMenu')]//input[@placeholder='Search apps and items...']");
+        I.amPerforming().textInput().in(search,appName);
+        I.amPerforming().addOnsTo().getKeyBoard().keyPress(Keys.ENTER);
         I.amPerforming().waitFor().ElementToBeClickable(By.xpath("//div[contains(@class,'appLauncherMenu')]//a[@data-label='" + appName + "']"));
         I.amPerforming().click().withJavaScript(By.xpath("//div[contains(@class,'appLauncherMenu')]//a[@data-label='" + appName + "']"));
         govgrants.perform().mainPage().waitForNavigationLogoToDisappear();

@@ -555,4 +555,22 @@ public class GrantorWebServices extends ProjectWebServices {
     public void UpdatedDirectGrantAwardForTitleWithProperties(String appTitle, String filter) {
         appToAwardUpdatePostCall(projectApis.payloadupdatedDirectGrantAwardForTitle(appTitle, filter));
     }
+
+    public void createProgramRecordsWithStatusUsingProperties(String title, String recordType, String status, String filter) {
+        createProgramPostCall(projectApis.payloadProgramCreationForTitle(title, recordType, status, filter));
+    }
+
+    private void createProgramPostCall(JsonObject jsonObject) {
+        String createSolicitationEndPoint = endPoint + "/services/apexrest/govGrantsCreateRecord";
+        Response response = I.amPerforming().restHttp().postCall(jsonObject, null,
+                createSolicitationEndPoint, "Authorization", "Bearer " + tokenString, null);
+        response.prettyPrint();
+        assertStatusCodeTwoZeroOne(response);
+    }
+
+    private void assertStatusCodeTwoZeroOne(Response response) {
+        response.then().statusCode(201);
+        System.out.println("response code is " + response.getStatusCode());
+        response.then().statusCode(201);
+    }
 }

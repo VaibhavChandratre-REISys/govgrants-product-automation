@@ -7,6 +7,7 @@ import com.ggproduct.automation.webservices.GrantorWebServices;
 import com.helperPackage.objects.Elements;
 import com.helperPackage.register.I;
 import com.helperPackage.report.LogLevel;
+import io.cucumber.datatable.DataTable;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
@@ -798,5 +799,25 @@ public class GenericSteps {
     @And("I updated direct grant award for title {string} with properties {string}")
     public void iUpdatedDirectGrantAwardForTitleWithProperties(String appTitle, String filter) {
         grantorWebServices.UpdatedDirectGrantAwardForTitleWithProperties(appTitle, filter);
+    }
+
+    @And("I create program records with status {string} using {string} properties")
+    public void iCreateProgramRecordsWithStatusUsingProperties(String status, String filter, DataTable table) {
+        List<Map<String, String>> rows = table.asMaps();
+        int index = 1;
+
+        for (Map<String, String> row : rows) {
+
+            String title = row.get("Title");
+            String recordType = row.get("RecordType");
+
+            if (title.startsWith("Automation Runtime")) {
+                String newTitle = title + I.amPerforming().addOnsTo().getRandomNumber();
+                I.amPerforming().propertiesFileOperationsTo().saveValue(title, newTitle);
+                title = newTitle;
+            }
+            grantorWebServices.createProgramRecordsWithStatusUsingProperties(title, recordType, status, filter);
+            index++;
+        }
     }
 }

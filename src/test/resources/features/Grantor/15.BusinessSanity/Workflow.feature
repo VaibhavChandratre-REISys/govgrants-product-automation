@@ -2529,7 +2529,14 @@ Feature: Validate all scenarios of every modules flow
     And I wait for "3" seconds
     Then I see that "Subaward" is in "Activated" status
 
-  @testgranteesf
+  @testgranteesf @debug
   Scenario:
-    When I login to "Grantee" app as "GRANTEE PM" user
-    And I re-login to "Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
+    And I create program records with status "Active" using "default" properties
+      | Title                               | RecordType       |
+      | Automation Runtime Program          | Internal Program |
+      | Automation Runtime External Program | NGO Program      |
+    And I halt execution
+#    And I create program records with status "Approved" using "default" properties
+#      | Title                                            |
+#      | {SavedValue:Automation Runtime Program}          |
+#      | {SavedValue:Automation Runtime External Program} |
