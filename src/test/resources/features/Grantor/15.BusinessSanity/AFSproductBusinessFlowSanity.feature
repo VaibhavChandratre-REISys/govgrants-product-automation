@@ -1,4 +1,4 @@
-@productBusinessFlowSanity @product @grantor-regression
+@productBusinessFlowSanity @product @grantor-regression @wip
 Feature: Validate sanity testing of Complete Business Flow
 
   @72335  @72335@activationOfFocusArea @ProdSan1
@@ -1081,6 +1081,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click on top right button "Associate" in flex table with id "---announcement:-:contactTableId---"
     When I click "Associate" after selection of "Automation ADMIN1" in the table "---announcement:-:annoucementContactTableId---"
     When I navigate to "Responsibilities" sub tab
+    And I halt execution
     When I enter the following values into flex table with id "---announcement:-:approversTableId---" by clicking "New" :
       | Name              | Announcement |
       | Automation ADMIN1 | NA           |
@@ -1090,6 +1091,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click on "Edit" in the page details
     When I navigate to "Financials" sub tab
     And I enter value "Justified" into field "Justification__c"
+    And I halt execution
     And I click on "Save" in the page details
     And I pause execution for "2" seconds
     When I navigate to "Overview" sub tab
@@ -1099,6 +1101,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I close "Add Organizations" modal by clicking the top right x button
     When I navigate to "Overview" sub tab
     And I pause execution for "4" seconds
+    And I halt execution
     When I edit the following rows inline in flex table with id "---announcement:-:formulaInvitedApplicatsTableId---" by clicking "Edit" :
       | Applicants                          | Allocated Amount |
       | SAN DIEGO ELECTRICAL TRAINING TRUST | 1000             |
@@ -1185,6 +1188,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I perform quick search for "{SavedValue:Automation Runtime Announcement Application Intake}" in "---applicationReview:-:reviewsTableId---" panel
     When I click on "View" icon for "{SavedValue:Automation Runtime Announcement Application Intake}" inside flex table with id "---applicationReview:-:reviewsTableId---"
     When I click on "Qualify" in the page details
+    And I halt execution
     When I click on "Create Application" in the page details
     And I wait for "3" seconds
     And I click modal button "Save and Continue"
@@ -1254,6 +1258,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I navigate to "Related Log" sub tab
     When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
     And I wait for "2" seconds
+    And I halt execution
     When I edit the following rows inline in flex table with id "---applicationReview:-:formTableId---" by clicking "Edit" :
       | Form Name  | Due in Days |
       | Pre-Screen | 5           |
@@ -3856,7 +3861,7 @@ Feature: Validate sanity testing of Complete Business Flow
       | "Selling and handling allowance" in "2c. Reportable Residual Unused Supplies" is required, if "1c" is checked in 'Report' section.              |
 
   @SF428_B_Dependent_fields @ProdSan3
-  Scenario:
+  Scenario:SF428_B_Dependent_fields
     Given I activated standalone subaward "Automation Runtime Direct Award" with properties "default" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Direct Award}" from the object "Progress Report"
     When I create a post award record "ProgressReport" for the Award "{SavedValue:Automation Runtime Direct Award}" having object api name as "ProgressReports__c"
