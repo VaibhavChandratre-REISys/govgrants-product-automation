@@ -869,7 +869,7 @@ public final class FlexTable implements FlexTableComponent {
             } else if (I.amPerforming().getElementReference().forListOfElements().ofNested(fieldWrapper, By.xpath(".//input[@type='checkbox']")).size() > 0) {
                 handleCheckBoxInput(fieldWrapper, fieldValue);
                 break;
-            } else if (I.amPerforming().getElementReference().forListOfElements().ofNested(fieldWrapper, By.xpath("//div[@class='wrap_text']//lightning-icon[@icon-name='utility:add'] | //div[@class='wrap_text']//lightning-icon[@icon-name='utility:edit'] | //c-fieldlwc[@class='fields']//*[@class='empty-placeholder clickable-text']//*[@class='edit-text']")).size() > 0) {
+            } else if (I.amPerforming().getElementReference().forListOfElements().ofNested(fieldWrapper, By.xpath("//span[@part='formatted-rich-text' and not(normalize-space())]/parent::lightning-formatted-rich-text//following-sibling::lightning-icon[@icon-name='utility:new_window'] | //div[@class='wrap_text']//lightning-icon[@icon-name='utility:add'] | //div[@class='wrap_text']//lightning-icon[@icon-name='utility:edit'] | //c-fieldlwc[@class='fields']//*[@class='empty-placeholder clickable-text']//*[@class='edit-text']")).size() > 0) {
                 HandleTextArea(fieldWrapper, fieldValue);
                 break;
             }
@@ -883,7 +883,7 @@ public final class FlexTable implements FlexTableComponent {
      * @author Dilip.Hatagale
      */
     private void HandleTextArea(WebElement fieldWrapper, String fieldValue) {
-        By editForMoreButton = By.xpath("//div[@class='wrap_text']//lightning-icon[@icon-name='utility:add'] | //div[@class='wrap_text']//lightning-icon[@icon-name='utility:edit'] | //c-fieldlwc[@class='fields']//*[@class='empty-placeholder clickable-text']//*[@class='edit-text']");
+        By editForMoreButton = By.xpath("//span[@part='formatted-rich-text' and not(normalize-space())]/parent::lightning-formatted-rich-text//following-sibling::lightning-icon[@icon-name='utility:new_window'] | //div[@class='wrap_text']//lightning-icon[@icon-name='utility:add'] | //div[@class='wrap_text']//lightning-icon[@icon-name='utility:edit'] | //c-fieldlwc[@class='fields']//*[@class='empty-placeholder clickable-text']//*[@class='edit-text']");
         By richTextArea = By.xpath("//div[@part='modal-body']//textarea[@part='textarea'] |//div[@part='rich-text-editor']//div[contains(@class,'rich-text-area')]");
         By saveButtonOnModal = By.xpath("//div[@class='confirm-modal']//button[@title='Save' or text()='Save']");
         I.amPerforming().click().withJavaScript(editForMoreButton);
