@@ -50,6 +50,7 @@ public final class Modal {
     public void closeModalByClickingTopRightCloseButton(String titleName) {
         By closeButton = By.xpath("//div[contains(@class,'modal')]//h2[text()='" + titleName + "']/parent::header//button[@title='Close']");
         I.amPerforming().click().on(closeButton);
+        govgrants.perform().modal().acceptPopUpForEditPage();
     }
 
     /**
