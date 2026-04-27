@@ -1366,7 +1366,6 @@ Feature: Validate sanity testing of Complete Business Flow
       #if needed acces issue
     And I click on "Save" in the page details
     And I wait for "2" seconds
-    And I click on "Save" in the page details
     When I click on "Submit" in the page details without processing
     When I click alert button "OK"
     Then I see that "Status" is in "Review Completed" status
@@ -4011,7 +4010,7 @@ Feature: Validate sanity testing of Complete Business Flow
     Then I see only the following ordered radio buttons in the approval decision :
       | Approve | Reject | Forward | Send back |
 
-  @OwnershipReasignment @ProdSan4
+  @OwnershipReasignment @ProdSan4 @ProdSan4_1
   Scenario: Validate Grants Ownership Reassignment
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab
