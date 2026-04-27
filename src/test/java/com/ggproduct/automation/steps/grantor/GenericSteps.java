@@ -294,11 +294,11 @@ public class GenericSteps {
     public void iCanSeeModalButton(String usage, String buttonName) {
         if (usage.equalsIgnoreCase("softly see")) {
             I.amPerforming().assertionsTo().assertThat(grantorProjectManager.isButtonDisplayedOnModal(buttonName)).isTrue();
-        } else if(usage.equalsIgnoreCase("see")) {
+        } else if (usage.equalsIgnoreCase("see")) {
             Assert.assertTrue(grantorProjectManager.isButtonDisplayedOnModal(buttonName));
-        } else if(usage.equalsIgnoreCase("softly do not see")) {
+        } else if (usage.equalsIgnoreCase("softly do not see")) {
             I.amPerforming().assertionsTo().assertThat(grantorProjectManager.isButtonDisplayedOnModal(buttonName)).isFalse();
-        } else{
+        } else {
             Assert.assertFalse(grantorProjectManager.isButtonDisplayedOnModal(buttonName));
         }
     }
@@ -725,7 +725,7 @@ public class GenericSteps {
             I.amPerforming().propertiesFileOperationsTo().saveValue(oppoNo, newFieldValue);
             oppoNo = newFieldValue;
         }
-        grantorWebServices.createQualifiedLead(isManual,oppTitle,oppoNo,filter);
+        grantorWebServices.createQualifiedLead(isManual, oppTitle, oppoNo, filter);
     }
 
     @And("I create opportunity with state {string} for opportunity number {string} with properties {string}")
@@ -736,9 +736,9 @@ public class GenericSteps {
 
     @And("^I create (Pre-application|Application) \"([^\"]*)\" with state \"([^\"]*)\" for opportunity number \"([^\"]*)\" with properties \"([^\"]*)\"$")
     public void iCreatePreApplicationWithStateForOpportunityNumberWithProperties(String module, String preAppTitle, String state, String oppoNo, String filter) {
-        if(module.equalsIgnoreCase("Pre-application")) {
+        if (module.equalsIgnoreCase("Pre-application")) {
             grantorWebServices.CreatePreApplicationWithStateForOpportunityNumberWithProperties(module, preAppTitle, state, oppoNo, filter);
-        } else{
+        } else {
             grantorWebServices.CreatePreApplicationWithStateForOpportunityNumberWithProperties(module, preAppTitle, state, oppoNo, filter);
         }
     }
@@ -768,7 +768,7 @@ public class GenericSteps {
 
     @And("I activate the award for title {string}")
     public void iActivateTheAwardForTitle(String grantTitle) {
-        grantorWebServices.CreateActivateTheAward( grantTitle);
+        grantorWebServices.CreateActivateTheAward(grantTitle);
     }
 
     @And("I {string} the {string} for title {string} with properties {string}")
@@ -818,6 +818,27 @@ public class GenericSteps {
             }
             grantorWebServices.createProgramRecordsWithStatusUsingProperties(title, recordType, status, filter);
             index++;
+        }
+    }
+
+    /**
+     * Creates Amendment Request records using status, filter, and DataTable input.
+     * Converts Award name to ID and invokes service layer for record creation.
+     *
+     * @param status the Amendment Request status
+     * @param filter payload modifier (e.g., "default")
+     * @param table  DataTable containing Title (Award) and RecordType (Amendment Type)
+     */
+    @And("I create amendment request records with status {string} using {string} properties")
+    public void iCreateAmendmentRequestRecordsWithStatusUsingProperties(String status, String filter, DataTable table) {
+        List<Map<String, String>> rows = table.asMaps();
+        for (Map<String, String> row : rows) {
+            String award = row.get("Title");
+            String amendmentType = row.get("RecordType");
+            award = grantorWebServices.getIdOf("Award__c", award);
+            grantorWebServices.createAmendmentRequestRecordsWithStatusUsingProperties(
+                    amendmentType, award, status, filter
+            );
         }
     }
 }

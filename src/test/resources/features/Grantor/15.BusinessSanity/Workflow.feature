@@ -2540,3 +2540,22 @@ Feature: Validate all scenarios of every modules flow
 #      | Title                                            |
 #      | {SavedValue:Automation Runtime Program}          |
 #      | {SavedValue:Automation Runtime External Program} |
+
+  @testAmendmentRequest
+  Scenario:
+    Given I activated standalone subaward "Automation Runtime Award for closeout" with properties "default" of type "Competitive"
+    And I create amendment request records with status "Created" using "default" properties
+      | Title                                              | RecordType           |
+      | {SavedValue:Automation Runtime Award for closeout} | Budget Period Change |
+    And I create amendment request records with status "Sent To Subrecipient" using "default" properties
+      | Title                                              | RecordType           |
+      | {SavedValue:Automation Runtime Award for closeout} | Budget Period Change |
+    And I create amendment request records with status "Acknowledged" using "default" properties
+      | Title                                              | RecordType           |
+      | {SavedValue:Automation Runtime Award for closeout} | Budget Period Change |
+    And I create amendment request records with status "Submitted for Approval" using "default" properties
+      | Title                                              | RecordType           |
+      | {SavedValue:Automation Runtime Award for closeout} | Budget Period Change |
+    And I create amendment request records with status "Approved" using "default" properties
+      | Title                                              | RecordType           |
+      | {SavedValue:Automation Runtime Award for closeout} | Budget Period Change |
