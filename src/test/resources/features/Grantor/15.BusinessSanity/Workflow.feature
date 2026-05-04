@@ -2529,7 +2529,7 @@ Feature: Validate all scenarios of every modules flow
     And I wait for "3" seconds
     Then I see that "Subaward" is in "Activated" status
 
-  @testgranteesf @debug
+  @testgranteesf
   Scenario:
     And I create program records with status "Active" using "default" properties
       | Title                               | RecordType       |
@@ -2541,21 +2541,26 @@ Feature: Validate all scenarios of every modules flow
 #      | {SavedValue:Automation Runtime Program}          |
 #      | {SavedValue:Automation Runtime External Program} |
 
-  @testAmendmentRequest
+  @testAmendmentRequest @debug
   Scenario:
-    Given I activated standalone subaward "Automation Runtime Award for closeout" with properties "default" of type "Competitive"
+    Given I activated standalone subaward "Automation Runtime Award for closeout" with properties "SECOND_FOCUS_AREA_BUDGET_CATEGORY" of type "Competitive"
     And I create amendment request records with status "Created" using "default" properties
-      | Title                                              | RecordType           |
-      | {SavedValue:Automation Runtime Award for closeout} | Budget Period Change |
+      | Title                                              | AmendmentType  | RecordType        |
+      | {SavedValue:Automation Runtime Award for closeout} | Funding Change | Formal Amendments |
+    And I halt execution
     And I create amendment request records with status "Sent To Subrecipient" using "default" properties
-      | Title                                              | RecordType           |
-      | {SavedValue:Automation Runtime Award for closeout} | Budget Period Change |
+      | Title                                              | AmendmentType  |
+      | {SavedValue:Automation Runtime Award for closeout} | Funding Change |
+    And I halt execution
     And I create amendment request records with status "Acknowledged" using "default" properties
-      | Title                                              | RecordType           |
-      | {SavedValue:Automation Runtime Award for closeout} | Budget Period Change |
+      | Title                                              | AmendmentType  |
+      | {SavedValue:Automation Runtime Award for closeout} | Funding Change |
+    And I halt execution
     And I create amendment request records with status "Submitted for Approval" using "default" properties
-      | Title                                              | RecordType           |
-      | {SavedValue:Automation Runtime Award for closeout} | Budget Period Change |
+      | Title                                              | AmendmentType  |
+      | {SavedValue:Automation Runtime Award for closeout} | Funding Change |
+    And I halt execution
     And I create amendment request records with status "Approved" using "default" properties
-      | Title                                              | RecordType           |
-      | {SavedValue:Automation Runtime Award for closeout} | Budget Period Change |
+      | Title                                              | AmendmentType  |
+      | {SavedValue:Automation Runtime Award for closeout} | Funding Change |
+    And I halt execution

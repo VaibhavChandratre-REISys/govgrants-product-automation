@@ -582,11 +582,8 @@ public class GrantorWebServices extends ProjectWebServices {
      * @param status        the Amendment Request status
      * @param filter        payload modifier (e.g., "default")
      */
-    public void createAmendmentRequestRecordsWithStatusUsingProperties(
-            String amendmentType, String award, String status, String filter) {
-        createAmendmentRequestPostCall(
-                projectApis.payloadAmendmentRequestCreation(amendmentType, award, status, filter)
-        );
+    public void createAmendmentRequestRecordsWithStatusUsingProperties(String amendmentType, String recordType, String award, String status, String filter) {
+        createAmendmentRequestPostCall(projectApis.payloadAmendmentRequestCreation(amendmentType, recordType, award, status, filter));
     }
 
     /**

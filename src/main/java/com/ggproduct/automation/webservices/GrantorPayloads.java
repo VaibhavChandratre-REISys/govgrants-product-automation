@@ -7055,10 +7055,8 @@ public class GrantorPayloads {
      * @param filter        payload modifier (e.g., "default")
      * @return JsonObject request payload
      */
-    public JsonObject payloadAmendmentRequestCreation(
-            String amendmentType, String award, String status, String filter) {
-        JsonObject json = defaultPayloadAmendmentRequest(amendmentType, award, status, filter);
-        // 🔥 Extend here later like Program (user, roles, etc.)
+    public JsonObject payloadAmendmentRequestCreation(String amendmentType, String recordType, String award, String status, String filter) {
+        JsonObject json = defaultPayloadAmendmentRequest(amendmentType, recordType, award, status);
         switch (filter.toUpperCase()) {
             default:
                 return json;
@@ -7072,11 +7070,9 @@ public class GrantorPayloads {
      * @param amendmentType the Amendment Type (RecordType)
      * @param award         the Award Salesforce ID
      * @param status        the Amendment Request status
-     * @param filter        payload modifier
      * @return JsonObject structured composite API payload
      */
-    public JsonObject defaultPayloadAmendmentRequest(
-            String amendmentType, String award, String status, String filter) {
+    public JsonObject defaultPayloadAmendmentRequest(String amendmentType, String recordType, String award, String status) {
         JsonObject request = new JsonObject();
         JsonArray graphs = new JsonArray();
         JsonObject graph = new JsonObject();
@@ -7093,23 +7089,82 @@ public class GrantorPayloads {
         switch (status.toLowerCase()) {
 
             case "created":
-                body.addProperty("OwnerId",
-                        ProjectWebServices.getIdOf("User",
-                                I.amPerforming().propertiesFileOperationsTo().getValue("PM Username")));
-                body.addProperty("RecordTypeId",
-                        ProjectWebServices.getRecordTypeId("AmendmentRequest__c", amendmentType));
+                body.addProperty("OwnerId", ProjectWebServices.getIdOf("User", I.amPerforming().propertiesFileOperationsTo().getValue("PM Username")));
+                body.addProperty("RecordTypeId", ProjectWebServices.getRecordTypeId("AmendmentRequest__c", recordType));
                 body.addProperty("PurposeRTA__c", "test");
                 body.addProperty("Impact__c", "test");
                 body.addProperty("Justification__c", "test");
                 body.addProperty("BudgetPeriodComments__c", "test");
                 body.addProperty("FundingChangeJustification__c", "test");
                 body.addProperty("ScopeofWorkChangeDescription__c", "test");
-                body.addProperty("NewBudgetPeriodEndDate__c", "2038-01-07");
+                body.addProperty("NewBudgetPeriodEndDate__c", I.amPerforming().dateOperationsToGet().currentDateWithOffsetInDesiredFormat(3800, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
+                body.addProperty("RequestedChangeInBudget__c", 1000);
+                body.addProperty("RevisedCommitment__c", 2000);
+
+                // -------- BudgetSummaryFocusArea --------
+                JsonArray budgetSummaryFocusArea = new JsonArray();
+                JsonObject focus1 = new JsonObject();
+                focus1.addProperty("Title", "Automation Permanent Focus Area");
+                focus1.addProperty("NewObligation__c", 500);
+                JsonObject focus2 = new JsonObject();
+                focus2.addProperty("Title", "Automation Permanent Focus Area2");
+                focus2.addProperty("NewObligation__c", 500);
+                budgetSummaryFocusArea.add(focus1);
+                budgetSummaryFocusArea.add(focus2);
+                request.add("BudgetSummaryFocusArea", budgetSummaryFocusArea);
+
+                // -------- FundingAccount --------
+                JsonArray fundingAccount = new JsonArray();
+                JsonObject funding = new JsonObject();
+                funding.addProperty("Title", I.amPerforming().propertiesFileOperationsTo().getValue("fundingAccount"));
+                funding.addProperty("ActualEncumbrance__c", 2000);
+                fundingAccount.add(funding);
+                request.add("FundingAccount", fundingAccount);
+
                 break;
 
             case "sent to subrecipient":
                 body.addProperty("Justification__c", "Automation justification");
                 body.addProperty("BudgetPeriodComments__c", "Automation comments");
+
+                // -------- Budget Detailed Ref 1 --------
+                JsonObject budgetDetailed1 = new JsonObject();
+
+                budgetDetailed1.addProperty("method", "POST");
+                budgetDetailed1.addProperty("url", "/services/data/v66.0/sobjects/AmendmentRequestBudgetCategory__c");
+                budgetDetailed1.addProperty("referenceId", "BudgetDetailedRef1");
+
+                JsonObject body1 = new JsonObject();
+                body1.addProperty("AmendmentRequest__c", "@{AmendmentRequest1.id}");
+                body1.addProperty("BudgetCategoryName__c", "Equipment");
+                body1.addProperty("ServiceAreaTitle__c", "Automation Permanent Focus Area2");
+                body1.addProperty("CurrentAmount__c", 500);
+                body1.addProperty("CashMatch__c", 200);
+                body1.addProperty("NonCashMatch__c", 100);
+                body1.addProperty("OtherLeverage__c", 0);
+
+                budgetDetailed1.add("body", body1);
+                compositeRequest.add(budgetDetailed1);
+
+                // -------- Budget Detailed Ref 2 --------
+                JsonObject budgetDetailed2 = new JsonObject();
+
+                budgetDetailed2.addProperty("method", "POST");
+                budgetDetailed2.addProperty("url", "/services/data/v66.0/sobjects/AmendmentRequestBudgetCategory__c");
+                budgetDetailed2.addProperty("referenceId", "BudgetDetailedRef2");
+
+                JsonObject body2 = new JsonObject();
+                body2.addProperty("AmendmentRequest__c", "@{AmendmentRequest1.id}");
+                body2.addProperty("BudgetCategoryName__c", "Miscellaneous");
+                body2.addProperty("ServiceAreaTitle__c", "Automation Permanent Focus Area");
+                body2.addProperty("CurrentAmount__c", 500);
+                body2.addProperty("CashMatch__c", 100);
+                body2.addProperty("NonCashMatch__c", 100);
+                body2.addProperty("OtherLeverage__c", 0.0);
+
+                budgetDetailed2.add("body", body2);
+                compositeRequest.add(budgetDetailed2);
+
                 break;
 
             case "acknowledged":
@@ -7138,23 +7193,14 @@ public class GrantorPayloads {
             JsonObject roleBody = new JsonObject();
 
             roleBody.addProperty("AmendmentRequest__c", "@{AmendmentRequest1.id}");
-            roleBody.addProperty("Name__c",
-                    ProjectWebServices.getIdOf("User",
-                            I.amPerforming().propertiesFileOperationsTo().getValue("PM Username")));
-
+            roleBody.addProperty("Name__c", ProjectWebServices.getIdOf("User", I.amPerforming().propertiesFileOperationsTo().getValue("PM Username")));
             roleBody.addProperty("AmendmentRequestRole__c", "Step1");
             roleBody.addProperty("BusinessRole__c", "Step1");
             roleBody.addProperty("CustomApp__c", "Grantor");
             roleBody.addProperty("RecordApiName__c", "AmendmentRequest__c");
-
-            roleBody.addProperty("OwnerId",
-                    ProjectWebServices.getIdOf("User",
-                            I.amPerforming().propertiesFileOperationsTo().getValue("PM Username")));
-
+            roleBody.addProperty("OwnerId", ProjectWebServices.getIdOf("User", I.amPerforming().propertiesFileOperationsTo().getValue("PM Username")));
             roleBody.addProperty("ApproverAPIName__c", "ProgramApprover__c");
-            roleBody.addProperty("Agency__c",
-                    ProjectWebServices.getIdOf("Account",
-                            I.amPerforming().propertiesFileOperationsTo().getValue("grantorAutomationOrg")));
+            roleBody.addProperty("Agency__c", ProjectWebServices.getIdOf("Account", I.amPerforming().propertiesFileOperationsTo().getValue("grantorAutomationOrg")));
 
             role.add("body", roleBody);
             compositeRequest.add(role);
