@@ -63,12 +63,12 @@ public class UsersAndURL implements UsersController {
             userName = getQAEnvironmentUser(setUpUserLevel(userLevel));
         } else if ((EnvironmentFactory.getEnvironmentName() != null) && (EnvironmentFactory.getEnvironmentName().contains("TEST8"))) {
             userName = getTest8EnvironmentUser(setUpUserLevel(userLevel));
-        } else if ((EnvironmentFactory.getEnvironmentName() != null) && (EnvironmentFactory.getEnvironmentName().contains("PROLWC"))) {
+        } else if ((EnvironmentFactory.getEnvironmentName() != null) && (EnvironmentFactory.getEnvironmentName().contains("AFSAUTO"))) {
             userName = getProLwcEnvironmentUser(setUpUserLevel(userLevel));
         } else if ((EnvironmentFactory.getEnvironmentName() != null) && (EnvironmentFactory.getEnvironmentName().contains("NYLWC"))) {
             userName = getNYLwcEnvironmentUser(setUpUserLevel(userLevel));
-        } else if ((EnvironmentFactory.getEnvironmentName() != null) && (EnvironmentFactory.getEnvironmentName().contains("WASHINGTON"))) {
-            userName = getWashingtonEnvironmentUser(setUpUserLevel(userLevel));
+        } else if ((EnvironmentFactory.getEnvironmentName() != null) && (EnvironmentFactory.getEnvironmentName().contains("AFSPATCH-GRANTOR"))) {
+            userName = getAFSLWCPatchEnvironmentUser(setUpUserLevel(userLevel));
         } else if ((EnvironmentFactory.getEnvironmentName() != null) && (EnvironmentFactory.getEnvironmentName().contains("FWLWC"))) {
             userName = getFwLwcEnvironmentUser(setUpUserLevel(userLevel));
         } else if ((EnvironmentFactory.getEnvironmentName() != null) && (EnvironmentFactory.getEnvironmentName().contains("LWCPATCH"))) {
@@ -86,12 +86,12 @@ public class UsersAndURL implements UsersController {
             password = getQAEnvironmentPassword(setUpUserLevel(userLevel));
         } else if (EnvironmentFactory.getEnvironmentName().contains("TEST8")) {
             password = getTest8EnvironmentPassword(setUpUserLevel(userLevel));
-        } else if (EnvironmentFactory.getEnvironmentName().contains("PROLWC")) {
+        } else if (EnvironmentFactory.getEnvironmentName().contains("AFSAUTO")) {
             password = getProLwcEnvironmentPassword(setUpUserLevel(userLevel));
         } else if (EnvironmentFactory.getEnvironmentName().contains("NYLWC")) {
             password = getNYLwcEnvironmentPassword(setUpUserLevel(userLevel));
-        } else if (EnvironmentFactory.getEnvironmentName().contains("WASHINGTON")) {
-            password = getWashingtonEnvironmentPassword(setUpUserLevel(userLevel));
+        } else if (EnvironmentFactory.getEnvironmentName().contains("AFSPATCH-GRANTOR")) {
+            password = getAFSLWCPatchEnvironmentPassword(setUpUserLevel(userLevel));
         } else if (EnvironmentFactory.getEnvironmentName().contains("FWLWC")) {
             password = getFwLwcEnvironmentPassword(setUpUserLevel(userLevel));
         } else if ((EnvironmentFactory.getEnvironmentName() != null) && (EnvironmentFactory.getEnvironmentName().contains("LWCPATCH"))) {
@@ -143,40 +143,29 @@ public class UsersAndURL implements UsersController {
         return password;
     }
 
-    private String getWashingtonEnvironmentPassword(String userLevel) {
-        String password;
-        switch (userLevel.toUpperCase()) {
-            case "GRANTEE ADMIN":
-                password = "Rei@2025";
-                break;
-            case "GRANTEE ADMIN1":
-                password = "Rei@2025";
-                break;
-            case "GRANTEE PM":
-                password = "Automation@2025";
-                break;
-            case "GRANTEE EXE":
-                password = "gntwhcagap@25";
-                break;
-            case "GRANTEE FO":
-                password = "gntwhcagap@25";
-                break;
-            case "GRANTEE FD":
-                password = "gntwhcagap@25";
-                break;
-            case "GRANTEE AUDITOR":
-                password = "gntwhcagap@25";
-                break;
-            case "GRANTEE PO":
-                password = "gntwhcagap@25";
-                break;
-            case "SA":
-                password = "Automation@2026";
-                break;
-            default:
-                password = "Automation@2025";
+    private String getAFSLWCPatchEnvironmentPassword(String userType) {
+        Map<String, String> password = new HashMap<>();
+        password.put("ADMIN", "Support@3033");
+        password.put("ADMIN1", "Support@3033");
+        password.put("EXE", "Support@3033");
+        password.put("PM", "Support@3033");
+        password.put("FO", "Support@3033");
+        password.put("SPI3", "Support@3034");
+        password.put("PM1", "Support@3033");
+        password.put("Automation PM", "Support@3033");
+        password.put("SA", "Support@3033");
+        password.put("PO", "Support@3033");
+        password.put("IND", "Support@3033");
+        password.put("FD", "Support@3033");
+        password.put("AUDITOR", "Support@3033");
+        password.put("FO1", "Support@3033");
+        password.put("PO1", "Support@3033");
+        password.put("EXE1", "Support@3033");
+        if (userType.toUpperCase() != null) {
+            return password.get(userType.toUpperCase());
+        } else {
+            return password.get("ADMIN");
         }
-        return password;
     }
 
     private String getQAEnvironmentPassword(String userLevel) {
@@ -353,38 +342,24 @@ public class UsersAndURL implements UsersController {
         }
     }
 
-    private String getWashingtonEnvironmentUser(String userLevel) {
+    private String getAFSLWCPatchEnvironmentUser(String userLevel) {
         Map<String, String> username = new HashMap<>();
-        username.put("ADMIN", "govgrantsauto@yopmail.com.ggdev2");
-        username.put("ADMIN1", "manu.admin@ggp.test8.ggdev2");
-        username.put("EXE", "test@gmaildemo.com.ggdev2");
-        username.put("PM", "donald_pm@ggp.test7.atm.ggdev2");
-        username.put("FO", "auto.fm@auto.com.ggdev2");
-        username.put("PO", "automationpo@yopmail.com.ggdev2");
-        username.put("FD", "automationfd@yopmail.com.ggdev2");
-        username.put("PM1", "pm1.automation@yopmail.com.ggdev2");
-        username.put("EXE1", "exe1.automation@yopmail.com.ggdev2");
-        username.put("PO1", "automationpo1@yopmail.com.ggdev2");
-        username.put("FO1", "fo1.automation@yopmail.com.ggdev2");
-        username.put("FD1", "automationfd1@yopmail.com.ggdev2");
-        username.put("SPI3", "automationspi31.ggdev2@yopmail.com");
-        username.put("SPA", "spaautomation12@yopmail.com.ggdev2");
-        username.put("SA", "asa@grants.gov.ggdev2");
-        username.put("IND", "ind12.automation@yopmail.com.ggdev2");
-        username.put("AUDITOR", "automationauditor@yopmail.com.ggdev2");
-        username.put("SME", "sme11@yopmail.com.ggdev2");
-        username.put("SPI4", "spi4@yopmail.com.ggdev2");
-        username.put("SARAH PM", "sarah.pm@ggp.test8.ggdev2");
-
-        username.put("GRANTEE ADMIN", "product.qa@ggp.test8.gntwhcagap");
-        username.put("GRANTEE ADMIN1", "qa.admin@ggp.test8.gntwhcagap");
-        username.put("GRANTEE PM", "sarah.pm@ggp.test8.gntwhcagap");
-        username.put("GRANTEE EXE", "victor.exe@ggp.test8.gntwhcagap");
-        username.put("GRANTEE FO", "david.fo@ggp.test8.gntwhcagap");
-        username.put("GRANTEE FD", "danielle.garcia@ggp.test8.gntwhcagap");
-        username.put("GRANTEE PO", "grantee.po@yopmail.com.gntwhcagap");
-        username.put("GRANTEE AUDITOR", "automationauditor@yopmail.com.gntwhcagap");
-
+        username.put("ADMIN", "govgrantsauto@yopmail.com.afspatch");
+        username.put("EXE", "exe.automation.ggmergeqa2@yopmail.com.afspatch");
+        username.put("ADMIN1", "manu.admin@ggp.test8.afspatch");
+        username.put("PM", "pm.automation@yopmail.com.afspatch");
+        username.put("FO", "fo.automation.ggmergeqa2@yopmail.com.afspatch");
+        username.put("SPI3", "automationspi31.ggdev2@yopmail.com.afspatch");
+        username.put("PM1", "pm1.automation@yopmail.com.afspatch");
+        username.put("Automation PM", "automationpm@ggp.test8.frwklwcaut");
+        username.put("SA", "asa@grants.gov.afspatch");
+        username.put("PO", "automationpo@yopmail.com.afspatch");
+        username.put("IND", "ind12.automation@yopmail.com.afspatch");
+        username.put("FD", "automationfd.ggmergeqa2@yopmail.com.afspatch");
+        username.put("AUDITOR", "automationauditor@yopmail.com.afspatch");
+        username.put("FO1", "fo1.automation@yopmail.com.afspatch");
+        username.put("PO1", "automationpo1@yopmail.com.afspatch");
+        username.put("EXE1", "exe1.automation@yopmail.com.afspatch");
         if (userLevel.toUpperCase() != null) {
             return username.get(userLevel.toUpperCase());
         } else {
@@ -536,22 +511,22 @@ public class UsersAndURL implements UsersController {
 
     private String getFwLwcEnvironmentPassword(String userType) {
         Map<String, String> password = new HashMap<>();
-        password.put("ADMIN", "Support@3032");
-        password.put("ADMIN1", "Support@3032");
-        password.put("EXE", "Support@3032");
-        password.put("PM", "Support@3032");
-        password.put("FO", "Support@3032");
-        password.put("SPI3", "Support@3032");
-        password.put("PM1", "Support@3032");
-        password.put("Automation PM", "Support@3032");
-        password.put("SA", "Support@3032");
-        password.put("PO", "Support@3032");
-        password.put("IND", "Support@3032");
-        password.put("FD", "Support@3032");
-        password.put("AUDITOR", "Support@3032");
-        password.put("FO1", "Support@3032");
-        password.put("PO1", "Support@3032");
-        password.put("EXE1", "Support@3032");
+        password.put("ADMIN", "Support@3033");
+        password.put("ADMIN1", "Support@3033");
+        password.put("EXE", "Support@3033");
+        password.put("PM", "Support@3033");
+        password.put("FO", "Support@3033");
+        password.put("SPI3", "Support@3033");
+        password.put("PM1", "Support@3033");
+        password.put("Automation PM", "Support@3033");
+        password.put("SA", "Support@3033");
+        password.put("PO", "Support@3033");
+        password.put("IND", "Support@3033");
+        password.put("FD", "Support@3033");
+        password.put("AUDITOR", "Support@3033");
+        password.put("FO1", "Support@3033");
+        password.put("PO1", "Support@3033");
+        password.put("EXE1", "Support@3033");
         if (userType.toUpperCase() != null) {
             return password.get(userType.toUpperCase());
         } else {

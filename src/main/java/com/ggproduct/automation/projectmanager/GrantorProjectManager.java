@@ -316,7 +316,7 @@ public class GrantorProjectManager extends ProjectManager {
      */
     public void initData() {
         Properties p = new Properties();
-        if (null != EnvironmentFactory.getEnvironmentName() && !"".equalsIgnoreCase(EnvironmentFactory.getEnvironmentName()) && EnvironmentFactory.getEnvironmentName().equalsIgnoreCase("PROLWC-GRANTOR")) {
+        if (null != EnvironmentFactory.getEnvironmentName() && !"".equalsIgnoreCase(EnvironmentFactory.getEnvironmentName()) && EnvironmentFactory.getEnvironmentName().equalsIgnoreCase("AFAUTO-GRANTOR")) {
             try {
                 p.load(this.getClass().getResourceAsStream("/properties/QAEnvData.properties"));
             } catch (IOException e) {
