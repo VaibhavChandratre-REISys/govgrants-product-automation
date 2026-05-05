@@ -2545,22 +2545,42 @@ Feature: Validate all scenarios of every modules flow
   Scenario:
     Given I activated standalone subaward "Automation Runtime Award for closeout" with properties "SECOND_FOCUS_AREA_BUDGET_CATEGORY" of type "Competitive"
     And I create amendment request records with status "Created" using "default" properties
-      | Title                                              | AmendmentType  | RecordType        |
-      | {SavedValue:Automation Runtime Award for closeout} | Funding Change | Formal Amendments |
+      | Title                                              | AmendmentType    | RecordType          |
+      | {SavedValue:Automation Runtime Award for closeout} | Periodic Renewal | Periodic/BP Renewal |
     And I halt execution
     And I create amendment request records with status "Sent To Subrecipient" using "default" properties
-      | Title                                              | AmendmentType  |
-      | {SavedValue:Automation Runtime Award for closeout} | Funding Change |
+      | Title                                              | AmendmentType    |
+      | {SavedValue:Automation Runtime Award for closeout} | Periodic Renewal |
     And I halt execution
     And I create amendment request records with status "Acknowledged" using "default" properties
-      | Title                                              | AmendmentType  |
-      | {SavedValue:Automation Runtime Award for closeout} | Funding Change |
+      | Title                                              | AmendmentType    |
+      | {SavedValue:Automation Runtime Award for closeout} | Periodic Renewal |
     And I halt execution
     And I create amendment request records with status "Submitted for Approval" using "default" properties
-      | Title                                              | AmendmentType  |
-      | {SavedValue:Automation Runtime Award for closeout} | Funding Change |
+      | Title                                              | AmendmentType    |
+      | {SavedValue:Automation Runtime Award for closeout} | Periodic Renewal |
     And I halt execution
     And I create amendment request records with status "Approved" using "default" properties
-      | Title                                              | AmendmentType  |
-      | {SavedValue:Automation Runtime Award for closeout} | Funding Change |
+      | Title                                              | AmendmentType    |
+      | {SavedValue:Automation Runtime Award for closeout} | Periodic Renewal |
     And I halt execution
+
+  @testAmendmentRequest1 @debug
+  Scenario:
+    Given I activated standalone subaward "Automation Runtime Award for closeout" with properties "SECOND_FOCUS_AREA_BUDGET_CATEGORY" of type "Competitive"
+    And I create subrecipient side amendment request records with status "Created" using "default" properties
+      | Title                                              | AmendmentType        | RecordType        |
+      | {SavedValue:Automation Runtime Award for closeout} | Key Personnel Change | Formal Amendments |
+    And I halt execution
+#    And I update subrecipient side amendment request records with status "Acknowledged" using "default" properties
+#      | Title                                              | AmendmentType        |
+#      | {SavedValue:Automation Runtime Award for closeout} | Key Personnel Change |
+#    And I halt execution
+#    And I update subrecipient side amendment request records with status "Submitted for Approval" using "default" properties
+#      | Title                                              | AmendmentType        |
+#      | {SavedValue:Automation Runtime Award for closeout} | Key Personnel Change |
+#    And I halt execution
+#    And I update subrecipient side amendment request records with status "Approved" using "default" properties
+#      | Title                                              | AmendmentType        |
+#      | {SavedValue:Automation Runtime Award for closeout} | Key Personnel Change |
+#    And I halt execution

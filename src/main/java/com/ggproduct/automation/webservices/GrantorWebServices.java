@@ -604,4 +604,12 @@ public class GrantorWebServices extends ProjectWebServices {
         response.prettyPrint();
         assertStatusCodeTwoZeroOne(response);
     }
+
+    public void createSubrecipientSideAmendmentRequestRecordsWithStatusUsingProperties(String amendmentType, String recordType, String award, String status, String filter) {
+        createAmendmentRequestPostCall(projectApis.payloadSubrecipientSideAmendmentRequestCreation(amendmentType, recordType, award, status, filter));
+    }
+
+    public void updateSubrecipientSideAmendmentRequestWithStatusUsingProperties(String amendmentType, String award, String status, String filter) {
+        createAmendmentRequestPostCall(projectApis.payloadUpdateSubrecipientSideAmendmentRequest(amendmentType, award, status, filter));
+    }
 }
