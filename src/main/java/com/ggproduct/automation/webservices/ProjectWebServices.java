@@ -35,6 +35,25 @@ public class ProjectWebServices {
         response.then().statusCode(200);
     }
 
+    public static String getValuesOfWithFieldAPIName(String objectApiName, String recordId, String fieldApiNames) {
+        String recordId1 = recordId.replaceAll("\"", "");
+        String finalEndPoint = endPoint + "/services/apexrest/getRecord"
+                + "?action=getFieldValues"
+                + "&objectApiName=" + objectApiName
+                + "&recordId=" + recordId1
+                + "&fieldApiNames=" + fieldApiNames;
+
+        System.out.println("Final Endpoint: " + finalEndPoint);
+
+        Response response = I.amPerforming().restHttp().getCall(finalEndPoint, "Authorization", "Bearer " + tokenString);
+        assertStatusCode(response);
+        Map<String, Object> fieldValues = response.jsonPath().getMap("data.fieldValues");
+        Object value = fieldValues.values().iterator().next();
+        System.out.println(value);
+
+        return value.toString();
+    }
+
     /**
      * calls the api to delete test data
      *

@@ -851,13 +851,91 @@ public class GenericSteps {
         }
     }
 
-    @And("I update subrecipient side amendment request records with status {string} using {string} properties")
-    public void iUpdateSubrecipientSideAmendmentRequestRecordsWithStatusUsingProperties(String status, String filter, DataTable table) {
+    @And("I create application records with status {string} using {string} properties")
+    public void iCreateApplicationRecordsWithStatusUsingProperties(String status, String filter, DataTable table) {
         List<Map<String, String>> rows = table.asMaps();
         for (Map<String, String> row : rows) {
-            String award = row.get("Title");
-            String amendmentType = row.get("AmendmentType");
-            grantorWebServices.updateSubrecipientSideAmendmentRequestWithStatusUsingProperties(amendmentType, award, status, filter);
+            String title = row.get("Title");
+            String announcement = row.get("AnnouncementName");
+            String preAppTitle = row.get("PreAppTitle");
+            if (title.startsWith("Automation Runtime")) {
+                String newTitle = title + I.amPerforming().addOnsTo().getRandomNumber();
+                I.amPerforming().propertiesFileOperationsTo().saveValue(title, newTitle);
+                title = newTitle;
+            }
+            grantorWebServices.createApplicationRecordsWithStatusUsingProperties(title, announcement, preAppTitle, status, filter);
+        }
+    }
+
+    @And("I Initiated application review for multiple records on announcement")
+    public void iInitiatedApplicationForMultipleRecords(DataTable table) {
+        List<Map<String, String>> rows = table.asMaps();
+        for (Map<String, String> row : rows) {
+            String announcementName = row.get("AnnouncementName");
+            grantorWebServices.initateApplicationReviewOnAnnouncementForMultipleRecords(announcementName);
+        }
+    }
+
+    @And("I initiate pre-screen review for announcements with properties {string}")
+    public void iStartedPreScreenReviewForMultipleRecordsOnAnnouncementUsingProperties(String filter, DataTable table) {
+        List<Map<String, String>> rows = table.asMaps();
+        for (Map<String, String> row : rows) {
+            String announcementName = row.get("AnnouncementName");
+            String reviewerName = row.get("ReviewerName");
+            grantorWebServices.initiatePreScreenReviewForMultipleRecordsOnAnnouncementUsingProperties(announcementName, reviewerName, filter);
+        }
+    }
+
+    @And("I submit review for announcements with properties {string}")
+    public void iSubmitPreScreenReviewForAnnouncementsWithProperties(String filter, DataTable table) {
+        List<Map<String, String>> rows = table.asMaps();
+        for (Map<String, String> row : rows) {
+            String reviewName = row.get("ReviewName");
+            String announcementName = row.get("AnnouncementName");
+            String applicationName = row.get("ApplicationName");
+            grantorWebServices.submitPreScreenReviewForAnnouncementsWithProperties(reviewName, announcementName, applicationName, filter);
+        }
+    }
+
+    @And("I initiate SME review for announcements with properties {string}")
+    public void iInitiateSMEReviewForAnnouncementsWithProperties(String filter, DataTable table) {
+        List<Map<String, String>> rows = table.asMaps();
+        for (Map<String, String> row : rows) {
+            String announcementName = row.get("AnnouncementName");
+            String reviewerName = row.get("ReviewerName");
+            String reviewerName2 = row.get("ReviewerName2");
+            String reviewerName3 = row.get("ReviewerName3");
+            grantorWebServices.initiateSMEReviewForAnnouncementsWithProperties(announcementName, reviewerName, reviewerName2, reviewerName3, filter);
+        }
+    }
+
+    @And("I initiate management review for announcements with properties {string}")
+    public void iInitiateManagementReviewForAnnouncementsWithProperties(String filter, DataTable table) {
+        List<Map<String, String>> rows = table.asMaps();
+        for (Map<String, String> row : rows) {
+            String announcementName = row.get("AnnouncementName");
+            String reviewerName = row.get("ReviewerName");
+            grantorWebServices.initiateManagementReviewForAnnouncementsWithProperties(announcementName, reviewerName, filter);
+        }
+    }
+
+    @And("I create FDM records with status {string} using {string} properties")
+    public void iCreateFDMRecordsWithStatusUsingProperties(String status, String filter, DataTable table) {
+        List<Map<String, String>> rows = table.asMaps();
+        for (Map<String, String> row : rows) {
+            String announcementName = row.get("AnnouncementName");
+            String applicationName = row.get("ApplicationName");
+            grantorWebServices.createFDMRecordsWithStatusUsingProperties(status, announcementName, applicationName, filter);
+        }
+    }
+
+    @And("I initiate award for FDM records with properties {string}")
+    public void iInitiateAwardForFDMRecordsWithProperties(String status, String filter, DataTable table) {
+        List<Map<String, String>> rows = table.asMaps();
+        for (Map<String, String> row : rows) {
+            String announcementName = row.get("AnnouncementName");
+            String applicationName = row.get("ApplicationName");
+            grantorWebServices.initiateAwardForFDMRecordsWithProperties(announcementName, applicationName, filter);
         }
     }
 }

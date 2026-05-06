@@ -609,7 +609,59 @@ public class GrantorWebServices extends ProjectWebServices {
         createAmendmentRequestPostCall(projectApis.payloadSubrecipientSideAmendmentRequestCreation(amendmentType, recordType, award, status, filter));
     }
 
-    public void updateSubrecipientSideAmendmentRequestWithStatusUsingProperties(String amendmentType, String award, String status, String filter) {
-        createAmendmentRequestPostCall(projectApis.payloadUpdateSubrecipientSideAmendmentRequest(amendmentType, award, status, filter));
+    public void createApplicationRecordsWithStatusUsingProperties(String title, String announcement, String preAppTitle, String status, String filter) {
+        createApplicationPostCall(projectApis.payloadApplicationCreationForTitle(title, announcement, preAppTitle, status, filter));
+    }
+
+    private void createApplicationPostCall(JsonObject jsonObject) {
+        String createSolicitationEndPoint = endPoint + "/services/apexrest/govGrantsCreateRecord";
+        Response response = I.amPerforming().restHttp().postCall(jsonObject, null,
+                createSolicitationEndPoint, "Authorization", "Bearer " + tokenString, null);
+        response.prettyPrint();
+        assertStatusCodeTwoZeroOne(response);
+    }
+
+    public void initateApplicationReviewOnAnnouncementForMultipleRecords(String announcementName) {
+        initiateApplicationReviewPostCall(projectApis.applicationReviewForMultipleRecords(announcementName));
+    }
+
+    private void initiateApplicationReviewPostCall(JsonObject jsonObject) {
+        String createSolicitationEndPoint = endPoint + "/services/apexrest/govGrantsCreateRecord";
+        Response response = I.amPerforming().restHttp().postCall(jsonObject, null,
+                createSolicitationEndPoint, "Authorization", "Bearer " + tokenString, null);
+        response.prettyPrint();
+        assertStatusCode(response);
+    }
+
+    public void initiatePreScreenReviewForMultipleRecordsOnAnnouncementUsingProperties(String announcementName, String reviewerName, String filter) {
+        initiatePreScreenReviewPostCall(projectApis.preScreenReviewForMultipleRecordsOnAnnouncement(announcementName, reviewerName, filter));
+    }
+
+    private void initiatePreScreenReviewPostCall(JsonObject jsonObject) {
+        String createSolicitationEndPoint = endPoint + "/services/apexrest/govGrantsCreateRecord";
+        Response response = I.amPerforming().restHttp().postCall(jsonObject, null,
+                createSolicitationEndPoint, "Authorization", "Bearer " + tokenString, null);
+        response.prettyPrint();
+        assertStatusCodeTwoZeroOne(response);
+    }
+
+    public void submitPreScreenReviewForAnnouncementsWithProperties(String reviewName, String announcementName, String applicationName, String filter) {
+        initiateApplicationReviewPostCall(projectApis.submitPreScreenReviewForAnnouncements(reviewName, announcementName, applicationName, filter));
+    }
+
+    public void initiateSMEReviewForAnnouncementsWithProperties(String announcementName, String reviewerName, String reviewerName2, String reviewerName3, String filter) {
+        initiatePreScreenReviewPostCall(projectApis.smeReviewForMultipleRecordsOnAnnouncement(announcementName, reviewerName, reviewerName2, reviewerName3, filter));
+    }
+
+    public void initiateManagementReviewForAnnouncementsWithProperties(String announcementName, String reviewerName, String filter) {
+        initiatePreScreenReviewPostCall(projectApis.managementReviewForMultipleRecordsOnAnnouncement(announcementName, reviewerName, filter));
+    }
+
+    public void createFDMRecordsWithStatusUsingProperties(String status, String announcementName, String applicationName, String filter) {
+        initiatePreScreenReviewPostCall(projectApis.payloadForFDMCreationForAnnouncement(status, announcementName, applicationName, filter));
+    }
+
+    public void initiateAwardForFDMRecordsWithProperties(String announcementName, String applicationName, String filter) {
+        initiatePreScreenReviewPostCall(projectApis.initiateAwardForFDMRecordsForAnnouncement(announcementName, applicationName, filter));
     }
 }

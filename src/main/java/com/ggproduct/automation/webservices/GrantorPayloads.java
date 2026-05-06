@@ -7279,6 +7279,19 @@ public class GrantorPayloads {
         amendmentBody.addProperty("FundingChangeJustification__c", "Automation Test");
         amendmentBody.addProperty("ScopeofWorkChangeDescription__c", "Automation Test");
         amendmentBody.addProperty("InitiatedBy__c", "Subrecipient");
+        amendmentBody.addProperty("GrantAwardDescription__c", "Change on Amendment Level");
+        amendmentBody.addProperty("GrantAwardName__c", award);
+        amendmentBody.addProperty("TncComments__c", "Automation test");
+        amendmentBody.addProperty("Addressline1__c", "Street 1");
+        amendmentBody.addProperty("Addressline2__c", "Joint Road");
+        amendmentBody.addProperty("City__c", "Cal");
+        amendmentBody.addProperty("County__c", "New County");
+        amendmentBody.addProperty("State__c", "AK");
+        amendmentBody.addProperty("CongressionalDistrict__c", "123");
+        amendmentBody.addProperty("Zip4__c", "12345");
+        amendmentBody.addProperty("Country__c", "USA");
+        amendmentBody.addProperty("ZipCode4Extension__c", "1234");
+        amendmentBody.addProperty("NewBudgetPeriodEndDate__c", I.amPerforming().dateOperationsToGet().currentDateWithOffsetInDesiredFormat(3800, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
 
         amendment.add("body", amendmentBody);
         compositeRequest.add(amendment);
@@ -7400,39 +7413,723 @@ public class GrantorPayloads {
         return request;
     }
 
-    public JsonObject payloadUpdateSubrecipientSideAmendmentRequest(String amendmentType, String award, String status, String filter) {
-        JsonObject json = defaultPayloadUpdateSubrecipientSideAmendmentRequest(amendmentType, award, status);
+
+    public JsonObject payloadApplicationCreationForTitle(String title, String announcement, String preAppTitle, String status, String filter) {
+        JsonObject json;
+        json = defaultPayloadApplicationCreationForTitle(title, announcement, preAppTitle, status);
         switch (filter.toUpperCase()) {
             default:
                 return json;
         }
     }
 
-    private JsonObject defaultPayloadUpdateSubrecipientSideAmendmentRequest(String amendmentType, String award, String status) {
+    private JsonObject defaultPayloadApplicationCreationForTitle(String title, String announcement, String preAppTitle, String status) {
 
         JsonObject request = new JsonObject();
 
         JsonArray graphs = new JsonArray();
         JsonObject graph = new JsonObject();
 
-        graph.addProperty("graphId", "AmendmentRequestGraph");
+        graph.addProperty("graphId", "ApplicationGraph");
 
         JsonArray compositeRequest = new JsonArray();
 
-        JsonObject amendment = new JsonObject();
-        amendment.addProperty("url", "/services/data/v66.0/sobjects/AmendmentRequest__c");
-        amendment.addProperty("method", "POST");
-        amendment.addProperty("referenceId", "AmendmentRequest1");
+        JsonObject app = new JsonObject();
+        app.addProperty("url", "/services/data/v66.0/sobjects/Application__c");
+        app.addProperty("method", "POST");
+        app.addProperty("referenceId", "Application1");
 
-        JsonObject amendmentBody = new JsonObject();
-        amendmentBody.addProperty("Status__c", status);
-        amendmentBody.addProperty("Award__c", ProjectWebServices.getIdOf("Award__c", award));
-        amendmentBody.addProperty("AmendmentType__c", amendmentType);
+        JsonObject appBody = new JsonObject();
+        appBody.addProperty("Status__c", status);
+        if (preAppTitle != null && !preAppTitle.isEmpty()) {
+            appBody.addProperty("PreApplication__c", ProjectWebServices.getIdOf("PreApplication__c", preAppTitle));
+        } else {
+            appBody.addProperty("PreApplication__c", preAppTitle);
+        }
+        appBody.addProperty("Title__c", title);
+        appBody.addProperty("OwnerId", ProjectWebServices.getIdOf("User", I.amPerforming().propertiesFileOperationsTo().getValue("SPI3 Username")));
+        appBody.addProperty("Announcement__c", ProjectWebServices.getIdOf("Announcement__c", announcement));
+        appBody.addProperty("OpportunityTitle__c", announcement);
+        appBody.addProperty("ApplicationDueDate__c", I.amPerforming().dateOperationsToGet().currentDateWithOffsetInDesiredFormat(10, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
+        appBody.addProperty("ApproachMethodology__c", "Automation Approach");
+        appBody.addProperty("Capacity__c", "Automation Capacity");
+        appBody.addProperty("Qualifications__c", "Automation AQualifications");
+        appBody.addProperty("Acknowledgment4__c", "I Agree");
+        appBody.addProperty("SubmittedOn__c", I.amPerforming().dateOperationsToGet().currentDateWithOffsetInDesiredFormat(0, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
+        appBody.addProperty("SubmittedBy__c", ProjectWebServices.getIdOf("User", I.amPerforming().propertiesFileOperationsTo().getValue("SPI3 Username")));
+        appBody.addProperty("ProjectAbstract__c", "Automation Project Abstract");
+        appBody.addProperty("Justification__c", "Automation Justifications");
+        appBody.addProperty("RecordTypeId", ProjectWebServices.getRecordTypeId("Application__c", "Grantor"));
+        appBody.addProperty("State__c", "IN");
+        appBody.addProperty("CongressionalDistrict1__c", "123");
+        appBody.addProperty("Addressline1__c", "test");
+        appBody.addProperty("City__c", "IL");
+        appBody.addProperty("County__c", "US");
+        appBody.addProperty("Zip4__c", "12534");
+        appBody.addProperty("Addressline2__c", "test2");
+        appBody.addProperty("ZipCode4Extension__c", "1234");
+        appBody.addProperty("Country__c", "India");
+        appBody.addProperty("AwardFloor__c", 1000);
+        appBody.addProperty("AwardCeiling__c", 10000);
 
-        amendment.add("body", amendmentBody);
-        compositeRequest.add(amendment);
+        app.add("body", appBody);
+        compositeRequest.add(app);
 
-             graph.add("compositeRequest", compositeRequest);
+
+        // -------- KeyContacts__c --------
+        JsonObject contact = new JsonObject();
+        contact.addProperty("method", "POST");
+        contact.addProperty("url", "/services/data/v66.0/sobjects/KeyContacts__c");
+        contact.addProperty("referenceId", "ContactRef1");
+
+        JsonObject contactBody = new JsonObject();
+        contactBody.addProperty("Application__c", "@{Application1.id}");
+        contactBody.addProperty("Contact__c", ProjectWebServices.getIdOf("Contact", I.amPerforming().propertiesFileOperationsTo().getValue("SPI3 Username")));
+        contactBody.addProperty("OwnerId", ProjectWebServices.getIdOf("User", I.amPerforming().propertiesFileOperationsTo().getValue("SPI3 Username")));
+        contactBody.addProperty("ProjectRole__c", "Project Director/Manager");
+        contactBody.addProperty("IsKeyContact__c", true);
+
+        contact.add("body", contactBody);
+        compositeRequest.add(contact);
+
+
+        // -------- Budget Category 1 --------
+        JsonObject budget1 = new JsonObject();
+        budget1.addProperty("method", "POST");
+        budget1.addProperty("url", "/services/data/v66.0/sobjects/ApplicationBudgetCategory2__c");
+        budget1.addProperty("referenceId", "BudgetDetailedRef1");
+
+        JsonObject budgetBody1 = new JsonObject();
+        budgetBody1.addProperty("Application__c", "@{Application1.id}");
+        budgetBody1.addProperty("CatName__c", "Construction");
+        budgetBody1.addProperty("GrantorAmount__c", 500);
+        budgetBody1.addProperty("CashMatch__c", 50);
+        budgetBody1.addProperty("NonCashMatch__c", 50);
+
+        budget1.add("body", budgetBody1);
+        compositeRequest.add(budget1);
+
+
+        // -------- Budget Category 2 --------
+        JsonObject budget2 = new JsonObject();
+        budget2.addProperty("method", "POST");
+        budget2.addProperty("url", "/services/data/v66.0/sobjects/ApplicationBudgetCategory2__c");
+        budget2.addProperty("referenceId", "BudgetDetailedRef2");
+
+        JsonObject budgetBody2 = new JsonObject();
+        budgetBody2.addProperty("Application__c", "@{Application1.id}");
+        budgetBody2.addProperty("CatName__c", "Equipment");
+        budgetBody2.addProperty("GrantorAmount__c", 500);
+        budgetBody2.addProperty("CashMatch__c", 50);
+        budgetBody2.addProperty("NonCashMatch__c", 50);
+
+        budget2.add("body", budgetBody2);
+        compositeRequest.add(budget2);
+        graph.add("compositeRequest", compositeRequest);
+
+        JsonArray appFormArray = new JsonArray();
+
+        JsonObject form = new JsonObject();
+        form.addProperty("Application__c", "@{Application1.id}");
+        form.addProperty("Question1__c", "Test Clause Name for Automation");
+        form.addProperty("Question2__c", "This is a long description used for automation testing of clause behavior and validations.");
+        form.addProperty("Question3__c", "This is a long description used");
+        form.addProperty("Question4__c", "5-10 years");
+        form.addProperty("Question5__c", "Test Clause Name for Automation");
+        form.addProperty("Question6__c", "This is a long description used for automation testing of clause behavior and validations.");
+        form.addProperty("Question7__c", "This is a long description used");
+        form.addProperty("Question8__c", "5-10 years");
+        form.addProperty("Question9__c", "Test Clause Name for Automation");
+        form.addProperty("Question10__c", "This is a long description used for automation testing of clause behavior and validations.");
+        form.addProperty("Question11__c", "This is a long description used");
+        form.addProperty("ExperienceLevel__c", "5-10 years");
+        form.addProperty("AppplicationSubmitted__c", "Automation SPI3");
+        form.addProperty("SubmittedOnForm__c", I.amPerforming().dateOperationsToGet().currentDateWithOffsetInDesiredFormat(0, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
+
+        appFormArray.add(form);
+
+        graph.add("ApplicationForm", appFormArray);
+
+        graphs.add(graph);
+        request.add("graphs", graphs);
+        return request;
+    }
+
+    public JsonObject applicationReviewForMultipleRecords(String announcementName) {
+        JsonObject json;
+        json = defaultPayloadApplicationReviewForMultipleRecords(announcementName);
+        return json;
+    }
+
+    private JsonObject defaultPayloadApplicationReviewForMultipleRecords(String announcementName) {
+
+        JsonObject request = new JsonObject();
+
+        JsonArray graphs = new JsonArray();
+        JsonObject graph = new JsonObject();
+
+        graph.addProperty("graphId", "IntiateReviewGraph");
+
+        JsonArray compositeRequest = new JsonArray();
+
+        JsonObject announcement = new JsonObject();
+        announcement.addProperty("url", "/services/data/v66.0/sobjects/Announcement__c");
+        announcement.addProperty("method", "POST");
+        announcement.addProperty("referenceId", "AnnouncementReviewStep1");
+
+        JsonObject body = new JsonObject();
+        body.addProperty("AnnouncementName__c", announcementName);
+
+        announcement.add("body", body);
+        compositeRequest.add(announcement);
+
+        graph.add("compositeRequest", compositeRequest);
+        graphs.add(graph);
+        request.add("graphs", graphs);
+        return request;
+    }
+
+    public JsonObject preScreenReviewForMultipleRecordsOnAnnouncement(String announcementName, String reviewerName, String filter) {
+        JsonObject json;
+        json = defaultPayloadPreScreenReviewForMultipleRecordsOnAnnouncement(announcementName, reviewerName);
+        switch (filter.toUpperCase()) {
+            default:
+                return json;
+        }
+    }
+
+    private JsonObject defaultPayloadPreScreenReviewForMultipleRecordsOnAnnouncement(String announcementName, String reviewerName) {
+
+        JsonObject request = new JsonObject();
+
+        JsonArray graphs = new JsonArray();
+        JsonObject graph = new JsonObject();
+
+        graph.addProperty("graphId", "ReviewStepGraph");
+
+        JsonArray compositeRequest = new JsonArray();
+
+
+        // -------- ReviewStep__c --------
+        JsonObject reviewStep = new JsonObject();
+        reviewStep.addProperty("method", "POST");
+        reviewStep.addProperty("url", "/services/data/v66.0/sobjects/ReviewStep__c");
+        reviewStep.addProperty("referenceId", "ReviewStepStep1");
+
+        JsonObject reviewStepBody = new JsonObject();
+        reviewStepBody.addProperty("Name", "Pre-Screen Review");
+        reviewStepBody.addProperty("Announcement__c", ProjectWebServices.getIdOf("Announcement__c", announcementName));
+
+        reviewStep.add("body", reviewStepBody);
+        compositeRequest.add(reviewStep);
+
+
+        // -------- ReviewPanel__c --------
+        JsonObject reviewPanel = new JsonObject();
+        reviewPanel.addProperty("method", "POST");
+        reviewPanel.addProperty("url", "/services/data/v66.0/sobjects/ReviewPanel__c");
+        reviewPanel.addProperty("referenceId", "ReviewPanel1");
+
+        JsonObject panelBody = new JsonObject();
+        panelBody.addProperty("ReviewStep__c", "@{ReviewStepStep1.id}");
+        panelBody.addProperty("PanelName__c", "Pre-Screen");
+        panelBody.addProperty("MinimumNumberOfReviewers__c", 1);
+        panelBody.addProperty("Required__c", true);
+        panelBody.addProperty("DueInDays__c", 7);
+
+        reviewPanel.add("body", panelBody);
+        compositeRequest.add(reviewPanel);
+
+
+        // -------- ReviewStepUser__c --------
+        JsonObject reviewUser = new JsonObject();
+        reviewUser.addProperty("method", "POST");
+        reviewUser.addProperty("url", "/services/data/v66.0/sobjects/ReviewStepUser__c");
+        reviewUser.addProperty("referenceId", "ReviewStepUser1");
+
+        JsonObject userBody = new JsonObject();
+        userBody.addProperty("ReviewStep__c", "@{ReviewStepStep1.id}");
+        userBody.addProperty("Reviewer__c", ProjectWebServices.getIdOf("User", I.amPerforming().propertiesFileOperationsTo().getValue("FO Username")));
+        userBody.addProperty("NoOfApplicationsAssigned__c", 1);
+
+        reviewUser.add("body", userBody);
+        compositeRequest.add(reviewUser);
+
+        // -------- Review__c --------
+        JsonObject review = new JsonObject();
+        review.addProperty("method", "POST");
+        review.addProperty("url", "/services/data/v66.0/sobjects/Review__c");
+
+        review.addProperty("referenceId", "ReviewStepUser1");
+
+        JsonObject reviewBody = new JsonObject();
+        reviewBody.addProperty("ReviewStep__c", "@{ReviewStepStep1.id}");
+        reviewBody.addProperty("ConflictOfInterest__c", "I agree");
+        reviewBody.addProperty("Recommendation__c", "Recommended");
+        reviewBody.addProperty("Comments__c", "REI System Competitive Announcement added on Review Record");
+        reviewBody.addProperty("Status__c", "Review Completed");
+
+        review.add("body", reviewBody);
+        compositeRequest.add(review);
+
+        graph.add("compositeRequest", compositeRequest);
+        graphs.add(graph);
+        request.add("graphs", graphs);
+        return request;
+    }
+
+    public JsonObject submitPreScreenReviewForAnnouncements(String reviewName, String announcementName, String applicationName, String filter) {
+        JsonObject json;
+        json = defaultPayloadSubmitPreScreenReviewForAnnouncements(reviewName, announcementName, applicationName);
+        switch (filter.toUpperCase()) {
+            default:
+                return json;
+        }
+    }
+
+    private JsonObject defaultPayloadSubmitPreScreenReviewForAnnouncements(String reviewName, String announcementName, String applicationName) {
+
+        JsonObject request = new JsonObject();
+
+        JsonArray graphs = new JsonArray();
+        JsonObject graph = new JsonObject();
+
+        graph.addProperty("graphId", "ReviewStepGraph");
+
+        JsonArray compositeRequest = new JsonArray();
+
+        // -------- ReviewStep__c --------
+        JsonObject reviewStep = new JsonObject();
+        reviewStep.addProperty("method", "POST");
+        reviewStep.addProperty("url", "/services/data/v66.0/sobjects/ReviewStep__c");
+        reviewStep.addProperty("referenceId", "ReviewStepStep1");
+
+        JsonObject reviewStepBody = new JsonObject();
+        reviewStepBody.addProperty("Name", reviewName);
+        reviewStepBody.addProperty("Announcement__c", ProjectWebServices.getIdOf("Announcement__c", announcementName));
+        reviewStepBody.addProperty("Status__c", "Completed");
+
+        reviewStep.add("body", reviewStepBody);
+        compositeRequest.add(reviewStep);
+
+
+        // -------- ReviewStepApplication__c --------
+        JsonObject reviewStepApp = new JsonObject();
+        reviewStepApp.addProperty("method", "POST");
+        reviewStepApp.addProperty("url", "/services/data/v66.0/sobjects/ReviewStepApplication__c");
+        reviewStepApp.addProperty("referenceId", "ReviewStepUser1");
+
+        JsonObject appBody = new JsonObject();
+        appBody.addProperty("ReviewStep__c", "@{ReviewStepStep1.id}");
+        appBody.addProperty("Decision__c", "Approved");
+        appBody.addProperty("ApplicationTitle", applicationName);
+
+        reviewStepApp.add("body", appBody);
+        compositeRequest.add(reviewStepApp);
+
+        graph.add("compositeRequest", compositeRequest);
+        graphs.add(graph);
+        request.add("graphs", graphs);
+        return request;
+    }
+
+    public JsonObject smeReviewForMultipleRecordsOnAnnouncement(String announcementName, String reviewerName, String reviewerName2, String reviewerName3, String filter) {
+        JsonObject json;
+        json = defaultPayloadSmeReviewForMultipleRecordsOnAnnouncement(announcementName, reviewerName, reviewerName2, reviewerName3);
+        switch (filter.toUpperCase()) {
+            default:
+                return json;
+        }
+    }
+
+    private JsonObject defaultPayloadSmeReviewForMultipleRecordsOnAnnouncement(String announcementName, String reviewerName, String reviewerName2, String reviewerName3) {
+
+        JsonObject request = new JsonObject();
+
+        JsonArray graphs = new JsonArray();
+        JsonObject graph = new JsonObject();
+
+        graph.addProperty("graphId", "ReviewStepGraph");
+
+        JsonArray compositeRequest = new JsonArray();
+
+        // -------- ReviewStep__c --------
+        JsonObject reviewStep = new JsonObject();
+        reviewStep.addProperty("method", "POST");
+        reviewStep.addProperty("url", "/services/data/v66.0/sobjects/ReviewStep__c");
+        reviewStep.addProperty("referenceId", "ReviewStepStep1");
+
+        JsonObject reviewStepBody = new JsonObject();
+        reviewStepBody.addProperty("Name", "SME Review");
+        reviewStepBody.addProperty("Announcement__c", ProjectWebServices.getIdOf("Announcement__c", announcementName));
+
+        reviewStep.add("body", reviewStepBody);
+        compositeRequest.add(reviewStep);
+
+
+        // -------- ReviewPanel__c (Compliance) --------
+        JsonObject panel1 = new JsonObject();
+        panel1.addProperty("method", "POST");
+        panel1.addProperty("url", "/services/data/v66.0/sobjects/ReviewPanel__c");
+        panel1.addProperty("referenceId", "ReviewPanel1");
+
+        JsonObject panelBody1 = new JsonObject();
+        panelBody1.addProperty("ReviewStep__c", "@{ReviewStepStep1.id}");
+        panelBody1.addProperty("PanelName__c", "Compliance Review");
+        panelBody1.addProperty("MinimumNumberOfReviewers__c", 1);
+        panelBody1.addProperty("Required__c", true);
+        panelBody1.addProperty("DueInDays__c", 7);
+
+        panel1.add("body", panelBody1);
+        compositeRequest.add(panel1);
+
+
+        // -------- ReviewPanel__c (Fiscal) --------
+        JsonObject panel2 = new JsonObject();
+        panel2.addProperty("method", "POST");
+        panel2.addProperty("url", "/services/data/v66.0/sobjects/ReviewPanel__c");
+        panel2.addProperty("referenceId", "ReviewPanel2");
+
+        JsonObject panelBody2 = new JsonObject();
+        panelBody2.addProperty("ReviewStep__c", "@{ReviewStepStep1.id}");
+        panelBody2.addProperty("PanelName__c", "Fiscal Review");
+        panelBody2.addProperty("MinimumNumberOfReviewers__c", 1);
+        panelBody2.addProperty("Required__c", true);
+        panelBody2.addProperty("DueInDays__c", 7);
+
+        panel2.add("body", panelBody2);
+        compositeRequest.add(panel2);
+
+
+        // -------- ReviewPanel__c (Program) --------
+        JsonObject panel3 = new JsonObject();
+        panel3.addProperty("method", "POST");
+        panel3.addProperty("url", "/services/data/v66.0/sobjects/ReviewPanel__c");
+        panel3.addProperty("referenceId", "ReviewPanel3");
+
+        JsonObject panelBody3 = new JsonObject();
+        panelBody3.addProperty("ReviewStep__c", "@{ReviewStepStep1.id}");
+        panelBody3.addProperty("PanelName__c", "Program Review");
+        panelBody3.addProperty("MinimumNumberOfReviewers__c", 1);
+        panelBody3.addProperty("Required__c", true);
+        panelBody3.addProperty("DueInDays__c", 7);
+
+        panel3.add("body", panelBody3);
+        compositeRequest.add(panel3);
+
+
+        // -------- ReviewStepUser__c user 1--------
+        JsonObject reviewUser = new JsonObject();
+        reviewUser.addProperty("method", "POST");
+        reviewUser.addProperty("url", "/services/data/v66.0/sobjects/ReviewStepUser__c");
+        reviewUser.addProperty("referenceId", "ReviewStepUser1");
+
+        JsonObject userBody = new JsonObject();
+        userBody.addProperty("ReviewStep__c", "@{ReviewStepStep1.id}");
+        userBody.addProperty("Reviewer__c", ProjectWebServices.getIdOf("User",reviewerName));
+        userBody.addProperty("NoOfApplicationsAssigned__c", 1);
+
+        reviewUser.add("body", userBody);
+        compositeRequest.add(reviewUser);
+
+        // -------- ReviewStepUser__c user 2--------
+        JsonObject reviewUser2 = new JsonObject();
+        reviewUser2.addProperty("method", "POST");
+        reviewUser2.addProperty("url", "/services/data/v66.0/sobjects/ReviewStepUser__c");
+        reviewUser2.addProperty("referenceId", "ReviewStepUser2");
+
+        JsonObject userBody2 = new JsonObject();
+        userBody2.addProperty("ReviewStep__c", "@{ReviewStepStep1.id}");
+        userBody2.addProperty("Reviewer__c", ProjectWebServices.getIdOf("User",reviewerName2));
+        userBody2.addProperty("NoOfApplicationsAssigned__c", 1);
+
+        reviewUser2.add("body", userBody2);
+        compositeRequest.add(reviewUser2);
+
+        // -------- ReviewStepUser__c user 3--------
+        JsonObject reviewUser3 = new JsonObject();
+        reviewUser3.addProperty("method", "POST");
+        reviewUser3.addProperty("url", "/services/data/v66.0/sobjects/ReviewStepUser__c");
+        reviewUser3.addProperty("referenceId", "ReviewStepUser3");
+
+        JsonObject userBody3 = new JsonObject();
+        userBody3.addProperty("ReviewStep__c", "@{ReviewStepStep1.id}");
+        userBody3.addProperty("Reviewer__c", ProjectWebServices.getIdOf("User",reviewerName3));
+        userBody3.addProperty("NoOfApplicationsAssigned__c", 1);
+
+        reviewUser3.add("body", userBody3);
+        compositeRequest.add(reviewUser3);
+
+
+        // -------- Review__c --------
+        JsonObject review = new JsonObject();
+        review.addProperty("method", "POST");
+        review.addProperty("url", "/services/data/v66.0/sobjects/Review__c");
+        review.addProperty("referenceId", "ReviewStepUser1");
+
+        JsonObject reviewBody = new JsonObject();
+        reviewBody.addProperty("ReviewStep__c", "@{ReviewStepStep1.id}");
+        reviewBody.addProperty("ConflictOfInterest__c", "I agree");
+        reviewBody.addProperty("Recommendation__c", "Recommended");
+        reviewBody.addProperty("Comments__c", "REI System Competitive Announcement added on Review Record");
+        reviewBody.addProperty("Status__c", "Review Completed");
+
+        review.add("body", reviewBody);
+        compositeRequest.add(review);
+
+        // -------- Review__c 2--------
+        JsonObject review2 = new JsonObject();
+        review2.addProperty("method", "POST");
+        review2.addProperty("url", "/services/data/v66.0/sobjects/Review__c");
+        review2.addProperty("referenceId", "ReviewStepUser2");
+
+        JsonObject reviewBody2 = new JsonObject();
+        reviewBody2.addProperty("ReviewStep__c", "@{ReviewStepStep1.id}");
+        reviewBody2.addProperty("ConflictOfInterest__c", "I agree");
+        reviewBody2.addProperty("Recommendation__c", "Recommended");
+        reviewBody2.addProperty("Comments__c", "REI System Competitive Announcement added on Review Record");
+        reviewBody2.addProperty("Status__c", "Review Completed");
+
+        review2.add("body", reviewBody2);
+        compositeRequest.add(review2);
+
+        // -------- Review__c 3--------
+        JsonObject review3 = new JsonObject();
+        review3.addProperty("method", "POST");
+        review3.addProperty("url", "/services/data/v66.0/sobjects/Review__c");
+        review3.addProperty("referenceId", "ReviewStepUser3");
+
+        JsonObject reviewBody3 = new JsonObject();
+        reviewBody3.addProperty("ReviewStep__c", "@{ReviewStepStep1.id}");
+        reviewBody3.addProperty("ConflictOfInterest__c", "I agree");
+        reviewBody3.addProperty("Recommendation__c", "Recommended");
+        reviewBody3.addProperty("Comments__c", "REI System Competitive Announcement added on Review Record");
+        reviewBody3.addProperty("Status__c", "Review Completed");
+
+        review3.add("body", reviewBody3);
+        compositeRequest.add(review3);
+
+        graph.add("compositeRequest", compositeRequest);
+        graphs.add(graph);
+        request.add("graphs", graphs);
+        return request;
+    }
+
+    public JsonObject managementReviewForMultipleRecordsOnAnnouncement(String announcementName, String reviewerName, String filter) {
+        JsonObject json;
+        json = defaultPayloadManagementReviewForMultipleRecordsOnAnnouncement(announcementName, reviewerName);
+        switch (filter.toUpperCase()) {
+            default:
+                return json;
+        }
+    }
+
+    private JsonObject defaultPayloadManagementReviewForMultipleRecordsOnAnnouncement(String announcementName, String reviewerName) {
+
+        JsonObject request = new JsonObject();
+
+        JsonArray graphs = new JsonArray();
+        JsonObject graph = new JsonObject();
+
+        graph.addProperty("graphId", "ReviewStepGraph");
+
+        JsonArray compositeRequest = new JsonArray();
+
+
+        // -------- ReviewStep__c --------
+        JsonObject reviewStep = new JsonObject();
+        reviewStep.addProperty("method", "POST");
+        reviewStep.addProperty("url", "/services/data/v66.0/sobjects/ReviewStep__c");
+        reviewStep.addProperty("referenceId", "ReviewStepStep1");
+
+        JsonObject reviewStepBody = new JsonObject();
+        reviewStepBody.addProperty("Name", "Management Review");
+        reviewStepBody.addProperty("Announcement__c", ProjectWebServices.getIdOf("Announcement__c", announcementName));
+
+        reviewStep.add("body", reviewStepBody);
+        compositeRequest.add(reviewStep);
+
+
+       // -------- ReviewPanel__c --------
+        JsonObject panel = new JsonObject();
+        panel.addProperty("method", "POST");
+        panel.addProperty("url", "/services/data/v66.0/sobjects/ReviewPanel__c");
+        panel.addProperty("referenceId", "ReviewPanel1");
+
+        JsonObject panelBody = new JsonObject();
+        panelBody.addProperty("ReviewStep__c", "@{ReviewStepStep1.id}");
+        panelBody.addProperty("PanelName__c", "Management Review");
+        panelBody.addProperty("MinimumNumberOfReviewers__c", 1);
+        panelBody.addProperty("Required__c", true);
+        panelBody.addProperty("DueInDays__c", 7);
+
+        panel.add("body", panelBody);
+        compositeRequest.add(panel);
+
+
+        // -------- ReviewStepUser__c --------
+        JsonObject reviewUser = new JsonObject();
+        reviewUser.addProperty("method", "POST");
+        reviewUser.addProperty("url", "/services/data/v66.0/sobjects/ReviewStepUser__c");
+        reviewUser.addProperty("referenceId", "ReviewStepUser1");
+
+        JsonObject userBody = new JsonObject();
+        userBody.addProperty("ReviewStep__c", "@{ReviewStepStep1.id}");
+        userBody.addProperty("Reviewer__c", ProjectWebServices.getIdOf("User",reviewerName));
+        userBody.addProperty("NoOfApplicationsAssigned__c", 1);
+
+        reviewUser.add("body", userBody);
+        compositeRequest.add(reviewUser);
+
+
+        // -------- Review__c --------
+        JsonObject review = new JsonObject();
+        review.addProperty("method", "POST");
+        review.addProperty("url", "/services/data/v66.0/sobjects/Review__c");
+
+        review.addProperty("referenceId", "ReviewStepUser1");
+
+        JsonObject reviewBody = new JsonObject();
+        reviewBody.addProperty("ReviewStep__c", "@{ReviewStepStep1.id}");
+        reviewBody.addProperty("ConflictOfInterest__c", "I agree");
+        reviewBody.addProperty("Recommendation__c", "Recommended");
+        reviewBody.addProperty("Comments__c", "REI System Competitive Announcement added on Review Record");
+        reviewBody.addProperty("Status__c", "Review Completed");
+
+        review.add("body", reviewBody);
+        compositeRequest.add(review);
+
+        graph.add("compositeRequest", compositeRequest);
+        graphs.add(graph);
+        request.add("graphs", graphs);
+        return request;
+    }
+
+    public JsonObject payloadForFDMCreationForAnnouncement(String status, String announcementName, String applicationName, String filter) {
+        JsonObject json;
+        json = defaultPayloadForFDMCreationForAnnouncement(status, announcementName, applicationName);
+        switch (filter.toUpperCase()) {
+            default:
+                return json;
+        }
+    }
+
+    private JsonObject defaultPayloadForFDMCreationForAnnouncement(String status, String announcementName, String applicationName) {
+
+        JsonObject request = new JsonObject();
+
+        JsonArray graphs = new JsonArray();
+        JsonObject graph = new JsonObject();
+
+        graph.addProperty("graphId", "ReviewStepGraph");
+
+        JsonArray compositeRequest = new JsonArray();
+
+        // -------- ReviewStep__c --------
+        JsonObject reviewStep = new JsonObject();
+        reviewStep.addProperty("method", "POST");
+        reviewStep.addProperty("url", "/services/data/v66.0/sobjects/ReviewStep__c");
+        reviewStep.addProperty("referenceId", "ReviewStepStep1");
+
+        JsonObject reviewStepBody = new JsonObject();
+        reviewStepBody.addProperty("Name", "Funding Decision Memo");
+        reviewStepBody.addProperty("Announcement__c", ProjectWebServices.getIdOf("Announcement__c", announcementName));
+        reviewStepBody.addProperty("Status__c", status);
+        reviewStepBody.addProperty("GrantCode__c", "REI");
+
+        reviewStep.add("body", reviewStepBody);
+        compositeRequest.add(reviewStep);
+
+        // -------- ReviewStepApplication__c --------
+        JsonObject reviewStepApp = new JsonObject();
+        reviewStepApp.addProperty("method", "POST");
+        reviewStepApp.addProperty("url", "/services/data/v66.0/sobjects/ReviewStepApplication__c");
+        reviewStepApp.addProperty("referenceId", "ReviewStepUser1");
+
+        JsonObject appBody = new JsonObject();
+        appBody.addProperty("ReviewStep__c", "@{ReviewStepStep1.id}");
+        appBody.addProperty("Decision__c", "Approved");
+        appBody.addProperty("ApplicationTitle", applicationName);
+        appBody.addProperty("RecommendedAmount__c", 1000);
+        appBody.addProperty("TotalCommitmentAmount__c", 1000);
+        appBody.addProperty("RecommendedForAward__c", "Yes");
+        appBody.addProperty("Comments__c", "Data Added");
+        appBody.addProperty("FDMStatus__c", "Approved");
+
+        reviewStepApp.add("body", appBody);
+        compositeRequest.add(reviewStepApp);
+
+        // -------- RolesAndResponsibilities__c --------
+        JsonObject approver = new JsonObject();
+        approver.addProperty("method", "POST");
+        approver.addProperty("url", "/services/data/v66.0/sobjects/RolesAndResponsibilities__c");
+        approver.addProperty("referenceId", "ApproverRef1");
+
+        JsonObject approverBody = new JsonObject();
+        approverBody.addProperty("ReviewStep__c", "@{ReviewStepStep1.id}");
+        approverBody.addProperty("Name__c", ProjectWebServices.getIdOf("User", I.amPerforming().propertiesFileOperationsTo().getValue("FO Username")));
+        approverBody.addProperty("FDMRole__c", "Step1");
+        approverBody.addProperty("BusinessRole__c", "Step1");
+        approverBody.addProperty("CustomApp__c", "Grantor");
+        approverBody.addProperty("RecordApiName__c", "ReviewStep__c");
+        approverBody.addProperty("RoleApiName__c", "FDMRole__c");
+
+        approver.add("body", approverBody);
+        compositeRequest.add(approver);
+
+        graph.add("compositeRequest", compositeRequest);
+        graphs.add(graph);
+        request.add("graphs", graphs);
+        return request;
+    }
+
+    public JsonObject initiateAwardForFDMRecordsForAnnouncement(String announcementName, String applicationName, String filter) {
+        JsonObject json;
+        json = defaultPayloadInitiateAwardForFDMRecordsForAnnouncement(announcementName, applicationName);
+        switch (filter.toUpperCase()) {
+            default:
+                return json;
+        }
+    }
+
+    private JsonObject defaultPayloadInitiateAwardForFDMRecordsForAnnouncement(String announcementName, String applicationName) {
+
+        JsonObject request = new JsonObject();
+
+        JsonArray graphs = new JsonArray();
+        JsonObject graph = new JsonObject();
+
+        graph.addProperty("graphId", "ReviewStepGraph");
+
+        JsonArray compositeRequest = new JsonArray();
+
+        // -------- ReviewStep__c --------
+        JsonObject reviewStep = new JsonObject();
+        reviewStep.addProperty("method", "POST");
+        reviewStep.addProperty("url", "/services/data/v66.0/sobjects/ReviewStep__c");
+        reviewStep.addProperty("referenceId", "ReviewStepStep1");
+
+        JsonObject reviewStepBody = new JsonObject();
+        reviewStepBody.addProperty("Name", "Funding Decision Memo");
+        reviewStepBody.addProperty("Announcement__c", ProjectWebServices.getIdOf("Announcement__c", announcementName));
+
+        reviewStep.add("body", reviewStepBody);
+        compositeRequest.add(reviewStep);
+
+        // -------- ReviewStepApplication__c --------
+        JsonObject reviewStepApp = new JsonObject();
+        reviewStepApp.addProperty("method", "POST");
+        reviewStepApp.addProperty("url", "/services/data/v66.0/sobjects/ReviewStepApplication__c");
+        reviewStepApp.addProperty("referenceId", "ReviewStepUser1");
+
+        JsonObject appBody = new JsonObject();
+        appBody.addProperty("ReviewStep__c", "@{ReviewStepStep1.id}");
+        appBody.addProperty("ApplicationTitle", applicationName);
+
+        reviewStepApp.add("body", appBody);
+        compositeRequest.add(reviewStepApp);
+
+        graph.add("compositeRequest", compositeRequest);
         graphs.add(graph);
         request.add("graphs", graphs);
         return request;
