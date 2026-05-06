@@ -62,7 +62,7 @@ public class GrantorWebServices extends ProjectWebServices {
             I.amPerforming().waitFor().makeThreadSleep(7000);
         }
 
-        if (status.equalsIgnoreCase("Completed") && objectName.length == 1 && !objectApiName.equalsIgnoreCase("closeout"))  {
+        if (status.equalsIgnoreCase("Completed") && objectName.length == 1 && !objectApiName.equalsIgnoreCase("closeout")) {
             return getRecordId(recordName, "Title__c", objectApiName);
         } else {
             return response;
@@ -203,9 +203,9 @@ public class GrantorWebServices extends ProjectWebServices {
         createAwardFromFDMPostCall(projectApis.defaultPayloadCreateAwardFromFDMForPlumbingCases(announcementName));
     }
 
-    public void createAwardFromFDM(String announcementName, String... Type ) {
-        if(Type.length>0)
-            createAwardFromFDMPostCall(projectApis.PayloadCreateAwardFromFDM(announcementName,Type[0]));
+    public void createAwardFromFDM(String announcementName, String... Type) {
+        if (Type.length > 0)
+            createAwardFromFDMPostCall(projectApis.PayloadCreateAwardFromFDM(announcementName, Type[0]));
         else
             createAwardFromFDMPostCall(projectApis.PayloadCreateAwardFromFDM(announcementName));
     }
@@ -248,7 +248,7 @@ public class GrantorWebServices extends ProjectWebServices {
      * @see GrantorPayloads# payloadForCreateStandaloneAward(String, String, String,String)
      */
     public void activateSubaward(String grantName, String filter, String... Type) {
-        if(Type.length>0)
+        if (Type.length > 0)
             activateSubawardGetCall(projectApis.payloadForCreateStandaloneAward(grantName, filter, Type[0]), grantName);
         else
             activateSubawardGetCall(projectApis.payloadForCreateStandaloneAward(grantName, filter), grantName);
@@ -572,5 +572,44 @@ public class GrantorWebServices extends ProjectWebServices {
         response.then().statusCode(201);
         System.out.println("response code is " + response.getStatusCode());
         response.then().statusCode(201);
+    }
+
+    /**
+     * Creates Amendment Request records by building payload and triggering API call.
+     *
+     * @param amendmentType the Amendment Type (RecordType)
+     * @param award         the Award Salesforce ID
+     * @param status        the Amendment Request status
+     * @param filter        payload modifier (e.g., "default")
+     */
+    public void createAmendmentRequestRecordsWithStatusUsingProperties(String amendmentType, String recordType, String award, String status, String filter) {
+        createAmendmentRequestPostCall(projectApis.payloadAmendmentRequestCreation(amendmentType, recordType, award, status, filter));
+    }
+
+    /**
+     * Executes POST API call to create Amendment Request records.
+     *
+     * @param jsonObject the request payload for Amendment creation
+     */
+    private void createAmendmentRequestPostCall(JsonObject jsonObject) {
+        String endpoint = endPoint + "/services/apexrest/govGrantsCreateRecord";
+        Response response = I.amPerforming().restHttp().postCall(
+                jsonObject,
+                null,
+                endpoint,
+                "Authorization",
+                "Bearer " + tokenString,
+                null
+        );
+        response.prettyPrint();
+        assertStatusCodeTwoZeroOne(response);
+    }
+
+    public void createSubrecipientSideAmendmentRequestRecordsWithStatusUsingProperties(String amendmentType, String recordType, String award, String status, String filter) {
+        createAmendmentRequestPostCall(projectApis.payloadSubrecipientSideAmendmentRequestCreation(amendmentType, recordType, award, status, filter));
+    }
+
+    public void updateSubrecipientSideAmendmentRequestWithStatusUsingProperties(String amendmentType, String award, String status, String filter) {
+        createAmendmentRequestPostCall(projectApis.payloadUpdateSubrecipientSideAmendmentRequest(amendmentType, award, status, filter));
     }
 }
