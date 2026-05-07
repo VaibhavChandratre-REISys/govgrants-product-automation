@@ -7412,7 +7412,7 @@ public class GrantorPayloads {
         request.add("graphs", graphs);
         return request;
     }
-    
+
     public JsonObject payloadApplicationCreationForTitle(String title, String announcement, String preAppTitle, String status, String filter) {
         JsonObject json;
         json = defaultPayloadApplicationCreationForTitle(title, announcement, preAppTitle, status);
