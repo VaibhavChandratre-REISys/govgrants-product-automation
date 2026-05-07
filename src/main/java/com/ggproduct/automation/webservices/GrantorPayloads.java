@@ -7412,8 +7412,7 @@ public class GrantorPayloads {
         request.add("graphs", graphs);
         return request;
     }
-
-
+    
     public JsonObject payloadApplicationCreationForTitle(String title, String announcement, String preAppTitle, String status, String filter) {
         JsonObject json;
         json = defaultPayloadApplicationCreationForTitle(title, announcement, preAppTitle, status);
@@ -7424,14 +7423,10 @@ public class GrantorPayloads {
     }
 
     private JsonObject defaultPayloadApplicationCreationForTitle(String title, String announcement, String preAppTitle, String status) {
-
         JsonObject request = new JsonObject();
-
         JsonArray graphs = new JsonArray();
         JsonObject graph = new JsonObject();
-
         graph.addProperty("graphId", "ApplicationGraph");
-
         JsonArray compositeRequest = new JsonArray();
 
         JsonObject app = new JsonObject();
@@ -7475,7 +7470,6 @@ public class GrantorPayloads {
         app.add("body", appBody);
         compositeRequest.add(app);
 
-
         // -------- KeyContacts__c --------
         JsonObject contact = new JsonObject();
         contact.addProperty("method", "POST");
@@ -7492,7 +7486,6 @@ public class GrantorPayloads {
         contact.add("body", contactBody);
         compositeRequest.add(contact);
 
-
         // -------- Budget Category 1 --------
         JsonObject budget1 = new JsonObject();
         budget1.addProperty("method", "POST");
@@ -7508,7 +7501,6 @@ public class GrantorPayloads {
 
         budget1.add("body", budgetBody1);
         compositeRequest.add(budget1);
-
 
         // -------- Budget Category 2 --------
         JsonObject budget2 = new JsonObject();

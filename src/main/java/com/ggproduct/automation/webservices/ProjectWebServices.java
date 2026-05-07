@@ -35,6 +35,14 @@ public class ProjectWebServices {
         response.then().statusCode(200);
     }
 
+    /**
+     * Fetches the value of a field from a record using the API.
+     *
+     * @param objectApiName The API name of the object.
+     * @param recordId The ID of the record.
+     * @param fieldApiNames The API names of the fields to fetch values for.
+     * @return The value of the specified field as a String.
+     */
     public static String getValuesOfWithFieldAPIName(String objectApiName, String recordId, String fieldApiNames) {
         String recordId1 = recordId.replaceAll("\"", "");
         String finalEndPoint = endPoint + "/services/apexrest/getRecord"
