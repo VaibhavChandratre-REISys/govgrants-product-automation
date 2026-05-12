@@ -7292,6 +7292,7 @@ public class GrantorPayloads {
         amendmentBody.addProperty("Country__c", "USA");
         amendmentBody.addProperty("ZipCode4Extension__c", "1234");
         amendmentBody.addProperty("NewBudgetPeriodEndDate__c", I.amPerforming().dateOperationsToGet().currentDateWithOffsetInDesiredFormat(3800, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
+        amendmentBody.addProperty("Interceptor__c", ProjectWebServices.getIdOf("User", I.amPerforming().propertiesFileOperationsTo().getValue("SPI3 Username")));
 
         amendment.add("body", amendmentBody);
         compositeRequest.add(amendment);
@@ -8028,6 +8029,7 @@ public class GrantorPayloads {
         reviewStepBody.addProperty("Announcement__c", ProjectWebServices.getIdOf("Announcement__c", announcementName));
         reviewStepBody.addProperty("Status__c", status);
         reviewStepBody.addProperty("GrantCode__c", "REI");
+        reviewStepBody.addProperty("Justification__c", "Automation Justification");
 
         reviewStep.add("body", reviewStepBody);
         compositeRequest.add(reviewStep);
@@ -8122,6 +8124,121 @@ public class GrantorPayloads {
         compositeRequest.add(reviewStepApp);
 
         graph.add("compositeRequest", compositeRequest);
+        graphs.add(graph);
+        request.add("graphs", graphs);
+        return request;
+    }
+
+    public JsonObject payloadPreApplicationCreationForTitle(String title, String announcement, String status, String filter) {
+        JsonObject json;
+        json = defaultPayloadPreApplicationCreationForTitle(title, announcement, status);
+        switch (filter.toUpperCase()) {
+            default:
+                return json;
+        }
+    }
+
+    private JsonObject defaultPayloadPreApplicationCreationForTitle(String title, String announcement, String status) {
+        JsonObject request = new JsonObject();
+        JsonArray graphs = new JsonArray();
+        JsonObject graph = new JsonObject();
+
+        graph.addProperty("graphId", "PreApplicationGraph");
+
+        JsonArray compositeRequest = new JsonArray();
+
+        // -------- PreApplication__c --------
+        JsonObject preApplication = new JsonObject();
+        preApplication.addProperty("url", "/services/data/v66.0/sobjects/PreApplication__c");
+        preApplication.addProperty("method", "POST");
+        preApplication.addProperty("referenceId", "PreApplication1");
+
+        JsonObject preAppBody = new JsonObject();
+        preAppBody.addProperty("Status__c", status);
+        preAppBody.addProperty("Title__c", title);
+        preAppBody.addProperty("OwnerId", ProjectWebServices.getIdOf("User", I.amPerforming().propertiesFileOperationsTo().getValue("SPI3 Username")));
+        preAppBody.addProperty("Announcement__c", ProjectWebServices.getIdOf("Announcement__c", announcement));
+        preAppBody.addProperty("OpportunityTitle__c", announcement);
+        preAppBody.addProperty("ApplicationDueDate__c", I.amPerforming().dateOperationsToGet().currentDateWithOffsetInDesiredFormat(10, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
+        preAppBody.addProperty("ProjectBeneficiaries__c", "Automation Beneficiaries");
+        preAppBody.addProperty("ProjectGoal__c", "Automation Project Goal");
+        preAppBody.addProperty("ProjectAbstract__c", "Automation Project Abstract");
+        preAppBody.addProperty("Agreement5__c", "I Agree");
+        preAppBody.addProperty("SubmittedOn__c", I.amPerforming().dateOperationsToGet().currentDateWithOffsetInDesiredFormat(0, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
+        preAppBody.addProperty("SubmittedBy__c", ProjectWebServices.getIdOf("User", I.amPerforming().propertiesFileOperationsTo().getValue("SPI3 Username")));
+        preAppBody.addProperty("Justification__c", "Automation Justification");
+        preAppBody.addProperty("RecordTypeId", ProjectWebServices.getRecordTypeId("PreApplication__c", "Grantor"));
+
+        preApplication.add("body", preAppBody);
+        compositeRequest.add(preApplication);
+
+        // -------- KeyContacts__c --------
+        JsonObject contact = new JsonObject();
+        contact.addProperty("method", "POST");
+        contact.addProperty("url", "/services/data/v66.0/sobjects/KeyContacts__c");
+        contact.addProperty("referenceId", "ContactRef1");
+
+        JsonObject contactBody = new JsonObject();
+        contactBody.addProperty("PreApplication__c", "@{PreApplication1.id}");
+        contactBody.addProperty("Contact__c", ProjectWebServices.getIdOf("Contact", I.amPerforming().propertiesFileOperationsTo().getValue("SPI3 Username")));
+        contactBody.addProperty("OwnerId", ProjectWebServices.getIdOf("User", I.amPerforming().propertiesFileOperationsTo().getValue("SPI3 Username")));
+        contactBody.addProperty("ProjectRole__c", "Project Director/Manager");
+        contactBody.addProperty("IsKeyContact__c", true);
+
+        contact.add("body", contactBody);
+        compositeRequest.add(contact);
+
+        // -------- Budget Category 1 --------
+        JsonObject budget1 = new JsonObject();
+        budget1.addProperty("method", "POST");
+        budget1.addProperty("url", "/services/data/v66.0/sobjects/PreApplicationBudgetCategory__c");
+        budget1.addProperty("referenceId", "BudgetDetailedRef1");
+
+        JsonObject budgetBody1 = new JsonObject();
+        budgetBody1.addProperty("PreApplication__c", "@{PreApplication1.id}");
+        budgetBody1.addProperty("CatName__c", "Construction");
+        budgetBody1.addProperty("GrantorAmount__c", 500);
+        budgetBody1.addProperty("CashMatch__c", 50);
+        budgetBody1.addProperty("NonCashMatch__c", 50);
+        budgetBody1.addProperty("OtherLeverage__c", 0);
+
+        budget1.add("body", budgetBody1);
+        compositeRequest.add(budget1);
+
+        // -------- Budget Category 2 --------
+        JsonObject budget2 = new JsonObject();
+        budget2.addProperty("method", "POST");
+        budget2.addProperty("url", "/services/data/v66.0/sobjects/PreApplicationBudgetCategory__c");
+        budget2.addProperty("referenceId", "BudgetDetailedRef2");
+
+        JsonObject budgetBody2 = new JsonObject();
+        budgetBody2.addProperty("PreApplication__c", "@{PreApplication1.id}");
+        budgetBody2.addProperty("CatName__c", "Equipment");
+        budgetBody2.addProperty("GrantorAmount__c", 500);
+        budgetBody2.addProperty("CashMatch__c", 50);
+        budgetBody2.addProperty("NonCashMatch__c", 50);
+        budgetBody2.addProperty("OtherLeverage__c", 0);
+
+        budget2.add("body", budgetBody2);
+        compositeRequest.add(budget2);
+
+        graph.add("compositeRequest", compositeRequest);
+
+        JsonArray standardFormArray = new JsonArray();
+
+        JsonObject form = new JsonObject();
+        form.addProperty("PreApplication__c", "@{PreApplication1.id}");
+        form.addProperty("Question3__c", "Test Clause Name for Automation");
+        form.addProperty("Question1__c", "This is a long description used for automation testing of clause behavior and validations.");
+        form.addProperty("sbirEmpNumber__c", "3");
+        form.addProperty("ExperienceLevel__c", "5-10 years");
+        form.addProperty("AppplicationSubmitted__c", "Automation SPI3");
+        form.addProperty("SubmittedOnForm__c", I.amPerforming().dateOperationsToGet().currentDateWithOffsetInDesiredFormat(0, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
+
+        standardFormArray.add(form);
+
+        graph.add("StandardPreApplicationform", standardFormArray);
+
         graphs.add(graph);
         request.add("graphs", graphs);
         return request;

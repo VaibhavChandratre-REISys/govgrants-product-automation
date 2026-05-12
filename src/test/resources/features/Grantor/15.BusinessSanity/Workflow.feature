@@ -2576,34 +2576,46 @@ Feature: Validate all scenarios of every modules flow
   @testApplication @debug
   Scenario:
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement Application" and properties "default"
+    And I create pre-application records with status "Created" using "default" properties
+      | Title                              | AnnouncementName                                         |
+      | Automation Runtime Pre-Application | {SavedValue:Automation Runtime Announcement Application} |
     And I create application records with status "Created" using "default" properties
-      | Title                          | AnnouncementName                                         | PreAppTitle |
-      | Automation Runtime Application | {SavedValue:Automation Runtime Announcement Application} |             |
+      | Title                          | AnnouncementName                                         | PreAppTitle                                     |
+      | Automation Runtime Application | {SavedValue:Automation Runtime Announcement Application} | {SavedValue:Automation Runtime Pre-Application} |
     And I halt execution
     And I Initiated application review for multiple records on announcement
       | AnnouncementName                                         |
       | {SavedValue:Automation Runtime Announcement Application} |
+    And I halt execution
     And I initiate pre-screen review for announcements with properties "default"
       | AnnouncementName                                         | ReviewerName             |
       | {SavedValue:Automation Runtime Announcement Application} | {SavedValue:FO Username} |
+    And I halt execution
     And I submit review for announcements with properties "default"
       | ReviewName        | AnnouncementName                                         | ApplicationName                             |
       | Pre-Screen Review | {SavedValue:Automation Runtime Announcement Application} | {SavedValue:Automation Runtime Application} |
+    And I halt execution
     And I initiate SME review for announcements with properties "default"
       | AnnouncementName                                         | ReviewerName             | ReviewerName2             | ReviewerName3            |
       | {SavedValue:Automation Runtime Announcement Application} | {SavedValue:FO Username} | {SavedValue:EXE Username} | {SavedValue:PM Username} |
+    And I halt execution
     And I submit review for announcements with properties "default"
       | ReviewName | AnnouncementName                                         | ApplicationName                             |
       | SME Review | {SavedValue:Automation Runtime Announcement Application} | {SavedValue:Automation Runtime Application} |
+    And I halt execution
     And I initiate management review for announcements with properties "default"
       | AnnouncementName                                         | ReviewerName             |
       | {SavedValue:Automation Runtime Announcement Application} | {SavedValue:FO Username} |
+    And I halt execution
     And I submit review for announcements with properties "default"
       | ReviewName        | AnnouncementName                                         | ApplicationName                             |
       | Management Review | {SavedValue:Automation Runtime Announcement Application} | {SavedValue:Automation Runtime Application} |
+    And I halt execution
     And I create FDM records with status "Created" using "default" properties
-      | AnnouncementName                                         | ApplicationName |
+      | AnnouncementName                                         | ApplicationName                             |
       | {SavedValue:Automation Runtime Announcement Application} | {SavedValue:Automation Runtime Application} |
+    And I halt execution
     And I initiate award for FDM records with properties "default"
       | AnnouncementName                                         | ApplicationName                             |
       | {SavedValue:Automation Runtime Announcement Application} | {SavedValue:Automation Runtime Application} |
+    And I halt execution

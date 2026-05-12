@@ -938,4 +938,20 @@ public class GenericSteps {
             grantorWebServices.initiateAwardForFDMRecordsWithProperties(announcementName, applicationName, filter);
         }
     }
+
+    @And("I create pre-application records with status {string} using {string} properties")
+    public void iCreatePreApplicationRecordsWithStatusUsingProperties(String status, String filter, DataTable table) {
+        List<Map<String, String>> rows = table.asMaps();
+        for (Map<String, String> row : rows) {
+            String title = row.get("Title");
+            String announcement = row.get("AnnouncementName");
+            if (title.startsWith("Automation Runtime")) {
+                String newTitle = title + I.amPerforming().addOnsTo().getRandomNumber();
+                I.amPerforming().propertiesFileOperationsTo().saveValue(title, newTitle);
+                title = newTitle;
+            }
+            grantorWebServices.createPreApplicationRecordsWithStatusUsingProperties(title, announcement, status, filter);
+        }
+
+    }
 }

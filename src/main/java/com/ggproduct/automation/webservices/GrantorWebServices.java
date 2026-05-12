@@ -642,7 +642,7 @@ public class GrantorWebServices extends ProjectWebServices {
         Response response = I.amPerforming().restHttp().postCall(jsonObject, null,
                 createSolicitationEndPoint, "Authorization", "Bearer " + tokenString, null);
         response.prettyPrint();
-        assertStatusCodeTwoZeroOne(response);
+        assertStatusCode(response);
     }
 
     public void submitPreScreenReviewForAnnouncementsWithProperties(String reviewName, String announcementName, String applicationName, String filter) {
@@ -663,5 +663,9 @@ public class GrantorWebServices extends ProjectWebServices {
 
     public void initiateAwardForFDMRecordsWithProperties(String announcementName, String applicationName, String filter) {
         initiatePreScreenReviewPostCall(projectApis.initiateAwardForFDMRecordsForAnnouncement(announcementName, applicationName, filter));
+    }
+
+    public void createPreApplicationRecordsWithStatusUsingProperties(String title, String announcement, String status, String filter) {
+        createApplicationPostCall(projectApis.payloadPreApplicationCreationForTitle(title, announcement, status, filter));
     }
 }
