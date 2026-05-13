@@ -668,4 +668,12 @@ public class GrantorWebServices extends ProjectWebServices {
     public void createPreApplicationRecordsWithStatusUsingProperties(String title, String announcement, String status, String filter) {
         createApplicationPostCall(projectApis.payloadPreApplicationCreationForTitle(title, announcement, status, filter));
     }
+
+    public void createAnnouncementRecordsWithStatusUsingProperties(String announcementName, String programName, String type, String allocationlevel, String status, String filter) {
+        createApplicationPostCall(projectApis.payloadAnnouncementCreationForTitle(announcementName, programName, type, allocationlevel,  status, filter));
+    }
+
+    public void createCloseoutRecordsWithStatusUsingProperties(String awardName, String closeoutType, String status, String filter) {
+        createApplicationPostCall(projectApis.payloadCloseoutCreationForTitle(awardName, closeoutType, status, filter));
+    }
 }

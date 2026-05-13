@@ -954,4 +954,31 @@ public class GenericSteps {
         }
 
     }
+
+    @And("I create announcement records with status {string} using {string} properties")
+    public void iCreateAnnouncementRecordsWithStatusUsingProperties(String status, String filter, DataTable table) {
+        List<Map<String, String>> rows = table.asMaps();
+        for (Map<String, String> row : rows) {
+            String announcementName = row.get("AnnouncementName");
+            String programName = row.get("ProgramName");
+            String type = row.get("AnnType");
+            String allocationlevel = row.get("AllocationLevel");
+            if (announcementName.startsWith("Automation Runtime")) {
+                String newTitle = announcementName + I.amPerforming().addOnsTo().getRandomNumber();
+                I.amPerforming().propertiesFileOperationsTo().saveValue(announcementName, newTitle);
+                announcementName = newTitle;
+            }
+            grantorWebServices.createAnnouncementRecordsWithStatusUsingProperties(announcementName, programName, type, allocationlevel, status, filter);
+        }
+    }
+
+    @And("I create closeout records with status {string} using {string} properties")
+    public void iCreateCloseoutRecordsWithStatusUsingProperties(String status, String filter, DataTable table) {
+        List<Map<String, String>> rows = table.asMaps();
+        for (Map<String, String> row : rows) {
+            String awardName = row.get("AwardName");
+            String closeoutType = row.get("CloseoutType");
+            grantorWebServices.createCloseoutRecordsWithStatusUsingProperties(awardName, closeoutType, status, filter);
+        }
+    }
 }
