@@ -981,4 +981,20 @@ public class GenericSteps {
             grantorWebServices.createCloseoutRecordsWithStatusUsingProperties(awardName, closeoutType, status, filter);
         }
     }
+
+    @And("I create payment request records with status {string} using {string} properties")
+    public void iCreatePaymentRequestRecordsWithStatusUsingProperties(String status, String filter, DataTable table) {
+        List<Map<String, String>> rows = table.asMaps();
+        for (Map<String, String> row : rows) {
+            String title = row.get("Title");
+            String awardName = row.get("AwardName");
+            String paymentRequestType = row.get("PaymentRequestType");
+            if (title.startsWith("Automation Runtime")) {
+                String newTitle = title + I.amPerforming().addOnsTo().getRandomNumber();
+                I.amPerforming().propertiesFileOperationsTo().saveValue(title, newTitle);
+                title = newTitle;
+            }
+            grantorWebServices.createPaymentRequestRecordsWithStatusUsingProperties(title, awardName, paymentRequestType, status, filter);
+        }
+    }
 }

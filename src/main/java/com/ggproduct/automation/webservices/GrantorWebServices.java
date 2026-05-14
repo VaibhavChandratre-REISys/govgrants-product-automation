@@ -676,4 +676,8 @@ public class GrantorWebServices extends ProjectWebServices {
     public void createCloseoutRecordsWithStatusUsingProperties(String awardName, String closeoutType, String status, String filter) {
         createApplicationPostCall(projectApis.payloadCloseoutCreationForTitle(awardName, closeoutType, status, filter));
     }
+
+    public void createPaymentRequestRecordsWithStatusUsingProperties(String title, String awardName, String paymentRequestType, String status, String filter) {
+        createApplicationPostCall(projectApis.payloadPaymentRequestCreationForTitle(title, awardName, paymentRequestType, status, filter));
+    }
 }

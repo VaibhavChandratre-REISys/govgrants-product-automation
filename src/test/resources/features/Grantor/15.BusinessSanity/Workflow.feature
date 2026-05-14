@@ -2547,19 +2547,15 @@ Feature: Validate all scenarios of every modules flow
     And I create amendment request records with status "Created" using "default" properties
       | Title                                              | AmendmentType    | RecordType          |
       | {SavedValue:Automation Runtime Award for closeout} | Periodic Renewal | Periodic/BP Renewal |
-    And I halt execution
     And I create amendment request records with status "Sent To Subrecipient" using "default" properties
       | Title                                              | AmendmentType    |
       | {SavedValue:Automation Runtime Award for closeout} | Periodic Renewal |
-    And I halt execution
     And I create amendment request records with status "Acknowledged" using "default" properties
       | Title                                              | AmendmentType    |
       | {SavedValue:Automation Runtime Award for closeout} | Periodic Renewal |
-    And I halt execution
     And I create amendment request records with status "Submitted for Approval" using "default" properties
       | Title                                              | AmendmentType    |
       | {SavedValue:Automation Runtime Award for closeout} | Periodic Renewal |
-    And I halt execution
     And I create amendment request records with status "Approved" using "default" properties
       | Title                                              | AmendmentType    |
       | {SavedValue:Automation Runtime Award for closeout} | Periodic Renewal |
@@ -2579,9 +2575,9 @@ Feature: Validate all scenarios of every modules flow
     And I create program records with status "Active" using "default" properties
       | Title                      | RecordType       |
       | Automation Runtime Program | Internal Program |
-    And I create announcement records with status "Created" using "default" properties
-      | AnnouncementName                            | ProgramName                             | AnnType | AllocationLevel |
-      | Automation Runtime Announcement Application | {SavedValue:Automation Runtime Program} | Formula | By Applicant    |
+    And I create announcement records with status "Published" using "default" properties
+      | AnnouncementName                            | ProgramName                             | AnnType  | AllocationLevel |
+      | Automation Runtime Announcement Application | {SavedValue:Automation Runtime Program} | Directed | N/A             |
     And I halt execution
 #    And I create pre-application records with status "Created" using "default" properties
 #      | Title                              | AnnouncementName                                         |
@@ -2629,8 +2625,11 @@ Feature: Validate all scenarios of every modules flow
 
   @testCloseout
   Scenario:
-    Given I activated standalone subaward "Automation Runtime Award for closeout" with properties "SECOND_FOCUS_AREA_BUDGET_CATEGORY" of type "Competitive"
-    And I create closeout records with status "Completed" using "default" properties
-     | AwardName                                          | CloseoutType     |
-     | {SavedValue:Automation Runtime Award for closeout} | Early Completion |
+    Given I activated standalone subaward "Automation Runtime Award for closeout" with properties "default" of type "Competitive"
+    And I create payment request records with status "Submitted for Approval" using "default" properties
+      | Title                              | AwardName                                          | PaymentRequestType |
+      | Automation Runtime Payment Request | {SavedValue:Automation Runtime Award for closeout} | Reimbursement      |
+#    And I create closeout records with status "Completed" using "default" properties
+#      | AwardName                                          | CloseoutType     |
+#      | {SavedValue:Automation Runtime Award for closeout} | Early Completion |
     And I halt execution

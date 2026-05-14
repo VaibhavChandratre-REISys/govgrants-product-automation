@@ -8521,6 +8521,24 @@ public class GrantorPayloads {
 
         compositeRequest.add(fundingAccount);
 
+        // -------- SoleSourceAwardRecipient__c --------
+        JsonObject soleSource = new JsonObject();
+
+        soleSource.addProperty("method", "POST");
+        soleSource.addProperty("url", "/services/data/v66.0/sobjects/SoleSourceAwardRecipient__c");
+        soleSource.addProperty("referenceId", "SoleSourceRef1");
+
+        JsonObject soleSourceBody = new JsonObject();
+
+        soleSourceBody.addProperty("FundingOpportunity__c", "@{AnnouncementRef1.id}");
+        soleSourceBody.addProperty("Account__c",  ProjectWebServices.getIdOf("Account", I.amPerforming().propertiesFileOperationsTo().getValue("subrecipientAutomationOrg")));
+        soleSourceBody.addProperty("AllocatedAmount__c", "1000");
+        soleSourceBody.addProperty("FocusArea__c", ProjectWebServices.getIdOf("ServiceArea__c", I.amPerforming().propertiesFileOperationsTo().getValue("focusArea")));
+
+        soleSource.add("body", soleSourceBody);
+
+        compositeRequest.add(soleSource);
+
         graph.add("compositeRequest", compositeRequest);
 
         graphs.add(graph);
@@ -8626,6 +8644,90 @@ public class GrantorPayloads {
         compositeRequest.add(role);
 
         graph.add("compositeRequest", compositeRequest);
+
+        graphs.add(graph);
+
+        request.add("graphs", graphs);
+        return request;
+    }
+
+    public JsonObject payloadPaymentRequestCreationForTitle(String title, String awardName, String paymentRequestType, String status, String filter) {
+        JsonObject json;
+        json = defaultPayloadPaymentRequestCreationForTitle(title, awardName, paymentRequestType, status);
+        switch (filter.toUpperCase()) {
+            default:
+                return json;
+        }
+    }
+
+    private JsonObject defaultPayloadPaymentRequestCreationForTitle(String title, String awardName, String paymentRequestType, String status) {
+        JsonObject request = new JsonObject();
+
+        JsonArray graphs = new JsonArray();
+
+        JsonObject graph = new JsonObject();
+        graph.addProperty("graphId", "PaymentRequestGraph");
+
+        JsonArray compositeRequest = new JsonArray();
+
+        JsonObject paymentRequest = new JsonObject();
+
+        paymentRequest.addProperty("url", "/services/data/v66.0/sobjects/PaymentRequest__c");
+        paymentRequest.addProperty("method", "POST");
+        paymentRequest.addProperty("referenceId", "PaymentRequest1");
+
+        JsonObject paymentRequestBody = new JsonObject();
+
+        paymentRequestBody.addProperty("Status__c", status);
+        paymentRequestBody.addProperty("OwnerId", ProjectWebServices.getIdOf("User", I.amPerforming().propertiesFileOperationsTo().getValue("SPI3 Username")));
+        paymentRequestBody.addProperty("Award__c", ProjectWebServices.getIdOf("Award__c", awardName));
+        paymentRequestBody.addProperty("Type__c", paymentRequestType);
+        paymentRequestBody.addProperty("Title__c", title);
+        paymentRequestBody.addProperty("BillingStartDate__c", I.amPerforming().dateOperationsToGet().currentDateWithOffsetInDesiredFormat(0, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
+        paymentRequestBody.addProperty("BillingEndDate__c", I.amPerforming().dateOperationsToGet().currentDateWithOffsetInDesiredFormat(3650, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
+        paymentRequestBody.addProperty("SignedBy__c", ProjectWebServices.getIdOf("User", I.amPerforming().propertiesFileOperationsTo().getValue("SPI3 Username")));
+        paymentRequestBody.addProperty("ReceiptsUploaded__c", true);
+        paymentRequestBody.addProperty("TermsAgreement__c", "Yes");
+        paymentRequestBody.addProperty("Interceptor__c", ProjectWebServices.getIdOf("User", I.amPerforming().propertiesFileOperationsTo().getValue("PM Username")));
+        paymentRequestBody.addProperty("FiscalOfficer__c", ProjectWebServices.getIdOf("User", I.amPerforming().propertiesFileOperationsTo().getValue("PM Username")));
+
+        paymentRequest.add("body", paymentRequestBody);
+
+        compositeRequest.add(paymentRequest);
+
+        graph.add("compositeRequest", compositeRequest);
+
+        // -------- buildUpItems --------
+        JsonArray buildUpItems = new JsonArray();
+
+        JsonObject buildUpItem = new JsonObject();
+
+        buildUpItem.addProperty("BudgetCategoryName__c", "Construction");
+        buildUpItem.addProperty("ServiceAreaTitle__c", "Automation Permanent Focus Area");
+        buildUpItem.addProperty("PaymentRequest__c", "@{PaymentRequest1.id}");
+        buildUpItem.addProperty("Title__c", I.amPerforming().propertiesFileOperationsTo().getValue("focusArea"));
+        buildUpItem.addProperty("Narrative__c", "The Narrative");
+        buildUpItem.addProperty("UnitPrice__c", 500);
+        buildUpItem.addProperty("Quantity__c", 1);
+        buildUpItem.addProperty("UnitofMeasurement__c", "Feet");
+        buildUpItem.addProperty("CashMatch__c", 50);
+        buildUpItem.addProperty("NonCashMatch__c", 50);
+
+        buildUpItems.add(buildUpItem);
+
+        graph.add("buildUpItems", buildUpItems);
+
+        // -------- fundingAccounts --------
+        JsonArray fundingAccounts = new JsonArray();
+
+        JsonObject fundingAccount = new JsonObject();
+
+        fundingAccount.addProperty("fundingAccountName", I.amPerforming().propertiesFileOperationsTo().getValue("fundingAccount"));
+        fundingAccount.addProperty("PaymentRequestReimbursement__c", 500);
+
+        fundingAccounts.add(fundingAccount);
+
+        graph.add("fundingAccounts", fundingAccounts);
 
         graphs.add(graph);
 
