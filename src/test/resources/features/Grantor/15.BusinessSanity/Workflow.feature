@@ -2569,6 +2569,22 @@ Feature: Validate all scenarios of every modules flow
       | {SavedValue:Automation Runtime Award for closeout} | Budget Period Change | Formal Amendments |
     And I halt execution
 
+  @testCarryForward
+  Scenario:
+    Given I activated standalone subaward "Automation Runtime Award for closeout" with properties "SECOND_FOCUS_AREA_BUDGET_CATEGORY" of type "Competitive"
+    And I create amendment request records with status "Approved" using "default" properties
+      | Title                                              | AmendmentType    | RecordType          |
+      | {SavedValue:Automation Runtime Award for closeout} | Periodic Renewal | Periodic/BP Renewal |
+    And I halt execution
+    And I save the field labeled "Subaward Title" as "Automation Runtime New award"
+    And I create subrecipient side amendment request records with status "Created" using "default" properties
+      | Title                                     | GrantName                                          | AmendmentType | RecordType        |
+      | {SavedValue:Automation Runtime New award} | {SavedValue:Automation Runtime Award for closeout} | Carry Forward | Formal Amendments |
+#    And I create subrecipient side amendment request records with status "Approved" using "default" properties
+#      | Title                             | GrantName                                  | AmendmentType | RecordType        |
+#      | Automation Runtime New Award98104 | Automation Runtime Award for closeout92657 | Carry Forward | Formal Amendments |
+    And I halt execution
+
   @testApplication @debug
   Scenario:
 #    Given I published "Competitive" type announcement having name "Automation Runtime Announcement Application" and properties "default"
@@ -2582,9 +2598,9 @@ Feature: Validate all scenarios of every modules flow
 #    And I create pre-application records with status "Created" using "default" properties
 #      | Title                              | AnnouncementName                                         |
 #      | Automation Runtime Pre-Application | {SavedValue:Automation Runtime Announcement Application} |
-#    And I create application records with status "Created" using "default" properties
-#      | Title                          | AnnouncementName                                         | PreAppTitle |
-#      | Automation Runtime Application | {SavedValue:Automation Runtime Announcement Application} |             |
+    And I create application records with status "Created" using "default" properties
+      | Title                          | AnnouncementName                                         | PreAppTitle |
+      | Automation Runtime Application | {SavedValue:Automation Runtime Announcement Application} |             |
 #    And I halt execution
 #    And I Initiated application review for multiple records on announcement
 #      | AnnouncementName                                         |
@@ -2625,10 +2641,10 @@ Feature: Validate all scenarios of every modules flow
 
   @testCloseout
   Scenario:
-    Given I activated standalone subaward "Automation Runtime Award for closeout" with properties "default" of type "Competitive"
-    And I create payment request records with status "Submitted for Approval" using "default" properties
+    Given I activated standalone subaward "Automation Runtime Award for closeout" with properties "ADVANCE_PERMISSIBLE_YES_FOCUS_AREA_NO" of type "Competitive"
+    And I create payment request records with status "Submitted to Grantor" using "default" properties
       | Title                              | AwardName                                          | PaymentRequestType |
-      | Automation Runtime Payment Request | {SavedValue:Automation Runtime Award for closeout} | Reimbursement      |
+      | Automation Runtime Payment Request | {SavedValue:Automation Runtime Award for closeout} | Advance            |
 #    And I create closeout records with status "Completed" using "default" properties
 #      | AwardName                                          | CloseoutType     |
 #      | {SavedValue:Automation Runtime Award for closeout} | Early Completion |

@@ -7076,6 +7076,7 @@ public class GrantorPayloads {
         JsonObject request = new JsonObject();
         JsonArray graphs = new JsonArray();
         JsonObject graph = new JsonObject();
+        String newAwardName = "Automation Runtime New Award" + I.amPerforming().addOnsTo().getRandomNumber();
         graph.addProperty("graphId", "AmendmentRequestGraph");
         JsonArray compositeRequest = new JsonArray();
         JsonObject amendment = new JsonObject();
@@ -7086,166 +7087,297 @@ public class GrantorPayloads {
         body.addProperty("Status__c", status);
         body.addProperty("Award__c", ProjectWebServices.getIdOf("Award__c", award));
         body.addProperty("AmendmentType__c", amendmentType);
-        switch (status.toLowerCase()) {
-
-            case "created":
-                body.addProperty("OwnerId", ProjectWebServices.getIdOf("User", I.amPerforming().propertiesFileOperationsTo().getValue("PM Username")));
-                body.addProperty("RecordTypeId", ProjectWebServices.getRecordTypeId("AmendmentRequest__c", recordType));
-                body.addProperty("PurposeRTA__c", "test");
-                body.addProperty("Impact__c", "test");
-                body.addProperty("Justification__c", "test");
-                body.addProperty("BudgetPeriodComments__c", "test");
-                body.addProperty("FundingChangeJustification__c", "test");
-                body.addProperty("ScopeofWorkChangeDescription__c", "test");
-                body.addProperty("NewBudgetPeriodEndDate__c", I.amPerforming().dateOperationsToGet().currentDateWithOffsetInDesiredFormat(3800, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
-                if(amendmentType.equalsIgnoreCase("Periodic Renewal")) {
-                    body.addProperty("RequestedChangeInBudget__c", 2000);
-                }else {
-                    body.addProperty("RequestedChangeInBudget__c", 1000);
-                }
-                body.addProperty("RevisedCommitment__c", 4000);
-                body.addProperty("GrantAwardDescription__c", "Change on Amendment Level");
-                body.addProperty("GrantAwardName__c", award);
-                body.addProperty("Interceptor__c", ProjectWebServices.getIdOf("User", I.amPerforming().propertiesFileOperationsTo().getValue("PM Username")));
-                body.addProperty("TncComments__c", "Automation test");
-                body.addProperty("Addressline1__c", "Street 1");
-                body.addProperty("Addressline2__c", "Joint Road");
-                body.addProperty("City__c", "Cal");
-                body.addProperty("County__c", "New County");
-                body.addProperty("State__c", "AK");
-                body.addProperty("CongressionalDistrict__c", "123");
-                body.addProperty("Zip4__c", "12345");
-                body.addProperty("Country__c", "USA");
-                body.addProperty("ZipCode4Extension__c", "1234");
-                body.addProperty("ProposedBudgetEndDate__c", I.amPerforming().dateOperationsToGet().currentDateWithOffsetInDesiredFormat(3800, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
-
-
-                // -------- BudgetSummaryFocusArea --------
-                JsonArray budgetSummaryFocusArea = new JsonArray();
-                JsonObject focus1 = new JsonObject();
-                focus1.addProperty("Title", "Automation Permanent Focus Area");
-                if(amendmentType.equalsIgnoreCase("Periodic Renewal")) {
-                    focus1.addProperty("GATStartDate__c", I.amPerforming().dateOperationsToGet().currentDateWithOffsetInDesiredFormat(3651, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
-                    focus1.addProperty("GATEndDate__c", I.amPerforming().dateOperationsToGet().currentDateWithOffsetInDesiredFormat(3800, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
-                } else {
-                    focus1.addProperty("NewObligation__c", 500);
-                }
-                JsonObject focus2 = new JsonObject();
-                focus2.addProperty("Title", "Automation Permanent Focus Area2");
-                if(amendmentType.equalsIgnoreCase("Periodic Renewal")) {
-                    focus2.addProperty("GATStartDate__c", I.amPerforming().dateOperationsToGet().currentDateWithOffsetInDesiredFormat(3651, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
-                    focus2.addProperty("GATEndDate__c", I.amPerforming().dateOperationsToGet().currentDateWithOffsetInDesiredFormat(3800, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
-                } else {
-                    focus2.addProperty("NewObligation__c", 500);
-                }
-                budgetSummaryFocusArea.add(focus1);
-                budgetSummaryFocusArea.add(focus2);
-                request.add("BudgetSummaryFocusArea", budgetSummaryFocusArea);
-
-                // -------- FundingAccount --------
-                JsonArray fundingAccount = new JsonArray();
-                JsonObject funding = new JsonObject();
-                funding.addProperty("Title", I.amPerforming().propertiesFileOperationsTo().getValue("fundingAccount"));
-                funding.addProperty("ActualEncumbrance__c", 2000);
-                fundingAccount.add(funding);
-                request.add("FundingAccount", fundingAccount);
-
-                break;
-
-            case "sent to subrecipient":
-                body.addProperty("Justification__c", "Automation justification");
-                body.addProperty("BudgetPeriodComments__c", "Automation comments");
-
-                // -------- Budget Detailed Ref 1 --------
-                JsonObject budgetDetailed1 = new JsonObject();
-
-                budgetDetailed1.addProperty("method", "POST");
-                budgetDetailed1.addProperty("url", "/services/data/v66.0/sobjects/AmendmentRequestBudgetCategory__c");
-                budgetDetailed1.addProperty("referenceId", "BudgetDetailedRef1");
-
-                JsonObject body1 = new JsonObject();
-                body1.addProperty("AmendmentRequest__c", "@{AmendmentRequest1.id}");
-                body1.addProperty("BudgetCategoryName__c", "Equipment");
-                body1.addProperty("ServiceAreaTitle__c", "Automation Permanent Focus Area2");
-                body1.addProperty("CurrentAmount__c", 500);
-                body1.addProperty("CashMatch__c", 200);
-                body1.addProperty("NonCashMatch__c", 100);
-                body1.addProperty("OtherLeverage__c", 0);
-
-                budgetDetailed1.add("body", body1);
-                compositeRequest.add(budgetDetailed1);
-
-                // -------- Budget Detailed Ref 2 --------
-                JsonObject budgetDetailed2 = new JsonObject();
-
-                budgetDetailed2.addProperty("method", "POST");
-                budgetDetailed2.addProperty("url", "/services/data/v66.0/sobjects/AmendmentRequestBudgetCategory__c");
-                budgetDetailed2.addProperty("referenceId", "BudgetDetailedRef2");
-
-                JsonObject body2 = new JsonObject();
-                body2.addProperty("AmendmentRequest__c", "@{AmendmentRequest1.id}");
-                body2.addProperty("BudgetCategoryName__c", "Miscellaneous");
-                body2.addProperty("ServiceAreaTitle__c", "Automation Permanent Focus Area");
-                body2.addProperty("CurrentAmount__c", 500);
-                body2.addProperty("CashMatch__c", 100);
-                body2.addProperty("NonCashMatch__c", 100);
-                body2.addProperty("OtherLeverage__c", 0.0);
-
-                budgetDetailed2.add("body", body2);
-                compositeRequest.add(budgetDetailed2);
-
-                break;
-
-            case "acknowledged":
-                break;
-
-            case "submitted for approval":
-                body.addProperty("Justification__c", "Submitted for approval via automation");
-                break;
-
-            case "approved":
-                body.addProperty("Justification__c", "Approved via automation");
-                break;
-
-            default:
-                break;
+        body.addProperty("OwnerId", ProjectWebServices.getIdOf("User", I.amPerforming().propertiesFileOperationsTo().getValue("PM Username")));
+        body.addProperty("RecordTypeId", ProjectWebServices.getRecordTypeId("AmendmentRequest__c", recordType));
+        body.addProperty("PurposeRTA__c", "test");
+        body.addProperty("Impact__c", "test");
+        body.addProperty("Justification__c", "test");
+        body.addProperty("BudgetPeriodComments__c", "test");
+        body.addProperty("FundingChangeJustification__c", "test");
+        body.addProperty("ScopeofWorkChangeDescription__c", "test");
+        body.addProperty("NewBudgetPeriodEndDate__c", I.amPerforming().dateOperationsToGet().currentDateWithOffsetInDesiredFormat(3800, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
+        if (amendmentType.equalsIgnoreCase("Periodic Renewal")) {
+            body.addProperty("RequestedChangeInBudget__c", 2000);
+        } else {
+            body.addProperty("RequestedChangeInBudget__c", 1000);
         }
+        body.addProperty("RevisedCommitment__c", 4000);
+        body.addProperty("GrantAwardDescription__c", "Change on Amendment Level");
+        body.addProperty("GrantAwardName__c", newAwardName);
+        body.addProperty("Interceptor__c", ProjectWebServices.getIdOf("User", I.amPerforming().propertiesFileOperationsTo().getValue("PM Username")));
+        body.addProperty("TncComments__c", "Automation test");
+        body.addProperty("Addressline1__c", "Street 1");
+        body.addProperty("Addressline2__c", "Joint Road");
+        body.addProperty("City__c", "Cal");
+        body.addProperty("County__c", "New County");
+        body.addProperty("State__c", "AK");
+        body.addProperty("CongressionalDistrict__c", "123");
+        body.addProperty("Zip4__c", "12345");
+        body.addProperty("Country__c", "USA");
+        body.addProperty("ZipCode4Extension__c", "1234");
+        body.addProperty("ProposedBudgetEndDate__c", I.amPerforming().dateOperationsToGet().currentDateWithOffsetInDesiredFormat(3800, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
+
+
+        // -------- BudgetSummaryFocusArea --------
+        JsonArray budgetSummaryFocusArea = new JsonArray();
+        JsonObject focus1 = new JsonObject();
+        focus1.addProperty("Title", "Automation Permanent Focus Area");
+        if (amendmentType.equalsIgnoreCase("Periodic Renewal")) {
+            focus1.addProperty("GATStartDate__c", I.amPerforming().dateOperationsToGet().currentDateWithOffsetInDesiredFormat(3651, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
+            focus1.addProperty("GATEndDate__c", I.amPerforming().dateOperationsToGet().currentDateWithOffsetInDesiredFormat(3800, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
+        } else {
+            focus1.addProperty("NewObligation__c", 500);
+        }
+        JsonObject focus2 = new JsonObject();
+        focus2.addProperty("Title", "Automation Permanent Focus Area2");
+        if (amendmentType.equalsIgnoreCase("Periodic Renewal")) {
+            focus2.addProperty("GATStartDate__c", I.amPerforming().dateOperationsToGet().currentDateWithOffsetInDesiredFormat(3651, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
+            focus2.addProperty("GATEndDate__c", I.amPerforming().dateOperationsToGet().currentDateWithOffsetInDesiredFormat(3800, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
+        } else {
+            focus2.addProperty("NewObligation__c", 500);
+        }
+        budgetSummaryFocusArea.add(focus1);
+        budgetSummaryFocusArea.add(focus2);
+        request.add("BudgetSummaryFocusArea", budgetSummaryFocusArea);
+
+        // -------- FundingAccount --------
+        JsonArray fundingAccount = new JsonArray();
+        JsonObject funding = new JsonObject();
+        funding.addProperty("Title", I.amPerforming().propertiesFileOperationsTo().getValue("fundingAccount"));
+        funding.addProperty("ActualEncumbrance__c", 2000);
+        fundingAccount.add(funding);
+        request.add("FundingAccount", fundingAccount);
+
+        body.addProperty("Justification__c", "Automation justification");
+        body.addProperty("BudgetPeriodComments__c", "Automation comments");
+
+        // -------- Budget Detailed Ref 1 --------
+        JsonObject budgetDetailed1 = new JsonObject();
+
+        budgetDetailed1.addProperty("method", "POST");
+        budgetDetailed1.addProperty("url", "/services/data/v66.0/sobjects/AmendmentRequestBudgetCategory__c");
+        budgetDetailed1.addProperty("referenceId", "BudgetDetailedRef1");
+
+        JsonObject body1 = new JsonObject();
+        body1.addProperty("AmendmentRequest__c", "@{AmendmentRequest1.id}");
+        body1.addProperty("BudgetCategoryName__c", "Equipment");
+        body1.addProperty("ServiceAreaTitle__c", "Automation Permanent Focus Area2");
+        body1.addProperty("CurrentAmount__c", 500);
+        body1.addProperty("CashMatch__c", 200);
+        body1.addProperty("NonCashMatch__c", 100);
+        body1.addProperty("OtherLeverage__c", 0);
+
+        budgetDetailed1.add("body", body1);
+        compositeRequest.add(budgetDetailed1);
+
+        // -------- Budget Detailed Ref 2 --------
+        JsonObject budgetDetailed2 = new JsonObject();
+
+        budgetDetailed2.addProperty("method", "POST");
+        budgetDetailed2.addProperty("url", "/services/data/v66.0/sobjects/AmendmentRequestBudgetCategory__c");
+        budgetDetailed2.addProperty("referenceId", "BudgetDetailedRef2");
+
+        JsonObject body2 = new JsonObject();
+        body2.addProperty("AmendmentRequest__c", "@{AmendmentRequest1.id}");
+        body2.addProperty("BudgetCategoryName__c", "Miscellaneous");
+        body2.addProperty("ServiceAreaTitle__c", "Automation Permanent Focus Area");
+        body2.addProperty("CurrentAmount__c", 500);
+        body2.addProperty("CashMatch__c", 100);
+        body2.addProperty("NonCashMatch__c", 100);
+        body2.addProperty("OtherLeverage__c", 0.0);
+
+        budgetDetailed2.add("body", body2);
+        compositeRequest.add(budgetDetailed2);
+
+        body.addProperty("Justification__c", "Submitted for approval via automation");
+        body.addProperty("Justification__c", "Approved via automation");
 
         amendment.add("body", body);
         compositeRequest.add(amendment);
-        if (status.equalsIgnoreCase("Created")) {
-            JsonObject role = new JsonObject();
-            role.addProperty("method", "POST");
-            role.addProperty("url", "/services/data/v66.0/sobjects/RolesAndResponsibilities__c");
-            role.addProperty("referenceId", "RoleRef1");
 
-            JsonObject roleBody = new JsonObject();
+        JsonObject role = new JsonObject();
+        role.addProperty("method", "POST");
+        role.addProperty("url", "/services/data/v66.0/sobjects/RolesAndResponsibilities__c");
+        role.addProperty("referenceId", "RoleRef1");
 
-            roleBody.addProperty("AmendmentRequest__c", "@{AmendmentRequest1.id}");
-            roleBody.addProperty("Name__c", ProjectWebServices.getIdOf("User", I.amPerforming().propertiesFileOperationsTo().getValue("PM Username")));
-            roleBody.addProperty("AmendmentRequestRole__c", "Step1");
-            roleBody.addProperty("BusinessRole__c", "Step1");
-            roleBody.addProperty("CustomApp__c", "Grantor");
-            roleBody.addProperty("RecordApiName__c", "AmendmentRequest__c");
-            roleBody.addProperty("OwnerId", ProjectWebServices.getIdOf("User", I.amPerforming().propertiesFileOperationsTo().getValue("PM Username")));
-            roleBody.addProperty("ApproverAPIName__c", "ProgramApprover__c");
-            roleBody.addProperty("Agency__c", ProjectWebServices.getIdOf("Account", I.amPerforming().propertiesFileOperationsTo().getValue("grantorAutomationOrg")));
+        JsonObject roleBody = new JsonObject();
+        roleBody.addProperty("AmendmentRequest__c", "@{AmendmentRequest1.id}");
+        roleBody.addProperty("Name__c", ProjectWebServices.getIdOf("User", I.amPerforming().propertiesFileOperationsTo().getValue("PM Username")));
+        roleBody.addProperty("AmendmentRequestRole__c", "Step1");
+        roleBody.addProperty("BusinessRole__c", "Step1");
+        roleBody.addProperty("CustomApp__c", "Grantor");
+        roleBody.addProperty("RecordApiName__c", "AmendmentRequest__c");
+        roleBody.addProperty("OwnerId", ProjectWebServices.getIdOf("User", I.amPerforming().propertiesFileOperationsTo().getValue("PM Username")));
+        roleBody.addProperty("ApproverAPIName__c", "ProgramApprover__c");
+        roleBody.addProperty("Agency__c", ProjectWebServices.getIdOf("Account", I.amPerforming().propertiesFileOperationsTo().getValue("grantorAutomationOrg")));
 
-            role.add("body", roleBody);
-            compositeRequest.add(role);
-        }
+        role.add("body", roleBody);
+        compositeRequest.add(role);
+
         graph.add("compositeRequest", compositeRequest);
         graphs.add(graph);
         request.add("graphs", graphs);
         return request;
     }
 
-    public JsonObject payloadSubrecipientSideAmendmentRequestCreation(String amendmentType, String recordType, String award, String status, String filter) {
-        JsonObject json = defaultPayloadSubrecipientSideAmendmentRequest(amendmentType, recordType, award, status);
+    public JsonObject payloadSubrecipientSideAmendmentRequestCreation(String amendmentType, String recordType, String award, String grant, String status, String filter) {
+        JsonObject json;
+        if (amendmentType.equalsIgnoreCase("Carry Forward")) {
+            json = defaultPayloadSubrecipientSideCarryForwardAmendmentRequest(amendmentType, recordType, award, grant, status);
+        } else {
+            json = defaultPayloadSubrecipientSideAmendmentRequest(amendmentType, recordType, award, status);
+        }
         switch (filter.toUpperCase()) {
             default:
                 return json;
         }
+    }
+
+    private JsonObject defaultPayloadSubrecipientSideCarryForwardAmendmentRequest(String amendmentType, String recordType, String award, String grant, String status) {
+        JsonObject request = new JsonObject();
+
+        JsonArray graphs = new JsonArray();
+
+        JsonObject graph = new JsonObject();
+        graph.addProperty("graphId", "AmendmentRequestGraph");
+
+        JsonArray compositeRequest = new JsonArray();
+
+        JsonObject amendmentRequest = new JsonObject();
+
+        amendmentRequest.addProperty("method", "POST");
+        amendmentRequest.addProperty("url", "/services/data/v66.0/sobjects/AmendmentRequest__c");
+        amendmentRequest.addProperty("referenceId", "AmendmentRequest1");
+
+        JsonObject amendmentBody = new JsonObject();
+
+        amendmentBody.addProperty("Status__c", status);
+        amendmentBody.addProperty("OwnerId", ProjectWebServices.getIdOf("User", I.amPerforming().propertiesFileOperationsTo().getValue("SPI3 Username")));
+        amendmentBody.addProperty("Award__c", ProjectWebServices.getIdOf("Award__c", award));
+        amendmentBody.addProperty("Grant__c", ProjectWebServices.getIdOf("Grant__c", grant));
+        amendmentBody.addProperty("RecordTypeId", ProjectWebServices.getRecordTypeId("AmendmentRequest__c", recordType));
+        amendmentBody.addProperty("AmendmentType__c", amendmentType);
+        amendmentBody.addProperty("PurposeRTA__c", "test");
+        amendmentBody.addProperty("Impact__c", "test");
+        amendmentBody.addProperty("Justification__c", "test");
+        amendmentBody.addProperty("Interceptor__c", ProjectWebServices.getIdOf("User", I.amPerforming().propertiesFileOperationsTo().getValue("PM Username")));
+        amendmentBody.addProperty("InitiatedBy__c", "Subrecipient");
+        amendmentBody.addProperty("RequestedChangeInBudget__c", 600);
+
+        amendmentRequest.add("body", amendmentBody);
+
+        compositeRequest.add(amendmentRequest);
+
+
+        // -------- AmendmentRequestBudgetCategory__c (Current Amount) --------
+        JsonObject budgetCategory1 = new JsonObject();
+
+        budgetCategory1.addProperty("method", "POST");
+        budgetCategory1.addProperty("url", "/services/data/v66.0/sobjects/AmendmentRequestBudgetCategory__c");
+        budgetCategory1.addProperty("referenceId", "carryforwardRef1");
+
+        JsonObject budgetBody1 = new JsonObject();
+
+        budgetBody1.addProperty("AmendmentRequest__c", "@{AmendmentRequest1.id}");
+        budgetBody1.addProperty("BudgetCategoryName__c", "Construction");
+        budgetBody1.addProperty("ServiceAreaTitle__c", I.amPerforming().propertiesFileOperationsTo().getValue("focusArea"));
+        budgetBody1.addProperty("CurrentAmount__c", 800);
+
+        budgetCategory1.add("body", budgetBody1);
+
+        compositeRequest.add(budgetCategory1);
+
+        JsonObject budgetCategory3 = new JsonObject();
+
+        budgetCategory3.addProperty("method", "POST");
+        budgetCategory3.addProperty("url", "/services/data/v66.0/sobjects/AmendmentRequestBudgetCategory__c");
+        budgetCategory3.addProperty("referenceId", "carryforwardRef3");
+
+        JsonObject budgetBody3 = new JsonObject();
+
+        budgetBody3.addProperty("AmendmentRequest__c", "@{AmendmentRequest1.id}");
+        budgetBody3.addProperty("BudgetCategoryName__c", "Construction");
+        budgetBody3.addProperty("ServiceAreaTitle__c", I.amPerforming().propertiesFileOperationsTo().getValue("focusArea2"));
+        budgetBody3.addProperty("CurrentAmount__c", 800);
+
+        budgetCategory3.add("body", budgetBody3);
+
+        compositeRequest.add(budgetCategory3);
+
+        // -------- AmendmentRequestBudgetCategory__c (Carry Forward) --------
+        JsonObject budgetCategory2 = new JsonObject();
+
+        budgetCategory2.addProperty("method", "POST");
+        budgetCategory2.addProperty("url", "/services/data/v66.0/sobjects/AmendmentRequestBudgetCategory__c");
+        budgetCategory2.addProperty("referenceId", "carryforwardRef2");
+
+        JsonObject budgetBody2 = new JsonObject();
+
+        budgetBody2.addProperty("AmendmentRequest__c", "@{AmendmentRequest1.id}");
+        budgetBody2.addProperty("BudgetCategoryName__c", "Construction");
+        budgetBody2.addProperty("ServiceAreaTitle__c", I.amPerforming().propertiesFileOperationsTo().getValue("focusArea"));
+        budgetBody2.addProperty("CarryForward__c", 300);
+        budgetBody2.addProperty("SupportYear__c", "BP01");
+
+        budgetCategory2.add("body", budgetBody2);
+
+        compositeRequest.add(budgetCategory2);
+
+        JsonObject budgetCategory4 = new JsonObject();
+
+        budgetCategory4.addProperty("method", "POST");
+        budgetCategory4.addProperty("url", "/services/data/v66.0/sobjects/AmendmentRequestBudgetCategory__c");
+        budgetCategory4.addProperty("referenceId", "carryforwardRef4");
+
+        JsonObject budgetBody4 = new JsonObject();
+
+        budgetBody4.addProperty("AmendmentRequest__c", "@{AmendmentRequest1.id}");
+        budgetBody4.addProperty("BudgetCategoryName__c", "Construction");
+        budgetBody4.addProperty("ServiceAreaTitle__c", I.amPerforming().propertiesFileOperationsTo().getValue("focusArea2"));
+        budgetBody4.addProperty("CarryForward__c", 300);
+        budgetBody4.addProperty("SupportYear__c", "BP01");
+
+        budgetCategory4.add("body", budgetBody4);
+
+        compositeRequest.add(budgetCategory4);
+
+        JsonObject role = new JsonObject();
+        role.addProperty("method", "POST");
+        role.addProperty("url", "/services/data/v66.0/sobjects/RolesAndResponsibilities__c");
+        role.addProperty("referenceId", "RoleRef1");
+
+        JsonObject roleBody = new JsonObject();
+        roleBody.addProperty("AmendmentRequest__c", "@{AmendmentRequest1.id}");
+        roleBody.addProperty("Name__c", ProjectWebServices.getIdOf("User", I.amPerforming().propertiesFileOperationsTo().getValue("PM Username")));
+        roleBody.addProperty("AmendmentRequestRole__c", "Step1");
+        roleBody.addProperty("BusinessRole__c", "Step1");
+        roleBody.addProperty("CustomApp__c", "Grantor");
+        roleBody.addProperty("RecordApiName__c", "AmendmentRequest__c");
+        roleBody.addProperty("OwnerId", ProjectWebServices.getIdOf("User", I.amPerforming().propertiesFileOperationsTo().getValue("PM Username")));
+        roleBody.addProperty("ApproverAPIName__c", "ProgramApprover__c");
+        roleBody.addProperty("Agency__c", ProjectWebServices.getIdOf("Account", I.amPerforming().propertiesFileOperationsTo().getValue("grantorAutomationOrg")));
+
+        role.add("body", roleBody);
+        compositeRequest.add(role);
+
+        graph.add("compositeRequest", compositeRequest);
+
+        graphs.add(graph);
+
+        request.add("graphs", graphs);
+
+        // -------- FundingAccount --------
+        JsonArray fundingAccounts = new JsonArray();
+
+        JsonObject fundingAccount = new JsonObject();
+
+        fundingAccount.addProperty("Title", I.amPerforming().propertiesFileOperationsTo().getValue("fundingAccount"));
+        fundingAccount.addProperty("ActualEncumbrance__c", 2600);
+
+        fundingAccounts.add(fundingAccount);
+
+        request.add("FundingAccount", fundingAccounts);
+        return request;
     }
 
     private JsonObject defaultPayloadSubrecipientSideAmendmentRequest(String amendmentType, String recordType, String award, String status) {
@@ -7836,7 +7968,7 @@ public class GrantorPayloads {
 
         JsonObject userBody = new JsonObject();
         userBody.addProperty("ReviewStep__c", "@{ReviewStepStep1.id}");
-        userBody.addProperty("Reviewer__c", ProjectWebServices.getIdOf("User",reviewerName));
+        userBody.addProperty("Reviewer__c", ProjectWebServices.getIdOf("User", reviewerName));
         userBody.addProperty("NoOfApplicationsAssigned__c", 1);
 
         reviewUser.add("body", userBody);
@@ -7850,7 +7982,7 @@ public class GrantorPayloads {
 
         JsonObject userBody2 = new JsonObject();
         userBody2.addProperty("ReviewStep__c", "@{ReviewStepStep1.id}");
-        userBody2.addProperty("Reviewer__c", ProjectWebServices.getIdOf("User",reviewerName2));
+        userBody2.addProperty("Reviewer__c", ProjectWebServices.getIdOf("User", reviewerName2));
         userBody2.addProperty("NoOfApplicationsAssigned__c", 1);
 
         reviewUser2.add("body", userBody2);
@@ -7864,7 +7996,7 @@ public class GrantorPayloads {
 
         JsonObject userBody3 = new JsonObject();
         userBody3.addProperty("ReviewStep__c", "@{ReviewStepStep1.id}");
-        userBody3.addProperty("Reviewer__c", ProjectWebServices.getIdOf("User",reviewerName3));
+        userBody3.addProperty("Reviewer__c", ProjectWebServices.getIdOf("User", reviewerName3));
         userBody3.addProperty("NoOfApplicationsAssigned__c", 1);
 
         reviewUser3.add("body", userBody3);
@@ -7961,7 +8093,7 @@ public class GrantorPayloads {
         compositeRequest.add(reviewStep);
 
 
-       // -------- ReviewPanel__c --------
+        // -------- ReviewPanel__c --------
         JsonObject panel = new JsonObject();
         panel.addProperty("method", "POST");
         panel.addProperty("url", "/services/data/v66.0/sobjects/ReviewPanel__c");
@@ -7986,7 +8118,7 @@ public class GrantorPayloads {
 
         JsonObject userBody = new JsonObject();
         userBody.addProperty("ReviewStep__c", "@{ReviewStepStep1.id}");
-        userBody.addProperty("Reviewer__c", ProjectWebServices.getIdOf("User",reviewerName));
+        userBody.addProperty("Reviewer__c", ProjectWebServices.getIdOf("User", reviewerName));
         userBody.addProperty("NoOfApplicationsAssigned__c", 1);
 
         reviewUser.add("body", userBody);
@@ -8497,8 +8629,8 @@ public class GrantorPayloads {
         JsonObject budgetPeriodBody = new JsonObject();
 
         budgetPeriodBody.addProperty("FundingOpportunity__c", "@{AnnouncementRef1.id}");
-        budgetPeriodBody.addProperty("BudgetStartDate__c",  I.amPerforming().dateOperationsToGet().currentDateWithOffsetInDesiredFormat(50, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
-        budgetPeriodBody.addProperty("BudgetEndDate__c",  I.amPerforming().dateOperationsToGet().currentDateWithOffsetInDesiredFormat(150, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
+        budgetPeriodBody.addProperty("BudgetStartDate__c", I.amPerforming().dateOperationsToGet().currentDateWithOffsetInDesiredFormat(50, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
+        budgetPeriodBody.addProperty("BudgetEndDate__c", I.amPerforming().dateOperationsToGet().currentDateWithOffsetInDesiredFormat(150, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
 
         budgetPeriod.add("body", budgetPeriodBody);
 
@@ -8531,7 +8663,7 @@ public class GrantorPayloads {
         JsonObject soleSourceBody = new JsonObject();
 
         soleSourceBody.addProperty("FundingOpportunity__c", "@{AnnouncementRef1.id}");
-        soleSourceBody.addProperty("Account__c",  ProjectWebServices.getIdOf("Account", I.amPerforming().propertiesFileOperationsTo().getValue("subrecipientAutomationOrg")));
+        soleSourceBody.addProperty("Account__c", ProjectWebServices.getIdOf("Account", I.amPerforming().propertiesFileOperationsTo().getValue("subrecipientAutomationOrg")));
         soleSourceBody.addProperty("AllocatedAmount__c", "1000");
         soleSourceBody.addProperty("FocusArea__c", ProjectWebServices.getIdOf("ServiceArea__c", I.amPerforming().propertiesFileOperationsTo().getValue("focusArea")));
 
@@ -8573,14 +8705,14 @@ public class GrantorPayloads {
 
         JsonObject closeoutBody = new JsonObject();
 
-        closeoutBody.addProperty("Grant__c",  ProjectWebServices.getIdOf("Grant__c", awardName));
+        closeoutBody.addProperty("Grant__c", ProjectWebServices.getIdOf("Grant__c", awardName));
         closeoutBody.addProperty("Status__c", status);
         closeoutBody.addProperty("Type__c", closeoutType);
         closeoutBody.addProperty("Reason__c", "Early Termination");
         closeoutBody.addProperty("CloseoutDate__c", I.amPerforming().dateOperationsToGet().currentDateWithOffsetInDesiredFormat(3650, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
         closeoutBody.addProperty("CloseoutType__c", "Project Period Closeout");
         closeoutBody.addProperty("Justification__c", "Automation Test");
-        if(status.equalsIgnoreCase("Acknowledged by Subrecipient") || status.equalsIgnoreCase("Overridden") || status.equalsIgnoreCase("Submitted for Approval") || status.equalsIgnoreCase("Approved") || status.equalsIgnoreCase("Completed")) {
+        if (status.equalsIgnoreCase("Acknowledged by Subrecipient") || status.equalsIgnoreCase("Overridden") || status.equalsIgnoreCase("Submitted for Approval") || status.equalsIgnoreCase("Approved") || status.equalsIgnoreCase("Completed")) {
             closeoutBody.addProperty("Aggreement__c", true);
             closeoutBody.addProperty("AggreementDate__c", I.amPerforming().dateOperationsToGet().currentDateWithOffsetInDesiredFormat(0, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
             closeoutBody.addProperty("AggreementBy__c", ProjectWebServices.getIdOf("User", I.amPerforming().propertiesFileOperationsTo().getValue("SPI3 Username")));

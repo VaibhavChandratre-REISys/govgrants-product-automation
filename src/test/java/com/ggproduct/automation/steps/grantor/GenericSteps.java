@@ -845,9 +845,10 @@ public class GenericSteps {
         List<Map<String, String>> rows = table.asMaps();
         for (Map<String, String> row : rows) {
             String award = row.get("Title");
+            String grant = row.get("GrantName");
             String amendmentType = row.get("AmendmentType");
             String recordType = row.get("RecordType");
-            grantorWebServices.createSubrecipientSideAmendmentRequestRecordsWithStatusUsingProperties(amendmentType, recordType, award, status, filter);
+            grantorWebServices.createSubrecipientSideAmendmentRequestRecordsWithStatusUsingProperties(amendmentType, recordType, award, grant, status, filter);
         }
     }
 
