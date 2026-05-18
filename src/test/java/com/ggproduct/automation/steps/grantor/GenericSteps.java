@@ -998,4 +998,40 @@ public class GenericSteps {
             grantorWebServices.createPaymentRequestRecordsWithStatusUsingProperties(title, awardName, paymentRequestType, status, filter);
         }
     }
+
+    @And("I create site visit or Desk Review records with status {string} using {string} properties")
+    public void iCreateSiteVisitRecordsWithStatusUsingProperties(String status, String filter, DataTable table) {
+        List<Map<String, String>> rows = table.asMaps();
+        for (Map<String, String> row : rows) {
+            String title = row.get("Title");
+            String awardName = row.get("AwardName");
+            String recordType = row.get("RecordType");
+            String monitoringType = row.get("MonitoringType");
+            String associateAward = row.get("AssociateAward");
+            if (title.startsWith("Automation Runtime")) {
+                String newTitle = title + I.amPerforming().addOnsTo().getRandomNumber();
+                I.amPerforming().propertiesFileOperationsTo().saveValue(title, newTitle);
+                title = newTitle;
+            }
+            grantorWebServices.createSiteVisitRecordsWithStatusUsingProperties(title, awardName, recordType, monitoringType, associateAward, status, filter);
+        }
+    }
+
+    @And("I create org level site visit or Desk Review records with status {string} using {string} properties")
+    public void iCreateOrgLevelSiteVisitOrDeskReviewRecordsWithStatusUsingProperties(String status, String filter, DataTable table) {
+        List<Map<String, String>> rows = table.asMaps();
+        for (Map<String, String> row : rows) {
+            String title = row.get("Title");
+            String accountName = row.get("AccountName");
+            String recordType = row.get("RecordType");
+            String monitoringType = row.get("MonitoringType");
+            String associateAward = row.get("AssociateAward");
+            if (title.startsWith("Automation Runtime")) {
+                String newTitle = title + I.amPerforming().addOnsTo().getRandomNumber();
+                I.amPerforming().propertiesFileOperationsTo().saveValue(title, newTitle);
+                title = newTitle;
+            }
+            grantorWebServices.createOrgLevelSiteVisitOrDeskReviewRecordsWithStatusUsingProperties(title, accountName, recordType, monitoringType, associateAward, status, filter);
+        }
+    }
 }

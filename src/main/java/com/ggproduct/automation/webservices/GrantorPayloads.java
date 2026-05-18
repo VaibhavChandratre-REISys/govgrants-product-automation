@@ -8866,4 +8866,463 @@ public class GrantorPayloads {
         request.add("graphs", graphs);
         return request;
     }
+
+    public JsonObject payloadSiteVisitCreationForTitle(String title, String awardName, String recordType, String monitoringType, String associateAward, String status, String filter) {
+        JsonObject json;
+        json = defaultPayloadSiteVisitCreationForTitle(title, awardName, recordType, monitoringType, associateAward, status);
+        switch (filter.toUpperCase()) {
+            default:
+                return json;
+        }
+    }
+
+    private JsonObject defaultPayloadSiteVisitCreationForTitle(String title, String awardName, String recordType, String monitoringType, String associateAward, String status) {
+        JsonObject request = new JsonObject();
+        JsonArray graphs = new JsonArray();
+
+        JsonObject graph = new JsonObject();
+        graph.addProperty("graphId", "SiteVisitGraph");
+
+        JsonArray compositeRequest = new JsonArray();
+
+        JsonObject siteVisit = new JsonObject();
+
+        siteVisit.addProperty("method", "POST");
+        siteVisit.addProperty("url", "/services/data/v66.0/sobjects/SiteVisit__c");
+        siteVisit.addProperty("referenceId", "SiteVisitRef1");
+
+        JsonObject siteVisitBody = new JsonObject();
+
+        siteVisitBody.addProperty("Title__c", title);
+        siteVisitBody.addProperty("Award__c", ProjectWebServices.getIdOf("Award__c", awardName));
+        siteVisitBody.addProperty("GranteePOCContact__c", ProjectWebServices.getIdOf("Contact", I.amPerforming().propertiesFileOperationsTo().getValue("SPI3 Username")));
+        siteVisitBody.addProperty("Status__c", status);
+        siteVisitBody.addProperty("MonitoringType__c", monitoringType);
+        siteVisitBody.addProperty("Description__c", "Automation Description");
+        siteVisitBody.addProperty("Pointsdiscussedwithofficials__c", "Site Visit Information");
+        siteVisitBody.addProperty("VisitDateandTime__c", I.amPerforming().dateOperationsToGet().currentDateWithOffsetInDesiredFormat(0, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
+        siteVisitBody.addProperty("VisitEndDateTime__c", I.amPerforming().dateOperationsToGet().currentDateWithOffsetInDesiredFormat(10, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
+        siteVisitBody.addProperty("AddressLine1__c", "5763 FALKLAND PL");
+        siteVisitBody.addProperty("AddressLine2__c", "Address Line 1 Address Line 2");
+        siteVisitBody.addProperty("City__c", "CAPITOL HEIGHTS");
+        siteVisitBody.addProperty("LocationCountry__c", "USA");
+        siteVisitBody.addProperty("StatePicklist__c", "MD");
+        siteVisitBody.addProperty("ZipCode__c", "99999");
+        siteVisitBody.addProperty("ZipCode4Extension__c", "4248");
+        siteVisitBody.addProperty("SupportingCommentsQuestion1__c", "Automation Site Visits");
+        siteVisitBody.addProperty("SourceSiteVisit__c", "To fulfill pass-through monitoring responsibilities");
+        siteVisitBody.addProperty("SiteVisitPurpose__c", "Routine based on monitoring responsibilities");
+        siteVisitBody.addProperty("RecordTypeId", ProjectWebServices.getRecordTypeId("SiteVisit__c", "Grantor"));
+        siteVisitBody.addProperty("ReviewType__c", recordType);
+        siteVisitBody.addProperty("OwnerId", ProjectWebServices.getIdOf("User", I.amPerforming().propertiesFileOperationsTo().getValue("PM Username")));
+
+
+        siteVisit.add("body", siteVisitBody);
+
+        compositeRequest.add(siteVisit);
+
+        // -------- KeyContacts__c --------
+        JsonObject contact = new JsonObject();
+
+        contact.addProperty("method", "POST");
+        contact.addProperty("url", "/services/data/v66.0/sobjects/KeyContacts__c");
+        contact.addProperty("referenceId", "ContactRef1");
+
+        JsonObject contactBody = new JsonObject();
+
+        contactBody.addProperty("SiteVisit__c", "@{SiteVisitRef1.id}");
+        contactBody.addProperty("Contact__c", ProjectWebServices.getIdOf("Contact", I.amPerforming().propertiesFileOperationsTo().getValue("EXE Username")));
+        contactBody.addProperty("OwnerId", ProjectWebServices.getIdOf("User", I.amPerforming().propertiesFileOperationsTo().getValue("PM Username")));
+
+        contact.add("body", contactBody);
+
+        compositeRequest.add(contact);
+
+        // -------- AwardSiteDeskReview__c --------
+        JsonObject deskReview = new JsonObject();
+
+        deskReview.addProperty("method", "POST");
+        deskReview.addProperty("url", "/services/data/v66.0/sobjects/AwardSiteDeskReview__c");
+        deskReview.addProperty("referenceId", "DeskReviewRef1");
+
+        JsonObject deskReviewBody = new JsonObject();
+
+        deskReviewBody.addProperty("SiteVisit__c", "@{SiteVisitRef1.id}");
+        deskReviewBody.addProperty("Award__c", ProjectWebServices.getIdOf("Award__c", associateAward));
+
+        deskReview.add("body", deskReviewBody);
+
+        compositeRequest.add(deskReview);
+
+        // -------- SiteVisitActivity__c --------
+        JsonObject activity = new JsonObject();
+
+        activity.addProperty("method", "POST");
+        activity.addProperty("url", "/services/data/v66.0/sobjects/SiteVisitActivity__c");
+        activity.addProperty("referenceId", "ActivityRef1");
+
+        JsonObject activityBody = new JsonObject();
+
+        activityBody.addProperty("SiteVisit__c", "@{SiteVisitRef1.id}");
+        activityBody.addProperty("Title__c", "Activity site");
+        activityBody.addProperty("ActivityDescription__c", "Site Visit Activity");
+        activityBody.addProperty("Type__c", "Finding");
+        activityBody.addProperty("Status__c", "Open");
+        activityBody.addProperty("ClosedDate__c", I.amPerforming().dateOperationsToGet().currentDateWithOffsetInDesiredFormat(30, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
+
+        activity.add("body", activityBody);
+
+        compositeRequest.add(activity);
+
+        if(status.equalsIgnoreCase("Submitted to Grantor") || status.equalsIgnoreCase("Closed")) {
+            // -------- RiskItem__c --------
+            JsonObject riskItem = new JsonObject();
+
+            riskItem.addProperty("method", "POST");
+            riskItem.addProperty("url", "/services/data/v66.0/sobjects/RiskItem__c");
+            riskItem.addProperty("referenceId", "RiskItemRef1");
+
+            JsonObject riskBody = new JsonObject();
+
+            riskBody.addProperty("SiteVisitFindings__c", "@{ActivityRef1.id}");
+            riskBody.addProperty("Title__c", "Corrective Action 1");
+            riskBody.addProperty("Description__c", "Corrective action description");
+            riskBody.addProperty("Status__c", "In-Progress");
+            riskBody.addProperty("DueDate__c", I.amPerforming().dateOperationsToGet().currentDateWithOffsetInDesiredFormat(30, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
+            riskBody.addProperty("AssignedTo__c", ProjectWebServices.getIdOf("User", I.amPerforming().propertiesFileOperationsTo().getValue("SPI3 Username")));
+
+            riskItem.add("body", riskBody);
+
+            compositeRequest.add(riskItem);
+        }
+
+        // -------- Peer Review Role --------
+        JsonObject peerReview = new JsonObject();
+
+        peerReview.addProperty("method", "POST");
+        peerReview.addProperty("url", "/services/data/v66.0/sobjects/RolesAndResponsibilities__c");
+        peerReview.addProperty("referenceId", "PeerReviewRef1");
+
+        JsonObject peerReviewBody = new JsonObject();
+
+        peerReviewBody.addProperty("SiteVisit__c", "@{SiteVisitRef1.id}");
+        peerReviewBody.addProperty("Name__c", ProjectWebServices.getIdOf("User", I.amPerforming().propertiesFileOperationsTo().getValue("FO Username")));
+        peerReviewBody.addProperty("Responsibility__c", "test Automation responsibility");
+        peerReviewBody.addProperty("ReviewerRole__c", "Program Reviewer");
+        peerReviewBody.addProperty("DueDate__c", I.amPerforming().dateOperationsToGet().currentDateWithOffsetInDesiredFormat(7, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
+        peerReviewBody.addProperty("Status__c", "Created");
+        peerReviewBody.addProperty("AllowRecordEdit__c", "No");
+        peerReviewBody.addProperty("BusinessRole__c", "Program Reviewer");
+
+        peerReview.add("body", peerReviewBody);
+
+        compositeRequest.add(peerReview);
+
+        // -------- RolesAndResponsibilities__c --------
+        JsonObject role = new JsonObject();
+
+        role.addProperty("method", "POST");
+        role.addProperty("url", "/services/data/v66.0/sobjects/RolesAndResponsibilities__c");
+        role.addProperty("referenceId", "RoleRef1");
+
+        JsonObject roleBody = new JsonObject();
+
+        roleBody.addProperty("SiteVisit__c", "@{SiteVisitRef1.id}");
+        roleBody.addProperty("Name__c", ProjectWebServices.getIdOf("User", I.amPerforming().propertiesFileOperationsTo().getValue("PM Username")));
+        if(recordType.equalsIgnoreCase("Desk Review")){
+            roleBody.addProperty("DeskReviewRole__c", "Step1");
+        } else {
+            roleBody.addProperty("SiteVisitRole__c", "Step1");
+        }
+        roleBody.addProperty("BusinessRole__c", "Step1");
+        roleBody.addProperty("CustomApp__c", "Grantor");
+        roleBody.addProperty("RecordApiName__c", "SiteVisit__c");
+        roleBody.addProperty("OwnerId", ProjectWebServices.getIdOf("User", I.amPerforming().propertiesFileOperationsTo().getValue("PM Username")));
+        roleBody.addProperty("ApproverAPIName__c", "ProgramApprover__c");
+        roleBody.addProperty("Agency__c", ProjectWebServices.getIdOf("Account", I.amPerforming().propertiesFileOperationsTo().getValue("grantorAutomationOrg")));
+
+        role.add("body", roleBody);
+
+        compositeRequest.add(role);
+        graph.add("compositeRequest", compositeRequest);
+
+        // -------- ReviewForm --------
+        JsonArray reviewFormArray = new JsonArray();
+
+        JsonObject reviewForm = new JsonObject();
+        reviewForm.addProperty("SiteVisit__c", "@{SiteVisitRef1.id}");
+
+        reviewForm.addProperty("SvProgramFormQ1__c", "Test Clause Name for Automation");
+        reviewForm.addProperty("SvProgramFormQ2__c", "This is a long description used for automation testing of clause behavior and validations.");
+        reviewForm.addProperty("SvProgramFormQ3__c", "You are not a certified COR/Alt. COR");
+        reviewForm.addProperty("SvProgramFormQ4__c", "This is a long description used for automation testing of clause behavior and validations.");
+        reviewForm.addProperty("SvProgramFormQ5__c", "You are not a certified COR/Alt. COR");
+        reviewForm.addProperty("SvProgramFormQ6__c", "Test Clause Name for Automation");
+        reviewForm.addProperty("SvProgramFormQ7__c", "This is a long description used for automation testing of clause behavior and validations.");
+        reviewForm.addProperty("SvProgramFormQ8__c", "You are not a certified COR/Alt. COR");
+        reviewForm.addProperty("SvProgramFormQ9__c", "This is a long description used for automation testing of clause behavior and validations.");
+        reviewForm.addProperty("SvFinancialFormQ1__c", "Test Clause Name for Automation");
+        reviewForm.addProperty("SvFinancialFormQ2__c", "This is a long description used for automation testing of clause behavior and validations.");
+        reviewForm.addProperty("SvFinancialFormQ3__c", "You are not a certified COR/Alt. COR");
+        reviewForm.addProperty("SvFinancialFormQ4__c", "This is a long description used for automation testing of clause behavior and validations.");
+        reviewForm.addProperty("SvFinancialFormQ5__c", "You are not a certified COR/Alt. COR");
+        reviewForm.addProperty("SvFinancialFormQ6__c", "Test Clause Name for Automation");
+        reviewForm.addProperty("SvFinancialFormQ7__c", "This is a long description used for automation testing of clause behavior and validations.");
+        reviewForm.addProperty("SvFinancialFormQ8__c", "You are not a certified COR/Alt. COR");
+        reviewForm.addProperty("SvFinancialFormQ9__c", "This is a long description used for automation testing of clause behavior and validations.");
+        reviewForm.addProperty("SvFinancialFormQ10__c", "Test Clause Name for Automation");
+        reviewForm.addProperty("SvFinancialFormQ11__c", "Test Clause Name for Automation");
+        reviewForm.addProperty("SvFinancialFormQ12__c", "This is a long description used for automation testing of clause behavior and validations.");
+        reviewForm.addProperty("SvFinancialFormQ13__c", "You are not a certified COR/Alt. COR");
+        reviewForm.addProperty("SvFinancialFormQ14__c", "This is a long description used for automation testing of clause behavior and validations.");
+        reviewForm.addProperty("SvFinancialFormQ15__c", "You are not a certified COR/Alt. COR");
+        reviewForm.addProperty("SvFinancialFormQ16__c", "Test Clause Name for Automation");
+        reviewForm.addProperty("SvFinancialFormQ17__c", "This is a long description used for automation testing of clause behavior and validations.");
+        reviewForm.addProperty("SvFinancialFormQ18__c", "You are not a certified COR/Alt. COR");
+        reviewForm.addProperty("SvFinancialFormQ19__c", "This is a long description used for automation testing of clause behavior and validations.");
+        reviewForm.addProperty("SvFinancialFormQ20__c", "Test Clause Name for Automation");
+        reviewForm.addProperty("SvFinancialFormQ21__c", "This is a long description used for automation testing of clause behavior and validations.");
+        reviewForm.addProperty("SvFinancialFormQ22__c", "You are not a certified COR/Alt. COR");
+        reviewForm.addProperty("SvFinancialFormQ24__c", "This is a long description used for automation testing of clause behavior and validations.");
+        reviewForm.addProperty("CheckListComment50__c", "This is a long description used for automation testing of clause behavior and validations.");
+
+        reviewFormArray.add(reviewForm);
+
+        graph.add("ReviewForm", reviewFormArray);
+
+        graphs.add(graph);
+
+        request.add("graphs", graphs);
+        return request;
+    }
+
+    public JsonObject payloadOrgLevelSiteVisitOrDeskReviewCreationForTitle(String title, String accountName, String recordType, String monitoringType, String associateAward, String status, String filter) {
+        JsonObject json;
+        json = defaultPayloadOrgLevelSiteVisitOrDeskReviewCreationForTitle(title, accountName, recordType, monitoringType, associateAward, status);
+        switch (filter.toUpperCase()) {
+            default:
+                return json;
+        }
+    }
+
+    private JsonObject defaultPayloadOrgLevelSiteVisitOrDeskReviewCreationForTitle(String title, String accountName, String recordType, String monitoringType, String associateAward, String status) {
+        JsonObject request = new JsonObject();
+        JsonArray graphs = new JsonArray();
+
+        JsonObject graph = new JsonObject();
+        graph.addProperty("graphId", "SiteVisitGraph");
+
+        JsonArray compositeRequest = new JsonArray();
+
+        JsonObject siteVisit = new JsonObject();
+
+        siteVisit.addProperty("method", "POST");
+        siteVisit.addProperty("url", "/services/data/v66.0/sobjects/SiteVisit__c");
+        siteVisit.addProperty("referenceId", "SiteVisitRef1");
+
+        JsonObject siteVisitBody = new JsonObject();
+
+        siteVisitBody.addProperty("Title__c", title);
+        siteVisitBody.addProperty("SiteVisitOrganization__c", ProjectWebServices.getIdOf("Account", accountName));
+        siteVisitBody.addProperty("GranteePOCContact__c", ProjectWebServices.getIdOf("Contact", I.amPerforming().propertiesFileOperationsTo().getValue("SPI3 Username")));
+        siteVisitBody.addProperty("Status__c", status);
+        siteVisitBody.addProperty("SiteVisitType__c", "Award");
+        siteVisitBody.addProperty("MonitoringType__c", monitoringType);
+        siteVisitBody.addProperty("Description__c", "Automation Description");
+        siteVisitBody.addProperty("Pointsdiscussedwithofficials__c", "Site Visit/Desk Review Information");
+        siteVisitBody.addProperty("VisitDateandTime__c", I.amPerforming().dateOperationsToGet().currentDateWithOffsetInDesiredFormat(0, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
+        siteVisitBody.addProperty("VisitEndDateTime__c", I.amPerforming().dateOperationsToGet().currentDateWithOffsetInDesiredFormat(10, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
+        siteVisitBody.addProperty("AddressLine1__c", "5763 FALKLAND PL");
+        siteVisitBody.addProperty("AddressLine2__c", "Address Line 1 Address Line 2");
+        siteVisitBody.addProperty("City__c", "CAPITOL HEIGHTS");
+        siteVisitBody.addProperty("LocationCountry__c", "USA");
+        siteVisitBody.addProperty("StatePicklist__c", "MD");
+        siteVisitBody.addProperty("ZipCode__c", "99999");
+        siteVisitBody.addProperty("ZipCode4Extension__c", "4248");
+        siteVisitBody.addProperty("SupportingCommentsQuestion1__c", "Automation Site Visits");
+        siteVisitBody.addProperty("SourceSiteVisit__c", "To fulfill pass-through monitoring responsibilities");
+        siteVisitBody.addProperty("SiteVisitPurpose__c", "Routine based on monitoring responsibilities");
+        siteVisitBody.addProperty("RecordTypeId", ProjectWebServices.getRecordTypeId("SiteVisit__c", "Grantor"));
+        siteVisitBody.addProperty("ReviewType__c", recordType);
+        siteVisitBody.addProperty("OwnerId", ProjectWebServices.getIdOf("User", I.amPerforming().propertiesFileOperationsTo().getValue("PM Username")));
+
+
+        siteVisit.add("body", siteVisitBody);
+
+        compositeRequest.add(siteVisit);
+
+        // -------- KeyContacts__c --------
+        JsonObject contact = new JsonObject();
+
+        contact.addProperty("method", "POST");
+        contact.addProperty("url", "/services/data/v66.0/sobjects/KeyContacts__c");
+        contact.addProperty("referenceId", "ContactRef1");
+
+        JsonObject contactBody = new JsonObject();
+
+        contactBody.addProperty("SiteVisit__c", "@{SiteVisitRef1.id}");
+        contactBody.addProperty("Contact__c", ProjectWebServices.getIdOf("Contact", I.amPerforming().propertiesFileOperationsTo().getValue("EXE Username")));
+        contactBody.addProperty("OwnerId", ProjectWebServices.getIdOf("User", I.amPerforming().propertiesFileOperationsTo().getValue("PM Username")));
+
+        contact.add("body", contactBody);
+
+        compositeRequest.add(contact);
+
+        // -------- AwardSiteDeskReview__c --------
+        JsonObject deskReview = new JsonObject();
+
+        deskReview.addProperty("method", "POST");
+        deskReview.addProperty("url", "/services/data/v66.0/sobjects/AwardSiteDeskReview__c");
+        deskReview.addProperty("referenceId", "DeskReviewRef1");
+
+        JsonObject deskReviewBody = new JsonObject();
+
+        deskReviewBody.addProperty("SiteVisit__c", "@{SiteVisitRef1.id}");
+        deskReviewBody.addProperty("Award__c", ProjectWebServices.getIdOf("Award__c", associateAward));
+
+        deskReview.add("body", deskReviewBody);
+
+        compositeRequest.add(deskReview);
+
+        // -------- SiteVisitActivity__c --------
+        JsonObject activity = new JsonObject();
+
+        activity.addProperty("method", "POST");
+        activity.addProperty("url", "/services/data/v66.0/sobjects/SiteVisitActivity__c");
+        activity.addProperty("referenceId", "ActivityRef1");
+
+        JsonObject activityBody = new JsonObject();
+
+        activityBody.addProperty("SiteVisit__c", "@{SiteVisitRef1.id}");
+        activityBody.addProperty("Title__c", "Activity site");
+        activityBody.addProperty("ActivityDescription__c", "Site Visit/Desk Review Activity");
+        activityBody.addProperty("Type__c", "Finding");
+        activityBody.addProperty("Status__c", "Open");
+        activityBody.addProperty("ClosedDate__c", I.amPerforming().dateOperationsToGet().currentDateWithOffsetInDesiredFormat(30, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
+
+        activity.add("body", activityBody);
+
+        compositeRequest.add(activity);
+
+        if(status.equalsIgnoreCase("Submitted to Grantor") || status.equalsIgnoreCase("Closed")) {
+            // -------- RiskItem__c --------
+            JsonObject riskItem = new JsonObject();
+
+            riskItem.addProperty("method", "POST");
+            riskItem.addProperty("url", "/services/data/v66.0/sobjects/RiskItem__c");
+            riskItem.addProperty("referenceId", "RiskItemRef1");
+
+            JsonObject riskBody = new JsonObject();
+
+            riskBody.addProperty("SiteVisitFindings__c", "@{ActivityRef1.id}");
+            riskBody.addProperty("Title__c", "Corrective Action 1");
+            riskBody.addProperty("Description__c", "Corrective action description");
+            riskBody.addProperty("Status__c", "In-Progress");
+            riskBody.addProperty("DueDate__c", I.amPerforming().dateOperationsToGet().currentDateWithOffsetInDesiredFormat(30, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
+            riskBody.addProperty("AssignedTo__c", ProjectWebServices.getIdOf("User", I.amPerforming().propertiesFileOperationsTo().getValue("SPI3 Username")));
+
+            riskItem.add("body", riskBody);
+
+            compositeRequest.add(riskItem);
+        }
+
+        // -------- Peer Review Role --------
+        JsonObject peerReview = new JsonObject();
+
+        peerReview.addProperty("method", "POST");
+        peerReview.addProperty("url", "/services/data/v66.0/sobjects/RolesAndResponsibilities__c");
+        peerReview.addProperty("referenceId", "PeerReviewRef1");
+
+        JsonObject peerReviewBody = new JsonObject();
+
+        peerReviewBody.addProperty("SiteVisit__c", "@{SiteVisitRef1.id}");
+        peerReviewBody.addProperty("Name__c", ProjectWebServices.getIdOf("User", I.amPerforming().propertiesFileOperationsTo().getValue("FO Username")));
+        peerReviewBody.addProperty("Responsibility__c", "test Automation responsibility");
+        peerReviewBody.addProperty("ReviewerRole__c", "Program Reviewer");
+        peerReviewBody.addProperty("DueDate__c", I.amPerforming().dateOperationsToGet().currentDateWithOffsetInDesiredFormat(7, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
+        peerReviewBody.addProperty("Status__c", "Created");
+        peerReviewBody.addProperty("AllowRecordEdit__c", "No");
+        peerReviewBody.addProperty("BusinessRole__c", "Program Reviewer");
+
+        peerReview.add("body", peerReviewBody);
+
+        compositeRequest.add(peerReview);
+
+        // -------- RolesAndResponsibilities__c --------
+        JsonObject role = new JsonObject();
+
+        role.addProperty("method", "POST");
+        role.addProperty("url", "/services/data/v66.0/sobjects/RolesAndResponsibilities__c");
+        role.addProperty("referenceId", "RoleRef1");
+
+        JsonObject roleBody = new JsonObject();
+
+        roleBody.addProperty("SiteVisit__c", "@{SiteVisitRef1.id}");
+        roleBody.addProperty("Name__c", ProjectWebServices.getIdOf("User", I.amPerforming().propertiesFileOperationsTo().getValue("PM Username")));
+        if(recordType.equalsIgnoreCase("Desk Review")){
+            roleBody.addProperty("DeskReviewRole__c", "Step1");
+        } else {
+            roleBody.addProperty("SiteVisitRole__c", "Step1");
+        }
+        roleBody.addProperty("BusinessRole__c", "Step1");
+        roleBody.addProperty("CustomApp__c", "Grantor");
+        roleBody.addProperty("RecordApiName__c", "SiteVisit__c");
+        roleBody.addProperty("OwnerId", ProjectWebServices.getIdOf("User", I.amPerforming().propertiesFileOperationsTo().getValue("PM Username")));
+        roleBody.addProperty("ApproverAPIName__c", "ProgramApprover__c");
+        roleBody.addProperty("Agency__c", ProjectWebServices.getIdOf("Account", I.amPerforming().propertiesFileOperationsTo().getValue("grantorAutomationOrg")));
+
+        role.add("body", roleBody);
+
+        compositeRequest.add(role);
+        graph.add("compositeRequest", compositeRequest);
+
+        // -------- ReviewForm --------
+        JsonArray reviewFormArray = new JsonArray();
+
+        JsonObject reviewForm = new JsonObject();
+        reviewForm.addProperty("SiteVisit__c", "@{SiteVisitRef1.id}");
+
+        reviewForm.addProperty("SvProgramFormQ1__c", "Test Clause Name for Automation");
+        reviewForm.addProperty("SvProgramFormQ2__c", "This is a long description used for automation testing of clause behavior and validations.");
+        reviewForm.addProperty("SvProgramFormQ3__c", "You are not a certified COR/Alt. COR");
+        reviewForm.addProperty("SvProgramFormQ4__c", "This is a long description used for automation testing of clause behavior and validations.");
+        reviewForm.addProperty("SvProgramFormQ5__c", "You are not a certified COR/Alt. COR");
+        reviewForm.addProperty("SvProgramFormQ6__c", "Test Clause Name for Automation");
+        reviewForm.addProperty("SvProgramFormQ7__c", "This is a long description used for automation testing of clause behavior and validations.");
+        reviewForm.addProperty("SvProgramFormQ8__c", "You are not a certified COR/Alt. COR");
+        reviewForm.addProperty("SvProgramFormQ9__c", "This is a long description used for automation testing of clause behavior and validations.");
+        reviewForm.addProperty("SvFinancialFormQ1__c", "Test Clause Name for Automation");
+        reviewForm.addProperty("SvFinancialFormQ2__c", "This is a long description used for automation testing of clause behavior and validations.");
+        reviewForm.addProperty("SvFinancialFormQ3__c", "You are not a certified COR/Alt. COR");
+        reviewForm.addProperty("SvFinancialFormQ4__c", "This is a long description used for automation testing of clause behavior and validations.");
+        reviewForm.addProperty("SvFinancialFormQ5__c", "You are not a certified COR/Alt. COR");
+        reviewForm.addProperty("SvFinancialFormQ6__c", "Test Clause Name for Automation");
+        reviewForm.addProperty("SvFinancialFormQ7__c", "This is a long description used for automation testing of clause behavior and validations.");
+        reviewForm.addProperty("SvFinancialFormQ8__c", "You are not a certified COR/Alt. COR");
+        reviewForm.addProperty("SvFinancialFormQ9__c", "This is a long description used for automation testing of clause behavior and validations.");
+        reviewForm.addProperty("SvFinancialFormQ10__c", "Test Clause Name for Automation");
+        reviewForm.addProperty("SvFinancialFormQ11__c", "Test Clause Name for Automation");
+        reviewForm.addProperty("SvFinancialFormQ12__c", "This is a long description used for automation testing of clause behavior and validations.");
+        reviewForm.addProperty("SvFinancialFormQ13__c", "You are not a certified COR/Alt. COR");
+        reviewForm.addProperty("SvFinancialFormQ14__c", "This is a long description used for automation testing of clause behavior and validations.");
+        reviewForm.addProperty("SvFinancialFormQ15__c", "You are not a certified COR/Alt. COR");
+        reviewForm.addProperty("SvFinancialFormQ16__c", "Test Clause Name for Automation");
+        reviewForm.addProperty("SvFinancialFormQ17__c", "This is a long description used for automation testing of clause behavior and validations.");
+        reviewForm.addProperty("SvFinancialFormQ18__c", "You are not a certified COR/Alt. COR");
+        reviewForm.addProperty("SvFinancialFormQ19__c", "This is a long description used for automation testing of clause behavior and validations.");
+        reviewForm.addProperty("SvFinancialFormQ20__c", "Test Clause Name for Automation");
+        reviewForm.addProperty("SvFinancialFormQ21__c", "This is a long description used for automation testing of clause behavior and validations.");
+        reviewForm.addProperty("SvFinancialFormQ22__c", "You are not a certified COR/Alt. COR");
+        reviewForm.addProperty("SvFinancialFormQ24__c", "This is a long description used for automation testing of clause behavior and validations.");
+        reviewForm.addProperty("CheckListComment50__c", "This is a long description used for automation testing of clause behavior and validations.");
+
+        reviewFormArray.add(reviewForm);
+
+        graph.add("ReviewForm", reviewFormArray);
+
+        graphs.add(graph);
+
+        request.add("graphs", graphs);
+        return request;
+    }
 }

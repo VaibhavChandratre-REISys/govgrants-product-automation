@@ -2641,10 +2641,17 @@ Feature: Validate all scenarios of every modules flow
 
   @testCloseout
   Scenario:
-    Given I activated standalone subaward "Automation Runtime Award for closeout" with properties "ADVANCE_PERMISSIBLE_YES_FOCUS_AREA_NO" of type "Competitive"
-    And I create payment request records with status "Submitted to Grantor" using "default" properties
-      | Title                              | AwardName                                          | PaymentRequestType |
-      | Automation Runtime Payment Request | {SavedValue:Automation Runtime Award for closeout} | Advance            |
+#    Given I activated standalone subaward "Automation Runtime Award for closeout" with properties "ADVANCE_PERMISSIBLE_YES_FOCUS_AREA_NO" of type "Competitive"
+    Given I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
+#    And I create payment request records with status "Submitted to Grantor" using "default" properties
+#      | Title                              | AwardName                                          | PaymentRequestType |
+#      | Automation Runtime Payment Request | {SavedValue:Automation Runtime Award for closeout} | Advance            |
+#    And I create site visit or Desk Review records with status "Closed" using "default" properties
+#      | RecordType  | Title                          | AwardName                                          | AssociateAward                        | MonitoringType   |
+#      | Desk Review | Automation Runtime Desk Review | {SavedValue:Automation Runtime Award for closeout} | {SavedValue:Automation Runtime Award} | Program & Fiscal |
+    And I create org level site visit or Desk Review records with status "Submitted To S/R" using "default" properties
+      | RecordType | Title                                    | AccountName                         | AssociateAward                        | MonitoringType   |
+      | Site Visit | Automation Runtime Org Level Desk Review | SAN DIEGO ELECTRICAL TRAINING TRUST | {SavedValue:Automation Runtime Award} | Program & Fiscal |
 #    And I create closeout records with status "Completed" using "default" properties
 #      | AwardName                                          | CloseoutType     |
 #      | {SavedValue:Automation Runtime Award for closeout} | Early Completion |
