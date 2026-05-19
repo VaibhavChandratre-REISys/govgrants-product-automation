@@ -1034,4 +1034,25 @@ public class GenericSteps {
             grantorWebServices.createOrgLevelSiteVisitOrDeskReviewRecordsWithStatusUsingProperties(title, accountName, recordType, monitoringType, associateAward, status, filter);
         }
     }
+
+    @And("I update schedule payment request records with status {string} using {string} properties")
+    public void iUpdateSchedulePaymentRequestRecordsWithStatusUsingProperties(String status, String filter, DataTable table) {
+        List<Map<String, String>> rows = table.asMaps();
+        for (Map<String, String> row : rows) {
+            String EGMSId = row.get("EGMSId");
+            String awardName = row.get("AwardName");
+            String paymentRequestType = row.get("PaymentRequestType");
+            grantorWebServices.updateSchedulePaymentRequestRecordsWithStatusUsingProperties(EGMSId, awardName, paymentRequestType, status, filter);
+        }
+    }
+
+    @And("I update schedule progress report records with status {string} using {string} properties")
+    public void iUpdateScheduleProgressReportRecordsWithStatusUsingProperties(String status, String filter, DataTable table) {
+        List<Map<String, String>> rows = table.asMaps();
+        for (Map<String, String> row : rows) {
+            String EGMSId = row.get("EGMSId");
+            String awardName = row.get("AwardName");
+            grantorWebServices.updateScheduleProgressReportRecordsWithStatusUsingProperties(EGMSId, awardName, status, filter);
+        }
+    }
 }

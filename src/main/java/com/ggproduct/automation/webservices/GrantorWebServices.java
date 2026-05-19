@@ -688,4 +688,12 @@ public class GrantorWebServices extends ProjectWebServices {
     public void createOrgLevelSiteVisitOrDeskReviewRecordsWithStatusUsingProperties(String title, String accountName, String recordType, String monitoringType, String associateAward, String status, String filter) {
         createApplicationPostCall(projectApis.payloadOrgLevelSiteVisitOrDeskReviewCreationForTitle(title, accountName, recordType, monitoringType, associateAward, status, filter));
     }
+
+    public void updateSchedulePaymentRequestRecordsWithStatusUsingProperties(String egmsId, String awardName, String paymentRequestType, String status, String filter) {
+        createApplicationPostCall(projectApis.payloadSchedulePaymentRequestUpdateForTitle(egmsId, awardName, paymentRequestType, status, filter));
+    }
+
+    public void updateScheduleProgressReportRecordsWithStatusUsingProperties(String egmsId, String awardName, String status, String filter) {
+        createApplicationPostCall(projectApis.payloadScheduleProgressReportUpdateForTitle(egmsId, awardName, status, filter));
+    }
 }
