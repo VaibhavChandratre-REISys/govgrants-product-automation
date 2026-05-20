@@ -8891,6 +8891,8 @@ public class GrantorPayloads {
 
         compositeRequest.add(paymentRequest);
 
+        graph.add("compositeRequest", compositeRequest);
+
         JsonObject role = new JsonObject();
 
         role.addProperty("method", "POST");
@@ -8917,15 +8919,13 @@ public class GrantorPayloads {
 
         compositeRequest.add(role);
 
-        graph.add("compositeRequest", compositeRequest);
-
         // -------- buildUpItems --------
         JsonArray buildUpItems = new JsonArray();
 
         JsonObject buildUpItem = new JsonObject();
 
         buildUpItem.addProperty("BudgetCategoryName__c", "Construction");
-        buildUpItem.addProperty("ServiceAreaTitle__c", "Automation Permanent Focus Area");
+        buildUpItem.addProperty("ServiceAreaTitle__c", I.amPerforming().propertiesFileOperationsTo().getValue("focusArea"));
         buildUpItem.addProperty("PaymentRequest__c", "@{PaymentRequest1.id}");
         buildUpItem.addProperty("Title__c", I.amPerforming().propertiesFileOperationsTo().getValue("focusArea"));
         buildUpItem.addProperty("Narrative__c", "The Narrative");
