@@ -1744,7 +1744,7 @@ Feature: Validate all scenarios of every modules flow
       | GRANTEE FD      |
       | GRANTEE AUDITOR |
 
-  @InternalUserPwdCheckGrantor
+  @InternalUserPwdCheckGrantor @debug
   Scenario Outline: test
     When I login to "Grantor" app as "<InternalUser>" user
     When I navigate to "Home" tab
@@ -2640,7 +2640,7 @@ Feature: Validate all scenarios of every modules flow
 #      | {SavedValue:Automation Runtime Announcement Application} | {SavedValue:Automation Runtime Application} |
 #    And I halt execution
 
-  @testCloseout @debug
+  @testCloseout
   Scenario:
     Given I activated standalone subaward "Automation Runtime Award for closeout" with properties "default" of type "Competitive"
 #    And I create subawards records with status "Submitted to Grantor" using "default" properties

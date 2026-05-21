@@ -180,47 +180,8 @@ public class UsersAndURL implements UsersController {
             case "GRANTEE AUDITOR":
                 password = "Merge@2026";
                 break;
-            case "SARAH PM":
-                password = "Merge@2026";
-                break;
-            case "PO":
-                password = "Auto@2020";
-                break;
-            case "AUDITOR":
-                password = "Auto@2022";
-                break;
-            case "PM":
-                password = "Auto@2021";
-                break;
-            case "PM1":
-                password = "Auto@2021";
-                break;
-            case "EXE":
-                password = "Auto@2021";
-                break;
-            case "FO":
-                password = "Auto@2021";
-                break;
-            case "FD":
-                password = "Auto@2021";
-                break;
-            case "SPI3":
-                password = "Automation!123";
-                break;
-            case "SPA":
-                password = "Auto@2021";
-                break;
-            case "IND":
-                password = "Auto@2021";
-                break;
-            case "ADMIN":
-                password = "Auto@2021";
-                break;
-            case "SPI4":
-                password = "Auto@2021";
-                break;
             default:
-                password = "Auto@2020";
+                password = "Automation!123";
         }
         return password;
     }
