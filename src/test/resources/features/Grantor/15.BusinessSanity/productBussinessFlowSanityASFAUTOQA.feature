@@ -4648,23 +4648,23 @@ Feature: Validate sanity testing of Complete Business Flow
 
   @checkpassword
   Scenario: in this scenario we are test all password are working
-    When I login to "As a Grantor" app as "EXE" user
+    When I login to "As a Grantor" app as "Admin" user
 #    When I navigate to "Planning" tab
-#    When I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+    When I re-login to "As a Grantor" app as "Admin1" user on "INTERNAL" portal
 #    When I navigate to "Planning" tab
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
-    When I navigate to "Planning" tab
-#    When I re-login to "As a Grantor" app as "PM1" user on "INTERNAL" portal
 #    When I navigate to "Planning" tab
-#    When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
+    When I re-login to "As a Grantor" app as "PM1" user on "INTERNAL" portal
 #    When I navigate to "Planning" tab
-#    When I re-login to "As a Grantor" app as "FO1" user on "INTERNAL" portal
+    When I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
 #    When I navigate to "Planning" tab
-#    When I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
+    When I re-login to "As a Grantor" app as "FO1" user on "INTERNAL" portal
 #    When I navigate to "Planning" tab
-#    When I re-login to "As a Grantor" app as "PO1" user on "INTERNAL" portal
+    When I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
 #    When I navigate to "Planning" tab
-#    When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
+    When I re-login to "As a Grantor" app as "PO1" user on "INTERNAL" portal
+#    When I navigate to "Planning" tab
+    When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
 #    When I navigate to "Grants" tab
-#    When I re-login to "Grants Portal" app as "SA" user on "SUBPORTAL" portal
-#    When I navigate to "Home" tab
+    When I re-login to "Grants Portal" app as "SA" user on "SUBPORTAL" portal
+    When I navigate to "Home" tab
