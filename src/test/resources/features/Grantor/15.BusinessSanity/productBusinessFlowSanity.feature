@@ -1,7 +1,7 @@
 @productBusinessFlowSanity @product @grantor-regression
 Feature: Validate sanity testing of Complete Business Flow
 
-  @72335  @72335@activationOfFocusArea @ProdSan1
+  @72335  @72335@activationOfFocusArea @ProdSan1 @debug
   Scenario: Validate the activation of Focus Area by User - Admin/EXE/PM and the status is Active
     Given I login to "Grantor" app as "dynamicUser" user
     When I navigate to "Planning" tab
@@ -16,6 +16,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I upload attachment without random number "Attachment.pdf" of type "Other" from computer
     And I wait for "2" seconds
     When I click modal button "Close"
+    And I wait for "2" seconds
     When I click on "Activate" in the page details
     Then I see status in Progress-bar is "Active" and is "dark blue"
 
@@ -2250,6 +2251,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click on top right button "Associate" in flex table with id "---sitevisits:-:associateAwardSiteVisitsTableId---"
     And I pause execution for "5" seconds
     When I click "Associate" after selection of "{SavedValue:Automation Runtime Award Record}" in the table "---sitevisits:-:awardSiteVisitsTableId---"
+#    When I click modal button "Close"
     And I click on "Notify" in the page details
     When I click on "Conduct" in the page details
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
