@@ -1236,6 +1236,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I get current URL
     When I click on "Submit Application" in the page details
     And I wait for "3" seconds
+    And I refresh the page
     Then I see status in Progress-bar is "Submitted" and is "dark blue"
 
   @72346 @applicationReviewHappyPath @ProdSan2 @ProdSan2_2 @ProdSan2_2_2
