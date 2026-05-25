@@ -845,9 +845,10 @@ public class GenericSteps {
         List<Map<String, String>> rows = table.asMaps();
         for (Map<String, String> row : rows) {
             String award = row.get("Title");
+            String grant = row.get("GrantName");
             String amendmentType = row.get("AmendmentType");
             String recordType = row.get("RecordType");
-            grantorWebServices.createSubrecipientSideAmendmentRequestRecordsWithStatusUsingProperties(amendmentType, recordType, award, status, filter);
+            grantorWebServices.createSubrecipientSideAmendmentRequestRecordsWithStatusUsingProperties(amendmentType, recordType, award, grant, status, filter);
         }
     }
 
@@ -953,5 +954,105 @@ public class GenericSteps {
             grantorWebServices.createPreApplicationRecordsWithStatusUsingProperties(title, announcement, status, filter);
         }
 
+    }
+
+    @And("I create announcement records with status {string} using {string} properties")
+    public void iCreateAnnouncementRecordsWithStatusUsingProperties(String status, String filter, DataTable table) {
+        List<Map<String, String>> rows = table.asMaps();
+        for (Map<String, String> row : rows) {
+            String announcementName = row.get("AnnouncementName");
+            String programName = row.get("ProgramName");
+            String type = row.get("AnnType");
+            String allocationlevel = row.get("AllocationLevel");
+            if (announcementName.startsWith("Automation Runtime")) {
+                String newTitle = announcementName + I.amPerforming().addOnsTo().getRandomNumber();
+                I.amPerforming().propertiesFileOperationsTo().saveValue(announcementName, newTitle);
+                announcementName = newTitle;
+            }
+            grantorWebServices.createAnnouncementRecordsWithStatusUsingProperties(announcementName, programName, type, allocationlevel, status, filter);
+        }
+    }
+
+    @And("I create closeout records with status {string} using {string} properties")
+    public void iCreateCloseoutRecordsWithStatusUsingProperties(String status, String filter, DataTable table) {
+        List<Map<String, String>> rows = table.asMaps();
+        for (Map<String, String> row : rows) {
+            String awardName = row.get("AwardName");
+            String closeoutType = row.get("CloseoutType");
+            grantorWebServices.createCloseoutRecordsWithStatusUsingProperties(awardName, closeoutType, status, filter);
+        }
+    }
+
+    @And("I create payment request records with status {string} using {string} properties")
+    public void iCreatePaymentRequestRecordsWithStatusUsingProperties(String status, String filter, DataTable table) {
+        List<Map<String, String>> rows = table.asMaps();
+        for (Map<String, String> row : rows) {
+            String title = row.get("Title");
+            String awardName = row.get("AwardName");
+            String paymentRequestType = row.get("PaymentRequestType");
+            if (title.startsWith("Automation Runtime")) {
+                String newTitle = title + I.amPerforming().addOnsTo().getRandomNumber();
+                I.amPerforming().propertiesFileOperationsTo().saveValue(title, newTitle);
+                title = newTitle;
+            }
+            grantorWebServices.createPaymentRequestRecordsWithStatusUsingProperties(title, awardName, paymentRequestType, status, filter);
+        }
+    }
+
+    @And("I create site visit or Desk Review records with status {string} using {string} properties")
+    public void iCreateSiteVisitRecordsWithStatusUsingProperties(String status, String filter, DataTable table) {
+        List<Map<String, String>> rows = table.asMaps();
+        for (Map<String, String> row : rows) {
+            String title = row.get("Title");
+            String awardName = row.get("AwardName");
+            String recordType = row.get("RecordType");
+            String monitoringType = row.get("MonitoringType");
+            String associateAward = row.get("AssociateAward");
+            if (title.startsWith("Automation Runtime")) {
+                String newTitle = title + I.amPerforming().addOnsTo().getRandomNumber();
+                I.amPerforming().propertiesFileOperationsTo().saveValue(title, newTitle);
+                title = newTitle;
+            }
+            grantorWebServices.createSiteVisitRecordsWithStatusUsingProperties(title, awardName, recordType, monitoringType, associateAward, status, filter);
+        }
+    }
+
+    @And("I create org level site visit or Desk Review records with status {string} using {string} properties")
+    public void iCreateOrgLevelSiteVisitOrDeskReviewRecordsWithStatusUsingProperties(String status, String filter, DataTable table) {
+        List<Map<String, String>> rows = table.asMaps();
+        for (Map<String, String> row : rows) {
+            String title = row.get("Title");
+            String accountName = row.get("AccountName");
+            String recordType = row.get("RecordType");
+            String monitoringType = row.get("MonitoringType");
+            String associateAward = row.get("AssociateAward");
+            if (title.startsWith("Automation Runtime")) {
+                String newTitle = title + I.amPerforming().addOnsTo().getRandomNumber();
+                I.amPerforming().propertiesFileOperationsTo().saveValue(title, newTitle);
+                title = newTitle;
+            }
+            grantorWebServices.createOrgLevelSiteVisitOrDeskReviewRecordsWithStatusUsingProperties(title, accountName, recordType, monitoringType, associateAward, status, filter);
+        }
+    }
+
+    @And("I update schedule payment request records with status {string} using {string} properties")
+    public void iUpdateSchedulePaymentRequestRecordsWithStatusUsingProperties(String status, String filter, DataTable table) {
+        List<Map<String, String>> rows = table.asMaps();
+        for (Map<String, String> row : rows) {
+            String EGMSId = row.get("EGMSId");
+            String awardName = row.get("AwardName");
+            String paymentRequestType = row.get("PaymentRequestType");
+            grantorWebServices.updateSchedulePaymentRequestRecordsWithStatusUsingProperties(EGMSId, awardName, paymentRequestType, status, filter);
+        }
+    }
+
+    @And("I update schedule progress report records with status {string} using {string} properties")
+    public void iUpdateScheduleProgressReportRecordsWithStatusUsingProperties(String status, String filter, DataTable table) {
+        List<Map<String, String>> rows = table.asMaps();
+        for (Map<String, String> row : rows) {
+            String EGMSId = row.get("EGMSId");
+            String awardName = row.get("AwardName");
+            grantorWebServices.updateScheduleProgressReportRecordsWithStatusUsingProperties(EGMSId, awardName, status, filter);
+        }
     }
 }

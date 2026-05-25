@@ -605,8 +605,8 @@ public class GrantorWebServices extends ProjectWebServices {
         assertStatusCodeTwoZeroOne(response);
     }
 
-    public void createSubrecipientSideAmendmentRequestRecordsWithStatusUsingProperties(String amendmentType, String recordType, String award, String status, String filter) {
-        createAmendmentRequestPostCall(projectApis.payloadSubrecipientSideAmendmentRequestCreation(amendmentType, recordType, award, status, filter));
+    public void createSubrecipientSideAmendmentRequestRecordsWithStatusUsingProperties(String amendmentType, String recordType, String award, String grant, String status, String filter) {
+        createAmendmentRequestPostCall(projectApis.payloadSubrecipientSideAmendmentRequestCreation(amendmentType, recordType, award, grant, status, filter));
     }
 
     public void createApplicationRecordsWithStatusUsingProperties(String title, String announcement, String preAppTitle, String status, String filter) {
@@ -667,5 +667,33 @@ public class GrantorWebServices extends ProjectWebServices {
 
     public void createPreApplicationRecordsWithStatusUsingProperties(String title, String announcement, String status, String filter) {
         createApplicationPostCall(projectApis.payloadPreApplicationCreationForTitle(title, announcement, status, filter));
+    }
+
+    public void createAnnouncementRecordsWithStatusUsingProperties(String announcementName, String programName, String type, String allocationlevel, String status, String filter) {
+        createApplicationPostCall(projectApis.payloadAnnouncementCreationForTitle(announcementName, programName, type, allocationlevel,  status, filter));
+    }
+
+    public void createCloseoutRecordsWithStatusUsingProperties(String awardName, String closeoutType, String status, String filter) {
+        createApplicationPostCall(projectApis.payloadCloseoutCreationForTitle(awardName, closeoutType, status, filter));
+    }
+
+    public void createPaymentRequestRecordsWithStatusUsingProperties(String title, String awardName, String paymentRequestType, String status, String filter) {
+        createApplicationPostCall(projectApis.payloadPaymentRequestCreationForTitle(title, awardName, paymentRequestType, status, filter));
+    }
+
+    public void createSiteVisitRecordsWithStatusUsingProperties(String title, String awardName, String recordType, String monitoringType, String associateAward, String status, String filter) {
+        createApplicationPostCall(projectApis.payloadSiteVisitCreationForTitle(title, awardName, recordType, monitoringType, associateAward, status, filter));
+    }
+
+    public void createOrgLevelSiteVisitOrDeskReviewRecordsWithStatusUsingProperties(String title, String accountName, String recordType, String monitoringType, String associateAward, String status, String filter) {
+        createApplicationPostCall(projectApis.payloadOrgLevelSiteVisitOrDeskReviewCreationForTitle(title, accountName, recordType, monitoringType, associateAward, status, filter));
+    }
+
+    public void updateSchedulePaymentRequestRecordsWithStatusUsingProperties(String egmsId, String awardName, String paymentRequestType, String status, String filter) {
+        createApplicationPostCall(projectApis.payloadSchedulePaymentRequestUpdateForTitle(egmsId, awardName, paymentRequestType, status, filter));
+    }
+
+    public void updateScheduleProgressReportRecordsWithStatusUsingProperties(String egmsId, String awardName, String status, String filter) {
+        createApplicationPostCall(projectApis.payloadScheduleProgressReportUpdateForTitle(egmsId, awardName, status, filter));
     }
 }
