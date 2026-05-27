@@ -135,9 +135,7 @@ Feature: Validate all scenarios in Strategic Plan
     When I enter in modal value "Execution Strategic Goal" into field "StrategyTitle__c"
     When I click modal button "Save and Continue"
     And I wait for "2" seconds
-#    halt check
-#    When I click on "Save" in the page details
-#    When I enter value "Automation Test Description" into field "StrategyDescription__c"
+    When I click on "Save" in the page details
     When I click on top right button "New" in flex table with id "---strategicplan:-:strategicGoalRelatedObjectivesTableId---"
     When I enter in modal value "Execution Strategic Objective" into field "StrategyTitle__c"
     When I click modal button "Save and Continue"
@@ -278,7 +276,7 @@ Feature: Validate all scenarios in Strategic Plan
     And I update title as "Automation.pdf" on upload file modal
     And I select Classification as "Strategic Objective" at upload file modal
     When I click modal button "Save"
-    And I click modal button "Close"
+#    And I click modal button "Close"
     And I refresh the page
     And I wait for "2" seconds
     Then I softly see value "Automation.pdf" for title "Title" inside table "---strategicplan:-:flexGridGrantorObjectiveFiles---"
