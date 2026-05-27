@@ -560,7 +560,6 @@ Feature: Validate all scenarios in Funding Source
     And I click on top right button "Add Files" in flex table with id "---fundingSource:-:externalFundingSourceTableId---"
     And I upload attachment without random number "Attachment.pdf" of type "Other" from computer
     When I click modal button "Close"
-#    And I halt execution
     Then I softly can see row level action button "Download" against "Other" in flex table with id "---fundingSource:-:externalFundingSourceTableId---"
     Then I softly can see row level action button "Edit" against "Other" in flex table with id "---fundingSource:-:externalFundingSourceTableId---"
     Then I softly can see row level action button "View" against "Other" in flex table with id "---fundingSource:-:externalFundingSourceTableId---"
@@ -661,6 +660,7 @@ Feature: Validate all scenarios in Funding Source
     When I click on "Deactivate" in the page details
     And I wait for "3" seconds
     And I click "{SavedValue:FUNDINGSOURCE}" lookup link
+    And I refresh the page
     And I pause execution for "3" seconds
     When I navigate to "Files" sub tab
     Then I softly cannot see top right button "Add Files" in flex table with id "---fundingSource:-:externalFundingSourceTableId---"
@@ -675,6 +675,7 @@ Feature: Validate all scenarios in Funding Source
     And I click toggle button to select "External Funding Sources - All"
     When I perform quick search for "{SavedValue:FUNDINGSOURCE}" in "---fundingsource:-:externalFundingTableId---" panel
     And I click on "View" icon for "{SavedValue:FUNDINGSOURCE}" inside table
+    And I refresh the page
     And I pause execution for "3" seconds
     When I navigate to "Files" sub tab
     Then I softly cannot see top right button "Add Files" in flex table with id "---fundingSource:-:externalFundingSourceTableId---"

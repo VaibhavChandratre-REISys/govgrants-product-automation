@@ -118,8 +118,11 @@ Feature: Validate all scenarios in Strategic Plan
     And I click on "Save" in the page details
     When I click on top right button "New" in flex table with id "---strategicplan:-:strategicGoalRelatedObjectivesTableId---"
     When I enter in modal value "Execution Strategic Objective" into field "StrategyTitle__c"
+    And I halt execution
     When I click modal button "Save and Continue"
+    And I halt execution
     And I click on "Save" in the page details
+    And I halt execution
     When I click on "Edit" in the page details
     When I enter value "Execution Strategic Objective" into field "StrategyDescription__c"
     When I click on "Save" in the page details
@@ -164,6 +167,7 @@ Feature: Validate all scenarios in Strategic Plan
     And I click on "Save" in the page details
     When I navigate to "Related Log" sub tab
     And I click on top right button "Associate" in flex table with id "---strategicplan:-:ObjectivesKPITableId---"
+    And I wait for "2" seconds
     When I click "Add" after selection of "Automation Permanent KPI" by showing entries "All" in flex table with id "---strategicplan:-:ListOfActiveKPITableId---"
     And I click modal button "Close"
     And I wait for "2" seconds
