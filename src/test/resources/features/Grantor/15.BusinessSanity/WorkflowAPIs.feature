@@ -11,6 +11,9 @@ Feature: Validate all APIs of every modules flow
 #      | Title                                            |
 #      | {SavedValue:Automation Runtime Program}          |
 #      | {SavedValue:Automation Runtime External Program} |
+    Given I create program records with status "Created" using "Owner-{SavedValue:PM1 Username},approver1-{SavedValue:FO Username},approver2-NA" properties
+      | Title                               | RecordType       |
+      | Automation Runtime Internal Program | Internal Program |
 
     Given I create program records with status "Created" using "default" properties
       | Title                               | RecordType       |
@@ -18,7 +21,7 @@ Feature: Validate all APIs of every modules flow
     Given I login to "Grantor" app as "PM" user
     When I navigate to "Planning" tab
     And I navigate to "Internal Programs" content inside "Programs" subheader on left panel
-    And I click toggle button to select "Internal Programs - Draft"
+    And I click toggle button to select "Internal Programs - All"
     When I perform quick search for "{SavedValue:Automation Runtime Internal Program}" in "---program:-:programsTableId---" panel
     And I click on "View" icon for "{SavedValue:Automation Runtime Internal Program}" inside flex table with id "---program:-:programsTableId---" without waiting for record
 
@@ -31,7 +34,8 @@ Feature: Validate all APIs of every modules flow
     And I click toggle button to select "NGO Programs - All"
     When I perform quick search for "{SavedValue:Automation Runtime External Program}" in "---program:-:ExternalNGOProgramTableId---" panel
     And I click on "View" icon for "{SavedValue:Automation Runtime External Program}" inside flex table with id "---program:-:ExternalNGOProgramTableId---"
-
+    And I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "ProgramEGMSID"
 
 
   @testAmendmentRequest
