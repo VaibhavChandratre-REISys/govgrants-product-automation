@@ -647,6 +647,7 @@ Feature: Validate all scenarios in Funding Source
     Then I see status in Progress-bar is "Active" and is "dark blue"
     And I save the field labeled "Funding Source" as "FUNDINGSOURCE"
     And I click "{SavedValue:FUNDINGSOURCE}" lookup link
+    And I refresh the page
     And I pause execution for "3" seconds
     When I navigate to "Files" sub tab
     Then I softly can see top right button "Add Files" in flex table with id "---fundingSource:-:externalFundingSourceTableId---"
@@ -719,6 +720,7 @@ Feature: Validate all scenarios in Funding Source
     Then I see status in Progress-bar is "Active" and is "dark blue"
     And I save the field labeled "Funding Source" as "FUNDINGSOURCE"
     And I click "{SavedValue:FUNDINGSOURCE}" lookup link
+    And I refresh the page
     And I pause execution for "3" seconds
     When I navigate to "Files" sub tab
     Then I softly can see top right button "Add Files" in flex table with id "---fundingSource:-:externalFundingSourceTableId---"
@@ -732,6 +734,7 @@ Feature: Validate all scenarios in Funding Source
     When I click on "Deactivate" in the page details
     And I wait for "3" seconds
     And I click "{SavedValue:FUNDINGSOURCE}" lookup link
+    And I refresh the page
     And I pause execution for "3" seconds
     When I navigate to "Files" sub tab
     Then I softly cannot see top right button "Add Files" in flex table with id "---fundingSource:-:externalFundingSourceTableId---"
@@ -746,6 +749,7 @@ Feature: Validate all scenarios in Funding Source
     And I click toggle button to select "External Funding Sources - All"
     When I perform quick search for "{SavedValue:FUNDINGSOURCE}" in "---fundingsource:-:externalFundingTableId---" panel
     And I click on "View" icon for "{SavedValue:FUNDINGSOURCE}" inside table
+    And I refresh the page
     And I pause execution for "3" seconds
     When I navigate to "Files" sub tab
     Then I softly cannot see top right button "Add Files" in flex table with id "---fundingSource:-:externalFundingSourceTableId---"
