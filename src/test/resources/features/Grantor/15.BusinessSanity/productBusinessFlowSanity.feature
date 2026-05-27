@@ -1052,7 +1052,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I wait for "5" seconds
     Then I softly see field "Status" as "Published"
 
-  @72343 @publishingFormulaAnnouncementByApplicant @ProdSan2 @TBE1
+  @72343 @publishingFormulaAnnouncementByApplicant @ProdSan2 @TBE1 @Tessstt
   Scenario: Validate the activation of Formula By Applicant Announcement and the status changes to published and is green
     When I login to "Grantor" app as "ADMIN" user
     And I navigate to "Announcements" tab
@@ -1102,6 +1102,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I close "Add Organizations" modal by clicking the top right x button
     When I navigate to "Overview" sub tab
     And I pause execution for "4" seconds
+    When I refresh the page
     When I edit the following rows inline in flex table with id "---announcement:-:formulaInvitedApplicatsTableId---" by clicking "Edit" :
       | Applicants                          | Allocated Amount |
       | SAN DIEGO ELECTRICAL TRAINING TRUST | 1000             |

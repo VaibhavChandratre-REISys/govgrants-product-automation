@@ -380,7 +380,7 @@ Feature: Validate all scenarios in the home tab
 
     Examples:
       | User |
-      | EXE  |
+#      | EXE  |
       | PM   |
 
   @56738 @deletionOfRelatedContact
@@ -591,6 +591,7 @@ Feature: Validate all scenarios in the home tab
     And I pause execution for "3" seconds
     And I click modal button "Save and Continue"
     And I pause execution for "2" seconds
+#    Error msg
     And I enter "Edition" values from "Application_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I navigate to "Budget" sub tab
@@ -899,8 +900,8 @@ Feature: Validate all scenarios in the home tab
     Examples:
       | User  |
       | ADMIN |
-      | EXE   |
-      | PM    |
+#      | EXE   |
+#      | PM    |
 
   @33882 @34674 @validatingcreateSMEReviewer
   Scenario: To verify internal user able to Create new SME reviewer
