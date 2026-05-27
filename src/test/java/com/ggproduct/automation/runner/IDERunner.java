@@ -8,7 +8,7 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
         glue = {"setup","com.ggproduct.automation.steps","com.helperPackage.actionsfactory.gherkin","com.helperPackage.register"},
         features = {"src/test/resources/features"},
-        plugin = {"json:target/cucumber-report/cucumber.json","html:target/cucumber-html"},
+        plugin = {"json:target/cucumber-report/cucumber.json","html:target/cucumber-html","com.helperPackage.controller.ReportingLogsPlugin"},
         tags = {"@vai"},
         monochrome = true
 )

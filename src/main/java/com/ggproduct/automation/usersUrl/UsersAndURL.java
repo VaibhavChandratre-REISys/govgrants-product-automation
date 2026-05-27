@@ -62,16 +62,10 @@ public class UsersAndURL implements UsersController {
         String userName = null;
         if ((EnvironmentFactory.getEnvironmentName() != null) && (EnvironmentFactory.getEnvironmentName().contains("QA"))) {
             userName = getQAEnvironmentUser(setUpUserLevel(userLevel));
-        } else if ((EnvironmentFactory.getEnvironmentName() != null) && (EnvironmentFactory.getEnvironmentName().contains("TEST8"))) {
-            userName = getTest8EnvironmentUser(setUpUserLevel(userLevel));
         }else if ((EnvironmentFactory.getEnvironmentName() != null) && (EnvironmentFactory.getEnvironmentName().contains("PROLWC"))) {
             userName = getProLwcEnvironmentUser(setUpUserLevel(userLevel));
-        }else if ((EnvironmentFactory.getEnvironmentName() != null) && (EnvironmentFactory.getEnvironmentName().contains("NYLWC"))) {
-            userName = getNYLwcEnvironmentUser(setUpUserLevel(userLevel));
         }else if ((EnvironmentFactory.getEnvironmentName() != null) && (EnvironmentFactory.getEnvironmentName().contains("MERGE"))) {
             userName = getMergeEnvironmentUser(setUpUserLevel(userLevel));
-        }else if ((EnvironmentFactory.getEnvironmentName() != null) && (EnvironmentFactory.getEnvironmentName().contains("WASHINGTON"))) {
-            userName = getWashingtonEnvironmentUser(setUpUserLevel(userLevel));
         }else {
             userName = getAUTOEnvironmentUser(setUpUserLevel(userLevel));
         }
@@ -83,17 +77,10 @@ public class UsersAndURL implements UsersController {
         String password = null;
         if (EnvironmentFactory.getEnvironmentName().contains("QA")) {
             password = getQAEnvironmentPassword(setUpUserLevel(userLevel));
-        } else if (EnvironmentFactory.getEnvironmentName().contains("TEST8")) {
-            password = getTest8EnvironmentPassword(setUpUserLevel(userLevel));
         } else if (EnvironmentFactory.getEnvironmentName().contains("PROLWC")) {
             password = getProLwcEnvironmentPassword(setUpUserLevel(userLevel));
-        } else if (EnvironmentFactory.getEnvironmentName().contains("NYLWC")) {
-            password = getNYLwcEnvironmentPassword(setUpUserLevel(userLevel));
         } else if (EnvironmentFactory.getEnvironmentName().contains("MERGE")) {
             password = getMergeEnvironmentPassword(setUpUserLevel(userLevel));
-        }
-        else if (EnvironmentFactory.getEnvironmentName().contains("WASHINGTON")) {
-            password = getWashingtonEnvironmentPassword(setUpUserLevel(userLevel));
         }else
             password = getAUTOEnvironmentPassword(setUpUserLevel(userLevel));
         return password;
@@ -113,36 +100,6 @@ public class UsersAndURL implements UsersController {
                 break;
             default:
                 password = "Salesforce@2039";
-        }
-        return password;
-    }
-
-    private String getNYLwcEnvironmentPassword(String userLevel) {
-        String password;
-        switch (userLevel.toUpperCase()) {
-            case "GRANTEE ADMIN":
-                password = "Qaadmin@2030";
-                break;
-            case "GRANTEE PM":
-                password = "Rei@2025";
-                break;
-            case "GRANTEE EXE":
-                password = "Rei@2026";
-                break;
-            case "GRANTEE FO":
-                password = "Rei@2025";
-                break;
-            case "SARAH PM":
-                password = "Rei@2025";
-                break;
-            case "ADMIN":
-                password = "Automation@2026";
-                break;
-            case "ADMIN1":
-                password = "Automation@2026";
-                break;
-            default:
-                password = "Automation@2025";
         }
         return password;
     }
@@ -182,63 +139,6 @@ public class UsersAndURL implements UsersController {
                 break;
             default:
                 password = "Automation!123";
-        }
-        return password;
-    }
-
-    private String getWashingtonEnvironmentPassword(String userLevel) {
-        String password;
-        switch (userLevel.toUpperCase()) {
-            case "GRANTEE ADMIN":
-                password = "Automation@2025";
-                break;
-            case "GRANTEE ADMIN1":
-                password = "Automation@2026";
-                break;
-            case "GRANTEE PM":
-                password = "Grantor@123";
-                break;
-            case "GRANTEE EXE":
-                password = "Grantor@123";
-                break;
-            case "GRANTEE FO":
-                password = "Grantor@123";
-                break;
-            case "GRANTEE FD":
-                password = "Grantor@123";
-                break;
-            case "GRANTEE AUDITOR":
-                password = "Automation@2025";
-                break;
-            case "GRANTEE PO":
-                password = "Grantor@123";
-                break;
-            case "SARAH PM":
-                password = "Grantor@123";
-                break;
-            case "SA":
-                password = "Automation@2026";
-                break;
-            case "PO":
-                password = "Grantor@123";
-                break;
-            case "PM":
-                password = "Grantor@123";
-                break;
-            case "FO":
-                password = "Grantor@123";
-                break;
-            case "FO1":
-                password = "Grantor@123";
-                break;
-            case "ADMIN":
-                password = "Automation@2026";
-                break;
-            case "ADMIN1":
-                password = "Automation@2026";
-                break;
-            default:
-                password = "Automation@2025";
         }
         return password;
     }
@@ -315,36 +215,6 @@ public class UsersAndURL implements UsersController {
         return password;
     }
 
-    private String getTest8EnvironmentPassword(String userLevel) {
-        String password;
-        switch (userLevel.toUpperCase()) {
-            case "ADMIN":
-                password = "Salesforce@2025";
-                break;
-            case "ADMIN1":
-                password = "Salesforce@2031";
-                break;
-            case "SPI3":
-                password = "Salesforce@2033";
-                break;
-            case "IND":
-                password = "Salesforce@2033";
-                break;
-            case "PM":
-                password = "Salesforce@2032";
-                break;
-            case "PM1":
-                password = "Salesforce@2032";
-                break;
-            case "SPA":
-                password = "Salesforce@2032";
-                break;
-            default:
-                password = "Salesforce@2032";
-        }
-        return password;
-    }
-
     private String getAUTOEnvironmentPassword(String userLevel) {
         String password;
         switch (userLevel.toUpperCase()) {
@@ -396,45 +266,6 @@ public class UsersAndURL implements UsersController {
         }
     }
 
-    private String getNYLwcEnvironmentUser(String userLevel) {
-        Map<String, String> username = new HashMap<>();
-        username.put("ADMIN", "govgrantsauto@yopmail.com.ggqa2");
-        username.put("ADMIN1", "manu.admin@ggp.test8.ggqa2");
-        username.put("EXE", "test@gmaildemo.com.ggqa2");
-        username.put("PM", "donald_pm@ggp.test7.atm.ggqa2");
-        username.put("FO", "auto.fm@auto.com.ggqa2");
-        username.put("PO", "automationpo@yopmail.com.ggqa2");
-        username.put("FD", "automationfd@yopmail.com.ggqa2");
-        username.put("PM1", "pm1.automation@yopmail.com.ggqa2");
-        username.put("EXE1", "exe1.automation@yopmail.com.ggqa2");
-        username.put("PO1", "automationpo1@yopmail.com.ggqa2");
-        username.put("FO1", "fo1.automation@yopmail.com.ggqa2");
-        username.put("FD1", "automationfd1@yopmail.com.ggqa2");
-        username.put("AUDITOR", "automationauditor@yopmail.com.ggqa2");
-        username.put("SPI3", "automationspi31.ggdev2@yopmail.com.ggqa2");
-        username.put("SPA", "spaautomation12@yopmail.com.ggqa2");
-        username.put("SA", "asa@grants.gov.ggqa2");
-        username.put("IND", "ind12.automation@yopmail.com.ggqa2");
-        username.put("SME", "sme11@yopmail.com.ggqa2");
-        username.put("SPI4", "spi4@yopmail.com.ggqa2");
-        username.put("SARAH PM", "sarah.pm@ggp.test8.ggqa2");
-
-        username.put("GRANTEE ADMIN", "product.qa@ggp.test8.ggqa2");
-        username.put("GRANTEE ADMIN1", "qa.admin@ggp.test8.ggdev2");
-        username.put("GRANTEE PM", "sarah.pm@ggp.test8.ggqa2");
-        username.put("GRANTEE EXE", "victor.exe@ggp.test8.ggqa2");
-        username.put("GRANTEE FO", "david.fo@ggp.test8.ggqa2");
-        username.put("GRANTEE FD", "danielle.garcia@ggp.test8.ggdev2");
-        username.put("GRANTEE PO", "grantee.po@yopmail.com.ggdev2");
-        username.put("GRANTEE AUDITOR", "automationauditor@yopmail.com.ggdev2");
-
-        if (userLevel.toUpperCase() != null) {
-            return username.get(userLevel.toUpperCase());
-        } else {
-            return username.get("ADMIN");
-        }
-    }
-
     private String getMergeEnvironmentUser(String userLevel) {
         Map<String, String> username = new HashMap<>();
         username.put("ADMIN", "govgrantsauto@yopmail.com.ggmergeqa2");
@@ -468,45 +299,6 @@ public class UsersAndURL implements UsersController {
         username.put("GRANTEE FD", "danielle.garcia@ggp.test8.ggmergeqa2");
         username.put("GRANTEE PO", "grantee.po@yopmail.com.ggmergeqa2");
         username.put("GRANTEE AUDITOR", "alex.auditor@yopmail.com.ggmergeqa2");
-
-        if (userLevel.toUpperCase() != null) {
-            return username.get(userLevel.toUpperCase());
-        } else {
-            return username.get("ADMIN");
-        }
-    }
-
-    private String getWashingtonEnvironmentUser(String userLevel) {
-        Map<String, String> username = new HashMap<>();
-        username.put("ADMIN", "govgrantsauto@yopmail.com.ggdev2");
-        username.put("ADMIN1", "manu.admin@ggp.test8.ggdev2");
-        username.put("EXE", "test@gmaildemo.com.ggdev2");
-        username.put("PM", "donald_pm@ggp.test7.atm.ggdev2");
-        username.put("FO", "auto.fm@auto.com.ggdev2");
-        username.put("PO", "automationpo@yopmail.com.ggdev2");
-        username.put("FD", "automationfd@yopmail.com.ggdev2");
-        username.put("PM1", "pm1.automation@yopmail.com.ggdev2");
-        username.put("EXE1", "exe1.automation@yopmail.com.ggdev2");
-        username.put("PO1", "automationpo1@yopmail.com.ggdev2");
-        username.put("FO1", "fo1.automation@yopmail.com.ggdev2");
-        username.put("FD1", "automationfd1@yopmail.com.ggdev2");
-        username.put("SPI3", "automationspi31.ggdev2@yopmail.com");
-        username.put("SPA", "spaautomation12@yopmail.com.ggdev2");
-        username.put("SA", "asa@grants.gov.ggdev2");
-        username.put("IND", "ind12.automation@yopmail.com.ggdev2");
-        username.put("AUDITOR", "automationauditor@yopmail.com.ggdev2");
-        username.put("SME", "sme11@yopmail.com.ggdev2");
-        username.put("SPI4", "spi4@yopmail.com.ggdev2");
-        username.put("SARAH PM", "sarah.pm@ggp.test8.ggdev2");
-
-        username.put("GRANTEE ADMIN", "product.qa@ggp.test8.ggdev2");
-        username.put("GRANTEE ADMIN1", "qa.admin@ggp.test8.ggdev2");
-        username.put("GRANTEE PM", "sarah.pm@ggp.test8.ggdev2");
-        username.put("GRANTEE EXE", "victor.exe@ggp.test8.ggdev2");
-        username.put("GRANTEE FO", "david.fo@ggp.test8.ggdev2");
-        username.put("GRANTEE FD", "danielle.garcia@ggp.test8.ggdev2");
-        username.put("GRANTEE PO", "grantee.po@yopmail.com.ggdev2");
-        username.put("GRANTEE AUDITOR", "automationauditor@yopmail.com.ggdev2");
 
         if (userLevel.toUpperCase() != null) {
             return username.get(userLevel.toUpperCase());
@@ -594,34 +386,6 @@ public class UsersAndURL implements UsersController {
         username.put("GRANTEE EXE", "automationexegrantee@yopmail.com");
         username.put("GRANTEE ADMIN", "autoadmingrantee@yopmail.com");
         username.put("GRANTEE PO", "autopograntee@yopmail.com");
-
-        if (userLevel.toUpperCase() != null) {
-            return username.get(userLevel.toUpperCase());
-        } else {
-            return username.get("ADMIN");
-        }
-    }
-
-    private String getTest8EnvironmentUser(String userLevel) {
-        Map<String, String> username = new HashMap<>();
-        username.put("ADMIN", "govgrantsautomation@yopmail.com");
-        username.put("ADMIN1", "manu.admin@ggp.test8");
-        username.put("EXE", "test@gmaildemo.com.atm");
-        username.put("PM", "donald_pm@ggp.test7.atm");
-        username.put("FO", "auto.fm@auto.com.atm");
-        username.put("SPA", "automation.spa@yopmail.com");
-        username.put("IND", "ind1.automation@yopmail.com");
-        username.put("SA", "automationspi1@yopmail.com");
-        username.put("SPI3", "automationspi30@yopmail.com");
-        username.put("AUDITOR", "test8.automationauditor@yopmail.com");
-        username.put("PO", "test8.automationpo@yopmail.com");
-        username.put("FD", "test8.automationfd@yopmail.com");
-        username.put("PM1", "test8.pm1.automation@yopmail.com");
-        username.put("EXE1", "test8.exe1.automation@yopmail.com");
-        username.put("FO1", "test8.fo1.automation@yopmail.com");
-        username.put("PO1", "test8.automationpo1@yopmail.com");
-        username.put("FD1", "test8.automationfd1@yopmail.com");
-        username.put("SME", "sme1@yopmail.com");
 
         if (userLevel.toUpperCase() != null) {
             return username.get(userLevel.toUpperCase());
