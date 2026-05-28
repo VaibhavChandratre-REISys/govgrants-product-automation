@@ -24,6 +24,8 @@ Feature: Validate all APIs of every modules flow
     And I click toggle button to select "Internal Programs - All"
     When I perform quick search for "{SavedValue:Automation Runtime Internal Program}" in "---program:-:programsTableId---" panel
     And I click on "View" icon for "{SavedValue:Automation Runtime Internal Program}" inside flex table with id "---program:-:programsTableId---" without waiting for record
+    And I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "ProgramEGMSID"
 
     Given I create program records with status "Created" using "default" properties
       | Title                               | RecordType       |
