@@ -380,7 +380,7 @@ Feature: Validate all scenarios in the home tab
 
     Examples:
       | User |
-#      | EXE  |
+      | EXE  |
       | PM   |
 
   @56738 @deletionOfRelatedContact
@@ -900,8 +900,8 @@ Feature: Validate all scenarios in the home tab
     Examples:
       | User  |
       | ADMIN |
-#      | EXE   |
-#      | PM    |
+      | EXE   |
+      | PM    |
 
   @33882 @34674 @validatingcreateSMEReviewer
   Scenario: To verify internal user able to Create new SME reviewer
