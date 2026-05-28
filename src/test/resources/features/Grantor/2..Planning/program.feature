@@ -723,9 +723,7 @@ Feature: Validate all scenarios for program
     And I wait for "2" seconds
     Then I softly see the following messages in the page details :
       | Record removed successfully. |
-    And I halt execution
     When I click on parallel lines menu bar with data target value "Review Forms"
-    And I halt execution
     And I select "Download as PDF" from parallel lines dropdown of "Review Forms"
     And I wait for "3" seconds
     And I download the file
