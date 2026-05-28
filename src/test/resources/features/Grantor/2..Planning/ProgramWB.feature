@@ -1,7 +1,7 @@
 @programWB @grantor-regression @grantor-parallel-regression @planning @regression
 Feature: Validate all scenarios for program
 
-  @109448 @VerifySelectionOfChildOrganization
+  @109448 @VerifySelectionOfChildOrganization @programWBAPI @programWBAPI
   Scenario: Verifying if the user is able to change or add child organization to created program
     Given I create program records with status "Created" using "default" properties
       | Title                               | RecordType       |
@@ -36,7 +36,7 @@ Feature: Validate all scenarios for program
     When I navigate to "Strategic Plans" content inside "Setup" subheader on left panel
     Then I softly cannot see top right button "New" in flex table with id "---strategicplan:-:StrategicPlansTableId---"
 
-  @111272 @111182 @111191 @VerifyActivationOfNGOProgram  @buglogged138933
+  @111272 @111182 @111191 @VerifyActivationOfNGOProgram  @buglogged138933 @programWBAPI
   Scenario Outline: Verifying record owner is able to activate NGO program
     Given I create program records with status "Submitted For Approval" using "default" properties
       | Title                               | RecordType  |
@@ -99,7 +99,7 @@ Feature: Validate all scenarios for program
       | Program Name                                     |
       | {SavedValue:Automation Runtime External Program} |
 
-  @110502 @110501 @VerifyEditOfCreatedNGOProgram
+  @110502 @110501 @VerifyEditOfCreatedNGOProgram @programWBAPI
   Scenario Outline: Verifying record owner is able to activate NGO program
     Given I create program records with status "Created" using "default" properties
       | Title                               | RecordType  |
@@ -143,7 +143,7 @@ Feature: Validate all scenarios for program
     When I navigate to "External Programs" content inside "Programs" subheader on left panel
     Then I cannot see top right button "New" in flex table with id "---program:-:ExternalNGOProgramTableId---"
 
-  @111167 @VerifyDeletionOfAssociatedContactAtNGOProgram  @buglogged138933
+  @111167 @VerifyDeletionOfAssociatedContactAtNGOProgram  @buglogged138933 @programWBAPI
   Scenario: Verifying user is able to delete associated contacts from NGO program
     Given I create program records with status "Active" using "default" properties
       | Title                               | RecordType  |
@@ -172,7 +172,7 @@ Feature: Validate all scenarios for program
     And I click on "Remove" icon for "NGO Contact" inside flex table with id "---program:-:ExternalNGOProgramContactTableId---"
     Then I softly see "Record removed successfully." inside flex table with id "---program:-:ExternalNGOProgramContactTableId---"
 
-  @111264 @111183 @VerifyTaskCreationForNGOProgramActivation  @buglogged138933
+  @111264 @111183 @VerifyTaskCreationForNGOProgramActivation  @buglogged138933 @programWBAPI
   Scenario: Verifying record owner should receive generated task inside pending for Program activation after approval of program
     Given I create program records with status "Submitted For Approval" using "default" properties
       | Title                               | RecordType  |
@@ -229,7 +229,7 @@ Feature: Validate all scenarios for program
     When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:pendingTaskTableId---" panel
     Then I softly see value "Activate NGO Program {SavedValue:ProgramEGMSID}" for title "Subject" inside table "---program:-:pendingTaskTableId---"
 
-  @111226 @VerifyProgramNotEditableAfterSubmission  @buglogged138933
+  @111226 @VerifyProgramNotEditableAfterSubmission  @buglogged138933 @programWBAPI
   Scenario Outline: Verifying NGO Program record is not editable once program is submitted for approval
     Given I create program records with status "Submitted For Approval" using "default" properties
       | Title                               | RecordType  |
@@ -274,7 +274,7 @@ Feature: Validate all scenarios for program
       | Program Name                                     |
       | {SavedValue:Automation Runtime External Program} |
 
-  @111416 @VerifyRejectionOfNGOProgram  @buglogged138933
+  @111416 @VerifyRejectionOfNGOProgram  @buglogged138933 @programWBAPI
   Scenario: Verifying Executive approver is able to reject NGO Program
     Given I create program records with status "Submitted For Approval" using "default" properties
       | Title                               | RecordType  |
@@ -328,7 +328,7 @@ Feature: Validate all scenarios for program
     Then I softly see field "Status" as "Rejected"
     Then I softly see status in Progress-bar is "Rejected" and is "Red"
 
-  @111514 @VerifyForwardOfNGOProgram
+  @111514 @VerifyForwardOfNGOProgram @programWBAPI
   Scenario: Verifying user is able to forward NGO Program to another user during Approval process
     Given I create program records with status "Submitted For Approval" using "default" properties
       | Title                               | RecordType  |
@@ -372,7 +372,7 @@ Feature: Validate all scenarios for program
     Then I softly see the following messages in the page details contains:
       | Successfully Re-Assigned |
 
-  @111515 @VerifySendBackFunctionalityForNGOProgram  @buglogged138933
+  @111515 @VerifySendBackFunctionalityForNGOProgram  @buglogged138933 @programWBAPI
   Scenario: Verifying user is able to send back NGO Program to owner
     Given I create program records with status "Submitted For Approval" using "default" properties
       | Title                               | RecordType  |
@@ -466,7 +466,7 @@ Feature: Validate all scenarios for program
     And I softly see the following messages in the page details contains:
       | Responsibilities - At least one approver is required |
 
-  @141801 @VerifyErrorMessageWhileSkippingStepsForNGOProgram-RnRFunctionality
+  @141801 @VerifyErrorMessageWhileSkippingStepsForNGOProgram-RnRFunctionality @programWBAPI
   Scenario: Verify the validation message is displayed when user skip the approval steps on NGO program
     Given I create program records with status "Active" using "default" properties
       | Title                               | RecordType  |
@@ -495,7 +495,7 @@ Feature: Validate all scenarios for program
     Then I softly see the following messages in the page details contains:
       | Responsibilities - You cannot skip an Approval Step. |
 
-  @169882 @169884 @169886 @169897 @169896 @169898 @ValidateusershouldabletoseenewGrantorPreapplicationformunderthesetuptabinInternalPrograms @sprint-7
+  @169882 @169884 @169886 @169897 @169896 @169898 @ValidateusershouldabletoseenewGrantorPreapplicationformunderthesetuptabinInternalPrograms @sprint-7 @programWBAPI
   Scenario Outline: Validate user should able to see new Grantor Pre application form under the setup tab in Internal Programs
     Given I create program records with status "Created" using "Owner-Automation <User>" properties
       | Title                               | RecordType       |
@@ -540,7 +540,7 @@ Feature: Validate all scenarios for program
     Then I softly see value "Standard Pre-Application form" for title "Form Name" inside table "---program:-:packagesTableId---"
 
   #Task/Owenership Re-assignment Scenarios
-  @197300 @ValidatePMuserisabletotransferhisowntaskofthetasktypeActivatetheProgramstatusasInprogresstoanotherPMuserforinternalprogram @sprint-4  @reassignment @ownvai
+  @197300 @ValidatePMuserisabletotransferhisowntaskofthetasktypeActivatetheProgramstatusasInprogresstoanotherPMuserforinternalprogram @sprint-4  @reassignment @ownvai @programWBAPI
   Scenario: Validate PM user is able to transfer his own task of the task type Activate the Program status as In progress to another PM user for internal program
     Given I create program records with status "Approved" using "default" properties
       | Title                               | RecordType       |
@@ -629,7 +629,7 @@ Feature: Validate all scenarios for program
     Then I softly see value "{SavedValue:OwnerName1}" for title "Name" inside table "---program:-:programOwnerTableId---"
     Then I cannot see top right button "Activate" in page detail
 
-  @197309 @ValidateEXEuserisabletotransferhisowntaskofthetasktypeActivateNGOProgramstatusaInprogresstoanotherEXEuserforexternalprogram @sprint-4  @reassignment @taskreassign
+  @197309 @ValidateEXEuserisabletotransferhisowntaskofthetasktypeActivateNGOProgramstatusaInprogresstoanotherEXEuserforexternalprogram @sprint-4  @reassignment @taskreassign @programWBAPI
   Scenario: Validate EXE user is able to transfer his own task of the task type Activate NGO Program status as In progress to another EXE user for external program
     Given I create program records with status "Approved" using "Owner-Automation EXE" properties
       | Title                               | RecordType  |
@@ -711,7 +711,7 @@ Feature: Validate all scenarios for program
     Then I softly see value "{SavedValue:OwnerName1}" for title "Name" inside table "---program:-:programOwnerTableId---"
     Then I cannot see top right button "Activate" in page detail
 
-  @197312 @ValidatereassignedtaskownerPMuserisabletoactivatetheinternalprogramifanothePMtransferstaskofthetasktypeActivatetheProgramwhenstatusoftaskasNotstarted @sprint-4  @reassignment
+  @197312 @ValidatereassignedtaskownerPMuserisabletoactivatetheinternalprogramifanothePMtransferstaskofthetasktypeActivatetheProgramwhenstatusoftaskasNotstarted @sprint-4  @reassignment @programWBAPI
   Scenario: Validate reassigned task owner PM user is able to activate the internal program if another PM transfers task of the task type Activate the Program when status of task as Not started
     Given I create program records with status "Approved" using "default" properties
       | Title                               | RecordType       |
@@ -793,7 +793,7 @@ Feature: Validate all scenarios for program
     And I click on "Activate" in the page details
     Then I can see top right button "Amend Program" in page detail
 
-  @199391 @ValidatereassignedtaskownerEXEuserisabletoactivattheinternalprogramifadmintransferstaskofthetasktypeActivatetheProgramwhenstatusoftaskisInProgress @sprint-4  @reassignment
+  @199391 @ValidatereassignedtaskownerEXEuserisabletoactivattheinternalprogramifadmintransferstaskofthetasktypeActivatetheProgramwhenstatusoftaskisInProgress @sprint-4  @reassignment @programWBAPI
   Scenario: Validate  reassigned task owner EXE user is able to activate the internal program if admin transfers task of the task type Activate the Program when status of task is In Progress
     Given I create program records with status "Approved" using "Owner-Automation EXE1" properties
       | Title                               | RecordType       |
@@ -988,7 +988,7 @@ Feature: Validate all scenarios for program
     And I select module "Program" from reassign ownership dropdown
     Then I softly see "Programs Available for Reassignment " page block displayed
 
-  @195251 @195254 @ValidateProgramSourceusershouldshowalltheprogramsInternalProgramNGOexternalprogramsofthesourceuser @sprint-4  @reassignment
+  @195251 @195254 @ValidateProgramSourceusershouldshowalltheprogramsInternalProgramNGOexternalprogramsofthesourceuser @sprint-4  @reassignment @programWBAPI
   Scenario: Validate Program -Source user should show all the programs(Internal Program/NGO external programs of the source user
     Given I create program records with status "Created" using "default" properties
       | Title                               | RecordType       |
@@ -1070,7 +1070,7 @@ Feature: Validate all scenarios for program
     Then I softly see the following messages in the page details contains:
       | You need to select at least one record |
 
-  @195268 @Validatetherecordistransferredthenusershouldabletoseethesamerecordinthetargetuserstable @sprint-4  @reassignment
+  @195268 @Validatetherecordistransferredthenusershouldabletoseethesamerecordinthetargetuserstable @sprint-4  @reassignment @programWBAPI
   Scenario: Validate the record is transferred then user should able to see the same record in the target user's table
     Given I create program records with status "Created" using "Owner-Automation EXE" properties
       | Title                               | RecordType       |
@@ -1102,7 +1102,7 @@ Feature: Validate all scenarios for program
     When I perform quick search for "{SavedValue:Automation Runtime Internal Program}" in "---program:-:adminTargetOwnerReplaceTableId---" panel
     Then I see value "{SavedValue:Automation Runtime Internal Program}" for title "Program ID" inside table "---program:-:adminTargetOwnerReplaceTableId---"
 
-  @195273 @195278 @195277 @Validateuserclickontransferbuttonusershouldgetfollowingwarningmessage @sprint-4  @reassignment
+  @195273 @195278 @195277 @Validateuserclickontransferbuttonusershouldgetfollowingwarningmessage @sprint-4  @reassignment @programWBAPI
   Scenario: Validate user click on transfer button user should  get following warning message
     Given I create program records with status "Created" using "Owner-Automation EXE" properties
       | Title                               | RecordType       |
@@ -1128,7 +1128,7 @@ Feature: Validate all scenarios for program
     Then I softly see the following messages in the page details contains:
       | Transfer is in progress, Kindly wait for email confirmation (Warning: if another user has already performed this action, no further processing will take place) |
 
-  @195317 @195347 @ValidateownershipistransferredforaProgramincreatedstateValidateallthevisibilityofallthebuttonsoftheprogramisavailabletothenewowner @sprint-4  @reassignment @FieldHistoryExclude
+  @195317 @195347 @ValidateownershipistransferredforaProgramincreatedstateValidateallthevisibilityofallthebuttonsoftheprogramisavailabletothenewowner @sprint-4  @reassignment @FieldHistoryExclude @programWBAPI
   Scenario: Validate ownership is transferred for a Program in created state Validate all the visibility of all the buttons of the program is available to the new owner
     Given I create program records with status "Created" using "Owner-Automation PM1" properties
       | Title                               | RecordType       |
@@ -1192,7 +1192,7 @@ Feature: Validate all scenarios for program
     Then I softly see value "Automation PM" for title "New Value" inside field history table
     Then I softly see value "Automation PM1" for title "Original Value" inside field history table
 
-  @195340 @Validatenameoftheownershouldgetupdatedinresponsibilitytab @sprint-1  @reassignment
+  @195340 @Validatenameoftheownershouldgetupdatedinresponsibilitytab @sprint-1  @reassignment @programWBAPI
   Scenario: Validate name of the owner should  get updated in responsibility tab
     Given I create program records with status "Created" using "Owner-Automation PM1" properties
       | Title                               | RecordType       |
@@ -1233,7 +1233,7 @@ Feature: Validate all scenarios for program
     When I navigate to "Responsibilities" sub tab
     Then I softly see value "Automation PM" for title "Name" inside table "---program:-:programOwnerTableId---"
 
-  @196652 @ValidateownershipistransferredforaProgramSubmittedforapprovalValidateapprovercanapprovetheprogram&newprogramownergetstheActivaterelatedtaskandhasbuttonsonUI @sprint-4  @reassignment
+  @196652 @ValidateownershipistransferredforaProgramSubmittedforapprovalValidateapprovercanapprovetheprogram&newprogramownergetstheActivaterelatedtaskandhasbuttonsonUI @sprint-4  @reassignment @programWBAPI
   Scenario: Validate ownership is transferred for a Program Submitted for approval Validate approver can approve the program  & new program owner gets the Activate related task and has buttons on UI
     Given I create program records with status "Submitted For Approval" using "Owner-Automation PM1" properties
       | Title                               | RecordType       |
@@ -1351,7 +1351,7 @@ Feature: Validate all scenarios for program
     Then I see value "{SavedValue:ProgramEGMSID}" for title "EGMS ID" inside table "---program:-:completedTaskTableId---"
     Then I softly see value "Activate Internal Program {SavedValue:ProgramEGMSID}" for title "Subject" inside table "---program:-:completedTaskTableId---"
 
-  @196688 @ValidateownershipistransferredforaPrograminSubmittedforReviewstateValidateallthevisibilityofallthebuttonsoftheprogramisavailabletothenewowner @sprint-4  @reassignment @ownvai
+  @196688 @ValidateownershipistransferredforaPrograminSubmittedforReviewstateValidateallthevisibilityofallthebuttonsoftheprogramisavailabletothenewowner @sprint-4  @reassignment @ownvai @programWBAPI
   Scenario: Validate ownership is transferred for a Program in Submitted for Review state Validate all the visibility of all the buttons of the program is available to the new owner
     Given I create program records with status "Created" using "Owner-Automation PM1" properties
       | Title                               | RecordType       |
@@ -1452,7 +1452,7 @@ Feature: Validate all scenarios for program
     And I click on Menu icon present on top right corner of the page
     Then I softly can see top right button "Submit For Approval" in page detail
 
-  @196706 @Validatepeerreviewtasksnotstartedremainwithassignedreviewer&arenotautomaticallyassignedtonewownerofprogramwhenownershipofsuchinternalsprogramistransferred @sprint-4  @reassignment
+  @196706 @Validatepeerreviewtasksnotstartedremainwithassignedreviewer&arenotautomaticallyassignedtonewownerofprogramwhenownershipofsuchinternalsprogramistransferred @sprint-4  @reassignment @programWBAPI
   Scenario: Validate peer review tasks (not started) remain with assigned reviewer & are not automatically assigned to new owner of program when ownership of such internals program is transferred
     Given I create program records with status "Created" using "Owner-Automation PM1" properties
       | Title                               | RecordType       |
@@ -1529,7 +1529,7 @@ Feature: Validate all scenarios for program
     Then I see value "Record Id" for title "EGMS ID" inside table "---program:-:pendingTaskTableId---"
     Then I see value "Review Program {SavedValue:ProgramEGMSID}" for title "Subject" inside table "---program:-:pendingTaskTableId---"
 
-  @196764 @ValidatethevisibilityofallthebuttonsoftheprogramisnotavailablefortheinitialownerwhenownershipistransferredtonewuserforaPrograminSubmittedforReviewstate @sprint-4  @reassignment
+  @196764 @ValidatethevisibilityofallthebuttonsoftheprogramisnotavailablefortheinitialownerwhenownershipistransferredtonewuserforaPrograminSubmittedforReviewstate @sprint-4  @reassignment @programWBAPI
   Scenario: Validate the visibility of all the buttons of the program is not available for the initial owner when ownership is transferred to a new user for a Program in Submitted for Review state
     Given I create program records with status "Created" using "Owner-Automation PM1" properties
       | Title                               | RecordType       |
@@ -1599,7 +1599,7 @@ Feature: Validate all scenarios for program
     When I navigate to "Responsibilities" sub tab
     Then  I cannot see top right button "New" in flex table with id "---program:-:peerReviewTableId---"
 
-  @196693 @Validatetasksareremovedforoldowner&newprogramownergetstheActivaterelatedtaskandhasbuttonsonUIwhenownershipistransferredforaProgramofapprovedstatus @sprint-4  @reassignment
+  @196693 @Validatetasksareremovedforoldowner&newprogramownergetstheActivaterelatedtaskandhasbuttonsonUIwhenownershipistransferredforaProgramofapprovedstatus @sprint-4  @reassignment @programWBAPI
   Scenario: Validate tasks are removed for old owner & new program owner gets the Activate related task and has buttons on UI when ownership is transferred for a Program of approved status
     Given I create program records with status "Approved" using "Owner-Automation EXE" properties
       | Title                               | RecordType       |
@@ -1687,7 +1687,7 @@ Feature: Validate all scenarios for program
     And I click on "Start" icon for "{SavedValue:ProgramEGMSID}" inside flex table with id "---program:-:pendingTaskTableId---" without waiting for record
     Then I can see top right button "Activate" in page detail
 
-  @196699 @Validateapprovercanapprovetheexternalprogram&newownergetstheActivaterelatedtasksandhasbuttonsonUIwhenownershipistransferredforaExternalProgramSubmittedforapproval  @sprint-4  @reassignment
+  @196699 @Validateapprovercanapprovetheexternalprogram&newownergetstheActivaterelatedtasksandhasbuttonsonUIwhenownershipistransferredforaExternalProgramSubmittedforapproval  @sprint-4  @reassignment @programWBAPI
   Scenario: Validate  approver can approve the external program & new owner gets the Activate related tasks and has buttons on UI when ownership is transferred for a External Program Submitted for approval
     Given I create program records with status "Submitted for Approval" using "Owner-Automation PM1" properties
       | Title                               | RecordType  |
@@ -1795,7 +1795,7 @@ Feature: Validate all scenarios for program
     Then I see value "Record Id" for title "EGMS ID" inside table "---program:-:completedTaskTableId---"
     Then I softly see value "Activate NGO Program {SavedValue:ProgramEGMSID}" for title "Subject" inside table "---program:-:completedTaskTableId---"
 
-  @197125 @Validateownershiptasksareroutedtoappropriateuserwhentransferofownershipisdonesimultaneouslyfor4internalprogramsindifferentstateshasrelatedtasksonthem @sprint-4  @reassignment
+  @197125 @Validateownershiptasksareroutedtoappropriateuserwhentransferofownershipisdonesimultaneouslyfor4internalprogramsindifferentstateshasrelatedtasksonthem @sprint-4  @reassignment @programWBAPI
   Scenario: Validate ownership & tasks are routed to appropriate user when transfer of ownership is done simultaneously for 4 internal programs in different states & has related tasks on them
     Given I create program records with status "Created" using "Owner-Automation PM1" properties
       | Title                               | RecordType       |
@@ -2080,7 +2080,7 @@ Feature: Validate all scenarios for program
     Then I see value "{SavedValue:ProgramEGMSID1}" for title "EGMS ID" inside table "---program:-:pendingTaskTableId---"
     Then I softly see value "Review Program {SavedValue:ProgramEGMSID1}" for title "Subject" inside table "---program:-:pendingTaskTableId---"
 
-  @197246 @Validateuserselectprogramthenreassignmenthistoryshouldtrackedinthefieldhistorytableinhistorytabforexternalprogram @sprint-4  @reassignment @FieldHistoryExclude
+  @197246 @Validateuserselectprogramthenreassignmenthistoryshouldtrackedinthefieldhistorytableinhistorytabforexternalprogram @sprint-4  @reassignment @FieldHistoryExclude @programWBAPI
   Scenario: Validate user select program then reassignment history should tracked in the field history table in history tab for external program
     Given I create program records with status "Active" using "Owner-Automation PM1" properties
       | Title                               | RecordType  |
@@ -2159,7 +2159,7 @@ Feature: Validate all scenarios for program
     Then I softly see value "Automation PM" for title "New Value" inside field history table
     Then I softly see value "Automation PM1" for title "Original Value" inside field history table
 
-  @198789 @ValidateapprovaltaskassignedtoinitialownerofprogramEXEisnottransferredtonewownerwhenaexternalprograminsubmitforapprovalstatusistransferredtonewownerEXE&emailissenttocorrectowneruponrejecting @sprint-4  @reassignment
+  @198789 @ValidateapprovaltaskassignedtoinitialownerofprogramEXEisnottransferredtonewownerwhenaexternalprograminsubmitforapprovalstatusistransferredtonewownerEXE&emailissenttocorrectowneruponrejecting @sprint-4  @reassignment @programWBAPI
   Scenario: Validate approval task assigned to initial owner of program <EXE> is not transferred to new owner when a external program in submit for approval status is transferred to new owner (EXE) & email is sent to correct owner upon rejecting
     Given I create program records with status "Submitted For Approval" using "Owner-{SavedValue:EXE Username},approver1-{SavedValue:EXE Username},approver2-NA" properties
       | Title                               | RecordType  |
@@ -2410,7 +2410,7 @@ Feature: Validate all scenarios for program
     Then  I can see top right button "Add Files" in flex table with id "---program:-:GrantorInternalProgramFilesTableId---"
     Then  I can see top right button "New" in flex table with id "---program:-:internalProgramNotesTableId---"
 
-  @199612 @validateownershipreassignmentissuccessfulforainternalprogramonRejectedstatus @sprint-4  @reassignment
+  @199612 @validateownershipreassignmentissuccessfulforainternalprogramonRejectedstatus @sprint-4  @reassignment @programWBAPI
   Scenario: Validate ownership reassignment is successful for a internal program on Rejected status
     Given I create program records with status "Rejected" using "Owner-{SavedValue:PM1 Username}" properties
       | Title                               | RecordType       |
@@ -2487,7 +2487,7 @@ Feature: Validate all scenarios for program
     And I navigate to "History" sub tab
     Then I softly see column "Overall Status" at position "1" contains text "Rejected"
 
-  @197314  @sprint-4  @reassignment @ownvai
+  @197314  @sprint-4  @reassignment @ownvai @programWBAPI
   Scenario: Validate reassigned task owner EXE user is able to activate the external program if another EXE transfers task of the task type Activate NGO Program when status of task as Not started
     Given I create program records with status "Approved" using "Owner-{SavedValue:EXE Username}" properties
       | Title                               | RecordType       |
@@ -2564,7 +2564,7 @@ Feature: Validate all scenarios for program
     And I click on "Activate" in the page details
     Then I softly see field "Status" as "Active"
 
-  @197549 @ValidateownershiptasksareroutedtoretainedbyappropriateuserwhentaskshavingdifferentpurposearereassignedsimultaneouslytoanotherPMuserfor3differentexternalprograms @sprint-4  @reassignment
+  @197549 @ValidateownershiptasksareroutedtoretainedbyappropriateuserwhentaskshavingdifferentpurposearereassignedsimultaneouslytoanotherPMuserfor3differentexternalprograms @sprint-4  @reassignment @programWBAPI
   Scenario: Validate ownership & tasks are routed to retained by appropriate user when tasks having different purpose are reassigned simultaneously to another PM user for 3 different external programs
     #Program1
     Given I create program records with status "Submited For Approval" using "approver1-{SavedValue:PM1 Username},approver2-NA" properties
@@ -2767,7 +2767,7 @@ Feature: Validate all scenarios for program
     And I click on "Activate" in the page details
     Then I softly see status in Progress-bar is "Active" and is "dark blue"
 
-  @199388 @ValidatereassignedtaskownerPMuserisabletoactivatetheexternalprogramifadmintransferstaskofthetasktypeActivateNGOProgramwhenstatusoftaskisNotStarted @sprint-4  @reassignment
+  @199388 @ValidatereassignedtaskownerPMuserisabletoactivatetheexternalprogramifadmintransferstaskofthetasktypeActivateNGOProgramwhenstatusoftaskisNotStarted @sprint-4  @reassignment @programWBAPI
   Scenario: Validate reassigned task owner PM user is able to activate the external program if admin transfers task of the task type Activate NGO Program when status of task is Not Started
     Given I create program records with status "Approved" using "Owner-{SavedValue:PM1 Username},approver1-{SavedValue:FO Username},approver2-NA" properties
       | Title                               | RecordType       |
@@ -2844,7 +2844,7 @@ Feature: Validate all scenarios for program
     And I click on "Activate" in the page details
     Then I softly see field "Status" as "Active"
 
-  @199398  @sprint-4  @reassignment
+  @199398  @sprint-4  @reassignment @programWBAPI
   Scenario: Validate reassigned task owner ADMIN user is able to activate the external program when he she transfers task of the task type Activate NGO Program to another user having profile as ADMIN
     Given I create program records with status "Approved" using "Owner-{SavedValue:ADMIN Username},approver1-{SavedValue:ADMIN1 Username},approver2-NA" properties
       | Title                               | RecordType       |
@@ -2916,7 +2916,7 @@ Feature: Validate all scenarios for program
     And I click on "Activate" in the page details
     Then I softly see field "Status" as "Active"
 
-  @199405 @ValidatereassignedtaskownerADMINuserisabletoactivatetheinternalprogramifanotherADMINtransferstaskofthetasktypeActivatetheProgramwhenstatusoftaskasNotstarted @sprint-4  @reassignment
+  @199405 @ValidatereassignedtaskownerADMINuserisabletoactivatetheinternalprogramifanotherADMINtransferstaskofthetasktypeActivatetheProgramwhenstatusoftaskasNotstarted @sprint-4  @reassignment @programWBAPI
   Scenario: Validate reassigned task owner ADMIN user is able to activate the internal program if another ADMIN transfers task of the task type Activate the Program when status of task as Not started
     Given I create program records with status "Approved" using "Owner-{SavedValue:ADMIN Username},approver1-{SavedValue:ADMIN1 Username},approver2-NA" properties
       | Title                               | RecordType       |
@@ -2998,7 +2998,7 @@ Feature: Validate all scenarios for program
     Then I softly see field "Status" as "Active"
     Then I can see top right button "Amend Program" in page detail
 
-  @199393 @ValidatereassignedtaskownerPOuserisabletoactivatetheexternalprogramwhentransferstaskofthetasktypeActivateNGOProgramtoanotheruserhavingprofileasPO @sprint-4  @reassignment
+  @199393 @ValidatereassignedtaskownerPOuserisabletoactivatetheexternalprogramwhentransferstaskofthetasktypeActivateNGOProgramtoanotheruserhavingprofileasPO @sprint-4  @reassignment @programWBAPI
   Scenario: Validate reassigned task owner PO user is able to activate the external program when transfers task of the task type Activate NGO Program to another user having profile as PO
     Given I create program records with status "Approved" using "Owner-{SavedValue:PO Username},approver1-{SavedValue:FO Username},approver2-NA" properties
       | Title                               | RecordType       |
@@ -3086,7 +3086,7 @@ Feature: Validate all scenarios for program
     Then I softly see value "Completed" for title "Status" inside table "---program:-:completedTaskTableId---"
 
   #Supporting Document Checklist
-  @204027 @ValidateTheinternaluserPMcanadddescriptionandotherdetailsinSupportingDocumentChecklist @sprint-7-US-202724
+  @204027 @ValidateTheinternaluserPMcanadddescriptionandotherdetailsinSupportingDocumentChecklist @sprint-7-US-202724 @programWBAPI
   Scenario: Validate The internal user<PM> can add description and other details in Supporting Document Checklist
     Given I create program records with status "Created" using "default" properties
       | Title                               | RecordType       |
@@ -3119,7 +3119,7 @@ Feature: Validate all scenarios for program
     Then I softly see value "Application" for title "Applies To" inside table "---program:-:checklistTableId---"
     Then I softly see value "Active" for title "Status" inside table "---program:-:checklistTableId---"
 
-  @204031 @ValidateUserAdminclickonUploadTemplateiconamodalwillopenanditwillbereplacedbynewmodalnamedasAddFile @sprint-7-US-202724
+  @204031 @ValidateUserAdminclickonUploadTemplateiconamodalwillopenanditwillbereplacedbynewmodalnamedasAddFile @sprint-7-US-202724 @programWBAPI
   Scenario: Validate  User <Admin> click on "Upload Template" icon  a modal will open and it will be replaced by new modal named as Add File
     Given I create program records with status "Created" using "Owner-{SavedValue:ADMIN Username}" properties
       | Title                               | RecordType       |
@@ -3150,7 +3150,7 @@ Feature: Validate all scenarios for program
     When I click on "Upload Template" icon for "Not Applicable" inside flex table with id "---program:-:checklistTableId---" without waiting for record
     Then I softly see "Upload Document" opens in overLay window
 
-  @204033 @ValidatenewmodalofaddfilesopenitwillhaveoneoptionUploadFilefromComputer @sprint-7-US-202724
+  @204033 @ValidatenewmodalofaddfilesopenitwillhaveoneoptionUploadFilefromComputer @sprint-7-US-202724 @programWBAPI
   Scenario: Validate new modal of add files open it will have one option Upload File from Computer
     Given I create program records with status "Created" using "Owner-{SavedValue:EXE Username}" properties
       | Title                               | RecordType       |
@@ -3181,7 +3181,7 @@ Feature: Validate all scenarios for program
     When I click on "Upload Template" icon for "Not Applicable" inside flex table with id "---program:-:checklistTableId---" without waiting for record
     Then I see "Upload File from Computer" page block displayed
 
-  @204034 @ValidateUploadFIlesfromComputerwillhavesectionslikeClassificationUploadFileChooseaFileORDragithereDescription @sprint-7-US-202724
+  @204034 @ValidateUploadFIlesfromComputerwillhavesectionslikeClassificationUploadFileChooseaFileORDragithereDescription @sprint-7-US-202724 @programWBAPI
   Scenario: Validate Upload FIles from Computer will have sections like: Classification, Upload File (Choose a File OR Drag it here), Description
     Given I create program records with status "Created" using "Owner-{SavedValue:EXE Username}" properties
       | Title                               | RecordType       |
@@ -3211,7 +3211,7 @@ Feature: Validate all scenarios for program
     Then I see field "Upload File" as "Choose a File OR Drag it here" on modal
     Then I softly see field on modal "Description" inside page block
 
-  @204037 @ValidateUserPMcanseetwobuttonsatthebottomofUploadFilesfromComputerUploadItwillenableonlyafterwechooseafiletouploadelseitwillbedisabled @sprint-7-US-202724
+  @204037 @ValidateUserPMcanseetwobuttonsatthebottomofUploadFilesfromComputerUploadItwillenableonlyafterwechooseafiletouploadelseitwillbedisabled @sprint-7-US-202724 @programWBAPI
   Scenario: Validate User PM can see two buttons at the bottom of Upload Files from Computer Upload It will enable only after we choose a file to upload else it will be disabled
   Given I create program records with status "Created" using "Owner-{SavedValue:EXE Username}" properties
   | Title                               | RecordType       |
@@ -3245,7 +3245,7 @@ Feature: Validate all scenarios for program
     When I upload file "AttachmentTesting.pdf" into library
     Then I do not see "Upload" button is disabled at modal under library
 
-  @204036 @ValidateUserPMcanseetwobuttonsatthebottomofUploadFilesfromComputerupload&Cancel @sprint-7-US-202724
+  @204036 @ValidateUserPMcanseetwobuttonsatthebottomofUploadFilesfromComputerupload&Cancel @sprint-7-US-202724 @programWBAPI
   Scenario: Validate User PM can see two buttons at the bottom of Upload Files from Computer upload & Cancel
     Given I create program records with status "Created" using "Owner-{SavedValue:EXE Username}" properties
       | Title                               | RecordType       |
@@ -3277,7 +3277,7 @@ Feature: Validate all scenarios for program
     Then I see "Upload" button is disabled at modal under library
     Then I see "Cancel" button is displayed On Modal
 
-  @204038 @ValidateCancelbuttonIfclickonCancelthanthemodalwillcloseanddetailsfilledwillbelost @sprint-7-US-202724
+  @204038 @ValidateCancelbuttonIfclickonCancelthanthemodalwillcloseanddetailsfilledwillbelost @sprint-7-US-202724 @programWBAPI
   Scenario: Validate Cancel button If click on Cancel than the modal will close and details filled will be lost
     Given I create program records with status "Created" using "Owner-{SavedValue:ADMIN Username}" properties
       | Title                               | RecordType       |
@@ -3309,7 +3309,7 @@ Feature: Validate all scenarios for program
     And I click modal button "Close"
     Then I see value "Not Applicable" for title "Template Link" against the value "Active" inside table "---program:-:checklistTableId---"
 
-  @204046 @ValidateCancelbuttonwillalwaysbeenabled @sprint-7-US-202724
+  @204046 @ValidateCancelbuttonwillalwaysbeenabled @sprint-7-US-202724 @programWBAPI
   Scenario: Validate Cancel button will always be enabled
     Given I create program records with status "Created" using "Owner-{SavedValue:EXE Username}" properties
       | Title                               | RecordType       |
