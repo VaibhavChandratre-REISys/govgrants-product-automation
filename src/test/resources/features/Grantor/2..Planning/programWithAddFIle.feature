@@ -265,6 +265,7 @@ Feature: Validate all scenarios for program with add file
     And I enter in modal value "Passed" into field "ReviewComments__c"
     When I click modal button "Save"
     And I click on submit review
+    When I click modal button "Close"
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Planning" tab
     When I navigate to "Internal Programs" content inside "Programs" subheader on left panel
@@ -455,6 +456,7 @@ Feature: Validate all scenarios for program with add file
     And I enter in modal value "Passed" into field "ReviewComments__c"
     When I click modal button "Save"
     And I click on submit review
+    When I click modal button "Close"
     When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Planning" tab
     When I navigate to "Internal Programs" content inside "Programs" subheader on left panel
@@ -507,8 +509,10 @@ Feature: Validate all scenarios for program with add file
     Then I softly see "Program Artifacts" has been added in "Program Files" flex table
     When I navigate to "Overview" sub tab
     When I click on top right button "Associate" in flex table with id "---program:-:contactsTableId---"
-    When I click "Associate" after selection of "{SavedValue:PM Username}" by showing entries "All" in flex table with id "---program:-:associateContactsTableId---"
-    When I navigate to "Setup" sub tab
+#    When I click "Associate" after selection of "{SavedValue:PM Username}" by showing entries "All" in flex table with id "---program:-:associateContactsTableId---"
+   When I perform quick search for "{SavedValue:PM Username}" in "---program:-:associateContactsTableId---" panel
+   When I click "Associate" after selection of "{SavedValue:PM Username}" in the table "---program:-:associateContactsTableId---"
+   When I navigate to "Setup" sub tab
     When I click on top right button "Associate" in flex table with id "---program:-:focusAreaTableId---"
     When I click "Associate" after selection of "Automation Permanent Focus Area" by showing entries "All" in flex table with id "---program:-:associateFocusAreaTableId---"
     When I click on top right button "Associate" in flex table with id "---program:-:objectivesTableId---"
@@ -647,6 +651,7 @@ Feature: Validate all scenarios for program with add file
     And I enter in modal value "Passed" into field "ReviewComments__c"
     When I click modal button "Save"
     And I click on submit review
+    When I click modal button "Close"
     And I wait for "3" seconds
     #222092
     Then I cannot see top right button "Edit" in page detail
@@ -701,7 +706,9 @@ Feature: Validate all scenarios for program with add file
     And I navigate to "Files" sub tab
     And I click on top right button "Add Files" in flex table with id "---program:-:GrantorInternalProgramFilesTableId---"
     And I pause execution for "2" seconds
+    And I halt execution
     And I upload attachment "Attachment.pdf" of type "Program Artifacts" from computer
+    And I halt execution
     When I click modal button "Close"
     And I wait for "2" seconds
     Then I softly see "Program Artifacts" has been added in "Program Files" flex table
