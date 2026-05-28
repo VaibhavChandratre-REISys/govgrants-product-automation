@@ -994,11 +994,11 @@ public final class GovGrantsSteps {
     public void getHelpTextIconsAtPageBlockDetail(String usage, String pageBlockDetailTitle) {
         if (usage.equalsIgnoreCase("modal"))
             govgrants.perform().pageDetails().getHelpTextAtModalWindow(pageBlockDetailTitle);
-        else if(usage.equalsIgnoreCase("modal page block")){
+        else if (usage.equalsIgnoreCase("modal page block")) {
             govgrants.perform().pageDetails().getHelpTextAtModalWindowforPageBlock(pageBlockDetailTitle);
-        }else if(usage.equalsIgnoreCase("page block detail for invisible element")){
+        } else if (usage.equalsIgnoreCase("page block detail for invisible element")) {
             govgrants.perform().pageDetails().getHelpTextAtPageBlockDetailForInvisibleElement(pageBlockDetailTitle);
-        }else
+        } else
             govgrants.perform().pageDetails().getHelpTextAtPageBlockDetail(pageBlockDetailTitle);
     }
 
