@@ -1247,8 +1247,10 @@ Feature: Validate sanity testing of Complete Business Flow
     When I navigate to "Applications" tab
     And I navigate to "Applications" content inside "Applications" subheader on left panel
     When I click toggle button to select "Applications - All"
-    And I perform quick search for "<Announcement Name>" in "---applicationIntake:-:applicantGrantorApplicationsTableId---" panel
-    And I click on "View" icon for "<Announcement Name>" inside flex table with id "---applicationIntake:-:applicantGrantorApplicationsTableId---"
+#    And I perform quick search for "<Announcement Name>" in "---applicationIntake:-:applicantGrantorApplicationsTableId---" panel
+#    And I click on "View" icon for "<Announcement Name>" inside flex table with id "---applicationIntake:-:applicantGrantorApplicationsTableId---"
+    And I perform quick search for "<Announcement Name>" in "AppReviewList" panel
+    And I click on "View" icon for "<Announcement Name>" inside flex table with id "AppReviewList"
     And I get the "EGMS ID"
     And I wait for "3" seconds
     When I navigate to "Applications" tab
