@@ -378,6 +378,7 @@ Feature: Validate all scenarios in Funding Source
     And I click on "Save" in the page details
     And I save the field labeled "Start Date" as "SDATE"
     And I save the field labeled "End Date" as "EDATE"
+    And I wait for "2" seconds
     When I navigate to "Files" sub tab
     Then I softly can see top right button "Add Files" in flex table with id "---fundingSource:-:InternalFundingSourceFilesTableId---"
     And I click on top right button "Add Files" in flex table with id "---fundingSource:-:InternalFundingSourceFilesTableId---"
@@ -388,6 +389,7 @@ Feature: Validate all scenarios in Funding Source
     Then I softly can see row level action button "Edit" against "Other" in flex table with id "---fundingSource:-:InternalFundingSourceFilesTableId---"
     Then I softly can see row level action button "View" against "Other" in flex table with id "---fundingSource:-:InternalFundingSourceFilesTableId---"
     Then I softly can see row level action button "Delete" against "Other" in flex table with id "---fundingSource:-:InternalFundingSourceFilesTableId---"
+    And I wait for "2" seconds
     And I navigate to "Overview" sub tab
     When I click on top right button "New" in flex table with id "---fundingsource:-:fundingAccountTableId---"
     And I enter in modal "Funding Account Creation" values from "FundingSource_Field_Values.xlsx"
@@ -401,6 +403,7 @@ Feature: Validate all scenarios in Funding Source
     And I wait for "2" seconds
     And I save the field labeled "Funding Source" as "FUNDINGSOURCE"
     And I click "{SavedValue:FUNDINGSOURCE}" lookup link
+    And I pause execution for "3" seconds
     When I navigate to "Files" sub tab
     Then I softly can see top right button "Add Files" in flex table with id "---fundingSource:-:InternalFundingSourceFilesTableId---"
     Then I softly can see row level action button "Download" against "Other" in flex table with id "---fundingSource:-:InternalFundingSourceFilesTableId---"
@@ -413,6 +416,8 @@ Feature: Validate all scenarios in Funding Source
     When I click on "Deactivate" in the page details
     And I pause execution for "3" seconds
     And I click "{SavedValue:FUNDINGSOURCE}" lookup link
+    And I refresh the page
+    And I pause execution for "3" seconds
     When I navigate to "Files" sub tab
     Then I softly cannot see top right button "Add Files" in flex table with id "---fundingSource:-:InternalFundingSourceFilesTableId---"
     Then I softly can see row level action button "Download" against "Other" in flex table with id "---fundingSource:-:InternalFundingSourceFilesTableId---"
@@ -571,6 +576,7 @@ Feature: Validate all scenarios in Funding Source
     Then I see status in Progress-bar is "Active" and is "dark blue"
     And I save the field labeled "Funding Source" as "FUNDINGSOURCE"
     And I click "{SavedValue:FUNDINGSOURCE}" lookup link
+    And I refresh the page
     When I navigate to "Files" sub tab
     Then I softly can see top right button "Add Files" in flex table with id "---fundingSource:-:externalFundingSourceTableId---"
     Then I softly can see row level action button "Download" against "Other" in flex table with id "---fundingSource:-:externalFundingSourceTableId---"
@@ -617,6 +623,7 @@ Feature: Validate all scenarios in Funding Source
     And I click on "Save" in the page details
     And I save the field labeled "Start Date" as "SDATE"
     And I save the field labeled "End Date" as "EDATE"
+    And I wait for "2" seconds
     When I navigate to "Files" sub tab
     Then I softly can see top right button "Add Files" in flex table with id "---fundingSource:-:externalFundingSourceTableId---"
     And I click on top right button "Add Files" in flex table with id "---fundingSource:-:externalFundingSourceTableId---"
@@ -639,6 +646,8 @@ Feature: Validate all scenarios in Funding Source
     Then I see status in Progress-bar is "Active" and is "dark blue"
     And I save the field labeled "Funding Source" as "FUNDINGSOURCE"
     And I click "{SavedValue:FUNDINGSOURCE}" lookup link
+    And I refresh the page
+    And I pause execution for "3" seconds
     When I navigate to "Files" sub tab
     Then I softly can see top right button "Add Files" in flex table with id "---fundingSource:-:externalFundingSourceTableId---"
     Then I softly can see row level action button "Download" against "Other" in flex table with id "---fundingSource:-:externalFundingSourceTableId---"
@@ -651,6 +660,8 @@ Feature: Validate all scenarios in Funding Source
     When I click on "Deactivate" in the page details
     And I wait for "3" seconds
     And I click "{SavedValue:FUNDINGSOURCE}" lookup link
+    And I refresh the page
+    And I pause execution for "3" seconds
     When I navigate to "Files" sub tab
     Then I softly cannot see top right button "Add Files" in flex table with id "---fundingSource:-:externalFundingSourceTableId---"
     Then I softly can see row level action button "Download" against "Other" in flex table with id "---fundingSource:-:externalFundingSourceTableId---"
@@ -664,6 +675,8 @@ Feature: Validate all scenarios in Funding Source
     And I click toggle button to select "External Funding Sources - All"
     When I perform quick search for "{SavedValue:FUNDINGSOURCE}" in "---fundingsource:-:externalFundingTableId---" panel
     And I click on "View" icon for "{SavedValue:FUNDINGSOURCE}" inside table
+    And I refresh the page
+    And I pause execution for "3" seconds
     When I navigate to "Files" sub tab
     Then I softly cannot see top right button "Add Files" in flex table with id "---fundingSource:-:externalFundingSourceTableId---"
     Then I softly can see row level action button "Download" against "Other" in flex table with id "---fundingSource:-:externalFundingSourceTableId---"
@@ -685,6 +698,7 @@ Feature: Validate all scenarios in Funding Source
     And I click on "Save" in the page details
     And I save the field labeled "Start Date" as "SDATE"
     And I save the field labeled "End Date" as "EDATE"
+    And I wait for "2" seconds
     When I navigate to "Files" sub tab
     Then I softly can see top right button "Add Files" in flex table with id "---fundingSource:-:externalFundingSourceTableId---"
     And I click on top right button "Add Files" in flex table with id "---fundingSource:-:externalFundingSourceTableId---"
@@ -707,6 +721,8 @@ Feature: Validate all scenarios in Funding Source
     Then I see status in Progress-bar is "Active" and is "dark blue"
     And I save the field labeled "Funding Source" as "FUNDINGSOURCE"
     And I click "{SavedValue:FUNDINGSOURCE}" lookup link
+    And I refresh the page
+    And I pause execution for "3" seconds
     When I navigate to "Files" sub tab
     Then I softly can see top right button "Add Files" in flex table with id "---fundingSource:-:externalFundingSourceTableId---"
     Then I softly can see row level action button "Download" against "Other" in flex table with id "---fundingSource:-:externalFundingSourceTableId---"
@@ -719,6 +735,8 @@ Feature: Validate all scenarios in Funding Source
     When I click on "Deactivate" in the page details
     And I wait for "3" seconds
     And I click "{SavedValue:FUNDINGSOURCE}" lookup link
+    And I refresh the page
+    And I pause execution for "3" seconds
     When I navigate to "Files" sub tab
     Then I softly cannot see top right button "Add Files" in flex table with id "---fundingSource:-:externalFundingSourceTableId---"
     Then I softly can see row level action button "Download" against "Other" in flex table with id "---fundingSource:-:externalFundingSourceTableId---"
@@ -732,6 +750,8 @@ Feature: Validate all scenarios in Funding Source
     And I click toggle button to select "External Funding Sources - All"
     When I perform quick search for "{SavedValue:FUNDINGSOURCE}" in "---fundingsource:-:externalFundingTableId---" panel
     And I click on "View" icon for "{SavedValue:FUNDINGSOURCE}" inside table
+    And I refresh the page
+    And I pause execution for "3" seconds
     When I navigate to "Files" sub tab
     Then I softly cannot see top right button "Add Files" in flex table with id "---fundingSource:-:externalFundingSourceTableId---"
     Then I softly can see row level action button "Download" against "Other" in flex table with id "---fundingSource:-:externalFundingSourceTableId---"

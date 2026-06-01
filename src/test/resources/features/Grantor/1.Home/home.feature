@@ -591,6 +591,7 @@ Feature: Validate all scenarios in the home tab
     And I pause execution for "3" seconds
     And I click modal button "Save and Continue"
     And I pause execution for "2" seconds
+#    Error msg
     And I enter "Edition" values from "Application_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I navigate to "Budget" sub tab
