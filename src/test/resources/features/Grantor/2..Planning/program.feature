@@ -635,7 +635,7 @@ Feature: Validate all scenarios for program
       | Contact                   |
       | {SavedValue:EXE Username} |
 
-  @passed @105880 @ValidateDeletionOfAssociatedContact
+  @mk @105880 @ValidateDeletionOfAssociatedContact
   Scenario Outline: Verify user is able to delete associated contact
     When I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---program:-:contactsTableId---"
