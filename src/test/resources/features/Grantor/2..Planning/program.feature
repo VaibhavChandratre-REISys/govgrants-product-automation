@@ -112,6 +112,7 @@ Feature: Validate all scenarios for program
     Then I softly do not see value "Return on Investment (ROI) Test" for title "Section Header" inside table "---program:-:programReviewPanel---"
     And I refresh the page
     And I navigate to "Setup" sub tab
+    And I wait for "5" seconds
     And I click on parallel menu button in flex table title "Review Steps"
     And I wait for "2" seconds
     And I select "Download as PDF" from parallel lines dropdown of "Review Steps"
@@ -546,7 +547,7 @@ Feature: Validate all scenarios for program
       | Setup Tab - Pre-Screen Review - Pre-Screen: The total section weight must equal 100% or 0%. It is currently 120%.                                   |
       | Setup Tab - SME Review - Fiscal Review: The total section weight must equal 100% or 0%. It is currently 90%.                                        |
 
-  @76943 @76944 @76948 @76947 @76984 @76985 @77098
+  @76943 @76944 @76948 @76947 @76984 @76985 @77098 @Bug-PROD-683
   Scenario: To verify user able to modify review question in Strategic Alignment of Review Panel Categories in management review form for management review step in planning phase
     And I navigate to "Setup" sub tab
     And I expand nested table containing column value "Management Review"
@@ -598,7 +599,9 @@ Feature: Validate all scenarios for program
     And I softly see value "Test 5" for title "Question" inside table "---program:-:programReviewPanelQuestionsTableId---"
     And I softly see value "0" for title "Max Score" inside table "---program:-:programReviewPanelQuestionsTableId---"
     And I click on parallel menu button in flex table title "Review Questions"
+    And I wait for "3" seconds
     And I select "Download as PDF" from parallel lines dropdown of "Review Questions"
+    And I wait for "3" seconds
     And I download the file
       #76985 following 5 assertion belongs to this
     Then I softly see "Completeness" on page "1" of "govgrants" pdf file
