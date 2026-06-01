@@ -25,9 +25,14 @@ import com.helperPackage.report.LogLevel;
 import com.helperPackage.actionsfactory.abstracts.ActionProcessing;
 import com.helperPackage.actionsfactory.type.Is;
 import com.helperPackage.controller.DeviceBucket;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.FluentWait;
+import org.openqa.selenium.support.ui.Wait;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
+import java.util.concurrent.TimeUnit;
 
 import static com.helperPackage.misclib.ConsoleFormatter.COLOR.GREEN;
 import static com.helperPackage.misclib.ConsoleFormatter.setBoldText;
@@ -46,16 +51,27 @@ public class wlGgOnuIbI {
     };
 
     public ActionProcessing postProcessingTestBlaze = () -> {
-        //PageLoadProcessing.documentLoad.status("before action processing");
-        List<String> newWindowHandles = I.amPerforming().switchTo().getWindowsHandlers();
-        if (newWindowHandles.size() != windowHandles.size()) {
-            for (int i = 0; i < newWindowHandles.size(); i++) {
-                if (!windowHandles.contains(newWindowHandles.get(i))) {
-                    switchToWindowHandler(i);
-                    I.amPerforming().updatingOfReportWith().write(LogLevel.TEST_BLAZE_INFO,  setBoldText(setTextColor(GREEN, "Switched to a new Window ")));
+        WebDriver driver = InstanceRecording.getInstance(DeviceBucket.class).getDriver();
+        try {
+            long start = System.currentTimeMillis();
+            Wait<WebDriver> wait = new FluentWait<>(driver).withTimeout(500, TimeUnit.MILLISECONDS).pollingEvery(100, TimeUnit.MILLISECONDS).ignoring(Exception.class);
+            wait.until(d -> d.getWindowHandles().size() > windowHandles.size());
+            System.out.println("New tab detected in " + ((System.currentTimeMillis() - start) / 1000.0) + " seconds");
+            Set<String> currentHandles = driver.getWindowHandles();
+
+            for (String handle : currentHandles) {
+                if (!windowHandles.contains(handle)) {
+                    driver.switchTo().window(handle);
+
+                    I.amPerforming().updatingOfReportWith().write(LogLevel.TEST_BLAZE_INFO, setBoldText(setTextColor(GREEN, "Switched to a new Window ")));
+                    windowHandles.clear();
+                    windowHandles.addAll(driver.getWindowHandles());
                     break;
                 }
             }
+
+        } catch (Exception e) {
+            I.amPerforming().updatingOfReportWith().write(LogLevel.TEST_BLAZE_INFO, setBoldText(setTextColor(GREEN, "No new window detected")));
         }
     };
 

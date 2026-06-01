@@ -1744,7 +1744,7 @@ Feature: Validate all scenarios of every modules flow
       | GRANTEE FD      |
       | GRANTEE AUDITOR |
 
-  @InternalUserPwdCheckGrantor @debug
+  @InternalUserPwdCheckGrantor
   Scenario Outline: test
     When I login to "Grantor" app as "<InternalUser>" user
     When I navigate to "Home" tab

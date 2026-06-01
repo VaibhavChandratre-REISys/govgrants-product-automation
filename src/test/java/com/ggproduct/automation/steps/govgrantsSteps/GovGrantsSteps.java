@@ -824,7 +824,7 @@ public final class GovGrantsSteps {
     @And("I click on (enhanced view|parallel menu) button in flex table title \"([^\"]*)\"$")
     public void iClickOnParallelMenuButtonInFlexTableTitled(String usage, String flexTableTitle) {
         if (usage.equalsIgnoreCase("parallel menu")) {
-            By menuButton = By.xpath("//c-lwc-flex-table//*[text()='" + flexTableTitle + "']/../parent::div//div[@class='dropdowntogglemenu']//button[@title='Menu']");
+            By menuButton = By.xpath("//c-lwc-flex-table//*[text()='" + flexTableTitle + "']/../parent::div//div[@class='dropdowntogglemenu']//button[@title='Menu'] | //c-lwc-flex-table//*[text()='" + flexTableTitle + "']/../parent::div//following-sibling::div/div[@class='dropdowntogglemenu']");
             if (I.amPerforming().getElementReference().forListOfElements().of(menuButton).size() > 2) {
                 menuButton = By.xpath("//c-lwc-flex-table//*[text()='" + flexTableTitle + "']/../parent::div//div[@class='dropdowntogglemenu']//button[@title='Menu']");
             }
