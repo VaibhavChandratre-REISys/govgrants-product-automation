@@ -113,6 +113,7 @@ Feature: Validate all scenarios for program
     And I refresh the page
     And I navigate to "Setup" sub tab
     And I click on parallel menu button in flex table title "Review Steps"
+    And I wait for "2" seconds
     And I select "Download as PDF" from parallel lines dropdown of "Review Steps"
     And I download the file
     Then I softly see following details in "govgrants" pdf file:
@@ -635,7 +636,7 @@ Feature: Validate all scenarios for program
       | Contact                   |
       | {SavedValue:EXE Username} |
 
-  @mk @105880 @ValidateDeletionOfAssociatedContact
+  @105880 @ValidateDeletionOfAssociatedContact
   Scenario Outline: Verify user is able to delete associated contact
     When I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---program:-:contactsTableId---"
@@ -6018,9 +6019,9 @@ Feature: Validate all scenarios for program
     And I wait for "2" seconds
     And I checkout to yopmail with mailid "pm.automation.qa2@yopmail.com"
     And I see the mail subject is as follows :
-      """
-      Sandbox: Notification: Request to Approve {SavedValue:ProgramEGMSID}
-      """
+    """
+    Sandbox: Notification: Request to Approve {SavedValue:ProgramEGMSID}
+    """
     When I am on "INTERNAL" portal
     And I login to "Grantor" app as "EXE" user
     And I navigate to "Planning" tab
