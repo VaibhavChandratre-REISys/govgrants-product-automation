@@ -323,7 +323,6 @@ Feature: Validate all scenarios for program
     And I checkout to yopmail with mailid "exe.automation.qa2@yopmail.com"
     And I pause execution for "180" seconds
     Then I refresh the page
-    And I halt execution
     And I see the mail subject is as follows :
       """
      Sandbox: Notification: Approver has initiated Undo Action onProgram #{SavedValue:ProgramEGMSID}.
