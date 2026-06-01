@@ -4210,15 +4210,8 @@ Feature: Validate all scenarios for program
       EGMS ID Type Status Subject Assigned By Due Date
       {SavedValue:ProgramEGMSID} Review Grantor Program Not Started Review Program {SavedValue:ProgramEGMSID} Automation PM {Date:yyyy/MM/dd 00:00:00::d+10}
 
-
       Because these tasks have been reassigned, the original reviewer may have lost edit access to the record. However, they may still view the record.
       Login in to EGMS and click on EGMS IDs to access the assigned record.
-
-
-      The task(s) below were failed to reassigned as user was already assigned as a reviewer on this record.
-
-      EGMS ID Type Status Subject Assigned By Reason of Failure
-
 
       Please do not reply to this system-generated email. You may contact the GovGrants Support Team at govgrantssupport@reisystems.com if you have any questions or need assistance with this task.
 

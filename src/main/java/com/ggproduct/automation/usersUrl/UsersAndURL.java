@@ -186,6 +186,9 @@ public class UsersAndURL implements UsersController {
             case "EXE":
                 password = "Automation@June2026";
                 break;
+            case "FD":
+                password = "Automation@June2026";
+                break;
             case "AUDITOR":
                 password = "Automation@June2026";
                 break;
