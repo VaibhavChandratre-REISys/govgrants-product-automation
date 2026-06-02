@@ -2669,3 +2669,47 @@ Feature: Validate all scenarios of every modules flow
 #      | EGMSId                 | AwardName                             |
 #      | {SavedValue:Record Id} | {SavedValue:Automation Runtime award} |
     And I halt execution
+
+  @CheckUserLogins
+  Scenario: Check User Logins
+    Given I login to "As a Grantor" app as "PM1" user
+    And I navigate to "Planning" tab
+    When I re-login to "As a Grantor" app as "ADMIN1" user on "INTERNAL" portal
+    And I navigate to "Planning" tab
+    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    And I navigate to "Planning" tab
+    When I re-login to "As a Grantor" app as "PM1" user on "INTERNAL" portal
+    And I navigate to "Planning" tab
+    And I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
+    And I navigate to "Planning" tab
+    And I re-login to "As a Grantor" app as "PO1" user on "INTERNAL" portal
+    And I navigate to "Planning" tab
+    And I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
+    And I navigate to "Planning" tab
+    And I re-login to "As a Grantor" app as "FO1" user on "INTERNAL" portal
+    And I navigate to "Planning" tab
+    And I re-login to "As a Grantor" app as "FD" user on "INTERNAL" portal
+    And I navigate to "Planning" tab
+    And I re-login to "As a Grantor" app as "FD1" user on "INTERNAL" portal
+    And I navigate to "Planning" tab
+    And I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+    And I navigate to "Planning" tab
+    And I re-login to "As a Grantor" app as "EXE1" user on "INTERNAL" portal
+    And I navigate to "Planning" tab
+    And I re-login to "As a Grantor" app as "AUDITOR" user on "INTERNAL" portal
+    And I navigate to "Planning" tab
+    And I re-login to "As a Grantor" app as "SARAH PM" user on "INTERNAL" portal
+    And I navigate to "Planning" tab
+    And I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
+    And I navigate to "Grants" tab
+    And I re-login to "Grants Portal" app as "SPA" user on "SUBPORTAL" portal
+    And I navigate to "Grants" tab
+    And I re-login to "Grants Portal" app as "SA" user on "SUBPORTAL" portal
+    And I navigate to "Grants" tab
+    And I re-login to "Grants Portal" app as "IND" user on "SUBPORTAL" portal
+    And I navigate to "Grants" tab
+    And I re-login to "Grants Portal" app as "SME" user on "SUBPORTAL" portal
+    And I navigate to "Grants" tab
+    And I re-login to "Grants Portal" app as "SPI4" user on "SUBPORTAL" portal
+    And I navigate to "Grants" tab
+    And I logout

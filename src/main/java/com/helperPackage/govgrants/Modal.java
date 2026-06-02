@@ -53,6 +53,7 @@ public final class Modal {
 
     /**
      * Accept modal based pop up
+     * @modifier komal.mukhekar (01/06/2026): Added a 1.5-second wait to ensure the popup is displayed before interaction.
      */
     public void acceptPopUp() {
         try {

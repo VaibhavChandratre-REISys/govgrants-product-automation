@@ -45,6 +45,14 @@ public class AmendmentRequestPage extends GrantorProjectManager {
         I.amPerforming().propertiesFileOperationsTo().saveValue("updatedBudgetPeriodDate", I.amPerforming().dateOperationsToGet().givenDateWithOffsetFromGivenDate(fieldValue, Integer.parseInt(offset), DateTimeFormatter.ofPattern("M/d/uuuu")));
     }
 
+    /**
+     * Method to click on any button after selection of record in the tables for LWC
+     * @param buttonName
+     * @param recordValue
+     * @param numberofEntries
+     * @param flexTableId
+     * @modified komal.mukhekar - updated method to select the record by performing quick search and then click on the button in the right panel for LWC tables instead of selecting the record by navigating through the pagination in the tables
+     */
     public void clickAfterSelectionOfInTheTablesForLwc(String buttonName, String recordValue, String numberofEntries, String flexTableId) {
         By entriesDropDown = ByUsing.xpath("//*[@data-flextablename='" + flexTableId + "']//div//input[@placeholder='Select an Option']");
         try {
@@ -55,7 +63,6 @@ public class AmendmentRequestPage extends GrantorProjectManager {
                 govgrants.perform().flexTable().flexTableShowEntriesDropDownForLWC(flexTableId, numberofEntries);
             }
         } catch (Exception e) {
-
         }
         govgrants.perform().flexTable().selectCheckBoxes(flexTableId, recordValue);
         govgrants.perform().phasePanel().clickAnyRightPannelButton(flexTableId, buttonName);

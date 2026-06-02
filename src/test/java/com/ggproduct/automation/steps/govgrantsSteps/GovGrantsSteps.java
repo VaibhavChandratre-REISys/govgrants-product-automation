@@ -828,7 +828,8 @@ public final class GovGrantsSteps {
             if (I.amPerforming().getElementReference().forListOfElements().of(menuButton).size() > 2) {
                 menuButton = By.xpath("//c-lwc-flex-table//*[text()='" + flexTableTitle + "']/../parent::div//div[@class='dropdowntogglemenu']//button[@title='Menu']");
             }
-            I.amPerforming().click().withJavaScript(menuButton);
+//            I.amPerforming().click().withJavaScript(menuButton);
+            I.amPerforming().click().on(menuButton);
 
         } else if (usage.equalsIgnoreCase("enhanced view")) {
             By menuButton = By.xpath("//*[text()='" + flexTableTitle + "']//ancestor::div[@id and contains(@class,'ng-scope') and @ng-controller]//*[@title='Enhanced View' or contains(@class,'fa fa-arrows-alt')]");
@@ -994,11 +995,11 @@ public final class GovGrantsSteps {
     public void getHelpTextIconsAtPageBlockDetail(String usage, String pageBlockDetailTitle) {
         if (usage.equalsIgnoreCase("modal"))
             govgrants.perform().pageDetails().getHelpTextAtModalWindow(pageBlockDetailTitle);
-        else if(usage.equalsIgnoreCase("modal page block")){
+        else if (usage.equalsIgnoreCase("modal page block")) {
             govgrants.perform().pageDetails().getHelpTextAtModalWindowforPageBlock(pageBlockDetailTitle);
-        }else if(usage.equalsIgnoreCase("page block detail for invisible element")){
+        } else if (usage.equalsIgnoreCase("page block detail for invisible element")) {
             govgrants.perform().pageDetails().getHelpTextAtPageBlockDetailForInvisibleElement(pageBlockDetailTitle);
-        }else
+        } else
             govgrants.perform().pageDetails().getHelpTextAtPageBlockDetail(pageBlockDetailTitle);
     }
 

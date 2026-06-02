@@ -1997,6 +1997,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     When I click on "Save" in the page details
     And I get the "EGMS ID"
     And I pause execution for "3" seconds
+    And I save the field labeled "EGMS ID" as "AnnEGMSID"
     Then I softly see status in Progress-bar is "Created" and is "dark blue"
     When I navigate to "Overview" sub tab
     Then I softly see value "Description" for the field "Automation test description"
