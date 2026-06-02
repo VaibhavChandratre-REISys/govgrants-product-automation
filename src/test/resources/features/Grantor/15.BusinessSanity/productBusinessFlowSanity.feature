@@ -296,8 +296,8 @@ Feature: Validate sanity testing of Complete Business Flow
     And I enter in modal value "Passed" into field "ReviewComments__c"
     When I click modal button "Save"
     And I click on submit review
-    And I pause execution for "2" seconds
-    When I click modal button "Close"
+#    And I pause execution for "2" seconds
+#    When I click modal button "Close"
     And I wait for "2" seconds
 #    When I close "Enter Review" modal by clicking the top right x button
     When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
@@ -566,8 +566,8 @@ Feature: Validate sanity testing of Complete Business Flow
     When I click modal button "Save"
     And I wait for "2" seconds
     When I click on submit review
-    And I wait for "1" seconds
-    When I click modal button "Close"
+#    And I wait for "1" seconds
+#    When I click modal button "Close"
     And I wait for "2" seconds
     When I re-login to "Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Announcements" tab
@@ -833,8 +833,8 @@ Feature: Validate sanity testing of Complete Business Flow
     When I click modal button "Save"
     And I wait for "2" seconds
     When I click on submit review
-    And I wait for "2" seconds
-    When I click modal button "Close"
+#    And I wait for "2" seconds
+#    When I click modal button "Close"
     And I wait for "2" seconds
     And I re-login to "Grantor" app as "dynamicUser" user on "INTERNAL" portal
     When I navigate to "Announcements" tab
@@ -1565,8 +1565,8 @@ Feature: Validate sanity testing of Complete Business Flow
     And I enter a review as "Passed"
     When I click modal button "Save"
     And I click on submit review
-    And I wait for "1" seconds
-    When I click modal button "Close"
+#    And I wait for "1" seconds
+#    When I click modal button "Close"
     And I wait for "1" seconds
     When I re-login to "Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Grants" tab
@@ -1807,7 +1807,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I click modal button "Save"
     And I pause execution for "5" seconds
     And I click on submit review
-    When I click modal button "Close"
+#    When I click modal button "Close"
     And I wait for "1" seconds
     When I re-login to "Grantor" app as "DynamicUser" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab

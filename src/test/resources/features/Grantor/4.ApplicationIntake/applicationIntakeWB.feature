@@ -778,9 +778,7 @@ Feature: Application Intake scenarios without background
     When I navigate to "Opportunities" tab
     When I navigate to "Not Yet Qualified" content inside "Opportunities" subheader on left panel
     And I click toggle button to select "Not Yet Qualified Opportunities - All"
-    And I halt execution
     And I perform quick search for "---AUTOEnvData:-:Automation_Formula_Closed_Announcement_By_Applicant---" in "---applicationIntake:-:NotYetQualifiedTableId---" panel
-    And I halt execution
 #    Automation Permanent Closed Formula Announcement
     When I click on "View" icon for "---AUTOEnvData:-:Automation_Formula_Closed_Announcement_By_Applicant---" inside flex table with id "---applicationIntake:-:NotYetQualifiedTableId---" without waiting for record
     And I save the field containing "Application Due Date" as "Date"
