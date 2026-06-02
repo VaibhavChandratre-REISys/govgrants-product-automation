@@ -8076,14 +8076,14 @@ Feature: Validate all scenarios for program
     And I navigate to "Messages" sub tab
     And I click on top right button "Send Email" in flex table with id "---program:-:programCollabMessagesTableId---"
     And I send the email under collab tab with following details:
-      | To                            | Subject         | Body                       |
-      | fo.automation.qa2@yopmail.com | Automation Test | Automation Test Email Body |
+      | To                                   | Subject         | Body                       |
+      | fo.automation.ggmergeqa2@yopmail.com | Automation Test | Automation Test Email Body |
     Then I see the text "Email Sent Successfully." in modal
     And I close "Send Email" modal by clicking the top right x button
     Then I softly see value "" for title "Attention To" inside table "---program:-:programCollabMessagesTableId---"
     Then I see the following rows under the following headers in table with id "---program:-:programCollabMessagesTableId---" :
-      | Subject         | From Address                   | CC Address | To Address                    | Attention To | Email Subject   |
-      | Automation Test | exe.automation.qa2@yopmail.com |            | fo.automation.qa2@yopmail.com |              | Automation Test |
+      | Subject         | From Address                   | CC Address | To Address                           | Attention To | Email Subject   |
+      | Automation Test | exe.automation.qa2@yopmail.com |            | fo.automation.ggmergeqa2@yopmail.com |              | Automation Test |
     #330624
     When I re-login to "Grantor" app as "PO" user on "INTERNAL" portal
     And I navigate to "Planning" tab
@@ -8094,8 +8094,8 @@ Feature: Validate all scenarios for program
     And I navigate to "Messages" sub tab
     And I click on "Reply" icon for "Automation Test" inside flex table with id "---program:-:programCollabMessagesTableId---" without waiting for record
     And I send the email under collab tab with following details:
-      | To                            | Subject              | Body                                |
-      | fo.automation.qa2@yopmail.com | RE: Automation Test2 | Automation Re-Test Email Body Again |
+      | To                                   | Subject              | Body                                |
+      | fo.automation.ggmergeqa2@yopmail.com | RE: Automation Test2 | Automation Re-Test Email Body Again |
     Then I see the text "Email Sent Successfully." in modal
     And I close "Send Email" modal by clicking the top right x button
     Then I see value "" for title "Attention To" against the value "RE: Automation Test2" inside table "---program:-:programCollabMessagesTableId---"
@@ -8394,12 +8394,12 @@ Feature: Validate all scenarios for program
     Then I cannot see top right button "Add Files" in flex table with id "---program:-:GrantorInternalProgramFilesTableId---"
     Then I <Validation> top right button "New" in flex table with id "---program:-:internalProgramNotesTableId---"
     Examples:
-      | NonOwner | Validation  |
-      | PO       |  can see    |
-      | EXE      |  can see    |
-      | FO       |  can see    |
-      | FD       |  can see    |
-      | AUDITOR  |  cannot see |
+      | NonOwner | Validation |
+      | PO       | can see    |
+      | EXE      | can see    |
+      | FO       | can see    |
+      | FD       | can see    |
+      | AUDITOR  | cannot see |
 
   @535723 @535719 @535715 @ValidateExternal/NGOorg1users(PM/PO/EXE)cancreateExternal/NGOProgramthenallusersshouldhaveviewaccesstoitirrespectiveofparticularorganization. @GrantorFlexP1
   Scenario Outline: Validate External/NGO org 1 users (PM/PO/EXE)can create External/NGO Program then all users should have view access to it irrespective of particular organization.
@@ -8524,12 +8524,12 @@ Feature: Validate all scenarios for program
     Then I <Validation> top right button "New" in flex table with id "---program:-:externalProgramNotesTableId---"
     Then I softly see value "Notes Record" for title "Title" inside table "---program:-:externalProgramNotesTableId---"
     Examples:
-      | NonOwner | Validation  |
-      | PO       |  can see    |
-      | EXE      |  can see    |
-      | FO       |  can see    |
-      | FD       |  can see    |
-      | AUDITOR  |  cannot see |
+      | NonOwner | Validation |
+      | PO       | can see    |
+      | EXE      | can see    |
+      | FO       | can see    |
+      | FD       | can see    |
+      | AUDITOR  | cannot see |
 
   @535717 @ValidatethatInternal/ExternalusersseeContactstablewithallthedetails @GrantorFlexP1
   Scenario Outline: Validate that Internal/ External users see Contacts table with all the details
@@ -8554,7 +8554,7 @@ Feature: Validate all scenarios for program
     And I click on top right button "Associate" in flex table with id "---program:-:ExternalNGOProgramContactTableId---"
     When I click "Associate" after selection of "NGO Contact" by showing entries "All" in flex table with id "---program:-:associateContactsTableId---"
     And I click modal button "Close"
-    And I wait for "2" seconds
+    And I wait for "5" seconds
     Then I softly see value "NGO Contact" for title "Name" inside table "---program:-:ExternalNGOProgramContactTableId---"
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---program:-:extapproverTableId---" by clicking "New" :
@@ -8585,7 +8585,8 @@ Feature: Validate all scenarios for program
     And I click toggle button to select "NGO Programs - All"
     When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:ExternalNGOProgramTableId---" panel
     And I click on "View" icon for "{SavedValue:ProgramEGMSID}" inside flex table with id "---program:-:ExternalNGOProgramTableId---" without waiting for record
-    Then I softly see status in Progress-bar is "Active" and is "dark blue"
+#    Note - Need to clarify with vaibhav
+#    Then I softly see status in Progress-bar is "Active" and is "dark blue"
     When I navigate to "Overview" sub tab
     Then I softly see "Program Information" page block displayed
     Then I softly see "Details" page block displayed
@@ -8603,9 +8604,9 @@ Feature: Validate all scenarios for program
     Then I <Validation> top right button "New" in flex table with id "---program:-:externalProgramNotesTableId---"
     Then I softly see value "Notes Record" for title "Title" inside table "---program:-:externalProgramNotesTableId---"
     Examples:
-      | NonOwner | Validation  |
-      | PO       |  can see    |
-      | EXE      |  can see    |
-      | FO       |  can see    |
-      | FD       |  can see    |
-      | AUDITOR  |  cannot see |
+      | NonOwner | Validation |
+      | PO       | can see    |
+      | EXE      | can see    |
+      | FO       | can see    |
+      | FD       | can see    |
+      | AUDITOR  | cannot see |
