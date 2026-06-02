@@ -1,7 +1,20 @@
 @grantAndAward @grantor-regression @grantor-parallel-regression @regression @subawardStandalone @GrantsExecution
 Feature: Validate all scenarios in the Stand Alone Award and Grant
 
-  @530989 @validategrant/awardchildrecordsaresharewithcrossOrgreviewerwhilepeerreview(AllowEdit=Yes) @GrantorFlexP2
+  Background: Create Award
+    When I login to "Grantor" app as "dynamicUser" user
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:activeGrantsTableId---"
+    And I enter "GrantFields1" values from "Award_Field_Values.xlsx"
+    And I click modal button "Continue"
+    And I enter "Grant_Edition" values from "Award_Field_Values.xlsx"
+    When I click modal button "Save and Continue"
+    And I navigate to "Subawards" sub tab
+    And I click on "View" icon for "Created" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
+    And I get the "EGMS ID"
+
+  @mk @530989 @validategrant/awardchildrecordsaresharewithcrossOrgreviewerwhilepeerreview(AllowEdit=Yes) @GrantorFlexP2
   Scenario: Validate grant/award child records are share with cross Org reviewer while peer review (Allow Edit=Yes)
     And I save the field labeled "EGMS ID" as "AwardEGMSID"
     And I navigate to "Overview" sub tab
