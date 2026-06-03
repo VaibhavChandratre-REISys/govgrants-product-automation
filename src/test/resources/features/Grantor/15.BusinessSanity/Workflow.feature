@@ -848,10 +848,10 @@ Feature: Validate all scenarios of every modules flow
     And I navigate to "Negotiations" sub tab
     Then I softly see field "Negotiation Request Status" as "Complete" in "Negotiation Request Details" pageblock
 
-  @mk @ApplicationReviewtoapprovedFDMWorkFlow
+  @ApplicationReviewtoapprovedFDMWorkFlow
   Scenario Outline: Application Review WorkFlow
-#    Given I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "default"
-    When I initiated an application review for application "Automation Permanent Closed Formula Ann-By Applicant and Focus Area" on announcement "Automation Permanent Closed Formula Ann-By Applicant and Focus Area" with properties "default"
+    Given I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "default"
+    When I initiated an application review for application "<Announcement Name>" on announcement "<Announcement Name>" with properties "default"
     And I login to "Grantor" app as "dynamicUser" user
     When I navigate to "Applications" tab
     And I navigate to "Applications" content inside "Applications" subheader on left panel
