@@ -2013,7 +2013,6 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     And I click modal button "Save"
     #When I close "Edit Progress Report Schedule" modal by clicking the top right x button
     When I click on parallel lines menu bar with data target value "Progress Reports Schedule"
-#    When I click on top right parallel lines bar for "Progress Reports Schedule"
     And I select "Download as PDF" from parallel lines dropdown of "Progress Reports Schedule"
     And I download the file
     And I pause execution for "10" seconds
@@ -2026,7 +2025,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     When I enter in modal "Progress Report Schedule" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
     #When I close "Edit Progress Report Schedule" modal by clicking the top right x button
-    When I click on top right parallel lines bar for "Progress Reports Schedule"
+    When I click on parallel lines menu bar with data target value "Progress Reports Schedule"
     And I select "Download as XLS" from parallel lines dropdown of "Progress Reports Schedule"
     Then I verify that "xls" file is downloaded
 
@@ -2941,6 +2940,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     And I pause execution for "10" seconds
     When I perform quick search for "{AUTOEnvData:AutomationClosedSubAward}" in "---subAwardFromFDM:-:RecipientGrantsTableIdSPA---" panel
     Then I softly see value "Closed/Completed" for title "Status" inside table "---subAwardFromFDM:-:RecipientGrantsTableIdSPA---"
+
     Examples:
       | Award Name                                   | Grant Name                                   |
       | {SavedValue:Automation Runtime Direct Award} | {SavedValue:Automation Runtime Direct Award} |
