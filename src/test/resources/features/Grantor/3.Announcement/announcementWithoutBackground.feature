@@ -4671,6 +4671,8 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I pause execution for "30" seconds
     When I perform quick search for "{SavedValue:AnnEGMSID3}" in "---program:-:grantorTaskReassignTableId---" panel
     Then I softly see value "{SavedValue:AnnEGMSID3}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
+    And I logout
+    And I wait for "5" seconds
     And I checkout to yopmail with mailid "pm.automation.qa2@yopmail.com"
     And I pause execution for "180" seconds
     Then I refresh the page
