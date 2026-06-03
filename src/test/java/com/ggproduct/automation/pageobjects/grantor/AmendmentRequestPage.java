@@ -47,6 +47,7 @@ public class AmendmentRequestPage extends GrantorProjectManager {
 
     /**
      * Method to click on any button after selection of record in the tables for LWC
+     *
      * @param buttonName
      * @param recordValue
      * @param numberofEntries
@@ -63,6 +64,7 @@ public class AmendmentRequestPage extends GrantorProjectManager {
                 govgrants.perform().flexTable().flexTableShowEntriesDropDownForLWC(flexTableId, numberofEntries);
             }
         } catch (Exception e) {
+
         }
         govgrants.perform().flexTable().selectCheckBoxes(flexTableId, recordValue);
         govgrants.perform().phasePanel().clickAnyRightPannelButton(flexTableId, buttonName);

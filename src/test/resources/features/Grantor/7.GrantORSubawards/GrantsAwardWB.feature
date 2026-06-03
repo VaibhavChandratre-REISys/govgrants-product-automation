@@ -45,7 +45,9 @@ Feature: Validate all scenarios of grants and award without background
     When I perform quick search for "Draft" in "---subAwardFromFDM:-:RecipientGrantsTableId---" panel
     Then I softly see value "Draft" for title "Status" inside table "---subAwardFromFDM:-:RecipientGrantsTableId---"
     And I click toggle button to select "Grants - Rejected"
+    And I halt execution
     When I perform quick search for "Terminated" in "---subAwardFromFDM:-:RecipientGrantsTableId---" panel
+    And I halt execution
     Then I softly see value "Terminated" for title "Status" inside table "---subAwardFromFDM:-:RecipientGrantsTableId---"
 
   @66740 @documentattacmentatgrant
