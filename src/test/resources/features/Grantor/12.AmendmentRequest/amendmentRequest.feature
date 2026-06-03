@@ -2756,7 +2756,6 @@ Feature: Validate all scenarios in the Amendment Request
     And I click on nested button "Remove record" in flex table with id "---amendment:-:fundingChangeApproversTableId---"
     Then I softly see "No Records Found" inside flex table with id "---amendment:-:fundingChangeApproversTableId---"
 
-
   @148945 @149237 @ValidateUserCanAddOneStepApproverForTermsAndConditionAmendmentAndApproveIt
   Scenario: Validate User Can Add One Step Approver For Terms And Condition Amendment And Approve It
     When I navigate to "Management" sub tab
