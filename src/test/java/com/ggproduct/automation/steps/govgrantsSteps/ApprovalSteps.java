@@ -14,6 +14,7 @@ public class ApprovalSteps {
 
     @When("I select radio button {string} in the approval decision")
     public void selectApprovalRadioButton(String radioButtonName) {
+        govgrants.perform().approvals().ifToastActionIsDisplayed();
         govgrants.perform().approvals().selectRadioButton(radioButtonName);
     }
 
@@ -42,6 +43,7 @@ public class ApprovalSteps {
 
     @When("I {string} in the approval decision")
     public void completeApproval(String approvalType) {
+        govgrants.perform().approvals().ifToastActionIsDisplayed();
         govgrants.perform().approvals().selectRadioButton(approvalType);
         if (govgrants.perform().approvals().isCommentBoxVisible()) {
             govgrants.perform().approvals().enterComment("Automation Testing");

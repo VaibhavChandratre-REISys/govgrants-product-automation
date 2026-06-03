@@ -1252,9 +1252,9 @@ Feature: Validate sanity testing of Complete Business Flow
     And I perform quick search for "<Announcement Name>" in "AppReviewList" panel
     And I click on "View" icon for "<Announcement Name>" inside flex table with id "AppReviewList"
     And I get the "EGMS ID"
-    And I wait for "3" seconds
-    When I navigate to "Applications" tab
-    And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
+#    And I wait for "3" seconds
+#    When I navigate to "Applications" tab
+#    And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
     When I click toggle button to select "Application Reviews - All"
     And I perform quick search for "<Announcement Name>" in "---applicationReview:-:announcementListTableId---" panel
     When I click on "View" icon for "<Announcement Name>" inside flex table with id "---applicationReview:-:announcementListTableId---" with wait for record

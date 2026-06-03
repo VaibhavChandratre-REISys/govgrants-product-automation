@@ -884,8 +884,8 @@ public final class FlexTable implements FlexTableComponent {
      */
     private void HandleTextArea(WebElement fieldWrapper, String fieldValue) {
         By editForMoreButton = By.xpath("//span[@part='formatted-rich-text' and not(normalize-space())]/parent::lightning-formatted-rich-text//following-sibling::lightning-icon[@icon-name='utility:new_window'] | //div[@class='wrap_text']//lightning-icon[@icon-name='utility:add'] | //div[@class='wrap_text']//lightning-icon[@icon-name='utility:edit'] | //c-fieldlwc[@class='fields']//*[@class='empty-placeholder clickable-text']//*[@class='edit-text']");
-        By richTextArea = By.xpath("//div[@part='modal-body']//textarea[@part='textarea'] |//div[@part='rich-text-editor']//div[contains(@class,'rich-text-area')]");
-        By saveButtonOnModal = By.xpath("//div[@class='confirm-modal']//button[@title='Save' or text()='Save']");
+        By richTextArea = By.xpath("//div[contains(@class,'slds-modal__content')]//textarea[@part='textarea'] | //div[@part='modal-body']//textarea[@part='textarea'] |//div[@part='rich-text-editor']//div[contains(@class,'rich-text-area')]");
+        By saveButtonOnModal = By.xpath("//div[contains(@class,'slds-modal__container')]//button[@title='Save' or text()='Save'] | //div[@class='confirm-modal']//button[@title='Save' or text()='Save']");
         I.amPerforming().click().withJavaScript(editForMoreButton);
         I.amPerforming().click().withJavaScript(richTextArea);
         I.amPerforming().textInput().toClear(richTextArea);
