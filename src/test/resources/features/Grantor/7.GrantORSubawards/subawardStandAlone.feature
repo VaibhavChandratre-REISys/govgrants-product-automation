@@ -10,6 +10,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     And I click modal button "Continue"
     And I enter "Grant_Edition" values from "Award_Field_Values.xlsx"
     When I click modal button "Save and Continue"
+    And I wait for "1" seconds
     And I navigate to "Subawards" sub tab
     And I click on "View" icon for "Created" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
     And I get the "EGMS ID"
@@ -2011,7 +2012,8 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     When I enter in modal "Progress Report Schedule" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
     #When I close "Edit Progress Report Schedule" modal by clicking the top right x button
-    When I click on top right parallel lines bar for "Progress Reports Schedule"
+    When I click on parallel lines menu bar with data target value "Progress Reports Schedule"
+#    When I click on top right parallel lines bar for "Progress Reports Schedule"
     And I select "Download as PDF" from parallel lines dropdown of "Progress Reports Schedule"
     And I download the file
     And I pause execution for "10" seconds
@@ -6345,11 +6347,11 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     And I click on "View" icon for "Created" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
     And I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---subAwardStandAlone:-:subawardFederalProgramTableId---"
-    When I perform quick search for "Automation Permanent NGO Program" in "---subAwardStandAlone:-:federalListTableId---" panel
-    When I click "Associate" after selection of "Automation Permanent NGO Program" in the table "---subAwardStandAlone:-:federalListTableId---"
+    When I perform quick search for "{AUTOEnvData:ExternalProgram}" in "---subAwardStandAlone:-:federalListTableId---" panel
+    When I click "Associate" after selection of "{AUTOEnvData:ExternalProgram}" in the table "---subAwardStandAlone:-:federalListTableId---"
     And I click modal button "Close"
     And I wait for "2" seconds
-    Then I see value "Automation Permanent NGO Program" for title "Program Title" inside table "---subAwardStandAlone:-:subawardFederalProgramTableId---"
+    Then I see value "{AUTOEnvData:ExternalProgram}" for title "Program Title" inside table "---subAwardStandAlone:-:subawardFederalProgramTableId---"
     Then I see value "Automation SPI3" for title "Name" inside table "---subAwardStandAlone:-:associatedContactsTableId---"
     And I wait for "3" seconds
     And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:associatedContactsTableId---" by clicking "Edit" :
@@ -6457,7 +6459,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     Then I see "Automation" inside flex table with id "---subAwardStandAlone:-:flexGridGrantChecklistsTableId---"
     And I navigate to "Subawards" sub tab
     And I click on "View" icon for "Created" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
-    Then I see value "Automation Permanent NGO Program" for title "Program Title" inside table "---subAwardStandAlone:-:subawardFederalProgramTableId---"
+    Then I see value "{AUTOEnvData:ExternalProgram}" for title "Program Title" inside table "---subAwardStandAlone:-:subawardFederalProgramTableId---"
     Then I see value "Automation SPI3" for title "Name" inside table "---subAwardStandAlone:-:associatedContactsTableId---"
     And I navigate to "Budget" sub tab
     Then I softly see value "{SavedValue:fundingAccount}" for title "Funding Account" inside table "---subAwardStandAlone:-:fundingAccountsTableId---"
@@ -6523,11 +6525,11 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     And I click on "View" icon for "Created" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
     And I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---subAwardStandAlone:-:subawardFederalProgramTableId---"
-    When I perform quick search for "Automation Permanent NGO Program" in "---subAwardStandAlone:-:federalListTableId---" panel
-    When I click "Associate" after selection of "Automation Permanent NGO Program" in the table "---subAwardStandAlone:-:federalListTableId---"
+    When I perform quick search for "{AUTOEnvData:ExternalProgram}" in "---subAwardStandAlone:-:federalListTableId---" panel
+    When I click "Associate" after selection of "{AUTOEnvData:ExternalProgram}" in the table "---subAwardStandAlone:-:federalListTableId---"
     And I click modal button "Close"
     And I wait for "2" seconds
-    Then I see value "Automation Permanent NGO Program" for title "Program Title" inside table "---subAwardStandAlone:-:subawardFederalProgramTableId---"
+    Then I see value "{AUTOEnvData:ExternalProgram}" for title "Program Title" inside table "---subAwardStandAlone:-:subawardFederalProgramTableId---"
     Then I see value "Automation SPI3" for title "Name" inside table "---subAwardStandAlone:-:associatedContactsTableId---"
     And I wait for "3" seconds
     And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:associatedContactsTableId---" by clicking "Edit" :
@@ -6673,7 +6675,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     And I wait for "2" seconds
     When I click on "Start" icon for "{SavedValue:AwardEGMSID}" inside flex table with id "---subAwardStandAlone:-:subrecipientPendingtaskTableId---" without waiting for record
     And I wait for "2" seconds
-    Then I see value "Automation Permanent NGO Program" for title "Program Title" inside table "---subAwardStandAlone:-:SubrecipientFederalProgramTableId---"
+    Then I see value "{AUTOEnvData:ExternalProgram}" for title "Program Title" inside table "---subAwardStandAlone:-:SubrecipientFederalProgramTableId---"
     Then I see value "Automation SPI3" for title "Name" inside table "---subAwardStandAlone:-:RecipientassociatedContactsTableId---"
     And I navigate to "Budget" sub tab
     Then I see value "Automation Permanent Focus Area" for title "Title" inside table "---subAwardStandAlone:-:subrecipientFocusAreaTableId---"

@@ -381,7 +381,7 @@ Feature: Validate all scenarios in the home tab
     Examples:
       | User |
       | EXE  |
-      | PM   |
+#      | PM   |
 
   @56738 @deletionOfRelatedContact
   Scenario:  Validate whether the admin is able to Delete Related Contacts

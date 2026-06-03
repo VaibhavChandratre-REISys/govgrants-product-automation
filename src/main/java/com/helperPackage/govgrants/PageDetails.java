@@ -188,7 +188,7 @@ public final class PageDetails {
                 I.amPerforming().click().on(dropdownTab);
             }
         } catch (Exception e) {
-            I.amPerforming().updatingOfReportWith().write(LogLevel.BUSINESS_LAYER_ERROR,"Normal click failed. Retrying with JavaScript");
+            I.amPerforming().updatingOfReportWith().write(LogLevel.BUSINESS_LAYER_ERROR, "Normal click failed. Retrying with JavaScript");
             if (I.amPerforming().checkToSee().IsElementPresentQuick(tab)) {
                 I.amPerforming().click().withJavaScript(tab);
             } else {

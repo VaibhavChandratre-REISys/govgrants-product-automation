@@ -334,7 +334,7 @@ public final class GovGrantsSteps {
 
     @Description("Perform quick search inside global search by providing search term")
     @When("^I perform quick search inside global search \"([^\"]*)\"(| without processing)$")
-    public void performQuickSearchInsideGlobalSearch(String searchTerm, String usage) {
+    public void :performQuickSearchInsideGlobalSearch(String searchTerm, String usage) {
         if (usage.contains("without processing")) {
             By globalSearchInputBoxWithAutosuggestion = By.xpath("//div[contains(@class,'hasEntitySelector')]//input");
             I.amPerforming().textInput().toClear(globalSearchInputBoxWithAutosuggestion);
