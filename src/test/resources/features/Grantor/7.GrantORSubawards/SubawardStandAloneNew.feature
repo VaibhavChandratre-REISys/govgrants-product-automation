@@ -207,12 +207,13 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | Notes Record1 | Automation Notes1 |
     Then I softly see value "Notes Record1" for title "Title" inside table "---subAwardStandAlone:-:notesAwardTableId---"
     When I navigate to "Responsibilities" sub tab
-    When I click on "Enter Review" icon for "GRANTEE PO" inside flex table with id "---subAwardStandAlone:-:peerReviewersTableId---" without waiting for record
+    When I click on "Enter Review" icon for "Grantee PO" inside flex table with id "---subAwardStandAlone:-:peerReviewersTableId---" without waiting for record
     And I enter a review as "Passed"
     When I click modal button "Save"
     Then I can softly see modal button "Submit Review"
     Then I can softly see modal button "Edit"
     And I click on submit review
+    And I wait for "2" seconds
     Then I softly see value "Submitted" for title "Status" against the value "{SavedValue:FO Username}" inside table "---subAwardStandAlone:-:peerReviewersTableId---"
     And I refresh the page
     Then I cannot see top right button "Edit" in page detail
@@ -406,12 +407,13 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     Then I can see top right button "New" in flex table with id "---subAwardStandAlone:-:notesAwardTableId---"
     Then I softly see value "Notes Record" for title "Title" inside table "---subAwardStandAlone:-:notesAwardTableId---"
     When I navigate to "Responsibilities" sub tab
-    When I click on "Enter Review" icon for "GRANTEE PO" inside flex table with id "---subAwardStandAlone:-:peerReviewersTableId---" without waiting for record
+    When I click on "Enter Review" icon for "Grantee PO" inside flex table with id "---subAwardStandAlone:-:peerReviewersTableId---" without waiting for record
     And I enter a review as "Passed"
     When I click modal button "Save"
     Then I can softly see modal button "Submit Review"
     Then I can softly see modal button "Edit"
     And I click on submit review
+    And I wait for "2" seconds
     Then I softly see value "Submitted" for title "Status" against the value "{SavedValue:FO Username}" inside table "---subAwardStandAlone:-:peerReviewersTableId---"
     And I refresh the page
     Then I cannot see top right button "Edit" in page detail
