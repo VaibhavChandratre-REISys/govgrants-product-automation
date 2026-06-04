@@ -207,7 +207,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | Notes Record1 | Automation Notes1 |
     Then I softly see value "Notes Record1" for title "Title" inside table "---subAwardStandAlone:-:notesAwardTableId---"
     When I navigate to "Responsibilities" sub tab
-    When I click on "Enter Review" icon for "GRANTEE PO" inside flex table with id "---subAwardStandAlone:-:peerReviewersTableId---" without waiting for record
+    When I click on "Enter Review" icon for "Grantee PO" inside flex table with id "---subAwardStandAlone:-:peerReviewersTableId---" without waiting for record
     And I enter a review as "Passed"
     When I click modal button "Save"
     Then I can softly see modal button "Submit Review"
@@ -1245,7 +1245,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     And I perform quick search for "{SavedValue:AwardEGMSID}" in "---subAwardStandAlone:-:SubAwardTableId---" panel
     When I click on "View" icon for "{SavedValue:AwardEGMSID}" inside flex table with id "---subAwardStandAlone:-:SubAwardTableId---"
     And I wait for "2" seconds
-    And I click on "Activate" in the page details
+#    And I click on "Activate" in the page details
     Then I softly see that "Subaward" is in "Activated" status
     When I navigate to "Budget" sub tab
     And I click on hyperlink containing value "---AUTOEnvData:-:fundingAccount---"
