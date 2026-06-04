@@ -1692,16 +1692,16 @@ Feature: Validate all notes scenarios in the  Announcement tab
     And I navigate to "Announcements" tab
     When I navigate to "Directed" content inside "Announcements" subheader on left panel
     And I click toggle button to select "All Directed Announcements"
-    And I perform quick search for "{SavedValue:ClosedStateAnnouncement}" in "---announcement:-:annoucementTableId---" panel
-    And I click on "View" icon for "{SavedValue:ClosedStateAnnouncement}" inside flex table with id "---announcement:-:annoucementTableId---" without waiting for record
+    And I perform quick search for "{SavedValue:ClosedStateAnnouncement_ApplicationSubmittedToGrantor}" in "---announcement:-:annoucementTableId---" panel
+    And I click on "View" icon for "{SavedValue:ClosedStateAnnouncement_ApplicationSubmittedToGrantor}" inside flex table with id "---announcement:-:annoucementTableId---" without waiting for record
     And I navigate to "Files" sub tab
     Then I softly cannot see top right button "New" in flex table with id "---announcement:-:AnnouncementNotestableId---"
     When I re-login to "Grantor" app as "ADMIN" user on "INTERNAL" portal
     And I navigate to "Announcements" tab
     When I navigate to "Directed" content inside "Announcements" subheader on left panel
     And I click toggle button to select "All Directed Announcements"
-    And I perform quick search for "{SavedValue:ClosedStateAnnouncement}" in "---announcement:-:annoucementTableId---" panel
-    And I click on "View" icon for "{SavedValue:ClosedStateAnnouncement}" inside flex table with id "---announcement:-:annoucementTableId---" without waiting for record
+    And I perform quick search for "{SavedValue:ClosedStateAnnouncement_ApplicationSubmittedToGrantor}" in "---announcement:-:annoucementTableId---" panel
+    And I click on "View" icon for "{SavedValue:ClosedStateAnnouncement_ApplicationSubmittedToGrantor}" inside flex table with id "---announcement:-:annoucementTableId---" without waiting for record
     And I navigate to "Files" sub tab
     Then I softly cannot see top right button "New" in flex table with id "---announcement:-:AnnouncementNotestableId---"
 

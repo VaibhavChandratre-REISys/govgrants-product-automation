@@ -515,12 +515,10 @@ public class GenericSteps {
 
     @And("I published {string} type announcement having name {string} and properties {string}")
     public void iPublishedTypeAnnouncementHavingNameAndProperties(String annType, String annName, String filter) {
-        String newAnnName = "";
         if (annName.startsWith("Automation Runtime")) {
-            newAnnName = annName + I.amPerforming().addOnsTo().getRandomNumber();
+            String newAnnName = newAnnName = annName + I.amPerforming().addOnsTo().getRandomNumber();
+            I.amPerforming().propertiesFileOperationsTo().saveValue(annName, newAnnName);
         }
-        I.amPerforming().propertiesFileOperationsTo().saveValue(annName, newAnnName);
-        annName = newAnnName;
         grantorWebServices.publishAnnouncment(annType, annName, filter);
     }
 

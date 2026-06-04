@@ -164,8 +164,8 @@ Feature: Validate all scenarios in the directed Announcement tab
     And I navigate to "Announcements" tab
     When I navigate to "Directed" content inside "Announcements" subheader on left panel
     And I click toggle button to select "All Directed Announcements"
-    And I perform quick search for "{AUTOEnvData:ClosedStateAnnouncement}" in "ActiveFundingOpportunities" panel
-    And I click on "View" icon for "{AUTOEnvData:ClosedStateAnnouncement}" inside flex table with id "ActiveFundingOpportunities"
+    And I perform quick search for "{AUTOEnvData:ClosedStateAnnouncement_ApplicationSubmittedToGrantor}" in "ActiveFundingOpportunities" panel
+    And I click on "View" icon for "{AUTOEnvData:ClosedStateAnnouncement_ApplicationSubmittedToGrantor}" inside flex table with id "ActiveFundingOpportunities"
     When I navigate to "Overview" sub tab
     And I wait for "3" seconds
     When I save the value from row "1" for column name "Application EGMS ID" as "AppEgmdId" from flex table "---announcement:-:directedInvitedApplicatsTableId---"
@@ -2819,14 +2819,14 @@ Feature: Validate all scenarios in the directed Announcement tab
     And I navigate to "Announcements" tab
     When I navigate to "Directed" content inside "Announcements" subheader on left panel
     And I click toggle button to select "All Directed Announcements"
-    And I perform quick search for "{AUTOEnvData:ClosedStateAnnouncement}" in "ActiveFundingOpportunities" panel
-    And I click on "View" icon for "{AUTOEnvData:ClosedStateAnnouncement}" inside flex table with id "ActiveFundingOpportunities"
+    And I perform quick search for "{AUTOEnvData:ClosedStateAnnouncement_ApplicationSubmittedToGrantor}" in "ActiveFundingOpportunities" panel
+    And I click on "View" icon for "{AUTOEnvData:ClosedStateAnnouncement_ApplicationSubmittedToGrantor}" inside flex table with id "ActiveFundingOpportunities"
     When I navigate to "Overview" sub tab
     And I wait for "3" seconds
     Then I see the following headers in table with id "---announcement:-:directedInvitedApplicatsTableId---" :
       | EGMS ID | Applicants | Application EGMS ID | Application Status | Last Updated By | Last Updated |
 
-  @mk @527084 @validateAnnrecordcreatedbyPMusershouldsharedwithsameOrgusersPO/FO/FD/Auditor/EXE/Adminwithviewaccessonlywiththeirchildrecords(createdstate)fordirectedann @GrantorFlexP1
+  @527084 @validateAnnrecordcreatedbyPMusershouldsharedwithsameOrgusersPO/FO/FD/Auditor/EXE/Adminwithviewaccessonlywiththeirchildrecords(createdstate)fordirectedann @GrantorFlexP1
   Scenario: Validate Ann record created by PM user should shared with same Org users PO/FO/FD/Auditor/EXE/Admin with view access only with their child records (created state) for directed ann
     When I login to "Grantor" app as "ADMIN" user
     And I navigate to "Announcements" tab
@@ -2847,9 +2847,9 @@ Feature: Validate all scenarios in the directed Announcement tab
     Then I softly see value "Description" for the field "Automation test description"
     And I navigate to "Overview" sub tab
     When I click on top right button "Associate" in flex table with id "---announcement:-:contactTableId---"
-    When I click "Associate" after selection of "{SavedValue:PM Username}" by showing entries "All" in flex table with id "---announcement:-:annoucementContactTableId---"
+    When I click "Associate" after selection of "{SavedValue:ADMIN1 Username}" by showing entries "All" in flex table with id "---announcement:-:annoucementContactTableId---"
     When I click modal button "Close"
-    Then I softly see value "{SavedValue:PM Username}" for title "Name" inside table "---announcement:-:contactTableId---"
+    Then I softly see value "{SavedValue:ADMIN1 Username}" for title "Name" inside table "---announcement:-:contactTableId---"
     And I click on top right button "New" in flex table with id "---announcement:-:contactTableId---"
     And I generate the random EmailID and save as "uniqueEmailID1"
     And I enter values into fields

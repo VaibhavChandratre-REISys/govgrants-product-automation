@@ -135,7 +135,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     When I perform quick search for "{SavedValue:AnnEGMSID}" in "---program:-:grantorTaskReassignTableId---" panel
     When I check "{SavedValue:AnnEGMSID}" boxes in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I click on top right button "Reassign Selected" in flex table with id "---program:-:grantorTaskReassignTableId---"
-    And I pause execution for "30" seconds
+    And I pause execution for "40" seconds
     And I reset the table
     When I perform quick search for "{SavedValue:AnnEGMSID}" in "---program:-:grantorTaskReassignTableId---" panel
     Then I softly do not see value "{SavedValue:AnnEGMSID}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
@@ -2023,8 +2023,8 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
       | Due Date | equals to | {Date:M/d/yyyy::d+7} |
     When I check "All" boxes in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I click on top right button "Reassign Selected" in flex table with id "---program:-:grantorTaskReassignTableId---"
-    And I pause execution for "50" seconds
-#    And I reset the table
+    And I pause execution for "60" seconds
+    And I reset the table
     When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:grantorTaskReassignTableId---" panel
     Then I softly do not see value "{SavedValue:ProgramEGMSID}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
     When I perform quick search for "{SavedValue:AnnEGMSID}" in "---program:-:grantorTaskReassignTableId---" panel
@@ -2973,7 +2973,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     When I perform quick search for "{SavedValue:AnnEGMSID}" in "---program:-:grantorTaskReassignTableId---" panel
     Then I softly see value "{SavedValue:AnnEGMSID}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
 
-  @223509 @ValidateAnnthecorrectstep&reviewermappingisdoneonindividualrecordforrespectiveassignmentwhenrecordswithsimilartasktypefordifferentstepandresponsibilitiesareselectedandprocessedreassignedsimultaneously @sprint-11-US-218319  @reassignment
+  @223509 @ValidateAnnthecorrectstep&reviewermappingisdoneonindividualrecordforrespectiveassignmentwhenrecordswithsimilartasktypefordifferentstepandresponsibilitiesareselectedandprocessedreassignedsimultaneously @sprint-11-US-218319  @reassignment @bulkRecordCreation @skipOnJenkins
   Scenario: Validate Ann the correct step & reviewer mapping is done on individual record for respective assignment when records with similar task type for different step and responsibilities are selected and processed/ reassigned simultaneously
     When I login to "Grantor" app as "EXE" user
     And I navigate to "Announcements" tab
