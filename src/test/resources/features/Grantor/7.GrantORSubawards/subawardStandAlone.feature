@@ -2821,7 +2821,6 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
   @45756 @67969 @71182 @71431 @71437 @validateAwardRejectionByProgramApprover
   Scenario Outline: Validate award Rejection by Program approver
     And I click on "Edit" in the page details
-    And I halt execution
     When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
     And I click on "Save" in the page details
     And I navigate to "Budget" sub tab
@@ -2941,7 +2940,6 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     And I click toggle button to select "Grants - Closed"
     And I pause execution for "10" seconds
     When I perform quick search for "{AUTOEnvData:AutomationClosedSubAward}" in "---subAwardFromFDM:-:RecipientGrantsTableIdSPA---" panel
-    And I halt execution
     Then I softly see value "Closed/Completed" for title "Status" inside table "---subAwardFromFDM:-:RecipientGrantsTableIdSPA---"
 
     Examples:
@@ -6527,12 +6525,12 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     And I navigate to "Subawards" sub tab
     And I click on "View" icon for "Created" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
     And I navigate to "Overview" sub tab
-    And I halt execution
     And I click on top right button "Associate" in flex table with id "---subAwardStandAlone:-:subawardFederalProgramTableId---"
     When I perform quick search for "{AUTOEnvData:ExternalProgram}" in "---subAwardStandAlone:-:federalListTableId---" panel
     When I click "Associate" after selection of "{AUTOEnvData:ExternalProgram}" in the table "---subAwardStandAlone:-:federalListTableId---"
     And I click modal button "Close"
     And I wait for "2" seconds
+    And I refresh the page
     Then I see value "{AUTOEnvData:ExternalProgram}" for title "Program Title" inside table "---subAwardStandAlone:-:subawardFederalProgramTableId---"
     Then I see value "Automation SPI3" for title "Name" inside table "---subAwardStandAlone:-:associatedContactsTableId---"
     And I wait for "3" seconds
