@@ -333,7 +333,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
       | Program Review | 0               |
     And I pause execution for "3" seconds
     And I click on top right button "Validate" in flex table with id "---announcement:-:AnnouncementReviewPanel---"
-    And I pause execution for "2" seconds
+    And I pause execution for "3" seconds
     Then I softly see the following messages in the page details :
       | Setup Tab - SME Review: The total Review Form weight must equal 100% for a weighted step. It is currently 0%. |
     And I pause execution for "3" seconds

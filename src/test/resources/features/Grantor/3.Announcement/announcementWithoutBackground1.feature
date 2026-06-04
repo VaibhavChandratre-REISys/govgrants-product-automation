@@ -80,7 +80,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     Then I softly see value "Automation PM1" for title "New Value" inside field history table
     Then I softly see value "Automation PM" for title "Original Value" inside field history table
 
-  @195677 @Validatethatnewapproversnameshouldbeupdatentheresponsibilitytabwhenapprovaltaskisreassigned @sprint-12-US-226646  @reassignment
+  @mkk @195677 @Validatethatnewapproversnameshouldbeupdatentheresponsibilitytabwhenapprovaltaskisreassigned @sprint-12-US-226646  @reassignment
   Scenario: Validate that new approver's name should be update in the responsibility tab when approval task is reassigned
     When I login to "Grantor" app as "EXE" user
     And I navigate to "Announcements" tab
@@ -4788,6 +4788,8 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I perform quick search for "SAN DIEGO ELECTRICAL TRAINING TRUST" in "---announcement:-:formulaAddInviteApplicantTableId---" panel
     When I click "Add" after selection of "SAN DIEGO ELECTRICAL TRAINING TRUST" in the table "---announcement:-:formulaAddInviteApplicantTableId---"
     When I close "Add Organizations" modal by clicking the top right x button
+    And I refresh the page
+    And I wait for "5" seconds
     When I edit the following rows inline in flex table with id "---announcement:-:formulaInvitedApplicatsTableId---" by clicking "Edit" :
       | Applicant Organization              | Allocated Amount |
       | SAN DIEGO ELECTRICAL TRAINING TRUST | 1000             |

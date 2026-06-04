@@ -16,7 +16,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I get the "EGMS ID"
     And I pause execution for "3" seconds
 
-  @mk @73959 @pdfDownloadContacts
+  @73959 @pdfDownloadContacts
   Scenario: To verify system allow to download pdf for contact section in overview tab of announcement by PM user
     And I navigate to "Overview" sub tab
     When I click on top right button "Associate" in flex table with id "---announcement:-:contactTableId---"
@@ -308,7 +308,6 @@ Feature: Validate all scenarios in the Competitive Announcement tab
   To Verify that user can Edit fields in supporting document checklist While creating the Announcement |
   To Verify that user can preview business forms while creating Announcement|
   To Verify that user can Edit business forms while creating Announcement
-    When I navigate to "Announcements" tab
     When I navigate to "Announcements" tab
     And I click toggle button to select "Announcements - Closed and Archived"
     And I perform quick search for "Closed" in "---announcement:-:ActiveFundingOpportunitiesAllTableId---" panel
