@@ -1337,6 +1337,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     When I click "Associate" after selection of "{AUTOEnvData:ExternalProgram}" in the table "---subAwardStandAlone:-:federalListTableId---"
     And I click modal button "Close"
     And I wait for "2" seconds
+    And I refresh the page
     Then I see value "{AUTOEnvData:ExternalProgram}" for title "Program Title" inside table "---subAwardStandAlone:-:subawardFederalProgramTableId---"
     Then I see value "Automation SPI3" for title "Name" inside table "---subAwardStandAlone:-:associatedContactsTableId---"
     And I wait for "3" seconds
