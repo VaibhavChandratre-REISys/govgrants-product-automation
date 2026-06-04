@@ -11,6 +11,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     And I enter "Grant_Edition" values from "Award_Field_Values.xlsx"
     When I click modal button "Save and Continue"
     And I wait for "1" seconds
+    And I refresh the page
     And I navigate to "Subawards" sub tab
     And I click on "View" icon for "Created" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
     And I get the "EGMS ID"
