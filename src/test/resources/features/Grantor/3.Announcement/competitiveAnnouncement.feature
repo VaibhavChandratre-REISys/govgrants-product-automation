@@ -16,7 +16,7 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I get the "EGMS ID"
     And I pause execution for "3" seconds
 
-  @73959 @pdfDownloadContacts
+  @mk @73959 @pdfDownloadContacts
   Scenario: To verify system allow to download pdf for contact section in overview tab of announcement by PM user
     And I navigate to "Overview" sub tab
     When I click on top right button "Associate" in flex table with id "---announcement:-:contactTableId---"
@@ -196,9 +196,10 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I click on "Remove" icon for "BP01" inside flex table with id "---announcement:-:budgetPeriodTableId---"
     And I wait for "2" seconds
     Then I softly do not see value "BP01" for title "Budget Period Name" inside table "---announcement:-:budgetPeriodTableId---"
-    And I click on "Remove" icon for "Construction" inside flex table with id "---announcement:-:announcementBudgetCategory---"
+        And I click on "Remove" icon for "Construction" inside flex table with id "---announcement:-:announcementBudgetCategory---"
     And I wait for "2" seconds
-    Then I softly do not see value "Construction" for title "Name" inside table "---announcement:-:announcementBudgetCategory---"
+    Then I softly see the following messages in the page details :
+      | Record removed successfully. |
     And I click on "Edit" in the page details
     And I enter value "2000" into field "---announcement:-:subawardfloor---"
     And I enter value "3000" into field "---announcement:-:subawardceiling---"

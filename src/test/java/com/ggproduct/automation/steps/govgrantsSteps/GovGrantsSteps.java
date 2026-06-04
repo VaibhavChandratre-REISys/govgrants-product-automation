@@ -109,7 +109,7 @@ public final class GovGrantsSteps {
     @Given("^I login to \"([^\"]*)\" app as \"([^\"]*)\" user$")
     public void loginToggleToApp(String appName, String userType) {
         govgrants.perform().mainPage().loginWithUserType(userType);
-        if(appName.equalsIgnoreCase("Grantor") || appName.equalsIgnoreCase("Grantee")) {
+        if (appName.equalsIgnoreCase("Grantor") || appName.equalsIgnoreCase("Grantee")) {
             govgrants.perform().mainPage().setUpCustomAppDropDown(appName);
         }
     }
@@ -131,7 +131,7 @@ public final class GovGrantsSteps {
             I.amPerforming().waitFor().makeThreadSleep(4000);
             govgrants.perform().mainPage().navigateToPortal(portalType);
             govgrants.perform().mainPage().loginWithUserType(userType);
-            if(appName.equalsIgnoreCase("Grantor") || appName.equalsIgnoreCase("Grantee")) {
+            if (appName.equalsIgnoreCase("Grantor") || appName.equalsIgnoreCase("Grantee")) {
                 govgrants.perform().mainPage().setUpCustomAppDropDown(appName);
             }
         } catch (Exception e) {
@@ -828,8 +828,11 @@ public final class GovGrantsSteps {
             if (I.amPerforming().getElementReference().forListOfElements().of(menuButton).size() > 2) {
                 menuButton = By.xpath("//c-lwc-flex-table//*[text()='" + flexTableTitle + "']/../parent::div//div[@class='dropdowntogglemenu']//button[@title='Menu']");
             }
-            I.amPerforming().click().withJavaScript(menuButton);
-
+            try {
+                I.amPerforming().click().on(menuButton);
+            } catch (Exception e) {
+                I.amPerforming().click().withJavaScript(menuButton);
+            }
         } else if (usage.equalsIgnoreCase("enhanced view")) {
             By menuButton = By.xpath("//*[text()='" + flexTableTitle + "']//ancestor::div[@id and contains(@class,'ng-scope') and @ng-controller]//*[@title='Enhanced View' or contains(@class,'fa fa-arrows-alt')]");
             I.amPerforming().click().on(menuButton);
@@ -994,11 +997,11 @@ public final class GovGrantsSteps {
     public void getHelpTextIconsAtPageBlockDetail(String usage, String pageBlockDetailTitle) {
         if (usage.equalsIgnoreCase("modal"))
             govgrants.perform().pageDetails().getHelpTextAtModalWindow(pageBlockDetailTitle);
-        else if(usage.equalsIgnoreCase("modal page block")){
+        else if (usage.equalsIgnoreCase("modal page block")) {
             govgrants.perform().pageDetails().getHelpTextAtModalWindowforPageBlock(pageBlockDetailTitle);
-        }else if(usage.equalsIgnoreCase("page block detail for invisible element")){
+        } else if (usage.equalsIgnoreCase("page block detail for invisible element")) {
             govgrants.perform().pageDetails().getHelpTextAtPageBlockDetailForInvisibleElement(pageBlockDetailTitle);
-        }else
+        } else
             govgrants.perform().pageDetails().getHelpTextAtPageBlockDetail(pageBlockDetailTitle);
     }
 
