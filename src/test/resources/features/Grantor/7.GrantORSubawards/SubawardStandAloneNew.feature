@@ -207,7 +207,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
       | Notes Record1 | Automation Notes1 |
     Then I softly see value "Notes Record1" for title "Title" inside table "---subAwardStandAlone:-:notesAwardTableId---"
     When I navigate to "Responsibilities" sub tab
-    When I click on "Enter Review" icon for "Grantee PO" inside flex table with id "---subAwardStandAlone:-:peerReviewersTableId---" without waiting for record
+    When I click on "Enter Review" icon for "GRANTEE PO" inside flex table with id "---subAwardStandAlone:-:peerReviewersTableId---" without waiting for record
     And I enter a review as "Passed"
     When I click modal button "Save"
     Then I can softly see modal button "Submit Review"
@@ -1245,8 +1245,26 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     And I perform quick search for "{SavedValue:AwardEGMSID}" in "---subAwardStandAlone:-:SubAwardTableId---" panel
     When I click on "View" icon for "{SavedValue:AwardEGMSID}" inside flex table with id "---subAwardStandAlone:-:SubAwardTableId---"
     And I wait for "2" seconds
-#    And I click on "Activate" in the page details
-    Then I softly see that "Subaward" is in "Activated" status
+    And I click on "Send to Subrecipient" in the page details
+    Then I softly see field "Status" as "Sent to Subrecipient"
+    And I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
+    When I navigate to "Grants" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "{SavedValue:AwardEGMSID}" in "---subAwardStandAlone:-:subrecipientPendingtaskTableId---" panel
+    And I wait for "2" seconds
+    When I click on "Start" icon for "{SavedValue:AwardEGMSID}" inside flex table with id "---subAwardStandAlone:-:subrecipientPendingtaskTableId---" without waiting for record
+    And I wait for "2" seconds
+    And I click on "Accept after Approval" in the page details
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
+    And I navigate to "Grants" tab
+    When I navigate to "Subawards" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click toggle button to select "Subawards  - All"
+    And I perform quick search for "{SavedValue:AwardEGMSID}" in "---subAwardStandAlone:-:SubAwardTableId---" panel
+    When I click on "View" icon for "{SavedValue:AwardEGMSID}" inside flex table with id "---subAwardStandAlone:-:SubAwardTableId---"
+    And I wait for "2" seconds
+    And I click on "Activate" in the page details
+    Then I see status in Progress-bar is "Activated" and is "dark blue"
+#    Then I softly see that "Subaward" is in "Activated" status
     When I navigate to "Budget" sub tab
     And I click on hyperlink containing value "---AUTOEnvData:-:fundingAccount---"
     And I navigate to "Related Log" sub tab
@@ -1337,7 +1355,6 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     When I click "Associate" after selection of "{AUTOEnvData:ExternalProgram}" in the table "---subAwardStandAlone:-:federalListTableId---"
     And I click modal button "Close"
     And I wait for "2" seconds
-    And I refresh the page
     Then I see value "{AUTOEnvData:ExternalProgram}" for title "Program Title" inside table "---subAwardStandAlone:-:subawardFederalProgramTableId---"
     Then I see value "Automation SPI3" for title "Name" inside table "---subAwardStandAlone:-:associatedContactsTableId---"
     And I wait for "3" seconds

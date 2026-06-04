@@ -6527,6 +6527,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     And I navigate to "Subawards" sub tab
     And I click on "View" icon for "Created" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
     And I navigate to "Overview" sub tab
+    And I halt execution
     And I click on top right button "Associate" in flex table with id "---subAwardStandAlone:-:subawardFederalProgramTableId---"
     When I perform quick search for "{AUTOEnvData:ExternalProgram}" in "---subAwardStandAlone:-:federalListTableId---" panel
     When I click "Associate" after selection of "{AUTOEnvData:ExternalProgram}" in the table "---subAwardStandAlone:-:federalListTableId---"
