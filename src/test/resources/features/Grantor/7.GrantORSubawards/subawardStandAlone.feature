@@ -2821,6 +2821,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
   @45756 @67969 @71182 @71431 @71437 @validateAwardRejectionByProgramApprover
   Scenario Outline: Validate award Rejection by Program approver
     And I click on "Edit" in the page details
+    And I halt execution
     When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
     And I click on "Save" in the page details
     And I navigate to "Budget" sub tab
@@ -2940,6 +2941,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     And I click toggle button to select "Grants - Closed"
     And I pause execution for "10" seconds
     When I perform quick search for "{AUTOEnvData:AutomationClosedSubAward}" in "---subAwardFromFDM:-:RecipientGrantsTableIdSPA---" panel
+    And I halt execution
     Then I softly see value "Closed/Completed" for title "Status" inside table "---subAwardFromFDM:-:RecipientGrantsTableIdSPA---"
 
     Examples:
