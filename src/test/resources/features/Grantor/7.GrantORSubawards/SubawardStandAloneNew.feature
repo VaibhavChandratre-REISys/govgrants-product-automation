@@ -1248,7 +1248,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     When I click on "View" icon for "{SavedValue:AwardEGMSID}" inside flex table with id "---subAwardStandAlone:-:SubAwardTableId---"
     And I wait for "2" seconds
     And I click on "Send to Subrecipient" in the page details
-    Then I softly see field "Status" as "Sent to Subrecipient"
+    Then I softly see field "Status" as "Sent to Subrecipient after Approval"
     And I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     When I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -1543,6 +1543,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     And I softly see value "Grantee PO" for title "Reviewer Name" inside table "---subAwardStandAlone:-:peerReviewersTableId---"
     And I softly see value "{SavedValue:PM Username}" for title "Name" inside table "---subAwardStandAlone:-:awardApproversTableId---"
     And I softly see value "Automation FO" for title "Name" inside table "---subAwardStandAlone:-:awardApproversTableId---"
+    When I navigate to "Files" sub tab
     Then I softly see value "Attachment.pdf" for title "Title" inside table "---subAwardStandAlone:-:addFilesTableId---"
     Then I softly see value "Notes Record" for title "Title" inside table "---subAwardStandAlone:-:notesAwardTableId---"
     When I navigate to "Overview" sub tab
@@ -1581,6 +1582,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     And I softly see value "Grantee PO" for title "Reviewer Name" inside table "---subAwardStandAlone:-:peerReviewersTableId---"
     And I softly see value "{SavedValue:PM Username}" for title "Name" inside table "---subAwardStandAlone:-:awardApproversTableId---"
     And I softly see value "Automation FO" for title "Name" inside table "---subAwardStandAlone:-:awardApproversTableId---"
+    When I navigate to "Files" sub tab
     Then I softly see value "Attachment.pdf" for title "Title" inside table "---subAwardStandAlone:-:addFilesTableId---"
     Then I softly see value "Notes Record" for title "Title" inside table "---subAwardStandAlone:-:notesAwardTableId---"
 
