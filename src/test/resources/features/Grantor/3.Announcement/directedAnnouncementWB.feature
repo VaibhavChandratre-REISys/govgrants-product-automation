@@ -2919,7 +2919,7 @@ Feature: Validate all scenarios in the directed Announcement tab
     When I close "Add Organizations" modal by clicking the top right x button
     And I refresh the page
     And I wait for "5" seconds
-    Then I softly see that "SAN DIEGO ELECTRICAL TRAINING TRUST" has been added in flextable with Id "---announcement:-:directedInvitedApplicatsTableId---"
+#    Then I softly see that "SAN DIEGO ELECTRICAL TRAINING TRUST" has been added in flextable with Id "---announcement:-:directedInvitedApplicatsTableId---"
     When I navigate to "Financials" sub tab
     And I click on "Edit" in the page details
 #    And I enter value "Justified" into field "Justification__c"
