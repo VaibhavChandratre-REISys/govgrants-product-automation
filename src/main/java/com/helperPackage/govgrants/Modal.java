@@ -1,5 +1,6 @@
 package com.helperPackage.govgrants;
 
+import com.helperPackage.actionsfactory.api.ByUsing;
 import com.helperPackage.handlers.govgrants;
 import com.helperPackage.register.I;
 import org.openqa.selenium.By;
@@ -67,8 +68,11 @@ public final class Modal {
 
         //Comment box handler
         try {
-//            I.amPerforming().waitFor().makeThreadSleep(1500);
-            if (I.amPerforming().checkToSee().isDisplayed(By.xpath("//div[contains(@class,'modalContent confirm-modal-body')]//input | //div[contains(@class,'modal__container')]//lightning-prompt//input | //div[contains(@class,'modal__container')]//div[@class='confirm-modal']//input | //div[contains(@class,'modal__container')]//div[@class='confirm-modal']//lightning-modal-footer[contains(@class,'confirm-modalfooter')]"))) {
+            I.amPerforming().waitFor().makeThreadSleep(1500);
+            if (I.amPerforming().checkToSee().IsElementPresentQuick(By.xpath("//div[contains(@class,'modalSectionContainer')]//h2[normalize-space()='Add Comment']"))) {
+                I.amPerforming().click().withJavaScript(ByUsing.xpath("//div[contains(@class,'modalSectionContainer')][.//h2[text()='Add Comment']]//button[text()='Continue']"));
+            }
+            if (I.amPerforming().checkToSee().IsElementPresentQuick(By.xpath("//div[contains(@class,'modalContent confirm-modal-body')]//input | //div[contains(@class,'modal__container')]//lightning-prompt//input | //div[contains(@class,'modal__container')]//div[@class='confirm-modal']//input | //div[contains(@class,'modal__container')]//div[@class='confirm-modal']//lightning-modal-footer[contains(@class,'confirm-modalfooter')]"))) {
                 I.amPerforming().textInput().in(By.xpath("//div[contains(@class,'modalContent confirm-modal-body')]//input | //div[contains(@class,'modal__container')]//lightning-prompt//input | //div[contains(@class,'modal__container')]//div[@class='confirm-modal']//input"), "Automated Test");
                 I.amPerforming().click().on(By.xpath("//div[contains(@class,'modal__container')]//button[text()='OK' or text()='Yes' or text()='Continue']"));
             }
