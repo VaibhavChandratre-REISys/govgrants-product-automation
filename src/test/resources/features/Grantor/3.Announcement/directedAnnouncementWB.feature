@@ -2849,6 +2849,8 @@ Feature: Validate all scenarios in the directed Announcement tab
     When I click on top right button "Associate" in flex table with id "---announcement:-:contactTableId---"
     When I click "Associate" after selection of "{SavedValue:ADMIN1 Username}" by showing entries "All" in flex table with id "---announcement:-:annoucementContactTableId---"
     When I click modal button "Close"
+    And I refresh the page
+    And I wait for "4" seconds
     Then I softly see value "{SavedValue:ADMIN1 Username}" for title "Name" inside table "---announcement:-:contactTableId---"
     And I click on top right button "New" in flex table with id "---announcement:-:contactTableId---"
     And I generate the random EmailID and save as "uniqueEmailID1"
