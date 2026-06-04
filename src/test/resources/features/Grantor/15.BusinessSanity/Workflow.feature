@@ -851,7 +851,7 @@ Feature: Validate all scenarios of every modules flow
   @ApplicationReviewtoapprovedFDMWorkFlow
   Scenario Outline: Application Review WorkFlow
     Given I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "default"
-    When I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
+    When I initiated an application review for application "<Announcement Name>" on announcement "<Announcement Name>" with properties "default"
     And I login to "Grantor" app as "dynamicUser" user
     When I navigate to "Applications" tab
     And I navigate to "Applications" content inside "Applications" subheader on left panel

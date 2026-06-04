@@ -339,7 +339,7 @@ Feature: Validate all scenarios in the directed Announcement tab
     And I "Send to Owner" in the approval decision
     And I pause execution for "3" seconds
     And I refresh the page
-    Then I softly see that "Announcement" is in "Draft" status
+    Then I softly see that "Announcement" is in "Created" status
     And I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     When I navigate to "Announcements" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel

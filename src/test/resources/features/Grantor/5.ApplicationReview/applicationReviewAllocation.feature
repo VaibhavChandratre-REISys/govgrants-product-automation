@@ -4343,7 +4343,6 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
       | Announcement Name                                    |
       | {SavedValue:Automation Runtime Formula Announcement} |
 
-
   @113042  @Sprint-23-US-273843  @Allocation
   Scenario Outline: Validate the Notification to Application before FDM Approval
     And I published "Formula" type announcement having name "Automation Runtime Announcement Application Review" and properties "BY_APPLICANT_FOCUS_AREA_NO-Automation PO user"

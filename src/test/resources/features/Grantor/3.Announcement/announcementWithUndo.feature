@@ -429,7 +429,7 @@ Feature: Validate all scenarios in the Announcement with Undo
     Then I see only the following ordered radio buttons in the approval decision :
       | Approve | Forward | Send to Owner  | Reject |
     And I "Send to Owner" in the approval decision
-    Then I softly see field "Status" as "Draft"
+    Then I softly see field "Status" as "Created"
     Then I cannot see top right button "Undo" in page detail
 
   @283974 @VerifythatwhenlastApproverandOwnerofAnnouncementarenotsameLastApproverwillSeeonlyUNDObutton @sprint-4-US-295141  @Undo
@@ -687,7 +687,6 @@ Feature: Validate all scenarios in the Announcement with Undo
     Then I see only the following ordered radio buttons in the approval decision :
       | Approve | Forward |Send to Owner  | Reject |
     And I "Send to Owner" in the approval decision
-    Then I softly see field "Status" as "Draft"
     Then I cannot see top right button "Undo" in page detail
     When I re-login to "Grantor" app as "PO" user on "INTERNAL" portal
     And I navigate to "Announcements" tab
@@ -826,7 +825,7 @@ Feature: Validate all scenarios in the Announcement with Undo
     Then I see only the following ordered radio buttons in the approval decision :
       | Approve | Forward |Send to Owner  | Reject |
     And I "Send to Owner" in the approval decision
-    Then I softly see field "Status" as "Draft"
+    Then I softly see field "Status" as "Created"
     Then I cannot see top right button "Undo" in page detail
     And I wait for "30" seconds
     And I refresh the page

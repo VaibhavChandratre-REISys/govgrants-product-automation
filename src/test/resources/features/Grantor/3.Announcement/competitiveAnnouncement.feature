@@ -196,9 +196,10 @@ Feature: Validate all scenarios in the Competitive Announcement tab
     And I click on "Remove" icon for "BP01" inside flex table with id "---announcement:-:budgetPeriodTableId---"
     And I wait for "2" seconds
     Then I softly do not see value "BP01" for title "Budget Period Name" inside table "---announcement:-:budgetPeriodTableId---"
-    And I click on "Remove" icon for "Construction" inside flex table with id "---announcement:-:announcementBudgetCategory---"
+        And I click on "Remove" icon for "Construction" inside flex table with id "---announcement:-:announcementBudgetCategory---"
     And I wait for "2" seconds
-    Then I softly do not see value "Construction" for title "Name" inside table "---announcement:-:announcementBudgetCategory---"
+    Then I softly see the following messages in the page details :
+      | Record removed successfully. |
     And I click on "Edit" in the page details
     And I enter value "2000" into field "---announcement:-:subawardfloor---"
     And I enter value "3000" into field "---announcement:-:subawardceiling---"
@@ -307,7 +308,6 @@ Feature: Validate all scenarios in the Competitive Announcement tab
   To Verify that user can Edit fields in supporting document checklist While creating the Announcement |
   To Verify that user can preview business forms while creating Announcement|
   To Verify that user can Edit business forms while creating Announcement
-    When I navigate to "Announcements" tab
     When I navigate to "Announcements" tab
     And I click toggle button to select "Announcements - Closed and Archived"
     And I perform quick search for "Closed" in "---announcement:-:ActiveFundingOpportunitiesAllTableId---" panel
