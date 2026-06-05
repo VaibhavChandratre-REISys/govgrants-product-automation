@@ -309,6 +309,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I navigate to "Setup" sub tab
     And I expand nested table containing column value "Pre-Screen Review"
     When I click on "Review Form" icon for "Pre-Screen" inside flex table with id "---announcement:-:subReviewPanelTableId---" without waiting for record
+    And I pause execution for "10" seconds
     And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
       | Section Header | Section Weight (%) |
       | Eligibility    | 50                 |
@@ -578,6 +579,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I navigate to "Setup" sub tab
     And I expand nested table containing column value "Pre-Screen Review"
     When I click on "Review Form" icon for "Pre-Screen" inside flex table with id "---announcement:-:subReviewPanelTableId---" without waiting for record
+    And I pause execution for "10" seconds
     And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
       | Section Header | Section Weight (%) |
       | Eligibility    | 50                 |
@@ -847,6 +849,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I navigate to "Setup" sub tab
     And I expand nested table containing column value "Pre-Screen Review"
     When I click on "Review Form" icon for "Pre-Screen" inside flex table with id "---announcement:-:subReviewPanelTableId---" without waiting for record
+    And I pause execution for "10" seconds
     And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
       | Section Header | Section Weight (%) |
       | Eligibility    | 50                 |
@@ -4671,38 +4674,3 @@ Feature: Validate sanity testing of Complete Business Flow
 #    When I navigate to "Grants" tab
     When I re-login to "Grants Portal" app as "SA" user on "SUBPORTAL" portal
     When I navigate to "Home" tab
-
-
-  @72342Test @publishingDirectedAnnouncement @ProdSan2 @ProdSan2_2 @ProdSan2_2_1
-  Scenario: Validate the activation of Directed Announcement and the status changes to published and is green
-    When I login to "As a Grantor" app as "PM" user
-    And I navigate to "Announcements" tab
-    When I navigate to "Directed" content inside "Announcements" subheader on left panel
-    When I click toggle button to select "Draft Directed Announcements"
-    And I perform quick search for "AN-TAO-6496" in "---announcement:-:annoucementTableId---" panel
-    And I click on "View" icon for "AN-TAO-6496" inside flex table with id "---announcement:-:annoucementTableId---" without waiting for record
-    And I navigate to "Setup" sub tab
-    And I expand nested table containing column value "Pre-Screen Review"
-    When I click on "Review Form" icon for "Pre-Screen" inside flex table with id "---announcement:-:subReviewPanelTableId---" without waiting for record
-    And I pause execution for "10" seconds
-    And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
-      | Section Header | Section Weight (%) |
-      | Eligibility    | 50                 |
-    And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
-      | Section Header | Section Weight (%) |
-      | Completeness   | 50                 |
-    And I pause execution for "4" seconds
-    And I expand nested table containing column value "Eligibility"
-    When I enter the following values into flex table with id "---announcement:-:reviewPanelQuestionsTableId---" by clicking "New" :
-      | Question Order | Question  | Type    | Max Score |
-      | 1              | Question1 | Written | 100       |
-    And I pause execution for "4" seconds
-    And I expand nested table containing column value "Eligibility_T"
-
-#    And I collapse nested table containing column value "Eligibility"
-#    And I expand nested table containing column value "Completeness"
-#    When I enter the following values into flex table with id "---announcement:-:reviewPanelQuestionsTableId---" by clicking "New" :
-#      | Question Order | Question  | Type    | Max Score |
-#      | 1              | Question1 | Written | 100       |
-#    And I pause execution for "4" seconds
-#    When I close "Review Form" modal by clicking the top right x button
