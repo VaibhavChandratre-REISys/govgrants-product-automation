@@ -214,7 +214,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     Then I can softly see modal button "Edit"
     And I click on submit review
     And I wait for "2" seconds
-    Then I softly see value "Submitted" for title "Status" against the value "{SavedValue:FO Username}" inside table "---subAwardStandAlone:-:peerReviewersTableId---"
+    Then I softly see value "Submitted" for title "Status" against the value "{SavedValue:GRANTEE PO Username}" inside table "---subAwardStandAlone:-:peerReviewersTableId---"
     And I refresh the page
     Then I cannot see top right button "Edit" in page detail
 
@@ -414,7 +414,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     Then I can softly see modal button "Edit"
     And I click on submit review
     And I wait for "2" seconds
-    Then I softly see value "Submitted" for title "Status" against the value "{SavedValue:FO Username}" inside table "---subAwardStandAlone:-:peerReviewersTableId---"
+    Then I softly see value "Submitted" for title "Status" against the value "{SavedValue:GRANTEE PO Username}" inside table "---subAwardStandAlone:-:peerReviewersTableId---"
     And I refresh the page
     Then I cannot see top right button "Edit" in page detail
 
