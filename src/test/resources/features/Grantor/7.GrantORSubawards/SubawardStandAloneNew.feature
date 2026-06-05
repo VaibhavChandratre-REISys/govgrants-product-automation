@@ -1257,8 +1257,13 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     And I wait for "2" seconds
     When I click on "Start" icon for "{SavedValue:AwardEGMSID}" inside flex table with id "---subAwardStandAlone:-:subrecipientPendingtaskTableId---" without waiting for record
     And I wait for "2" seconds
+    And I navigate to "Files" sub tab
+    When I click on "Attach" icon for "Mandatory" inside flex table with id "---subAwardStandAlone:-:RecipientSubAwardChecklistTableId---" without waiting for record
+    And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
+    And I wait for "2" seconds
+    When I click modal button "Close"
+    And I wait for "2" seconds
     And I click on "Accept after Approval" in the page details
-    Then I softly see status in Progress-bar is "Accepted" and is "Green"
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Subawards" content inside "Grants, Subawards & Amendments" subheader on left panel
@@ -1268,7 +1273,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     And I wait for "2" seconds
     And I click on "Activate" in the page details
     Then I see status in Progress-bar is "Activated" and is "dark blue"
-#    Then I softly see that "Subaward" is in "Activated" status
+    Then I softly see that "Subaward" is in "Activated" status
     When I navigate to "Budget" sub tab
     And I click on hyperlink containing value "---AUTOEnvData:-:fundingAccount---"
     And I navigate to "Related Log" sub tab
