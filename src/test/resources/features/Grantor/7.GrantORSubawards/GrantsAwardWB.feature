@@ -864,14 +864,14 @@ Feature: Validate all scenarios of grants and award without background
     And I click modal button "Continue"
     And I wait for "2" seconds
     Then I softly see the following messages in the page details contains:
-      | To Save, Grant Title is required.               |
-      | To Save, Grant Abbreviation is required.        |
-      | To Save, Project Period Start Date is required. |
-      | To Save, Project Period End Date is required.   |
-      | To Save, Budget Category Type is required.      |
-      | To Save, Subrecipient Organization is required. |
-      | To Save, Internal Program is required.          |
-      | To Save, Funding Organization is required.      |
+      | To save, Grant Title is required.               |
+      | To save, Grant Abbreviation is required.        |
+      | To save, Project Period Start Date is required. |
+      | To save, Project Period End Date is required.   |
+      | To save, Budget Category Type is required.      |
+      | To save, Subrecipient Organization is required. |
+      | To save, Internal Program is required.          |
+      | To save, Funding Organization is required.      |
 
   @64424 @VerifyRequiredMatch%Filed
   Scenario: Verify If you select Subrecipient Match Required setting as Yes and award owner did not enter Required Match % field then it should show validation message.
@@ -1204,7 +1204,7 @@ Feature: Validate all scenarios of grants and award without background
     And I enter "SourceError" values from "SiteVisit_Field_Values.xlsx"
     When I click on "Save" in the page details
     Then I softly see the following messages in the page details contains:
-      | To Save, Source is required in the Overview tab under the Plan section. |
+      | To save, Source is required in the Overview tab under the Plan section. |
 
   @66223 @67954 @67925 @67916 @67917 @ErrorMsgForPurposeField @ErrorMsgTest
   Scenario: To verify that if Purpose field in plan table is left unfilled in site visit review and upon clicking on the save button by the award owner (Pm profile) on the top right corner of the page validation error must be thrown
@@ -1227,7 +1227,7 @@ Feature: Validate all scenarios of grants and award without background
     And I enter value "To fulfill pass-through monitoring responsibilities" into field "SourceSiteVisit__c"
     When I click on "Save" in the page details
     Then I softly see the following messages in the page details contains:
-      | To Save, Purpose is required in the Overview tab under the Plan section. |
+      | To save, Purpose is required in the Overview tab under the Plan section. |
 
   @53967 @NoIfAreExpenseDetailRequiredonReimbursements  @smoke
   Scenario Outline: Verify that If Are Expense Details Required on Reimbursements? field is No then user should see only edit action at Reimbursement Payment request Budget category table.
@@ -1467,7 +1467,6 @@ Feature: Validate all scenarios of grants and award without background
     And I wait for "3" seconds
     And I enter "InstructionError" values from "SiteVisit_Field_Values.xlsx"
     When I click on "Save" in the page details
-    And I halt execution
     Then I see the following messages in the page details contains:
       | To save, Instructions for Subrecipient is required in the Overview tab under the Instructions section. |
 
@@ -1524,7 +1523,7 @@ Feature: Validate all scenarios of grants and award without background
     And I enter "SourceError" values from "DeskReview_Field_Values.xlsx"
     When I click on "Save" in the page details
     Then I see the following messages in the page details contains:
-      | To Save, Source is required in the Overview tab under the Plan section. |
+      | To save, Source is required in the Overview tab under the Plan section. |
 
   @66410 @validateInstructionFieldInDeskReview @ErrorMsgTest
   Scenario: To verify that if instruction field is left unfilled in Desk review and upon clicking on the save button by the award owner (Pm profile) on the top right corner of the page validation message must be thrown
@@ -1544,7 +1543,7 @@ Feature: Validate all scenarios of grants and award without background
     And I enter "InstructionError" values from "DeskReview_Field_Values.xlsx"
     When I click on "Save" in the page details
     Then I see the following messages in the page details contains:
-      | To Save, Instructions for Subrecipient is required in the Overview tab under the Instructions section. |
+      | To save, Instructions for Subrecipient is required in the Overview tab under the Instructions section. |
 
   @68078 @redirectionThresholdCheck  @smoke
   Scenario Outline: validate that Budget Redirection threshold is default set to 10% on amendment,For a Grant with No Budget redirection threshold set
@@ -2513,9 +2512,7 @@ Feature: Validate all scenarios of grants and award without background
     And I click on "View" icon for "Created" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
     And I get the "EGMS ID"
     And I navigate to "Terms" sub tab
-    And I halt execution
     When I click on top right button "Associate Mandatory Terms and Conditions" in flex table with id "---subAwardStandAlone:-:termsndConditionsTableId---"
-    And I halt execution
     Then I softly see total records count "{SavedValue:totalRecords}" in flex table "---subAwardStandAlone:-:termsndConditionsTableId---"
 
   @67532  @checkAttachemet @wip
@@ -10928,6 +10925,8 @@ Feature: Validate all scenarios of grants and award without background
     And I perform quick search for "Record Id" in "---subAwardStandAlone:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---subAwardStandAlone:-:pendingTaskTableId---" without waiting for record
     When I click on "Accept" in the page details
+    And I wait for "2" seconds
+    Then I see field "Status" as "Accepted"
     And I navigate to "History" sub tab
     And I wait for "60" seconds
     And I refresh the page
