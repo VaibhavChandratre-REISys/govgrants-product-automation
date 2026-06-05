@@ -7400,7 +7400,8 @@ Feature: Validate all scenarios in the Risk Assessment
     And I save the field labeled "EGMS ID" as "RAEGMSID"
     Then I see status in Progress-bar is "Created" and is "dark blue"
     And I click "{SavedValue:AwardEGMSID}" lookup link
-    And I wait for "7" seconds
+    And I refresh the page
+    And I wait for "5" seconds
     When I navigate to "Management" sub tab
     Then I softly see value "{SavedValue:RAEGMSID}" for title "EGMS ID" inside table "---subAwardStandAlone:-:riskAssessmentTableId---"
     Then I softly can see row level action button "View" against "{SavedValue:RAEGMSID}" in flex table with id "---subAwardStandAlone:-:riskAssessmentTableId---"
@@ -7476,7 +7477,8 @@ Feature: Validate all scenarios in the Risk Assessment
     And I click on "Submit for Approval" in the page details
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     And I click "{SavedValue:AwardEGMSID}" lookup link
-    And I wait for "7" seconds
+    And I refresh the page
+    And I wait for "5" seconds
     When I navigate to "Management" sub tab
     Then I softly see value "{SavedValue:RAEGMSID}" for title "EGMS ID" inside table "---subAwardStandAlone:-:riskAssessmentTableId---"
     Then I softly see value "Submitted for Approval" for title "Status" against the value "{SavedValue:RAEGMSID}" inside table "---subAwardStandAlone:-:riskAssessmentTableId---"
