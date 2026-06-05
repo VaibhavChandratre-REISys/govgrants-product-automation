@@ -7399,7 +7399,9 @@ Feature: Validate all scenarios in the Risk Assessment
     When I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "RAEGMSID"
     Then I see status in Progress-bar is "Created" and is "dark blue"
-    And I click "{SavedValue:AwardEGMSID}" lookup link
+    And I click on hyperlink containing value "{SavedValue:AwardEGMSID}"
+#    And I click "{SavedValue:AwardEGMSID}" lookup link
+    And I wait for "5" seconds
     And I refresh the page
     And I wait for "5" seconds
     When I navigate to "Management" sub tab
@@ -7476,7 +7478,9 @@ Feature: Validate all scenarios in the Risk Assessment
       | {SavedValue:FO Username} | Step 1          |
     And I click on "Submit for Approval" in the page details
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
-    And I click "{SavedValue:AwardEGMSID}" lookup link
+#    And I click "{SavedValue:AwardEGMSID}" lookup link
+    And I click on hyperlink containing value "{SavedValue:AwardEGMSID}"
+    And I wait for "5" seconds
     And I refresh the page
     And I wait for "5" seconds
     When I navigate to "Management" sub tab
