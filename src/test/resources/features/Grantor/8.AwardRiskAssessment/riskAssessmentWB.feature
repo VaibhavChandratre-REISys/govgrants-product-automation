@@ -19,6 +19,8 @@ Feature: Risk Assessment scenarios without background
     When I click on "Save" in the page details
     And I save the field labeled "Grant ID" as "GrantId"
     When I click "{SavedValue:GrantId}" lookup link
+    And I refresh the page
+    And I wait for "5" seconds
     And I navigate to "Files" sub tab
     When I enter the following values into flex table with id "---subAwardStandAlone:-:flexGridGrantChecklistsTableId---" by clicking "Add" :
       | Description | Required  | Applies To | Status |
@@ -1807,6 +1809,7 @@ Feature: Risk Assessment scenarios without background
     When I click toggle button to select "Subaward Risk Assessment - All"
     And I perform quick search for "{SavedValue:RiskEGMSID}" in "---riskassessment:-:riskAssessmentGridViewExternalTableId---" panel
     Then I softly do not see "{SavedValue:RiskEGMSID}" inside flex table with id "---riskassessment:-:riskAssessmentGridViewExternalTableId---"
+
     Examples:
       | SRUser     |
       | SPI3       |
