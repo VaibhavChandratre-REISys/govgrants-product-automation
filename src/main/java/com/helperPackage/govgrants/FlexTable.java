@@ -142,7 +142,7 @@ public final class FlexTable implements FlexTableComponent {
     public void clickTableActionIcon(String flexTableId, String iconName, String... anyUniqueColumnValues) {
         getTableActionDropDownButtonIcon(flexTableId, anyUniqueColumnValues);
         try {
-            I.amPerforming().scroll().withMouseToElement(getTableActionIcon(flexTableId, iconName, anyUniqueColumnValues));
+//            I.amPerforming().scroll().withMouseToElement(getTableActionIcon(flexTableId, iconName, anyUniqueColumnValues));
             I.amPerforming().click().on(getTableActionIcon(flexTableId, iconName, anyUniqueColumnValues));
         } catch (Exception e) {
             I.amPerforming().click().withJavaScript(getTableActionIcon(flexTableId, iconName, anyUniqueColumnValues));
