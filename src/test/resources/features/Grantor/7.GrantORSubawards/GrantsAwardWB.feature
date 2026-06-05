@@ -628,6 +628,8 @@ Feature: Validate all scenarios of grants and award without background
     And I save the field labeled "Announcement ID" as "Announcement ID"
     And I wait for "4" seconds
     And I click "{SavedValue:Announcement ID}" lookup link
+    And I refresh the page
+    And I wait for "3" seconds
     And I navigate to "Financials" sub tab
     Then I see value "$0.00" for title "Spent" against the value "{SavedValue:fundingAccount}" inside table "---announcement:-:fundingAccountsTableId---"
     Examples:
@@ -861,7 +863,6 @@ Feature: Validate all scenarios of grants and award without background
     And I wait for "2" seconds
     And I click modal button "Continue"
     And I wait for "2" seconds
-    And I halt execution
     Then I softly see the following messages in the page details contains:
       | To Save, Grant Title is required.               |
       | To Save, Grant Abbreviation is required.        |
@@ -6551,7 +6552,6 @@ Feature: Validate all scenarios of grants and award without background
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:activeGrantsTableId---"
-    And I halt execution
     And I enter "GrantsBulksRecords" values from "Award_Field_Values.xlsx"
     And I click modal button "Continue"
     And I enter "Grant_Edition1" values from "Award_Field_Values.xlsx"
@@ -6567,7 +6567,6 @@ Feature: Validate all scenarios of grants and award without background
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:activeGrantsTableId---"
-    And I halt execution
     And I enter "GrantsBulksRecords" values from "Award_Field_Values.xlsx"
     And I click modal button "Continue"
     And I enter "Grant_Edition1" values from "Award_Field_Values.xlsx"
