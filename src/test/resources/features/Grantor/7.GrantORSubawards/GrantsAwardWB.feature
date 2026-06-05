@@ -1467,8 +1467,9 @@ Feature: Validate all scenarios of grants and award without background
     And I wait for "3" seconds
     And I enter "InstructionError" values from "SiteVisit_Field_Values.xlsx"
     When I click on "Save" in the page details
+    And I halt execution
     Then I see the following messages in the page details contains:
-      | To Save, Instructions for Subrecipient is required in the Overview tab under the Instructions section. |
+      | To save, Instructions for Subrecipient is required in the Overview tab under the Instructions section. |
 
   @66215 @validateCreatedStatusSV
   Scenario: To verify that after the general information in the modal window of site visit is filled by the award owner the status change to created.
@@ -2512,7 +2513,9 @@ Feature: Validate all scenarios of grants and award without background
     And I click on "View" icon for "Created" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
     And I get the "EGMS ID"
     And I navigate to "Terms" sub tab
+    And I halt execution
     When I click on top right button "Associate Mandatory Terms and Conditions" in flex table with id "---subAwardStandAlone:-:termsndConditionsTableId---"
+    And I halt execution
     Then I softly see total records count "{SavedValue:totalRecords}" in flex table "---subAwardStandAlone:-:termsndConditionsTableId---"
 
   @67532  @checkAttachemet @wip
