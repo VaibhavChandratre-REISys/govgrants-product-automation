@@ -4683,9 +4683,9 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click on "View" icon for "AN-TAO-6496" inside flex table with id "---announcement:-:annoucementTableId---" without waiting for record
     And I navigate to "Setup" sub tab
     And I expand nested table containing column value "Pre-Screen Review"
-    When I click on "Review Form" icon for "Pre-Screen" inside flex table with id "---announcement:-:subReviewPanelTableId---" without waiting for record
+    When I click on "Review Form" icon for "Pre-Screen" inside flex table with id ProgramReviewStepPanelTemplates" without waiting for record
    And I wait for "10" seconds
-   And I edit the following rows inline in flex table with id "ProgramReviewStepPanelTemplates" by clicking "Edit" :
+   And I edit the following rows inline in flex table with id "ProgramReviewPanelCategories" by clicking "Edit" :
       | Section Header | Section Weight (%) |
       | Completeness   | 50                 |
     And I edit the following rows inline in flex table with id "ProgramReviewPanelCategories" by clicking "Edit" :
