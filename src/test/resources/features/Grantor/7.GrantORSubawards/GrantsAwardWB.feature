@@ -5895,7 +5895,9 @@ Feature: Validate all scenarios of grants and award without background
     And I click on top right button "Reassign Selected" in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I pause execution for "30" seconds
     And I reset the table
+    And I halt execution
     When I perform quick search for "{SavedValue:AwardEGMSID}" in "---program:-:grantorTaskReassignTableId---" panel
+    And I halt execution
     Then I softly do not see value "{SavedValue:AwardEGMSID}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
@@ -11211,6 +11213,7 @@ Feature: Validate all scenarios of grants and award without background
     And I navigate to "Related Log" sub tab
     When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
     And I wait for "2" seconds
+    And I halt execution
     When I edit the following rows inline in flex table with id "---applicationReview:-:formTableId---" by clicking "Edit" :
       | Form Name  | Due in Days |
       | Pre-Screen | 5           |
@@ -11332,6 +11335,7 @@ Feature: Validate all scenarios of grants and award without background
     And I click on top right button "Promote to Next Step" in flex table with id "---applicationReview:-:appTableId---"
     And I wait for "2" seconds
     And I click on "Next Review Step" in the page details
+    And I halt execution
     When I edit the following rows inline in flex table with id "---applicationReview:-:formTableId---" by clicking "Edit" :
       | Form Name         | Due in Days |
       | Management Review | 5           |
@@ -11403,8 +11407,10 @@ Feature: Validate all scenarios of grants and award without background
     And I enter "Edition" values from "Award_Field_Values.xlsx"
     And I navigate to "Budget" sub tab
     Then I softly see fields "BudgetRedirectionThreshhold__c" is in edit mode
+    And I halt execution
     When I enter value "20" into field "BudgetRedirectionThreshhold__c"
     And I click on "Save" in the page details
+    And I halt execution
     And I navigate to "Budget" sub tab
     And I wait for "2" seconds
     Then I softly see field "Budget Redirection Threshold %" as "20.00%"
