@@ -1,4 +1,4 @@
-@applicationNotes @grantor-regression @grantor-parallel-regression @app @regression @ApplicationAndPre-App
+@applicationNotes @applicationRegression @grantor-regression @grantor-parallel-regression @app @regression @ApplicationAndPre-App
 Feature: Application Intake scenarios without background
 
   @228678 @ValidatePMPOEXEADMINFDusershouldbeabletoAddnotesbutEditDeletetheirownnotesonapplicationisinSubmittograntorstate @Sprint-12-US-226970 @Notes
@@ -906,7 +906,7 @@ Feature: Application Intake scenarios without background
     Then I softly cannot see row level action button "Edit" against "Notes Record Of PM User" in flex table with id "---applicationIntake:-:grantorApplicationNotesTableId---"
     Then I softly cannot see row level action button "Delete" against "Notes Record Of PM User" in flex table with id "---applicationIntake:-:grantorApplicationNotesTableId---"
 
-  @218704 @218705 @ValidateSPISPAusercanaddeditdeletenotesonapplicationincreatedStatus @Sprint-09-US-204865 @Notes
+  @mk @218704 @218705 @ValidateSPISPAusercanaddeditdeletenotesonapplicationincreatedStatus @Sprint-09-US-204865 @Notes
   Scenario: Validate SPI SPA user can add edit delete notes on application in created Status
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement Application Intake" and properties "default"
     Given I am on "SUBPORTAL" portal

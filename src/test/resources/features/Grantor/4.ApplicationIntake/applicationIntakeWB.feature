@@ -1,4 +1,4 @@
-@applicationIntakeWB @grantor-regression @grantor-parallel-regression @app @regression @ApplicationAndPre-App
+@applicationIntakeWB @applicationRegression @grantor-regression @grantor-parallel-regression @app @regression @ApplicationAndPre-App
 Feature: Application Intake scenarios without background
 
   @76373 @69366 @65078 @VerifyCreateApplicationButton  @smoke
@@ -2659,7 +2659,7 @@ Feature: Application Intake scenarios without background
       | Announcement Name                                |
       | {SavedValue:Automation Runtime FDM Announcement} |
 
-  @526439 @validateSPI/INDuseruserapplicationissubmittedtograntorwhichiscreatedfromqualifiedopportunity @GrantorFlexP1
+  @mkk @526439 @validateSPI/INDuseruserapplicationissubmittedtograntorwhichiscreatedfromqualifiedopportunity @GrantorFlexP1
   Scenario: Validate SPI/IND user user Application is submitted to grantor which is created from qualified opportunity
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Application" and properties "PROGRAM_FOR_APP_SUPP_DOC_YES"
     Given I am on "SUBPORTAL" portal

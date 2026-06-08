@@ -1,4 +1,4 @@
-@amendmentRequestsWB @amendmentRequests @grantor-regression @grantor-parallel-regression @regression @AmendmentWBRunForLWC
+@amendmentRequestsWB @amendmentRequestsWBNew @amendmentRequests @grantor-regression @grantor-parallel-regression @regression @AmendmentWBRunForLWC
 Feature: Amendment Request scenarios without background
 
   @531429 @validateusershouldabletoseethecreatedBPCamendmenttootherinternaluserfromsameorganization @GrantorFlexP1
