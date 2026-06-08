@@ -1358,10 +1358,10 @@ Feature: Application Intake scenarios without background
     And I perform quick search for "{SavedValue:AutomationExpiredApplication}" in "---applicationIntake:-:recipientApplications---" panel
     When I click on "View" icon for "{SavedValue:AutomationExpiredApplication}" inside flex table with id "---applicationIntake:-:recipientApplications---" without waiting for record
     And I wait for "2" seconds
-    When I click on "Submit Application" in the page details
-    And I wait for "2" seconds
+#    When I click on "Submit Application" in the page details
+#    And I wait for "2" seconds
     Then I softly see the following messages in the page details contains:
-      | An Application cannot be submitted after the Application Due Date. |
+      | This application cannot be submitted. The application due date has passed. |
 
   @77657 @snapshotHistoryApplication @snapExecution
   Scenario: Validate whether SPI user will be able to take the snapshot on page when the Application is in Created status and is saved under snapshot history

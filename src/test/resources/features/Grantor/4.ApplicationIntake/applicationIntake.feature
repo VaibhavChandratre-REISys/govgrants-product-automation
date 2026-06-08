@@ -253,7 +253,7 @@ Feature: Validate all scenarios in the Application Intake
       | Project Director/Manager |
       | Authorized Signatory     |
 
-  @70527 @applicationAttachmentAndNotes
+  @Bug-PROD-16226 @70527 @applicationAttachmentAndNotes
   Scenario: Validate whether user can add attachment checklist and Notes on the Application
     When I navigate to "Forms and Files" sub tab
     And I click on top right button "Add Files" in flex table with id "---applicationIntake:-:ApplicationAttachmentTableId---"
