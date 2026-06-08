@@ -12115,6 +12115,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I click on "View" icon for "{SavedValue:Automation Runtime FDM Announcement}" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
     And I navigate to "Budget" sub tab
     And I navigate to "Management" sub tab
+    And I halt execution
     And I click on top right button "New" in flex table with id "---amendment:-:amendmentRequestTableId---"
     And I pause execution for "3" seconds
     When I enter "Periodic Renewal" values from "AmendmentRequest_Field_Values.xlsx"
@@ -12153,7 +12154,9 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---amendment:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "Record Id" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
+    And I halt execution
     And I click on "Submit for Approval" in the page details
+    And I halt execution
     And I wait for "5" seconds
     And I "Approve" in the approval decision
     And I wait for "4" seconds
@@ -24083,6 +24086,8 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I save the field labeled "Grant ID" as "GrantId"
     And I click "{SavedValue:GrantId}" lookup link
     Then I softly see field "Status" as "Closed/Completed"
+    And I refresh the page
+    And I wait for "3" seconds
     And I navigate to "Budget" sub tab
     Then I softly see "Budget Summary By Focus Area" page block displayed
     And I save the value from row "1" for column name "Cumulative Obligation" as "CumulativeObligationFA1Grant" from flex table "---subAwardStandAlone:-:grantsBudgetSummaryFocusAreaTableId---"
