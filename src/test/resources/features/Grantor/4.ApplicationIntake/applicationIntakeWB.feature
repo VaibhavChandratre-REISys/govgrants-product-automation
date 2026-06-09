@@ -780,13 +780,15 @@ Feature: Application Intake scenarios without background
     And I click toggle button to select "Not Yet Qualified Opportunities - All"
     And I perform quick search for "---AUTOEnvData:-:Automation_Formula_Closed_Announcement_By_Applicant---" in "---applicationIntake:-:NotYetQualifiedTableId---" panel
     When I click on "View" icon for "---AUTOEnvData:-:Automation_Formula_Closed_Announcement_By_Applicant---" inside flex table with id "---applicationIntake:-:NotYetQualifiedTableId---" without waiting for record
+    And I wait for "5" seconds
     And I save the field containing "Application Due Date" as "Date"
-    Then I softly see field "Application Due Date" contains date less than todays date
+    Then I softly see date "{SavedValue:Date}" is less than todays date
     Then I softly cannot see top right button "Create Application" in page detail
+
     Examples:
-      | User | Key User        |
-      | SPI3 | Automation SPI3 |
-      | SPA  | Automation SPA  |
+      | User |
+      | SPI3 |
+      | SPA  |
 
   @73367 @spiUserCanViewAllocatedAmountOnceSubmittedToGrantor @buglogged129432
   Scenario Outline: Validate whether SPI & SPA user were able to view the allocated amount once the Oppurtunity is Converted to Application when Announcement is of type - Formula

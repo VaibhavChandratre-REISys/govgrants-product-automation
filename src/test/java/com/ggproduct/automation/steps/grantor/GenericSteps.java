@@ -412,6 +412,16 @@ public class GenericSteps {
         }
     }
 
+    @Description("Check the given is less/greater than today's Date")
+    @Then("^I (softly see|see) date \"([^\"]*)\" is (less|greater) than todays date$")
+    public void isGivenDateGreaterThanOrLessThanTodaysDate(String usage, String givenDate, String lessORgreater) throws ParseException {
+        if (usage.contains("softly")) {
+            I.amPerforming().assertionsTo().assertThat(grantorProjectManager.isGivenDateGreaterOrLessThanTodaysDate(givenDate, lessORgreater)).isTrue();
+        } else {
+            Assert.assertTrue(grantorProjectManager.isGivenDateGreaterOrLessThanTodaysDate(givenDate, lessORgreater));
+        }
+    }
+
     @Description("Check the Application Due Date is Less/greater than today's Date")
     @Then("^I (softly see|see) field \"([^\"]*)\" contains date (less|greater) than \"([^\"]*)\" date$")
     public void isFieldDateGreaterThanOrLessThanExpectedDate(String usage, String fieldLabel1, String lessORgreater, String fieldLabel2) throws ParseException {
