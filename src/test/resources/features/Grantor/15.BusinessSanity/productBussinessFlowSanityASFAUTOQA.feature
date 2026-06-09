@@ -1437,6 +1437,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I wait for "2" seconds
     When I click on "Funding Decision Memo" in the page details
     Then I see status in Progress-bar is "Created" and is "dark blue"
+    And I get current URL
     And I click on "Edit" in the page details
     When I enter values into fields
       | Value                       | Field            |
