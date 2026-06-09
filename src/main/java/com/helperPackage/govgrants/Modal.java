@@ -60,7 +60,7 @@ public final class Modal {
     public void acceptPopUp() {
         try {
             I.amPerforming().waitFor().makeThreadSleep(1500);
-            if (I.amPerforming().checkToSee().IsElementPresentQuick(By.xpath("//div[contains(@class,'modal__container')]//lightning-confirm | //div[contains(@class,'modal__container')]//header//h2[text()='Confirm'] | //div[contains(@class,'modal__container')]//*[text()='Confirm']"))) {
+            if (I.amPerforming().checkToSee().IsElementPresentQuick(By.xpath("//div[contains(@class,'modal__container')]//lightning-confirm | //div[contains(@class,'modal__container')]//header//h2[text()='Confirm'] | //div[contains(@class,'modal__container')]//h2[text()='Confirm Action'] | //div[contains(@class,'modal__container')]//*[text()='Confirm']"))) {
                 WebElement popup = I.amPerforming().getElementReference().of(By.xpath("//div[contains(@class,'modal__container')]"));
                 I.amPerforming().click().on(I.amPerforming().getElementReference().ofNested(popup, By.xpath("//div[contains(@class,'modal__container')]//button[text()='OK' or text()='Yes' or text()='Continue']")));
             }
@@ -109,7 +109,7 @@ public final class Modal {
      */
     public void acceptPopUpWithParameter(String buttonName) {
         try {
-            if (I.amPerforming().checkToSee().isDisplayed(By.xpath("//div[contains(@class,'modal__footer')] | //div[contains(@class,'modal__container')]//lightning-confirm | //div[contains(@class,'modal__container')]//header"), true)) {
+            if (I.amPerforming().checkToSee().isDisplayed(By.xpath("//footer[contains(@class,'confirm-modalfooter')] | //div[contains(@class,'modal__footer')] | //div[contains(@class,'modal__container')]//lightning-confirm | //div[contains(@class,'modal__container')]//header"), true)) {
                 I.amPerforming().click().on(By.xpath("//div[contains(@class,'modal__footer')]//button[text()='" + buttonName + "'] | //div[contains(@class,'modal__container')]//button[text()='" + buttonName + "'] | //footer[contains(@class,'modal__footer')]//button[text()='" + buttonName + "']"));
             }
         } catch (Exception e) {
