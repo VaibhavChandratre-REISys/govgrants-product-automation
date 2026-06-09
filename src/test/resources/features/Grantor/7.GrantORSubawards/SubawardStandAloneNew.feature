@@ -1256,7 +1256,6 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     And I click on "Send for Review" icon for "{SavedValue:FO Username}" inside flex table with id "RiskAssessmentApproverRoles" without waiting for record
     And I wait for "2" seconds
     When I re-login to "Grantor" app as "FO" user on "INTERNAL" portal
-#    And I navigate to "Monitoring" tab
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---subAwardStandAlone:-:pendingTaskTableId---" panel

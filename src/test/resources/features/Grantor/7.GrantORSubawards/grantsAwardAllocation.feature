@@ -23949,6 +23949,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I softly see field "Cumulative Obligation" as "$1,000.00"
     And I save the field labeled "Cumulative Obligation" as "CumulativeObligationAward1"
     And I click on hyperlink for invisible fields containing value "{SavedValue:GrantEGMSID}"
+    And I refresh the page
     And I wait for "4" seconds
     When I navigate to "Actuals" sub tab
     Then I softly see "Cumulative Obligation" inside page block detail
@@ -24226,6 +24227,8 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I save the field labeled "Grant ID" as "GrantId"
     And I click "{SavedValue:GrantId}" lookup link
     Then I softly see field "Status" as "Active"
+    And I refresh the page
+    And I wait for "3" seconds
     And I navigate to "Budget" sub tab
     Then I softly see field "Estimated Program Income For Project Period" inside page block
     Then I softly see field "Required Match Amount" inside page block
@@ -24458,6 +24461,8 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I softly see status in Progress-bar is "Paid" and is "dark blue"
     And I save the field labeled "Subaward" as "Subaward"
     And I click "{SavedValue:Subaward}" lookup link
+    And I refresh the page
+    And I wait for "3" seconds
     And I navigate to "Actuals" sub tab
     Then I softly see field "Spent" as "$1,000.00"
     Then I softly see value "$500.00" for title "Spent" against the value "Automation Permanent Focus Area" inside table "---subAwardStandAlone:-:awardPaymentSummaryFocusAreaTableId---"
