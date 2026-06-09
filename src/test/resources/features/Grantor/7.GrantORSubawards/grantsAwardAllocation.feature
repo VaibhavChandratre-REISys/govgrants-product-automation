@@ -24460,8 +24460,15 @@ Feature: Validate all scenarios of grants and award for Allocation
     And I click modal button "Close"
     Then I softly see status in Progress-bar is "Paid" and is "dark blue"
     And I save the field labeled "Subaward" as "Subaward"
-    And I click "{SavedValue:Subaward}" lookup link
-    And I refresh the page
+#    And I click "{SavedValue:Subaward}" lookup link
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click toggle button to select "Grants - All"
+    When I perform quick search for "{SavedValue:Automation Runtime Award}" in "---deskreview:-:internalActiveGrants---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside flex table with id "---deskreview:-:internalActiveGrants---"
+    And I save the field labeled "EGMS ID" as "GrantEGMSID"
+    When I navigate to "Subawards" sub tab
+    And I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside flex table with id "---deskreview:-:internalRelatedAwards1---"
     And I wait for "3" seconds
     And I navigate to "Actuals" sub tab
     Then I softly see field "Spent" as "$1,000.00"
