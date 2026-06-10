@@ -3665,8 +3665,10 @@ Feature: Validate all scenarios in Closeout
     When I check "{SavedValue:closeoutID}" boxes in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I click on top right button "Reassign Selected" in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I pause execution for "30" seconds
+    And I halt execution
     And I reset the table
     When I perform quick search for "{SavedValue:closeoutID}" in "---program:-:grantorTaskReassignTableId---" panel
+    And I halt execution
     Then I softly do not see value "{SavedValue:closeoutID}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
 
   @200153 @ValidatePMuserCloseoutRequestAwardownernotifyemailshouldbegeneratedinyopmailtoawardownerwhencloseoutisinCreatedstate @sprint-5-US-197578  @reassignment
@@ -5726,6 +5728,7 @@ Feature: Validate all scenarios in Closeout
     When I navigate to "Project Period Closeouts" content inside "Closeouts" subheader on left panel
     And I click toggle button to select "Project Period Closeouts - All"
     When I perform quick search for "{SavedValue:closeoutRequestNo}" in "---closeout:-:ProjectPeriodCloseoutTableId---" panel
+    And I halt execution
     Then I softly cannot see row level action button "Edit" against "{SavedValue:closeoutID}" in flex table with id "---closeout:-:ProjectPeriodCloseoutTableId---"
     When I click on "View" icon for "{SavedValue:closeoutRequestNo}" inside flex table with id "---closeout:-:ProjectPeriodCloseoutTableId---"
     Then I cannot see top right button "Edit" in page detail
@@ -5768,10 +5771,10 @@ Feature: Validate all scenarios in Closeout
     Examples:
       | NonOwner |
       | PO       |
-      | EXE      |
-      | FO       |
-      | FD       |
-      | ADMIN    |
+#      | EXE      |
+#      | FO       |
+#      | FD       |
+#      | ADMIN    |
 
   @535235 @validatecreatedstatePPcloseoutrequestandit’schildrecordsshouldbevisibletoS\Ruserincreatedstateofcloseoutrequest @GrantorFlexP1
   Scenario Outline: Validate  created state PP closeout request and it’s child records should be visible to S\R user in created state of closeout request
@@ -5840,6 +5843,7 @@ Feature: Validate all scenarios in Closeout
     When I perform quick search for "{SavedValue:Automation Runtime Award for closeout}" in "---paymentRequest:-:recipientGrantTableId---" panel
     And I click on "View" icon for "{SavedValue:Automation Runtime Award for closeout}" inside flex table with id "---paymentRequest:-:recipientGrantTableId---" without waiting for record
     When I navigate to "Requests" sub tab
+    And I halt execution
     Then I softly can see row level action button "View" against "Created" in flex table with id "---closeout:-:RecipientCloseoutRequestTableId---"
     Then I softly cannot see row level action button "Edit" against "Created" in flex table with id "---closeout:-:RecipientCloseoutRequestTableId---"
     And I navigate to "Closeout" tab

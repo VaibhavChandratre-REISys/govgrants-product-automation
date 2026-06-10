@@ -8,7 +8,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:activeGrantsTableId---"
     And I enter "GrantFields1" values from "Award_Field_Values.xlsx"
     And I click modal button "Continue"
-    And I enter "Grant_Ed_Advance_No" values from "Award_Field_Values.xlsx"
+    And I enter "Grant_Edition_Risk_No" values from "Award_Field_Values.xlsx"
     When I click modal button "Save and Continue"
     And I navigate to "Subawards" sub tab
     And I click on "View" icon for "Created" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
