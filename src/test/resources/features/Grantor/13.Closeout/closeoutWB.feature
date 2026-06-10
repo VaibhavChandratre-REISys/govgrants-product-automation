@@ -5726,7 +5726,7 @@ Feature: Validate all scenarios in Closeout
     When I navigate to "Project Period Closeouts" content inside "Closeouts" subheader on left panel
     And I click toggle button to select "Project Period Closeouts - All"
     When I perform quick search for "{SavedValue:closeoutRequestNo}" in "---closeout:-:ProjectPeriodCloseoutTableId---" panel
-    Then I softly cannot see row level action button "Edit" against "{SavedValue:closeoutID}" in flex table with id "---closeout:-:ProjectPeriodCloseoutTableId---"
+    Then I softly cannot see row level action button "Edit" against "{SavedValue:closeoutRequestNo}" in flex table with id "---closeout:-:ProjectPeriodCloseoutTableId---"
     When I click on "View" icon for "{SavedValue:closeoutRequestNo}" inside flex table with id "---closeout:-:ProjectPeriodCloseoutTableId---"
     Then I cannot see top right button "Edit" in page detail
     Then I softly can see "Overview" sub tab at view detail page
