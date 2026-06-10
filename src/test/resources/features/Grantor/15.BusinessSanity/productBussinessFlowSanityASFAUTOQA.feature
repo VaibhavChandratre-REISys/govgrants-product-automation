@@ -1124,13 +1124,13 @@ Feature: Validate sanity testing of Complete Business Flow
     When I click on "Start" icon for "{SavedValue:AnnEGMSID}" inside flex table with id "---announcement:-:pendingTaskTableId---" without waiting for record
     And I "Approve" in the approval decision
     Then I softly see status in Progress-bar is "Approved" and is "dark blue"
-#    When I re-login to "As a Grantor" app as "ADMIN" user on "INTERNAL" portal
-#    And I navigate to "Announcements" tab
-#    When I navigate to "Formula" content inside "Announcements" subheader on left panel
-#    And I click toggle button to select "All Formula Announcements"
-#    When I perform quick search for "{SavedValue:AnnEGMSID}" in "---announcement:-:formulaAnnouncementTableId---" panel
-#    When I click on "View" icon for "{SavedValue:AnnEGMSID}" inside flex table with id "---announcement:-:formulaAnnouncementTableId---" without waiting for record
-#    And I click on "Publish" in the page details
+    When I re-login to "As a Grantor" app as "ADMIN" user on "INTERNAL" portal
+    And I navigate to "Announcements" tab
+    When I navigate to "Formula" content inside "Announcements" subheader on left panel
+    And I click toggle button to select "All Formula Announcements"
+    When I perform quick search for "{SavedValue:AnnEGMSID}" in "---announcement:-:formulaAnnouncementTableId---" panel
+    When I click on "View" icon for "{SavedValue:AnnEGMSID}" inside flex table with id "---announcement:-:formulaAnnouncementTableId---" without waiting for record
+    And I click on "Publish" in the page details
     Then I softly see field "Status" as "Published"
 
   @72344 @preApplicationSubmittedToGrantor @ProdSan2 @ProdSan2_1 @ProdSan2_1_1
@@ -1178,8 +1178,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "Record Id" in "---home:-:internalHomePendingTaskTableId---" panel
     And I click on "Start" icon for "Record Id" inside flex table with id "---home:-:internalHomePendingTaskTableId---"
-#    When I click on "Accept" in the page details
-#    And I refresh the page
+    When I click on "Accept" in the page details
     Then I see status in Progress-bar is "Accepted" and is "dark blue"
 
   @72345 @submitApplication @ProdSan1 @ProdSan1_1
