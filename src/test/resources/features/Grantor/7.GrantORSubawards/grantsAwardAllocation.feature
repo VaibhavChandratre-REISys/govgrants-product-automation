@@ -24620,6 +24620,7 @@ Feature: Validate all scenarios of grants and award for Allocation
     Then I softly see value "$500.00" for title "Spent" against the value "Automation Permanent Focus Area2" inside table "---subAwardStandAlone:-:awardPaymentSummaryFocusAreaTableId---"
     Then I softly see value "$1,000.00" for title "Spent" against the value "Total" inside table "---subAwardStandAlone:-:awardPaymentSummaryFocusAreaTableId---"
     And I select value inside table "---subAwardStandAlone:-:paymentSummaryBudgetTableId---" is "All"
+    And I halt execution
     Then I see the following rows under the following headers in table with id "---subAwardStandAlone:-:paymentSummaryBudgetTableId---" :
       | Spent     |
       | $1,000.00 |
