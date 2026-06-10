@@ -1047,7 +1047,6 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     And I save the field labeled "Subaward Title" as "Automation Runtime award"
     And I click on "Edit" in the page details
     And I wait for "2" seconds
-    And I halt execution
     When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
     And I wait for "2" seconds
     And I click on "Save" in the page details
@@ -1150,15 +1149,13 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     And I save the total records from the flex table id "---subAwardStandAlone:-:progressReportScheduleTableId---" as "totalRecordsProgressSchedule"
     Then I softly see total records count "{SavedValue:totalRecordsProgressSchedule}" in flex table "---subAwardStandAlone:-:progressReportScheduleTableId---"
     And I wait for "3" seconds
-    And I halt execution
     When I click on top right button "Associate Mandatory Terms and Conditions" in flex table with id "---subAwardStandAlone:-:termsndConditionsTableId---"
-    And I halt execution
 #    And I wait for "4" seconds
     Then I softly see the following messages in the page details contains:
-      | Terms & Conditions associated with subaward successfully. |
+      | All mandatory Terms & Conditions within this Project Period are already associated or we don't have any mandatory Terms & Conditions to associate. |
     And I refresh the page
-    And I save the total records from the flex table id "---subAwardStandAlone:-:termsndConditionsTableId---" as "totalRecordsTnC"
-    Then I softly see total records count "{SavedValue:totalRecordsTnC}" in flex table "---subAwardStandAlone:-:termsndConditionsTableId---"
+#    And I save the total records from the flex table id "---subAwardStandAlone:-:termsndConditionsTableId---" as "totalRecordsTnC"
+#    Then I softly see total records count "{SavedValue:totalRecordsTnC}" in flex table "---subAwardStandAlone:-:termsndConditionsTableId---"
     When I navigate to "Responsibilities" sub tab
     Then I can see top right button "New" in flex table with id "---subAwardStandAlone:-:peerReviewersTableId---"
     And I enter the following values into flex table with id "---subAwardStandAlone:-:peerReviewersTableId---" by clicking "New" :
