@@ -2426,7 +2426,7 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
       | Announcement Name                                               | Application Name                                                |
       | {SavedValue:Automation Runtime Announcement Application Review} | {SavedValue:Automation Runtime Announcement Application Review} |
 
-  @274560  @Sprint-23-US-273843  @Allocation
+  @274560 @Sprint-23-US-273843  @Allocation
   Scenario Outline: Validate Formula PM user should submit FDM for approval even if mismatch Allocation & budgeted amount on Application on FDM layout & see validation on converted to award button
     And I published "Formula" type announcement having name "Automation Runtime Announcement Application Review" and properties "BY_APPLICANT_FOCUS_AREA_NEGOTIATION_YES"
     And I initiated an application review for application "{SavedValue:Automation Runtime Announcement Application Review}" on announcement "{SavedValue:Automation Runtime Announcement Application Review}" with properties "default"
@@ -2583,7 +2583,12 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
     And I click on "Save" in the page details
     Then I softly see field "Status" as "Created"
     And I save the field labeled "Announcement EGMS ID" as "AnnouncementEGMSID"
-    And I click "{SavedValue:AnnouncementEGMSID}" lookup link
+#    And I click "{SavedValue:AnnouncementEGMSID}" lookup link
+    And I navigate to "Announcements" tab
+    When I navigate to "Formula" content inside "Announcements" subheader on left panel
+    And I click toggle button to select "All Formula Announcements"
+    When I perform quick search for "{SavedValue:AnnouncementEGMSID}" in "---announcement:-:formulaAnnouncementTableId---" panel
+    When I click on "View" icon for "{SavedValue:AnnouncementEGMSID}" inside flex table with id "---announcement:-:formulaAnnouncementTableId---"
     And I navigate to "Overview" sub tab
     And I expand nested table containing column value "SAN DIEGO ELECTRICAL TRAINING TRUST"
     And I edit the following rows inline in flex table with id "---announcement:-:formulaFocusAreaInvitedTableId---" by clicking "Edit" :
@@ -3789,7 +3794,12 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
     And I click on "Save" in the page details
     Then I softly see field "Status" as "Created"
     And I save the field labeled "Announcement EGMS ID" as "AnnouncementEGMSID"
-    And I click "{SavedValue:AnnouncementEGMSID}" lookup link
+#    And I click "{SavedValue:AnnouncementEGMSID}" lookup link
+    And I navigate to "Announcements" tab
+    When I navigate to "Formula" content inside "Announcements" subheader on left panel
+    And I click toggle button to select "All Formula Announcements"
+    When I perform quick search for "{SavedValue:AnnouncementEGMSID}" in "---announcement:-:formulaAnnouncementTableId---" panel
+    When I click on "View" icon for "{SavedValue:AnnouncementEGMSID}" inside flex table with id "---announcement:-:formulaAnnouncementTableId---"
     When I navigate to "Overview" sub tab
     When I edit the following rows inline in flex table with id "---announcement:-:formulaInvitedApplicatsTableId---" by clicking "Edit" :
       | Applicants                          | Allocated Amount |
@@ -3976,7 +3986,12 @@ Feature: Validate all scenarios in the Application Review with Allocation Featur
     And I click on "Save" in the page details
     Then I softly see field "Status" as "Created"
     And I save the field labeled "Announcement EGMS ID" as "AnnouncementEGMSID"
-    And I click "{SavedValue:AnnouncementEGMSID}" lookup link
+#    And I click "{SavedValue:AnnouncementEGMSID}" lookup link
+    And I navigate to "Announcements" tab
+    When I navigate to "Formula" content inside "Announcements" subheader on left panel
+    And I click toggle button to select "All Formula Announcements"
+    When I perform quick search for "{SavedValue:AnnouncementEGMSID}" in "---announcement:-:formulaAnnouncementTableId---" panel
+    When I click on "View" icon for "{SavedValue:AnnouncementEGMSID}" inside flex table with id "---announcement:-:formulaAnnouncementTableId---"
     When I navigate to "Overview" sub tab
     When I edit the following rows inline in flex table with id "---announcement:-:formulaInvitedApplicatsTableId---" by clicking "Edit" :
       | Applicants                          | Allocated Amount |
