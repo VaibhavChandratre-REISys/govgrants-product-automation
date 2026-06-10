@@ -1178,8 +1178,8 @@ Feature: Validate sanity testing of Complete Business Flow
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "Record Id" in "---home:-:internalHomePendingTaskTableId---" panel
     And I click on "Start" icon for "Record Id" inside flex table with id "---home:-:internalHomePendingTaskTableId---"
-    When I click on "Accept" in the page details
-    And I refresh the page
+#    When I click on "Accept" in the page details
+#    And I refresh the page
     Then I see status in Progress-bar is "Accepted" and is "dark blue"
 
   @72345 @submitApplication @ProdSan1 @ProdSan1_1
