@@ -322,7 +322,6 @@ Feature: Validate all scenarios in Closeout
     And I click on "Upload Template" icon for "Project Period Closeout" inside flex table with id "---subAwardStandAlone:-:flexGridGrantChecklistsTableId---" with wait for record
     And I upload attachment without random number "AttachmentTesting.pdf" of type "Others" from computer
     And I click modal button "Close"
-    And I halt execution
     And I wait for "2" seconds
     When I navigate to "Requests" sub tab
     And I click on top right button "New" in flex table with id "---closeout:-:closeoutTableId---"
@@ -369,13 +368,11 @@ Feature: Validate all scenarios in Closeout
 #    And I switch to parent tab
     Then I softly see value "Automation" for title "Description" inside table "---closeout:-:closeoutSupportingDocumentChecklist---"
     #89225
-    And I halt execution
-    And I click on hyperlink containing value "View"
+#    And I click on hyperlink containing value "View"
+    And I click on hyperlink for invisible fields containing value "View"
     And I wait for "2" seconds
     Then I softly see new tab is opened
-    And I halt execution
     And I switch to parent tab
-    And I halt execution
     And I click on top right button "Add Files" in flex table with id "---closeout:-:closeoutFilesTableId---"
     #89226
     And I upload attachment without random number "Permanent Records.xlsx" of type "Other" from computer
