@@ -3665,10 +3665,8 @@ Feature: Validate all scenarios in Closeout
     When I check "{SavedValue:closeoutID}" boxes in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I click on top right button "Reassign Selected" in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I pause execution for "30" seconds
-    And I halt execution
     And I reset the table
     When I perform quick search for "{SavedValue:closeoutID}" in "---program:-:grantorTaskReassignTableId---" panel
-    And I halt execution
     Then I softly do not see value "{SavedValue:closeoutID}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
 
   @200153 @ValidatePMuserCloseoutRequestAwardownernotifyemailshouldbegeneratedinyopmailtoawardownerwhencloseoutisinCreatedstate @sprint-5-US-197578  @reassignment

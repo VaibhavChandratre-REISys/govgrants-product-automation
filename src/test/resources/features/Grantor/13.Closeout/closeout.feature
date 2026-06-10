@@ -575,7 +575,7 @@ Feature: Validate all scenarios in Closeout
     And I enter value "checked" into field "Aggreement__c"
     When I click on "Save" in the page details
     And I wait for "2" seconds
-    Then I softly see field "Acknowledgement" as "checked"
+    Then I softly see field "Acknowledgement" as "True"
     #86712
     And I click on "Acknowledge" in the page details
     Then I softly see status in Progress-bar is "Acknowledged by Subrecipient" and is "dark blue"
@@ -1018,7 +1018,7 @@ Feature: Validate all scenarios in Closeout
     And I enter value "checked" into field "Aggreement__c"
     When I click on "Save" in the page details
     And I wait for "2" seconds
-    Then I softly see field "Acknowledgement" as "checked"
+    Then I softly see field "Acknowledgement" as "True"
     And I click on "Acknowledge" in the page details
     Then I softly see status in Progress-bar is "Acknowledged by Subrecipient" and is "dark blue"
     Then I softly see field "Status" as "Acknowledged by Subrecipient"
