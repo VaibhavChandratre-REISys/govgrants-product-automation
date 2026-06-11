@@ -393,6 +393,7 @@ Feature: Validate all scenarios in Closeout
     Then I softly can see row level action button "View" against "Permanent Records.xlsx" in flex table with id "---closeout:-:closeoutFilesTableId---"
     Then I softly can see row level action button "Delete" against "Permanent Records.xlsx" in flex table with id "---closeout:-:closeoutFilesTableId---"
     #88734
+    And I click on "Edit" in the page details
     When I navigate to "Checklist" sub tab
     And I enter value "Yes" into field "ChecklistQuestionPick1__c"
     And I enter value "Yes" into field "ChecklistQuestionPick7__c"
