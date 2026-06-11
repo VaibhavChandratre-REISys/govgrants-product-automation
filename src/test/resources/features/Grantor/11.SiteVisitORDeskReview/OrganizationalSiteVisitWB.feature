@@ -2325,7 +2325,8 @@ Feature: Validate all scenarios in Organizational Site Visit Without Background
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Site Visits" content inside "Monitoring Activities" subheader on left panel
-    And I click toggle button to select "Site Visits - All"
+    And I click toggle button to select "Site Visit Reports - All"
+#    And I click toggle button to select "Site Visits - All"
     When I perform quick search for "{SavedValue:SiteVisitId}" in "---sitevisits:-:manageSiteVisitTableId---" panel
     And I click on "View" icon for "{SavedValue:SiteVisitId}" inside flex table with id "---sitevisits:-:manageSiteVisitTableId---"
     And I click on "Notify" in the page details
