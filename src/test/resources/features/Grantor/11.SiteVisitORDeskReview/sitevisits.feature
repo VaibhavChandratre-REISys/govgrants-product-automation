@@ -1135,6 +1135,7 @@ Feature: Validate all scenarios in the Site Visit
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Site Visits" content inside "Monitoring Activities" subheader on left panel
+    And I click toggle button to select "Site Visit Reports - All"
     And I perform quick search for "{SavedValue:Automation Runtime Award Site Visit}" in "ApplicantSiteVisitReports" panel
     When I click on "View" icon for "{SavedValue:Automation Runtime Award Site Visit}" inside flex table with id "ApplicantSiteVisitReports"
     Then I softly see status in Progress-bar is "Closed" and is "dark blue"
