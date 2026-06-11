@@ -1339,8 +1339,8 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     When I perform quick search for "Automation Permanent Focus Area2" in "---focusarea:-:focusAreaTableId---" panel
     And I click on "View" icon for "Automation Permanent Focus Area2" inside flex table with id "---focusarea:-:focusAreaTableId---"
     And I navigate to "Related Log" sub tab
-    When I perform quick search for "{SavedValue:AwardEGMSID}" in "---focusarea:-:ActiveGrantsTableIdFocusArea---" panel
-    Then I see value "{SavedValue:AwardEGMSID}" for title "EGMS ID" inside table "---focusarea:-:ActiveGrantsTableIdFocusArea---"
+    When I perform quick search for "{SavedValue:GrantEGMSID}" in "---focusarea:-:ActiveGrantsTableIdFocusArea---" panel
+    Then I see value "{SavedValue:GrantEGMSID}" for title "EGMS ID" inside table "---focusarea:-:ActiveGrantsTableIdFocusArea---"
     When I navigate to "Planning" tab
     When I navigate to "Focus Areas" content inside "Setup" subheader on left panel
     And I pause execution for "3" seconds
@@ -1348,8 +1348,8 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     When I perform quick search for "{SavedValue:FocusAreaTitle}" in "---focusarea:-:focusAreaTableId---" panel
     And I click on "View" icon for "{SavedValue:FocusAreaTitle}" inside flex table with id "---focusarea:-:focusAreaTableId---"
     And I navigate to "Related Log" sub tab
-    When I perform quick search for "{SavedValue:AwardEGMSID}" in "---focusarea:-:ActiveGrantsTableIdFocusArea---" panel
-    Then I see value "{SavedValue:AwardEGMSID}" for title "EGMS ID" inside table "---focusarea:-:ActiveGrantsTableIdFocusArea---"
+    When I perform quick search for "{SavedValue:GrantEGMSID}" in "---focusarea:-:ActiveGrantsTableIdFocusArea---" panel
+    Then I see value "{SavedValue:GrantEGMSID}" for title "EGMS ID" inside table "---focusarea:-:ActiveGrantsTableIdFocusArea---"
     When I navigate to "Planning" tab
     And I navigate to "Key Performance Indicators (KPI)" content inside "Setup" subheader on left panel
     And I click toggle button to select "Key Performance Indicators (KPI) - All"

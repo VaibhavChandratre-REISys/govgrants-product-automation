@@ -372,7 +372,9 @@ Feature: Validate all scenarios in Closeout
     And I click on hyperlink for invisible fields containing value "View"
     And I wait for "2" seconds
     Then I softly see new tab is opened
+    And I halt execution
     And I switch to parent tab
+    And I halt execution
     And I click on top right button "Add Files" in flex table with id "---closeout:-:closeoutFilesTableId---"
     #89226
     And I upload attachment without random number "Permanent Records.xlsx" of type "Other" from computer
