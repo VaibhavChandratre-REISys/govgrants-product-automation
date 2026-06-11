@@ -73,7 +73,7 @@ Feature: Validate all scenarios for static data creation
       | User  |
       | ADMIN |
 
-  @creationAndActivationOfProgram
+  @creationAndActivationOfProgram @Tesstt
   Scenario Outline: Creation and activation of program
     When I login to "Grantor" app as "dynamicUser" user
     And I navigate to "Planning" tab

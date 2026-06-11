@@ -4144,8 +4144,8 @@ Feature: Amendment Request scenarios without background
     When I enter the following values into flex table with id "---amendment:-:approversTableId---" by clicking "New" :
       | Name                      | Amendment Request |
       | {SavedValue:EXE Username} | Step 2            |
-    Then I softly see value "{SavedValue:PO Username}" for title "Title" inside table "---amendment:-:approversTableId---"
-    Then I softly see value "{SavedValue:EXE Username}" for title "Title" inside table "---amendment:-:approversTableId---"
+    Then I softly see value "{SavedValue:PO Username}" for title "Name" inside table "---amendment:-:approversTableId---"
+    Then I softly see value "{SavedValue:EXE Username}" for title "Name" inside table "---amendment:-:approversTableId---"
     When I navigate to "Files" sub tab
     Then I can see top right button "Add Files" in flex table with id "---amendment:-:amendmentAddFilesTableId---"
     And I click on top right button "Add Files" in flex table with id "---amendment:-:amendmentAddFilesTableId---"
@@ -4476,7 +4476,7 @@ Feature: Amendment Request scenarios without background
     And I upload attachment without random number "Attachment.pdf" of type "Terms and Conditions" from computer
     And I pause execution for "3" seconds
     And I click modal button "Close"
-    Then I softly see value "Attachment.pdf" for title "Title" inside table "---amendment:-:amendmentAddFilesTableId---"
+    Then I softly see value "Attachment.pdf" for title "Name" inside table "---amendment:-:amendmentAddFilesTableId---"
     Then I can see top right button "New" in flex table with id "---amendment:-:amendmentAddNotesTableId---"
     When I enter the following values into flex table with id "---amendment:-:amendmentAddNotesTableId---" by clicking "New" :
       | Title            | Description      |
