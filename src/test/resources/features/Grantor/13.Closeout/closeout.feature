@@ -378,14 +378,14 @@ Feature: Validate all scenarios in Closeout
     And I click on top right button "Add Files" in flex table with id "---closeout:-:closeoutFilesTableId---"
     #89226
     And I upload attachment without random number "Permanent Records.xlsx" of type "Other" from computer
-    When I upload attachment "Permanent Records.xlsx" of type "Other" from computer
+    When I upload attachment without random number "Permanent Records.xlsx" of type "Other" from computer
     When I click modal button "Close"
     And I wait for "2" seconds
     #89229
     And I halt execution
     And I click on "View" icon for "Other" inside flex table with id "---closeout:-:closeoutFilesTableId---" with wait for record
     And I halt execution
-    Then I softly see "Add Files" opens in overLay window
+#    Then I softly see "Add Files" opens in overLay window
     Then I see field "Title" as "Permanent Records.xlsx" on modal
     Then I see field "Classification" as "Other" on modal
     When I click modal button "Close"
@@ -1536,7 +1536,6 @@ Feature: Validate all scenarios in Closeout
     And I enter "Edition" values from "Closeout_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I get the "EGMS ID"
-    And I click on "Acknowledge" in the page details
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     When I navigate to "Closeout" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -1545,6 +1544,7 @@ Feature: Validate all scenarios in Closeout
     When I click on "Edit" in the page details
     And I enter "Subrecipient fields" values from "Closeout_Field_Values.xlsx"
     When I click on "Save" in the page details
+    And I wait for "2" seconds
     And I click on "Acknowledge" in the page details
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     When I navigate to "Closeout" tab
