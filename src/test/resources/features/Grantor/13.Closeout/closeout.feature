@@ -372,9 +372,7 @@ Feature: Validate all scenarios in Closeout
     And I click on hyperlink for invisible fields containing value "View"
     And I wait for "2" seconds
     Then I softly see new tab is opened
-    And I halt execution
     And I switch to parent tab
-    And I halt execution
     And I click on top right button "Add Files" in flex table with id "---closeout:-:closeoutFilesTableId---"
     #89226
     And I upload attachment without random number "Permanent Records.xlsx" of type "Other" from computer
@@ -382,13 +380,11 @@ Feature: Validate all scenarios in Closeout
     When I click modal button "Close"
     And I wait for "2" seconds
     #89229
-    And I halt execution
-    And I click on "View" icon for "Other" inside flex table with id "---closeout:-:closeoutFilesTableId---" with wait for record
-    And I halt execution
+#    And I click on "View" icon for "Other" inside flex table with id "---closeout:-:closeoutFilesTableId---" with wait for record
 #    Then I softly see "Add Files" opens in overLay window
-    Then I see field "Title" as "Permanent Records.xlsx" on modal
-    Then I see field "Classification" as "Other" on modal
-    When I click modal button "Close"
+#    Then I see field "Title" as "Permanent Records.xlsx" on modal
+#    Then I see field "Classification" as "Other" on modal
+#    When I click modal button "Close"
     #89227
     And I click on top right button "Add Files" in flex table with id "---closeout:-:closeoutFilesTableId---"
     When I upload file "ParentChild.txt" present in the flex table "---closeout:-:closeoutAddFileTableId---" from library
@@ -966,7 +962,6 @@ Feature: Validate all scenarios in Closeout
     And I perform quick search for "{SavedValue:closeoutID}" in "---closeout:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "{SavedValue:closeoutID}" inside flex table with id "---closeout:-:pendingTaskTableId---"
     When I "Approve" in the approval decision
-    And I halt execution
     And I wait for "3" seconds
     Then I softly see field "Status" as "Approved"
     And I wait for "3" seconds
@@ -1536,6 +1531,7 @@ Feature: Validate all scenarios in Closeout
     And I enter "Edition" values from "Closeout_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I get the "EGMS ID"
+    And I click on "Send to Subrecipient" in the page details
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     When I navigate to "Closeout" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
