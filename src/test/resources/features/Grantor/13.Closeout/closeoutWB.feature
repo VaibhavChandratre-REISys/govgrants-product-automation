@@ -574,6 +574,8 @@ Feature: Validate all scenarios in Closeout
     And I perform quick search for "{SavedValue:closeoutID}" in "---closeout:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "{SavedValue:closeoutID}" inside flex table with id "---closeout:-:pendingTaskTableId---"
     When I "Approve" in the approval decision
+    And I wait for "3" seconds
+    Then I softly see field "Status" as "Approved"
     When I re-login to "Grantor" app as "FO" user on "INTERNAL" portal
     When I navigate to "Closeout" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -5840,7 +5842,6 @@ Feature: Validate all scenarios in Closeout
     When I perform quick search for "{SavedValue:Automation Runtime Award for closeout}" in "---paymentRequest:-:recipientGrantTableId---" panel
     And I click on "View" icon for "{SavedValue:Automation Runtime Award for closeout}" inside flex table with id "---paymentRequest:-:recipientGrantTableId---" without waiting for record
     When I navigate to "Requests" sub tab
-    And I halt execution
     Then I softly can see row level action button "View" against "Created" in flex table with id "---closeout:-:RecipientCloseoutRequestTableId---"
     Then I softly cannot see row level action button "Edit" against "Created" in flex table with id "---closeout:-:RecipientCloseoutRequestTableId---"
     And I navigate to "Closeout" tab
