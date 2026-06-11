@@ -382,7 +382,9 @@ Feature: Validate all scenarios in Closeout
     When I click modal button "Close"
     And I wait for "2" seconds
     #89229
+    And I halt execution
     And I click on "View" icon for "Other" inside flex table with id "---closeout:-:closeoutFilesTableId---" with wait for record
+    And I halt execution
     Then I softly see "Add Files" opens in overLay window
     Then I see field "Title" as "Permanent Records.xlsx" on modal
     Then I see field "Classification" as "Other" on modal
