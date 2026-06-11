@@ -2691,7 +2691,7 @@ Feature: Validate all scenarios in the Application Review without background
       | Announcement Name                                               | Application Name                                                |
       | {SavedValue:Automation Runtime Announcement Application Review} | {SavedValue:Automation Runtime Announcement Application Review} |
 
-  @80265 @ValidateSendBackMessageForFDM
+  @Bug-PROD-24792 @80265 @ValidateSendBackMessageForFDM
   Scenario Outline: Validate user is able to see sucess message for send back approval action
     And I published "Competitive" type announcement having name "Automation Runtime Announcement Application Review" and properties "default"
     And I initiated an application review for application "{SavedValue:Automation Runtime Announcement Application Review}" on announcement "{SavedValue:Automation Runtime Announcement Application Review}" with properties "default"
@@ -2932,7 +2932,7 @@ Feature: Validate all scenarios in the Application Review without background
     And I pause execution for "100" seconds
     And I refresh the page
     And I pause execution for "3" seconds
-    #Bug452259
+    #Bug452259 #BUG-PROD-24792
     Then I softly see field "Status" as "Created"
 
     Examples:
@@ -6966,7 +6966,7 @@ Feature: Validate all scenarios in the Application Review without background
     And I click on "Start" icon for "{SavedValue:EGMSID}" inside flex table with id "---negotiation:-:homePendingTasks---"
     #190944
     And I click on "Edit" in the page details
-    Then I softly see status in Progress-bar is "Created" and is "dark blue"
+    Then I softly see status in Progress-bar is "Negotiation Initiated" and is "dark blue"
     #190957
     Then I softly see field "Status" as "Negotiation Initiated"
     When I navigate to "Overview" sub tab
