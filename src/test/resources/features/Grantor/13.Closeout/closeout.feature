@@ -376,7 +376,6 @@ Feature: Validate all scenarios in Closeout
     And I click on top right button "Add Files" in flex table with id "---closeout:-:closeoutFilesTableId---"
     #89226
     And I upload attachment without random number "Permanent Records.xlsx" of type "Other" from computer
-    When I upload attachment without random number "Permanent Records.xlsx" of type "Other" from computer
     When I click modal button "Close"
     And I wait for "2" seconds
     #89229
@@ -387,11 +386,12 @@ Feature: Validate all scenarios in Closeout
 #    When I click modal button "Close"
     #89227
     And I click on top right button "Add Files" in flex table with id "---closeout:-:closeoutFilesTableId---"
-    When I upload file "ParentChild.txt" present in the flex table "---closeout:-:closeoutAddFileTableId---" from library
-    Then I softly see value "ParentChild.txt" for title "Title" inside table "---closeout:-:closeoutFilesTableId---"
-    Then I softly can see row level action button "Download" against "ParentChild.xlsx" in flex table with id "---closeout:-:closeoutFilesTableId---"
-    Then I softly can see row level action button "View" against "ParentChild.xlsx" in flex table with id "---closeout:-:closeoutFilesTableId---"
-    Then I softly can see row level action button "Delete" against "ParentChild.xlsx" in flex table with id "---closeout:-:closeoutFilesTableId---"
+    And I upload attachment without random number "Permanent Records.xlsx" of type "Other" from computer
+    When I click modal button "Close"
+    Then I softly see value "Permanent Records.xlsx" for title "Title" inside table "---closeout:-:closeoutFilesTableId---"
+    Then I softly can see row level action button "Download" against "Permanent Records.xlsx" in flex table with id "---closeout:-:closeoutFilesTableId---"
+    Then I softly can see row level action button "View" against "Permanent Records.xlsx" in flex table with id "---closeout:-:closeoutFilesTableId---"
+    Then I softly can see row level action button "Delete" against "Permanent Records.xlsx" in flex table with id "---closeout:-:closeoutFilesTableId---"
     #88734
     When I navigate to "Checklist" sub tab
     And I enter value "Yes" into field "ChecklistQuestionPick1__c"
@@ -1531,7 +1531,7 @@ Feature: Validate all scenarios in Closeout
     And I enter "Edition" values from "Closeout_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I get the "EGMS ID"
-    And I click on "Send to Subrecipient" in the page details
+    And I click on "Send To Subrecipient" in the page details
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     When I navigate to "Closeout" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
