@@ -980,7 +980,7 @@ Feature: Amendment Request scenarios without background
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:kpcId}" in "---amendment:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "{SavedValue:kpcId}" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
-    Then I see value "Automation SPI3" for title "Name" inside table "---amendment:-:InternalKeyPersonalTableId---"
+    Then I see value "Automation SPI3" for title "Current Contact" inside table "---amendment:-:InternalKeyPersonalTableId---"
     And I "Approve" in the approval decision
     Then I cannot see top right button "Undo" in page detail
     When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
@@ -989,7 +989,7 @@ Feature: Amendment Request scenarios without background
     And I perform quick search for "{SavedValue:kpcId}" in "---amendment:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "{SavedValue:kpcId}" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
     When I navigate to "Overview" sub tab
-    Then I see value "Automation SPI3" for title "Name" inside table "---amendment:-:InternalKeyPersonalTableId---"
+    Then I see value "Automation SPI3" for title "Current Contact" inside table "---amendment:-:InternalKeyPersonalTableId---"
     And I "Approve" in the approval decision
     Then I see status in Progress-bar is "Approved" and is "dark blue"
 
@@ -1188,6 +1188,7 @@ Feature: Amendment Request scenarios without background
     When I click on "View" icon for "{SavedValue:CFAmendmentId}" inside flex table with id "---amendment:-:recipientSideAmendmentRequestTableId---" without waiting for record
     And I expand nested table containing column value "BP01"
     Then I softly see value "$500.00" for title "Carry Forward" against the value "Construction" inside table "---amendment:-:RecipientCarryForwardBudgetTableId---"
+#    And I halt execution
     Then I softly see value "$1,500.00" for title "Revised Award Amount" against the value "Construction" inside table "---amendment:-:budgetChangeTableId---"
     And I navigate to "Grants" tab
     When I navigate to "Subawards" content inside "Grants, Subawards & Amendments" subheader on left panel
@@ -1580,7 +1581,7 @@ Feature: Amendment Request scenarios without background
       | Automation Notes | Automation Notes |
     And I click on "Send to Subrecipient" in the page details
     When I navigate to "Overview" sub tab
-    Then I see value "Automation SPI3" for title "Name" inside table "---amendment:-:InternalKeyPersonalTableId---"
+    Then I see value "Automation SPI3" for title "Current Contact" inside table "---amendment:-:InternalKeyPersonalTableId---"
     Then I softly see value "Automation Permanent Objective" for title "Title" inside table "---amendment:-:goalsAndObjectivesTableId---"
     Then I softly see top right button "Associate" inside flex table "---amendment:-:goalsAndObjectivesTableId---"
     Then I softly see value "Automation Permanent KPI" for title "Title" inside table "---amendment:-:AmendmentKPITableId---"
@@ -1678,7 +1679,7 @@ Feature: Amendment Request scenarios without background
     When I click on "Start" icon for "Record Id" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
     And I navigate to "Overview" sub tab
     Then I softly see value "$1,000.00" for title "Revised Award Amount" against the value "Construction" inside table "---amendment:-:grantorBudgetChangeTableId---"
-    Then I see value "Automation SPI3" for title "Name" inside table "---amendment:-:InternalKeyPersonalTableId---"
+    Then I see value "Automation SPI3" for title "Current Contact" inside table "---amendment:-:InternalKeyPersonalTableId---"
     Then I softly see value "Automation Permanent Objective" for title "Title" inside table "---amendment:-:goalsAndObjectivesTableId---"
     Then I softly see top right button "Associate" inside flex table "---amendment:-:goalsAndObjectivesTableId---"
     Then I softly see value "Automation Permanent KPI" for title "Title" inside table "---amendment:-:AmendmentKPITableId---"
@@ -2023,6 +2024,7 @@ Feature: Amendment Request scenarios without background
     And I navigate to "Messages" sub tab
     Then I can see top right button "Send Email" in flex table with id "---announcement:-:collabMessages---"
     Then I softly see status in Progress-bar is "Sent to Subrecipient" and is "dark blue"
+#    And I halt execution
     Then I can see top right button "Edit" in page detail
     Then I can see top right button "Submit to Grantor" in page detail
 
@@ -3652,7 +3654,7 @@ Feature: Amendment Request scenarios without background
 
   @530817 @validatePMusercanassociatenewlycreatedtermsandconditionrecordsbyotherusersinAssociateTermsandconditionmodal @GrantorFlexP2
   Scenario: Validate PM user can associate newly created terms and condition records by other users in Associate Terms and condition modal
-    Given I login to "Grantor" app as "PM" user
+    Given I login to "Grantor" app as "ADMIN" user
     When I navigate to "Planning" tab
     And I navigate to "Terms and Conditions" content inside "Setup" subheader on left panel
     When I click on top right button "New" in flex table with id "---home:-:termsAndConditionsTableId---"
