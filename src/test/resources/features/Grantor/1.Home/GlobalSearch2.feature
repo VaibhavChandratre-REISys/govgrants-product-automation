@@ -1,4 +1,4 @@
-@globalSearch2 @grantor-regression @grantor-parallel-regression @regression @globalExecution2
+@globalSearchRegression @globalSearch2 @grantor-regression @grantor-parallel-regression @regression @globalExecution2
 Feature: Validate all scenarios for the global search
 
   @390386 @390389 @ValidateEXEuserisabletoseetheglobalsearchbarforSubrecipientOrganziation @sprint-2-US-386939 @GlobalSearch
@@ -1961,7 +1961,7 @@ Feature: Validate all scenarios for the global search
     Then I softly see the text containing "You dont have sufficient access to edit this record"
     Then I softly see that "Status" is in "Draft" status
 
-  @389495 @389502 @389505 @sprint-2-US-386939  @GlobalSearch @bug-451476
+  @389495 @389502 @389505 @sprint-2-US-386939 @bug-451476
   Scenario: Verify that the Admin is able to edit the access for terms and condition when terms and condition is in the New and active state state
     When I login to "Grantor" app as "ADMIN" user
     When I navigate to "Planning" tab
