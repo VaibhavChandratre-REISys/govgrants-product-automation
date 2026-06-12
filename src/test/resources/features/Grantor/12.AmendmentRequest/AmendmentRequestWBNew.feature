@@ -1188,7 +1188,6 @@ Feature: Amendment Request scenarios without background
     When I click on "View" icon for "{SavedValue:CFAmendmentId}" inside flex table with id "---amendment:-:recipientSideAmendmentRequestTableId---" without waiting for record
     And I expand nested table containing column value "BP01"
     Then I softly see value "$500.00" for title "Carry Forward" against the value "Construction" inside table "---amendment:-:RecipientCarryForwardBudgetTableId---"
-#    And I halt execution
     Then I softly see value "$1,500.00" for title "Revised Award Amount" against the value "Construction" inside table "---amendment:-:budgetChangeTableId---"
     And I navigate to "Grants" tab
     When I navigate to "Subawards" content inside "Grants, Subawards & Amendments" subheader on left panel
@@ -2024,7 +2023,6 @@ Feature: Amendment Request scenarios without background
     And I navigate to "Messages" sub tab
     Then I can see top right button "Send Email" in flex table with id "---announcement:-:collabMessages---"
     Then I softly see status in Progress-bar is "Sent to Subrecipient" and is "dark blue"
-#    And I halt execution
     Then I can see top right button "Edit" in page detail
     Then I can see top right button "Submit to Grantor" in page detail
 
