@@ -1533,6 +1533,7 @@ Feature: Amendment Request scenarios without background
     When I perform quick search for "Record Id" in "---amendment:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "Record Id" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
     And I wait for "2" seconds
+    And I halt execution
     Then I softly see value "$3,000.00" for title "Revised Award Amount " against the value "Construction" inside table "---amendment:-:budgetChangeTableId---"
     Then I softly see field "Revised Commitment" as "$3,000.00"
 
@@ -2373,15 +2374,18 @@ Feature: Amendment Request scenarios without background
     When I enter "BPC_SOW_FC_TNC_Creation" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     When I click on "Save" in the page details
+    And I halt execution
     And I save the field labeled "EGMS ID" as "bpcFcSowTncId"
     And I wait for "2" seconds
     And I get the updated budget end date by offset "1" for award "{SavedValue:Automation Runtime Amendment Award}"
     And I wait for "2" seconds
     When I click on "Edit" in the page details
+    And I halt execution
     And I enter "BudgetPeriodChange_Edition" values from "AmendmentRequest_Field_Values.xlsx"
     And I enter value "4000" into field "NewBudgetPeriodEndDate__c"
     And I enter "ScopeOfWork_Edition" values from "AmendmentRequest_Field_Values.xlsx"
     And I wait for "2" seconds
+    And I halt execution
     When I enter values into fields
       | Value                       | Field                         |
       | Automation Test Description | FundingChangeJustification__c |
@@ -3657,7 +3661,6 @@ Feature: Amendment Request scenarios without background
     Given I login to "Grantor" app as "PM" user
     When I navigate to "Planning" tab
     And I navigate to "Terms and Conditions" content inside "Setup" subheader on left panel
-    And I halt execution
     When I click on top right button "New" in flex table with id "---home:-:termsAndConditionsTableId---"
     And I enter "Creation" values from "TermsandConditions_Field_Values.xlsx"
     When I click modal button "Save"
@@ -3718,6 +3721,7 @@ Feature: Amendment Request scenarios without background
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "TnCEGMSID"
     Then I softly see top right button "Associate" inside flex table "---amendment:-:AmendmentSpecialConditionTableId---"
+    And I halt execution
     And I select value inside table "---amendment:-:AmendmentSpecialConditionTableId---" is "All"
     Then I softly see value "Automation Permanent TNC" for title "Title" inside table "---amendment:-:AmendmentSpecialConditionTableId---"
     Then I softly see value "Automation Permanent TNC1" for title "Title" inside table "---amendment:-:AmendmentSpecialConditionTableId---"
