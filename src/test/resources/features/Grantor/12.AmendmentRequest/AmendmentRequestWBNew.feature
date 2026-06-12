@@ -2022,6 +2022,7 @@ Feature: Amendment Request scenarios without background
     And I navigate to "Messages" sub tab
     Then I can see top right button "Send Email" in flex table with id "---announcement:-:collabMessages---"
     Then I softly see status in Progress-bar is "Sent to Subrecipient" and is "dark blue"
+#    And I halt execution
     Then I can see top right button "Edit" in page detail
     Then I can see top right button "Submit to Grantor" in page detail
 
@@ -2544,6 +2545,7 @@ Feature: Amendment Request scenarios without background
       | EGMS ID                   | Target |
       | Automation Permanent KPI2 | 20     |
     Then I softly see top right button "Associate" inside flex table "---amendment:-:AmendmentSpecialConditionTableId---"
+#    And I halt execution
     Then I softly see value "Automation Permanent TNC" for title "Title" inside table "---amendment:-:AmendmentSpecialConditionTableId---"
     Then I softly see value "Automation Permanent TNC1" for title "Title" inside table "---amendment:-:AmendmentSpecialConditionTableId---"
     And I click on top right button "New" in flex table with id "---amendment:-:AmendmentSpecialConditionTableId---"
@@ -2904,8 +2906,8 @@ Feature: Amendment Request scenarios without background
     Then I softly see value "$900.00" for title "Revised Award Amount" against the value "Construction" inside table "---amendment:-:grantorBudgetChangeTableId---"
     Then I softly see value "$100.00" for title "Revised Award Amount" against the value "Indirect costs" inside table "---amendment:-:grantorBudgetChangeTableId---"
     When I navigate to "Responsibilities" sub tab
-    Then I softly see value "{SavedValue:PM Username}" for title "Title" inside table "---amendment:-:fundingChangeApproversTableId---"
-    Then I softly see value "{SavedValue:PO Username}" for title "Title" inside table "---amendment:-:fundingChangeApproversTableId---"
+    Then I softly see value "{SavedValue:PM Username}" for title "Name" inside table "---amendment:-:fundingChangeApproversTableId---"
+    Then I softly see value "{SavedValue:PO Username}" for title "Name" inside table "---amendment:-:fundingChangeApproversTableId---"
     When I navigate to "Overview" sub tab
     And I "Approve" in the approval decision
     When I re-login to "Grantor" app as "PO" user on "INTERNAL" portal
@@ -2925,8 +2927,8 @@ Feature: Amendment Request scenarios without background
     Then I softly see value "$900.00" for title "Revised Award Amount" against the value "Construction" inside table "---amendment:-:grantorBudgetChangeTableId---"
     Then I softly see value "$100.00" for title "Revised Award Amount" against the value "Indirect costs" inside table "---amendment:-:grantorBudgetChangeTableId---"
     When I navigate to "Responsibilities" sub tab
-    Then I softly see value "{SavedValue:PM Username}" for title "Title" inside table "---amendment:-:fundingChangeApproversTableId---"
-    Then I softly see value "{SavedValue:PO Username}" for title "Title" inside table "---amendment:-:fundingChangeApproversTableId---"
+    Then I softly see value "{SavedValue:PM Username}" for title "Name" inside table "---amendment:-:fundingChangeApproversTableId---"
+    Then I softly see value "{SavedValue:PO Username}" for title "Name" inside table "---amendment:-:fundingChangeApproversTableId---"
     When I navigate to "Overview" sub tab
     And I "Approve" in the approval decision
     Then I see field "Status" as "Approved"
@@ -2940,8 +2942,8 @@ Feature: Amendment Request scenarios without background
     Then I softly see value "$900.00" for title "Revised Award Amount" against the value "Construction" inside table "---amendment:-:grantorBudgetChangeTableId---"
     Then I softly see value "$100.00" for title "Revised Award Amount" against the value "Indirect costs" inside table "---amendment:-:grantorBudgetChangeTableId---"
     When I navigate to "Responsibilities" sub tab
-    Then I softly see value "{SavedValue:PM Username}" for title "Title" inside table "---amendment:-:fundingChangeApproversTableId---"
-    Then I softly see value "{SavedValue:PO Username}" for title "Title" inside table "---amendment:-:fundingChangeApproversTableId---"
+    Then I softly see value "{SavedValue:PM Username}" for title "Name" inside table "---amendment:-:fundingChangeApproversTableId---"
+    Then I softly see value "{SavedValue:PO Username}" for title "Name" inside table "---amendment:-:fundingChangeApproversTableId---"
     And I navigate to "Field Audit" sub tab in split screen
     And I click on hyperlink containing value "View All"
     Then I softly see value "Approved" for title "New Value" inside field history table
@@ -3318,8 +3320,8 @@ Feature: Amendment Request scenarios without background
     Then I softly see value "$900.00" for title "Revised Award Amount" against the value "Construction" inside table "---amendment:-:grantorBudgetChangeTableId---"
     Then I softly see value "$100.00" for title "Revised Award Amount" against the value "Indirect costs" inside table "---amendment:-:grantorBudgetChangeTableId---"
     When I navigate to "Responsibilities" sub tab
-    Then I softly see value "{SavedValue:PM Username}" for title "Title" inside table "---amendment:-:fundingChangeApproversTableId---"
-    Then I softly see value "{SavedValue:PO Username}" for title "Title" inside table "---amendment:-:fundingChangeApproversTableId---"
+    Then I softly see value "{SavedValue:PM Username}" for title "Name" inside table "---amendment:-:fundingChangeApproversTableId---"
+    Then I softly see value "{SavedValue:PO Username}" for title "Name" inside table "---amendment:-:fundingChangeApproversTableId---"
     When I navigate to "Overview" sub tab
     And I "Approve" in the approval decision
     When I re-login to "Grantor" app as "PO" user on "INTERNAL" portal
@@ -3339,8 +3341,8 @@ Feature: Amendment Request scenarios without background
     Then I softly see value "$900.00" for title "Revised Award Amount" against the value "Construction" inside table "---amendment:-:grantorBudgetChangeTableId---"
     Then I softly see value "$100.00" for title "Revised Award Amount" against the value "Indirect costs" inside table "---amendment:-:grantorBudgetChangeTableId---"
     When I navigate to "Responsibilities" sub tab
-    Then I softly see value "{SavedValue:PM Username}" for title "Title" inside table "---amendment:-:fundingChangeApproversTableId---"
-    Then I softly see value "{SavedValue:PO Username}" for title "Title" inside table "---amendment:-:fundingChangeApproversTableId---"
+    Then I softly see value "{SavedValue:PM Username}" for title "Name" inside table "---amendment:-:fundingChangeApproversTableId---"
+    Then I softly see value "{SavedValue:PO Username}" for title "Name" inside table "---amendment:-:fundingChangeApproversTableId---"
     When I navigate to "Overview" sub tab
     And I "Reject" in the approval decision
     And I wait for "2" seconds
@@ -3356,8 +3358,8 @@ Feature: Amendment Request scenarios without background
     Then I softly see value "$900.00" for title "Revised Award Amount" against the value "Construction" inside table "---amendment:-:grantorBudgetChangeTableId---"
     Then I softly see value "$100.00" for title "Revised Award Amount" against the value "Indirect costs" inside table "---amendment:-:grantorBudgetChangeTableId---"
     When I navigate to "Responsibilities" sub tab
-    Then I softly see value "{SavedValue:PM Username}" for title "Title" inside table "---amendment:-:fundingChangeApproversTableId---"
-    Then I softly see value "{SavedValue:PO Username}" for title "Title" inside table "---amendment:-:fundingChangeApproversTableId---"
+    Then I softly see value "{SavedValue:PM Username}" for title "Name" inside table "---amendment:-:fundingChangeApproversTableId---"
+    Then I softly see value "{SavedValue:PO Username}" for title "Name" inside table "---amendment:-:fundingChangeApproversTableId---"
     And I navigate to "Field Audit" sub tab in split screen
     And I click on hyperlink containing value "View All"
     Then I softly see value "Rejected" for title "New Value" inside field history table
@@ -4009,8 +4011,8 @@ Feature: Amendment Request scenarios without background
     And I navigate to "Messages" sub tab
     Then I can see top right button "Send Email" in flex table with id "---announcement:-:collabMessages---"
     When I navigate to "Responsibilities" sub tab
-    Then I softly see value "{SavedValue:PM Username}" for title "Title" inside table "---amendment:-:fundingChangeApproversTableId---"
-    Then I softly see value "{SavedValue:PO Username}" for title "Title" inside table "---amendment:-:fundingChangeApproversTableId---"
+    Then I softly see value "{SavedValue:PM Username}" for title "Name" inside table "---amendment:-:fundingChangeApproversTableId---"
+    Then I softly see value "{SavedValue:PO Username}" for title "Name" inside table "---amendment:-:fundingChangeApproversTableId---"
     When I navigate to "Overview" sub tab
     And I "Approve" in the approval decision
     When I re-login to "Grantor" app as "PO" user on "INTERNAL" portal
@@ -4186,8 +4188,8 @@ Feature: Amendment Request scenarios without background
     Then I softly do not see "Budget Summary" page block displayed
     Then I softly do not see "Budget Summary by Focus Area" page block displayed
     When I navigate to "Responsibilities" sub tab
-    Then I softly see value "{SavedValue:PO Username}" for title "Title" inside table "---amendment:-:approversTableId---"
-    Then I softly see value "{SavedValue:EXE Username}" for title "Title" inside table "---amendment:-:approversTableId---"
+    Then I softly see value "{SavedValue:PO Username}" for title "Name" inside table "---amendment:-:approversTableId---"
+    Then I softly see value "{SavedValue:EXE Username}" for title "Name" inside table "---amendment:-:approversTableId---"
     When I navigate to "Files" sub tab
     Then I softly cannot see top right button "Add Files" in flex table with id "---amendment:-:amendmentAddFilesTableId---"
     Then I softly see value "Attachment.pdf" for title "Title" inside table "---amendment:-:amendmentAddFilesTableId---"
@@ -4219,8 +4221,8 @@ Feature: Amendment Request scenarios without background
     Then I softly do not see "Budget Summary" page block displayed
     Then I softly do not see "Budget Summary by Focus Area" page block displayed
     When I navigate to "Responsibilities" sub tab
-    Then I softly see value "{SavedValue:PO Username}" for title "Title" inside table "---amendment:-:approversTableId---"
-    Then I softly see value "{SavedValue:EXE Username}" for title "Title" inside table "---amendment:-:approversTableId---"
+    Then I softly see value "{SavedValue:PO Username}" for title "Name" inside table "---amendment:-:approversTableId---"
+    Then I softly see value "{SavedValue:EXE Username}" for title "Name" inside table "---amendment:-:approversTableId---"
     When I navigate to "Files" sub tab
     Then I softly cannot see top right button "Add Files" in flex table with id "---amendment:-:amendmentAddFilesTableId---"
     Then I softly see value "Attachment.pdf" for title "Title" inside table "---amendment:-:amendmentAddFilesTableId---"
@@ -4252,8 +4254,8 @@ Feature: Amendment Request scenarios without background
     Then I softly do not see "Budget Summary" page block displayed
     Then I softly do not see "Budget Summary by Focus Area" page block displayed
     When I navigate to "Responsibilities" sub tab
-    Then I softly see value "{SavedValue:PO Username}" for title "Title" inside table "---amendment:-:approversTableId---"
-    Then I softly see value "{SavedValue:EXE Username}" for title "Title" inside table "---amendment:-:approversTableId---"
+    Then I softly see value "{SavedValue:PO Username}" for title "Name" inside table "---amendment:-:approversTableId---"
+    Then I softly see value "{SavedValue:EXE Username}" for title "Name" inside table "---amendment:-:approversTableId---"
     When I navigate to "Files" sub tab
     Then I softly cannot see top right button "Add Files" in flex table with id "---amendment:-:amendmentAddFilesTableId---"
     Then I softly see value "Attachment.pdf" for title "Title" inside table "---amendment:-:amendmentAddFilesTableId---"
@@ -4285,8 +4287,8 @@ Feature: Amendment Request scenarios without background
     Then I softly do not see "Budget Summary" page block displayed
     Then I softly do not see "Budget Summary by Focus Area" page block displayed
     When I navigate to "Responsibilities" sub tab
-    Then I softly see value "{SavedValue:PO Username}" for title "Title" inside table "---amendment:-:approversTableId---"
-    Then I softly see value "{SavedValue:EXE Username}" for title "Title" inside table "---amendment:-:approversTableId---"
+    Then I softly see value "{SavedValue:PO Username}" for title "Name" inside table "---amendment:-:approversTableId---"
+    Then I softly see value "{SavedValue:EXE Username}" for title "Name" inside table "---amendment:-:approversTableId---"
     When I navigate to "Files" sub tab
     Then I softly cannot see top right button "Add Files" in flex table with id "---amendment:-:amendmentAddFilesTableId---"
     Then I softly see value "Attachment.pdf" for title "Title" inside table "---amendment:-:amendmentAddFilesTableId---"
@@ -4318,8 +4320,8 @@ Feature: Amendment Request scenarios without background
     Then I softly do not see "Budget Summary" page block displayed
     Then I softly do not see "Budget Summary by Focus Area" page block displayed
     When I navigate to "Responsibilities" sub tab
-    Then I softly see value "{SavedValue:PO Username}" for title "Title" inside table "---amendment:-:approversTableId---"
-    Then I softly see value "{SavedValue:EXE Username}" for title "Title" inside table "---amendment:-:approversTableId---"
+    Then I softly see value "{SavedValue:PO Username}" for title "Name" inside table "---amendment:-:approversTableId---"
+    Then I softly see value "{SavedValue:EXE Username}" for title "Name" inside table "---amendment:-:approversTableId---"
     When I navigate to "Files" sub tab
     Then I softly cannot see top right button "Add Files" in flex table with id "---amendment:-:amendmentAddFilesTableId---"
     Then I softly see value "Attachment.pdf" for title "Title" inside table "---amendment:-:amendmentAddFilesTableId---"
@@ -4351,8 +4353,8 @@ Feature: Amendment Request scenarios without background
     Then I softly do not see "Budget Summary" page block displayed
     Then I softly do not see "Budget Summary by Focus Area" page block displayed
     When I navigate to "Responsibilities" sub tab
-    Then I softly see value "{SavedValue:PO Username}" for title "Title" inside table "---amendment:-:approversTableId---"
-    Then I softly see value "{SavedValue:EXE Username}" for title "Title" inside table "---amendment:-:approversTableId---"
+    Then I softly see value "{SavedValue:PO Username}" for title "Name" inside table "---amendment:-:approversTableId---"
+    Then I softly see value "{SavedValue:EXE Username}" for title "Name" inside table "---amendment:-:approversTableId---"
     When I navigate to "Files" sub tab
     Then I softly cannot see top right button "Add Files" in flex table with id "---amendment:-:amendmentAddFilesTableId---"
     Then I softly see value "Attachment.pdf" for title "Title" inside table "---amendment:-:amendmentAddFilesTableId---"
@@ -4512,8 +4514,8 @@ Feature: Amendment Request scenarios without background
     Then I softly do not see top right button "Associate" inside flex table "---amendment:-:keyOutcomesTableId---"
     Then I softly see "System Information" page block displayed
     When I navigate to "Responsibilities" sub tab
-    Then I softly see value "{SavedValue:PO Username}" for title "Title" inside table "---amendment:-:approversTableId---"
-    Then I softly see value "{SavedValue:EXE Username}" for title "Title" inside table "---amendment:-:approversTableId---"
+    Then I softly see value "{SavedValue:PO Username}" for title "Name" inside table "---amendment:-:approversTableId---"
+    Then I softly see value "{SavedValue:EXE Username}" for title "Name" inside table "---amendment:-:approversTableId---"
     When I navigate to "Files" sub tab
     Then I softly cannot see top right button "Add Files" in flex table with id "---amendment:-:amendmentAddFilesTableId---"
     Then I softly see value "Attachment.pdf" for title "Title" inside table "---amendment:-:amendmentAddFilesTableId---"
@@ -4648,8 +4650,8 @@ Feature: Amendment Request scenarios without background
     Then I softly do not see "Budget Summary" page block displayed
     Then I softly do not see "Budget Summary by Focus Area" page block displayed
     When I navigate to "Responsibilities" sub tab
-    Then I softly see value "{SavedValue:PM Username}" for title "Title" inside table "---amendment:-:approversTableId---"
-    Then I softly see value "{SavedValue:PO Username}" for title "Title" inside table "---amendment:-:approversTableId---"
+    Then I softly see value "{SavedValue:PM Username}" for title "Name" inside table "---amendment:-:approversTableId---"
+    Then I softly see value "{SavedValue:PO Username}" for title "Name" inside table "---amendment:-:approversTableId---"
     When I navigate to "Files" sub tab
     Then I softly cannot see top right button "Add Files" in flex table with id "---amendment:-:amendmentAddFilesTableId---"
     Then I softly see value "Attachment.pdf" for title "Title" inside table "---amendment:-:amendmentAddFilesTableId---"
@@ -4682,8 +4684,8 @@ Feature: Amendment Request scenarios without background
     Then I softly do not see "Budget Summary" page block displayed
     Then I softly do not see "Budget Summary by Focus Area" page block displayed
     When I navigate to "Responsibilities" sub tab
-    Then I softly see value "{SavedValue:PM Username}" for title "Title" inside table "---amendment:-:approversTableId---"
-    Then I softly see value "{SavedValue:PO Username}" for title "Title" inside table "---amendment:-:approversTableId---"
+    Then I softly see value "{SavedValue:PM Username}" for title "Name" inside table "---amendment:-:approversTableId---"
+    Then I softly see value "{SavedValue:PO Username}" for title "Name" inside table "---amendment:-:approversTableId---"
     When I navigate to "Files" sub tab
     Then I softly cannot see top right button "Add Files" in flex table with id "---amendment:-:amendmentAddFilesTableId---"
     Then I softly see value "Attachment.pdf" for title "Title" inside table "---amendment:-:amendmentAddFilesTableId---"
