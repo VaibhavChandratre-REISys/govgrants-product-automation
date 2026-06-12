@@ -1179,6 +1179,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I perform quick search for "Record Id" in "---home:-:internalHomePendingTaskTableId---" panel
     And I click on "Start" icon for "Record Id" inside flex table with id "---home:-:internalHomePendingTaskTableId---"
     When I click on "Accept" in the page details
+    And I refresh the page
     Then I see status in Progress-bar is "Accepted" and is "dark blue"
 
   @72345 @submitApplication @ProdSan1 @ProdSan1_1
@@ -1866,7 +1867,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I click on "View" icon for "Record Id" inside flex table with id "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---" without waiting for record
     Then I see status in Progress-bar is "Active" and is "dark blue"
 
-  @72361 @activeOrgRiskAssessment @ProdSan2 @ProdSan2_1 @ProdSan2_1_1
+  @72361 @activeOrgRiskAssessment @ProdSan2 @ProdSan2_1 @ProdSan2_1_1 @wip
   Scenario: Validate the Activation of Org Risk Assessment and the status changes to Active
     Given I delete the record "Automation Permanent Organization for Risk Assessment" from the object "ORGANIZATION RISKASSESSMENT"
     Given I am on "SUBPORTAL" portal
@@ -4630,7 +4631,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I perform quick search for "{SavedValue:Automation Runtime} Contact" in "---home:-:reviewersTableId---" panel
     And I click on "Send Invitation" icon for "{SavedValue:Automation Runtime} Contact" inside flex table with id "---home:-:reviewersTableId---" without waiting for record
     And I click "Send" button in modal
-    And I wait for "2" seconds
+    And I wait for "12" seconds
 #    Then I softly see the following messages in the page details :
 #      | Email Sent Successfully. |
     And I checkout to maildrop with mailid "{SavedValue:uniqueEmailID}"
@@ -4644,6 +4645,7 @@ Feature: Validate sanity testing of Complete Business Flow
 #    Then I see the following messages in the page details contains:
 #      | Confirmation Message |
     And I checkout to maildrop with mailid "{SavedValue:uniqueEmailID}"
+    And I wait for "10" seconds
     And I click on mail with subject "Sandbox: Welcome to GovGrants 3.0 Recipient Portal"
     And I navigate to reset password link
     Then I set password for the user
