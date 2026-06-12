@@ -1532,6 +1532,7 @@ Feature: Amendment Request scenarios without background
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---amendment:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "Record Id" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
+    And I wait for "2" seconds
     Then I softly see value "$3,000.00" for title "Revised Award Amount " against the value "Construction" inside table "---amendment:-:budgetChangeTableId---"
     Then I softly see field "Revised Commitment" as "$3,000.00"
 
@@ -2022,7 +2023,7 @@ Feature: Amendment Request scenarios without background
     And I navigate to "Messages" sub tab
     Then I can see top right button "Send Email" in flex table with id "---announcement:-:collabMessages---"
     Then I softly see status in Progress-bar is "Sent to Subrecipient" and is "dark blue"
-#    And I halt execution
+    And I halt execution
     Then I can see top right button "Edit" in page detail
     Then I can see top right button "Submit to Grantor" in page detail
 
@@ -2545,7 +2546,7 @@ Feature: Amendment Request scenarios without background
       | EGMS ID                   | Target |
       | Automation Permanent KPI2 | 20     |
     Then I softly see top right button "Associate" inside flex table "---amendment:-:AmendmentSpecialConditionTableId---"
-#    And I halt execution
+    And I halt execution
     Then I softly see value "Automation Permanent TNC" for title "Title" inside table "---amendment:-:AmendmentSpecialConditionTableId---"
     Then I softly see value "Automation Permanent TNC1" for title "Title" inside table "---amendment:-:AmendmentSpecialConditionTableId---"
     And I click on top right button "New" in flex table with id "---amendment:-:AmendmentSpecialConditionTableId---"
@@ -3656,6 +3657,7 @@ Feature: Amendment Request scenarios without background
     Given I login to "Grantor" app as "PM" user
     When I navigate to "Planning" tab
     And I navigate to "Terms and Conditions" content inside "Setup" subheader on left panel
+    And I halt execution
     When I click on top right button "New" in flex table with id "---home:-:termsAndConditionsTableId---"
     And I enter "Creation" values from "TermsandConditions_Field_Values.xlsx"
     When I click modal button "Save"
