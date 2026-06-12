@@ -806,7 +806,12 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     And I navigate to "Budget" sub tab
     And I save the field labeled "Project Period End Date" as "EndDate"
     Then I softly see field "Project Period End Date" as "{SavedValue:EndDate}"
-    And I click "{SavedValue:GrantId}" lookup link
+#    And I click "{SavedValue:GrantId}" lookup link
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click toggle button to select "Grants - Active"
+    And I perform quick search for "{SavedValue:GrantId}" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
+    And I click on "View" icon for "{SavedValue:GrantId}" inside flex table with id "---subAwardStandAlone:-:activeGrantsTableId---" without waiting for record
     And I navigate to "History" sub tab
     And I navigate to "Field Audit" sub tab in split screen
     And I click on hyperlink containing value "View All"
