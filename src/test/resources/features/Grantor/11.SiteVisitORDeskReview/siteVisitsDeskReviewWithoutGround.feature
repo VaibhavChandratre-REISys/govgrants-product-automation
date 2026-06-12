@@ -3211,7 +3211,7 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     When I navigate to "Files" sub tab
     Then I can see top right button "Add Files" in flex table with id "---deskreview:-:deskReviewsFilesTableId---"
 
-  @197883 @ValidateDRownerasFOuserisinReviewstateafterthatownershipwillgetchangedthennewownerwillhavethesameaccesspagelayout&sectionallevelbuttonsasoldownerhadinReviewstate @sprint-4-US-196236  @reassignment
+  @Bug-PROD-21963 @197883 @ValidateDRownerasFOuserisinReviewstateafterthatownershipwillgetchangedthennewownerwillhavethesameaccesspagelayout&sectionallevelbuttonsasoldownerhadinReviewstate @sprint-4-US-196236  @reassignment
   Scenario: Validate DR owner as FO user is in Review state after that ownership will get changed then new owner will have the same access page layout & sectional level buttons as old owner had in Review state
     Given I activated standalone subaward "Automation Runtime Award Desk Review" with properties "default" of type "Formula_By_Applicant"
     Given I activated standalone subaward "Automation Runtime Award Record" with properties "default" of type "Formula_By_Applicant"
@@ -9909,7 +9909,7 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
       The EGMS Team.
       """
 
-  @223371 @ValidateSiteVisit/DeskReviewModuleusershouldabletoreassignthetasktonewuserofmorethan10records&1emailshouldbetriggeredforallrecords @sprint-11-US-217998  @reassignment
+  @223371 @ValidateSiteVisit/DeskReviewModuleusershouldabletoreassignthetasktonewuserofmorethan10records&1emailshouldbetriggeredforallrecords @sprint-11-US-217998  @reassignment @bulkRecordCreation @skipOnJenkins
   Scenario: Validate Site Visit/Desk Review Module user should able to reassign the task to new user of more than 10 records & 1 email should be triggered for all records
     Given I activated standalone subaward "Automation Runtime Award Bulk Record for Site Visit" with properties "default" of type "Competitive"
     Given I activated standalone subaward "Automation Runtime Award Record" with properties "default" of type "Competitive"
