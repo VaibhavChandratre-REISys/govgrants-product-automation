@@ -1533,8 +1533,7 @@ Feature: Amendment Request scenarios without background
     When I perform quick search for "Record Id" in "---amendment:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "Record Id" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
     And I wait for "2" seconds
-    And I halt execution
-    Then I softly see value "$3,000.00" for title "Revised Award Amount " against the value "Construction" inside table "---amendment:-:budgetChangeTableId---"
+    Then I softly see value "$3,000.00" for title "Revised Award Amount" against the value "Construction" inside table "---amendment:-:budgetChangeTableId---"
     Then I softly see field "Revised Commitment" as "$3,000.00"
 
   @532495 @532497 @532498 @534334 @validatePeriodicRenewal-PMusercanabletoSendamendmentrequesttosubrecipient&seevisibilityonsection @GrantorFlexP1
