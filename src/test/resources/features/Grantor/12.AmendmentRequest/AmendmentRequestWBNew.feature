@@ -2023,7 +2023,6 @@ Feature: Amendment Request scenarios without background
     And I navigate to "Messages" sub tab
     Then I can see top right button "Send Email" in flex table with id "---announcement:-:collabMessages---"
     Then I softly see status in Progress-bar is "Sent to Subrecipient" and is "dark blue"
-    And I halt execution
     Then I can see top right button "Edit" in page detail
     Then I can see top right button "Submit to Grantor" in page detail
 
@@ -2373,18 +2372,15 @@ Feature: Amendment Request scenarios without background
     When I enter "BPC_SOW_FC_TNC_Creation" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     When I click on "Save" in the page details
-    And I halt execution
     And I save the field labeled "EGMS ID" as "bpcFcSowTncId"
     And I wait for "2" seconds
     And I get the updated budget end date by offset "1" for award "{SavedValue:Automation Runtime Amendment Award}"
     And I wait for "2" seconds
     When I click on "Edit" in the page details
-    And I halt execution
     And I enter "BudgetPeriodChange_Edition" values from "AmendmentRequest_Field_Values.xlsx"
     And I enter value "4000" into field "NewBudgetPeriodEndDate__c"
     And I enter "ScopeOfWork_Edition" values from "AmendmentRequest_Field_Values.xlsx"
     And I wait for "2" seconds
-    And I halt execution
     When I enter values into fields
       | Value                       | Field                         |
       | Automation Test Description | FundingChangeJustification__c |
@@ -2549,7 +2545,6 @@ Feature: Amendment Request scenarios without background
       | EGMS ID                   | Target |
       | Automation Permanent KPI2 | 20     |
     Then I softly see top right button "Associate" inside flex table "---amendment:-:AmendmentSpecialConditionTableId---"
-    And I halt execution
     Then I softly see value "Automation Permanent TNC" for title "Title" inside table "---amendment:-:AmendmentSpecialConditionTableId---"
     Then I softly see value "Automation Permanent TNC1" for title "Title" inside table "---amendment:-:AmendmentSpecialConditionTableId---"
     And I click on top right button "New" in flex table with id "---amendment:-:AmendmentSpecialConditionTableId---"
@@ -3720,7 +3715,6 @@ Feature: Amendment Request scenarios without background
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "TnCEGMSID"
     Then I softly see top right button "Associate" inside flex table "---amendment:-:AmendmentSpecialConditionTableId---"
-    And I halt execution
     And I select value inside table "---amendment:-:AmendmentSpecialConditionTableId---" is "All"
     Then I softly see value "Automation Permanent TNC" for title "Title" inside table "---amendment:-:AmendmentSpecialConditionTableId---"
     Then I softly see value "Automation Permanent TNC1" for title "Title" inside table "---amendment:-:AmendmentSpecialConditionTableId---"
