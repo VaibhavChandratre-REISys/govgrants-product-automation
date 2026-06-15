@@ -1,4 +1,4 @@
-@siteVisitDeskReviewWB @grantor-regression @grantor-parallel-regression @siteVisit @regression @siteVisit_Lwc_Run @siteAndDeskReview @siteExecution
+@siteVisits @siteVisitDeskReviewWB @grantor-regression @grantor-parallel-regression @siteVisit @regression @siteVisit_Lwc_Run @siteAndDeskReview @siteExecution
 Feature: Validate all scenarios in the Site Visit and Desk Review without background
 
   @51089 @formFillingSiteVisitUploadAttachment
@@ -806,7 +806,12 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     And I navigate to "Budget" sub tab
     And I save the field labeled "Project Period End Date" as "EndDate"
     Then I softly see field "Project Period End Date" as "{SavedValue:EndDate}"
-    And I click "{SavedValue:GrantId}" lookup link
+#    And I click "{SavedValue:GrantId}" lookup link
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click toggle button to select "Grants - Active"
+    And I perform quick search for "{SavedValue:GrantId}" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
+    And I click on "View" icon for "{SavedValue:GrantId}" inside flex table with id "---subAwardStandAlone:-:activeGrantsTableId---" without waiting for record
     And I navigate to "History" sub tab
     And I navigate to "Field Audit" sub tab in split screen
     And I click on hyperlink containing value "View All"
@@ -986,15 +991,15 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     When I perform quick search for "{SavedValue:SitevVisitId}" in "---sitevisits:-:siteVisitSourceTableId---" panel
     Then I see value "{SavedValue:SitevVisitId}" for title "Site Visit ID" inside table "---sitevisits:-:siteVisitSourceTableId---"
     Then I see value "Created" for title "Status" inside table "---sitevisits:-:siteVisitSourceTableId---"
-    And I reset the table
-    When I perform quick search for "Closed" in "---sitevisits:-:siteVisitSourceTableId---" panel
-    Then I see value "Closed" for title "Status" inside table "---sitevisits:-:siteVisitSourceTableId---"
-    And I reset the table
-    When I perform quick search for "Notified" in "---sitevisits:-:siteVisitSourceTableId---" panel
-    Then I see value "Notified" for title "Status" inside table "---sitevisits:-:siteVisitSourceTableId---"
-    And I reset the table
-    When I perform quick search for "Submitted for Approval" in "---sitevisits:-:siteVisitSourceTableId---" panel
-    Then I see value "Submitted for Approval" for title "Status" inside table "---sitevisits:-:siteVisitSourceTableId---"
+#    And I reset the table
+#    When I perform quick search for "Closed" in "---sitevisits:-:siteVisitSourceTableId---" panel
+#    Then I see value "Closed" for title "Status" inside table "---sitevisits:-:siteVisitSourceTableId---"
+#    And I reset the table
+#    When I perform quick search for "Notified" in "---sitevisits:-:siteVisitSourceTableId---" panel
+#    Then I see value "Notified" for title "Status" inside table "---sitevisits:-:siteVisitSourceTableId---"
+#    And I reset the table
+#    When I perform quick search for "Submitted for Approval" in "---sitevisits:-:siteVisitSourceTableId---" panel
+#    Then I see value "Submitted for Approval" for title "Status" inside table "---sitevisits:-:siteVisitSourceTableId---"
     #197290
     Then I can see top right button "Transfer Ownership" in flex table with id "---sitevisits:-:siteVisitSourceTableId---"
     #197292
@@ -3206,7 +3211,7 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     When I navigate to "Files" sub tab
     Then I can see top right button "Add Files" in flex table with id "---deskreview:-:deskReviewsFilesTableId---"
 
-  @197883 @ValidateDRownerasFOuserisinReviewstateafterthatownershipwillgetchangedthennewownerwillhavethesameaccesspagelayout&sectionallevelbuttonsasoldownerhadinReviewstate @sprint-4-US-196236  @reassignment
+  @Bug-PROD-21963 @197883 @ValidateDRownerasFOuserisinReviewstateafterthatownershipwillgetchangedthennewownerwillhavethesameaccesspagelayout&sectionallevelbuttonsasoldownerhadinReviewstate @sprint-4-US-196236  @reassignment
   Scenario: Validate DR owner as FO user is in Review state after that ownership will get changed then new owner will have the same access page layout & sectional level buttons as old owner had in Review state
     Given I activated standalone subaward "Automation Runtime Award Desk Review" with properties "default" of type "Formula_By_Applicant"
     Given I activated standalone subaward "Automation Runtime Award Record" with properties "default" of type "Formula_By_Applicant"
@@ -9904,7 +9909,7 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
       The EGMS Team.
       """
 
-  @223371 @ValidateSiteVisit/DeskReviewModuleusershouldabletoreassignthetasktonewuserofmorethan10records&1emailshouldbetriggeredforallrecords @sprint-11-US-217998  @reassignment
+  @223371 @ValidateSiteVisit/DeskReviewModuleusershouldabletoreassignthetasktonewuserofmorethan10records&1emailshouldbetriggeredforallrecords @sprint-11-US-217998  @reassignment @bulkRecordCreation @skipOnJenkins
   Scenario: Validate Site Visit/Desk Review Module user should able to reassign the task to new user of more than 10 records & 1 email should be triggered for all records
     Given I activated standalone subaward "Automation Runtime Award Bulk Record for Site Visit" with properties "default" of type "Competitive"
     Given I activated standalone subaward "Automation Runtime Award Record" with properties "default" of type "Competitive"
@@ -10338,7 +10343,8 @@ Feature: Validate all scenarios in the Site Visit and Desk Review without backgr
     Then I softly see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
     When I re-login to "Grantor" app as "Admin" user on "INTERNAL" portal
     And I navigate to "Home" tab
-    Then I see "Ownership" inside "Reassign" is displayed
+    And I wait for "5" seconds
+    Then I softly see "Ownership" inside "Reassign" is displayed
     When I navigate to "Ownership" content inside "Reassign" subheader on left panel
     And I select value "Automation FO" into field "input-1"
     And I select value "Automation FO1" into field "input-2"

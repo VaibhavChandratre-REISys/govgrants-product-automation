@@ -954,7 +954,7 @@ Feature: Validate all scenarios in the Risk Assessment
     And I enter "Risk Assessment Creation1" values from "Award_Field_Values.xlsx"
     When I click on "Save and Continue" in the page details
     Then I see the following messages in the page details contains:
-      | To Save, Acknowledgement is required in the Signatures Confirming Assessment section. |
+      | To save, Acknowledgement is required in the Signatures Confirming Assessment section. |
 
   @58938 @58179 @initialRAIsExpiredandSucceedingAreActive  @smoke
   Scenario: Initial Risk Assessment should be marked as Expired if succeeding Risk Assessments are made active
@@ -7399,7 +7399,11 @@ Feature: Validate all scenarios in the Risk Assessment
     When I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "RAEGMSID"
     Then I see status in Progress-bar is "Created" and is "dark blue"
-    And I click "{SavedValue:AwardEGMSID}" lookup link
+    And I click on hyperlink containing value "{SavedValue:AwardEGMSID}"
+#    And I click "{SavedValue:AwardEGMSID}" lookup link
+    And I wait for "5" seconds
+    And I refresh the page
+    And I wait for "5" seconds
     When I navigate to "Management" sub tab
     Then I softly see value "{SavedValue:RAEGMSID}" for title "EGMS ID" inside table "---subAwardStandAlone:-:riskAssessmentTableId---"
     Then I softly can see row level action button "View" against "{SavedValue:RAEGMSID}" in flex table with id "---subAwardStandAlone:-:riskAssessmentTableId---"
@@ -7474,7 +7478,11 @@ Feature: Validate all scenarios in the Risk Assessment
       | {SavedValue:FO Username} | Step 1          |
     And I click on "Submit for Approval" in the page details
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
-    And I click "{SavedValue:AwardEGMSID}" lookup link
+#    And I click "{SavedValue:AwardEGMSID}" lookup link
+    And I click on hyperlink containing value "{SavedValue:AwardEGMSID}"
+    And I wait for "5" seconds
+    And I refresh the page
+    And I wait for "5" seconds
     When I navigate to "Management" sub tab
     Then I softly see value "{SavedValue:RAEGMSID}" for title "EGMS ID" inside table "---subAwardStandAlone:-:riskAssessmentTableId---"
     Then I softly see value "Submitted for Approval" for title "Status" against the value "{SavedValue:RAEGMSID}" inside table "---subAwardStandAlone:-:riskAssessmentTableId---"

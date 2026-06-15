@@ -1,4 +1,4 @@
-@applicationNotes @grantor-regression @grantor-parallel-regression @app @regression @ApplicationAndPre-App
+@applicationNotes @applicationRegression @grantor-regression @grantor-parallel-regression @app @regression @ApplicationAndPre-App
 Feature: Application Intake scenarios without background
 
   @228678 @ValidatePMPOEXEADMINFDusershouldbeabletoAddnotesbutEditDeletetheirownnotesonapplicationisinSubmittograntorstate @Sprint-12-US-226970 @Notes

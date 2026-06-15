@@ -412,6 +412,16 @@ public class GenericSteps {
         }
     }
 
+    @Description("Check the given is less/greater than today's Date")
+    @Then("^I (softly see|see) date \"([^\"]*)\" is (less|greater) than todays date$")
+    public void isGivenDateGreaterThanOrLessThanTodaysDate(String usage, String givenDate, String lessORgreater) throws ParseException {
+        if (usage.contains("softly")) {
+            I.amPerforming().assertionsTo().assertThat(grantorProjectManager.isGivenDateGreaterOrLessThanTodaysDate(givenDate, lessORgreater)).isTrue();
+        } else {
+            Assert.assertTrue(grantorProjectManager.isGivenDateGreaterOrLessThanTodaysDate(givenDate, lessORgreater));
+        }
+    }
+
     @Description("Check the Application Due Date is Less/greater than today's Date")
     @Then("^I (softly see|see) field \"([^\"]*)\" contains date (less|greater) than \"([^\"]*)\" date$")
     public void isFieldDateGreaterThanOrLessThanExpectedDate(String usage, String fieldLabel1, String lessORgreater, String fieldLabel2) throws ParseException {
@@ -470,7 +480,7 @@ public class GenericSteps {
 
     @Given("I initiated an application review for application {string} on announcement {string} with properties {string}")
     public void iInitiatedAnApplicationReviewOnAnnouncement(String applicationTitle, String announcmentTitle, String filter) {
-        I.amPerforming().waitFor().makeThreadSleep(20000); //ToDO- This API gets failed as It needs Announcement Record, So added wait time as of now
+                I.amPerforming().waitFor().makeThreadSleep(20000); //ToDO- This API gets failed as It needs Announcement Record, So added wait time as of now
         grantorWebServices.initateApplicationReviewOnAnnouncement(applicationTitle, announcmentTitle, filter);
     }
 
@@ -515,13 +525,9 @@ public class GenericSteps {
 
     @And("I published {string} type announcement having name {string} and properties {string}")
     public void iPublishedTypeAnnouncementHavingNameAndProperties(String annType, String annName, String filter) {
-        String newAnnName = "";
-        if (annName.startsWith("Automation Runtime")) {
-            newAnnName = annName + I.amPerforming().addOnsTo().getRandomNumber();
-        }
+        String newAnnName = annName + I.amPerforming().addOnsTo().getRandomNumber();
         I.amPerforming().propertiesFileOperationsTo().saveValue(annName, newAnnName);
-        annName = newAnnName;
-        grantorWebServices.publishAnnouncment(annType, annName, filter);
+        grantorWebServices.publishAnnouncment(annType, newAnnName, filter);
     }
 
     @And("I published {string} type announcement having name {string} and properties {string} for plumbing cases")

@@ -19,6 +19,7 @@ import java.io.IOException;
 import java.text.NumberFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Date;
@@ -665,6 +666,27 @@ public class GrantorProjectManager extends ProjectManager {
                 return false;
             }
         }
+    }
+
+    /**
+     * Method to compare given date with today's date based on comparison type (less, greater, equal)
+     * @param givenDate
+     * @param comparisonType
+     * @return
+     * @throws ParseException
+     */
+    public boolean isGivenDateGreaterOrLessThanTodaysDate(String givenDate, String comparisonType) throws ParseException {
+        String todayDate = I.amPerforming().dateOperationsToGet().currentDateInDesiredFormat(DateTimeFormatter.ofPattern("M/d/yyyy"));
+        SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
+        Date actualDate = sdf.parse(givenDate);
+        Date today = sdf.parse(todayDate);
+
+        if (comparisonType.equalsIgnoreCase("less")) {
+            return actualDate.before(today);
+        } else if (comparisonType.equalsIgnoreCase("greater")) {
+            return actualDate.after(today);
+        }
+        throw new IllegalArgumentException("Comparison type must be 'less' or 'greater'");
     }
 
     public boolean isFieldDateGreaterThanOrLessThanExpectedDate(String fieldLabel1, String lessOrGreater, String fieldLabel2) throws ParseException {
