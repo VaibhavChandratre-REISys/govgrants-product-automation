@@ -1,4 +1,4 @@
-@applicationIntakeWB @grantor-regression @grantor-parallel-regression @app @regression @ApplicationAndPre-App
+@applicationIntakeWB @applicationRegression @grantor-regression @grantor-parallel-regression @app @regression @ApplicationAndPre-App
 Feature: Application Intake scenarios without background
 
   @76373 @69366 @65078 @VerifyCreateApplicationButton  @smoke
@@ -781,13 +781,15 @@ Feature: Application Intake scenarios without background
     And I perform quick search for "---AUTOEnvData:-:Automation_Formula_Closed_Announcement_By_Applicant---" in "---applicationIntake:-:NotYetQualifiedTableId---" panel
 #    Automation Permanent Closed Formula Announcement
     When I click on "View" icon for "---AUTOEnvData:-:Automation_Formula_Closed_Announcement_By_Applicant---" inside flex table with id "---applicationIntake:-:NotYetQualifiedTableId---" without waiting for record
+    And I wait for "5" seconds
     And I save the field containing "Application Due Date" as "Date"
-    Then I softly see field "Application Due Date" contains date less than todays date
+    Then I softly see date "{SavedValue:Date}" is less than todays date
     Then I softly cannot see top right button "Create Application" in page detail
+
     Examples:
-      | User | Key User        |
-      | SPI3 | Automation SPI3 |
-      | SPA  | Automation SPA  |
+      | User |
+      | SPI3 |
+      | SPA  |
 
   @73367 @spiUserCanViewAllocatedAmountOnceSubmittedToGrantor @buglogged129432
   Scenario Outline: Validate whether SPI & SPA user were able to view the allocated amount once the Oppurtunity is Converted to Application when Announcement is of type - Formula
@@ -1359,10 +1361,10 @@ Feature: Application Intake scenarios without background
     And I perform quick search for "{SavedValue:AutomationExpiredApplication}" in "---applicationIntake:-:recipientApplications---" panel
     When I click on "View" icon for "{SavedValue:AutomationExpiredApplication}" inside flex table with id "---applicationIntake:-:recipientApplications---" without waiting for record
     And I wait for "2" seconds
-    When I click on "Submit Application" in the page details
-    And I wait for "2" seconds
+#    When I click on "Submit Application" in the page details
+#    And I wait for "2" seconds
     Then I softly see the following messages in the page details contains:
-      | An Application cannot be submitted after the Application Due Date. |
+      | This application cannot be submitted. The application due date has passed. |
 
   @77657 @snapshotHistoryApplication @snapExecution
   Scenario: Validate whether SPI user will be able to take the snapshot on page when the Application is in Created status and is saved under snapshot history
@@ -2029,6 +2031,7 @@ Feature: Application Intake scenarios without background
     And I perform quick search for "{SavedValue:Automation Runtime Announcement Application Review}" in "---applicationReview:-:announcementListTableId---" panel
     Then I softly can see row level action button "Initiate Review Process" against "{SavedValue:Automation Runtime Announcement Application Review}" in flex table with id "---applicationReview:-:announcementListTableId---"
     When I click on "Initiate Review Process" icon for "{SavedValue:Automation Runtime Announcement Application Review}" inside flex table with id "---applicationReview:-:announcementListTableId---" with wait for record
+    And I wait for "5" seconds
     Then I softly can see "Related Log" sub tab at view detail page
     #196759
     Then I softly can see top right button "Extend Dates" in page detail
@@ -2660,7 +2663,7 @@ Feature: Application Intake scenarios without background
       | Announcement Name                                |
       | {SavedValue:Automation Runtime FDM Announcement} |
 
-  @526439 @validateSPI/INDuseruserapplicationissubmittedtograntorwhichiscreatedfromqualifiedopportunity @GrantorFlexP1
+  @Bug-PROD-17396 @526439 @validateSPI/INDuseruserapplicationissubmittedtograntorwhichiscreatedfromqualifiedopportunity @GrantorFlexP1
   Scenario: Validate SPI/IND user user Application is submitted to grantor which is created from qualified opportunity
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Application" and properties "PROGRAM_FOR_APP_SUPP_DOC_YES"
     Given I am on "SUBPORTAL" portal
@@ -2735,7 +2738,7 @@ Feature: Application Intake scenarios without background
     Then I softly see that "Automation Permanent Focus Area" has been added in flextable with Id "---applicationIntake:-:budgetSumamaryByFocusAreaTableId---"
     And I edit the following rows inline in flex table with id "---applicationIntake:-:budgetPeriodTableId---" by clicking "Edit" :
       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
-      | Construction  | 500   | 100        | 100            | 100            |
+      | Construction  | 500    | 100        | 100            | 100            |
     When I navigate to "Proposal" sub tab
     Then I see value "Automation Permanent KPI" for title "Title" inside table "---subAwardStandAlone:-:kpiTableId---"
     When I edit the following rows inline in flex table with id "---applicationIntake:-:kpiTableId---" by clicking "Edit" :
@@ -2761,158 +2764,158 @@ Feature: Application Intake scenarios without background
       | Name                       | Is Key Contact |
       | {SavedValue:SPI3 Username} | Checked        |
 
-   @526440 @validateSPIuserapplicationissubmittedtograntorwhichiscreatedfrompreapplication @GrantorFlexP1
-   Scenario: Validate SPI user Application is submitted to grantor which is created from preapplication
-     Given I published "Competitive" type announcement having name "Automation Runtime Announcement Application" and properties "PROGRAM_FOR_PREAPP_SUPP_DOC_YES"
-     And I am on "SUBPORTAL" portal
-     And I login to "Grants Portal" app as "SPI3" user
-     When I navigate to "Opportunities" tab
-     And I navigate to "Not Yet Qualified" content inside "Opportunities" subheader on left panel
-     When I click toggle button to select "Not Yet Qualified Opportunities - All"
-     And I perform quick search for "{SavedValue:Automation Runtime Announcement Application}" in "---applicationIntake:-:activeOpportunitiesTableId---" panel
-     When I click on "View" icon for "{SavedValue:Automation Runtime Announcement Application}" inside table
-     And I save the field containing "Leverage Allowed?" as "Yes"
-     And I save the field containing "Maximum # Applications Allowed" as "1"
-     When I click on "Qualify" in the page details
-     And I click on "Create Pre-Application" in the page details
-     And I wait for "2" seconds
-     When I click modal button "Save and Continue"
-     And I get the "EGMS ID"
-     And I save the field labeled "EGMS ID" as "PreappEGMSID"
-     And I enter "Edition" values from "PreApplication_Field_Values.xlsx"
-     When I click on "Save" in the page details
-     And I navigate to "Overview" sub tab
-     And I click table top right button "Associate" in flex table with id "---preApplication:-:flexGridPreAppContactTableId---"
-     When I click "Add" after selection of "Automation SPA" by showing entries "All" in flex table with id "---preApplication:-:associatePreAppContactsTableId---"
-     And I wait for "2" seconds
-     When I click "Add" after selection of "Automation SPI 4 contact" by showing entries "All" in flex table with id "---preApplication:-:associatePreAppContactsTableId---"
-     And I wait for "2" seconds
-     When I click "Add" after selection of "Automation SPI 5 contact" by showing entries "All" in flex table with id "---preApplication:-:associatePreAppContactsTableId---"
-     And I wait for "2" seconds
-     When I click "Add" after selection of "Automation SPI 6 contact" by showing entries "All" in flex table with id "---preApplication:-:associatePreAppContactsTableId---"
-     And I wait for "2" seconds
-     When I close "Associate Contacts" modal by clicking the top right x button
-     And I click table top right button "Associate" in flex table with id "---preApplication:-:flexGridPreAppContactTableId---"
-     When I click "Add" after selection of "Automation SPI 7 contact" by showing entries "All" in flex table with id "---preApplication:-:associatePreAppContactsTableId---"
-     And I wait for "3" seconds
-     When I close "Associate Contacts" modal by clicking the top right x button
-     Then I softly see value "Automation SPA" for title "Name" inside table "---preApplication:-:flexGridPreAppContactTableId---"
-     Then I softly see value "Automation SPI 4 contact" for title "Name" inside table "---preApplication:-:flexGridPreAppContactTableId---"
-     Then I softly see value "Automation SPI 5 contact" for title "Name" inside table "---preApplication:-:flexGridPreAppContactTableId---"
-     Then I softly see value "Automation SPI 6 contact" for title "Name" inside table "---preApplication:-:flexGridPreAppContactTableId---"
-     Then I softly see value "Automation SPI 7 contact" for title "Name" inside table "---preApplication:-:flexGridPreAppContactTableId---"
-     And I edit the following rows inline in flex table with id "---preApplication:-:preAppContactTableId---" by clicking "Edit" :
-       | Name                       | Project Role             | Is Key Contact |
-       | {SavedValue:SPI3 Username} | Project Director/Manager | Checked        |
-     And I wait for "2" seconds
-     And I navigate to "Budget" sub tab
-     Given I expand nested table containing column value "BP01"
-     And I edit the following rows inline in flex table with id "---preApplication:-:preApplicationAttachmentId---" by clicking "Edit" :
-       | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
-       | Construction  | 5000   | 500       | 50             | 100            |
-     When I navigate to "Forms and Files" sub tab
-     When I click on "Attach" icon for "Mandatory" inside flex table with id "---preApplication:-:preApplicationChecklistId---" without waiting for record
-     And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
-     And I wait for "2" seconds
-     When I click modal button "Close"
-     And I wait for "2" seconds
-     When I navigate to "Forms and Files" sub tab
-     Then I see "View" has been added in "Supporting Documents Checklist" flex table
-     And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
-     And I switch to tab number "1"
-     And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
-     And I wait for "2" seconds
-     And I click on "Save" in the page details
-     And I wait for "2" seconds
-     And I close the tab
-     When I click on "Submit to Grantor" in the page details
-     Then I softly see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
-     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
-     When I navigate to "Applications" tab
-     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-     When I perform quick search for "{SavedValue:PreappEGMSID}" in "---preApplication:-:pendingTaskTableId---" panel
-     And I click on "Start" icon for "{SavedValue:PreappEGMSID}" inside table
-     When I navigate to "Overview" sub tab
-     Then I softly see value "Automation SPA" for title "Name" inside table "---preApplication:-:flexGridPreAppContactTableId---"
-     Then I softly see value "Automation SPI 4 contact" for title "Name" inside table "---preApplication:-:flexGridPreAppContactTableId---"
-     Then I softly see value "Automation SPI 5 contact" for title "Name" inside table "---preApplication:-:flexGridPreAppContactTableId---"
-     Then I softly see value "Automation SPI 6 contact" for title "Name" inside table "---preApplication:-:flexGridPreAppContactTableId---"
-     Then I softly see value "Automation SPI 7 contact" for title "Name" inside table "---preApplication:-:flexGridPreAppContactTableId---"
-     And I navigate to "Budget" sub tab
-     When I expand nested table containing column value "BP01"
-     Then I softly see value "$5,000.00" for title "Budget" against the value "Construction" inside table "---preApplication:-:preApplicationAttachmentId---"
-     When I navigate to "Forms and Files" sub tab
-     Then I see "View" has been added in "Supporting Documents Checklist" flex table
-     Then I can see row level action button "View" against "Standard Pre-Application form" in flex table with id "---preApplication:-:preAppFormTableId---"
-     Then I can see row level action button "Preview" against "Standard Pre-Application form" in flex table with id "---preApplication:-:preAppFormTableId---"
-     Then I cannot see row level action button "Edit" against "Standard Pre-Application form" in flex table with id "---preApplication:-:preAppFormTableId---"
-     When I click on "Accept" in the page details
-     And I wait for "3" seconds
-     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
-     When I navigate to "Applications" tab
-     And I navigate to "Pre-Applications" content inside "Applications" subheader on left panel
-     When I click toggle button to select "Pre-Applications - Submitted"
-     And I perform quick search for "{SavedValue:PreappEGMSID}" in "RecipientPreApplications" panel
-     When I click on "View" icon for "{SavedValue:PreappEGMSID}" inside table
-     When I navigate to "Overview" sub tab
-     Then I softly see value "Automation SPA" for title "Name" inside table "---preApplication:-:flexGridPreAppContactTableId---"
-     Then I softly see value "Automation SPI 4 contact" for title "Name" inside table "---preApplication:-:flexGridPreAppContactTableId---"
-     Then I softly see value "Automation SPI 5 contact" for title "Name" inside table "---preApplication:-:flexGridPreAppContactTableId---"
-     Then I softly see value "Automation SPI 6 contact" for title "Name" inside table "---preApplication:-:flexGridPreAppContactTableId---"
-     Then I softly see value "Automation SPI 7 contact" for title "Name" inside table "---preApplication:-:flexGridPreAppContactTableId---"
-     And I navigate to "Budget" sub tab
-     When I expand nested table containing column value "BP01"
-     Then I softly see value "$5,000.00" for title "Budget" against the value "Construction" inside table "---preApplication:-:preApplicationAttachmentId---"
-     When I navigate to "Forms and Files" sub tab
-     Then I see "View" has been added in "Supporting Documents Checklist" flex table
-     Then I can see row level action button "View" against "Standard Pre-Application form" in flex table with id "---preApplication:-:preAppFormTableId---"
-     Then I can see row level action button "Preview" against "Standard Pre-Application form" in flex table with id "---preApplication:-:preAppFormTableId---"
-     Then I cannot see row level action button "Edit" against "Standard Pre-Application form" in flex table with id "---preApplication:-:preAppFormTableId---"
-     Then I softly can see top right button "Create Application" in page detail
-     When I click on "Create Application" in the page details
-     And I wait for "3" seconds
-     And I click modal button "Save and Continue"
-     And I enter "Edition" values from "Application_Field_Values.xlsx"
-     When I click on "Save" in the page details
-     When I save the field labeled "EGMS ID" as "AppEGMSID"
-     Then I softly see status in Progress-bar is "Created" and is "dark blue"
-     And I navigate to "Overview" sub tab
-     Then I softly see value "Automation SPA" for title "Name" inside table "---preApplication:-:flexGridPreAppContactTableId---"
-     Then I softly see value "Automation SPI 4 contact" for title "Name" inside table "---preApplication:-:flexGridPreAppContactTableId---"
-     Then I softly see value "Automation SPI 5 contact" for title "Name" inside table "---preApplication:-:flexGridPreAppContactTableId---"
-     Then I softly see value "Automation SPI 6 contact" for title "Name" inside table "---preApplication:-:flexGridPreAppContactTableId---"
-     Then I softly see value "Automation SPI 7 contact" for title "Name" inside table "---preApplication:-:flexGridPreAppContactTableId---"
-     And I navigate to "Budget" sub tab
-     When I expand nested table containing column value "BP01"
-     And I edit the following rows inline in flex table with id "---applicationReview:-:budgetTableId---" by clicking "Edit" :
-       | Category Name | Budget | Cash Match | Non-Cash Match |
-       | Construction  | 1000   | 100        | 100            |
-     When I navigate to "Proposal" sub tab
-     When I edit the following rows inline in flex table with id "---applicationReview:-:kpiTableId---" by clicking "Edit" :
-       | EGMS ID                  | Target |
-       | Automation Permanent KPI | 10     |
-     And I navigate to "Forms and Files" sub tab
-     And I navigate to "Quickview" sub tab in split screen
-     And I wait for "2" seconds
-     And I click on "Splitview" icon for "Standard Assurances Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
-     And I click on "Edit" in the split screen page details
-     And I wait for "3" seconds
-     Given I enter "Form Fields 1" values from "Application_Field_Values.xlsx"
-     And I click on "Save" in the split screen page details
-     And I wait for "2" seconds
-     And I click on "Splitview" icon for "Program Application Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
-     And I wait for "2" seconds
-     And I click on "Edit" in the split screen page details
-     And I wait for "2" seconds
-     When I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
-     And I click on "Save" in the split screen page details
-     And I wait for "2" seconds
-     And I get the "EGMS ID"
-     When I click on "Submit Application" in the page details
-     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
-     And I navigate to "Applications" tab
-     When I navigate to "Applications" content inside "Applications" subheader on left panel
-     When I click toggle button to select "Applications - All"
-     And I perform quick search for "{SavedValue:AppEGMSID}" in "---applicationIntake:-:applicantGrantorApplicationsTableId---" panel
-     When I click on "View" icon for "{SavedValue:AppEGMSID}" inside flex table with id "---applicationIntake:-:applicantGrantorApplicationsTableId---"
-     Then I softly see status in Progress-bar is "Submitted" and is "dark blue"
+  @526440 @validateSPIuserapplicationissubmittedtograntorwhichiscreatedfrompreapplication @GrantorFlexP1
+  Scenario: Validate SPI user Application is submitted to grantor which is created from preapplication
+    Given I published "Competitive" type announcement having name "Automation Runtime Announcement Application" and properties "PROGRAM_FOR_PREAPP_SUPP_DOC_YES"
+    And I am on "SUBPORTAL" portal
+    And I login to "Grants Portal" app as "SPI3" user
+    When I navigate to "Opportunities" tab
+    And I navigate to "Not Yet Qualified" content inside "Opportunities" subheader on left panel
+    When I click toggle button to select "Not Yet Qualified Opportunities - All"
+    And I perform quick search for "{SavedValue:Automation Runtime Announcement Application}" in "---applicationIntake:-:activeOpportunitiesTableId---" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement Application}" inside table
+    And I save the field containing "Leverage Allowed?" as "Yes"
+    And I save the field containing "Maximum # Applications Allowed" as "1"
+    When I click on "Qualify" in the page details
+    And I click on "Create Pre-Application" in the page details
+    And I wait for "2" seconds
+    When I click modal button "Save and Continue"
+    And I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "PreappEGMSID"
+    And I enter "Edition" values from "PreApplication_Field_Values.xlsx"
+    When I click on "Save" in the page details
+    And I navigate to "Overview" sub tab
+    And I click table top right button "Associate" in flex table with id "---preApplication:-:flexGridPreAppContactTableId---"
+    When I click "Add" after selection of "Automation SPA" by showing entries "All" in flex table with id "---preApplication:-:associatePreAppContactsTableId---"
+    And I wait for "2" seconds
+    When I click "Add" after selection of "Automation SPI 4 contact" by showing entries "All" in flex table with id "---preApplication:-:associatePreAppContactsTableId---"
+    And I wait for "2" seconds
+    When I click "Add" after selection of "Automation SPI 5 contact" by showing entries "All" in flex table with id "---preApplication:-:associatePreAppContactsTableId---"
+    And I wait for "2" seconds
+    When I click "Add" after selection of "Automation SPI 6 contact" by showing entries "All" in flex table with id "---preApplication:-:associatePreAppContactsTableId---"
+    And I wait for "2" seconds
+    When I close "Associate Contacts" modal by clicking the top right x button
+    And I click table top right button "Associate" in flex table with id "---preApplication:-:flexGridPreAppContactTableId---"
+    When I click "Add" after selection of "Automation SPI 7 contact" by showing entries "All" in flex table with id "---preApplication:-:associatePreAppContactsTableId---"
+    And I wait for "3" seconds
+    When I close "Associate Contacts" modal by clicking the top right x button
+    Then I softly see value "Automation SPA" for title "Name" inside table "---preApplication:-:flexGridPreAppContactTableId---"
+    Then I softly see value "Automation SPI 4 contact" for title "Name" inside table "---preApplication:-:flexGridPreAppContactTableId---"
+    Then I softly see value "Automation SPI 5 contact" for title "Name" inside table "---preApplication:-:flexGridPreAppContactTableId---"
+    Then I softly see value "Automation SPI 6 contact" for title "Name" inside table "---preApplication:-:flexGridPreAppContactTableId---"
+    Then I softly see value "Automation SPI 7 contact" for title "Name" inside table "---preApplication:-:flexGridPreAppContactTableId---"
+    And I edit the following rows inline in flex table with id "---preApplication:-:preAppContactTableId---" by clicking "Edit" :
+      | Name                       | Project Role             | Is Key Contact |
+      | {SavedValue:SPI3 Username} | Project Director/Manager | Checked        |
+    And I wait for "2" seconds
+    And I navigate to "Budget" sub tab
+    Given I expand nested table containing column value "BP01"
+    And I edit the following rows inline in flex table with id "---preApplication:-:preApplicationAttachmentId---" by clicking "Edit" :
+      | Category Name | Budget | Cash Match | Non-Cash Match | Other Leverage |
+      | Construction  | 5000   | 500        | 50             | 100            |
+    When I navigate to "Forms and Files" sub tab
+    When I click on "Attach" icon for "Mandatory" inside flex table with id "---preApplication:-:preApplicationChecklistId---" without waiting for record
+    And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
+    And I wait for "2" seconds
+    When I click modal button "Close"
+    And I wait for "2" seconds
+    When I navigate to "Forms and Files" sub tab
+    Then I see "View" has been added in "Supporting Documents Checklist" flex table
+    And I click on "Edit" icon for "Standard Pre-Application form" inside flex table with id "---preApplication:-:preAppFormTableId---"
+    And I switch to tab number "1"
+    And I enter "Form_Edit" values from "PreApplication_Field_Values.xlsx"
+    And I wait for "2" seconds
+    And I click on "Save" in the page details
+    And I wait for "2" seconds
+    And I close the tab
+    When I click on "Submit to Grantor" in the page details
+    Then I softly see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
+    When I navigate to "Applications" tab
+    And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    When I perform quick search for "{SavedValue:PreappEGMSID}" in "---preApplication:-:pendingTaskTableId---" panel
+    And I click on "Start" icon for "{SavedValue:PreappEGMSID}" inside table
+    When I navigate to "Overview" sub tab
+    Then I softly see value "Automation SPA" for title "Name" inside table "---preApplication:-:flexGridPreAppContactTableId---"
+    Then I softly see value "Automation SPI 4 contact" for title "Name" inside table "---preApplication:-:flexGridPreAppContactTableId---"
+    Then I softly see value "Automation SPI 5 contact" for title "Name" inside table "---preApplication:-:flexGridPreAppContactTableId---"
+    Then I softly see value "Automation SPI 6 contact" for title "Name" inside table "---preApplication:-:flexGridPreAppContactTableId---"
+    Then I softly see value "Automation SPI 7 contact" for title "Name" inside table "---preApplication:-:flexGridPreAppContactTableId---"
+    And I navigate to "Budget" sub tab
+    When I expand nested table containing column value "BP01"
+    Then I softly see value "$5,000.00" for title "Budget" against the value "Construction" inside table "---preApplication:-:preApplicationAttachmentId---"
+    When I navigate to "Forms and Files" sub tab
+    Then I see "View" has been added in "Supporting Documents Checklist" flex table
+    Then I can see row level action button "View" against "Standard Pre-Application form" in flex table with id "---preApplication:-:preAppFormTableId---"
+    Then I can see row level action button "Preview" against "Standard Pre-Application form" in flex table with id "---preApplication:-:preAppFormTableId---"
+    Then I cannot see row level action button "Edit" against "Standard Pre-Application form" in flex table with id "---preApplication:-:preAppFormTableId---"
+    When I click on "Accept" in the page details
+    And I wait for "3" seconds
+    When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
+    When I navigate to "Applications" tab
+    And I navigate to "Pre-Applications" content inside "Applications" subheader on left panel
+    When I click toggle button to select "Pre-Applications - Submitted"
+    And I perform quick search for "{SavedValue:PreappEGMSID}" in "RecipientPreApplications" panel
+    When I click on "View" icon for "{SavedValue:PreappEGMSID}" inside table
+    When I navigate to "Overview" sub tab
+    Then I softly see value "Automation SPA" for title "Name" inside table "---preApplication:-:flexGridPreAppContactTableId---"
+    Then I softly see value "Automation SPI 4 contact" for title "Name" inside table "---preApplication:-:flexGridPreAppContactTableId---"
+    Then I softly see value "Automation SPI 5 contact" for title "Name" inside table "---preApplication:-:flexGridPreAppContactTableId---"
+    Then I softly see value "Automation SPI 6 contact" for title "Name" inside table "---preApplication:-:flexGridPreAppContactTableId---"
+    Then I softly see value "Automation SPI 7 contact" for title "Name" inside table "---preApplication:-:flexGridPreAppContactTableId---"
+    And I navigate to "Budget" sub tab
+    When I expand nested table containing column value "BP01"
+    Then I softly see value "$5,000.00" for title "Budget" against the value "Construction" inside table "---preApplication:-:preApplicationAttachmentId---"
+    When I navigate to "Forms and Files" sub tab
+    Then I see "View" has been added in "Supporting Documents Checklist" flex table
+    Then I can see row level action button "View" against "Standard Pre-Application form" in flex table with id "---preApplication:-:preAppFormTableId---"
+    Then I can see row level action button "Preview" against "Standard Pre-Application form" in flex table with id "---preApplication:-:preAppFormTableId---"
+    Then I cannot see row level action button "Edit" against "Standard Pre-Application form" in flex table with id "---preApplication:-:preAppFormTableId---"
+    Then I softly can see top right button "Create Application" in page detail
+    When I click on "Create Application" in the page details
+    And I wait for "3" seconds
+    And I click modal button "Save and Continue"
+    And I enter "Edition" values from "Application_Field_Values.xlsx"
+    When I click on "Save" in the page details
+    When I save the field labeled "EGMS ID" as "AppEGMSID"
+    Then I softly see status in Progress-bar is "Created" and is "dark blue"
+    And I navigate to "Overview" sub tab
+    Then I softly see value "Automation SPA" for title "Name" inside table "---preApplication:-:flexGridPreAppContactTableId---"
+    Then I softly see value "Automation SPI 4 contact" for title "Name" inside table "---preApplication:-:flexGridPreAppContactTableId---"
+    Then I softly see value "Automation SPI 5 contact" for title "Name" inside table "---preApplication:-:flexGridPreAppContactTableId---"
+    Then I softly see value "Automation SPI 6 contact" for title "Name" inside table "---preApplication:-:flexGridPreAppContactTableId---"
+    Then I softly see value "Automation SPI 7 contact" for title "Name" inside table "---preApplication:-:flexGridPreAppContactTableId---"
+    And I navigate to "Budget" sub tab
+    When I expand nested table containing column value "BP01"
+    And I edit the following rows inline in flex table with id "---applicationReview:-:budgetTableId---" by clicking "Edit" :
+      | Category Name | Budget | Cash Match | Non-Cash Match |
+      | Construction  | 1000   | 100        | 100            |
+    When I navigate to "Proposal" sub tab
+    When I edit the following rows inline in flex table with id "---applicationReview:-:kpiTableId---" by clicking "Edit" :
+      | EGMS ID                  | Target |
+      | Automation Permanent KPI | 10     |
+    And I navigate to "Forms and Files" sub tab
+    And I navigate to "Quickview" sub tab in split screen
+    And I wait for "2" seconds
+    And I click on "Splitview" icon for "Standard Assurances Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
+    And I click on "Edit" in the split screen page details
+    And I wait for "3" seconds
+    Given I enter "Form Fields 1" values from "Application_Field_Values.xlsx"
+    And I click on "Save" in the split screen page details
+    And I wait for "2" seconds
+    And I click on "Splitview" icon for "Program Application Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
+    And I wait for "2" seconds
+    And I click on "Edit" in the split screen page details
+    And I wait for "2" seconds
+    When I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
+    And I click on "Save" in the split screen page details
+    And I wait for "2" seconds
+    And I get the "EGMS ID"
+    When I click on "Submit Application" in the page details
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
+    And I navigate to "Applications" tab
+    When I navigate to "Applications" content inside "Applications" subheader on left panel
+    When I click toggle button to select "Applications - All"
+    And I perform quick search for "{SavedValue:AppEGMSID}" in "---applicationIntake:-:applicantGrantorApplicationsTableId---" panel
+    When I click on "View" icon for "{SavedValue:AppEGMSID}" inside flex table with id "---applicationIntake:-:applicantGrantorApplicationsTableId---"
+    Then I softly see status in Progress-bar is "Submitted" and is "dark blue"

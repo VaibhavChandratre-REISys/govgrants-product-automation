@@ -30,7 +30,7 @@ Feature: Validate all scenarios in the Organizational Risk Assessment
     And I enter advance filter values inside id "---orgRiskAssessment:-:pendingTaskTableId---" for LWC
       | Status | equals to | Not Started |
 
-  @62629 @62945 @RevisedRiskAssessmentShouldMarkFirstAsExpired
+  @Bug-PROD-8543 @62629 @62945 @RevisedRiskAssessmentShouldMarkFirstAsExpired
   Scenario: Validate the Revised Risk Assessment should mark the Initial Risk Assessment as Expired.
     When I click on "Start" icon for "Automation Permanent Organization for Risk Assessment" inside flex table with id "---orgRiskAssessment:-:pendingTaskTableId---" without waiting for record
     And I wait for "3" seconds
@@ -128,7 +128,7 @@ Feature: Validate all scenarios in the Organizational Risk Assessment
     When I click on "Save and Continue" in the page details
     #62946
     Then I see the following messages in the page details contains:
-      | To Save, Acknowledgement is required in the Signatures Confirming Assessment section. |
+      | To save, Acknowledgement is required in the Signatures Confirming Assessment section. |
     And I enter "Risk Assessment Creation" values from "Award_Field_Values.xlsx"
     When I click modal button "Save and Continue"
     And I wait for "3" seconds

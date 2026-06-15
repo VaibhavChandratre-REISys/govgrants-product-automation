@@ -1189,7 +1189,8 @@ Feature: Payment Request Forms scenarios
     When I re-login to "Grants Portal" app as "SPA" user on "SUBPORTAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Site Visits" content inside "Monitoring Activities" subheader on left panel
-    And I click toggle button to select "Site Visits - All"
+#    And I click toggle button to select "Site Visits - All"
+    And I click toggle button to select "Site Visit Reports - All"
     When I perform quick search for "{SavedValue:SitevVisitId}" in "---sitevisits:-:monitoringSiteVisitSubTableId---" panel
     And I click on "View" icon for "{SavedValue:SitevVisitId}" inside flex table with id "---sitevisits:-:monitoringSiteVisitSubTableId---"
     And I navigate to "Reports and Outcomes" sub tab

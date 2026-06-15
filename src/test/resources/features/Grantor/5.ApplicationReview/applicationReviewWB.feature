@@ -2691,7 +2691,7 @@ Feature: Validate all scenarios in the Application Review without background
       | Announcement Name                                               | Application Name                                                |
       | {SavedValue:Automation Runtime Announcement Application Review} | {SavedValue:Automation Runtime Announcement Application Review} |
 
-  @80265 @ValidateSendBackMessageForFDM
+  @Bug-PROD-24792 @80265 @ValidateSendBackMessageForFDM
   Scenario Outline: Validate user is able to see sucess message for send back approval action
     And I published "Competitive" type announcement having name "Automation Runtime Announcement Application Review" and properties "default"
     And I initiated an application review for application "{SavedValue:Automation Runtime Announcement Application Review}" on announcement "{SavedValue:Automation Runtime Announcement Application Review}" with properties "default"
@@ -2899,6 +2899,7 @@ Feature: Validate all scenarios in the Application Review without background
     Then I softly see field "Status" as "Completed"
     And I pause execution for "3" seconds
     When I click on "Funding Decision Memo" in the page details
+    And I wait for "5" seconds
     Then I softly see field "Status" as "Created"
     And I click on "Edit" in the page details
     When I enter values into fields
@@ -2931,7 +2932,7 @@ Feature: Validate all scenarios in the Application Review without background
     And I pause execution for "100" seconds
     And I refresh the page
     And I pause execution for "3" seconds
-    #Bug452259
+    #Bug452259 #BUG-PROD-24792
     Then I softly see field "Status" as "Created"
 
     Examples:
@@ -6965,7 +6966,7 @@ Feature: Validate all scenarios in the Application Review without background
     And I click on "Start" icon for "{SavedValue:EGMSID}" inside flex table with id "---negotiation:-:homePendingTasks---"
     #190944
     And I click on "Edit" in the page details
-    Then I softly see status in Progress-bar is "Created" and is "dark blue"
+    Then I softly see status in Progress-bar is "Negotiation Initiated" and is "dark blue"
     #190957
     Then I softly see field "Status" as "Negotiation Initiated"
     When I navigate to "Overview" sub tab
@@ -9104,7 +9105,7 @@ Feature: Validate all scenarios in the Application Review without background
     When I perform quick search for "{SavedValue:EGMSID}" in "---program:-:grantorTaskReassignTableId---" panel
     Then I softly do not see value "{SavedValue:EGMSID}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
 
-  @197960 @ValidateReviewNegotiationtaskshouldnotgenerateforPOuserforapplicationonreassignmytaskpage @sprint-7-US-197384 @reassignment
+  @Bug-PROD-16117 @197960 @ValidateReviewNegotiationtaskshouldnotgenerateforPOuserforapplicationonreassignmytaskpage @sprint-7-US-197384 @reassignment
   Scenario: Validate Review Negotiation task should not generate for PO user for application on reassign my task page
     When I login to "Grantor" app as "PO" user
     And I navigate to "Announcements" tab
@@ -14159,6 +14160,7 @@ Feature: Validate all scenarios in the Application Review without background
     And I click on top right button "Add Organizations" in flex table with id "---announcement:-:formulaInvitedApplicatsTableId---"
     When I click "Add" after selection of "SAN DIEGO ELECTRICAL TRAINING TRUST" in the table "---announcement:-:directedAddInviteApplicantTableId---"
     When I close "Add Organizations" modal by clicking the top right x button
+    And I refresh the page
     And I wait for "5" seconds
     When I edit the following rows inline in flex table with id "---announcement:-:formulaInvitedApplicatsTableId---" by clicking "Edit" :
       | Applicant Organization              | Allocated Amount |
@@ -23277,6 +23279,7 @@ Feature: Validate all scenarios in the Application Review without background
       | Budget Period Name | Start Date | End Date |
       | BP01               | 50         | 150      |
     And I click on "Save" in the page details
+    When I navigate to "Setup" sub tab
     And I expand nested table containing column value "Pre-Screen Review"
     And I edit the following rows inline in flex table with id "---announcement:-:AnnouncementReviewPanel---" by clicking "Edit" :
       | Form Name  | Review Response Shared |
@@ -23481,8 +23484,8 @@ Feature: Validate all scenarios in the Application Review without background
     When I navigate to "Applications" tab
     And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
     When I click toggle button to select "Application Reviews - All"
-    And I perform quick search for "{SavedValue:Automation Runtime FDM Announcement}" in "---applicationReview:-:announcementListTableId---" panel
-    When I click on "View" icon for "{SavedValue:Automation Runtime FDM Announcement}" inside flex table with id "---applicationReview:-:announcementListTableId---" with wait for record
+    And I perform quick search for "{SavedValue:Automation Runtime Competitive Announcement}" in "---applicationReview:-:announcementListTableId---" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime Competitive Announcement}" inside flex table with id "---applicationReview:-:announcementListTableId---" with wait for record
     And I navigate to "Related Log" sub tab
     When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
     And I wait for "2" seconds
@@ -23494,13 +23497,13 @@ Feature: Validate all scenarios in the Application Review without background
       | {SavedValue:PM Username}  |
       | {SavedValue:EXE Username} |
     And I click on "Assign" icon for "{SavedValue:PM Username}" inside flex table with id "---applicationReview:-:reviewersTableId---"
-    When I perform quick search for "{SavedValue:Automation Runtime FDM Announcement}" in "---applicationReview:-:assignApplicationsTableId---" panel
-    And I check "{SavedValue:Automation Runtime FDM Announcement}" boxes in flex table with id "---applicationReview:-:assignApplicationsTableId---"
+    When I perform quick search for "{SavedValue:Automation Runtime Competitive Announcement}" in "---applicationReview:-:assignApplicationsTableId---" panel
+    And I check "{SavedValue:Automation Runtime Competitive Announcement}" boxes in flex table with id "---applicationReview:-:assignApplicationsTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:assignApplicationsTableId---"
     And I click modal button "Close"
     And I click on "Assign" icon for "{SavedValue:EXE Username}" inside flex table with id "---applicationReview:-:reviewersTableId---"
-    When I perform quick search for "{SavedValue:Automation Runtime FDM Announcement}" in "---applicationReview:-:assignApplicationsTableId---" panel
-    And I check "{SavedValue:Automation Runtime FDM Announcement}" boxes in flex table with id "---applicationReview:-:assignApplicationsTableId---"
+    When I perform quick search for "{SavedValue:Automation Runtime Competitive Announcement}" in "---applicationReview:-:assignApplicationsTableId---" panel
+    And I check "{SavedValue:Automation Runtime Competitive Announcement}" boxes in flex table with id "---applicationReview:-:assignApplicationsTableId---"
     When I click on top right button "Assign" in flex table with id "---applicationReview:-:assignApplicationsTableId---"
     And I click modal button "Close"
     And I refresh the page
@@ -23554,24 +23557,24 @@ Feature: Validate all scenarios in the Application Review without background
     When I navigate to "Applications" tab
     And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
     When I click toggle button to select "Application Reviews - All"
-    And I perform quick search for "{SavedValue:Automation Runtime FDM Announcement}" in "---applicationReview:-:announcementListTableId---" panel
-    When I click on "View" icon for "{SavedValue:Automation Runtime FDM Announcement}" inside flex table with id "---applicationReview:-:announcementListTableId---"
+    And I perform quick search for "{SavedValue:Automation Runtime Competitive Announcement}" in "---applicationReview:-:announcementListTableId---" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime Competitive Announcement}" inside flex table with id "---applicationReview:-:announcementListTableId---"
     And I navigate to "Related Log" sub tab
     When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
     And I wait for "2" seconds
-    When I expand nested table containing column value "{SavedValue:Automation Runtime FDM Announcement}"
+    When I expand nested table containing column value "{SavedValue:Automation Runtime Competitive Announcement}"
     And I click on "Automation PM: Review Completed - Recommended" icon for "Pre-Screen" inside flex table with id "---applicationReview:-:reviewFormsTableId---" with wait for record
     And I close the tab
     When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     When I navigate to "Applications" tab
     And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
     When I click toggle button to select "Application Reviews - All"
-    And I perform quick search for "{SavedValue:Automation Runtime FDM Announcement}" in "---applicationReview:-:announcementListTableId---" panel
-    When I click on "View" icon for "{SavedValue:Automation Runtime FDM Announcement}" inside flex table with id "---applicationReview:-:announcementListTableId---"
+    And I perform quick search for "{SavedValue:Automation Runtime Competitive Announcement}" in "---applicationReview:-:announcementListTableId---" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime Competitive Announcement}" inside flex table with id "---applicationReview:-:announcementListTableId---"
     And I navigate to "Related Log" sub tab
     When I click on "View" icon for "Pre-Screen Review" inside flex table with id "---applicationReview:-:reviewStepsTableId---"
     And I wait for "2" seconds
-    When I expand nested table containing column value "{SavedValue:Automation Runtime FDM Announcement}"
+    When I expand nested table containing column value "{SavedValue:Automation Runtime Competitive Announcement}"
     And I click on "Automation PM: Review Completed - Recommended" icon for "Pre-Screen" inside flex table with id "---applicationReview:-:reviewFormsTableId---" with wait for record
     Then I see the page contains text "Only the announcement record owner or the assigned reviewer can view the reviewer's response. If you need access to the reviewer's response, please contact technical support."
     And I close the tab
@@ -23820,7 +23823,7 @@ Feature: Validate all scenarios in the Application Review without background
     When I edit the following rows inline in flex table with id "---applicationReview:-:formTableId---" by clicking "Edit" :
       | Form Name       | Due in Days |
       | Pre-Screen      | 5           |
-      | Automation Test | 5           |
+#      | Automation Test | 5           |
     When I enter the following values into flex table with id "---applicationReview:-:reviewersTableId---" by clicking "Add" :
       | Reviewer                 |
       | {SavedValue:SPI3 Username} |

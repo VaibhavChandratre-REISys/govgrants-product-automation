@@ -1006,7 +1006,7 @@ public final class GovGrantsSteps {
     }
 
     @Description("To verify sub header content displayed inside sidebar")
-    @Then("^I (see|do not see) \"([^\"]*)\" inside \"([^\"]*)\" is displayed$")
+    @Then("^I (see|softly see|do not see) \"([^\"]*)\" inside \"([^\"]*)\" is displayed$")
     public void assertSubHeaderContentNameDisplayed(String usage, String sideBarCategory, String accordianSubHeaderDetail) {
         govgrants.perform().sideBar().assertSubHeaderContentDisplayed(usage, accordianSubHeaderDetail, sideBarCategory);
     }

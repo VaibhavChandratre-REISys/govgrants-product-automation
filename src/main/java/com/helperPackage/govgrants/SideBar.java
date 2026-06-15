@@ -209,10 +209,13 @@ public final class SideBar {
      * @param sideBarCategory
      * @param accordianSubHeaderDetail
      * @author ashwini.mahore
+     * @modifier komal.mukhekar - 12/06/2026 - Updated method to handle "softly see" assertion type
      */
     public void assertSubHeaderContentDisplayed(String usage, String sideBarCategory, String accordianSubHeaderDetail) {
         if (usage.equalsIgnoreCase("see")) {
             Assert.assertTrue(isSideBarAccordionSubHeaderDisplayed(sideBarCategory, accordianSubHeaderDetail));
+        } else if (usage.equalsIgnoreCase("softly see")) {
+            I.amPerforming().assertionsTo().assertThat(isSideBarAccordionSubHeaderDisplayed(sideBarCategory, accordianSubHeaderDetail)).isTrue();
         } else if (usage.equalsIgnoreCase("do not see")) {
             Assert.assertFalse(isSideBarAccordionSubHeaderDisplayed(sideBarCategory, accordianSubHeaderDetail));
         }

@@ -946,7 +946,8 @@ public final class GovGrantsAssertionObjects {
         By allSubTabsLocator = By.xpath("//div[@class='layout']//ul//li//a[@data-label] | //div[@class='slds-tabs_default']//ul//li//a[@data-label] | //div[contains(@class,'slds-tabs_default')]//ul//li//a[@data-label]");
         List<String> allSubTabNames;
         try {
-            I.amPerforming().waitFor().ElementToBePresent(By.xpath("//div[@class='layout']//ul//li//a[@data-label]  | //div[@class='slds-tabs_default']//ul//li//a[@data-label]"));
+//            I.amPerforming().waitFor().ElementToBePresent(By.xpath("//div[@class='layout']//ul//li//a[@data-label]  | //div[@class='slds-tabs_default']//ul//li//a[@data-label]"));
+            I.amPerforming().waitFor().ElementToBeClickable(By.xpath("//ul[@role='tablist' and @aria-label='Tabs']"));
             allSubTabNames = I.amPerforming().getElementReference().forListOfElements().of(allSubTabsLocator)
                     .stream().map(el -> el.getAttributes("data-label")).map(StringUtils::normalizeSpace).collect(Collectors.toList());
         } catch (StaleElementReferenceException e) {

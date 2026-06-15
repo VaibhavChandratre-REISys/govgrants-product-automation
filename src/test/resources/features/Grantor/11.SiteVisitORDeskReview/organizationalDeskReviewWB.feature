@@ -1,4 +1,4 @@
-@organizationalDeskReviewWB @grantor-regression @grantor-parallel-regression @siteVisit @regression @siteAndDeskReview @deskExecution
+@deskReview @organizationalDeskReviewWB @grantor-regression @grantor-parallel-regression @siteVisit @regression @siteAndDeskReview @deskExecution
 Feature: Validate all scenarios in Organizational Desk Review Without Background
 
   @235434 @ValidateDeskReviewPOusercanbletoreassigndeskreviewownershipfromPOtootherPOuserCreatedstateofdeskreview @sprint-14-US-234219  @reassignment @FieldHistoryExclude
