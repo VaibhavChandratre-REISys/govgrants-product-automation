@@ -2257,7 +2257,6 @@ Feature: Amendment Request scenarios without background
     When I enter values into fields
       | Value                       | Field                         |
       | Automation Test Description | FundingChangeJustification__c |
-      | 2000                        | RequestedChangeInBudget__c    |
       | Automation Justification    | TncComments__c                |
     Then I softly see fields "AreTCspartofNGAAttachments__c" is in edit mode
     And I enter value "Checked" into field "AreTCspartofNGAAttachments__c"
@@ -2384,7 +2383,6 @@ Feature: Amendment Request scenarios without background
     When I enter values into fields
       | Value                       | Field                         |
       | Automation Test Description | FundingChangeJustification__c |
-      | 2000                        | RequestedChangeInBudget__c    |
       | Automation Justification    | TncComments__c                |
     Then I softly see fields "AreTCspartofNGAAttachments__c" is in edit mode
     And I enter value "Checked" into field "AreTCspartofNGAAttachments__c"

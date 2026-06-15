@@ -50,8 +50,7 @@ Feature: Validate all scenarios for SME Registration
     Then I softly see value "Automation PM" for title "Name" inside table "{grantor_tableId:InternalContactsTableId}"
     When I navigate to "{grantor_sidebar:SubrecipientsLink}" content inside "{grantor_sidebar:ContactSubheaderName}" subheader on left panel
     When I perform quick search for "SAN DIEGO ELECTRICAL TRAINING TRUST" in "---home:-:subrecipientContactTableId---" panel
-    And I halt execution
-    Then I softly see value "SAN DIEGO ELECTRICAL TRAINING TRUST" for title "Name" inside table "---home:-:subrecipientContactTableId---"
+    Then I softly see value "SAN DIEGO ELECTRICAL TRAINING TRUST" for title "Organization" inside table "---home:-:subrecipientContactTableId---"
     And I navigate to "SME Reviewers" content inside "Contacts" subheader on left panel
     And I pause execution for "2" seconds
     When I perform quick search for "Automation SME" in "ActiveAccountReviewer" panel
@@ -65,6 +64,7 @@ Feature: Validate all scenarios for SME Registration
     And I wait for "2" seconds
     Then I softly see "Pending Tasks (Assigned To Me)" page block displayed
     Then I softly see "Pending Tasks (Assigned By Me)" page block displayed
+#    And I halt execution
     And I perform quick search for "In Progress" in "---grantor_tableId:-:PendingTaskAssignedToMeTableId---" panel
     Then I softly see value "In Progress" for title "Status" inside table "---grantor_tableId:-:PendingTaskAssignedToMeTableId---"
     And I perform quick search for "Not Started" in "---grantor_tableId:-:PendingTaskAssignedToMeTableId---" panel

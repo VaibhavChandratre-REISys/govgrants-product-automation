@@ -589,7 +589,7 @@ Feature: Validate all scenarios for the global search
     And I select "Amendment Requests" from dropdown for Global search
     And I perform quick search inside global search "{SavedValue:budgetPChangeId}"
     And I click on row level action button "Edit" against "{SavedValue:budgetPChangeId}" in global search with id "Amendment Requests"
-    Then I softly see field "Status" as "Closed/Completed"
+    Then I softly see field "Status" as "Approved"
     Then I cannot see top right button "Save" in page detail
     Then I cannot see top right button "Cancel" in page detail
     Then I softly see the text containing "You dont have sufficient access to edit this record"
