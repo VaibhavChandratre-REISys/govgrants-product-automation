@@ -620,7 +620,6 @@ Feature: Validate all scenarios for the global search
     And I navigate to "Subrecipients" content inside "Contacts" subheader on left panel
     And I pause execution for "3" seconds
     When I click on top right button "New" in flex table with id "---home:-:subrecipientContactTableId---"
-#    And I halt execution
     And I enter "Creation" values from "SubrecipientContact_Field_Values.xlsx"
     When I enter in modal value "Non-User" into field "UserRole__c"
     And I generate the random EmailID and save as "uniqueEmailID"

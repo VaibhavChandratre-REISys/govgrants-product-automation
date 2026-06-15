@@ -64,7 +64,6 @@ Feature: Validate all scenarios for SME Registration
     And I wait for "2" seconds
     Then I softly see "Pending Tasks (Assigned To Me)" page block displayed
     Then I softly see "Pending Tasks (Assigned By Me)" page block displayed
-#    And I halt execution
     And I perform quick search for "In Progress" in "---grantor_tableId:-:PendingTaskAssignedToMeTableId---" panel
     Then I softly see value "In Progress" for title "Status" inside table "---grantor_tableId:-:PendingTaskAssignedToMeTableId---"
     And I perform quick search for "Not Started" in "---grantor_tableId:-:PendingTaskAssignedToMeTableId---" panel

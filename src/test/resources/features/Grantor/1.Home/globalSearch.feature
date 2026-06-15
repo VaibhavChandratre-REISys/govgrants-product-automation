@@ -322,7 +322,6 @@ Feature: Validate all scenarios for the global search
     And I select "Announcements" from dropdown for Global search
     And I perform quick search inside global search "{AUTOEnvData:ClosedStateAnnouncement_ApplicationSubmittedToGrantor}"
     And I click on row level action button "Edit" against "{AUTOEnvData:ClosedStateAnnouncement_ApplicationSubmittedToGrantor}" in global search with id "Announcements"
-    And I halt execution
     Then I softly see field "Status" as "Closed"
     Then I cannot see top right button "Save" in page detail
     Then I cannot see top right button "Cancel" in page detail
