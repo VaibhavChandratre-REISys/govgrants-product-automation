@@ -2767,7 +2767,7 @@ public final class GovGrantsAssertionObjects {
      * @modifer: keerti.munde
      */
     public boolean isAsteriskMarkDisplayed(String fieldName) {
-        By fieldsAtPageDetails = By.xpath("//div[@data-field_api_name='" + fieldName + "']//span[contains(@class,'required-for-save')] | //label[text()='" + fieldName + "']/..//span[contains(@class,'required-for-save')]");
+        By fieldsAtPageDetails = By.xpath("//div[@data-field_api_name='" + fieldName + "']//span[contains(@class,'required-for-save')] | //label[text()='" + fieldName + "']/..//span[contains(@class,'required-for-save')]" + " | //label[text()='Social Security Number (SSN)']/parent::div/preceding-sibling::span[contains(@class,'required-for-save')]");
         boolean flag = false;
         try {
             if (I.amPerforming().checkToSee().isDisplayed(fieldsAtPageDetails)) {
