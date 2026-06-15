@@ -50,6 +50,7 @@ Feature: Validate all scenarios for SME Registration
     Then I softly see value "Automation PM" for title "Name" inside table "{grantor_tableId:InternalContactsTableId}"
     When I navigate to "{grantor_sidebar:SubrecipientsLink}" content inside "{grantor_sidebar:ContactSubheaderName}" subheader on left panel
     When I perform quick search for "SAN DIEGO ELECTRICAL TRAINING TRUST" in "---home:-:subrecipientContactTableId---" panel
+    And I halt execution
     Then I softly see value "SAN DIEGO ELECTRICAL TRAINING TRUST" for title "Name" inside table "---home:-:subrecipientContactTableId---"
     And I navigate to "SME Reviewers" content inside "Contacts" subheader on left panel
     And I pause execution for "2" seconds
