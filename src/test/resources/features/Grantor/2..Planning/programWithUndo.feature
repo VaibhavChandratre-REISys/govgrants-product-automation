@@ -1,7 +1,7 @@
 @programWithUndo @grantor-regression @grantor-parallel-regression @planning @regression
 Feature: Validate all scenarios for program
 
-  @279282 @Verifyusershouldnotseeundobuttonincreatedsentforreviewreviewedstateofprogram @sprint-25-US-295138  @Undo @debug
+  @279282 @Verifyusershouldnotseeundobuttonincreatedsentforreviewreviewedstateofprogram @sprint-25-US-295138  @Undo
   Scenario: Verify user should not see undo button in created, sent for review, reviewed state of program
     When I login to "Grantor" app as "PM" user
     And I navigate to "Planning" tab

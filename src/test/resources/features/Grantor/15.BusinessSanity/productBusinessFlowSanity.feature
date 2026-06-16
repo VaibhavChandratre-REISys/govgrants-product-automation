@@ -1177,13 +1177,13 @@ Feature: Validate sanity testing of Complete Business Flow
 
   @submitApplication @ProdSan1 @TBE
   Scenario: Validate once the application is submitted to Grantor and then status changes to Submitted
-    Given I published "Competitive" type announcement having name "Automation Runtime Announcement Application Intake" and properties "default"
+    Given I published "Competitive" type announcement having name "Automation Permanent R-010709" and properties "default"
     Given I am on "SUBPORTAL" portal
     When I login to "Grants Portal" app as "SPI3" user
     And I navigate to "Opportunities" tab
     When I navigate to "Not Yet Qualified" content inside "Opportunities" subheader on left panel
-    And I perform quick search for "{SavedValue:Automation Runtime Announcement Application Intake}" in "---applicationReview:-:reviewsTableId---" panel
-    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement Application Intake}" inside flex table with id "---applicationReview:-:reviewsTableId---"
+    And I perform quick search for "{SavedValue:Automation Permanent R-010709}" in "---applicationReview:-:reviewsTableId---" panel
+    When I click on "View" icon for "{SavedValue:Automation Permanent R-010709}" inside flex table with id "---applicationReview:-:reviewsTableId---"
     When I click on "Qualify" in the page details
     When I click on "Create Application" in the page details
     And I wait for "3" seconds
