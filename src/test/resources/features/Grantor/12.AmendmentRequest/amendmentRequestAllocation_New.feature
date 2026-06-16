@@ -5251,6 +5251,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly see field "Total Commitment" as "$1,000.00"
     And I click on hyperlink containing value "{SavedValue:GrantEGMSID}"
     And I wait for "2" seconds
+#    And I halt execution
     And I navigate to "Budget" sub tab
     Then I softly see that "Cumulative Obligation" rendered in view mode only
     Then I softly see that "Total Commitment" rendered in view mode only
@@ -6376,6 +6377,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I cannot see row level action button "Edit" against "Automation Permanent Focus Area2" in flex table with id "---amendment:-:grantorCarryForwardFocusAreaTableId---"
     And I save the value from row "3" for column name "Revised Obligation" as "RevisedObligationFATotal" from flex table "---amendment:-:grantorCarryForwardFocusAreaTableId---"
     And I save the value from row "3" for column name "Budgeted Amount" as "BudgetedAmountFATotal" from flex table "---amendment:-:grantorCarryForwardFocusAreaTableId---"
+#    And I halt execution
     And I save the value from row "3" for column name "Spent" as "SpentFATotal" from flex table "---amendment:-:grantorCarryForwardFocusAreaTableId---"
     Then I softly see value "{SavedValue:RevisedObligationFATotal}" is "Equals to" the value "{SavedValue:BudgetedAmountFATotal}"
     Then I softly see value "{SavedValue:SpentFATotal}" is "Less Than" the value "{SavedValue:RevisedObligationFATotal}"
@@ -6729,7 +6731,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     #264799
     Then I softly see field "Carry Forward Amount" as "$700.00"
 #    And I expand nested table containing column value "BP01"
-    And I select value inside table "---amendment:-:RecipientCarryForwardBudgetTableId---" is "All"
+    And I select value inside table "---amendment:-:RecipientCarryForwardBudgetTableId---" is "20"
     Then I see the following rows under the following headers in table with id "---amendment:-:RecipientCarryForwardBudgetTableId---" :
       | Carry Forward |
       | $700.00       |
