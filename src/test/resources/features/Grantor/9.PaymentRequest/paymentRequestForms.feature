@@ -104,7 +104,7 @@ Feature: Payment Request Forms scenarios
     And I wait for "5" seconds
     Then I see status in Progress-bar is "Paid" and is "dark blue"
 
-  @287170 @308690 @ValidateSPIusercanabletosavevalidateformafterenteringcorrectvaliddataonallfieldspresentonform @sprint-2-US-288254 @Forms
+  @mk @287170 @308690 @ValidateSPIusercanabletosavevalidateformafterenteringcorrectvaliddataonallfieldspresentonform @sprint-2-US-288254 @Forms
   Scenario: Validate SPI user can able to save & validate form after entering correct & valid data on all fields present on form
     And I activated standalone subaward "Automation Runtime Award" with properties "ADVANCE_PERMISSIBLE_YES_FOCUS_AREA_NO" of type "Competitive"
     And I am on "SUBPORTAL" portal
@@ -434,22 +434,31 @@ Feature: Payment Request Forms scenarios
     When I navigate to "Forms and Packages" content inside "Setup" subheader on left panel
     And I select value inside table "---program:-:formsPackagesFormsTableId---" is "All"
     And I wait for "5" seconds
+    And I perform quick search for "Standard Pre-Application Form" in "---program:-:formsPackagesFormsTableId---" panel
     Then I softly see value "Standard Pre-Application Form" for title "Form Name" inside table "---program:-:formsPackagesFormsTableId---"
     Then I softly see value "Pre-Application Report" for title "Report Type" inside table "---program:-:formsPackagesFormsTableId---"
+    And I perform quick search for "Program Application Form" in "---program:-:formsPackagesFormsTableId---" panel
     Then I softly see value "Program Application Form" for title "Form Name" inside table "---program:-:formsPackagesFormsTableId---"
     Then I softly see value "Application Report" for title "Report Type" inside table "---program:-:formsPackagesFormsTableId---"
+    And I perform quick search for "Standard Assurances Form" in "---program:-:formsPackagesFormsTableId---" panel
     Then I softly see value "Standard Assurances Form" for title "Form Name" inside table "---program:-:formsPackagesFormsTableId---"
     Then I softly see value "Application Report" for title "Report Type" inside table "---program:-:formsPackagesFormsTableId---"
+    And I perform quick search for "Program Review Form" in "---program:-:formsPackagesFormsTableId---" panel
     Then I softly see value "Program Review Form" for title "Form Name" inside table "---program:-:formsPackagesFormsTableId---"
     Then I softly see value "Site Visit/Desk Review Report" for title "Report Type" inside table "---program:-:formsPackagesFormsTableId---"
+    And I perform quick search for "General Review Form" in "---program:-:formsPackagesFormsTableId---" panel
     Then I softly see value "General Review Form" for title "Form Name" inside table "---program:-:formsPackagesFormsTableId---"
     Then I softly see value "Site Visit/Desk Review Report" for title "Report Type" inside table "---program:-:formsPackagesFormsTableId---"
+    And I perform quick search for "Financial Review Form" in "---program:-:formsPackagesFormsTableId---" panel
     Then I softly see value "Financial Review Form" for title "Form Name" inside table "---program:-:formsPackagesFormsTableId---"
     Then I softly see value "Site Visit/Desk Review Report" for title "Report Type" inside table "---program:-:formsPackagesFormsTableId---"
+    And I perform quick search for "Program Review Form" in "---program:-:formsPackagesFormsTableId---" panel
     Then I softly see value "Program Review Form" for title "Form Name" inside table "---program:-:formsPackagesFormsTableId---"
     Then I softly see value "Site Visit/Desk Review Report" for title "Report Type" inside table "---program:-:formsPackagesFormsTableId---"
+    And I perform quick search for "General Review Form" in "---program:-:formsPackagesFormsTableId---" panel
     Then I softly see value "General Review Form" for title "Form Name" inside table "---program:-:formsPackagesFormsTableId---"
     Then I softly see value "Site Visit/Desk Review Report" for title "Report Type" inside table "---program:-:formsPackagesFormsTableId---"
+    And I perform quick search for "Financial Review For" in "---program:-:formsPackagesFormsTableId---" panel
     Then I softly see value "Financial Review Form" for title "Form Name" inside table "---program:-:formsPackagesFormsTableId---"
     Then I softly see value "Site Visit/Desk Review Report" for title "Report Type" inside table "---program:-:formsPackagesFormsTableId---"
 
