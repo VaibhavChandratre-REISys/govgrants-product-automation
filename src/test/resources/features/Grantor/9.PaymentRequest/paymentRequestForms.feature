@@ -124,7 +124,6 @@ Feature: Payment Request Forms scenarios
     And I click modal button "Save and Continue"
     When I enter "Edition" values from "PaymentRequest_Field_Values.xlsx"
     When I click on "Save" in the page details
-    When I navigate to "Overview" sub tab
     And I save the field labeled "EGMS ID" as "PayreqId"
     And I navigate to "Financials" sub tab
     And I edit the following rows inline in flex table with id "---paymentRequest:-:budgetTableId---" by clicking "Edit" :
@@ -181,6 +180,7 @@ Feature: Payment Request Forms scenarios
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:PayreqId}" in "---paymentRequest:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "{SavedValue:PayreqId}" inside flex table with id "---paymentRequest:-:pendingTaskTableId---" without waiting for record
+    And I wait for "5" seconds
     And I navigate to "Financials" sub tab
     And I edit the following rows inline in flex table with id "---paymentRequest:-:fundingAccountsAdvTableId---" by clicking "Edit" :
       | Funding Account             | Advance Requested This Action |
@@ -1433,7 +1433,7 @@ Feature: Payment Request Forms scenarios
     Then I softly see field "12a. Estimated Federal cash outlays that will be made during period covered by the advance" as "$12,345.00" in "12. Alternate Computation for Advances Only" pageblock
     Then I softly see field "12b. Less: Estimated balance of Federal cash on hand as of beginning of advance period" as "$12,345.00" in "12. Alternate Computation for Advances Only" pageblock
     Then I softly see field "12c. Amount Requested (Line 12a minus line 12b)" as "$0.00" in "12. Alternate Computation for Advances Only" pageblock
-    Then I softly see field "Acknowledgement" as "checked"
+    Then I softly see field "Acknowledgement" as "True"
     Then I softly see field "Signature of Authorized Certifying official" as "John Mathews" in "13. Certification" pageblock
     Then I softly see field "Date Request Submitted" as "{Date:M/d/yyyy::d+0}" in "13. Certification" pageblock
     Then I softly see field "Prefix" as "Mr." in "13. Certification" pageblock
