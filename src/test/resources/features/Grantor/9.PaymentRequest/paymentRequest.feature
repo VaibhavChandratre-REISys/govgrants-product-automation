@@ -2709,7 +2709,7 @@ Feature: Validate all scenarios in Payment Request
     Then I see the following messages in the page details contains:
       | Responsibilities - At least one approver is required |
 
-  @mk @148787 @verifyUserNotAbleToSkipApproverAtAdvancePaymentRequest-RnRFunctionality
+  @148787 @verifyUserNotAbleToSkipApproverAtAdvancePaymentRequest-RnRFunctionality
   Scenario: To verify user should allow to remove approver on advance payment request
     When I navigate to "Actuals" sub tab
     And I click on top right button "Advance Request" in flex table with id "---paymentRequest:-:paymentRequestTableId---"
