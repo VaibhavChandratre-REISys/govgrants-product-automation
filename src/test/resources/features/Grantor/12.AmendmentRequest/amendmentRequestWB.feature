@@ -2668,7 +2668,7 @@ Feature: Amendment Request scenarios without background
     Then I softly can see row level action button "Remove" against "Other" in flex table with id "---amendment:-:RecipientKeyPersonalTableId---"
     And I click on "Edit" icon for "{SavedValue:SPA Username}" inside flex table with id "---amendment:-:RecipientKeyPersonalTableId---"
     Then I softly see fields "ProjectRole__c" is in edit mode
-    Then I softly see fields "contact__r.name" is in edit mode
+    Then I softly see fields "contact__r.Name" is in edit mode
     Then I softly can see top right button "Associate" in flex table with id "---amendment:-:RecipientKeyPersonalTableId---"
 
   @99264 @ValidatePBPEDIsGreaterThanPBPSD-PeriodicRenewal
@@ -5519,7 +5519,7 @@ Feature: Amendment Request scenarios without background
     And I navigate to "Responsibilities" sub tab
     And I click on top right button "New" in flex table with id "---amendment:-:approversTableId---"
     And I pause execution for "3" seconds
-    And I select user value "Automation PM" in field "name__r.name"
+    And I select user value "Automation PM" in field "Name__r.Name"
     And I select dropdown value "Step 1" in field "AmendmentRequestRole__c"
     And I click on nested button "Remove record" in flex table with id "---amendment:-:approversTableId---"
     Then I softly see "No Records Found" inside flex table with id "---amendment:-:approversTableId---"
