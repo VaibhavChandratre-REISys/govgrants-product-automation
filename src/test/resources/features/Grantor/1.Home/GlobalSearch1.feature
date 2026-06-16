@@ -1573,10 +1573,8 @@ Feature: Validate all scenarios for the global search
     When I login to "Grantor" app as "FO" user
     And I navigate to "Applications" tab
     And I select "Reviews" from dropdown for Global search
-    And I halt execution
     And I perform quick search inside global search "{SavedValue:AutomationPermanentApplicationReviewForGlobalSearch}"
     Then I softly see value "{SavedValue:AutomationPermanentApplicationReviewForGlobalSearch}" for title "Review Form EGMS ID" inside table "Reviews" for global search record
-    And I halt execution
     And I click on row level action button "Edit" against "{SavedValue:AutomationPermanentApplicationReviewForGlobalSearch}" in global search with id "Reviews"
     And I wait for "2" seconds
     Then I softly see that "Status" is in "Sent for Review" status

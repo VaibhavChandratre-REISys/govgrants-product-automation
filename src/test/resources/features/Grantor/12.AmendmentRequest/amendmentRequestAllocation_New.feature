@@ -3157,7 +3157,6 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly see field "Total Commitment" as "$1,000.00"
     And I save the field labeled "Total Commitment" as "TotalCommitment"
     And I click on hyperlink containing value "{SavedValue:GrantEGMSID}"
-#    And I halt execution
     And I refresh the page
     And I wait for "2" seconds
     And I navigate to "Budget" sub tab
@@ -3943,7 +3942,8 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly see field "Total Commitment" as "$1,000.00"
     Then I softly see value "{SavedValue:CurrentCommitment}" is "Equals to" the value "{SavedValue:TotalCommitment}"
     And I click on hyperlink containing value "{SavedValue:GrantEGMSID}"
-    And I wait for "2" seconds
+    And I refresh the page
+    And I wait for "3" seconds
     And I navigate to "Budget" sub tab
     Then I softly see "Cumulative Obligation" in flex table header "---subAwardStandAlone:-:grantSubrecipientFocusAreaTableId---"
     Then I see field "Cumulative Obligation" as "$1,000.00"
@@ -5048,6 +5048,8 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly see field "Total Commitment" as "$1,000.00"
     Then I softly see value "{SavedValue:TotalCommitmentAward}" is "Equals to" the value "{SavedValue:TotalCommitment2}"
     And I click on hyperlink containing value "{SavedValue:GrantEGMSID}"
+    And I refresh the page
+    And I wait for "3" seconds
     Then I navigate to "Subawards" sub tab
     And I click on "View" icon for "Amended" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
     When I navigate to "Budget" sub tab
@@ -5251,7 +5253,8 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I save the field labeled "Total Commitment" as "TotalCommitment1"
     Then I softly see field "Total Commitment" as "$1,000.00"
     And I click on hyperlink containing value "{SavedValue:GrantEGMSID}"
-    And I wait for "2" seconds
+    And I refresh the page
+    And I wait for "3" seconds
     And I navigate to "Budget" sub tab
     Then I softly see that "Cumulative Obligation" rendered in view mode only
     Then I softly see that "Total Commitment" rendered in view mode only
@@ -7706,7 +7709,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly see value "$1,500.00" for title "Award Amount" against the value "Construction" inside table "---subAwardStandAlone:-:subAwardBudgetTableId---"
     And I refresh the page
     And I wait for "2" seconds
-    And I select value inside table "---subAwardStandAlone:-:subAwardBudgetTableId---" is "All"
+    And I select value inside table "---subAwardStandAlone:-:subAwardBudgetTableId---" is "20"
     Then I see the following rows under the following headers in table with id "---subAwardStandAlone:-:subAwardBudgetTableId---" :
       | Award Amount |
       | $2,700.00    |
@@ -7746,7 +7749,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I click on page navigation arrow "---subAwardStandAlone:-:sRBudgetCategoryTableId---" for table id "Next"
     Then I softly see value "$1,500.00" for title "Award Amount" against the value "Construction" inside table "---subAwardStandAlone:-:sRBudgetCategoryTableId---"
     And I refresh the page
-    And I select value inside table "---subAwardStandAlone:-:sRBudgetCategoryTableId---" is "All"
+    And I select value inside table "---subAwardStandAlone:-:sRBudgetCategoryTableId---" is "20"
     Then I see the following rows under the following headers in table with id "---subAwardStandAlone:-:sRBudgetCategoryTableId---" :
       | Award Amount |
       | $2,700.00    |
@@ -7791,7 +7794,8 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly see value "{SavedValue:carryAmend3}" is "Equals to" the value "{SavedValue:newObligationAdAct33}"
     And I save the field labeled "Grant ID" as "GrantId"
     And I click "{SavedValue:GrantId}" lookup link
-    And I wait for "2" seconds
+    And I refresh the page
+    And I wait for "3" seconds
     Then I softly see field "Status" as "Active"
     #265230
     When I navigate to "Budget" sub tab
@@ -7857,7 +7861,8 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly cannot see field "Budgeted Amount" inside page block
     Then I softly do not see "Budgeted Amount" in flex table header "---subAwardStandAlone:-:subrecipientFocusAreaTableId---"
     And I click "{SavedValue:GrantId}" lookup link
-    And I wait for "2" seconds
+    And I refresh the page
+    And I wait for "3" seconds
     When I navigate to "Subawards" sub tab
     And I click on "View" icon for "{SavedValue:ActivatedSubAwardId1}" inside flex table with id "---paymentRequest:-:recipientAwardTableId---" without waiting for record
     Then I softly see status in Progress-bar is "Activated" and is "dark blue"
@@ -7865,7 +7870,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly see field "Cumulative Obligation" as "$2,700.00"
     And I refresh the page
     And I wait for "3" seconds
-    And I select value inside table "---subAwardStandAlone:-:sRBudgetCategoryTableId---" is "All"
+    And I select value inside table "---subAwardStandAlone:-:sRBudgetCategoryTableId---" is "20"
     Then I see the following rows under the following headers in table with id "---subAwardStandAlone:-:sRBudgetCategoryTableId---" :
       | Award Amount |
       | $2,700.00    |
@@ -8363,6 +8368,8 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly see field "Status" as "Activated"
     And I save the field labeled "Grant ID" as "GrantId"
     And I click "{SavedValue:GrantId}" lookup link
+    And I refresh the page
+    And I wait for "3" seconds
     Then I softly see field "Status" as "Active"
     When I navigate to "Subawards" sub tab
     And I click on "View" icon for "Amended" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
@@ -8596,7 +8603,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I click on page navigation arrow "---subAwardStandAlone:-:subAwardBudgetTableId---" for table id "Next"
     Then I softly see value "$1,500.00" for title "Award Amount" against the value "Construction" inside table "---subAwardStandAlone:-:subAwardBudgetTableId---"
     And I refresh the page
-    And I select value inside table "---subAwardStandAlone:-:subAwardBudgetTableId---" is "All"
+    And I select value inside table "---subAwardStandAlone:-:subAwardBudgetTableId---" is "20"
     Then I see the following rows under the following headers in table with id "---subAwardStandAlone:-:subAwardBudgetTableId---" :
       | Award Amount |
       | $2,700.00    |
@@ -8618,7 +8625,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I click on page navigation arrow "---subAwardStandAlone:-:sRBudgetCategoryTableId---" for table id "Next"
     Then I softly see value "$1,500.00" for title "Award Amount" against the value "Construction" inside table "---subAwardStandAlone:-:sRBudgetCategoryTableId---"
     And I refresh the page
-    And I select value inside table "---subAwardStandAlone:-:sRBudgetCategoryTableId---" is "All"
+    And I select value inside table "---subAwardStandAlone:-:sRBudgetCategoryTableId---" is "20"
     Then I see the following rows under the following headers in table with id "---subAwardStandAlone:-:sRBudgetCategoryTableId---" :
       | Award Amount |
       | $2,700.00    |
@@ -8691,13 +8698,15 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I click on page navigation arrow "---subAwardStandAlone:-:subAwardBudgetTableId---" for table id "Next"
     Then I softly see value "$1,500.00" for title "Award Amount" against the value "Construction" inside table "---subAwardStandAlone:-:subAwardBudgetTableId---"
     And I refresh the page
-    And I select value inside table "---subAwardStandAlone:-:subAwardBudgetTableId---" is "All"
+    And I select value inside table "---subAwardStandAlone:-:subAwardBudgetTableId---" is "20"
     Then I see the following rows under the following headers in table with id "---subAwardStandAlone:-:subAwardBudgetTableId---" :
       | Award Amount |
       | $2,700.00    |
     And I save the field labeled "Grant ID" as "GrantId"
     And I click "{SavedValue:GrantId}" lookup link
     Then I softly see field "Status" as "Active"
+    And I refresh the page
+    And I wait for "3" seconds
     When I navigate to "Subawards" sub tab
     And I click on "View" icon for "Amended" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
     Then I softly see status in Progress-bar is "Amended" and is "dark blue"
@@ -8737,7 +8746,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I click on page navigation arrow "---subAwardStandAlone:-:sRBudgetCategoryTableId---" for table id "Next"
     Then I softly see value "$1,500.00" for title "Award Amount" against the value "Construction" inside table "---subAwardStandAlone:-:sRBudgetCategoryTableId---"
     And I refresh the page
-    And I select value inside table "---subAwardStandAlone:-:sRBudgetCategoryTableId---" is "All"
+    And I select value inside table "---subAwardStandAlone:-:sRBudgetCategoryTableId---" is "20"
     Then I see the following rows under the following headers in table with id "---subAwardStandAlone:-:sRBudgetCategoryTableId---" :
       | Award Amount |
       | $2,700.00    |
@@ -8919,7 +8928,9 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly see field "Total Commitment" as "$4,000.00"
     And I save the field labeled "Total Commitment" as "TotalCommitmentNewAwd"
     And I save the field labeled "Grant ID" as "GrantId"
-    And I click "{SavedValue:GrantId}" lookup link
+    And I click "{SavedValue:GrantId}"
+    And I refresh the page
+    And I wait for "3" seconds
     Then I softly see field "Status" as "Active"
     When I navigate to "Budget" sub tab
     Then I softly see field "Total Commitment" as "$4,000.00"
@@ -9142,6 +9153,8 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I save the field labeled "Grant ID" as "GrantId"
     And I click "{SavedValue:GrantId}" lookup link
     Then I softly see field "Status" as "Active"
+    And I refresh the page
+    And I wait for "3" seconds
     When I navigate to "Subawards" sub tab
     And I click on "View" icon for "Amended" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
     Then I softly see status in Progress-bar is "Amended" and is "dark blue"
@@ -9538,7 +9551,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I click "{SavedValue:GrantId}" lookup link
     Then I softly see field "Status" as "Active"
     And I refresh the page
-    And I wait for "2" seconds
+    And I wait for "3" seconds
     When I navigate to "Requests" sub tab
     And I click on top right button "New" in flex table with id "---closeout:-:closeoutTableId---"
     When I enter in modal "Creation" values from "Closeout_Field_Values.xlsx"
@@ -9972,7 +9985,8 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly see value "$500.00" for title "Award Amount" against the value "Construction" inside table "---subAwardStandAlone:-:paymentSummaryBudgetTableId---"
     #269856
     And I click on hyperlink containing value "{SavedValue:GrantEGMSID}"
-    And I wait for "2" seconds
+    And I refresh the page
+    And I wait for "3" seconds
     And I navigate to "Budget" sub tab
     Then I softly see field "Cumulative Obligation" inside page block
     Then I softly see field "Cumulative Obligation" as "$1,000.00"
@@ -10034,7 +10048,8 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly see value "$500.00" for title "Award Amount" against the value "Construction" inside table "---subAwardStandAlone:-:paymentSummaryBudgetTableId---"
     #269856
     And I click on hyperlink containing value "{SavedValue:GrantEGMSID}"
-    And I wait for "2" seconds
+    And I refresh the page
+    And I wait for "3" seconds
     And I navigate to "Budget" sub tab
     Then I softly see field "Cumulative Obligation" inside page block
     Then I softly see field "Cumulative Obligation" as "$1,000.00"
@@ -10079,7 +10094,8 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
       | Award Amount |
       | $500.00      |
     And I click on hyperlink containing value "{SavedValue:GrantEGMSID}"
-    And I wait for "2" seconds
+    And I refresh the page
+    And I wait for "3" seconds
     And I navigate to "Budget" sub tab
     #269858
     Then I softly see field "Total Commitment" as "$1,000.00"
@@ -10411,6 +10427,8 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I save the field labeled "Cumulative Obligation" as "CumulativeObligation"
     Then I softly see value "{SavedValue:CumulativeObligationAward2}" is "Equals to" the value "{SavedValue:CumulativeObligation}"
     And I click on hyperlink containing value "{SavedValue:GrantEGMSID}"
+    And I refresh the page
+    And I wait for "3" seconds
     When I navigate to "Budget" sub tab
     #270123
     Then I softly see field "Cumulative Obligation" inside page block
@@ -10482,7 +10500,8 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I save the field labeled "Cumulative Obligation" as "CumulativeObligation"
     Then I softly see value "{SavedValue:CumulativeObligationAward2}" is "Equals to" the value "{SavedValue:CumulativeObligation}"
     And I click on hyperlink containing value "{SavedValue:GrantEGMSID}"
-    And I wait for "2" seconds
+    And I refresh the page
+    And I wait for "3" seconds
     When I navigate to "Budget" sub tab
     #270124
     Then I softly see field "Total Commitment" as "$1,000.00"
@@ -10523,7 +10542,8 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I save the field labeled "Spent" as "Spent"
     Then I softly see value "{SavedValue:awardSpent}" is "Equals to" the value "{SavedValue:Spent}"
     And I click on hyperlink containing value "{SavedValue:GrantEGMSID}"
-    And I wait for "2" seconds
+    And I refresh the page
+    And I wait for "3" seconds
     When I navigate to "Budget" sub tab
     #270123
     Then I softly see field "Cumulative Obligation" inside page block
@@ -10827,6 +10847,8 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly see value "$1,000.00" for title "Encumbrance" against the value "{SavedValue:fundingAccount}" inside table "---subAwardStandAlone:-:awardActualsTabFundingAccountTableId---"
     And I save the field labeled "Grant ID" as "GrantId"
     And I click "{SavedValue:GrantId}" lookup link
+    And I refresh the page
+    And I wait for "3" seconds
     Then I navigate to "Subawards" sub tab
     And I click on "View" icon for "Amended" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
     #270119
@@ -10914,6 +10936,8 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly see value "$500.00" for title "Award Amount" against the value "Construction" inside table "---subAwardStandAlone:-:subAwardBudgetTableId---"
     And I save the field labeled "Grant ID" as "GrantId"
     And I click "{SavedValue:GrantId}" lookup link
+    And I refresh the page
+    And I wait for "3" seconds
     Then I softly see field "Status" as "Active"
     When I navigate to "Requests" sub tab
     And I click on top right button "New" in flex table with id "---closeout:-:closeoutTableId---"
@@ -11045,6 +11069,8 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     #269793
     And I save the field labeled "Subaward" as "SubawardId"
     And I click "{SavedValue:SubawardId}" lookup link
+    And I refresh the page
+    And I wait for "3" seconds
     And I navigate to "Budget" sub tab
     And I save the value from row "1" for column name "Encumbrance" as "Encumbrance" from flex table "---subAwardStandAlone:-:fundingAccountsTableId---"
     Then I softly see value "$1,000.00" for title "Encumbrance" against the value "{SavedValue:fundingAccount}" inside table "---subAwardStandAlone:-:fundingAccountsTableId---"
@@ -11439,7 +11465,8 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly see value "{SavedValue:SpentAwd1}" is "Equals to" the value "{SavedValue:SpentActAwdPaySumm}"
     And I save the field labeled "Grant ID" as "GrantId"
     And I click "{SavedValue:GrantId}" lookup link
-    And I wait for "2" seconds
+    And I refresh the page
+    And I wait for "3" seconds
     Then I softly see status in Progress-bar is "Active" and is "dark blue"
     #269647
     When I navigate to "Actuals" sub tab
@@ -11539,6 +11566,8 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly see value "$1,000.00" for title "Award Amount" against the value "Construction" inside table "---subAwardStandAlone:-:subAwardBudgetTableId---"
     And I save the field labeled "Grant ID" as "GrantId"
     And I click "{SavedValue:GrantId}" lookup link
+    And I refresh the page
+    And I wait for "3" seconds
     Then I softly see field "Status" as "Active"
     When I navigate to "Requests" sub tab
     And I click on top right button "New" in flex table with id "---closeout:-:closeoutTableId---"
@@ -11662,6 +11691,8 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     #269233
     And I save the field labeled "Subaward" as "SubawardId"
     And I click "{SavedValue:SubawardId}" lookup link
+    And I refresh the page
+    And I wait for "3" seconds
     And I navigate to "Budget" sub tab
     And I save the value from row "1" for column name "Encumbrance" as "Encumbrance" from flex table "---subAwardStandAlone:-:fundingAccountsTableId---"
     Then I softly see value "$1,000.00" for title "Encumbrance" against the value "{SavedValue:fundingAccount}" inside table "---subAwardStandAlone:-:fundingAccountsTableId---"
@@ -11873,6 +11904,8 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I save the field labeled "Grant ID" as "GrantId"
     And I click "{SavedValue:GrantId}" lookup link
     Then I softly see field "Status" as "Active"
+    And I refresh the page
+    And I wait for "3" seconds
     And I navigate to "Budget" sub tab
     And I wait for "2" seconds
     #269239
@@ -12230,6 +12263,8 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I wait for "3" seconds
     Then I softly see field "Status" as "Activated"
     And I click on hyperlink containing value "{SavedValue:GrantEGMSID}"
+    And I refresh the page
+    And I wait for "3" seconds
     When I navigate to "Subawards" sub tab
     And I save the value from row "1" for column name "Cumulative Obligation" as "CumulativeObligationAmended" from flex table "---subAwardStandAlone:-:subawardsTableId---"
     And I save the value from row "2" for column name "Cumulative Obligation" as "CumulativeObligationActivated" from flex table "---subAwardStandAlone:-:subawardsTableId---"
@@ -12248,7 +12283,8 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I click on "View" icon for "Activated" inside flex table with id "---amendment:-:recipientAwardsTableId---" without waiting for record
     Then I softly see field "Status" as "Activated"
     And I click on hyperlink containing value "{SavedValue:GrantEGMSID}"
-    And I wait for "2" seconds
+    And I refresh the page
+    And I wait for "3" seconds
     #268797
     When I navigate to "Budget" sub tab
     And I wait for "2" seconds
@@ -12325,6 +12361,8 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly see value "{SavedValue:TotalCommitment}" is "Equals to" the value "{SavedValue:TotalCommitmentAward}"
     And I click on hyperlink containing value "{SavedValue:GrantEGMSID}"
     #269644
+    And I refresh the page
+    And I wait for "3" seconds
     When I navigate to "Budget" sub tab
     Then I softly see field "Total Commitment" as "$1,000.00"
     And I save the field labeled "Total Commitment" as "TotalCommitment"
@@ -12350,7 +12388,8 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I save the field labeled "Total Commitment" as "TotalCommitment"
     Then I softly see value "{SavedValue:TotalCommitment}" is "Equals to" the value "{SavedValue:TotalCommitmentAward}"
     And I click on hyperlink containing value "{SavedValue:GrantEGMSID}"
-    And I wait for "2" seconds
+    And I refresh the page
+    And I wait for "3" seconds
     #269644
     When I navigate to "Budget" sub tab
     Then I softly see field "Total Commitment" as "$1,000.00"
@@ -12722,6 +12761,8 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I save the field labeled "Cumulative Obligation" as "CumulativeObligationAW1"
     And I click "{SavedValue:GrantEGMSID}" lookup link
     Then I softly see field "Status" as "Active"
+    And I refresh the page
+    And I wait for "3" seconds
     When I navigate to "Requests" sub tab
     And I click on top right button "New" in flex table with id "---closeout:-:closeoutTableId---"
     When I enter in modal "Creation" values from "Closeout_Field_Values.xlsx"
@@ -13803,6 +13844,8 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly see field "Total Commitment" as "$3,000.00"
     And I save the field labeled "Total Commitment" as "TotalCommitment1"
     And I click "{SavedValue:GrantEGMSID}" lookup link
+    And I refresh the page
+    And I wait for "3" seconds
     Then I softly see field "Status" as "Active"
     When I navigate to "Requests" sub tab
     And I click on top right button "New" in flex table with id "---closeout:-:closeoutTableId---"
@@ -14328,6 +14371,8 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I save the field labeled "Grant ID" as "GrantId"
     And I click "{SavedValue:GrantId}" lookup link
     Then I softly see field "Status" as "Active"
+    And I refresh the page
+    And I wait for "3" seconds
     And I navigate to "Budget" sub tab
     #268813
     And I save the field labeled "Cumulative Obligation" as "CumulativeObligationGrant"
@@ -14424,6 +14469,8 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly see field "Status" as "Activated"
     And I save the field labeled "Grant ID" as "GrantId"
     And I click "{SavedValue:GrantId}" lookup link
+    And I refresh the page
+    And I wait for "3" seconds
     Then I softly see field "Status" as "Active"
     And I navigate to "Budget" sub tab
     Then I softly see field "Cumulative Obligation" as "$1,000.00"
@@ -14597,6 +14644,8 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly see field "Status" as "Activated"
     And I save the field labeled "Grant ID" as "GrantId"
     And I click "{SavedValue:GrantId}" lookup link
+    And I refresh the page
+    And I wait for "3" seconds
     Then I softly see field "Status" as "Active"
     When I navigate to "Requests" sub tab
     And I click on top right button "New" in flex table with id "---closeout:-:closeoutTableId---"
@@ -14758,6 +14807,8 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly see value "{SavedValue:CumulativeObligationFATotal}" is "Equals to" the value "{SavedValue:CumulativeObligationFATotalAwd2}"
     And I save the field labeled "Grant ID" as "GrantId"
     And I click "{SavedValue:GrantId}" lookup link
+    And I refresh the page
+    And I wait for "3" seconds
     Then I softly see field "Status" as "Active"
     And I navigate to "Budget" sub tab
     Then I softly see field "Cumulative Obligation" as "$1,000.00"
@@ -15260,6 +15311,8 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly see field "Cumulative Obligation" as "$3,000.00"
     And I save the field labeled "Grant ID" as "GrantId"
     And I click "{SavedValue:GrantId}" lookup link
+    And I refresh the page
+    And I wait for "3" seconds
     Then I softly see field "Status" as "Active"
     When I navigate to "Requests" sub tab
     And I click on top right button "New" in flex table with id "---closeout:-:closeoutTableId---"
@@ -15395,6 +15448,8 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     #276453
     And I save the field labeled "Grant ID" as "GrantId"
     And I click "{SavedValue:GrantId}" lookup link
+    And I refresh the page
+    And I wait for "3" seconds
     Then I softly see field "Status" as "Active"
     And I navigate to "Budget" sub tab
     Then I cannot see top right button "Edit" in page detail
@@ -16098,7 +16153,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I save the field labeled "Cumulative Obligation" as "CumulativeObligation"
     Then I softly see value "{SavedValue:Encumbrance}" is "Equals to" the value "{SavedValue:CumulativeObligation}"
     Then I see field "Cumulative Obligation" as "$600.00"
-    And I select value inside table "---subAwardStandAlone:-:subAwardBudgetTableId---" is "All"
+    And I select value inside table "---subAwardStandAlone:-:subAwardBudgetTableId---" is "20"
     And I wait for "4" seconds
     Then I see the following rows under the following headers in table with id "---subAwardStandAlone:-:subAwardBudgetTableId---" :
       | Award Amount |
@@ -16204,7 +16259,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I click on page navigation arrow "---subAwardStandAlone:-:subAwardBudgetTableId---" for table id "Next"
     Then I softly see value "$300.00" for title "Award Amount" against the value "Construction" inside table "---subAwardStandAlone:-:subAwardBudgetTableId---"
     When I click on button "resetIcon" in flex table with id "---subAwardStandAlone:-:subAwardBudgetTableId---"
-    And I select value inside table "---subAwardStandAlone:-:subAwardBudgetTableId---" is "All"
+    And I select value inside table "---subAwardStandAlone:-:subAwardBudgetTableId---" is "20"
     And I wait for "4" seconds
     Then I see the following rows under the following headers in table with id "---subAwardStandAlone:-:subAwardBudgetTableId---" :
       | Award Amount |
@@ -16221,7 +16276,8 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly see value "{SavedValue:newObligationAmend33}" is "Equals to" the value "{SavedValue:newObligationAdAct33}"
     And I save the field labeled "Grant ID" as "GrantId"
     And I click "{SavedValue:GrantId}" lookup link
-    And I wait for "2" seconds
+    And I refresh the page
+    And I wait for "3" seconds
     When I navigate to "Budget" sub tab
     #271828
     Then I softly see field "Cumulative Obligation" as "$600.00"
@@ -16427,7 +16483,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly see value "$450.00" for title "Award Amount" against the value "Construction" inside table "---subAwardStandAlone:-:subAwardBudgetTableId---"
     Then I softly see value "$50.00" for title "Award Amount" against the value "Indirect costs" inside table "---subAwardStandAlone:-:subAwardBudgetTableId---"
     When I click on button "resetIcon" in flex table with id "---subAwardStandAlone:-:subAwardBudgetTableId---"
-    And I select value inside table "---subAwardStandAlone:-:subAwardBudgetTableId---" is "All"
+    And I select value inside table "---subAwardStandAlone:-:subAwardBudgetTableId---" is "20"
     And I wait for "4" seconds
     Then I see the following rows under the following headers in table with id "---subAwardStandAlone:-:subAwardBudgetTableId---" :
       | Award Amount |
@@ -16518,7 +16574,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly see value "$450.00" for title "Award Amount" against the value "Construction" inside table "---subAwardStandAlone:-:subAwardBudgetTableId---"
     Then I softly see value "$50.00" for title "Award Amount" against the value "Indirect costs" inside table "---subAwardStandAlone:-:subAwardBudgetTableId---"
     When I click on button "resetIcon" in flex table with id "---subAwardStandAlone:-:subAwardBudgetTableId---"
-    And I select value inside table "---subAwardStandAlone:-:subAwardBudgetTableId---" is "All"
+    And I select value inside table "---subAwardStandAlone:-:subAwardBudgetTableId---" is "20"
     And I wait for "4" seconds
     Then I see the following rows under the following headers in table with id "---subAwardStandAlone:-:subAwardBudgetTableId---" :
       | Award Amount |
@@ -16533,6 +16589,8 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly see value "{SavedValue:CumulativeObligationActAwdPaySumm}" is "Equals to" the value "{SavedValue:EncumbrancePaySumm}"
     And I save the field labeled "Grant ID" as "GrantId"
     And I click "{SavedValue:GrantId}" lookup link
+    And I refresh the page
+    And I wait for "3" seconds
     Then I softly see field "Status" as "Active"
     When I navigate to "Actuals" sub tab
     #272238
@@ -17122,7 +17180,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly see value "$1,500.00" for title "Award Amount" against the value "Construction" inside table "---subAwardStandAlone:-:subAwardBudgetTableId---"
     And I click on page navigation arrow "---subAwardStandAlone:-:subAwardBudgetTableId---" for table id "Next"
     Then I softly see value "$1,500.00" for title "Award Amount" against the value "Construction" inside table "---subAwardStandAlone:-:subAwardBudgetTableId---"
-    And I select value inside table "---subAwardStandAlone:-:subAwardBudgetTableId---" is "All"
+    And I select value inside table "---subAwardStandAlone:-:subAwardBudgetTableId---" is "20"
     And I wait for "4" seconds
     Then I see the following rows under the following headers in table with id "---subAwardStandAlone:-:subAwardBudgetTableId---" :
       | Award Amount |
@@ -17180,7 +17238,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly see value "$1,500.00" for title "Award Amount" against the value "Construction" inside table "---subAwardStandAlone:-:sRBudgetCategoryTableId---"
     And I click on page navigation arrow "---subAwardStandAlone:-:sRBudgetCategoryTableId---" for table id "Next"
     Then I softly see value "$1,500.00" for title "Award Amount" against the value "Construction" inside table "---subAwardStandAlone:-:sRBudgetCategoryTableId---"
-    And I select value inside table "---subAwardStandAlone:-:sRBudgetCategoryTableId---" is "All"
+    And I select value inside table "---subAwardStandAlone:-:sRBudgetCategoryTableId---" is "20"
     And I wait for "4" seconds
     Then I see the following rows under the following headers in table with id "---subAwardStandAlone:-:sRBudgetCategoryTableId---" :
       | Award Amount |
@@ -17246,7 +17304,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly see value "$1,500.00" for title "Award Amount" against the value "Construction" inside table "---subAwardStandAlone:-:subAwardBudgetTableId---"
     And I click on page navigation arrow "---subAwardStandAlone:-:subAwardBudgetTableId---" for table id "Next"
     Then I softly see value "$1,500.00" for title "Award Amount" against the value "Construction" inside table "---subAwardStandAlone:-:subAwardBudgetTableId---"
-    And I select value inside table "---subAwardStandAlone:-:subAwardBudgetTableId---" is "All"
+    And I select value inside table "---subAwardStandAlone:-:subAwardBudgetTableId---" is "20"
     And I wait for "4" seconds
     Then I see the following rows under the following headers in table with id "---subAwardStandAlone:-:subAwardBudgetTableId---" :
       | Award Amount |
@@ -17271,6 +17329,8 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly see value "$1,500.00" for title "Award Amount" against the value "Construction" inside table "---subAwardStandAlone:-:paymentSummaryBudgetTableId---"
     And I save the field labeled "Grant ID" as "GrantId"
     And I click "{SavedValue:GrantId}" lookup link
+    And I refresh the page
+    And I wait for "3" seconds
     When I navigate to "Budget" sub tab
     #272315
     Then I softly see field "Cumulative Obligation" as "$3,000.00"
@@ -17373,7 +17433,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly see value "$1,500.00" for title "Award Amount" against the value "Construction" inside table "---subAwardStandAlone:-:sRBudgetCategoryTableId---"
     And I click on page navigation arrow "---subAwardStandAlone:-:sRBudgetCategoryTableId---" for table id "Next"
     Then I softly see value "$1,500.00" for title "Award Amount" against the value "Construction" inside table "---subAwardStandAlone:-:sRBudgetCategoryTableId---"
-    And I select value inside table "---subAwardStandAlone:-:sRBudgetCategoryTableId---" is "All"
+    And I select value inside table "---subAwardStandAlone:-:sRBudgetCategoryTableId---" is "20"
     And I wait for "4" seconds
     Then I see the following rows under the following headers in table with id "---subAwardStandAlone:-:sRBudgetCategoryTableId---" :
       | Award Amount |
@@ -17414,7 +17474,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I save the value from row "1" for column name "Encumbrance" as "EncumbranceAwd1" from flex table "---subAwardStandAlone:-:fundingAccountsTableId---"
     Then I softly see value "$1,000.00" for title "Encumbrance" against the value "{SavedValue:fundingAccount}" inside table "---subAwardStandAlone:-:fundingAccountsTableId---"
     #272562
-    And I select value inside table "---subAwardStandAlone:-:subAwardBudgetTableId---" is "All"
+    And I select value inside table "---subAwardStandAlone:-:subAwardBudgetTableId---" is "20"
     And I wait for "4" seconds
     Then I see the following rows under the following headers in table with id "---subAwardStandAlone:-:subAwardBudgetTableId---" :
       | Award Amount |
@@ -17595,6 +17655,8 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
       | $1,000.00    |
     And I save the field labeled "Grant ID" as "GrantId"
     And I click "{SavedValue:GrantId}" lookup link
+    And I refresh the page
+    And I wait for "3" seconds
     When I navigate to "Budget" sub tab
     #272607
     Then I softly see field "Cumulative Obligation" as "$1,000.00"
@@ -17606,7 +17668,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly see value "{SavedValue:TotalCommitmentAwd}" is "Equals to" the value "{SavedValue:TotalCommitmentGrant}"
     #272609
     When I expand nested table containing column value "BP01"
-    And I select value inside table "---subAwardStandAlone:-:GrantBudgetCategoryFlexGridgridTableId---" is "All"
+    And I select value inside table "---subAwardStandAlone:-:GrantBudgetCategoryFlexGridgridTableId---" is "20"
     Then I see the following rows under the following headers in table with id "---subAwardStandAlone:-:grantsBudgetCategoryGrantor---" :
       | Award Amount |
       | $1,000.00    |
@@ -17632,7 +17694,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly see value "{SavedValue:TotalCommitmentAwd}" is "Equals to" the value "{SavedValue:TotalCommitmentGrantSr}"
     #272609
     When I expand nested table containing column value "BP01"
-    And I select value inside table "---subAwardStandAlone:-:subrecipientGrantBudgetTableId---" is "All"
+    And I select value inside table "---subAwardStandAlone:-:subrecipientGrantBudgetTableId---" is "20"
     Then I see the following rows under the following headers in table with id "---subAwardStandAlone:-:grantsBudgetCategoryTableIdSubrecipient---" :
       | Award Amount |
       | $1,000.00    |
@@ -17844,6 +17906,8 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly see value "{SavedValue:SpentAwd1}" is "Equals to" the value "{SavedValue:SpentActAwd}"
     And I save the field labeled "Grant ID" as "GrantId"
     And I click "{SavedValue:GrantId}" lookup link
+    And I refresh the page
+    And I wait for "3" seconds
     When I navigate to "Actuals" sub tab
     Then I softly see field "Spent" as "$500.00"
     And I save the field labeled "Spent" as "SpentGrant"
@@ -17934,6 +17998,8 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I see status in Progress-bar is "Paid" and is "dark blue"
     And I save the field labeled "Subaward" as "SubawardId"
     And I click "{SavedValue:SubawardId}" lookup link
+    And I refresh the page
+    And I wait for "3" seconds
     When I navigate to "Budget" sub tab
     #272227
     And I save the value from row "1" for column name "Encumbrance" as "EncumbranceAwd1" from flex table "---subAwardStandAlone:-:fundingAccountsTableId---"
@@ -18062,7 +18128,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I click on page navigation arrow "---subAwardStandAlone:-:subAwardBudgetTableId---" for table id "Next"
     Then I softly see value "$450.00" for title "Award Amount" against the value "Construction" inside table "---subAwardStandAlone:-:subAwardBudgetTableId---"
     Then I softly see value "$50.00" for title "Award Amount" against the value "Indirect costs" inside table "---subAwardStandAlone:-:subAwardBudgetTableId---"
-    And I select value inside table "---subAwardStandAlone:-:subAwardBudgetTableId---" is "All"
+    And I select value inside table "---subAwardStandAlone:-:subAwardBudgetTableId---" is "20"
     And I wait for "4" seconds
     Then I see the following rows under the following headers in table with id "---subAwardStandAlone:-:subAwardBudgetTableId---" :
       | Award Amount |
@@ -18123,7 +18189,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
 #    And I click on parallel menu button in flex table title "Subaward budget"
 #    And I select "Reset Table" from parallel lines dropdown of "Subaward budget"
     When I click on button "resetIcon" in flex table with id "---subAwardStandAlone:-:sRBudgetCategoryTableId---"
-    And I select value inside table "---subAwardStandAlone:-:sRBudgetCategoryTableId---" is "All"
+    And I select value inside table "---subAwardStandAlone:-:sRBudgetCategoryTableId---" is "20"
     And I wait for "4" seconds
     Then I see the following rows under the following headers in table with id "---subAwardStandAlone:-:sRBudgetCategoryTableId---" :
       | Award Amount |
@@ -18178,7 +18244,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I click on page navigation arrow "---subAwardStandAlone:-:subAwardBudgetTableId---" for table id "Next"
     Then I softly see value "$450.00" for title "Award Amount" against the value "Construction" inside table "---subAwardStandAlone:-:subAwardBudgetTableId---"
     Then I softly see value "$50.00" for title "Award Amount" against the value "Indirect costs" inside table "---subAwardStandAlone:-:subAwardBudgetTableId---"
-    And I select value inside table "---subAwardStandAlone:-:subAwardBudgetTableId---" is "All"
+    And I select value inside table "---subAwardStandAlone:-:subAwardBudgetTableId---" is "20"
     And I wait for "4" seconds
     Then I see the following rows under the following headers in table with id "---subAwardStandAlone:-:subAwardBudgetTableId---" :
       | Award Amount |
@@ -18216,6 +18282,8 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly see value "$50.00" for title "Award Amount" against the value "Indirect costs" inside table "---subAwardStandAlone:-:paymentSummaryBudgetTableId---"
     And I save the field labeled "Grant ID" as "GrantId"
     And I click "{SavedValue:GrantId}" lookup link
+    And I refresh the page
+    And I wait for "3" seconds
     Then I softly see field "Status" as "Active"
     When I navigate to "Budget" sub tab
     #272237
@@ -18293,7 +18361,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
 #    And I click on parallel menu button in flex table title "Subaward budget"
 #    And I select "Reset Table" from parallel lines dropdown of "Subaward budget"
     When I click on button "resetIcon" in flex table with id "---subAwardStandAlone:-:sRBudgetCategoryTableId---"
-    And I select value inside table "---subAwardStandAlone:-:sRBudgetCategoryTableId---" is "All"
+    And I select value inside table "---subAwardStandAlone:-:sRBudgetCategoryTableId---" is "20"
     And I wait for "4" seconds
     Then I see the following rows under the following headers in table with id "---subAwardStandAlone:-:sRBudgetCategoryTableId---" :
       | Award Amount |
@@ -18618,6 +18686,8 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly see value "$100.00" for title "Encumbrance Balance" against the value "{SavedValue:fundingAccount}" inside table "---subAwardStandAlone:-:awardActualsTabFundingAccountTableId---"
     And I save the field labeled "Grant ID" as "GrantId"
     And I click "{SavedValue:GrantId}" lookup link
+    And I refresh the page
+    And I wait for "3" seconds
     When I navigate to "Budget" sub tab
     #271834
     And I expand nested table containing column value "BP01"
@@ -18933,6 +19003,8 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I see status in Progress-bar is "Paid" and is "dark blue"
     And I save the field labeled "Subaward" as "SubawardId"
     And I click "{SavedValue:SubawardId}" lookup link
+    And I refresh the page
+    And I wait for "3" seconds
     When I navigate to "Budget" sub tab
     #315677
     And I save the value from row "1" for column name "Encumbrance" as "EncumbranceAwd1" from flex table "---subAwardStandAlone:-:fundingAccountsTableId---"
@@ -18990,6 +19062,8 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly see value "{SavedValue:CumulativeObligationActAwd2}" is "Equals to" the value "{SavedValue:EncumbranceAwd1}"
     And I save the field labeled "Grant ID" as "GrantId"
     And I click "{SavedValue:GrantId}" lookup link
+    And I refresh the page
+    And I wait for "3" seconds
     Then I softly see field "Status" as "Active"
     When I navigate to "Requests" sub tab
     And I click on top right button "New" in flex table with id "---closeout:-:closeoutTableId---"
@@ -19811,6 +19885,8 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I navigate to "Open Items" sub tab
     Then I softly see value "Force Closed" for title "Status" against the value "{SavedValue:FundTermsID}" inside table "---closeout:-:closeoutPendingAmendmentRequestsTableId---"
     And I click "{SavedValue:GrantEGMSID}" lookup link
+    And I refresh the page
+    And I wait for "3" seconds
     Then I softly see field "Status" as "Active"
     When I navigate to "Requests" sub tab
     Then I softly see value "Force Closed" for title "Status" against the value "{SavedValue:FundTermsID}" inside table "---subAwardStandAlone:-:grantRequestTabAmendmentTableId---"
@@ -20096,6 +20172,8 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly see field "Status" as "Activated"
     And I save the field labeled "Grant ID" as "GrantId"
     And I click "{SavedValue:GrantId}" lookup link
+    And I refresh the page
+    And I wait for "3" seconds
     Then I softly see field "Status" as "Active"
     When I navigate to "Actuals" sub tab
     Then I softly see "Payment Summary by Focus Area" page block displayed
