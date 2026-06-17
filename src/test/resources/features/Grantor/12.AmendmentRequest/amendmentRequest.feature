@@ -2473,7 +2473,7 @@ Feature: Validate all scenarios in the Amendment Request
     And I wait for "3" seconds
     And I click on top right button "New" in flex table with id "---amendment:-:approversTableId---"
     And I pause execution for "3" seconds
-    And I select user value "Automation PM" in field "name__r.name"
+    And I select user value "Automation PM" in field "Name__r.Name"
     And I select dropdown value "Step 1" in field "AmendmentRequestRole__c"
     And I click on nested button "Remove record" in flex table with id "---amendment:-:approversTableId---"
     Then I softly see "No Records Found" inside flex table with id "---amendment:-:approversTableId---"
@@ -2572,7 +2572,7 @@ Feature: Validate all scenarios in the Amendment Request
     And I navigate to "Responsibilities" sub tab
     And I click on top right button "New" in flex table with id "---amendment:-:fundingChangeApproversTableId---"
     And I pause execution for "3" seconds
-    And I select user value "Automation FO" in field "name__r.name"
+    And I select user value "Automation FO" in field "Name__r.Name"
     And I select dropdown value "Step 1" in field "AmendmentRequestRole__c"
     And I click on nested button "Remove record" in flex table with id "---amendment:-:fundingChangeApproversTableId---"
     Then I softly see "No Records Found" inside flex table with id "---amendment:-:fundingChangeApproversTableId---"
@@ -2751,7 +2751,7 @@ Feature: Validate all scenarios in the Amendment Request
     And I navigate to "Responsibilities" sub tab
     And I click on top right button "New" in flex table with id "---amendment:-:fundingChangeApproversTableId---"
     And I pause execution for "3" seconds
-    And I select user value "Automation PM" in field "name__r.name"
+    And I select user value "Automation PM" in field "Name__r.Name"
     And I select dropdown value "Step 1" in field "AmendmentRequestRole__c"
     And I click on nested button "Remove record" in flex table with id "---amendment:-:fundingChangeApproversTableId---"
     Then I softly see "No Records Found" inside flex table with id "---amendment:-:fundingChangeApproversTableId---"
