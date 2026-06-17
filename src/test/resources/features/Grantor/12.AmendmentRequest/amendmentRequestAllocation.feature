@@ -1447,9 +1447,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
       | Name                     | Reimbursement |
       | {SavedValue:PM Username} | Step 1        |
     When I get the "EGMS ID"
-#    And I halt execution
     When I click on "Submit for Approval" in the page details
-#    And I halt execution
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -4194,7 +4192,6 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---amendment:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "Record Id" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
-#    And I halt execution
     And I edit the following rows inline in flex table with id "---amendment:-:budgetChangeTableId---" by clicking "Edit" :
       | Budget Category | Revised Award Amount | Cash Match | Non Cash Match |
       | Construction    | 1000                 | 100        | 0              |
@@ -5167,7 +5164,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly see "Current Commitment" inside page block detail
     Then I softly see "Revised Commitment" inside page block detail
     Then I softly see "Subrecipient Match (%)" inside page block detail
-    Then I softly see "Budget Redirection Threshold" inside page block detail
+    Then I softly see "Budget Redirection Threshold (%)" inside page block detail
     #256861
     Then I softly can see page block "Budget Summary by Focus Area"
     And I click on "Edit" icon for "Automation Permanent Focus Area" inside flex table with id "---amendment:-:projectAreasTableId---" without waiting for record
@@ -8724,7 +8721,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly see value "$500.00" for title "Cumulative Obligation" against the value "Automation Permanent Focus Area" inside table "---subAwardStandAlone:-:focusAreaTableId---"
     Then I softly see value "$500.00" for title "Cumulative Obligation" against the value "Automation Permanent Focus Area2" inside table "---subAwardStandAlone:-:focusAreaTableId---"
     Then I softly see value "$1,000.00" for title "Cumulative Obligation" against the value "Grand Total" inside table "---subAwardStandAlone:-:focusAreaTableId---"
-    And I select value inside table "---subAwardStandAlone:-:subAwardBudgetTableId---" is "All"
+    And I select value inside table "---subAwardStandAlone:-:subAwardBudgetTableId---" is "20"
     Then I see the following rows under the following headers in table with id "---subAwardStandAlone:-:subAwardBudgetTableId---" :
       | Award Amount |
       | $1,000.00    |
@@ -8735,7 +8732,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly see value "$500.00" for title "Cumulative Obligation" against the value "Automation Permanent Focus Area2" inside table "---subAwardStandAlone:-:focusAreaTableId---"
     Then I softly see value "$1,000.00" for title "Cumulative Obligation" against the value "Grand Total" inside table "---subAwardStandAlone:-:focusAreaTableId---"
     When I click on button "resetIcon" in flex table with id "---subAwardStandAlone:-:subAwardBudgetTableId---"
-    And I select value inside table "---subAwardStandAlone:-:subAwardBudgetTableId---" is "All"
+    And I select value inside table "---subAwardStandAlone:-:subAwardBudgetTableId---" is "20"
     Then I see the following rows under the following headers in table with id "---subAwardStandAlone:-:subAwardBudgetTableId---" :
       | Award Amount |
       | $1,000.00    |
@@ -17046,7 +17043,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I hovering mouse on help text icon inside page block detail "Cumulative Obligation"
     Then I softly see "Total Awarded amount across budget periods" shown as help text
     And I expand nested table containing column value "BP01"
-    And I select value inside table "---subAwardStandAlone:-:grantsBudgetCategoryGrantor---" is "All"
+    And I select value inside table "---subAwardStandAlone:-:grantsBudgetCategoryGrantor---" is "20"
     Then I see the following rows under the following headers in table with id "---subAwardStandAlone:-:grantsBudgetCategoryGrantor---" :
       | Award Amount |
       | $3,000.00    |
@@ -17070,7 +17067,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I hovering mouse on help text icon inside page block detail "Cumulative Obligation"
     Then I softly see "Total Awarded amount across budget periods" shown as help text
     And I expand nested table containing column value "BP01"
-    And I select value inside table "---subAwardStandAlone:-:grantsBudgetCategoryTableIdSubrecipient---" is "All"
+    And I select value inside table "---subAwardStandAlone:-:grantsBudgetCategoryTableIdSubrecipient---" is "20"
     Then I see the following rows under the following headers in table with id "---subAwardStandAlone:-:grantsBudgetCategoryTableIdSubrecipient---" :
       | Award Amount |
       | $3,000.00    |
@@ -17155,7 +17152,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I hovering mouse on help text icon inside page block detail "Cumulative Obligation"
     Then I softly see "Total Awarded amount across budget periods" shown as help text
 #    And I expand nested table containing column value "BP01"
-    And I select value inside table "---subAwardStandAlone:-:grantsBudgetCategoryGrantor---" is "All"
+    And I select value inside table "---subAwardStandAlone:-:grantsBudgetCategoryGrantor---" is "20"
     Then I see the following rows under the following headers in table with id "---subAwardStandAlone:-:grantsBudgetCategoryGrantor---" :
       | Award Amount |
       | $3,000.00    |
@@ -17179,7 +17176,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I hovering mouse on help text icon inside page block detail "Cumulative Obligation"
     Then I softly see "Total Awarded amount across budget periods" shown as help text
 #    And I expand nested table containing column value "BP01"
-    And I select value inside table "---subAwardStandAlone:-:grantsBudgetCategoryTableIdSubrecipient---" is "All"
+    And I select value inside table "---subAwardStandAlone:-:grantsBudgetCategoryTableIdSubrecipient---" is "20"
     Then I see the following rows under the following headers in table with id "---subAwardStandAlone:-:grantsBudgetCategoryTableIdSubrecipient---" :
       | Award Amount |
       | $3,000.00    |
@@ -24366,7 +24363,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly see "Current Commitment" inside page block detail
     Then I softly see "Revised Commitment" inside page block detail
     Then I softly see "Subrecipient Match (%)" inside page block detail
-    Then I softly see "Budget Redirection Threshold" inside page block detail
+    Then I softly see "Budget Redirection Threshold (%)" inside page block detail
 
   @257051 @VerifyvalidationisdisplayedtoFDuseronSubmitforapprovalwhenuserenterRevisedCommitmentlessthanNewobligationincurrentARcumulativeobligationinGrantWhenFANo @sprint-19-US-229281  @Allocation
   Scenario: Verify validation is displayed to FD user on Submit for approval when user enter Revised Commitment less than New obligation in current AR + cumulative obligation in Grant When FANo
