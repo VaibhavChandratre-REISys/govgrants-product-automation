@@ -1529,6 +1529,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---amendment:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "Record Id" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
+#    And I halt execution
     And I edit the following rows inline in flex table with id "---amendment:-:budgetChangeTableId---" by clicking "Edit" :
       | Budget Category | Revised Award Amount | Cash Match | Non Cash Match |
       | Construction    | 1000                 | 100        | 0              |
@@ -5181,7 +5182,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     #256710
     Then I softly see field "New Obligation" inside page block
     Then I softly cannot see field "Award Budget this Period" inside page block
-    When I click on "Save" in the page details
+#    When I click on "Save" in the page details
     And I wait for "2" seconds
     #256715
     When I click on "Edit" in the page details
@@ -5461,7 +5462,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I navigate to "Overview" sub tab
     And I save the field labeled "Subaward Title" as "Automation Runtime award"
     And I click on "Edit" in the page details
-    And I halt execution
+#    And I halt execution
     When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
     And I click on "Save" in the page details
     And I navigate to "Budget" sub tab
@@ -5507,9 +5508,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
       | Name                      | Award  |
       | {SavedValue:EXE Username} | Step 1 |
-    And I halt execution
     And I click on "Send to Subrecipient" in the page details
-    And I halt execution
     And I wait for "3" seconds
     Then I see field "Status" as "Sent to Subrecipient"
     And I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
@@ -7131,7 +7130,12 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I navigate to "Actuals" sub tab
     Then I softly see field "Spent" as "$500.00"
     #265163
-    When I click "{SavedValue:GrantEGMSID}" lookup link
+#    When I click "{SavedValue:GrantEGMSID}" lookup link
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click toggle button to select "Grants - All"
+    When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---closeout:-:grantsTableId---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---closeout:-:grantsTableId---"
     Then I softly see status in Progress-bar is "Active" and is "dark blue"
     When I navigate to "Budget" sub tab
     Then I softly cannot see top right button "Edit" in page detail
@@ -19998,7 +20002,12 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly see field "Total Commitment" as "$3,000.00"
     Then I softly see value "{SavedValue:RevisedCommitment}" is "Equals to" the value "{SavedValue:TotalCommitment1}"
     #256869
-    When I click "{SavedValue:GrantEGMSID}" lookup link
+#    When I click "{SavedValue:GrantEGMSID}" lookup link
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click toggle button to select "Grants - All"
+    When I perform quick search for "{SavedValue:Automation Runtime Amendment Award}" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Amendment Award}" inside table
     Then I softly see field "Status" as "Active"
     And I navigate to "Budget" sub tab
     And I save the field labeled "Cumulative Obligation" as "CumulativeObligation2"
@@ -23763,6 +23772,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I click modal button "Close"
     And I wait for "2" seconds
     Then I softly see that "Automation Permanent Focus Area2" has been added in flextable with Id "---amendment:-:projectAreasTableId---"
+#    And I halt execution
     Then I softly cannot see row level action button "Remove" against "Automation Permanent Focus Area" in flex table with id "---amendment:-:projectAreasTableId---"
     Then I softly can see row level action button "Remove" against "Automation Permanent Focus Area2" in flex table with id "---amendment:-:projectAreasTableId---"
     When I click on "Remove" icon for "Automation Permanent Focus Area2" inside flex table with id "---amendment:-:projectAreasTableId---" without waiting for record
