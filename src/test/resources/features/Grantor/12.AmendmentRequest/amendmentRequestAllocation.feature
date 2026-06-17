@@ -1447,7 +1447,9 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
       | Name                     | Reimbursement |
       | {SavedValue:PM Username} | Step 1        |
     When I get the "EGMS ID"
+#    And I halt execution
     When I click on "Submit for Approval" in the page details
+#    And I halt execution
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -4192,6 +4194,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---amendment:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "Record Id" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
+#    And I halt execution
     And I edit the following rows inline in flex table with id "---amendment:-:budgetChangeTableId---" by clicking "Edit" :
       | Budget Category | Revised Award Amount | Cash Match | Non Cash Match |
       | Construction    | 1000                 | 100        | 0              |
@@ -7339,6 +7342,8 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I click "{SavedValue:GrantEGMSID}" lookup link
     Then I softly see status in Progress-bar is "Active" and is "dark blue"
     #265192
+    And I refresh the page
+    And I wait for "3" seconds
     And I navigate to "Budget" sub tab
     Then I softly see field "Cumulative Obligation" as "$3,500.00"
     And I save the field labeled "Cumulative Obligation" as "CumulativeGrant"
@@ -11372,6 +11377,8 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     #265108
     When I click "{SavedValue:GrantEGMSID}" lookup link
     Then I softly see status in Progress-bar is "Active" and is "dark blue"
+    And I refresh the page
+    And I wait for "3" seconds
     When I navigate to "Budget" sub tab
     Then I softly cannot see top right button "Edit" in page detail
     Then I softly see that "Cumulative Obligation" rendered in view mode only
@@ -19790,6 +19797,8 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     #256865
     When I click "{SavedValue:GrantEGMSID}" lookup link
     Then I softly see field "Status" as "Active"
+    And I refresh the page
+    And I wait for "3" seconds
     And I navigate to "Budget" sub tab
     And I save the field labeled "Cumulative Obligation" as "CumulativeObligation2"
     Then I softly see value "{SavedValue:CumulativeObligation1}" is "Equals to" the value "{SavedValue:CumulativeObligation2}"
@@ -20245,6 +20254,8 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I save the field labeled "Cumulative Obligation" as "CumulativeObligationAward"
     When I click "{SavedValue:GrantEGMSID}" lookup link
     Then I softly see field "Status" as "Active"
+    And I refresh the page
+    And I wait for "3" seconds
     And I navigate to "Budget" sub tab
     And I save the field labeled "Cumulative Obligation" as "CumulativeObligationGrant"
     Then I softly see value "{SavedValue:CumulativeObligationAward}" is "Equals to" the value "{SavedValue:CumulativeObligationGrant}"
