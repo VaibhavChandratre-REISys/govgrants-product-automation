@@ -2637,7 +2637,7 @@ Feature: Amendment Request scenarios without background
     And I navigate to "Management" sub tab
     Then I softly see "No Records Found" inside flex table with id "---subAwardStandAlone:-:recipientAwardAmendmentRequestTableId---"
 
-  @mkk @97987 @98495 @ValidateAssociationOfKeyPersonalChange-KPCAmendmentRequest
+  @97987 @98495 @ValidateAssociationOfKeyPersonalChange-KPCAmendmentRequest
   Scenario: Verify sub recipient user is able to associate key personal change to Key Personal Change Amendment Request
     Given I activated standalone subaward "Automation Runtime Award" with properties "AMENDMENT_REQUEST" of type "Competitive"
     Given I am on "SUBPORTAL" portal
@@ -2668,7 +2668,7 @@ Feature: Amendment Request scenarios without background
     Then I softly can see row level action button "Remove" against "Other" in flex table with id "---amendment:-:RecipientKeyPersonalTableId---"
     And I click on "Edit" icon for "{SavedValue:SPA Username}" inside flex table with id "---amendment:-:RecipientKeyPersonalTableId---"
     Then I softly see fields "ProjectRole__c" is in edit mode
-    Then I softly see fields "contact__r.Name" is in edit mode
+    Then I softly see fields "Contact__r.Name" is in edit mode
     Then I softly can see top right button "Associate" in flex table with id "---amendment:-:RecipientKeyPersonalTableId---"
 
   @99264 @ValidatePBPEDIsGreaterThanPBPSD-PeriodicRenewal
@@ -3172,8 +3172,9 @@ Feature: Amendment Request scenarios without background
     And I click on "Start" icon for "{SavedValue:AmendmentId}" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
     And I click on "Submit for Approval" in the page details
     And I "Reject" in the approval decision
-    Then I softly see field "Status" as "Rejected"
+    And I wait for "5" seconds
     Then I softly see status in Progress-bar is "Rejected" and is "Red"
+    Then I softly see field "Status" as "Rejected"
 
   @99608 @99629 @verifyCreationOfAmendmentRequest-CFAmendmentRequest  @TaskCreated142379
   Scenario: Validate sub recipient user is able to create carry Forward Amendment Request
@@ -10168,6 +10169,8 @@ Feature: Amendment Request scenarios without background
     When I click on "Start" icon for "Record Id" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
     When I click on "Submit for Approval" in the page details
     And I "Reject" in the approval decision
+    And I wait for "2" seconds
+    Then I softly see status in Progress-bar is "Rejected" and is "Red"
     Then I softly see field "Status" as "Rejected"
     When I re-login to "Grantor" app as "Admin" user on "INTERNAL" portal
     And I navigate to "Home" tab
@@ -11925,8 +11928,6 @@ Feature: Amendment Request scenarios without background
     And I click on top right button "New" in flex table with id "---amendment:-:amendmentRequestTableId---"
     When I enter "ScopeOfWork_Creation" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
-    And I click on "Save" in the page details
-    When I click on "Edit" in the page details
     And I enter "ScopeOfWork_Edition" values from "AmendmentRequest_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "scopeWorkId"
@@ -11940,6 +11941,7 @@ Feature: Amendment Request scenarios without background
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:scopeWorkId}" in "---amendment:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "{SavedValue:scopeWorkId}" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
+    And I wait for "5" seconds
     And I click on "Submit to Grantor" in the page details
     Then I softly see field "Status" as "Submitted to Grantor"
     When I re-login to "Grantor" app as "ADMIN" user on "INTERNAL" portal
@@ -23879,7 +23881,7 @@ Feature: Amendment Request scenarios without background
       The EGMS Team
       """
 
-  @mk @232517 @ValidateemailshouldbetriggeredofAmendmentRequestsendback&forchangeownershiptonewuserFromgrantorside @sprint-13-US-231194  @reassignment
+  @232517 @ValidateemailshouldbetriggeredofAmendmentRequestsendback&forchangeownershiptonewuserFromgrantorside @sprint-13-US-231194  @reassignment
   Scenario: Validate email should be triggered of Amendment Request send back & for change ownership to new user From grantor side
     And I activated standalone subaward "Automation Runtime Amendment Award" with properties "default" of type "Competitive"
     When I login to "Grantor" app as "PM" user
