@@ -8366,7 +8366,6 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I click on "Activate" in the page details
     Then I softly see field "Status" as "Activated"
     And I save the field labeled "Grant ID" as "GrantId"
-#    And I click "{SavedValue:GrantId}" lookup link
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
@@ -11075,7 +11074,6 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I see status in Progress-bar is "Paid" and is "dark blue"
     #269793
     And I save the field labeled "Subaward" as "SubawardId"
-#    And I click "{SavedValue:SubawardId}" lookup link
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - All"
@@ -11702,7 +11700,6 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I see status in Progress-bar is "Paid" and is "dark blue"
     #269233
     And I save the field labeled "Subaward" as "SubawardId"
-#    And I click "{SavedValue:SubawardId}" lookup link
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - All"
@@ -11919,7 +11916,6 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly see value "$500.00" for title "Spent" against the value "{SavedValue:fundingAccount}" inside table "---subAwardStandAlone:-:awardActualsTabFundingAccountTableId---"
     Then I softly see value "{SavedValue:SpentPaySummary}" is "Equals to" the value "{SavedValue:SpentPaySummaryAwd}"
     And I save the field labeled "Grant ID" as "GrantId"
-#    And I click "{SavedValue:GrantId}" lookup link
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - All"
@@ -12282,7 +12278,6 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I click on "Activate" in the page details
     And I wait for "3" seconds
     Then I softly see field "Status" as "Activated"
-#    And I click on hyperlink containing value "{SavedValue:GrantEGMSID}"
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
@@ -13866,7 +13861,6 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I navigate to "Budget" sub tab
     Then I softly see field "Total Commitment" as "$3,000.00"
     And I save the field labeled "Total Commitment" as "TotalCommitment1"
-#    And I click "{SavedValue:GrantEGMSID}" lookup link
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
@@ -14495,7 +14489,6 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I click on "Activate" in the page details
     Then I softly see field "Status" as "Activated"
     And I save the field labeled "Grant ID" as "GrantId"
-#    And I click "{SavedValue:GrantId}" lookup link
     And I navigate to "Grants" tab
     And I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
@@ -14674,7 +14667,6 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I click on "Activate" in the page details
     Then I softly see field "Status" as "Activated"
     And I save the field labeled "Grant ID" as "GrantId"
-#    And I click "{SavedValue:GrantId}" lookup link
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
@@ -15344,7 +15336,6 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I save the field labeled "Cumulative Obligation" as "CumulativeObligationAwd1"
     Then I softly see field "Cumulative Obligation" as "$3,000.00"
     And I save the field labeled "Grant ID" as "GrantId"
-#    And I click "{SavedValue:GrantId}" lookup link
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
@@ -18035,7 +18026,6 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I click modal button "Close"
     Then I see status in Progress-bar is "Paid" and is "dark blue"
     And I save the field labeled "Subaward" as "SubawardId"
-#    And I click "{SavedValue:SubawardId}" lookup link
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - All"
@@ -19028,14 +19018,11 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
       | Name                      | Reimbursement |
       | {SavedValue:EXE Username} | Step 1        |
     When I get the "EGMS ID"
-#    And I halt execution
     When I click on "Submit for Approval" in the page details
-#    And I halt execution
     When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:PayreqId}" in "---paymentRequest:-:pendingTaskTableId---" panel
-#    And I halt execution
     And I click on "Start" icon for "{SavedValue:PayreqId}" inside flex table with id "---paymentRequest:-:pendingTaskTableId---" without waiting for record
     When I "Approve" in the approval decision
     When I re-login to "Grantor" app as "PO" user on "INTERNAL" portal
@@ -19049,7 +19036,6 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I click modal button "Close"
     Then I see status in Progress-bar is "Paid" and is "dark blue"
     And I save the field labeled "Subaward" as "SubawardId"
-#    And I click "{SavedValue:SubawardId}" lookup link
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - All"
@@ -20223,7 +20209,6 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I click on "Activate" in the page details
     Then I softly see field "Status" as "Activated"
     And I save the field labeled "Grant ID" as "GrantId"
-#    And I click "{SavedValue:GrantId}" lookup link
     And I wait for "2" seconds
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
