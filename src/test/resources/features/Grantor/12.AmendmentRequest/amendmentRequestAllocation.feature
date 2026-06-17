@@ -1591,7 +1591,9 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
       | Name                     | Reimbursement |
       | {SavedValue:PM Username} | Step 1        |
     When I get the "EGMS ID"
+#    And I halt execution
     When I click on "Submit for Approval" in the page details
+#    And I halt execution
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
@@ -5462,7 +5464,6 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I navigate to "Overview" sub tab
     And I save the field labeled "Subaward Title" as "Automation Runtime award"
     And I click on "Edit" in the page details
-#    And I halt execution
     When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
     And I click on "Save" in the page details
     And I navigate to "Budget" sub tab
