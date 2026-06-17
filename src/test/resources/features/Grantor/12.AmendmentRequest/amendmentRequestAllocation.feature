@@ -5461,6 +5461,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I navigate to "Overview" sub tab
     And I save the field labeled "Subaward Title" as "Automation Runtime award"
     And I click on "Edit" in the page details
+    And I halt execution
     When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
     And I click on "Save" in the page details
     And I navigate to "Budget" sub tab
@@ -5506,7 +5507,9 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
       | Name                      | Award  |
       | {SavedValue:EXE Username} | Step 1 |
+    And I halt execution
     And I click on "Send to Subrecipient" in the page details
+    And I halt execution
     And I wait for "3" seconds
     Then I see field "Status" as "Sent to Subrecipient"
     And I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
@@ -10099,7 +10102,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly see addition of two fields "{SavedValue:CarryForward}" and "{SavedValue:CurrentObligation}" is equal to "{SavedValue:RevisedObligation}"
     #264333
     Then I softly see value "$2,700.00" for title "Budgeted Amount" against the value "Grand Total" inside table "---amendment:-:grantorCarryForwardFocusAreaTableId---"
-    And I select value inside table "---amendment:-:grantorBudgetChangeTableId---" is "All"
+    And I select value inside table "---amendment:-:grantorBudgetChangeTableId---" is "20"
     Then I see the following rows under the following headers in table with id "---amendment:-:grantorBudgetChangeTableId---" :
       | Revised Award Amount |
       | $2,700.00            |
@@ -10109,7 +10112,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I click on "Save" in the page details
     Then I softly see field "Budgeted Amount" as "$2,700.00"
     When I click on button "resetIcon" in flex table with id "---amendment:-:grantorBudgetChangeTableId---"
-    And I select value inside table "---amendment:-:grantorBudgetChangeTableId---" is "All"
+    And I select value inside table "---amendment:-:grantorBudgetChangeTableId---" is "20"
     Then I see the following rows under the following headers in table with id "---amendment:-:grantorBudgetChangeTableId---" :
       | Revised Award Amount |
       | $2,700.00            |

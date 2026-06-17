@@ -6380,7 +6380,6 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I cannot see row level action button "Edit" against "Automation Permanent Focus Area2" in flex table with id "---amendment:-:grantorCarryForwardFocusAreaTableId---"
     And I save the value from row "3" for column name "Revised Obligation" as "RevisedObligationFATotal" from flex table "---amendment:-:grantorCarryForwardFocusAreaTableId---"
     And I save the value from row "3" for column name "Budgeted Amount" as "BudgetedAmountFATotal" from flex table "---amendment:-:grantorCarryForwardFocusAreaTableId---"
-#    And I halt execution
     And I save the value from row "3" for column name "Spent" as "SpentFATotal" from flex table "---amendment:-:grantorCarryForwardFocusAreaTableId---"
     Then I softly see value "{SavedValue:RevisedObligationFATotal}" is "Equals to" the value "{SavedValue:BudgetedAmountFATotal}"
     Then I softly see value "{SavedValue:SpentFATotal}" is "Less Than" the value "{SavedValue:RevisedObligationFATotal}"
@@ -8367,9 +8366,13 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I click on "Activate" in the page details
     Then I softly see field "Status" as "Activated"
     And I save the field labeled "Grant ID" as "GrantId"
-    And I click "{SavedValue:GrantId}" lookup link
-    And I refresh the page
-    And I wait for "3" seconds
+#    And I click "{SavedValue:GrantId}" lookup link
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click toggle button to select "Grants - Active"
+    When I perform quick search for "{SavedValue:Automation Runtime Award}" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside flex table with id "---subAwardStandAlone:-:activeGrantsTableId---" without waiting for record
+    And I wait for "2" seconds
     Then I softly see field "Status" as "Active"
     When I navigate to "Subawards" sub tab
     And I click on "View" icon for "Amended" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
@@ -8928,9 +8931,13 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly see field "Total Commitment" as "$4,000.00"
     And I save the field labeled "Total Commitment" as "TotalCommitmentNewAwd"
     And I save the field labeled "Grant ID" as "GrantId"
-    And I click "{SavedValue:GrantId}"
-    And I refresh the page
-    And I wait for "3" seconds
+#    And I click "{SavedValue:GrantId}"
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click toggle button to select "Grants - Active"
+    When I perform quick search for "{SavedValue:Automation Runtime Award}" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside flex table with id "---subAwardStandAlone:-:activeGrantsTableId---" without waiting for record
+    And I wait for "2" seconds
     Then I softly see field "Status" as "Active"
     When I navigate to "Budget" sub tab
     Then I softly see field "Total Commitment" as "$4,000.00"
@@ -11068,9 +11075,14 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I see status in Progress-bar is "Paid" and is "dark blue"
     #269793
     And I save the field labeled "Subaward" as "SubawardId"
-    And I click "{SavedValue:SubawardId}" lookup link
-    And I refresh the page
-    And I wait for "3" seconds
+#    And I click "{SavedValue:SubawardId}" lookup link
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click toggle button to select "Grants - All"
+    When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside table
+    When I navigate to "Subawards" sub tab
+    And I click on "View" icon for "{SavedValue:Automation Runtime award}" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
     And I navigate to "Budget" sub tab
     And I save the value from row "1" for column name "Encumbrance" as "Encumbrance" from flex table "---subAwardStandAlone:-:fundingAccountsTableId---"
     Then I softly see value "$1,000.00" for title "Encumbrance" against the value "{SavedValue:fundingAccount}" inside table "---subAwardStandAlone:-:fundingAccountsTableId---"
@@ -11690,9 +11702,14 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I see status in Progress-bar is "Paid" and is "dark blue"
     #269233
     And I save the field labeled "Subaward" as "SubawardId"
-    And I click "{SavedValue:SubawardId}" lookup link
-    And I refresh the page
-    And I wait for "3" seconds
+#    And I click "{SavedValue:SubawardId}" lookup link
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click toggle button to select "Grants - All"
+    When I perform quick search for "{SavedValue:Automation Runtime Award}" in "---closeout:-:grantsTableId---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside flex table with id "---closeout:-:grantsTableId---"
+    When I navigate to "Subawards" sub tab
+    And I click on "View" icon for "{SavedValue:Automation Runtime award}" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
     And I navigate to "Budget" sub tab
     And I save the value from row "1" for column name "Encumbrance" as "Encumbrance" from flex table "---subAwardStandAlone:-:fundingAccountsTableId---"
     Then I softly see value "$1,000.00" for title "Encumbrance" against the value "{SavedValue:fundingAccount}" inside table "---subAwardStandAlone:-:fundingAccountsTableId---"
@@ -11902,10 +11919,13 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly see value "$500.00" for title "Spent" against the value "{SavedValue:fundingAccount}" inside table "---subAwardStandAlone:-:awardActualsTabFundingAccountTableId---"
     Then I softly see value "{SavedValue:SpentPaySummary}" is "Equals to" the value "{SavedValue:SpentPaySummaryAwd}"
     And I save the field labeled "Grant ID" as "GrantId"
-    And I click "{SavedValue:GrantId}" lookup link
+#    And I click "{SavedValue:GrantId}" lookup link
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click toggle button to select "Grants - All"
+    When I perform quick search for "{SavedValue:Automation Runtime Award}" in "---closeout:-:grantsTableId---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside flex table with id "---closeout:-:grantsTableId---"
     Then I softly see field "Status" as "Active"
-    And I refresh the page
-    And I wait for "3" seconds
     And I navigate to "Budget" sub tab
     And I wait for "2" seconds
     #269239
@@ -12262,9 +12282,12 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I click on "Activate" in the page details
     And I wait for "3" seconds
     Then I softly see field "Status" as "Activated"
-    And I click on hyperlink containing value "{SavedValue:GrantEGMSID}"
-    And I refresh the page
-    And I wait for "3" seconds
+#    And I click on hyperlink containing value "{SavedValue:GrantEGMSID}"
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click toggle button to select "Grants - Active"
+    When I perform quick search for "{SavedValue:Automation Runtime Award}" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside flex table with id "---subAwardStandAlone:-:activeGrantsTableId---" without waiting for record
     When I navigate to "Subawards" sub tab
     And I save the value from row "1" for column name "Cumulative Obligation" as "CumulativeObligationAmended" from flex table "---subAwardStandAlone:-:subawardsTableId---"
     And I save the value from row "2" for column name "Cumulative Obligation" as "CumulativeObligationActivated" from flex table "---subAwardStandAlone:-:subawardsTableId---"
@@ -13843,10 +13866,14 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I navigate to "Budget" sub tab
     Then I softly see field "Total Commitment" as "$3,000.00"
     And I save the field labeled "Total Commitment" as "TotalCommitment1"
-    And I click "{SavedValue:GrantEGMSID}" lookup link
+#    And I click "{SavedValue:GrantEGMSID}" lookup link
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click toggle button to select "Grants - Active"
+    When I perform quick search for "{SavedValue:Automation Runtime Amendment Award}" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Amendment Award}" inside table
+    And I wait for "2" seconds
     Then I softly see field "Status" as "Active"
-    And I refresh the page
-    And I wait for "3" seconds
     When I navigate to "Requests" sub tab
     And I click on top right button "New" in flex table with id "---closeout:-:closeoutTableId---"
     When I enter in modal "Creation" values from "Closeout_Field_Values.xlsx"
@@ -14468,9 +14495,14 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I click on "Activate" in the page details
     Then I softly see field "Status" as "Activated"
     And I save the field labeled "Grant ID" as "GrantId"
-    And I click "{SavedValue:GrantId}" lookup link
-    And I refresh the page
-    And I wait for "3" seconds
+#    And I click "{SavedValue:GrantId}" lookup link
+    When I login to "Grantor" app as "ADMIN" user
+    And I navigate to "Grants" tab
+    And I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click toggle button to select "Grants - Active"
+    When I perform quick search for "{SavedValue:Automation Runtime Award}" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside flex table with id "---subAwardStandAlone:-:activeGrantsTableId---" without waiting for record
+    And I wait for "2" seconds
     Then I softly see field "Status" as "Active"
     And I navigate to "Budget" sub tab
     Then I softly see field "Cumulative Obligation" as "$1,000.00"
@@ -14643,9 +14675,12 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I click on "Activate" in the page details
     Then I softly see field "Status" as "Activated"
     And I save the field labeled "Grant ID" as "GrantId"
-    And I click "{SavedValue:GrantId}" lookup link
-    And I refresh the page
-    And I wait for "3" seconds
+#    And I click "{SavedValue:GrantId}" lookup link
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click toggle button to select "Grants - Active"
+    When I perform quick search for "{SavedValue:Automation Runtime Award}" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside flex table with id "---subAwardStandAlone:-:activeGrantsTableId---" without waiting for record
     Then I softly see field "Status" as "Active"
     When I navigate to "Requests" sub tab
     And I click on top right button "New" in flex table with id "---closeout:-:closeoutTableId---"
@@ -15310,9 +15345,13 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I save the field labeled "Cumulative Obligation" as "CumulativeObligationAwd1"
     Then I softly see field "Cumulative Obligation" as "$3,000.00"
     And I save the field labeled "Grant ID" as "GrantId"
-    And I click "{SavedValue:GrantId}" lookup link
-    And I refresh the page
-    And I wait for "3" seconds
+#    And I click "{SavedValue:GrantId}" lookup link
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click toggle button to select "Grants - Active"
+    When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---subAwardStandAlone:-:activeGrantsTableId---" without waiting for record
+    And I wait for "2" seconds
     Then I softly see field "Status" as "Active"
     When I navigate to "Requests" sub tab
     And I click on top right button "New" in flex table with id "---closeout:-:closeoutTableId---"
@@ -17997,9 +18036,15 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I click modal button "Close"
     Then I see status in Progress-bar is "Paid" and is "dark blue"
     And I save the field labeled "Subaward" as "SubawardId"
-    And I click "{SavedValue:SubawardId}" lookup link
-    And I refresh the page
-    And I wait for "3" seconds
+#    And I click "{SavedValue:SubawardId}" lookup link
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click toggle button to select "Grants - All"
+    When I perform quick search for "{SavedValue:Automation Runtime award}" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime award}" inside table
+    And I save the field labeled "EGMS ID" as "GrantEGMSID"
+    When I navigate to "Subawards" sub tab
+    And I click on "View" icon for "{SavedValue:Automation Runtime award}" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
     When I navigate to "Budget" sub tab
     #272227
     And I save the value from row "1" for column name "Encumbrance" as "EncumbranceAwd1" from flex table "---subAwardStandAlone:-:fundingAccountsTableId---"
@@ -19002,9 +19047,14 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I click modal button "Close"
     Then I see status in Progress-bar is "Paid" and is "dark blue"
     And I save the field labeled "Subaward" as "SubawardId"
-    And I click "{SavedValue:SubawardId}" lookup link
-    And I refresh the page
-    And I wait for "3" seconds
+#    And I click "{SavedValue:SubawardId}" lookup link
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click toggle button to select "Grants - All"
+    When I perform quick search for "{SavedValue:Automation Runtime award}" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime award}" inside table
+    When I navigate to "Subawards" sub tab
+    And I click on "View" icon for "{SavedValue:Automation Runtime award}" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
     When I navigate to "Budget" sub tab
     #315677
     And I save the value from row "1" for column name "Encumbrance" as "EncumbranceAwd1" from flex table "---subAwardStandAlone:-:fundingAccountsTableId---"
@@ -19630,7 +19680,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I click modal button "Close"
     And I click on "Submit to Grantor" in the page details
     And I wait for "2" seconds
-    Then I softly see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
+    Then I softly see status in Progress-bar is "Acknowledged" and is "dark blue"
     When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -20171,9 +20221,13 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     When I click on "Activate" in the page details
     Then I softly see field "Status" as "Activated"
     And I save the field labeled "Grant ID" as "GrantId"
-    And I click "{SavedValue:GrantId}" lookup link
-    And I refresh the page
-    And I wait for "3" seconds
+#    And I click "{SavedValue:GrantId}" lookup link
+    And I wait for "2" seconds
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click toggle button to select "Grants - Active"
+    When I perform quick search for "{SavedValue:Automation Runtime Amendment Award}" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Amendment Award}" inside table
     Then I softly see field "Status" as "Active"
     When I navigate to "Actuals" sub tab
     Then I softly see "Payment Summary by Focus Area" page block displayed
@@ -20417,7 +20471,6 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     And I navigate to "Grants" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:FundingID}" in "---subAwardStandAlone:-:pendingTaskTableId---" panel
-#    And I halt execution
     Then I softly see value "{SavedValue:FundingID}" for title "EGMS ID" inside table "---subAwardStandAlone:-:pendingTaskTableId---"
     And I click on "Start" icon for "{SavedValue:FundingID}" inside flex table with id "---subAwardStandAlone:-:pendingTaskTableId---" without waiting for record
     When I navigate to "Responsibilities" sub tab
