@@ -19,7 +19,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I click on "Activate" in the page details
     Then I see status in Progress-bar is "Active" and is "dark blue"
 
-  @72340 @activateKPI @ProdSan2 @ProdSan2_1 @ProdSan2_1_1
+  @72340 @activateKPI @ProdSan2 @ProdSan2_1 @ProdSan2_1_1 @IfFailed_EditPage_EnableStepProgressBar_check
   Scenario: Validate the activation of KPI and the status changes to Active
     When I login to "As a Grantor" app as "EXE" user
     And I navigate to "Planning" tab
