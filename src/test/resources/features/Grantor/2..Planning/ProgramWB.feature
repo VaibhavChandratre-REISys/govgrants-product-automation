@@ -6315,6 +6315,7 @@ Feature: Validate all scenarios for program
     And I click on "Submit For Approval" in the page details
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     And I navigate to "Files" sub tab
+    And I halt execution
     When I enter the following values into flex table with id "---program:-:internalProgramNotesTableId---" by clicking "New" :
       | Title         | Description       |
       | Notes Record1 | Automation Notes1 |

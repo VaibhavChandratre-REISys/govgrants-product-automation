@@ -575,13 +575,14 @@ Feature: Validate all scenarios in Closeout
     When I click on "Start" icon for "{SavedValue:closeoutID}" inside flex table with id "---closeout:-:pendingTaskTableId---"
     When I "Approve" in the approval decision
     And I wait for "3" seconds
-    Then I softly see field "Status" as "Approved"
     When I re-login to "Grantor" app as "FO" user on "INTERNAL" portal
     When I navigate to "Closeout" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:closeoutID}" in "---closeout:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "{SavedValue:closeoutID}" inside flex table with id "---closeout:-:pendingTaskTableId---"
     When I "Approve" in the approval decision
+    And I halt execution
+    Then I softly see field "Status" as "Completed"
     When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     When I navigate to "Closeout" tab
     And I click toggle button to select "Closeouts - All"

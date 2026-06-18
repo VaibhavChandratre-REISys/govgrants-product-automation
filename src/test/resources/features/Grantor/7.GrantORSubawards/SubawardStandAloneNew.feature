@@ -947,6 +947,7 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     #Create Secondary User
     And I click on top right button "New" in flex table with id "---home:-:userContactsTableId---"
     And I wait for "2" seconds
+    And I halt execution
     And I enter "Secondary_User" values from "SubrecipientOrganization_Field_Values.xlsx"
     And I wait for "2" seconds
     And I generate the random EmailID and save as "uniqueEmailID1"

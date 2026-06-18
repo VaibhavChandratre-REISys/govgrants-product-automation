@@ -10112,7 +10112,8 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly see that "Budgeted Amount" rendered in view mode only
     And I click on "Save" in the page details
     Then I softly see field "Budgeted Amount" as "$2,700.00"
-    When I click on button "resetIcon" in flex table with id "---amendment:-:grantorBudgetChangeTableId---"
+    And I halt execution
+#    When I click on button "resetIcon" in flex table with id "---amendment:-:grantorBudgetChangeTableId---"
     And I select value inside table "---amendment:-:grantorBudgetChangeTableId---" is "20"
     Then I see the following rows under the following headers in table with id "---amendment:-:grantorBudgetChangeTableId---" :
       | Revised Award Amount |

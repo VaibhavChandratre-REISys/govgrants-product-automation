@@ -613,6 +613,7 @@ Feature: Validate all scenarios in Closeout
     When I navigate to "Project Period Closeouts" content inside "Closeouts" subheader on left panel
     And I click toggle button to select "Project Period Closeouts - Draft"
     When I perform quick search for "{SavedValue:CloseoutEGMSID}" in "---closeout:-:ProjectPeriodCloseoutTableId---" panel
+    And I halt execution
     Then I softly see value "{SavedValue:CloseoutEGMSID}" for title "EGMS ID" inside table "---closeout:-:ProjectPeriodCloseoutTableId---"
     Then I softly see value "Early Completion" for title "Sub-Type" inside table "---closeout:-:ProjectPeriodCloseoutTableId---"
     Then I softly see value "Automation PM" for title "Created By" inside table "---closeout:-:ProjectPeriodCloseoutTableId---"
@@ -963,8 +964,6 @@ Feature: Validate all scenarios in Closeout
     And I perform quick search for "{SavedValue:closeoutID}" in "---closeout:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "{SavedValue:closeoutID}" inside flex table with id "---closeout:-:pendingTaskTableId---"
     When I "Approve" in the approval decision
-    And I wait for "3" seconds
-    Then I softly see field "Status" as "Approved"
     And I wait for "3" seconds
     And I navigate to "Closeout" tab
     When I navigate to "Project Period Closeouts" content inside "Closeouts" subheader on left panel

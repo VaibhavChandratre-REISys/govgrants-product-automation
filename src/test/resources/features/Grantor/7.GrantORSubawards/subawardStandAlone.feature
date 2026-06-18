@@ -2026,7 +2026,9 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     When I enter in modal "Progress Report Schedule" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
     #When I close "Edit Progress Report Schedule" modal by clicking the top right x button
+    And I halt execution
     When I click on parallel lines menu bar with data target value "Progress Reports Schedule"
+    And I halt execution
     And I select "Download as XLS" from parallel lines dropdown of "Progress Reports Schedule"
     Then I verify that "xls" file is downloaded
 
