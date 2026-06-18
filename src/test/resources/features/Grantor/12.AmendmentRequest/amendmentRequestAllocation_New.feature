@@ -19376,6 +19376,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
       | 3000                        | RevisedCommitment__c          |
     And I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "FundingID"
+    And I halt execution
     Then I softly see value "Test Focus Area1" for title "Title" inside table "---amendment:-:projectAreasTableId---"
     Then I softly see value "$0.00" for title "New Obligation" against the value "Test Focus Area1" inside table "---amendment:-:projectAreasTableId---"
     Then I softly see value "$0.00" for title "Budgeted Amount" against the value "Test Focus Area1" inside table "---amendment:-:projectAreasTableId---"

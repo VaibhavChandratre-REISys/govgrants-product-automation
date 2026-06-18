@@ -10051,7 +10051,7 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
       | Construction    | 500           |
     And I wait for "2" seconds
     And I refresh the page
-    When I click on button "resetIcon" in flex table with id "---progressReport:-:budgetChangeTableId---"
+#    When I click on button "resetIcon" in flex table with id "---progressReport:-:budgetChangeTableId---"
     And I wait for "2" seconds
     And I edit the following rows inline in flex table with id "---progressReport:-:budgetChangeTableId---" by clicking "Edit" :
       | Budget Category | Revised Award Amount | Cash Match | Non Cash Match |
@@ -10112,7 +10112,6 @@ Feature: Validate all scenarios in the Amendment Request Allocation Feature
     Then I softly see that "Budgeted Amount" rendered in view mode only
     And I click on "Save" in the page details
     Then I softly see field "Budgeted Amount" as "$2,700.00"
-    And I halt execution
 #    When I click on button "resetIcon" in flex table with id "---amendment:-:grantorBudgetChangeTableId---"
     And I select value inside table "---amendment:-:grantorBudgetChangeTableId---" is "20"
     Then I see the following rows under the following headers in table with id "---amendment:-:grantorBudgetChangeTableId---" :

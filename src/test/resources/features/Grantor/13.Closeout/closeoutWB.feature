@@ -535,6 +535,7 @@ Feature: Validate all scenarios in Closeout
     And I click on top right button "New" in flex table with id "---closeout:-:closeoutTableId---"
     When I enter in modal "TerminationValues" values from "Closeout_Field_Values.xlsx"
     And I click modal button "Save and Continue"
+    And I halt execution
     And I enter "TerminationEdition" values from "Closeout_Field_Values.xlsx"
     And I save the field labeled "EGMS ID" as "closeoutID"
     When I click on "Save" in the page details
