@@ -1,7 +1,7 @@
 @applicationNotes @applicationRegression @grantor-regression @grantor-parallel-regression @app @regression @ApplicationAndPre-App
 Feature: Application Intake scenarios without background
 
-  @228678 @ValidatePMPOEXEADMINFDusershouldbeabletoAddnotesbutEditDeletetheirownnotesonapplicationisinSubmittograntorstate @Sprint-12-US-226970 @Notes
+  @mkk @228678 @ValidatePMPOEXEADMINFDusershouldbeabletoAddnotesbutEditDeletetheirownnotesonapplicationisinSubmittograntorstate @Sprint-12-US-226970 @Notes
   Scenario: Validate PM PO EXE ADMIN FD user should be able to Add notes but Edit Delete their own notes on application is in 'Submit to grantor' state
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement Application Intake" and properties "default"
     Given I am on "SUBPORTAL" portal
