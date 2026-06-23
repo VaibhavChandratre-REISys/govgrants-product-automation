@@ -687,7 +687,7 @@ Feature: Validate all scenarios in Closeout
     Then I softly can see "History" sub tab at view detail page
     Then I softly can see "Messages" sub tab at view detail page
 
-  @40636 @40741 @VerifyProjectPeriodCloseoutsStatus @tesstt
+  @40636 @40741 @VerifyProjectPeriodCloseoutsStatus
   Scenario: To verify Project Period Closeouts with status: Created, Sent to Subrecipient, Overridden , Submitted to Grantor, Rejected, Submitted For Approval, Completed should display in the Project Period Closeouts - All table in the Closeout phase
     And I navigate to "Closeout" tab
     When I navigate to "Project Period Closeouts" content inside "Closeouts" subheader on left panel
@@ -696,7 +696,6 @@ Feature: Validate all scenarios in Closeout
     Then I softly see value "Created" for title "Status" inside table "---closeout:-:ProjectPeriodCloseoutTableId---"
     When I perform quick search for "Sent to Subrecipient" in "---closeout:-:ProjectPeriodCloseoutTableId---" panel
     Then I softly see value "Sent to Subrecipient" for title "Status" inside table "---closeout:-:ProjectPeriodCloseoutTableId---"
-    And I halt execution
     When I perform quick search for "Overridden" in "---closeout:-:ProjectPeriodCloseoutTableId---" panel
     Then I softly see value "Overridden" for title "Status" inside table "---closeout:-:ProjectPeriodCloseoutTableId---"
     When I perform quick search for "Acknowledged by Subrecipient" in "---closeout:-:ProjectPeriodCloseoutTableId---" panel

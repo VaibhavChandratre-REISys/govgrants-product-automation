@@ -535,7 +535,6 @@ Feature: Validate all scenarios in Closeout
     And I click on top right button "New" in flex table with id "---closeout:-:closeoutTableId---"
     When I enter in modal "TerminationValues" values from "Closeout_Field_Values.xlsx"
     And I click modal button "Save and Continue"
-    And I halt execution
     And I enter "TerminationEdition" values from "Closeout_Field_Values.xlsx"
     And I save the field labeled "EGMS ID" as "closeoutID"
     When I click on "Save" in the page details
@@ -582,7 +581,6 @@ Feature: Validate all scenarios in Closeout
     And I perform quick search for "{SavedValue:closeoutID}" in "---closeout:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "{SavedValue:closeoutID}" inside flex table with id "---closeout:-:pendingTaskTableId---"
     When I "Approve" in the approval decision
-    And I halt execution
     Then I softly see field "Status" as "Completed"
     When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     When I navigate to "Closeout" tab

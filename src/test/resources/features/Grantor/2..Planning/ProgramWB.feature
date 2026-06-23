@@ -6315,7 +6315,6 @@ Feature: Validate all scenarios for program
     And I click on "Submit For Approval" in the page details
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     And I navigate to "Files" sub tab
-    And I halt execution
     When I enter the following values into flex table with id "---program:-:internalProgramNotesTableId---" by clicking "New" :
       | Title         | Description       |
       | Notes Record1 | Automation Notes1 |
@@ -7916,9 +7915,7 @@ Feature: Validate all scenarios for program
     And I navigate to "Messages" sub tab
     Then I see "No Records Found" inside flex table with id "---program:-:systemEmailsTableId---"
     #331821
-    And I halt execution
     And I click on "Submit For Approval" in the page details
-    And I halt execution
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Planning" tab
@@ -8077,9 +8074,7 @@ Feature: Validate all scenarios for program
     And I click on "Save" in the page details
     Then I softly see field "Status" as "Created"
     And I navigate to "Messages" sub tab
-    And I halt execution
     And I click on top right button "Send Email" in flex table with id "---program:-:programCollabMessagesTableId---"
-    And I halt execution
     And I send the email under collab tab with following details:
       | To                                   | Subject         | Body                       |
       | fo.automation.ggmergeqa2@yopmail.com | Automation Test | Automation Test Email Body |

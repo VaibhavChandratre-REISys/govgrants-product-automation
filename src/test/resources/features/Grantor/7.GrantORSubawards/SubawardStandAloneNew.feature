@@ -739,7 +739,6 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     And I save the field labeled "Subaward Title" as "Automation Runtime award"
     And I click on "Edit" in the page details
     And I wait for "2" seconds
-    And I halt execution
     When I enter "Edition_StandAlone" values from "Award_Field_Values.xlsx"
     And I wait for "2" seconds
     And I click on "Save" in the page details
@@ -948,7 +947,6 @@ Feature: Validate all scenarios in the Stand Alone Award and Grant
     #Create Secondary User
     And I click on top right button "New" in flex table with id "---home:-:userContactsTableId---"
     And I wait for "2" seconds
-    And I halt execution
     And I enter "Secondary_User" values from "SubrecipientOrganization_Field_Values.xlsx"
     And I wait for "2" seconds
     And I generate the random EmailID and save as "uniqueEmailID1"
