@@ -159,8 +159,8 @@ public class UsersAndURL implements UsersController {
             case "GRANTEE ADMIN2":
                 password = "Auto@2020";
                 break;
-            case "GRANTEE PM":
-                password = "Automation!123";
+            case "SARAH PM":
+                password = "Rei@2026";
                 break;
             case "GRANTEE EXE":
                 password = "Merge@2026";
@@ -175,7 +175,7 @@ public class UsersAndURL implements UsersController {
                 password = "Merge@2026";
                 break;
             case "GRANTEE PO":
-                password = "Merge@2025";
+                password = "Automation@2026";
                 break;
             case "GRANTEE AUDITOR":
                 password = "Merge@2026";
