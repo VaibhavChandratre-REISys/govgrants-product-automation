@@ -262,10 +262,10 @@ public class UsersAndURL implements UsersController {
                 password = "Salesforce@2034";
                 break;
             case "SPI3":
-                password = "Salesforce@2025";
+                password = "Salesforce@2026";
                 break;
             case "SARAH PM":
-                password = "Rei@2031";
+                password = "Salesforce@2026";
                 break;
             case "GRANTEE ADMIN":
                 password = "Rei@2025";
@@ -526,6 +526,7 @@ public class UsersAndURL implements UsersController {
             return username.get("ADMIN");
         }
     }
+
     private String getQAEnvironmentUser(String userLevel) {
         Map<String, String> username = new HashMap<>();
         username.put("ADMIN", "govgrantsautomation@yopmail.com.qaorg");

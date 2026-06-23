@@ -1,7 +1,7 @@
 @FFATAReports
 Feature: Validate all scenarios for FFATA Reports
 
-  @546353 @546372 @547281 @547952 @546351 @547285 @546367 @547750 @546364 @546354 @546356 @546362 @ValidateInternalusersAdminPMPOEXEcanabletocreateFFATAReportCreationwithValidDatasuccessfully
+  @mk @546353 @546372 @547281 @547952 @546351 @547285 @546367 @547750 @546364 @546354 @546356 @546362 @ValidateInternalusersAdminPMPOEXEcanabletocreateFFATAReportCreationwithValidDatasuccessfully
   Scenario: Validate Internal users Admin PM PO EXE can able to create FFATA Report Creation with Valid Data successfully
     When I am on "SUBPORTAL" portal
     And I login to "Grants Portal" app as "SPI3" user
