@@ -160,7 +160,7 @@ public class UsersAndURL implements UsersController {
                 password = "Auto@2020";
                 break;
             case "SARAH PM":
-                password = "Rei@2026";
+                password = "Pm@20277";
                 break;
             case "GRANTEE EXE":
                 password = "Merge@2026";
@@ -176,6 +176,9 @@ public class UsersAndURL implements UsersController {
                 break;
             case "GRANTEE PO":
                 password = "Automation@2026";
+                break;
+            case "GRANTEE PM":
+                password = "Pm@20277";
                 break;
             case "GRANTEE AUDITOR":
                 password = "Merge@2026";

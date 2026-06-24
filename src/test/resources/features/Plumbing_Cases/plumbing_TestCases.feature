@@ -515,7 +515,12 @@ Feature: Validate all scenarios for Plumbing Cases
     Then I softly can see row level action button "View" against "{SavedValue:fundingAccountId}" in flex table with id "---grantee_tableId:-:fundingaccountTableId---"
     Then I softly can see row level action button "Edit" against "{SavedValue:fundingAccountId}" in flex table with id "---grantee_tableId:-:fundingaccountTableId---"
     Then I softly cannot see row level action button "Delete" against "{SavedValue:fundingAccountId}" in flex table with id "---grantee_tableId:-:fundingaccountTableId---"
-    And I click on hyperlink containing value "{SavedValue:GrantEGMSID}"
+#    And I click on hyperlink containing value "{SavedValue:GrantEGMSID}"
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+    And I click toggle button to select "Grants - All"
+    When I perform quick search for "{SavedValue:GrantEGMSID}" in "---grantee_tableId:-:GrantsTable---" panel
+    And I click on "View" icon for "{SavedValue:GrantEGMSID}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
     And I navigate to "Financials" sub tab
     Then I softly see "External Funding Sources" page block displayed
     Then I softly see value "{SavedValue:fundingSourceID}" for title "EGMS ID" inside table "---grantee_tableId:-:grantExternalSourceTableId---"
@@ -523,7 +528,7 @@ Feature: Validate all scenarios for Plumbing Cases
     Then I softly cannot see row level action button "Delete" against "{SavedValue:fundingSourceID}" in flex table with id "---grantee_tableId:-:grantExternalSourceTableId---"
     Then I softly cannot see row level action button "Edit" against "{SavedValue:fundingSourceID}" in flex table with id "---grantee_tableId:-:grantExternalSourceTableId---"
 
-  @545533 @ValidatePMusercanabletocreateAwardongrantorsidebyusingFundingSourceFundingAccountcreatedatgranteesidecreateReimpaymentrequestonsameawardcheckdollarvaluesonbelowfieldsavailableonFundingAccount @Plumbing_P1
+  @mk @545533 @ValidatePMusercanabletocreateAwardongrantorsidebyusingFundingSourceFundingAccountcreatedatgranteesidecreateReimpaymentrequestonsameawardcheckdollarvaluesonbelowfieldsavailableonFundingAccount @Plumbing_P1
   Scenario: Validate PM user can able to create Award on grantor side by using Funding Source Funding Account created at grantee side  & create Reim payment request on same award & check dollar values on below fields available on Funding Account
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
