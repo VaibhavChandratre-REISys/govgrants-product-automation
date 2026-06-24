@@ -90,26 +90,27 @@ public final class MainPage {
      * @modified komal.mukhekar/vaibhav.chandratre - Handled WebDriverExceptionwhen there is a driver and browser version incompatibility issue
      */
     public void login(String userNameText, String passwordText) {
-        //Ensures if the Logging out blank screen if faded away
+        By loginSandbox = ByUsing.xpath("//input[@value='Log In to Sandbox']");
         if (I.amPerforming().checkToSee().IsElementPresentQuick(By.xpath("//iframe[@src='/secur/logout.jsp']"))) {
             I.amPerforming().waitFor().ElementToDisappear(By.xpath("//iframe[@src='/secur/logout.jsp']"));
         }
-        //Enters user name and password
         I.amPerforming().textInput().in(userName, userNameText);
+        if (I.amPerforming().checkToSee().IsElementPresentQuick(loginSandbox)) {
+            I.amPerforming().click().on(loginSandbox);
+        }
         I.amPerforming().textInput().in(By.xpath("//input[@type='password']"), passwordText);
         if (I.amPerforming().checkToSee().IsElementPresentQuick(acceptTerms)) {
             I.amPerforming().click().on(acceptTerms);
         }
         try {
             I.amPerforming().click().on(loginButton);
-            if(I.amPerforming().browserOperationsTo().getCurrentUrl().contains("recipient")) {
+            if (I.amPerforming().browserOperationsTo().getCurrentUrl().contains("recipient")) {
                 I.amPerforming().waitFor().makeThreadSleep(2000);
                 I.amPerforming().switchTo().acceptAlert();
             }
         } catch (WebDriverException e) {
             I.amPerforming().getElementReference().of(By.xpath("//a[@title='Home Tab'] | //a[@title='Home Tab - Selected'] | //a[@title='Home']"));
         }
-
         if (I.amPerforming().checkToSee().IsElementPresentQuick(declinePhoneRegistrationButton)) {
             try {
                 I.amPerforming().click().on(declinePhoneRegistrationButton);
@@ -127,15 +128,7 @@ public final class MainPage {
                 /* Ignore Exception */
             }
         }
-
-        if (EnvironmentFactory.getProjectName().contains("GovGrants Framework"))
-            try {
-                clickAdminNavBar("GovGrants Launcher Tab");
-            } catch (Exception e) {
-                // to handle any other URL where there is not Govgrants launcher
-            }
     }
-
     /**
      * Performs login and toggles app. connects with UsersAndURL class of local
      * project to fetch the user id and password
