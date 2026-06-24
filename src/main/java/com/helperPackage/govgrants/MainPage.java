@@ -94,11 +94,15 @@ public final class MainPage {
      */
     public void login(String userNameText, String passwordText) {
         //Ensures if the Logging out blank screen if faded away
+        By loginSandbox = ByUsing.xpath("//input[@value='Log In to Sandbox']");
         if (I.amPerforming().checkToSee().IsElementPresentQuick(By.xpath("//iframe[@src='/secur/logout.jsp']"))) {
             I.amPerforming().waitFor().ElementToDisappear(By.xpath("//iframe[@src='/secur/logout.jsp']"));
         }
         //Enters user name and password
         I.amPerforming().textInput().in(userName, userNameText);
+        if (I.amPerforming().checkToSee().IsElementPresentQuick(loginSandbox)) {
+            I.amPerforming().click().on(loginSandbox);
+        }
         I.amPerforming().textInput().in(By.xpath("//input[@type='password']"), passwordText);
         if (I.amPerforming().checkToSee().IsElementPresentQuick(acceptTerms)) {
             I.amPerforming().click().on(acceptTerms);
