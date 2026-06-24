@@ -578,6 +578,7 @@ Feature: Validate all scenarios for Plumbing Cases
     Then I softly see field "Appropriation Amount" as "$5,000.00"
     And I save the value from row "1" for column name "EGMS ID" as "fundingAccountId" from flex table "---grantee_tableId:-:fundingaccountTableId---"
     And I re-login to "Grantor" app as "ADMIN" user on "INTERNAL" portal
+    And I halt execution
     And I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "default" for plumbing cases
     When I re-login to "Grantor" app as "GRANTEE PM" user on "INTERNAL" portal
     And I navigate to "Announcements" tab
