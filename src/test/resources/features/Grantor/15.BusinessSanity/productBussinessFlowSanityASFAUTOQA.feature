@@ -3733,7 +3733,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I click modal button "Close"
     And I wait for "9" seconds
     When I click on "Validate" in the page details
-    And I click on button "Validate" for succes or error validation
+#    And I click on button "Validate" for succes or error validation
     Then I softly see the following messages in the page details :
       | Form Validated Successfully. |
 
@@ -3780,7 +3780,7 @@ Feature: Validate sanity testing of Complete Business Flow
     Then I softly can see top right button "Edit" in page detail
     Then I softly can see top right button "Back" in page detail
     When I click on "Validate" in the page details
-    And I click on button "Validate" for succes or error validation
+#    And I click on button "Validate" for succes or error validation
     Then I softly see the following messages in the page details :
       | Form Validated Successfully. |
 
@@ -4368,7 +4368,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I refresh the page
     And I wait for "5" seconds
     When I click on "Validate" in the page details
-    And I click on button "Validate" for succes or error validation
+#    And I click on button "Validate" for succes or error validation
     Then I softly see the following messages in the page details :
       | If year is selected, report type As of Year is required. |
     And I close the tab
@@ -4384,7 +4384,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I wait for "3" seconds
     When I click on "Save" in the page details
     When I click on "Validate" in the page details
-    And I click on button "Validate" for succes or error validation
+#    And I click on button "Validate" for succes or error validation
     Then I softly see the following messages in the page details :
       | If "Other" option is selected in "14k", Justification in specify is required.                                                                |
       | If "Other" option is selected in "14l", Justification in specify is required.                                                                |
@@ -4542,6 +4542,7 @@ Feature: Validate sanity testing of Complete Business Flow
 #    When I click on "Submit" in the page details
     And I am on "INTERNAL" portal
     And I login to "As a Grantor" app as "PM" user
+    And I wait for "15" seconds
     When I navigate to "Pending Subrecipient Registrations" content inside "Organization" subheader on left panel
     When I perform quick search for "{SavedValue:Automation Runtime Organization}" in "{grantor_tableId:SubrecipientOrganization}" panel
     When I click on "Start" icon for "{SavedValue:Automation Runtime Organization}" inside flex table with id "{grantor_tableId:SubrecipientOrganization}"
@@ -4608,8 +4609,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I click on "Start" icon for "{SavedValue:uniqueEmailID}" inside flex table with id "{grantor_tableId:SubrecipientIndRegistration}"
     And I "Approve" in the approval decision
     And I checkout to maildrop with mailid "{SavedValue:uniqueEmailID}"
-#    And I click on mail with subject "Sandbox: Welcome to GovGrants 3.0 Recipient Portal"
-    And I click on mail with subject "Sandbox: Welcome to GovGrants"
+    And I click on mail with subject "Sandbox: Welcome to GovGrants 3.0 Recipient Portal"
     And I navigate to reset password link
     Then I set password for the user
     And I navigate to "Home" tab
