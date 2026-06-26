@@ -2931,7 +2931,7 @@ Feature: Validate all scenarios in the Application Review without background
     When I "Send to Owner" in the approval decision
     And I pause execution for "100" seconds
     And I refresh the page
-    And I pause execution for "3" seconds
+#    And I pause execution for "3" seconds
     #Bug452259 #BUG-PROD-24792
     Then I softly see field "Status" as "Created"
 
