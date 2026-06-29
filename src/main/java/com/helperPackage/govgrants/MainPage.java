@@ -141,6 +141,11 @@ public final class MainPage {
             } catch (Exception e) {
                 // to handle any other URL where there is not Govgrants launcher
             }
+        // to handle warning message like. Salesforce enforces new security requirements
+        By warningMessage = ByUsing.xpath("//div[@data-id='above-appdev-bar']//a[contains(@class,'close-btn')]");
+        if (I.amPerforming().checkToSee().IsElementPresentQuick(warningMessage)) {
+            I.amPerforming().click().on(warningMessage);
+        }
     }
 
     /**
