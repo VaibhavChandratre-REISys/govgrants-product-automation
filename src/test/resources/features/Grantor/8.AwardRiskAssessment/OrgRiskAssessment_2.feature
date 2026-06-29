@@ -30,7 +30,7 @@ Feature: Validate all scenarios in the Organizational Risk Assessment
     And I enter advance filter values inside id "---orgRiskAssessment:-:pendingTaskTableId---" for LWC
       | Status | equals to | Not Started |
 
-  @Bug-PROD-8543 @62629 @62945 @RevisedRiskAssessmentShouldMarkFirstAsExpired
+  @62629 @62945 @RevisedRiskAssessmentShouldMarkFirstAsExpired
   Scenario: Validate the Revised Risk Assessment should mark the Initial Risk Assessment as Expired.
     When I click on "Start" icon for "Automation Permanent Organization for Risk Assessment" inside flex table with id "---orgRiskAssessment:-:pendingTaskTableId---" without waiting for record
     And I wait for "3" seconds

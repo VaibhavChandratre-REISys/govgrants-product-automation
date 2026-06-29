@@ -1,7 +1,7 @@
 @FFATAReports
 Feature: Validate all scenarios for FFATA Reports
 
-  @Bug-PROD-411 @546353 @546372 @547281 @547952 @546351 @547285 @546367 @547750 @546364 @546354 @546356 @546362 @ValidateInternalusersAdminPMPOEXEcanabletocreateFFATAReportCreationwithValidDatasuccessfully
+  @546353 @546372 @547281 @547952 @546351 @547285 @546367 @547750 @546364 @546354 @546356 @546362 @ValidateInternalusersAdminPMPOEXEcanabletocreateFFATAReportCreationwithValidDatasuccessfully
   Scenario: Validate Internal users Admin PM PO EXE can able to create FFATA Report Creation with Valid Data successfully
     When I am on "SUBPORTAL" portal
     And I login to "Grants Portal" app as "SPI3" user
@@ -19,6 +19,7 @@ Feature: Validate all scenarios for FFATA Reports
     And I wait for "2" seconds
     Then I softly see the following messages in the page details contains:
       | Saved Successfully! |
+    And I refresh the page
     And I re-login to "Grantor" app as "SARAH PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
