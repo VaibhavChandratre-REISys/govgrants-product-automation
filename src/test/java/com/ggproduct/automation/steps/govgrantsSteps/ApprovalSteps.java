@@ -49,6 +49,7 @@ public class ApprovalSteps {
             govgrants.perform().approvals().enterComment("Automation Testing");
         }
         govgrants.perform().approvals().submitApproval(true);
+        I.amPerforming().waitFor().makeThreadSleep(5000);
     }
 
     @When("I {string} to user {string} in the approval decision")
