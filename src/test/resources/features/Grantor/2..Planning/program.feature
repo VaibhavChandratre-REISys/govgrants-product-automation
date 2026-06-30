@@ -727,12 +727,13 @@ Feature: Validate all scenarios for program
     And I wait for "2" seconds
     Then I softly see the following messages in the page details :
       | Record removed successfully. |
-    When I click on parallel lines menu bar with data target value "Review Forms"
-    And I select "Download as PDF" from parallel lines dropdown of "Review Forms"
-    And I wait for "3" seconds
-    And I download the file
-    And I wait for "3" seconds
-    Then I softly see "Review Forms" on page "1" of "govgrants" pdf file
+    #NOTE: Below scenario is not applicable as per bug-PROD-659
+#    When I click on parallel lines menu bar with data target value "Review Forms"
+#    And I select "Download as PDF" from parallel lines dropdown of "Review Forms"
+#    And I wait for "3" seconds
+#    And I download the file
+#    And I wait for "3" seconds
+#    Then I softly see "Review Forms" on page "1" of "govgrants" pdf file
     Examples:
       | Title                           |
       | Automation Permanent Focus Area |

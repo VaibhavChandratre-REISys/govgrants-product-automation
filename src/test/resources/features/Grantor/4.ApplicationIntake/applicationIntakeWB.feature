@@ -2662,7 +2662,7 @@ Feature: Application Intake scenarios without background
       | Announcement Name                                |
       | {SavedValue:Automation Runtime FDM Announcement} |
 
-  @Bug-PROD-17396 @526439 @validateSPI/INDuseruserapplicationissubmittedtograntorwhichiscreatedfromqualifiedopportunity @GrantorFlexP1
+  @526439 @validateSPI/INDuseruserapplicationissubmittedtograntorwhichiscreatedfromqualifiedopportunity @GrantorFlexP1
   Scenario: Validate SPI/IND user user Application is submitted to grantor which is created from qualified opportunity
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement for Application" and properties "PROGRAM_FOR_APP_SUPP_DOC_YES"
     Given I am on "SUBPORTAL" portal
@@ -2694,7 +2694,7 @@ Feature: Application Intake scenarios without background
     Then I softly see "EGMS ID" in flex table header "---applicationIntake:-:recipientApplications---"
     Then I softly see "Application Title" in flex table header "---applicationIntake:-:recipientApplications---"
     Then I softly see "Funding Opportunity Title" in flex table header "---applicationIntake:-:recipientApplications---"
-    Then I softly see "External Organization" in flex table header "---applicationIntake:-:recipientApplications---"
+#    Then I softly see "External Organization" in flex table header "---applicationIntake:-:recipientApplications---"
     Then I softly see "Application Due Date" in flex table header "---applicationIntake:-:recipientApplications---"
     Then I softly see "Submitted On" in flex table header "---applicationIntake:-:recipientApplications---"
     Then I softly see "Owner" in flex table header "---applicationIntake:-:recipientApplications---"

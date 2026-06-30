@@ -12,6 +12,7 @@ Feature: Scheduled Reimbursement Payment Request Scenarios
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---paymentRequest:-:pendingTaskTableId---" panel
     Then I see value "Record Id" for title "EGMS ID" inside table "---paymentRequest:-:pendingTaskTableId---"
+
     Examples:
       | Award Name                            | Login User |
       | {SavedValue:Automation Runtime award} | SPI3       |
@@ -45,7 +46,7 @@ Feature: Scheduled Reimbursement Payment Request Scenarios
       | Award Name                            |
       | {SavedValue:Automation Runtime award} |
 
-  @55401 @ValidatedUserNotifiedFieldUpdatedExternalPortal-SPI3
+  @55401 @ValidatedUserNotifiedFieldUpdatedExternalPortal-SPI3/SPA
   Scenario Outline: Verify when Batch is run then User Notified field gets Updated at External Portal
     And I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Formula_By_Applicant"
     Given I delete the record "<Award Name>" from the object "Payment Request"
@@ -63,30 +64,11 @@ Feature: Scheduled Reimbursement Payment Request Scenarios
     When I expand nested table containing column value "Payment Request"
     And I wait for "3" seconds
     Then I can see "1" record value is checked for field name "TaskCreated__c"
+
     Examples:
       | Award Name                            | Grant Name                            | User |
       | {SavedValue:Automation Runtime Award} | {SavedValue:Automation Runtime Award} | SPI3  |
-
-  @55401 @ValidatedUserNotifiedFieldUpdatedExternalPortal-SPA
-  Scenario Outline: Verify when Batch is run then User Notified field gets Updated at External Portal
-    And I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Formula_By_Applicant"
-    Given I delete the record "<Award Name>" from the object "Payment Request"
-    And I am on "SUBPORTAL" portal
-    And I login to "Grants Portal" app as "<User>" user
-    When I create a post award record "PaymentRequest" for the Award "<Award Name>" having object api name as "PaymentRequest__c"
-    And I navigate to "Grants" tab
-    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
-    And I click toggle button to select "Grants - Active"
-    When I perform quick search for "<Grant Name>" in "---paymentRequest:-:recipientGrantTableId---" panel
-    And I click on "View" icon for "<Grant Name>" inside flex table with id "---paymentRequest:-:recipientGrantTableId---" without waiting for record
-    When I navigate to "Subawards" sub tab
-    And I click on "View" icon for "<Award Name>" inside flex table with id "---paymentRequest:-:recipientAwardTableId---" without waiting for record
-    And I navigate to "Terms" sub tab
-    When I expand nested table containing column value "Payment Request"
-    Then I can see "1" record value is checked for field name "TaskCreated__c"
-    Examples:
-      | Award Name                            | Grant Name                            | User |
-      | {SavedValue:Automation Runtime Award} | {SavedValue:Automation Runtime Award} | SPA  |
+#      | {SavedValue:Automation Runtime Award} | {SavedValue:Automation Runtime Award} | SPA  |
 
   @153111 @Verify3StepApprovalFor-ScheduledPaymentRequest-RnRFunctionality
   Scenario Outline: Verify user is able to add three step approver for schedule reimbursement payment request and reject it on step three

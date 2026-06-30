@@ -19,6 +19,7 @@ Feature: Validate all scenarios for FFATA Reports
     And I wait for "2" seconds
     Then I softly see the following messages in the page details contains:
       | Saved Successfully! |
+    And I refresh the page
     And I re-login to "Grantor" app as "SARAH PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
@@ -99,7 +100,12 @@ Feature: Validate all scenarios for FFATA Reports
     And I click on "Activate" in the page details
     And I wait for "3" seconds
     Then I see that "Subaward" is in "Activated" status
-    And I click on hyperlink containing value "{SavedValue:GrantEGMSID}"
+#    And I click on hyperlink containing value "{SavedValue:GrantEGMSID}"
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click toggle button to select "Grants - All"
+    When I perform quick search for "{SavedValue:GrantEGMSID}" in "---subAwardStandAlone:-:activeGrantsTableId---" panel
+    And I click on "View" icon for "{SavedValue:GrantEGMSID}" inside table
     When I navigate to "Overview" sub tab
     And I save the field labeled "Grant Issue Date" as "AwardIssueDate"
     And I navigate to "Grants" tab
@@ -415,7 +421,12 @@ Feature: Validate all scenarios for FFATA Reports
     Then I softly see value "Published" for title "FFATA Report Status" inside table "---subAwardStandAlone:-:SrOrgSubawardDetailsFFATAComplianceTableId---"
     And I save the value from row "1" for column name "FFATA Report Due Date" as "FFATAReportDueDate" from flex table "---subAwardStandAlone:-:SrOrgSubawardDetailsFFATAComplianceTableId---"
     Then I softly see value "{SavedValue:FFATAReportDueDate}" for title "FFATA Report Due Date" inside table "---subAwardStandAlone:-:SrOrgSubawardDetailsFFATAComplianceTableId---"
-    And I click on hyperlink containing value "{SavedValue:AwardEGMSID}"
+#    And I click on hyperlink containing value "{SavedValue:AwardEGMSID}"
+    And I navigate to "Grants" tab
+    And I navigate to "Subawards" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click toggle button to select "Subawards  - All"
+    When I perform quick search for "{SavedValue:AwardEGMSID}" in "---subAwardStandAlone:-:SubAwardTableId---" panel
+    And I click on "View" icon for "{SavedValue:AwardEGMSID}" inside flex table with id "---subAwardStandAlone:-:SubAwardTableId---" without waiting for record
     Then I see the header is "Subaward" in the page details
     Then I softly see field "EGMS ID" as "{SavedValue:AwardEGMSID}"
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal

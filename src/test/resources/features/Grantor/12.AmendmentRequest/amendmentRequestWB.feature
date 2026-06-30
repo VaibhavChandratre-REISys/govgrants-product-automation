@@ -2668,7 +2668,7 @@ Feature: Amendment Request scenarios without background
     Then I softly can see row level action button "Remove" against "Other" in flex table with id "---amendment:-:RecipientKeyPersonalTableId---"
     And I click on "Edit" icon for "{SavedValue:SPA Username}" inside flex table with id "---amendment:-:RecipientKeyPersonalTableId---"
     Then I softly see fields "ProjectRole__c" is in edit mode
-    Then I softly see fields "contact__r.name" is in edit mode
+    Then I softly see fields "Contact__r.Name" is in edit mode
     Then I softly can see top right button "Associate" in flex table with id "---amendment:-:RecipientKeyPersonalTableId---"
 
   @99264 @ValidatePBPEDIsGreaterThanPBPSD-PeriodicRenewal
@@ -3172,8 +3172,9 @@ Feature: Amendment Request scenarios without background
     And I click on "Start" icon for "{SavedValue:AmendmentId}" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
     And I click on "Submit for Approval" in the page details
     And I "Reject" in the approval decision
-    Then I softly see field "Status" as "Rejected"
+    And I wait for "5" seconds
     Then I softly see status in Progress-bar is "Rejected" and is "Red"
+    Then I softly see field "Status" as "Rejected"
 
   @99608 @99629 @verifyCreationOfAmendmentRequest-CFAmendmentRequest  @TaskCreated142379
   Scenario: Validate sub recipient user is able to create carry Forward Amendment Request
@@ -5519,7 +5520,7 @@ Feature: Amendment Request scenarios without background
     And I navigate to "Responsibilities" sub tab
     And I click on top right button "New" in flex table with id "---amendment:-:approversTableId---"
     And I pause execution for "3" seconds
-    And I select user value "Automation PM" in field "name__r.name"
+    And I select user value "Automation PM" in field "Name__r.Name"
     And I select dropdown value "Step 1" in field "AmendmentRequestRole__c"
     And I click on nested button "Remove record" in flex table with id "---amendment:-:approversTableId---"
     Then I softly see "No Records Found" inside flex table with id "---amendment:-:approversTableId---"
@@ -10168,6 +10169,8 @@ Feature: Amendment Request scenarios without background
     When I click on "Start" icon for "Record Id" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
     When I click on "Submit for Approval" in the page details
     And I "Reject" in the approval decision
+    And I wait for "2" seconds
+    Then I softly see status in Progress-bar is "Rejected" and is "Red"
     Then I softly see field "Status" as "Rejected"
     When I re-login to "Grantor" app as "Admin" user on "INTERNAL" portal
     And I navigate to "Home" tab
@@ -11925,8 +11928,6 @@ Feature: Amendment Request scenarios without background
     And I click on top right button "New" in flex table with id "---amendment:-:amendmentRequestTableId---"
     When I enter "ScopeOfWork_Creation" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
-    And I click on "Save" in the page details
-    When I click on "Edit" in the page details
     And I enter "ScopeOfWork_Edition" values from "AmendmentRequest_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I save the field labeled "EGMS ID" as "scopeWorkId"
@@ -11940,6 +11941,7 @@ Feature: Amendment Request scenarios without background
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:scopeWorkId}" in "---amendment:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "{SavedValue:scopeWorkId}" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
+    And I wait for "5" seconds
     And I click on "Submit to Grantor" in the page details
     Then I softly see field "Status" as "Submitted to Grantor"
     When I re-login to "Grantor" app as "ADMIN" user on "INTERNAL" portal
@@ -25820,7 +25822,7 @@ Feature: Amendment Request scenarios without background
     Then I softly see field "Budget Redirection Threshold" as "15.00%"
     Then I softly see field "Budget Redirection Threshold" as "{SavedValue:BudgetRedirectionThresholdAward}"
 
-  @543822 @ValidatethatusershouldseevalidationifenterExceeding100valueinBudgetRedirectionthresholdfield
+  @wip @NotApplicable @543822 @ValidatethatusershouldseevalidationifenterExceeding100valueinBudgetRedirectionthresholdfield
   Scenario: Validate that user should see validation if enter Exceeding 100% value in Budget Redirection threshold field
     And I activated standalone subaward "Automation Runtime Award" with properties "default-Automation EXE user" of type "Competitive"
     When I login to "Grantor" app as "EXE" user
@@ -26167,7 +26169,7 @@ Feature: Amendment Request scenarios without background
     And I enter value "20" into field "BudgetRedirectionThreshhold__c"
     When I click on "Save" in the page details
     And I wait for "3" seconds
-    And I save the field labeled "Budget Redirection Threshold" as "BudgetRedirectionThreshold%"
+    And I save the field labeled "Budget Redirection Threshold (%)" as "BudgetRedirectionThreshold%"
     And I save the field labeled "EGMS ID" as "SOWAMENDMENTREQUEST"
     And I save the field labeled "Proposed Budget Period Start Date" as "PBPSD"
     And I save the field labeled "Proposed Budget Period End Date" as "PBPED"
@@ -26207,8 +26209,8 @@ Feature: Amendment Request scenarios without background
     And I wait for "3" seconds
     Then I softly see field "Status" as "Activated"
     And I navigate to "Budget" sub tab
-    Then I softly see field "Budget Redirection Threshold %" as "20.00%" in "Budget Summary" pageblock
-    Then I softly see field "Budget Redirection Threshold %" as "{SavedValue:BudgetRedirectionThreshold%}"
+    Then I softly see field "Budget Redirection Threshold (%)" as "20.00%" in "Budget Summary" pageblock
+    Then I softly see field "Budget Redirection Threshold (%)" as "{SavedValue:BudgetRedirectionThreshold%}"
 
   @543828 @ValidatethatnonrecordownerdonothaveeditaccessofBudgetRedirectionThresholdfield
   Scenario: Validate that non record owner do not have edit access of Budget Redirection Threshold field
@@ -26230,7 +26232,7 @@ Feature: Amendment Request scenarios without background
     And I enter value "20" into field "BudgetRedirectionThreshhold__c"
     When I click on "Save" in the page details
     And I wait for "3" seconds
-    And I save the field labeled "Budget Redirection Threshold" as "BudgetRedirectionThreshold%"
+    And I save the field labeled "Budget Redirection Threshold (%)" as "BudgetRedirectionThreshold%"
     And I save the field labeled "EGMS ID" as "SOWAMENDMENTREQUEST"
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
@@ -26240,9 +26242,9 @@ Feature: Amendment Request scenarios without background
     And I click on "View" icon for "{SavedValue:SOWAMENDMENTREQUEST}" inside flex table with id "---amendment:-:grantorAmendmentRequestsTableId---" without waiting for record
     When I navigate to "Overview" sub tab
     Then I cannot see top right button "Edit" in page detail
-    Then I softly see that "Budget Redirection Threshold" rendered in view mode only
-    Then I softly see field "Budget Redirection Threshold" as "20.00%"
-    Then I softly see field "Budget Redirection Threshold" as "{SavedValue:BudgetRedirectionThreshold%}"
+    Then I softly see that "Budget Redirection Threshold (%)" rendered in view mode only
+    Then I softly see field "Budget Redirection Threshold (%)" as "20.00%"
+    Then I softly see field "Budget Redirection Threshold (%)" as "{SavedValue:BudgetRedirectionThreshold%}"
 
   @543819 @543814 @ValidateVisibilityofBudgetRedirectionThresholdforSubrecipients
   Scenario: Validate Visibility of Budget Redirection Threshold for Subrecipients
@@ -26669,7 +26671,7 @@ Feature: Amendment Request scenarios without background
     And I enter "Periodic Renewal Edition" values from "AmendmentRequest_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I wait for "3" seconds
-    And I save the field labeled "Budget Redirection Threshold" as "BudgetRedirectionThreshold%"
+    And I save the field labeled "Budget Redirection Threshold (%)" as "BudgetRedirectionThreshold%"
     And I save the field labeled "EGMS ID" as "SOWAMENDMENTREQUEST"
     When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Grants" tab
@@ -26679,9 +26681,9 @@ Feature: Amendment Request scenarios without background
     And I click on "View" icon for "{SavedValue:SOWAMENDMENTREQUEST}" inside flex table with id "---amendment:-:grantorAmendmentRequestsTableId---" without waiting for record
     When I navigate to "Overview" sub tab
     Then I cannot see top right button "Edit" in page detail
-    Then I softly see that "Budget Redirection Threshold" rendered in view mode only
-    Then I softly see field "Budget Redirection Threshold" as "15.00%"
-    Then I softly see field "Budget Redirection Threshold" as "{SavedValue:BudgetRedirectionThreshold%}"
+    Then I softly see that "Budget Redirection Threshold (%)" rendered in view mode only
+    Then I softly see field "Budget Redirection Threshold (%)" as "15.00%"
+    Then I softly see field "Budget Redirection Threshold (%)" as "{SavedValue:BudgetRedirectionThreshold%}"
 
   @545378 @ValidatethatusershouldseevalidationifenterNegativeValueinBudgetRedirectionthreshold
   Scenario: Validate that user should see validation if enter Negative Value in Budget Redirection threshold

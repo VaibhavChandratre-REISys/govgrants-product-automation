@@ -1341,7 +1341,6 @@ Feature: Validate all scenarios in Desk Review
       | {SavedValue:PM Username} | Step 1      |
     Then I softly cannot see row level action button "Remove" against "Step 1" in flex table with id "---deskreview:-:approverDeskReviewTableId---"
 
-
   @145732 @145733 @Verify1StepApprovalForDeskReview-RnRFunctnality @Verify2StepApprovalForDeskReview-RnRFunctnality  @DeskReviewFirst
   Scenario: Verify user is able to add two step approver on desk review
   |Verify user is able to add step 1 approver on Desk review created|
