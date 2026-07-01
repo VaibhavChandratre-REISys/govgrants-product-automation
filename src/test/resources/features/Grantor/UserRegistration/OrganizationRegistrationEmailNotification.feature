@@ -1,4 +1,4 @@
-@organizationRegistrationPage @userRegistration @parallel-regression @regression @grantor-regression @userRegistrationEmailNotification @organizationRegistrationPageEmailNotification @EmailNotification @RegistrationmailandPdf  @skipOnJenkins
+@organizationRegistrationPage @userRegistration @parallel-regression @regression @grantor-regression @userRegistrationEmailNotification @organizationRegistrationPageEmailNotification @EmailNotification @RegistrationmailandPdf
 Feature: Validate all registration related scenarios for Email Notification
 
   @82030 @verifyEmailNotificationForOrganizationRegistration-Organization  @wip

@@ -1,4 +1,4 @@
-@smeRegistration @smeReviewerRegistration @userRegistration @parallel-regression @regression @smeRegistrationEmailNotification @EmailNotification @RegistrationmailandPdf  @skipOnJenkins
+@smeRegistration @smeReviewerRegistration @userRegistration @parallel-regression @regression @smeRegistrationEmailNotification @EmailNotification @RegistrationmailandPdf
 Feature: Validate all scenarios for SME Registration for Email Notification
 
   @94345 @validatingEmailNotificationForSMEReviewer
