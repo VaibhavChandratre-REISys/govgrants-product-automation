@@ -110,31 +110,31 @@ public class UsersAndURL implements UsersController {
         String password;
         switch (userLevel.toUpperCase()) {
             case "PM":
-                password = "Support@3032";
+                password = "Support@3033";
                 break;
             case "EXE":
-                password = "Support@3032";
+                password = "Support@3033";
                 break;
             case "FO":
-                password = "Support@3032";
+                password = "Support@3033";
                 break;
             case "FD":
-                password = "Support@3032";
+                password = "Support@3033";
                 break;
             case "PO":
-                password = "Support@3032";
+                password = "Support@3033";
                 break;
             case "SPI3":
-                password = "Support@3032";
+                password = "Support@3033";
                 break;
             case "ADMIN":
-                password = "Support@3032";
+                password = "Support@3033";
                 break;
             case "ADMIN1":
-                password = "Support@3032";
+                password = "Support@3033";
                 break;
             default:
-                password = "Support@3032";
+                password = "Support@3033";
         }
         return password;
     }
@@ -541,22 +541,22 @@ public class UsersAndURL implements UsersController {
 
     private String getFwLwcEnvironmentPassword(String userType) {
         Map<String, String> password = new HashMap<>();
-        password.put("ADMIN", "Support@3032");
-        password.put("ADMIN1", "Support@2026");
-        password.put("EXE", "Support@3032");
-        password.put("PM", "Support@3032");
-        password.put("FO", "Support@3032");
-        password.put("SPI3", "Support@3032");
-        password.put("PM1", "Support@3032");
-        password.put("Automation PM", "Support@3032");
-        password.put("SA", "Support@3032");
-        password.put("PO", "Support@3032");
-        password.put("IND", "Support@3032");
-        password.put("FD", "Support@3032");
-        password.put("AUDITOR", "Support@3032");
-        password.put("FO1", "Support@3032");
-        password.put("PO1", "Support@3032");
-        password.put("EXE1", "Support@3032");
+        password.put("ADMIN", "Support@3033");
+        password.put("ADMIN1", "Support@3033");
+        password.put("EXE", "Support@3033");
+        password.put("PM", "Support@3033");
+        password.put("FO", "Support@3033");
+        password.put("SPI3", "Support@3033");
+        password.put("PM1", "Support@3033");
+        password.put("Automation PM", "Support@3033");
+        password.put("SA", "Support@3033");
+        password.put("PO", "Support@3033");
+        password.put("IND", "Support@3033");
+        password.put("FD", "Support@3033");
+        password.put("AUDITOR", "Support@3033");
+        password.put("FO1", "Support@3033");
+        password.put("PO1", "Support@3033");
+        password.put("EXE1", "Support@3033");
         if (userType.toUpperCase() != null) {
             return password.get(userType.toUpperCase());
         } else {

@@ -1183,7 +1183,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I refresh the page
     Then I see status in Progress-bar is "Accepted" and is "dark blue"
 
-  @72345 @submitApplication @ProdSan1 @ProdSan1_1
+  @72345 @submitApplication @ProdSan1 @ProdSan1_1 @test
   Scenario: Validate once the application is submitted to Grantor and then status changes to Submitted
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement Application Intake" and properties "default"
     Given I am on "SUBPORTAL" portal
