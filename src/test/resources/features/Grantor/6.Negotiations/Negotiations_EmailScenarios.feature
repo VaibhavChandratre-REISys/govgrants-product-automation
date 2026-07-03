@@ -55,5 +55,3 @@ Feature: Validate all scenarios in Negotiations
     Then I softly see values "{SavedValue:Automation Runtime FDM Announcement}" and "Reviewed" inside table
     And I click on "View" icon for "{SavedValue:Automation Runtime FDM Announcement}" inside flex table with id "---negotiation:-:negotiationAppReviewListTableId---"
     Then I softly can see top right button "Create Subaward" in page detail
-
-    #negotiationWB
