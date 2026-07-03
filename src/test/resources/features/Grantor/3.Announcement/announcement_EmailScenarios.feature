@@ -1,4 +1,4 @@
-@announcementEmailScenarios @grantor-regression @grantor-parallel-regression @regression @annWithNotes @annExecution
+@emailRegression @announcementEmailScenarios @grantor-regression @grantor-parallel-regression @regression @annWithNotes @annExecution
 Feature: Validate all Email related scenarios in the  Announcement module
 
   #@announcementWB

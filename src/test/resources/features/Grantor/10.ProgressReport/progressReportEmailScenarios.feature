@@ -1,4 +1,4 @@
-@progressReportEmailScenarios @grantor-regression @grantor-parallel-regression @progressReportWithBackground @regression @progress-report1
+@emailRegression @progressReportEmailScenarios @grantor-regression @grantor-parallel-regression @progressReportWithBackground @regression @progress-report1
 Feature: Validate all email scenarios in Progress Report
 
   #progressReportNB

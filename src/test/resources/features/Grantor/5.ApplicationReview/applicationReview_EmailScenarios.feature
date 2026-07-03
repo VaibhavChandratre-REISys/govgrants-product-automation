@@ -1,4 +1,4 @@
-@applicationRevieEmailScenarios @applicationRegression @grantor-regression @grantor-parallel-regression @app @regression @ApplicationAndPre-App
+@emailRegression @applicationRevieEmailScenarios @applicationRegression @grantor-regression @grantor-parallel-regression @app @regression @ApplicationAndPre-App
 Feature: Validate all email scenarios in the Application Intake
 
   #applicationReviewWB

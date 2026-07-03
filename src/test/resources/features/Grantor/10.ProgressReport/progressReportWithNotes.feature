@@ -741,6 +741,7 @@ Feature: Validate scenarios in Progress Report Notes
 
   @236046 @VerifythatAuditorusercanonlyreadthenotes @sprint-12-US-234322  @Notes @ProgressFailedScenarios
   Scenario:Verify that <Auditor> user can only read the notes
+    Given I login to "Grantor" app as "AUDITOR" user
     Given I activated standalone subaward "Automation Runtime Direct Award" with properties "Automation PM user" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Direct Award}" from the object "Progress Report"
     When I create a post award record "ProgressReport" for the Award "{SavedValue:Automation Runtime Direct Award}" having object api name as "ProgressReports__c"

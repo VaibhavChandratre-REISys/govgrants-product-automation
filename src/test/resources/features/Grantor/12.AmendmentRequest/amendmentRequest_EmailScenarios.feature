@@ -1,4 +1,4 @@
-@amendmentRequestEmailScenarios @amendmentRequests @grantor-regression @grantor-parallel-regression @parallel-regression @regression @amendExecution
+@emailRegression @amendmentRequestEmailScenarios @amendmentRequests @grantor-regression @grantor-parallel-regression @parallel-regression @regression @amendExecution
 Feature: Validate all Email scenarios in the Amendment Request
 
   #amendmentAllocationNew
