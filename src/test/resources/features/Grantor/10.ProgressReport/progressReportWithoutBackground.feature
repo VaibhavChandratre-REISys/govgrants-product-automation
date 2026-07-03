@@ -9261,9 +9261,9 @@ Feature: Validate scenarios in Progress Report without background
     Then I cannot see row level action button "Delete" against "Notes Record" in flex table with id "---progressReport:-:GrantorNotesProgressReporttableId---"
     Then I cannot see row level action button "Edit" against "Notes Record" in flex table with id "---progressReport:-:GrantorNotesProgressReporttableId---"
 
-  @532028 @531936 @validateprogressreportrecordshouldsharewithSPI/SPAuserfromsameorgincreatedstate @GrantorFlexP1
+  @mkk @532028 @531936 @validateprogressreportrecordshouldsharewithSPI/SPAuserfromsameorgincreatedstate @GrantorFlexP1
   Scenario Outline: Validate progress report record should share with SPI/SPA user from same org in created state
-    Given I activated standalone subaward "Automation Runtime Direct Award" with properties "default" of type "Competitive"
+#    Given I activated standalone subaward "Automation Runtime Direct Award" with properties "default" of type "Competitive"
     And I login to "Grantor" app as "PM" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel

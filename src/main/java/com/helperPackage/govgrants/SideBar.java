@@ -200,7 +200,7 @@ public final class SideBar {
      * @author nauman.shahid
      */
     public By getSideBarContentLocator(String subHeader, String subHeaderContent) {
-        return By.xpath("//div[contains(@class,'sidebar slds-split-view_container slds-is-open open-panel')]//section//button[@title='" + subHeader +"']/parent::h2/parent::div/parent::section//a[text()='" + subHeaderContent +"']");
+        return By.xpath("//gnt-side-bar-lwc//section//button[@title='" + subHeader + "']/parent::h2/parent::div/parent::section//span[text()='" + subHeaderContent + "']");
     }
 
     /**
