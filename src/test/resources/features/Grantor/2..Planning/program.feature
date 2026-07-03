@@ -112,7 +112,9 @@ Feature: Validate all scenarios for program
     Then I softly do not see value "Return on Investment (ROI) Test" for title "Section Header" inside table "---program:-:programReviewPanel---"
     And I refresh the page
     And I navigate to "Setup" sub tab
+    And I wait for "5" seconds
     And I click on parallel menu button in flex table title "Review Steps"
+    And I wait for "2" seconds
     And I select "Download as PDF" from parallel lines dropdown of "Review Steps"
     And I download the file
     Then I softly see following details in "govgrants" pdf file:
@@ -545,7 +547,7 @@ Feature: Validate all scenarios for program
       | Setup Tab - Pre-Screen Review - Pre-Screen: The total section weight must equal 100% or 0%. It is currently 120%.                                   |
       | Setup Tab - SME Review - Fiscal Review: The total section weight must equal 100% or 0%. It is currently 90%.                                        |
 
-  @76943 @76944 @76948 @76947 @76984 @76985 @77098
+  @76943 @76944 @76948 @76947 @76984 @76985 @77098 @Bug-PROD-683
   Scenario: To verify user able to modify review question in Strategic Alignment of Review Panel Categories in management review form for management review step in planning phase
     And I navigate to "Setup" sub tab
     And I expand nested table containing column value "Management Review"
@@ -597,7 +599,9 @@ Feature: Validate all scenarios for program
     And I softly see value "Test 5" for title "Question" inside table "---program:-:programReviewPanelQuestionsTableId---"
     And I softly see value "0" for title "Max Score" inside table "---program:-:programReviewPanelQuestionsTableId---"
     And I click on parallel menu button in flex table title "Review Questions"
+    And I wait for "3" seconds
     And I select "Download as PDF" from parallel lines dropdown of "Review Questions"
+    And I wait for "3" seconds
     And I download the file
       #76985 following 5 assertion belongs to this
     Then I softly see "Completeness" on page "1" of "govgrants" pdf file
@@ -635,7 +639,7 @@ Feature: Validate all scenarios for program
       | Contact                   |
       | {SavedValue:EXE Username} |
 
-  @passed @105880 @ValidateDeletionOfAssociatedContact
+  @105880 @ValidateDeletionOfAssociatedContact
   Scenario Outline: Verify user is able to delete associated contact
     When I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---program:-:contactsTableId---"
@@ -723,12 +727,13 @@ Feature: Validate all scenarios for program
     And I wait for "2" seconds
     Then I softly see the following messages in the page details :
       | Record removed successfully. |
-    When I click on parallel lines menu bar with data target value "Review Forms"
-    And I select "Download as PDF" from parallel lines dropdown of "Review Forms"
-    And I wait for "3" seconds
-    And I download the file
-    And I wait for "3" seconds
-    Then I softly see "Review Forms" on page "1" of "govgrants" pdf file
+    #NOTE: Below scenario is not applicable as per bug-PROD-659
+#    When I click on parallel lines menu bar with data target value "Review Forms"
+#    And I select "Download as PDF" from parallel lines dropdown of "Review Forms"
+#    And I wait for "3" seconds
+#    And I download the file
+#    And I wait for "3" seconds
+#    Then I softly see "Review Forms" on page "1" of "govgrants" pdf file
     Examples:
       | Title                           |
       | Automation Permanent Focus Area |
@@ -6018,9 +6023,9 @@ Feature: Validate all scenarios for program
     And I wait for "2" seconds
     And I checkout to yopmail with mailid "pm.automation.qa2@yopmail.com"
     And I see the mail subject is as follows :
-      """
-      Sandbox: Notification: Request to Approve {SavedValue:ProgramEGMSID}
-      """
+    """
+    Sandbox: Notification: Request to Approve {SavedValue:ProgramEGMSID}
+    """
     When I am on "INTERNAL" portal
     And I login to "Grantor" app as "EXE" user
     And I navigate to "Planning" tab

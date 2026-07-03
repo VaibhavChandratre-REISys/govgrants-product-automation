@@ -16,6 +16,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I upload attachment without random number "Attachment.pdf" of type "Other" from computer
     And I wait for "2" seconds
     When I click modal button "Close"
+    And I wait for "2" seconds
     When I click on "Activate" in the page details
     Then I see status in Progress-bar is "Active" and is "dark blue"
 
@@ -76,6 +77,9 @@ Feature: Validate sanity testing of Complete Business Flow
     When I navigate to "Related Log" sub tab
     And I click on top right button "Associate" in flex table with id "---strategicplan:-:ObjectivesKPITableId---"
     When I click "Add" after selection of "Automation Permanent KPI" in the table "---strategicplan:-:ListOfActiveKPITableId---"
+    And I wait for "1" seconds
+    When I click modal button "Close"
+    And I wait for "1" seconds
     Then I see that "Automation Permanent KPI" has been added in flextable with Id "---strategicplan:-:ObjectivesKPITableId---"
     Then I softly see field "Status" as "Draft"
     And I click on "Back To Strategic Goal" in the page details
@@ -293,6 +297,8 @@ Feature: Validate sanity testing of Complete Business Flow
     When I click modal button "Save"
     And I click on submit review
     And I pause execution for "2" seconds
+    When I click modal button "Close"
+    And I wait for "2" seconds
 #    When I close "Enter Review" modal by clicking the top right x button
     When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Announcements" tab
@@ -560,6 +566,8 @@ Feature: Validate sanity testing of Complete Business Flow
     When I click modal button "Save"
     And I wait for "2" seconds
     When I click on submit review
+    And I wait for "1" seconds
+    When I click modal button "Close"
     And I wait for "2" seconds
     When I re-login to "Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Announcements" tab
@@ -825,6 +833,8 @@ Feature: Validate sanity testing of Complete Business Flow
     When I click modal button "Save"
     And I wait for "2" seconds
     When I click on submit review
+    And I wait for "2" seconds
+    When I click modal button "Close"
     And I wait for "2" seconds
     And I re-login to "Grantor" app as "dynamicUser" user on "INTERNAL" portal
     When I navigate to "Announcements" tab
@@ -1092,6 +1102,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I close "Add Organizations" modal by clicking the top right x button
     When I navigate to "Overview" sub tab
     And I pause execution for "4" seconds
+    When I refresh the page
     When I edit the following rows inline in flex table with id "---announcement:-:formulaInvitedApplicatsTableId---" by clicking "Edit" :
       | Applicants                          | Allocated Amount |
       | SAN DIEGO ELECTRICAL TRAINING TRUST | 1000             |
@@ -1555,7 +1566,8 @@ Feature: Validate sanity testing of Complete Business Flow
     When I click modal button "Save"
     And I click on submit review
     And I wait for "1" seconds
-#    When I click modal button "Close"
+    When I click modal button "Close"
+    And I wait for "1" seconds
     When I re-login to "Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
@@ -1795,7 +1807,8 @@ Feature: Validate sanity testing of Complete Business Flow
     When I click modal button "Save"
     And I pause execution for "5" seconds
     And I click on submit review
-#    When I click modal button "Close"
+    When I click modal button "Close"
+    And I wait for "1" seconds
     When I re-login to "Grantor" app as "DynamicUser" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Risk Assessments" content inside "Monitoring Activities" subheader on left panel

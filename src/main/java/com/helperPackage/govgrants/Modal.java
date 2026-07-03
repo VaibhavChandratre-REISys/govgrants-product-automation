@@ -53,12 +53,14 @@ public final class Modal {
 
     /**
      * Accept modal based pop up
+     * @modifier komal.mukhekar (01/06/2026): Added a 1.5-second wait to ensure the popup is displayed before interaction.
      */
     public void acceptPopUp() {
         try {
-            if (I.amPerforming().checkToSee().isDisplayed(By.xpath("//div[contains(@class,'modal__container')]//lightning-confirm | //div[contains(@class,'modal__container')]//header//h2[text()='Confirm'] | //div[contains(@class,'modal__container')]//lightning-modal | //div[contains(@class,'modal__container')]//lightning-modal-header//h1[text()='Confirm']"),false)) {
-                   WebElement popup = I.amPerforming().getElementReference().of(By.xpath("//div[contains(@class,'modal__container')]"));
-                   I.amPerforming().click().on(I.amPerforming().getElementReference().ofNested(popup, By.xpath("//div[contains(@class,'modal__container')]//button[text()='OK' or text()='Yes' or text()='Continue']")));
+            I.amPerforming().waitFor().makeThreadSleep(1500);
+            if (I.amPerforming().checkToSee().IsElementPresentQuick(By.xpath("//div[contains(@class, 'modal') and contains(@class, 'bootbox')]//div[contains(@class, 'modal-content')] | //div[contains(@class,'modal__container')]//lightning-confirm | //div[contains(@class,'modal__container')]//header//h2[text()='Confirm'] | //div[contains(@class,'modal__container')]//h1[text()='Confirm']"))) {
+                WebElement popup = I.amPerforming().getElementReference().of(By.xpath("//div[contains(@class, 'modal') and contains(@class, 'bootbox')]//div[contains(@class, 'modal-content')] | //div[contains(@class,'modal__container')]"));
+                I.amPerforming().click().on(I.amPerforming().getElementReference().ofNested(popup, By.xpath("//div[contains(@class, 'modal-content')]//button[text()='Yes' or text()='Continue' or text()='Ok'] | //div[contains(@class,'modal__container')]//button[text()='OK' or text()='Yes' or text()='Continue']")));
             }
         } catch (Exception e) {
 

@@ -2745,7 +2745,7 @@ Feature: Validate all scenarios in Payment Request
     When I navigate to "Responsibilities" sub tab
     And I click on top right button "New" in flex table with id "---paymentRequest:-:approversTableId---"
     And I pause execution for "3" seconds
-    And I select user value "Automation FO" in field "name__r.name"
+    And I select user value "Automation FO" in field "Name__r.Name"
     And I select dropdown value "Step 1" in field "AdvanceRole__c"
     And I click on nested button "Remove record" in flex table with id "---paymentRequest:-:approversTableId---"
     Then I softly see "No Records Found" inside flex table with id "---paymentRequest:-:approversTableId---"

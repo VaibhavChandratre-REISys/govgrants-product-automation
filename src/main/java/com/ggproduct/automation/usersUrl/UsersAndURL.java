@@ -159,8 +159,8 @@ public class UsersAndURL implements UsersController {
             case "GRANTEE ADMIN2":
                 password = "Auto@2020";
                 break;
-            case "GRANTEE PM":
-                password = "Merge@2026";
+            case "SARAH PM":
+                password = "Pm@20277";
                 break;
             case "GRANTEE EXE":
                 password = "Merge@2026";
@@ -169,16 +169,31 @@ public class UsersAndURL implements UsersController {
                 password = "Auto@2020";
                 break;
             case "GRANTEE FO":
-                password = "Merge@2026";
+                password = "Automation!1234";
                 break;
             case "GRANTEE FD":
                 password = "Merge@2026";
                 break;
             case "GRANTEE PO":
-                password = "Merge@2025";
+                password = "Automation@2026";
+                break;
+            case "GRANTEE PM":
+                password = "Pm@20277";
                 break;
             case "GRANTEE AUDITOR":
                 password = "Merge@2026";
+                break;
+            case "ADMIN":
+                password = "Automation@May2026";
+                break;
+            case "EXE":
+                password = "Automation@June2026";
+                break;
+            case "FD":
+                password = "Automation@June2026";
+                break;
+            case "AUDITOR":
+                password = "Automation@June2026";
                 break;
             default:
                 password = "Automation!123";
@@ -250,10 +265,10 @@ public class UsersAndURL implements UsersController {
                 password = "Salesforce@2034";
                 break;
             case "SPI3":
-                password = "Salesforce@2025";
+                password = "Salesforce@2026";
                 break;
             case "SARAH PM":
-                password = "Rei@2031";
+                password = "Pm@20278";
                 break;
             case "GRANTEE ADMIN":
                 password = "Rei@2025";
@@ -514,6 +529,7 @@ public class UsersAndURL implements UsersController {
             return username.get("ADMIN");
         }
     }
+
     private String getQAEnvironmentUser(String userLevel) {
         Map<String, String> username = new HashMap<>();
         username.put("ADMIN", "govgrantsautomation@yopmail.com.qaorg");

@@ -851,7 +851,7 @@ Feature: Validate all scenarios of every modules flow
   @ApplicationReviewtoapprovedFDMWorkFlow
   Scenario Outline: Application Review WorkFlow
     Given I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "default"
-    When I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
+    When I initiated an application review for application "<Announcement Name>" on announcement "<Announcement Name>" with properties "default"
     And I login to "Grantor" app as "dynamicUser" user
     When I navigate to "Applications" tab
     And I navigate to "Applications" content inside "Applications" subheader on left panel
@@ -1744,7 +1744,7 @@ Feature: Validate all scenarios of every modules flow
       | GRANTEE FD      |
       | GRANTEE AUDITOR |
 
-  @InternalUserPwdCheckGrantor @debug
+  @InternalUserPwdCheckGrantor
   Scenario Outline: test
     When I login to "Grantor" app as "<InternalUser>" user
     When I navigate to "Home" tab
@@ -2642,19 +2642,74 @@ Feature: Validate all scenarios of every modules flow
 
   @testCloseout
   Scenario:
-#    Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
-#    And I create "Grants.Gov" qualified lead for title "Automation Runtime award" and opportunity number "CAS-HHS0000660610" with properties "default-QA Admin"
-#    Given I login to "Grantee" app as "GRANTEE PM" user
-#    And I navigate to "Opportunities" tab
-#    When I navigate to "Qualified" content inside "Leads" subheader on left panel
-#    And I click toggle button to select "Qualified Leads - All"
-#    When I perform quick search for "{SavedValue:Automation Runtime award}" in "---grantee_tableId:-:qualifiedLeadTableId---" panel
-#    And I click on "View" icon for "{SavedValue:Automation Runtime award}" inside flex table with id "---grantee_tableId:-:qualifiedLeadTableId---" without waiting for record
-#    When I click on "Convert to Opportunity" in the page details
-#    And I save the field labeled "EGMS ID" as "opportunityEGMSID"
-    And I create opportunity with state "Approved" for opportunity number "CAS-HHS0000660610" with properties "default"
-    And I create Application "Automation Runtime award99843" with state "Submitted to Grantor" for opportunity number "CAS-HHS0000660610" with properties "default"
-    And I "Created" award from application for opportunity "CAS-HHS0000660610" for title "Automation Runtime award99843" with properties "default-QA Admin"
-    And I updated award from application for title "Automation Runtime award99843" with properties "default"
-    And I activate the award for title "Automation Runtime award99843"
-#    And I halt execution
+    Given I activated standalone subaward "Automation Runtime Award for closeout" with properties "default" of type "Competitive"
+#    And I create subawards records with status "Submitted to Grantor" using "default" properties
+#      | Title                              | AwardName                                          | PaymentRequestType |
+#    Given I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
+#    And I create payment request records with status "Submitted to Grantor" using "default" properties
+#      | Title                              | AwardName                                          | PaymentRequestType |
+#      | Automation Runtime Payment Request | {SavedValue:Automation Runtime Award for closeout} | Reimbursement      |
+#    And I create site visit or Desk Review records with status "Active" using "default" properties
+#      | RecordType  | Title                          | AwardName                                          | AssociateAward                        | MonitoringType   |
+#      | Site Visit | Automation Runtime Site Visit | {SavedValue:Automation Runtime Award for closeout} | {SavedValue:Automation Runtime Award} | Program & Fiscal |
+#    And I create org level site visit or Desk Review records with status "Active" using "default" properties
+#      | RecordType | Title                                    | AccountName                         | AssociateAward                        | MonitoringType   |
+#      | Site Visit | Automation Runtime Org Level Desk Review | SAN DIEGO ELECTRICAL TRAINING TRUST | {SavedValue:Automation Runtime Award} | Program & Fiscal |
+#    And I create closeout records with status "Approved" using "default" properties
+#      | AwardName                                          | CloseoutType     |
+#      | {SavedValue:Automation Runtime Award for closeout} | Early Completion |
+#    Given I delete the record "{SavedValue:Automation Runtime award}" from the object "Payment Request"
+#    When I create a post award record "PaymentRequest" for the Award "{SavedValue:Automation Runtime award}" having object api name as "PaymentRequest__c"
+#    And I update schedule payment request records with status "Created" using "default" properties
+#      | EGMSId                 | AwardName                             | PaymentRequestType |
+#      | {SavedValue:Record Id} | {SavedValue:Automation Runtime award} | Reimbursement      |
+#    Given I delete the record "{SavedValue:Automation Runtime award}" from the object "Progress Report"
+#    When I create a post award record "ProgressReport" for the Award "{SavedValue:Automation Runtime award}" having object api name as "ProgressReports__c"
+#    And I update schedule progress report records with status "Approved" using "default" properties
+#      | EGMSId                 | AwardName                             |
+#      | {SavedValue:Record Id} | {SavedValue:Automation Runtime award} |
+    And I halt execution
+
+  @CheckUserLogins
+  Scenario: Check User Logins
+    Given I login to "As a Grantor" app as "PM1" user
+    And I navigate to "Planning" tab
+    When I re-login to "As a Grantor" app as "ADMIN1" user on "INTERNAL" portal
+    And I navigate to "Planning" tab
+    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    And I navigate to "Planning" tab
+    When I re-login to "As a Grantor" app as "PM1" user on "INTERNAL" portal
+    And I navigate to "Planning" tab
+    And I re-login to "As a Grantor" app as "PO" user on "INTERNAL" portal
+    And I navigate to "Planning" tab
+    And I re-login to "As a Grantor" app as "PO1" user on "INTERNAL" portal
+    And I navigate to "Planning" tab
+    And I re-login to "As a Grantor" app as "FO" user on "INTERNAL" portal
+    And I navigate to "Planning" tab
+    And I re-login to "As a Grantor" app as "FO1" user on "INTERNAL" portal
+    And I navigate to "Planning" tab
+    And I re-login to "As a Grantor" app as "FD" user on "INTERNAL" portal
+    And I navigate to "Planning" tab
+    And I re-login to "As a Grantor" app as "FD1" user on "INTERNAL" portal
+    And I navigate to "Planning" tab
+    And I re-login to "As a Grantor" app as "EXE" user on "INTERNAL" portal
+    And I navigate to "Planning" tab
+    And I re-login to "As a Grantor" app as "EXE1" user on "INTERNAL" portal
+    And I navigate to "Planning" tab
+    And I re-login to "As a Grantor" app as "AUDITOR" user on "INTERNAL" portal
+    And I navigate to "Planning" tab
+    And I re-login to "As a Grantor" app as "SARAH PM" user on "INTERNAL" portal
+    And I navigate to "Planning" tab
+    And I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
+    And I navigate to "Grants" tab
+    And I re-login to "Grants Portal" app as "SPA" user on "SUBPORTAL" portal
+    And I navigate to "Grants" tab
+    And I re-login to "Grants Portal" app as "SA" user on "SUBPORTAL" portal
+    And I navigate to "Grants" tab
+    And I re-login to "Grants Portal" app as "IND" user on "SUBPORTAL" portal
+    And I navigate to "Grants" tab
+    And I re-login to "Grants Portal" app as "SME" user on "SUBPORTAL" portal
+    And I navigate to "Grants" tab
+    And I re-login to "Grants Portal" app as "SPI4" user on "SUBPORTAL" portal
+    And I navigate to "Grants" tab
+    And I logout

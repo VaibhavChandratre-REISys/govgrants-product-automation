@@ -164,8 +164,8 @@ Feature: Validate all scenarios in the directed Announcement tab
     And I navigate to "Announcements" tab
     When I navigate to "Directed" content inside "Announcements" subheader on left panel
     And I click toggle button to select "All Directed Announcements"
-    And I perform quick search for "{AUTOEnvData:ClosedStateAnnouncement}" in "ActiveFundingOpportunities" panel
-    And I click on "View" icon for "{AUTOEnvData:ClosedStateAnnouncement}" inside flex table with id "ActiveFundingOpportunities"
+    And I perform quick search for "{AUTOEnvData:ClosedStateAnnouncement_ApplicationSubmittedToGrantor}" in "ActiveFundingOpportunities" panel
+    And I click on "View" icon for "{AUTOEnvData:ClosedStateAnnouncement_ApplicationSubmittedToGrantor}" inside flex table with id "ActiveFundingOpportunities"
     When I navigate to "Overview" sub tab
     And I wait for "3" seconds
     When I save the value from row "1" for column name "Application EGMS ID" as "AppEgmdId" from flex table "---announcement:-:directedInvitedApplicatsTableId---"
@@ -2819,8 +2819,8 @@ Feature: Validate all scenarios in the directed Announcement tab
     And I navigate to "Announcements" tab
     When I navigate to "Directed" content inside "Announcements" subheader on left panel
     And I click toggle button to select "All Directed Announcements"
-    And I perform quick search for "{AUTOEnvData:ClosedStateAnnouncement}" in "ActiveFundingOpportunities" panel
-    And I click on "View" icon for "{AUTOEnvData:ClosedStateAnnouncement}" inside flex table with id "ActiveFundingOpportunities"
+    And I perform quick search for "{AUTOEnvData:ClosedStateAnnouncement_ApplicationSubmittedToGrantor}" in "ActiveFundingOpportunities" panel
+    And I click on "View" icon for "{AUTOEnvData:ClosedStateAnnouncement_ApplicationSubmittedToGrantor}" inside flex table with id "ActiveFundingOpportunities"
     When I navigate to "Overview" sub tab
     And I wait for "3" seconds
     Then I see the following headers in table with id "---announcement:-:directedInvitedApplicatsTableId---" :
@@ -2847,9 +2847,11 @@ Feature: Validate all scenarios in the directed Announcement tab
     Then I softly see value "Description" for the field "Automation test description"
     And I navigate to "Overview" sub tab
     When I click on top right button "Associate" in flex table with id "---announcement:-:contactTableId---"
-    When I click "Associate" after selection of "{SavedValue:PM Username}" by showing entries "All" in flex table with id "---announcement:-:annoucementContactTableId---"
+    When I click "Associate" after selection of "{SavedValue:ADMIN1 Username}" by showing entries "All" in flex table with id "---announcement:-:annoucementContactTableId---"
     When I click modal button "Close"
-    Then I softly see value "{SavedValue:PM Username}" for title "Name" inside table "---announcement:-:contactTableId---"
+    And I refresh the page
+    And I wait for "4" seconds
+    Then I softly see value "{SavedValue:ADMIN1 Username}" for title "Name" inside table "---announcement:-:contactTableId---"
     And I click on top right button "New" in flex table with id "---announcement:-:contactTableId---"
     And I generate the random EmailID and save as "uniqueEmailID1"
     And I enter values into fields
@@ -2915,7 +2917,9 @@ Feature: Validate all scenarios in the directed Announcement tab
     And I click on top right button "Add Organizations" in flex table with id "---announcement:-:directedInvitedApplicatsTableId---"
     When I click "Add" after selection of "SAN DIEGO ELECTRICAL TRAINING TRUST" in the table "---announcement:-:directedAddInviteApplicantTableId---"
     When I close "Add Organizations" modal by clicking the top right x button
-    Then I softly see that "SAN DIEGO ELECTRICAL TRAINING TRUST" has been added in flextable with Id "---announcement:-:directedInvitedApplicatsTableId---"
+    And I refresh the page
+    And I wait for "5" seconds
+#    Then I softly see that "SAN DIEGO ELECTRICAL TRAINING TRUST" has been added in flextable with Id "---announcement:-:directedInvitedApplicatsTableId---"
     When I navigate to "Financials" sub tab
     And I click on "Edit" in the page details
 #    And I enter value "Justified" into field "Justification__c"

@@ -121,6 +121,7 @@ Feature: Validate all scenarios in Strategic Plan
     When I click modal button "Save and Continue"
     And I click on "Save" in the page details
     When I click on "Edit" in the page details
+    And I wait for "2" seconds
     When I enter value "Execution Strategic Objective" into field "StrategyDescription__c"
     When I click on "Save" in the page details
     Then I softly see value "Execution Strategic Objective" for the field "Description"
@@ -164,7 +165,9 @@ Feature: Validate all scenarios in Strategic Plan
     And I click on "Save" in the page details
     When I navigate to "Related Log" sub tab
     And I click on top right button "Associate" in flex table with id "---strategicplan:-:ObjectivesKPITableId---"
-    When I click "Add" after selection of "Automation Permanent KPI" by showing entries "All" in flex table with id "---strategicplan:-:ListOfActiveKPITableId---"
+    And I wait for "2" seconds
+    When I perform quick search for "Automation Permanent KPI" in "---strategicplan:-:ListOfActiveKPITableId---" panel
+    When I click "Add" after selection of "Automation Permanent KPI" in the table "---strategicplan:-:ListOfActiveKPITableId---"
     And I click modal button "Close"
     And I wait for "2" seconds
     Then I see that "Automation Permanent KPI" has been added in flextable with Id "---strategicplan:-:ObjectivesKPITableId---"
@@ -243,7 +246,7 @@ Feature: Validate all scenarios in Strategic Plan
     And I update title as "Automation.pdf" on upload file modal
     And I select Classification as "Strategic Goal" at upload file modal
     When I click modal button "Save"
-    And I click modal button "Close"
+#    And I click modal button "Close"
     And I refresh the page
     And I wait for "2" seconds
     Then I softly see value "Automation.pdf" for title "Title" inside table "---strategicplan:-:flexGridGrantorStrategicGoalFiles---"
@@ -273,7 +276,7 @@ Feature: Validate all scenarios in Strategic Plan
     And I update title as "Automation.pdf" on upload file modal
     And I select Classification as "Strategic Objective" at upload file modal
     When I click modal button "Save"
-    And I click modal button "Close"
+#    And I click modal button "Close"
     And I refresh the page
     And I wait for "2" seconds
     Then I softly see value "Automation.pdf" for title "Title" inside table "---strategicplan:-:flexGridGrantorObjectiveFiles---"

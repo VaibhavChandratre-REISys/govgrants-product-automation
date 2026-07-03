@@ -66,9 +66,7 @@ Feature: Validate all scenarios for Auditor Profile in Application Module
     And I click on "Start" icon for "{SavedValue:EGMSID}" inside flex table with id "---negotiation:-:homePendingTasks---"
     And I navigate to "Negotiations" sub tab
     And I click on "Edit" in the page details
-    And I enter values into fields
-      | Value                              | Field                |
-      | Automation Negotiation Iniatiation | ApplicantResponse__c |
+    When I enter value "Automation Test" into field "ApplicantResponse__c"
     When I click on "Save" in the page details
     When I click on "Submit to Grantor" in the page details
     When I re-login to "Grantor" app as "Auditor" user on "INTERNAL" portal
