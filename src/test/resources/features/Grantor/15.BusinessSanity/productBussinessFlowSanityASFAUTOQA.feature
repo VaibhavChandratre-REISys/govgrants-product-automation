@@ -1130,7 +1130,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click toggle button to select "All Formula Announcements"
     When I perform quick search for "{SavedValue:AnnEGMSID}" in "---announcement:-:formulaAnnouncementTableId---" panel
     When I click on "View" icon for "{SavedValue:AnnEGMSID}" inside flex table with id "---announcement:-:formulaAnnouncementTableId---" without waiting for record
-#    And I click on "Publish" in the page details
+    And I click on "Publish" in the page details
     Then I softly see field "Status" as "Published"
 
   @72344 @preApplicationSubmittedToGrantor @ProdSan2 @ProdSan2_1 @ProdSan2_1_1
