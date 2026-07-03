@@ -1,4 +1,4 @@
-@closeoutExecution @closeout @grantor-regression @grantor-parallel-regression @regression @closeoutExecution
+@closeoutEmailExecution @closeout @grantor-regression @grantor-parallel-regression @regression @closeoutExecution
 Feature: Validate all scenarios in Closeout
 
 #  closeoutWB
