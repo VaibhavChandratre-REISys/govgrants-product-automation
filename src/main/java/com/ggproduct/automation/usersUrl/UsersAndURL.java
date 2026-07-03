@@ -32,7 +32,7 @@ public class UsersAndURL implements UsersController {
         I.amPerforming().propertiesFileOperationsTo().saveValue("SPI4 Username", "Automation SPI4");
         I.amPerforming().propertiesFileOperationsTo().saveValue("IND Username", "Automation IND");
         I.amPerforming().propertiesFileOperationsTo().saveValue("SME Username", "Automation SME");
-        I.amPerforming().propertiesFileOperationsTo().saveValue("GRANTEE ADMIN Username", "Grantee ADMIN");
+        I.amPerforming().propertiesFileOperationsTo().saveValue("GRANTEE ADMIN Username", "QA Admin");
         I.amPerforming().propertiesFileOperationsTo().saveValue("GRANTEE PO Username", "Grantee PO");
         I.amPerforming().propertiesFileOperationsTo().saveValue("GRANTEE FD Username", "Grantee FD");
         I.amPerforming().propertiesFileOperationsTo().saveValue("GRANTEE PM Username", "Grantee PM");
@@ -151,7 +151,7 @@ public class UsersAndURL implements UsersController {
         String password;
         switch (userLevel.toUpperCase()) {
             case "GRANTEE ADMIN":
-                password = "QaTest@2026";
+                password = "Dev@3031";
                 break;
             case "GRANTEE ADMIN1":
                 password = "Dev@3030";
@@ -458,7 +458,7 @@ public class UsersAndURL implements UsersController {
         username.put("SPI4", "spi4@yopmail.com.ggmergeqa2");
         username.put("SARAH PM", "sarah.pm@ggp.test8.ggmergeqa2");
 
-        username.put("GRANTEE ADMIN", "demo.admin@ggp.test8.ggmergeqa2");
+        username.put("GRANTEE ADMIN", "qa.admin@ggp.test8.ggmergeqa2");
         username.put("GRANTEE ADMIN1", "qa.admin.testing@ggp.test8.ggmergeqa2");
         username.put("GRANTEE ADMIN2", "govgrantsauto@yopmail.com.ggmergeqa2");
         username.put("GRANTEE PM", "sarah.pm@ggp.test8.ggmergeqa2");
