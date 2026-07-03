@@ -4742,6 +4742,7 @@ Feature: Validate scenarios in Progress Report Forms
     And I click on "Save" in the page details
     When I navigate to "Forms and Files" sub tab
     And I click on "Attach" icon for "Active" inside flex table with id "---progressReport:-:progressReportChecklistsTableId---" without waiting for record
+    And I halt execution
     And I upload attachment without random number "AttachmentTesting.pdf" of type "Others" from computer
     When I click modal button "Close"
     And I wait for "2" seconds
