@@ -151,8 +151,10 @@ public final class SideBar {
      * @modified john.phillips - 02/19/2019 - Added check to skip expansion if in San Diego
      */
     public void handleSideBarContentExpanded(String subHeader) {
-        By sideBarHeader = By.xpath("//gnt-side-bar-lwc//section//button[@title='" + subHeader + "']/ancestor::ul//div[contains(@class,'summary1')]//button[@aria-expanded='false']");
-        By sideBarSubHeader = By.xpath("//gnt-side-bar-lwc//section//button[@title='" + subHeader + "' and @aria-expanded='false']");
+//        By sideBarHeader = By.xpath("//gnt-side-bar-lwc//section//button[@title='" + subHeader + "']/ancestor::ul//div[contains(@class,'summary1')]//button[@aria-expanded='false']");
+//        By sideBarSubHeader = By.xpath("//gnt-side-bar-lwc//section//button[@title='" + subHeader + "' and @aria-expanded='false']");
+        By sideBarHeader = By.xpath("//div[contains(@class,'active lafPageHost')]//button[@title='" + subHeader + "' and @aria-expanded='false']/ancestor::ul//div[contains(@class,'summary1')]//button[@aria-expanded='false'] | //nav[contains(@class,'sidebar')]//button[@title='" + subHeader + "' and @aria-expanded='false']/ancestor::ul//div[contains(@class,'summary1')]//button[@aria-expanded='false']");
+        By sideBarSubHeader = By.xpath("//div[contains(@class,'active lafPageHost')]//button[@title='" + subHeader + "' and @aria-expanded='false'] | //nav[contains(@class,'sidebar')]//button[@title='" + subHeader + "' and @aria-expanded='false']");
         I.amPerforming().waitFor().ElementToBePresent(By.xpath("//gnt-side-bar-lwc//section"));
         if (I.amPerforming().checkToSee().IsElementPresentQuick(sideBarHeader)) {
             I.amPerforming().click().on(sideBarHeader);
@@ -200,7 +202,9 @@ public final class SideBar {
      * @author nauman.shahid
      */
     public By getSideBarContentLocator(String subHeader, String subHeaderContent) {
-        return By.xpath("//div[contains(@class,'sidebar slds-split-view_container slds-is-open open-panel')]//section//button[@title='" + subHeader +"']/parent::h2/parent::div/parent::section//a[text()='" + subHeaderContent +"']");
+//        return By.xpath("//div[contains(@class,'sidebar slds-split-view_container slds-is-open open-panel')]//section//button[@title='" + subHeader +"']/parent::h2/parent::div/parent::section//a[text()='" + subHeaderContent +"']");
+        return By.xpath("//div[contains(@class,'active lafPageHost')]//button[@title='" + subHeader + "']//ancestor::div[contains(@class,'slds-accordion__summary')]//following-sibling::div//button[@title='" + subHeaderContent + "'] | //nav[contains(@class,'sidebar')]//button[@title='" + subHeader + "']//ancestor::div[contains(@class,'slds-accordion__summary')]//following-sibling::div//button[@title='" + subHeaderContent + "']");
+
     }
 
     /**
