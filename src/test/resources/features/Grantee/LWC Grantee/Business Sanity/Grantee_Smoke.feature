@@ -14088,6 +14088,7 @@ Feature: Grantee Smoke scenarios
     Then I softly see "Resize" button for page
     Then I softly see "Collapse" button for page
     When I navigate to "Forms and Files" sub tab
+    And I halt execution
     Then I softly cannot see row level action button "Edit" against "Progress Report" in flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
     Then I softly can see row level action button "View" against "Progress Report" in flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
     Then I softly can see row level action button "Splitview" against "Progress Report" in flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
@@ -14099,6 +14100,7 @@ Feature: Grantee Smoke scenarios
     Then I softly do not see top right button "New" inside flex table "---grantee_tableId:-:financialReportNotesTableId---"
     When I click on "View" icon for "Progress Report" inside flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
     And I switch to tab number "1"
+    And I halt execution
     Then I see the header is "Performance Progress Report" in the page details
     And I save the field labeled "Award" as "Award"
     Then I softly see link "{SavedValue:Award}" inside Page block
@@ -14186,6 +14188,7 @@ Feature: Grantee Smoke scenarios
     Then I softly see top right button "New" inside flex table "---grantee_tableId:-:financialReportNotesTableId---"
     When I click on "View" icon for "Progress Report" inside flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
     And I switch to tab number "3"
+    And I halt execution
     Then I see the header is "Performance Progress Report" in the page details
     And I save the field labeled "Award" as "Award"
     Then I softly see link "{SavedValue:Award}" inside Page block
