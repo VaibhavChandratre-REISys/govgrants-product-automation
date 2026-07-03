@@ -500,6 +500,88 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I click on "Delete" icon for "Review form question Edited" inside flex table with id "---announcement:-:reviewPanelQuestionsTableId---" without waiting for record
     Then I softly do not see value "Review form question Edited" for title "Question" inside table "---announcement:-:reviewPanelQuestionsTableId---"
 
+  @71293 @71295 @71440 @71416 @verifyUserCanAddReviewers
+  Scenario: To verify that user is allow to add reviewers to review forms while creating Announcement | To verify default review forms & reviewer section are populated on Draft announcement
+    When I login to "Grantor" app as "dynamicUser" user
+    And I navigate to "Announcements" tab
+    When I navigate to "Directed" content inside "Announcements" subheader on left panel
+    And I click on top right button "New" in flex table with id "---announcement:-:annoucementTableId---"
+    And I enter "DirectedAnnouncement" values from "Announcement_Field_Values.xlsx"
+    And I click modal button "Continue"
+    When I enter "Pre-Application Modal" values from "Announcement_Field_Values.xlsx"
+    And I wait for "5" seconds
+    And I click modal button "Save and Continue"
+    And I navigate to "Setup" sub tab
+    When I edit the following rows inline in flex table with id "---announcement:-:AnnouncementReviewPanel---" by clicking "Edit" :
+      | Step Name         | Step Weight (%) |
+      | Management Review | 0               |
+      | SME Review        | 100             |
+    And I click on "Save" in the page details
+    And I expand nested table containing column value "SME Review"
+    And I pause execution for "2" seconds
+    Then I softly see value "Fiscal Review" for title "Form Name" inside table "---announcement:-:AnnouncementReviewPanel---"
+    Then I softly see value "Program Review" for title "Form Name" inside table "---announcement:-:AnnouncementReviewPanel---"
+    Then I softly see value "Compliance Review" for title "Form Name" inside table "---announcement:-:AnnouncementReviewPanel---"
+    Then I softly see "Form Name" in flex table header "---announcement:-:AnnouncementReviewPanel---"
+    Then I softly see "Form Weight (%)" in flex table header "---announcement:-:AnnouncementReviewPanel---"
+    Then I softly see "Minimum Number of Reviews per Application" in flex table header "---announcement:-:AnnouncementReviewPanel---"
+    Then I softly see "Required?" in flex table header "---announcement:-:AnnouncementReviewPanel---"
+    Then I softly see "Reviewer" in flex table header "---announcement:-:AnnouncementReviewPanel---"
+    Then I softly see "Email" in flex table header "---announcement:-:AnnouncementReviewPanel---"
+    Then I softly see "Organization Name" in flex table header "---announcement:-:AnnouncementReviewPanel---"
+    Then I softly see "# of Applications Assigned" in flex table header "---announcement:-:AnnouncementReviewPanel---"
+    And I edit the following rows inline in flex table with id "---announcement:-:AnnouncementReviewPanel---" by clicking "Edit" :
+      | Form Name     | Form Weight (%) |
+      | Fiscal Review | 25              |
+    And I edit the following rows inline in flex table with id "---announcement:-:AnnouncementReviewPanel---" by clicking "Edit" :
+      | Form Name      | Form Weight (%) |
+      | Program Review | 25              |
+    And I edit the following rows inline in flex table with id "---announcement:-:AnnouncementReviewPanel---" by clicking "Edit" :
+      | Form Name         | Form Weight (%) |
+      | Compliance Review | 50              |
+    Then I softly see the following messages in the page details :
+      | Saved Successfully! |
+    And I click on "Review Form" icon for "Compliance Review" inside flex table with id "---announcement:-:AnnouncementReviewPanel---" without waiting for record
+    And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
+      | Section Header | Section Weight (%) |
+      | Schedule       | 50                 |
+      | Environment    | 25                 |
+      | Permits        | 25                 |
+    And I pause execution for "2" seconds
+    And I expand nested table containing column value "Schedule"
+    When I enter the following values into flex table with id "---announcement:-:reviewPanelQuestionsTableId---" by clicking "New" :
+      | Question Order | Question  | Type    | Max Score |
+      | 1              | Question1 | Written | 100       |
+    And I pause execution for "2" seconds
+    And I collapse nested table containing column value "Schedule"
+    And I expand nested table containing column value "Environment"
+    When I enter the following values into flex table with id "---announcement:-:reviewPanelQuestionsTableId---" by clicking "New" :
+      | Question Order | Question  | Type    | Max Score |
+      | 1              | Question2 | Written | 100       |
+    And I pause execution for "2" seconds
+    And I collapse nested table containing column value "Environment"
+    And I expand nested table containing column value "Permits"
+    When I enter the following values into flex table with id "---announcement:-:reviewPanelQuestionsTableId---" by clicking "New" :
+      | Question Order | Question  | Type    | Max Score |
+      | 1              | Question3 | Written | 100       |
+    And I pause execution for "2" seconds
+    And I collapse nested table containing column value "Permits"
+    When I close "Review Form" modal by clicking the top right x button
+    And I refresh the page
+    And I pause execution for "3" seconds
+    And I click on top right button "Validate" in flex table with id "---announcement:-:AnnouncementReviewPanel---"
+    Then I softly see the following messages in the page details :
+      | There are no errors with the review step templates. |
+    And I pause execution for "3" seconds
+    When I enter the following values into flex table with id "---announcement:-:AnnouncementReviewPanel---" by clicking "Add" :
+      | Reviewer                 |
+      | {SavedValue:PM Username} |
+    Then I softly see value "{SavedValue:PM Username}" for title "Reviewer" inside table "---announcement:-:AnnouncementReviewPanel---"
+    Then I softly see value "pm.automation.qa2@yopmail.com" for title "Email" inside table "---announcement:-:AnnouncementReviewPanel---"
+    Then I softly see value "Test Automation Organization" for title "Organization Name" inside table "---announcement:-:AnnouncementReviewPanel---"
+    And I click on "Remove from Form" icon for "Automation PM" inside flex table with id "---announcement:-:AnnouncementReviewPanel---" without waiting for record
+    Then I softly see "No Records Found" inside flex table with id "---announcement:-:AnnouncementReviewPanel---"
+
   @70861 @70858 @profileNotAllowedToCreateAnnouncement
   Scenario Outline: Verify user having FO/FD Profile are not allowed to create announcements
     When I login to "Grantor" app as "<users>" user
@@ -5894,3 +5976,549 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I refresh the page
     And I navigate to "Messages" sub tab
     Then I see "No Records Found" inside flex table with id "---announcement:-:systemEmailsTableId---"
+
+  @336709 @336710 @336711 @336712 @336721 @336723 @336728 @ValidateAnnouncementPMusershouldabletoseeSystemEmailsectioninmessagestab @Sprint-13-US-341529-332637 @SystemEmail @ExcludeSendEmail
+  Scenario: Validate Announcement PM user should able to see System Email section in messages tab
+    When I login to "Grantor" app as "PM" user
+    And I navigate to "Announcements" tab
+    When I navigate to "Competitive" content inside "Announcements" subheader on left panel
+    And I click toggle button to select "Draft Competitive Announcements"
+    And I click on top right button "New" in flex table with id "---announcement:-:competitiveAnnouncementTableId---"
+    And I enter "CompetitiveAnnouncement" values from "Announcement_Field_Values.xlsx"
+    And I click modal button "Continue"
+    When I enter "Creation Second Negotiation" values from "Announcement_Field_Values.xlsx"
+    And I click modal button "Save and Continue"
+    When I click on "Save" in the page details
+    And I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "AnnEGMSID"
+    And I save the field labeled "Announcement Name" as "Automation Runtime Announcement Application Review"
+    When I click on "Edit" in the page details
+    And I enter "Edition" values from "Announcement_Field_Values.xlsx"
+    And I click on "Save" in the page details
+    Then I softly see status in Progress-bar is "Created" and is "dark blue"
+    And I navigate to "Messages" sub tab
+    Then I softly see "System Emails" page block displayed
+    #336710
+    When I navigate to "Responsibilities" sub tab
+    When I enter the following values into flex table with id "---announcement:-:reviewersTableId---" by clicking "New" :
+      | Name          | Responsibility   | Description                 | Due Date |
+      | Automation FD | Program Reviewer | Automation Test Description | 10       |
+    And I pause execution for "3" seconds
+    And I click on "Send for Review" icon for "{SavedValue:FD Username}" inside table
+    And I pause execution for "4" seconds
+    Then I softly see field "Status" as "Submitted for Review"
+    And I wait for "180" seconds
+    And I refresh the page
+    And I navigate to "Messages" sub tab
+    Then I softly see value "Notification: Announcement {SavedValue:AnnEGMSID} Awaiting Peer Review" for title "Subject" inside table "---announcement:-:systemEmailsTableId---"
+    Then I softly see value "pm.automation.qa2@yopmail.com" for title "From Address" inside table "---announcement:-:systemEmailsTableId---"
+    Then I softly see value "automation.fd.qa2@yopmail.com" for title "To Address" inside table "---announcement:-:systemEmailsTableId---"
+    And I click on "View" icon for "automation.fd.qa2@yopmail.com" inside flex table with id "---announcement:-:systemEmailsTableId---" without waiting for record
+    Then I softly see following details for email sent under collab:
+      | pm.automation.qa2@yopmail.com                                          |
+      | automation.fd.qa2@yopmail.com                                          |
+      | Notification: Announcement {SavedValue:AnnEGMSID} Awaiting Peer Review |
+    When I close "System Email" modal by clicking the top right x button
+    When I re-login to "Grantor" app as "FD" user on "INTERNAL" portal
+    And I navigate to "Home" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    When I perform quick search for "{SavedValue:AnnEGMSID}" in "---program:-:homePendingTableId---" panel
+    Then I softly see value "{SavedValue:AnnEGMSID}" for title "EGMS ID" inside table "---program:-:homePendingTableId---"
+    When I click on "Start" icon for "{SavedValue:AnnEGMSID}" inside flex table with id "---program:-:homePendingTableId---"
+    Then I softly see field "Status" as "Submitted for Review"
+    And I wait for "180" seconds
+    And I refresh the page
+    And I navigate to "Messages" sub tab
+    Then I softly see value "Notification: Announcement {SavedValue:AnnEGMSID} Awaiting Peer Review" for title "Subject" inside table "---announcement:-:systemEmailsTableId---"
+    Then I softly see value "pm.automation.qa2@yopmail.com" for title "From Address" inside table "---announcement:-:systemEmailsTableId---"
+    Then I softly see value "automation.fd.qa2@yopmail.com" for title "To Address" inside table "---announcement:-:systemEmailsTableId---"
+    And I click on "View" icon for "automation.fd.qa2@yopmail.com" inside flex table with id "---announcement:-:systemEmailsTableId---" without waiting for record
+    And I pause execution for "4" seconds
+    Then I softly see following details for email sent under collab:
+      | pm.automation.qa2@yopmail.com                                          |
+      | automation.fd.qa2@yopmail.com                                          |
+      | Notification: Announcement {SavedValue:AnnEGMSID} Awaiting Peer Review |
+    When I close "System Email" modal by clicking the top right x button
+    And I navigate to "Responsibilities" sub tab
+    When I click on "Enter Review" icon for "Automation FD" inside flex table with id "---announcement:-:reviewersTableId---" without waiting for record
+    When I enter in modal value "Passed" into field "Rating__c"
+    And I enter in modal value "Passed" into field "ReviewComments__c"
+    When I click modal button "Save"
+    And I click on submit review
+    #336721
+    And I wait for "220" seconds
+    And I refresh the page
+    And I navigate to "Messages" sub tab
+    Then I softly see quick search inside table id "---announcement:-:systemEmailsTableId---"
+    When I perform quick search for "Notification: Announcement {SavedValue:AnnEGMSID} has been Peer Reviewed" in "---announcement:-:systemEmailsTableId---" panel
+    Then I softly see value "Notification: Announcement {SavedValue:AnnEGMSID} has been Peer Reviewed" for title "Subject" inside table "---announcement:-:systemEmailsTableId---"
+    #336728
+    And I click on "View" icon for "Notification: Announcement {SavedValue:AnnEGMSID} has been Peer Reviewed" inside flex table with id "---announcement:-:systemEmailsTableId---" without waiting for record
+    And I wait for "5" seconds
+    Then I softly see following details for email sent under collab:
+      | pm.automation.qa2@yopmail.com                                            |
+      | automation.fd.qa2@yopmail.com                                            |
+      | Notification: Announcement {SavedValue:AnnEGMSID} has been Peer Reviewed |
+    When I close "System Email" modal by clicking the top right x button
+    #336723
+    And I wait for "5" seconds
+    And I click on parallel menu button in flex table title "System Emails"
+    And I select "Download as PDF" from parallel lines dropdown of "System Emails"
+    And I download the file
+    Then I softly see "System Emails" on page "1" of "govgrants" pdf file
+    And I switch to parent tab
+    #336711
+    When I re-login to "Grantor" app as "FO" user on "INTERNAL" portal
+    And I navigate to "Announcements" tab
+    And I click toggle button to select "Announcements - All"
+    When I perform quick search for "{SavedValue:AnnEGMSID}" in "---announcement:-:ActiveFundingOpportunitiesAllTableId---" panel
+    When I click on "View" icon for "{SavedValue:AnnEGMSID}" inside flex table with id "---announcement:-:ActiveFundingOpportunitiesAllTableId---" without waiting for record
+    And I refresh the page
+    And I navigate to "Messages" sub tab
+    Then I softly see value "Notification: Announcement {SavedValue:AnnEGMSID} has been Peer Reviewed" for title "Subject" inside table "---announcement:-:systemEmailsTableId---"
+    Then I softly see value "pm.automation.qa2@yopmail.com" for title "From Address" inside table "---announcement:-:systemEmailsTableId---"
+    Then I softly see value "automation.fd.qa2@yopmail.com" for title "To Address" inside table "---announcement:-:systemEmailsTableId---"
+    And I click on "View" icon for "Notification: Announcement {SavedValue:AnnEGMSID} has been Peer Reviewed" inside flex table with id "---announcement:-:systemEmailsTableId---" without waiting for record
+    And I wait for "5" seconds
+    Then I softly see following details for email sent under collab:
+      | pm.automation.qa2@yopmail.com                                            |
+      | automation.fd.qa2@yopmail.com                                            |
+      | Notification: Announcement {SavedValue:AnnEGMSID} has been Peer Reviewed |
+    When I close "System Email" modal by clicking the top right x button
+    #336712
+    When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
+    And I navigate to "Announcements" tab
+    And I click toggle button to select "Announcements - All"
+    When I perform quick search for "{SavedValue:AnnEGMSID}" in "---announcement:-:ActiveFundingOpportunitiesAllTableId---" panel
+    When I click on "View" icon for "{SavedValue:AnnEGMSID}" inside flex table with id "---announcement:-:ActiveFundingOpportunitiesAllTableId---" without waiting for record
+    And I navigate to "Messages" sub tab
+    Then I softly see value "Notification: Announcement {SavedValue:AnnEGMSID} has been Peer Reviewed" for title "Subject" inside table "---announcement:-:systemEmailsTableId---"
+    Then I softly see value "pm.automation.qa2@yopmail.com" for title "From Address" inside table "---announcement:-:systemEmailsTableId---"
+    Then I softly see value "automation.fd.qa2@yopmail.com" for title "To Address" inside table "---announcement:-:systemEmailsTableId---"
+    And I click on "View" icon for "Notification: Announcement {SavedValue:AnnEGMSID} has been Peer Reviewed" inside flex table with id "---announcement:-:systemEmailsTableId---" without waiting for record
+    And I wait for "5" seconds
+    Then I softly see following details for email sent under collab:
+      | pm.automation.qa2@yopmail.com                                            |
+      | automation.fd.qa2@yopmail.com                                            |
+      | Notification: Announcement {SavedValue:AnnEGMSID} has been Peer Reviewed |
+
+  @336719 @ValidateAnnouncementEXEusershouldnotabletoseeEmailinSystemEmailssectionwhensendmailthroughmessagessectioninmessagestab @Sprint-13-US-341529-332637
+  Scenario: Validate Announcement EXE user should not able to see Email in System Emails section when send mail through messages section in messages tab
+    When I login to "Grantor" app as "EXE" user
+    And I navigate to "Announcements" tab
+    When I navigate to "Formula" content inside "Announcements" subheader on left panel
+    And I click toggle button to select "Draft Formula Announcements"
+    And I click on top right button "New" in flex table with id "---announcement:-:formulaAnnouncementTableId---"
+    And I enter "FormulaAnnouncement" values from "Announcement_Field_Values.xlsx"
+    And I click modal button "Continue"
+    When I enter "CreationFormula_ByApp_focusNo" values from "Announcement_Field_Values.xlsx"
+    And I click modal button "Save and Continue"
+    When I navigate to "Overview" sub tab
+    And I enter "Formula_Edition" values from "Announcement_Field_Values.xlsx"
+    When I navigate to "Overview" sub tab
+    When I enter value "Individuals" into field "EligibleApplicantTypes__c"
+    And I click on "Save" in the page details
+    And I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "AnnEGMSID"
+    And I navigate to "Messages" sub tab
+    And I click on top right button "Send Email" in flex table with id "---announcement:-:collabMessages---"
+    And I pause execution for "5" seconds
+    And I send the email under collab tab with following details:
+      | To                            | Subject         | Body                       |
+      | pm.automation.qa2@yopmail.com | Automation Test | Automation Test Email Body |
+    And I wait for "2" seconds
+    Then I see the text "Email Sent Successfully." in modal
+    And I close "Send Email" modal by clicking the top right x button
+    Then I softly see value "" for title "Attention To" inside table "---announcement:-:collabMessages---"
+    Then I see the following rows under the following headers in table with id "---announcement:-:collabMessages---" :
+      | Actions     | Subject         | From Address                   | To Address                    | CC Address | Attention To | Email Subject   | Preview                    |
+      | Action menu | Automation Test | exe.automation.qa2@yopmail.com | pm.automation.qa2@yopmail.com |            |              | Automation Test | Automation Test Email Body |
+    And I refresh the page
+    And I wait for "3" seconds
+    Then I see "No Records Found" inside flex table with id "---program:-:systemEmailsTableId---"
+
+  @336732 @336731 @ValidateAnnouncementFOuserseeRefreshbuttonunderhamburgericononSystemEmailssectionshouldabletorefreshthetable @Sprint-13-US-341529-332637 @SystemEmail
+  Scenario: Validate Announcement FO user see Refresh button under hamburger icon on System Emails section & should able to refresh the table
+    When I login to "Grantor" app as "PM" user
+    And I navigate to "Announcements" tab
+    When I navigate to "Competitive" content inside "Announcements" subheader on left panel
+    And I click toggle button to select "Draft Competitive Announcements"
+    And I click on top right button "New" in flex table with id "---announcement:-:competitiveAnnouncementTableId---"
+    And I enter "CompetitiveAnnouncement" values from "Announcement_Field_Values.xlsx"
+    And I wait for "2" seconds
+    And I click modal button "Continue"
+    When I enter "Creation Second Negotiation" values from "Announcement_Field_Values.xlsx"
+    And I click modal button "Save and Continue"
+    And I wait for "5" seconds
+#    And I save the field labeled "Announcement Name" as "Automation Runtime Announcement Application Review"
+    And I enter "Edition" values from "Announcement_Field_Values.xlsx"
+    And I click on "Save" in the page details
+    And I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "AnnEGMSID"
+    Then I softly see status in Progress-bar is "Created" and is "dark blue"
+    And I navigate to "Messages" sub tab
+    Then I softly see "System Emails" page block displayed
+    When I navigate to "Responsibilities" sub tab
+    When I enter the following values into flex table with id "---announcement:-:reviewersTableId---" by clicking "New" :
+      | Name          | Responsibility   | Description                 | Due Date |
+      | Automation FD | Program Reviewer | Automation Test Description | 10       |
+    And I pause execution for "3" seconds
+    And I click on "Send for Review" icon for "{SavedValue:FD Username}" inside table
+    And I wait for "3" seconds
+    Then I softly see field "Status" as "Submitted for Review"
+    When I re-login to "Grantor" app as "FO" user on "INTERNAL" portal
+    And I navigate to "Announcements" tab
+    And I click toggle button to select "Announcements - All"
+    When I perform quick search for "{SavedValue:AnnEGMSID}" in "---announcement:-:ActiveFundingOpportunitiesAllTableId---" panel
+    When I click on "View" icon for "{SavedValue:AnnEGMSID}" inside flex table with id "---announcement:-:ActiveFundingOpportunitiesAllTableId---" without waiting for record
+    Then I softly see field "Status" as "Submitted for Review"
+    And I wait for "200" seconds
+    And I refresh the page
+    And I navigate to "Messages" sub tab
+    Then I softly see value "Notification: Announcement {SavedValue:AnnEGMSID} awaiting peer review" for title "Subject" inside table "---announcement:-:systemEmailsTableId---"
+    Then I softly see value "pm.automation.qa2@yopmail.com" for title "From Address" inside table "---announcement:-:systemEmailsTableId---"
+    Then I softly see value "automation.fd.qa2@yopmail.com" for title "To Address" inside table "---announcement:-:systemEmailsTableId---"
+    When I perform quick search for "exe.automation.qa2@yopmail.com" in "---announcement:-:systemEmailsTableId---" panel
+    Then I see "No Records Found" inside flex table with id "---announcement:-:systemEmailsTableId---"
+    When I click on button "resetIcon" in flex table with id "RecordSystemEmailHistory"
+    Then I softly see value "Notification: Announcement {SavedValue:AnnEGMSID} awaiting peer review" for title "Subject" inside table "---announcement:-:systemEmailsTableId---"
+    #336731
+    When I re-login to "Grantor" app as "FD" user on "INTERNAL" portal
+    And I navigate to "Announcements" tab
+    And I click toggle button to select "Announcements - All"
+    When I perform quick search for "{SavedValue:AnnEGMSID}" in "---announcement:-:ActiveFundingOpportunitiesAllTableId---" panel
+    When I click on "View" icon for "{SavedValue:AnnEGMSID}" inside flex table with id "---announcement:-:ActiveFundingOpportunitiesAllTableId---" without waiting for record
+    Then I softly see field "Status" as "Submitted for Review"
+    And I navigate to "Messages" sub tab
+    When I perform quick search for "exe.automation.qa2@yopmail.com" in "---announcement:-:systemEmailsTableId---" panel
+    Then I see "No Records Found" inside flex table with id "---announcement:-:systemEmailsTableId---"
+    When I click on button "resetIcon" in flex table with id "RecordSystemEmailHistory"
+    Then I softly see value "Notification: Announcement {SavedValue:AnnEGMSID} awaiting peer review" for title "Subject" inside table "---announcement:-:systemEmailsTableId---"
+
+  @336722 @336724 @ValidateAnnouncementPOusercanseeAdvancefiltershouldworkcorrectlyonSystemEmailsection @Sprint-13-US-341529-332637 @SystemEmail
+  Scenario: Validate Announcement PO user can see Advance filter should work correctly on System Email section
+    When I login to "Grantor" app as "PO" user
+    And I navigate to "Announcements" tab
+    When I navigate to "Competitive" content inside "Announcements" subheader on left panel
+    And I wait for "2" seconds
+    And I click on top right button "New" in flex table with id "---announcement:-:competitiveAnnouncementTableId---"
+    And I enter "CompetitiveAnnouncement" values from "Announcement_Field_Values.xlsx"
+    And I click modal button "Continue"
+    When I enter "Creation Second Negotiation" values from "Announcement_Field_Values.xlsx"
+    And I click modal button "Save and Continue"
+    And I wait for "5" seconds
+    And I enter "Edition" values from "Announcement_Field_Values.xlsx"
+    And I click on "Save" in the page details
+    And I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "AnnEGMSID"
+    Then I softly see status in Progress-bar is "Created" and is "dark blue"
+    When I navigate to "Responsibilities" sub tab
+    When I enter the following values into flex table with id "---announcement:-:reviewersTableId---" by clicking "New" :
+      | Name          | Responsibility   | Description                 | Due Date |
+      | Automation FD | Program Reviewer | Automation Test Description | 10       |
+    And I pause execution for "3" seconds
+    And I click on "Send for Review" icon for "{SavedValue:FD Username}" inside table
+    And I wait for "3" seconds
+    Then I softly see field "Status" as "Submitted for Review"
+    And I wait for "220" seconds
+    And I refresh the page
+    And I navigate to "Messages" sub tab
+#    When I click on advance filter "#advfRecordSystemEmailHistory" of table id "---announcement:-:systemEmailsTableId---"
+#    When I enter advance filter values inside id "advfRecordSystemEmailHistory"
+#      | Subject | contains | Notification: Announcement {SavedValue:AnnEGMSID} awaiting Peer Review |
+#    Then I softly see value "Notification: Announcement {SavedValue:AnnEGMSID} awaiting Peer Review" for title "Subject" inside table "---announcement:-:systemEmailsTableId---"
+#    And I refresh the page
+    #336724
+    Then I softly see "Created Date" in flex table header "---announcement:-:systemEmailsTableId---"
+    Then I softly see "From Address" in flex table header "---announcement:-:systemEmailsTableId---"
+    Then I softly see "To Address" in flex table header "---announcement:-:systemEmailsTableId---"
+    Then I softly see "Subject" in flex table header "---announcement:-:systemEmailsTableId---"
+    Then I softly see "Actions" in flex table header "---announcement:-:systemEmailsTableId---"
+    And I save the value from row "1" for column name "Created Date" as "CreatedDate" from flex table "---announcement:-:systemEmailsTableId---"
+    Then I softly see value "{SavedValue:CreatedDate}" for title "Created Date" inside table "---announcement:-:systemEmailsTableId---"
+    Then I softly see value "Notification: Announcement {SavedValue:AnnEGMSID} awaiting Peer Review" for title "Subject" inside table "---announcement:-:systemEmailsTableId---"
+    Then I softly see value "automation.po.qa2@yopmail.com" for title "From Address" inside table "---announcement:-:systemEmailsTableId---"
+    Then I softly see value "automation.fd.qa2@yopmail.com" for title "To Address" inside table "---announcement:-:systemEmailsTableId---"
+
+  @336726 @336739 @ValidateAnnouncementPMusershouldabletoviewemailonclickofviewicondisplayontable&emailgeneratedafterclickonUndobuttonbylaststepapproverinSystemEmailssectioninmessagestab @Sprint-13-US-341529-332637 @SystemEmail @ExcludeSendEmail
+  Scenario: Validate Announcement PM user should able to view email on click of view icon display on table & email generated after click on Undo button by last step approver in System Emails section in messages tab
+    When I login to "Grantor" app as "PM" user
+    And I navigate to "Announcements" tab
+    When I navigate to "Formula" content inside "Announcements" subheader on left panel
+    And I click toggle button to select "Draft Formula Announcements"
+    And I click on top right button "New" in flex table with id "---announcement:-:formulaAnnouncementTableId---"
+    And I enter "FormulaAnnouncement" values from "Announcement_Field_Values.xlsx"
+    And I click modal button "Continue"
+    When I enter "CreationFormula_ByApp_focusNo" values from "Announcement_Field_Values.xlsx"
+    And I click modal button "Save and Continue"
+    And I wait for "2" seconds
+    When I navigate to "Overview" sub tab
+    And I enter "Formula_Edition" values from "Announcement_Field_Values.xlsx"
+    When I navigate to "Overview" sub tab
+    When I enter value "Individuals" into field "EligibleApplicantTypes__c"
+    And I click on "Save" in the page details
+    And I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "AnnEGMSID"
+    When I navigate to "Financials" sub tab
+    When I click on top right button "Associate" in flex table with id "---announcement:-:fundingAccountsTableId---"
+    When I click "Associate" after selection of "{SavedValue:fundingAccount}" by showing entries "All" in flex table with id "---announcement:-:fundingAccTableId---"
+    And I wait for "3" seconds
+    When I close "Associate Funding Accounts" modal by clicking the top right x button
+    And I refresh the page
+    When I navigate to "Financials" sub tab
+    Given I edit the following rows inline in flex table with id "---announcement:-:fundingAccountsTableId---" by clicking "Edit" :
+      | Funding Account             | Pre-Encumbrance |
+      | {SavedValue:fundingAccount} | 100             |
+    When I navigate to "Financials" sub tab
+    And I click on top right button "Add Budget Period" in flex table with id "---announcement:-:budgetPeriodTableId---"
+    When I refresh the page
+    When I navigate to "Overview" sub tab
+    And I click on top right button "Associate" in flex table with id "---announcement:-:contactTableId---"
+    When I click "Associate" after selection of "Automation PM" by showing entries "All" in flex table with id "---announcement:-:annoucementContactTableId---"
+    When I navigate to "Responsibilities" sub tab
+    When I enter the following values into flex table with id "---announcement:-:approversTableId---" by clicking "New" :
+      | Name          | Announcement |
+      | Automation FO | Step 1       |
+    When I enter the following values into flex table with id "---announcement:-:approversTableId---" by clicking "New" :
+      | Name          | Announcement |
+      | Automation PO | Step 2       |
+    And I click on "Edit" in the page details
+    When I navigate to "Financials" sub tab
+    And I enter value "Justified" into field "Justification__c"
+    And I click on "Save" in the page details
+    And I pause execution for "4" seconds
+    When I navigate to "Overview" sub tab
+    And I click on top right button "Add Organizations" in flex table with id "---announcement:-:formulaInvitedApplicatsTableId---"
+    And I perform quick search for "SAN DIEGO ELECTRICAL TRAINING TRUST" in "---announcement:-:formulaAddInviteApplicantTableId---" panel
+    When I click "Add" after selection of "SAN DIEGO ELECTRICAL TRAINING TRUST" in the table "---announcement:-:formulaAddInviteApplicantTableId---"
+    When I close "Add Organizations" modal by clicking the top right x button
+    And I refresh the page
+    When I edit the following rows inline in flex table with id "---announcement:-:formulaInvitedApplicatsTableId---" by clicking "Edit" :
+      | Applicant Organization              | Allocated Amount |
+      | SAN DIEGO ELECTRICAL TRAINING TRUST | 1000             |
+    When I navigate to "Financials" sub tab
+    And I edit the following rows inline in flex table with id "---announcement:-:budgetPeriodTableId---" by clicking "Edit" :
+      | Budget Period Name | Start Date | End Date |
+      | BP01               | 50         | 150      |
+    And I click on "Submit For Approval" in the page details
+    Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
+    When I re-login to "Grantor" app as "FO" user on "INTERNAL" portal
+    And I navigate to "Announcements" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    When I perform quick search for "{SavedValue:AnnEGMSID}" in "---announcement:-:pendingTaskTableId---" panel
+    When I click on "Start" icon for "{SavedValue:AnnEGMSID}" inside flex table with id "---announcement:-:pendingTaskTableId---" without waiting for record
+    And I "Approve" in the approval decision
+    When I re-login to "Grantor" app as "PO" user on "INTERNAL" portal
+    And I navigate to "Announcements" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    When I perform quick search for "{SavedValue:AnnEGMSID}" in "---announcement:-:pendingTaskTableId---" panel
+    When I click on "Start" icon for "{SavedValue:AnnEGMSID}" inside flex table with id "---announcement:-:pendingTaskTableId---" without waiting for record
+    And I "Approve" in the approval decision
+    Then I softly see field "Status" as "Approved"
+    Then I can see top right button "Undo" in page detail
+    And I click on "Undo" in the page details without processing
+    Then I softly see confirmation box with body "WARNING: This action will reopen the approval decision made earlier. Do you want to proceed?" is displayed
+    And I click "OK" on modal confirmation box
+    And I wait for "2" seconds
+    Then I softly see field "Status" as "Submitted for Approval"
+    And I wait for "180" seconds
+    And I refresh the page
+    And I navigate to "Messages" sub tab
+    Then I softly see value "Notification: Approver initiated undo action on Announcement {SavedValue:AnnEGMSID}." for title "Subject" inside table "---announcement:-:systemEmailsTableId---"
+    Then I softly see value "automation.po.qa2@yopmail.com" for title "From Address" inside table "---announcement:-:systemEmailsTableId---"
+    Then I softly see value "automation.po.qa2@yopmail.com" for title "To Address" inside table "---announcement:-:systemEmailsTableId---"
+    And I click on "View" icon for "automation.po.qa2@yopmail.com" inside flex table with id "---announcement:-:systemEmailsTableId---" without waiting for record
+    And I pause execution for "5" seconds
+    Then I softly see following details for email sent under collab:
+      | automation.po.qa2@yopmail.com                                                        |
+      | automation.po.qa2@yopmail.com                                                        |
+      | Notification: Approver initiated undo action on Announcement {SavedValue:AnnEGMSID}. |
+    When I close "System Email" modal by clicking the top right x button
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
+    And I navigate to "Announcements" tab
+    And I click toggle button to select "Announcements - All"
+    When I perform quick search for "{SavedValue:AnnEGMSID}" in "---announcement:-:ActiveFundingOpportunitiesAllTableId---" panel
+    When I click on "View" icon for "{SavedValue:AnnEGMSID}" inside flex table with id "---announcement:-:ActiveFundingOpportunitiesAllTableId---" without waiting for record
+    And I refresh the page
+    And I navigate to "Messages" sub tab
+    Then I softly see value "Notification: Approver initiated undo action on Announcement {SavedValue:AnnEGMSID}." for title "Subject" inside table "---announcement:-:systemEmailsTableId---"
+    Then I softly see value "automation.po.qa2@yopmail.com" for title "From Address" inside table "---announcement:-:systemEmailsTableId---"
+    Then I softly see value "pm.automation.qa2@yopmail.com" for title "To Address" inside table "---announcement:-:systemEmailsTableId---"
+    And I click on "View" icon for "pm.automation.qa2@yopmail.com" inside flex table with id "---announcement:-:systemEmailsTableId---" without waiting for record
+    And I pause execution for "5" seconds
+    Then I softly see following details for email sent under collab:
+      | automation.po.qa2@yopmail.com                                                        |
+      | pm.automation.qa2@yopmail.com                                                        |
+      | Notification: Approver initiated undo action on Announcement {SavedValue:AnnEGMSID}. |
+    When I close "System Email" modal by clicking the top right x button
+    #336739
+    When I re-login to "Grantor" app as "FO" user on "INTERNAL" portal
+    And I navigate to "Announcements" tab
+    And I click toggle button to select "Announcements - All"
+    When I perform quick search for "{SavedValue:AnnEGMSID}" in "---announcement:-:ActiveFundingOpportunitiesAllTableId---" panel
+    When I click on "View" icon for "{SavedValue:AnnEGMSID}" inside flex table with id "---announcement:-:ActiveFundingOpportunitiesAllTableId---" without waiting for record
+    And I navigate to "Messages" sub tab
+    Then I softly see value "Notification: Approver initiated undo action on Announcement {SavedValue:AnnEGMSID}." for title "Subject" inside table "---announcement:-:systemEmailsTableId---"
+    Then I softly see value "automation.po.qa2@yopmail.com" for title "From Address" inside table "---announcement:-:systemEmailsTableId---"
+    Then I softly see value "fo.automation.qa2@yopmail.com" for title "To Address" inside table "---announcement:-:systemEmailsTableId---"
+
+  @329980 @329981 @ValidateforAnnouncementPMusershouldabletoseeAttentionToColumnundermessagessectioninmessagestab @Sprint-11-US-326384 @SystemEmail @ExcludeSendEmail
+  Scenario: Validate for Announcement PM user should able to see Attention To Column under messages section in messages tab
+    When I login to "Grantor" app as "PM" user
+    And I navigate to "Announcements" tab
+    When I navigate to "Formula" content inside "Announcements" subheader on left panel
+    And I click toggle button to select "Draft Formula Announcements"
+    And I click on top right button "New" in flex table with id "---announcement:-:formulaAnnouncementTableId---"
+    And I enter "FormulaAnnouncement" values from "Announcement_Field_Values.xlsx"
+    And I click modal button "Continue"
+    When I enter "CreationFormula_ByApp_focusNo" values from "Announcement_Field_Values.xlsx"
+    And I click modal button "Save and Continue"
+    When I navigate to "Overview" sub tab
+    And I enter "Formula_Edition" values from "Announcement_Field_Values.xlsx"
+    When I navigate to "Overview" sub tab
+    When I enter value "Individuals" into field "EligibleApplicantTypes__c"
+    And I click on "Save" in the page details
+    And I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "AnnEGMSID"
+    And I navigate to "Messages" sub tab
+    Then I softly see "Attention To" in flex table header "---announcement:-:collabMessages---"
+    And I click on top right button "Send Email" in flex table with id "---announcement:-:collabMessages---"
+    And I wait for "5" seconds
+    And I send the email under collab tab with following details:
+      | To                             | Subject         | Body                       |
+      | exe.automation.qa2@yopmail.com | Automation Test | Automation Test Email Body |
+    And I wait for "2" seconds
+    Then I see the text "Email Sent Successfully." in modal
+    And I close "Send Email" modal by clicking the top right x button
+    Then I softly see value "" for title "Attention To" inside table "---announcement:-:collabMessages---"
+    Then I see the following rows under the following headers in table with id "---announcement:-:collabMessages---" :
+      | Actions     | Subject         | From Address                  | To Address                     | CC Address | Attention To | Email Subject   | Preview                    |
+      | Action menu | Automation Test | pm.automation.qa2@yopmail.com | exe.automation.qa2@yopmail.com |            |              | Automation Test | Automation Test Email Body |
+    #329981
+    When I re-login to "Grantor" app as "PO" user on "INTERNAL" portal
+    And I navigate to "Announcements" tab
+    And I click toggle button to select "Announcements - All"
+    When I perform quick search for "{SavedValue:AnnEGMSID}" in "---announcement:-:ActiveFundingOpportunitiesAllTableId---" panel
+    When I click on "View" icon for "{SavedValue:AnnEGMSID}" inside flex table with id "---announcement:-:ActiveFundingOpportunitiesAllTableId---" without waiting for record
+    And I navigate to "Messages" sub tab
+    Then I softly see "Attention To" in flex table header "---announcement:-:collabMessages---"
+    And I click on top right button "Send Email" in flex table with id "---announcement:-:collabMessages---"
+    And I pause execution for "5" seconds
+    And I send the email under collab tab with following details:
+      | To                             | Subject             | Body                           |
+      | pm1.automation.qa2@yopmail.com | Automation Test PM1 | Automation Test PM1 Email Body |
+    And I wait for "1" seconds
+    Then I see the text "Email Sent Successfully." in modal
+    And I close "Send Email" modal by clicking the top right x button
+    Then I softly see value "" for title "Attention To" inside table "---announcement:-:collabMessages---"
+    And I navigate to "Messages" sub tab
+    Then I see the following rows under the following headers in table with id "---announcement:-:collabMessages---" :
+      | Actions     | Subject             | From Address                  | To Address                     | CC Address | Attention To | Email Subject       | Preview                        |
+      | Action menu | Automation Test PM1 | automation.po.qa2@yopmail.com | pm1.automation.qa2@yopmail.com |            |              | Automation Test PM1 | Automation Test PM1 Email Body |
+
+  @329982 @329983 @ValidateAnnouncementFOusershouldabletoseeAttentionToColumnundermessagessectioninmessagestab @Sprint-11-US-326384 @SystemEmail @ExcludeSendEmail
+  Scenario: Validate Announcement FO user should able to see "Attention To" Column under messages section in messages tab
+    And I published "Competitive" type announcement having name "Automation Runtime Competitive Announcement" and properties "default"
+    When I login to "Grantor" app as "FO" user
+    And I navigate to "Announcements" tab
+    And I click toggle button to select "Announcements - All"
+    When I perform quick search for "{SavedValue:Automation Runtime Competitive Announcement}" in "---announcement:-:ActiveFundingOpportunitiesAllTableId---" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime Competitive Announcement}" inside flex table with id "---announcement:-:ActiveFundingOpportunitiesAllTableId---" without waiting for record
+    Then I see status in Progress-bar is "Published" and is "dark blue"
+    And I navigate to "Messages" sub tab
+    Then I softly see "Attention To" in flex table header "---announcement:-:collabMessages---"
+    And I click on top right button "Send Email" in flex table with id "---announcement:-:collabMessages---"
+    And I wait for "5" seconds
+    And I send the email under collab tab with following details:
+      | To                          | Subject              | Body                            |
+      | exe1.automation@yopmail.com | Automation Test EXE1 | Automation Test EXE1 Email Body |
+    And I wait for "2" seconds
+    Then I see the text "Email Sent Successfully." in modal
+    And I close "Send Email" modal by clicking the top right x button
+    Then I softly see value "" for title "Attention To" inside table "---announcement:-:collabMessages---"
+    Then I see the following rows under the following headers in table with id "---announcement:-:collabMessages---" :
+      | Actions     | Subject              | From Address                  | To Address                  | CC Address | Attention To | Email Subject        | Preview                         |
+      | Action menu | Automation Test EXE1 | fo.automation.qa2@yopmail.com | exe1.automation@yopmail.com |            |              | Automation Test EXE1 | Automation Test EXE1 Email Body |
+    #329983
+    When I re-login to "Grantor" app as "FD" user on "INTERNAL" portal
+    And I navigate to "Announcements" tab
+    And I click toggle button to select "Announcements - All"
+    When I perform quick search for "{SavedValue:Automation Runtime Competitive Announcement}" in "---announcement:-:ActiveFundingOpportunitiesAllTableId---" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime Competitive Announcement}" inside flex table with id "---announcement:-:ActiveFundingOpportunitiesAllTableId---" without waiting for record
+    Then I see status in Progress-bar is "Published" and is "dark blue"
+    And I navigate to "Messages" sub tab
+    Then I softly see "Attention To" in flex table header "---announcement:-:collabMessages---"
+    And I click on top right button "Send Email" in flex table with id "---announcement:-:collabMessages---"
+    And I pause execution for "5" seconds
+    And I send the email under collab tab with following details:
+      | To                             | Subject             | Body                           |
+      | fo1.automation.qa2@yopmail.com | Automation Test FO1 | Automation Test FO1 Email Body |
+    And I wait for "2" seconds
+    Then I see the text "Email Sent Successfully." in modal
+    And I close "Send Email" modal by clicking the top right x button
+    Then I softly see value "" for title "Attention To" inside table "---announcement:-:collabMessages---"
+    Then I see the following rows under the following headers in table with id "---announcement:-:collabMessages---" :
+      | Actions     | Subject             | From Address                  | To Address                     | CC Address | Attention To | Email Subject       | Preview                        |
+      | Action menu | Automation Test FO1 | automation.fd.qa2@yopmail.com | fo1.automation.qa2@yopmail.com |            |              | Automation Test FO1 | Automation Test FO1 Email Body |
+
+  @329984 @ValidateforAnnouncementAdminusershouldabletoseeAttentionToColumnundermessagessectioninmessagestab @Sprint-11-US-326384
+  Scenario: Validate for Announcement Admin user should able to see "Attention To" Column under messages section in messages tab
+    When I login to "Grantor" app as "ADMIN" user
+    And I navigate to "Announcements" tab
+    When I navigate to "Formula" content inside "Announcements" subheader on left panel
+    And I click toggle button to select "Draft Formula Announcements"
+    And I click on top right button "New" in flex table with id "---announcement:-:formulaAnnouncementTableId---"
+    And I enter "FormulaAnn_AdminUser" values from "Announcement_Field_Values.xlsx"
+    And I click modal button "Continue"
+    When I enter "Creation_Formula_ByApplicant" values from "Announcement_Field_Values.xlsx"
+    And I click modal button "Save and Continue"
+    When I navigate to "Overview" sub tab
+    And I enter "Formula_Edition" values from "Announcement_Field_Values.xlsx"
+    And I click on "Save" in the page details
+    And I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "AnnEGMSID"
+    And I navigate to "Messages" sub tab
+    Then I softly see "Attention To" in flex table header "---announcement:-:collabMessages---"
+    And I click on top right button "Send Email" in flex table with id "---announcement:-:collabMessages---"
+    And I pause execution for "5" seconds
+    And I send the email under collab tab with following details:
+      | To                             | Subject             | Body                           |
+      | fo1.automation.qa2@yopmail.com | Automation Test FO1 | Automation Test FO1 Email Body |
+    And I pause execution for "2" seconds
+    Then I see the text "Email Sent Successfully." in modal
+    And I close "Send Email" modal by clicking the top right x button
+    Then I softly see value "" for title "Attention To" inside table "---announcement:-:collabMessages---"
+    Then I see the following rows under the following headers in table with id "---announcement:-:collabMessages---" :
+      | Actions     | Subject             | From Address                       | To Address                     | CC Address | Attention To | Email Subject       | Preview                        |
+      | Action menu | Automation Test FO1 | govgrantsautomation.q2@yopmail.com | fo1.automation.qa2@yopmail.com |            |              | Automation Test FO1 | Automation Test FO1 Email Body |
+
+  @329986 @ValidateforAnnouncementEXEusershouldabletoseeAttentionToColumnundermessagessectioninmessagestab @Sprint-11-US-326384
+  Scenario: Validate for Announcement EXE user should able to see "Attention To" Column under messages section in messages tab
+    When I login to "Grantor" app as "EXE" user
+    And I navigate to "Announcements" tab
+    When I navigate to "Formula" content inside "Announcements" subheader on left panel
+    And I click toggle button to select "Draft Formula Announcements"
+    And I click on top right button "New" in flex table with id "---announcement:-:formulaAnnouncementTableId---"
+    And I enter "FormulaAnnouncement" values from "Announcement_Field_Values.xlsx"
+    And I click modal button "Continue"
+    When I enter "CreationFormula_ByApp_focusNo" values from "Announcement_Field_Values.xlsx"
+    And I click modal button "Save and Continue"
+    When I navigate to "Overview" sub tab
+    And I enter "Formula_Edition" values from "Announcement_Field_Values.xlsx"
+    When I navigate to "Overview" sub tab
+    When I enter value "Individuals" into field "EligibleApplicantTypes__c"
+    And I click on "Save" in the page details
+    And I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "AnnEGMSID"
+    And I navigate to "Messages" sub tab
+    Then I softly see "Attention To" in flex table header "---announcement:-:collabMessages---"
+    And I click on top right button "Send Email" in flex table with id "---announcement:-:collabMessages---"
+    And I send the email under collab tab with following details:
+      | To                            | Subject         | Body                       |
+      | pm.automation.qa2@yopmail.com | Automation Test | Automation Test Email Body |
+    Then I see the text "Email Sent Successfully." in modal
+    And I close "Send Email" modal by clicking the top right x button
+    Then I softly see value "" for title "Attention To" inside table "---announcement:-:collabMessages---"
+    Then I see the following rows under the following headers in table with id "---announcement:-:collabMessages---" :
+      | Actions     | Subject         | From Address                   | CC Address | To Address                    | Attention To | Email Subject   |
+      | Action menu | Automation Test | exe.automation.qa2@yopmail.com |            | pm.automation.qa2@yopmail.com |              | Automation Test |
