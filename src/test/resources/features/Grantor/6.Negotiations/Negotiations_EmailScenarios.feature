@@ -1,5 +1,5 @@
 @negotiationsEmailScenarios @grantor-regression @grantor-parallel-regression @regression @NegoWithBackground
-Feature: Validate all scenarios in Negotiations
+Feature: Validate all email scenarios in Negotiations
 
   #NegoWithBackground
   @34192 @57490 @57492 @createSubawardButtonOnCompletedNegotiationfromApplicationsTab

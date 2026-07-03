@@ -1,5 +1,5 @@
-@amendmentRequestswithBackground @amendmentRequests @grantor-regression @grantor-parallel-regression @parallel-regression @regression @amendExecution
-Feature: Validate all scenarios in the Amendment Request
+@amendmentRequestEmailScenarios @amendmentRequests @grantor-regression @grantor-parallel-regression @parallel-regression @regression @amendExecution
+Feature: Validate all Email scenarios in the Amendment Request
 
   #amendmentAllocationNew
   @274160 @Validatenewowneroftaskseesubmittedtaskisgeneratedforhimofamendments @Sprint-23-US-273843  @Allocation @skipDueToIndUser @wip
