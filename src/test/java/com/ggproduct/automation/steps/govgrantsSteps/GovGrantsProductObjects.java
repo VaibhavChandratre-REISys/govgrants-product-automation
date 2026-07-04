@@ -496,7 +496,11 @@ public final class GovGrantsProductObjects {
      * @author meenakshi.jha
      */
     public void performClickOnSpecificTableColumnHeader(String tableId, String titleName) {
-            I.amPerforming().click().on(govgrants.perform().flexTable().getSpecificElementFromTableHeaderForLWC(tableId, titleName));
+           try {
+               I.amPerforming().click().on(govgrants.perform().flexTable().getSpecificElementFromTableHeaderForLWC(tableId, titleName));
+           }catch (Exception e){
+               I.amPerforming().click().withJavaScript(govgrants.perform().flexTable().getSpecificElementFromTableHeaderForLWC(tableId, titleName));
+           }
     }
 
     public void enterEmailId(String emailId, String fieldAPIName) {
