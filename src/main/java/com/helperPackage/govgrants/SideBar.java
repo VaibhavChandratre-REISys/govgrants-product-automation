@@ -152,7 +152,7 @@ public final class SideBar {
      */
     public void handleSideBarContentExpanded(String subHeader) {
         By sideBarHeader = By.xpath("//gnt-side-bar-lwc//section//button[@title='" + subHeader + "']/ancestor::ul//div[contains(@class,'summary1')]//button[@aria-expanded='false']");
-        By sideBarSubHeader = By.xpath("//gnt-side-bar-lwc//section//button[@title='" + subHeader + "' and @aria-expanded='false']");
+        By sideBarSubHeader = By.xpath("//gnt-side-bar-lwc//section//h2//button[@title='" + subHeader + "' and @aria-expanded='false']");
         I.amPerforming().waitFor().ElementToBePresent(By.xpath("//gnt-side-bar-lwc//section"));
         if (I.amPerforming().checkToSee().IsElementPresentQuick(sideBarHeader)) {
             I.amPerforming().click().on(sideBarHeader);
@@ -200,7 +200,7 @@ public final class SideBar {
      * @author nauman.shahid
      */
     public By getSideBarContentLocator(String subHeader, String subHeaderContent) {
-        return By.xpath("//gnt-side-bar-lwc//section//button[@title='" + subHeader + "']/parent::h2/parent::div/parent::section//span[text()='" + subHeaderContent + "']");
+        return By.xpath("//gnt-side-bar-lwc//section//h2//button[@title='" + subHeader + "']//ancestor::section[@data-my-type='header']//c-accordion-content//button[@title='" + subHeaderContent + "']");
     }
 
     /**

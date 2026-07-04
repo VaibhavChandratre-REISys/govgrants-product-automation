@@ -332,13 +332,17 @@ Feature: Validate sanity testing of Complete Business Flow
     When I collapse nested table containing column value "Pre-Screen Review"
     And I wait for "2" seconds
     And I expand nested table containing column value "SME Review"
-    When I click on "Review Form" icon for "Compliance Review" inside flex table with id "---announcement:-:preScreenReviewFormTableId---" without waiting for record
+    And I wait for "2" seconds
+    When I click on "Review Form" icon for "Compliance Review" inside flex table with id "---announcement:-:annReviewFormsTableId---" without waiting for record
+    And I wait for "2" seconds
     And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
       | Section Header | Section Weight (%) |
       | Schedule       | 30                 |
+    And I wait for "1" seconds
     And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
       | Section Header | Section Weight (%) |
       | Environment    | 30                 |
+    And I wait for "1" seconds
     And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
       | Section Header | Section Weight (%) |
       | Permits        | 40                 |
@@ -366,7 +370,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I collapse nested table containing column value "SME Review"
     And I wait for "2" seconds
     And I expand nested table containing column value "SME Review"
-    When I click on "Review Form" icon for "Fiscal Review" inside flex table with id "---announcement:-:preScreenReviewFormTableId---" without waiting for record
+    When I click on "Review Form" icon for "Fiscal Review" inside flex table with id "---announcement:-:annReviewFormsTableId---" without waiting for record
     And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
       | Section Header | Section Weight (%) |
       | Budget         | 30                 |
@@ -400,7 +404,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I collapse nested table containing column value "SME Review"
     And I wait for "2" seconds
     And I expand nested table containing column value "SME Review"
-    When I click on "Review Form" icon for "Program Review" inside flex table with id "---announcement:-:preScreenReviewFormTableId---" without waiting for record
+    When I click on "Review Form" icon for "Program Review" inside flex table with id "---announcement:-:annReviewFormsTableId---" without waiting for record
     And I pause execution for "4" seconds
     And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
       | Section Header | Section Weight (%) |
@@ -1228,7 +1232,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I wait for "3" seconds
     Then I see status in Progress-bar is "Submitted" and is "dark blue"
 
-  @72346 @applicationReviewHappyPath @ProdSan2 @TBE1
+  @72346 @applicationReviewHappyPath @ProdSan2
   Scenario Outline: Validate the complete review process for an application
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement Application Review" and properties "default"
     And I initiated an application review for application "{SavedValue:Automation Runtime Announcement Application Review}" on announcement "{SavedValue:Automation Runtime Announcement Application Review}" with properties "default"
@@ -1566,8 +1570,8 @@ Feature: Validate sanity testing of Complete Business Flow
     When I click modal button "Save"
     And I click on submit review
     And I wait for "1" seconds
-    When I click modal button "Close"
-    And I wait for "1" seconds
+#    When I click modal button "Close"
+#    And I wait for "1" seconds
     When I re-login to "Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
