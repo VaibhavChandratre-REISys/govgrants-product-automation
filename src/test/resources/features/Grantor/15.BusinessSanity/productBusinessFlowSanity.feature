@@ -330,7 +330,9 @@ Feature: Validate sanity testing of Complete Business Flow
     And I pause execution for "4" seconds
     When I close "Review Form" modal by clicking the top right x button
     When I collapse nested table containing column value "Pre-Screen Review"
-    And I wait for "5" seconds
+    And I wait for "2" seconds
+    And I refresh the page
+    And I wait for "3" seconds
     And I expand nested table containing column value "SME Review"
     And I wait for "2" seconds
     When I click on "Review Form" icon for "Compliance Review" inside flex table with id "---announcement:-:preScreenReviewFormTableId---"
