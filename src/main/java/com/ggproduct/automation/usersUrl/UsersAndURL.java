@@ -204,56 +204,8 @@ public class UsersAndURL implements UsersController {
     private String getWashingtonEnvironmentPassword(String userLevel) {
         String password;
         switch (userLevel.toUpperCase()) {
-            case "GRANTEE ADMIN":
-                password = "Automation@2025";
-                break;
-            case "GRANTEE ADMIN1":
-                password = "Automation@2026";
-                break;
-            case "GRANTEE PM":
-                password = "Grantor@123";
-                break;
-            case "GRANTEE EXE":
-                password = "Grantor@123";
-                break;
-            case "GRANTEE FO":
-                password = "Grantor@123";
-                break;
-            case "GRANTEE FD":
-                password = "Grantor@123";
-                break;
-            case "GRANTEE AUDITOR":
-                password = "Automation@2025";
-                break;
-            case "GRANTEE PO":
-                password = "Grantor@123";
-                break;
-            case "SARAH PM":
-                password = "Grantor@123";
-                break;
-            case "SA":
-                password = "Automation@2026";
-                break;
-            case "PO":
-                password = "Grantor@123";
-                break;
-            case "PM":
-                password = "Grantor@123";
-                break;
-            case "FO":
-                password = "Grantor@123";
-                break;
-            case "FO1":
-                password = "Grantor@123";
-                break;
-            case "ADMIN":
-                password = "Automation@2026";
-                break;
-            case "ADMIN1":
-                password = "Automation@2026";
-                break;
             default:
-                password = "Automation@2025";
+                password = "Automation@2026";
         }
         return password;
     }
@@ -495,33 +447,13 @@ public class UsersAndURL implements UsersController {
         Map<String, String> username = new HashMap<>();
         username.put("ADMIN", "govgrantsauto@yopmail.com.ggdev2");
         username.put("ADMIN1", "manu.admin@ggp.test8.ggdev2");
-        username.put("EXE", "test@gmaildemo.com.ggdev2");
-        username.put("PM", "donald_pm@ggp.test7.atm.ggdev2");
-        username.put("FO", "auto.fm@auto.com.ggdev2");
-        username.put("PO", "automationpo@yopmail.com.ggdev2");
-        username.put("FD", "automationfd@yopmail.com.ggdev2");
-        username.put("PM1", "pm1.automation@yopmail.com.ggdev2");
-        username.put("EXE1", "exe1.automation@yopmail.com.ggdev2");
-        username.put("PO1", "automationpo1@yopmail.com.ggdev2");
-        username.put("FO1", "fo1.automation@yopmail.com.ggdev2");
-        username.put("FD1", "automationfd1@yopmail.com.ggdev2");
+        username.put("EXE", "exe.automation@yopmail.com.mncopy");
+        username.put("PM", "pm.automation@yopmail.com.mncopy");
+        username.put("PM1", "pm1.automation@yopmail.com.mncopy");
+        username.put("FO", "fo.automation@yopmail.com.mncopy");
+        username.put("PO", "automationpo@yopmail.com.mncopy");
         username.put("SPI3", "automationspi31.ggdev2@yopmail.com");
         username.put("SPA", "spaautomation12@yopmail.com.ggdev2");
-        username.put("SA", "asa@grants.gov.ggdev2");
-        username.put("IND", "ind12.automation@yopmail.com.ggdev2");
-        username.put("AUDITOR", "automationauditor@yopmail.com.ggdev2");
-        username.put("SME", "sme11@yopmail.com.ggdev2");
-        username.put("SPI4", "spi4@yopmail.com.ggdev2");
-        username.put("SARAH PM", "sarah.pm@ggp.test8.ggdev2");
-
-        username.put("GRANTEE ADMIN", "product.qa@ggp.test8.ggdev2");
-        username.put("GRANTEE ADMIN1", "qa.admin@ggp.test8.ggdev2");
-        username.put("GRANTEE PM", "sarah.pm@ggp.test8.ggdev2");
-        username.put("GRANTEE EXE", "victor.exe@ggp.test8.ggdev2");
-        username.put("GRANTEE FO", "david.fo@ggp.test8.ggdev2");
-        username.put("GRANTEE FD", "danielle.garcia@ggp.test8.ggdev2");
-        username.put("GRANTEE PO", "grantee.po@yopmail.com.ggdev2");
-        username.put("GRANTEE AUDITOR", "automationauditor@yopmail.com.ggdev2");
 
         if (userLevel.toUpperCase() != null) {
             return username.get(userLevel.toUpperCase());
