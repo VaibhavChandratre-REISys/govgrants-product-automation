@@ -156,8 +156,10 @@ public final class FlexTable implements FlexTableComponent {
             desiredAction = I.amPerforming().getElementReference().of(By.xpath("//c-lwc-flex-table[@data-flextablename='" + flexTableId + "']//tbody/tr//*[text()='" + uniqueColumnValue + "']//ancestor::td/div[not(contains(@class,'inputRows'))]/parent::td/preceding-sibling::td//button"));
             I.amPerforming().scroll().withMouseToElement(desiredAction);
             try {
+                I.amPerforming().scroll().withMouseToElement(desiredAction);
                 I.amPerforming().click().on(desiredAction);
             } catch (Exception e) {
+                I.amPerforming().scroll().withMouseToElement(desiredAction);
                 I.amPerforming().click().withJavaScript(desiredAction);
             }
         }
