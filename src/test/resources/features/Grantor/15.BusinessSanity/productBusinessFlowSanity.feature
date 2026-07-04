@@ -246,67 +246,67 @@ Feature: Validate sanity testing of Complete Business Flow
     And I enter "Edition" values from "Announcement_Field_Values.xlsx"
     And I click on "Save" in the page details
     And I get the "EGMS ID"
-#    When I navigate to "Financials" sub tab
-#    And I click on top right button "Associate" in flex table with id "---announcement:-:fundingAccountsTableId---"
-#    When I click "Associate" after selection of "{SavedValue:fundingAccount}" in the table "---announcement:-:fundingAccTableId---"
-#    When I close "Associate Funding Accounts" modal by clicking the top right x button
-#    And I refresh the page
-#    When I navigate to "Financials" sub tab
-#    Given I edit the following rows inline in flex table with id "---announcement:-:fundingAccountsTableId---" by clicking "Edit" :
-#      | Funding Account             | Pre-Encumbrance |
-#      | {SavedValue:fundingAccount} | 2000            |
-#    When I navigate to "Overview" sub tab
-#    And I click on top right button "Associate" in flex table with id "---announcement:-:contactTableId---"
-#    When I click "Associate" after selection of "{SavedValue:EXE Username}" in the table "---announcement:-:annoucementContactTableId---"
-#    And I click modal button "Close"
-#    When I navigate to "Setup" sub tab
-#    And I click on top right button "Associate" in flex table with id "---announcement:-:objectivesTableId---"
-#    When I click "Associate" after selection of "Automation Permanent Objective2" in the table "---announcement:-:goalsTableId---"
-#    When I navigate to "Financials" sub tab
-#    And I click on top right button "Add Budget Period" in flex table with id "---announcement:-:budgetPeriodTableId---"
-#    And I refresh the page
-#    And I wait for "3" seconds
-#    When I navigate to "Responsibilities" sub tab
-#    When I enter the following values into flex table with id "---announcement:-:approversTableId---" by clicking "New" :
-#      | Name                     | Announcement |
-#      | {SavedValue:PM Username} | Step 1       |
-#    When I enter the following values into flex table with id "---announcement:-:approversTableId---" by clicking "New" :
-#      | Name                      | Announcement |
-#      | {SavedValue:EXE Username} | Step 2       |
-#    When I enter the following values into flex table with id "---announcement:-:approversTableId---" by clicking "New" :
-#      | Name                     | Announcement |
-#      | {SavedValue:FO Username} | Step 3       |
-#    When I enter the following values into flex table with id "---announcement:-:flexGridApproverRolesTableId---" by clicking "New" :
-#      | Name                     | Responsibility  | Description              | Due Date | Allow Record Editing |
-#      | {SavedValue:FO Username} | Fiscal Reviewer | Review Financial details | 10       | No                   |
-#    When I navigate to "Responsibilities" sub tab
-#    And I click on "Send for Review" icon for "{SavedValue:FO Username}" inside table
-#    And I pause execution for "2" seconds
-#    And I get the "EGMS ID"
-#    And I pause execution for "3" seconds
-#    And I re-login to "Grantor" app as "FO" user on "INTERNAL" portal
-#    When I navigate to "Announcements" tab
-#    And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-#    When I perform quick search for "Record id" in "---announcement:-:pendingTaskTableId---" panel
-#    And I click on "Start" icon for "Record id" inside table
-#    When I navigate to "Responsibilities" sub tab
-#    When I click on "Enter Review" icon for "{SavedValue:FO Username}" inside flex table with id "---announcement:-:reviewersTableId---" without waiting for record
-#    And I pause execution for "7" seconds
-#    When I enter in modal value "Passed" into field "Rating__c"
-#    And I enter in modal value "Passed" into field "ReviewComments__c"
-#    When I click modal button "Save"
-#    And I click on submit review
-#    And I pause execution for "2" seconds
-##    When I click modal button "Close"
-##    And I wait for "2" seconds
-##    When I close "Enter Review" modal by clicking the top right x button
-#    When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
-#    And I navigate to "Announcements" tab
-#    When I navigate to "Competitive" content inside "Announcements" subheader on left panel
-#    When I click toggle button to select "Draft Competitive Announcements"
-#    And I perform quick search for "Record Id" in "---announcement:-:competitiveAnnouncementTableId---" panel
-#    And I click on "View" icon for "Record Id" inside flex table with id "---announcement:-:competitiveAnnouncementTableId---" without waiting for record
-#    Given I click on "Complete Review" in the page details
+    When I navigate to "Financials" sub tab
+    And I click on top right button "Associate" in flex table with id "---announcement:-:fundingAccountsTableId---"
+    When I click "Associate" after selection of "{SavedValue:fundingAccount}" in the table "---announcement:-:fundingAccTableId---"
+    When I close "Associate Funding Accounts" modal by clicking the top right x button
+    And I refresh the page
+    When I navigate to "Financials" sub tab
+    Given I edit the following rows inline in flex table with id "---announcement:-:fundingAccountsTableId---" by clicking "Edit" :
+      | Funding Account             | Pre-Encumbrance |
+      | {SavedValue:fundingAccount} | 2000            |
+    When I navigate to "Overview" sub tab
+    And I click on top right button "Associate" in flex table with id "---announcement:-:contactTableId---"
+    When I click "Associate" after selection of "{SavedValue:EXE Username}" in the table "---announcement:-:annoucementContactTableId---"
+    And I click modal button "Close"
+    When I navigate to "Setup" sub tab
+    And I click on top right button "Associate" in flex table with id "---announcement:-:objectivesTableId---"
+    When I click "Associate" after selection of "Automation Permanent Objective2" in the table "---announcement:-:goalsTableId---"
+    When I navigate to "Financials" sub tab
+    And I click on top right button "Add Budget Period" in flex table with id "---announcement:-:budgetPeriodTableId---"
+    And I refresh the page
+    And I wait for "3" seconds
+    When I navigate to "Responsibilities" sub tab
+    When I enter the following values into flex table with id "---announcement:-:approversTableId---" by clicking "New" :
+      | Name                     | Announcement |
+      | {SavedValue:PM Username} | Step 1       |
+    When I enter the following values into flex table with id "---announcement:-:approversTableId---" by clicking "New" :
+      | Name                      | Announcement |
+      | {SavedValue:EXE Username} | Step 2       |
+    When I enter the following values into flex table with id "---announcement:-:approversTableId---" by clicking "New" :
+      | Name                     | Announcement |
+      | {SavedValue:FO Username} | Step 3       |
+    When I enter the following values into flex table with id "---announcement:-:flexGridApproverRolesTableId---" by clicking "New" :
+      | Name                     | Responsibility  | Description              | Due Date | Allow Record Editing |
+      | {SavedValue:FO Username} | Fiscal Reviewer | Review Financial details | 10       | No                   |
+    When I navigate to "Responsibilities" sub tab
+    And I click on "Send for Review" icon for "{SavedValue:FO Username}" inside table
+    And I pause execution for "2" seconds
+    And I get the "EGMS ID"
+    And I pause execution for "3" seconds
+    And I re-login to "Grantor" app as "FO" user on "INTERNAL" portal
+    When I navigate to "Announcements" tab
+    And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    When I perform quick search for "Record id" in "---announcement:-:pendingTaskTableId---" panel
+    And I click on "Start" icon for "Record id" inside table
+    When I navigate to "Responsibilities" sub tab
+    When I click on "Enter Review" icon for "{SavedValue:FO Username}" inside flex table with id "---announcement:-:reviewersTableId---" without waiting for record
+    And I pause execution for "7" seconds
+    When I enter in modal value "Passed" into field "Rating__c"
+    And I enter in modal value "Passed" into field "ReviewComments__c"
+    When I click modal button "Save"
+    And I click on submit review
+    And I pause execution for "2" seconds
+#    When I click modal button "Close"
+#    And I wait for "2" seconds
+#    When I close "Enter Review" modal by clicking the top right x button
+    When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
+    And I navigate to "Announcements" tab
+    When I navigate to "Competitive" content inside "Announcements" subheader on left panel
+    When I click toggle button to select "Draft Competitive Announcements"
+    And I perform quick search for "Record Id" in "---announcement:-:competitiveAnnouncementTableId---" panel
+    And I click on "View" icon for "Record Id" inside flex table with id "---announcement:-:competitiveAnnouncementTableId---" without waiting for record
+    Given I click on "Complete Review" in the page details
     And I navigate to "Setup" sub tab
     And I expand nested table containing column value "Pre-Screen Review"
     When I click on "Review Form" icon for "Pre-Screen" inside flex table with id "---announcement:-:subReviewPanelTableId---" without waiting for record
