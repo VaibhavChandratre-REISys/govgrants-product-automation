@@ -458,7 +458,7 @@ Feature: Validate all scenarios in Organizational Site Visit With Undo
     Then I see status in Progress-bar is "Closed" and is "dark blue"
     Then I cannot see top right button "Undo" in page detail
 
-  @289804 @VerifythatafterPOuserclickonUndobuttonEmailwillbesenttoPreviousApproverandOwnerofOrganizationalSiteVisitrecord @sprint-2-US-288691  @Undo
+  @289804 @VerifythatafterPOuserclickonUndobuttonEmailwillbesenttoPreviousApproverandOwnerofOrganizationalSiteVisitrecord @sprint-2-US-288691  @Undo @siteVisitsEmails
   Scenario:Verify that after POuser click on Undo button Email will be sent to Previous Approver and Owner of Organizational Site Visit record
     When I login to "Grantor" app as "PM" user
     And I navigate to "Home" tab

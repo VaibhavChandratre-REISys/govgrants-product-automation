@@ -397,7 +397,7 @@ Feature: Validate all scenarios in Organizational Desk Review Without Undo
     When I perform quick search for "Record Id" in "HomePendingTasks" panel
     Then I softly see value "{SavedValue:DeskReviewID}" for title "EGMS ID" inside table "HomePendingTasks"
 
-  @296067 @VerifythatafterPOuserclickonUndobuttonEmailwillbesenttoPreviousApproverandOwnerofOrganizationalDeskReviewrecord @sprint-4-US-288692  @Undo
+  @296067 @VerifythatafterPOuserclickonUndobuttonEmailwillbesenttoPreviousApproverandOwnerofOrganizationalDeskReviewrecord @sprint-4-US-288692  @Undo @deskReviewEmails
   Scenario:Verify that after PO user click on Undo button Email will be sent to Previous Approver and Owner of Organizational Desk Review record
     Given I login to "Grantor" app as "PM" user
     And I navigate to "Home" tab
@@ -908,7 +908,7 @@ Feature: Validate all scenarios in Organizational Desk Review Without Undo
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     Then I cannot see top right button "Undo" in page detail
 
-  @296097 @296098 @VerifythatwhenPMuserReassignsubmitforapprovaltasktonewuserthennewownerwillseeundobuttonafterapprovingtheOrganizationalDeskReview @sprint-4-US-288692 @Undo
+  @296097 @296098 @VerifythatwhenPMuserReassignsubmitforapprovaltasktonewuserthennewownerwillseeundobuttonafterapprovingtheOrganizationalDeskReview @sprint-4-US-288692 @Undo @deskReviewEmails
   Scenario:Verify that when PM user Reassign submit for approval task  to new user,then new owner will see undo button after approving the Organizational Desk Review
     Given I login to "Grantor" app as "PM" user
     And I navigate to "Home" tab
