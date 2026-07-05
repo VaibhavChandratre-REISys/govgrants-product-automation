@@ -1,4 +1,4 @@
-@productBusinessFlowSanity @product @grantor-regression
+@productBusinessFlowSanity @product
 Feature: Validate sanity testing of Complete Business Flow
 
   @72335  @72335@activationOfFocusArea @ProdSan1
