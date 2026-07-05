@@ -1,4 +1,4 @@
-@riskAssessmentEmailScenarios @awardLevelRiskAssessment @grantor-regression @grantor-parallel-regression @regression @RiskExecution
+@awardLevelRiskAssessment @grantor-regression @grantor-parallel-regression @regression @RiskExecution
 Feature: Validate all email scenarios in the Risk Assessment
 
   @58164 @58165 @58166 @75867 @65552 @creationOfRiskAssessmentddingApproversSubmitForApproval  @smoke
