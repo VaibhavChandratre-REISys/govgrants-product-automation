@@ -345,9 +345,9 @@ public final class PageDetails {
                 || I.amPerforming().actionToGet().cssProperty(statusElement, "color", false).contains("rgb(160, 160, 160")
                 || I.amPerforming().actionToGet().cssProperty(statusElement, "style", false).contains("rgb(160, 160, 160)")) {
             trueColor = "grey";
-        } else if (I.amPerforming().actionToGet().cssProperty(statusElement, "color", false).contains("rgba(7, 47, 87, 1")
-                || I.amPerforming().actionToGet().cssProperty(statusElement, "background", false).contains("rgb(7, 47, 87")
-                || I.amPerforming().actionToGet().cssProperty(statusElement, "background", false).contains("rgb(1, 68, 134")
+        } else if (I.amPerforming().actionToGet().cssProperty(statusElement, "color", false).contains("rgba(3, 45, 96, 1")
+                || I.amPerforming().actionToGet().cssProperty(statusElement, "background", false).contains("rgb(3, 45, 96")
+                || I.amPerforming().actionToGet().cssProperty(statusElement, "background", false).contains("rgb(3, 45, 96")
                 || I.amPerforming().actionToGet().cssProperty(statusElement, "color", false).contains("rgb(7, 47, 87")
                 || I.amPerforming().actionToGet().cssProperty(statusElement, "style", false).contains("rgb(7, 47, 87)")) {
             trueColor = "dark blue";

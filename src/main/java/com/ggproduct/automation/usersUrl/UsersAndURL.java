@@ -445,15 +445,15 @@ public class UsersAndURL implements UsersController {
 
     private String getWashingtonEnvironmentUser(String userLevel) {
         Map<String, String> username = new HashMap<>();
-        username.put("ADMIN", "govgrantsauto@yopmail.com.ggdev2");
-        username.put("ADMIN1", "manu.admin@ggp.test8.ggdev2");
+        username.put("ADMIN", "govgrantsauto@yopmail.com.mncopy");
         username.put("EXE", "exe.automation@yopmail.com.mncopy");
         username.put("PM", "pm.automation@yopmail.com.mncopy");
         username.put("PM1", "pm1.automation@yopmail.com.mncopy");
         username.put("FO", "fo.automation@yopmail.com.mncopy");
         username.put("PO", "automationpo@yopmail.com.mncopy");
-        username.put("SPI3", "automationspi31.ggdev2@yopmail.com");
+        username.put("SPI3", "automationspi3.mncopy@yopmail.com");
         username.put("SPA", "spaautomation12@yopmail.com.ggdev2");
+        username.put("SA", "automationsa.mncopy@yopmail.com");
 
         if (userLevel.toUpperCase() != null) {
             return username.get(userLevel.toUpperCase());

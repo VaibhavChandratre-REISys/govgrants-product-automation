@@ -172,8 +172,17 @@ public final class GovGrantsSteps {
     public void navigateToMenutab(String tabName) {
         I.amPerforming().browserOperationsTo().CheckPageLoadingStatus();
         I.amPerforming().waitFor().makeThreadSleep(2000);
+        if(I.amPerforming().checkToSee().IsElementPresentQuick(By.xpath("(//button[@title='Cancel and close'])[last()]"))){
+            I.amPerforming().click().withJavaScript(By.xpath("(//button[@title='Cancel and close'])[last()]"));
+            I.amPerforming().click().withJavaScript(By.xpath("(//button[@title='Cancel and close'])[last()]"));
+        }
         govgrants.perform().mainPage().clickMainMenuBarForLwc(tabName);
         govgrants.perform().modal().acceptPopUpForEditPage();
+        I.amPerforming().waitFor().makeThreadSleep(7000);
+        if(I.amPerforming().checkToSee().IsElementPresentQuick(By.xpath("(//button[@title='Cancel and close'])[last()]"))){
+            I.amPerforming().click().withJavaScript(By.xpath("(//button[@title='Cancel and close'])[last()]"));
+            I.amPerforming().click().withJavaScript(By.xpath("(//button[@title='Cancel and close'])[last()]"));
+        }
     }
 
     @Description("Navigate to sidebar content inside a sidebar subheader")
