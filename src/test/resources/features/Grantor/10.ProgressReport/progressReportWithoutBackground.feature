@@ -9272,12 +9272,13 @@ Feature: Validate scenarios in Progress Report without background
     And I click on "View" icon for "{SavedValue:Automation Runtime Direct Award}" inside table
     And I navigate to "Files" sub tab
     When I enter the following values into flex table with id "---progressreport:-:grantChecklistsTableId---" by clicking "Add" :
-      | Description | Required  | Applies To      | Status |
-      | Automation  | Mandatory | Progress Report | Active |
+      | Description             | Required  | Applies To      | Status |
+      | Automation Runtime Desc | Mandatory | Progress Report | Active |
     And I click on "Upload Template" icon for "Progress Report" inside flex table with id "---progressreport:-:grantChecklistsTableId---" with wait for record
     And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
     And I click modal button "Close"
     And I wait for "2" seconds
+    When I perform quick search for "{SavedValue:Automation Runtime Desc}" in "---progressReport:-:grantChecklistsTableId---" panel
     Then I softly see value "View" for title "Template Link" against the value "Progress Report" inside table "---progressreport:-:grantChecklistsTableId---"
     And I save the value from row "1" for column name "Template Link" as "TemplateLink" from flex table "---progressreport:-:grantChecklistsTableId---"
     When I navigate to "Subawards" sub tab
@@ -9345,7 +9346,7 @@ Feature: Validate scenarios in Progress Report without background
     And I softly see value "7" for title "Actual" inside table "---progressReport:-:kpiTableId---"
     When I edit the following rows inline in flex table with id "---progressReport:-:kpiTableId---" by clicking "Edit" :
       | Title                    | Reported Date | Actual |
-      | Automation Permanent KPI | 7             | 3     |
+      | Automation Permanent KPI | 7             | 3      |
     When I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Community Initiative Progress Report" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
     And I switch to tab number "1"
