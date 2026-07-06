@@ -741,7 +741,6 @@ Feature: Validate scenarios in Progress Report Notes
 
   @236046 @VerifythatAuditorusercanonlyreadthenotes @sprint-12-US-234322  @Notes @ProgressFailedScenarios
   Scenario:Verify that <Auditor> user can only read the notes
-    Given I login to "Grantor" app as "AUDITOR" user
     Given I activated standalone subaward "Automation Runtime Direct Award" with properties "Automation PM user" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Direct Award}" from the object "Progress Report"
     When I create a post award record "ProgressReport" for the Award "{SavedValue:Automation Runtime Direct Award}" having object api name as "ProgressReports__c"
@@ -784,6 +783,7 @@ Feature: Validate scenarios in Progress Report Notes
     Then I softly see value "{SavedValue:CreatedDate}" for title "Created Date" inside table "---progressreport:-:progressNotesTableId---"
     When I click on "Submit to Grantor" in the page details
     Then I softly see field "Status" as "Submitted to Grantor"
+    And I refresh the page
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -811,7 +811,6 @@ Feature: Validate scenarios in Progress Report Notes
     And I click on "View" icon for "{SavedValue:progID}" inside flex table with id "---progressreport:-:internalProgressReportFlexTableId---" without waiting for record
     When I navigate to "Forms and Files" sub tab
     Then I cannot see top right button "Add" in flex table with id "---progressreport:-:progressNotesTableId---"
-    And I halt execution
     Then I cannot see row level action button "Edit" against "Notes Record1" in flex table with id "---progressreport:-:progressNotesTableId---"
     Then I cannot see row level action button "Delete" against "Notes Record1" in flex table with id "---progressreport:-:progressNotesTableId---"
 
