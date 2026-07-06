@@ -198,6 +198,8 @@ public final class SideBar {
      * @param subHeaderContent
      * @return
      * @author nauman.shahid
+     * @modifier komal.mukhekar (03-07-2026) Updated the locator to handle the new sidebar structure in the application (Grantor and Subrecipient)
+     *
      */
     public By getSideBarContentLocator(String subHeader, String subHeaderContent) {
         return By.xpath("//gnt-side-bar-lwc//section//button[@title='" + subHeader + "']/parent::h2/parent::div/parent::section//span[text()='" + subHeaderContent + "']");
