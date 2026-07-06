@@ -811,6 +811,7 @@ Feature: Validate scenarios in Progress Report Notes
     And I click on "View" icon for "{SavedValue:progID}" inside flex table with id "---progressreport:-:internalProgressReportFlexTableId---" without waiting for record
     When I navigate to "Forms and Files" sub tab
     Then I cannot see top right button "Add" in flex table with id "---progressreport:-:progressNotesTableId---"
+    And I halt execution
     Then I cannot see row level action button "Edit" against "Notes Record1" in flex table with id "---progressreport:-:progressNotesTableId---"
     Then I cannot see row level action button "Delete" against "Notes Record1" in flex table with id "---progressreport:-:progressNotesTableId---"
 

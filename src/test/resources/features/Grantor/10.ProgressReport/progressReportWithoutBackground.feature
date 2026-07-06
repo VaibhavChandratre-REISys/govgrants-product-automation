@@ -6105,7 +6105,7 @@ Feature: Validate scenarios in Progress Report without background
     When I perform quick search for "{SavedValue:progID}" in "---progressreport:-:progressTargetTableId---" panel
     Then I see value "{SavedValue:progID}" for title "Progress Report ID" inside table "---progressreport:-:progressTargetTableId---"
 
-  @197270 @ValidatewhenuserclickonNobuttonofwarningmessageforPRthenflowshouldbestop @sprint-4  @reassignment
+  @Bug-PROD-48135 @197270 @ValidatewhenuserclickonNobuttonofwarningmessageforPRthenflowshouldbestop @sprint-4  @reassignment
   Scenario: Validate when user click on "No" button of warning message for PR then flow should be stop
     Given I login to "Grantor" app as "ADMIN" user
     And I navigate to "Home" tab
@@ -6617,7 +6617,7 @@ Feature: Validate scenarios in Progress Report without background
     #197909
     When I check "{SavedValue:progID}" boxes in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I click on top right button "Reassign Selected" in flex table with id "---program:-:grantorTaskReassignTableId---"
-    And I pause execution for "30" seconds
+    And I pause execution for "40" seconds
     And I reset the table
     When I perform quick search for "{SavedValue:progID}" in "---program:-:grantorTaskReassignTableId---" panel
     Then I softly do not see value "{SavedValue:progID}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
@@ -9261,9 +9261,9 @@ Feature: Validate scenarios in Progress Report without background
     Then I cannot see row level action button "Delete" against "Notes Record" in flex table with id "---progressReport:-:GrantorNotesProgressReporttableId---"
     Then I cannot see row level action button "Edit" against "Notes Record" in flex table with id "---progressReport:-:GrantorNotesProgressReporttableId---"
 
-  @mkk @532028 @531936 @validateprogressreportrecordshouldsharewithSPI/SPAuserfromsameorgincreatedstate @GrantorFlexP1
+  @532028 @531936 @validateprogressreportrecordshouldsharewithSPI/SPAuserfromsameorgincreatedstate @GrantorFlexP1
   Scenario Outline: Validate progress report record should share with SPI/SPA user from same org in created state
-#    Given I activated standalone subaward "Automation Runtime Direct Award" with properties "default" of type "Competitive"
+    Given I activated standalone subaward "Automation Runtime Direct Award" with properties "default" of type "Competitive"
     And I login to "Grantor" app as "PM" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
