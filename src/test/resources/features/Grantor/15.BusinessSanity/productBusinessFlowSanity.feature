@@ -1150,7 +1150,6 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click on "Create Pre-Application" in the page details
     And I wait for "5" seconds
     When I click modal button "Save and Continue"
-    And I get the "EGMS ID"
     And I enter "Edition" values from "PreApplication_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I navigate to "Overview" sub tab
@@ -1158,6 +1157,8 @@ Feature: Validate sanity testing of Complete Business Flow
       | Name                       | Is Key Contact |
       | {SavedValue:SPI3 Username} | Checked        |
     And I wait for "2" seconds
+    And I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "PreappEGMSID"
     And I navigate to "Budget" sub tab
     Given I expand nested table containing column value "BP01"
     And I edit the following rows inline in flex table with id "---preApplication:-:preApplicationAttachmentId---" by clicking "Edit" :
@@ -1177,8 +1178,8 @@ Feature: Validate sanity testing of Complete Business Flow
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Home" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    And I perform quick search for "Record Id" in "---home:-:internalHomePendingTaskTableId---" panel
-    And I click on "Start" icon for "Record Id" inside flex table with id "---home:-:internalHomePendingTaskTableId---"
+    And I perform quick search for "{SavedValue:PreAppEGMSID}" in "---home:-:internalHomePendingTaskTableId---" panel
+    And I click on "Start" icon for "{SavedValue:PreAppEGMSID}" inside flex table with id "---home:-:internalHomePendingTaskTableId---"
     When I click on "Accept" in the page details
     Then I see status in Progress-bar is "Accepted" and is "dark blue"
 
@@ -2377,6 +2378,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click on top right button "Associate" in flex table with id "---deskreview:-:associateAwardDeskReviewTableId---"
     And I pause execution for "5" seconds
     When I click "Associate" after selection of "{SavedValue:Automation Runtime Award Record}" in the table "---deskreview:-:awardDeskReviewTableId---"
+    And I wait for "2" seconds
     When I click modal button "Close"
     And I wait for "2" seconds
     And I click on "Notify" in the page details
