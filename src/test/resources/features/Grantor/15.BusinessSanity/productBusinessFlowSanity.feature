@@ -4847,7 +4847,9 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click on "Save" in the page details
     When I click on "Submit" in the page details without processing
     When I click alert button "OK"
-    And I wait for "5" seconds
+    And I wait for "2" seconds
+    And I refresh the page
+    And I wait for "3" seconds
     Then I see that "Status" is in "Review Completed" status
     And I save the field in the form labeled "Score" as "preScreenScore"
     Then I softly see field in the form "Score" as "{SavedValue:preScreenScore}"
@@ -4908,7 +4910,9 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click on "Save" in the page details
     When I click on "Submit" in the page details without processing
     When I click alert button "OK"
-    And I wait for "5" seconds
+    And I wait for "2" seconds
+    And I refresh the page
+    And I wait for "3" seconds
     Then I see that "Status" is in "Review Completed" status
     And I save the field in the form labeled "Score" as "programSMEScore"
     Then I softly see field in the form "Score" as "{SavedValue:programSMEScore}"
@@ -4922,7 +4926,9 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click on "Save" in the page details
     When I click on "Submit" in the page details without processing
     When I click alert button "OK"
-    And I wait for "5" seconds
+    And I wait for "2" seconds
+    And I refresh the page
+    And I wait for "3" seconds
     Then I see that "Status" is in "Review Completed" status
     And I save the field in the form labeled "Score" as "fiscalSMEScore"
     Then I softly see field in the form "Score" as "{SavedValue:fiscalSMEScore}"
@@ -4936,7 +4942,9 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click on "Save" in the page details
     When I click on "Submit" in the page details without processing
     When I click alert button "OK"
-    And I wait for "5" seconds
+    And I wait for "2" seconds
+    And I refresh the page
+    And I wait for "3" seconds
     Then I see that "Status" is in "Review Completed" status
     And I save the field in the form labeled "Score" as "complianceSMEScore"
     Then I softly see field in the form "Score" as "{SavedValue:complianceSMEScore}"
@@ -4979,7 +4987,9 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click on "Save" in the page details
     When I click on "Submit" in the page details without processing
     When I click alert button "OK"
-    And I wait for "5" seconds
+    And I wait for "2" seconds
+    And I refresh the page
+    And I wait for "3" seconds
     Then I see that "Status" is in "Review Completed" status
     And I save the field in the form labeled "Score" as "managementScore"
     Then I softly see field in the form "Score" as "{SavedValue:managementScore}"
