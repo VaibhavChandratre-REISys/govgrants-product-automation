@@ -1793,17 +1793,17 @@ Feature: Validate all scenarios for Applications Grants Gov
     Then I softly see "Notes" page block displayed
     Then I softly see "All Forms" page block displayed
     Then I can see top right button "Add Files" in flex table with id "---grantee_tableId:-:AddFilesApplicationTableID---"
-#    And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:AddFilesApplicationTableID---"
-#    And I upload attachment without random number "Attachment.pdf" of type "Other" from computer
-#    When I click modal button "Close"
-#    And I wait for "2" seconds
-#    Then I see "Other" has been added in "Application Files" flex table
-#    Then I can see row level action button "Download" against "Other" in flex table with id "---grantee_tableId:-:AddFilesApplicationTableID---"
-#    Then I can see row level action button "Delete" against "Other" in flex table with id "---grantee_tableId:-:AddFilesApplicationTableID---"
-#    Then I can see row level action button "Edit" against "Other" in flex table with id "---grantee_tableId:-:AddFilesApplicationTableID---"
-#    Then I can see row level action button "View" against "Other" in flex table with id "---grantee_tableId:-:AddFilesApplicationTableID---"
-#    When I click on "Delete" icon for "Other" inside flex table with id "---grantee_tableId:-:AddFilesApplicationTableID---"
-#    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:NotesApplicationTableId---"
+    And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:AddFilesApplicationTableID---"
+    And I upload attachment without random number "Attachment.pdf" of type "Other" from computer
+    When I click modal button "Close"
+    And I wait for "2" seconds
+    Then I see "Other" has been added in "Application Files" flex table
+    Then I can see row level action button "Download" against "Other" in flex table with id "---grantee_tableId:-:AddFilesApplicationTableID---"
+    Then I can see row level action button "Delete" against "Other" in flex table with id "---grantee_tableId:-:AddFilesApplicationTableID---"
+    Then I can see row level action button "Edit" against "Other" in flex table with id "---grantee_tableId:-:AddFilesApplicationTableID---"
+    Then I can see row level action button "View" against "Other" in flex table with id "---grantee_tableId:-:AddFilesApplicationTableID---"
+    When I click on "Delete" icon for "Other" inside flex table with id "---grantee_tableId:-:AddFilesApplicationTableID---"
+    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:NotesApplicationTableId---"
     Then I can see top right button "New" in flex table with id "---grantee_tableId:-:NotesApplicationTableId---"
     When I enter the following values into flex table with id "---grantee_tableId:-:NotesApplicationTableId---" by clicking "New" :
       | Title        | Description      |
@@ -1863,18 +1863,18 @@ Feature: Validate all scenarios for Applications Grants Gov
     And I wait for "2" seconds
     Then I softly see field "Status" as "Submitted for Review"
     When I navigate to "Forms and Files" sub tab
-#    Then I can see top right button "Add Files" in flex table with id "---grantee_tableId:-:AddFilesApplicationTableID---"
-#    And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:AddFilesApplicationTableID---"
-#    And I upload attachment without random number "Attachment.pdf" of type "Other" from computer
-#    When I click modal button "Close"
-#    And I wait for "2" seconds
-#    Then I see "Other" has been added in "Application Files" flex table
-#    Then I can see row level action button "Download" against "Other" in flex table with id "---grantee_tableId:-:AddFilesApplicationTableID---"
-#    Then I can see row level action button "Delete" against "Other" in flex table with id "---grantee_tableId:-:AddFilesApplicationTableID---"
-#    Then I can see row level action button "Edit" against "Other" in flex table with id "---grantee_tableId:-:AddFilesApplicationTableID---"
-#    Then I can see row level action button "View" against "Other" in flex table with id "---grantee_tableId:-:AddFilesApplicationTableID---"
-#    When I click on "Delete" icon for "Other" inside flex table with id "---grantee_tableId:-:AddFilesApplicationTableID---"
-#    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:NotesApplicationTableId---"
+    Then I can see top right button "Add Files" in flex table with id "---grantee_tableId:-:AddFilesApplicationTableID---"
+    And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:AddFilesApplicationTableID---"
+    And I upload attachment without random number "Attachment.pdf" of type "Other" from computer
+    When I click modal button "Close"
+    And I wait for "2" seconds
+    Then I see "Other" has been added in "Application Files" flex table
+    Then I can see row level action button "Download" against "Other" in flex table with id "---grantee_tableId:-:AddFilesApplicationTableID---"
+    Then I can see row level action button "Delete" against "Other" in flex table with id "---grantee_tableId:-:AddFilesApplicationTableID---"
+    Then I can see row level action button "Edit" against "Other" in flex table with id "---grantee_tableId:-:AddFilesApplicationTableID---"
+    Then I can see row level action button "View" against "Other" in flex table with id "---grantee_tableId:-:AddFilesApplicationTableID---"
+    When I click on "Delete" icon for "Other" inside flex table with id "---grantee_tableId:-:AddFilesApplicationTableID---"
+    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:NotesApplicationTableId---"
     Then I can see top right button "New" in flex table with id "---grantee_tableId:-:NotesApplicationTableId---"
     When I enter the following values into flex table with id "---grantee_tableId:-:NotesApplicationTableId---" by clicking "New" :
       | Title        | Description      |
@@ -1933,19 +1933,19 @@ Feature: Validate all scenarios for Applications Grants Gov
     Then I softly see fields "SpecialAwardConditions__c" is in edit mode
     And I click on "Save" in the page details
     And I wait for "2" seconds
-#    When I navigate to "Forms and Files" sub tab
-#    Then I can see top right button "Add Files" in flex table with id "---grantee_tableId:-:AddFilesApplicationTableID---"
-#    And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:AddFilesApplicationTableID---"
-#    And I upload attachment without random number "Attachment.pdf" of type "Other" from computer
-#    When I click modal button "Close"
-#    And I wait for "2" seconds
-#    Then I see "Other" has been added in "Application Files" flex table
-#    Then I can see row level action button "Download" against "Other" in flex table with id "---grantee_tableId:-:AddFilesApplicationTableID---"
-#    Then I can see row level action button "Delete" against "Other" in flex table with id "---grantee_tableId:-:AddFilesApplicationTableID---"
-#    Then I can see row level action button "Edit" against "Other" in flex table with id "---grantee_tableId:-:AddFilesApplicationTableID---"
-#    Then I can see row level action button "View" against "Other" in flex table with id "---grantee_tableId:-:AddFilesApplicationTableID---"
-#    When I click on "Delete" icon for "Other" inside flex table with id "---grantee_tableId:-:AddFilesApplicationTableID---"
-#    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:NotesApplicationTableId---"
+    When I navigate to "Forms and Files" sub tab
+    Then I can see top right button "Add Files" in flex table with id "---grantee_tableId:-:AddFilesApplicationTableID---"
+    And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:AddFilesApplicationTableID---"
+    And I upload attachment without random number "Attachment.pdf" of type "Other" from computer
+    When I click modal button "Close"
+    And I wait for "2" seconds
+    Then I see "Other" has been added in "Application Files" flex table
+    Then I can see row level action button "Download" against "Other" in flex table with id "---grantee_tableId:-:AddFilesApplicationTableID---"
+    Then I can see row level action button "Delete" against "Other" in flex table with id "---grantee_tableId:-:AddFilesApplicationTableID---"
+    Then I can see row level action button "Edit" against "Other" in flex table with id "---grantee_tableId:-:AddFilesApplicationTableID---"
+    Then I can see row level action button "View" against "Other" in flex table with id "---grantee_tableId:-:AddFilesApplicationTableID---"
+    When I click on "Delete" icon for "Other" inside flex table with id "---grantee_tableId:-:AddFilesApplicationTableID---"
+    Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:NotesApplicationTableId---"
     Then I can see top right button "New" in flex table with id "---grantee_tableId:-:NotesApplicationTableId---"
     When I enter the following values into flex table with id "---grantee_tableId:-:NotesApplicationTableId---" by clicking "New" :
       | Title        | Description      |
@@ -2023,17 +2023,17 @@ Feature: Validate all scenarios for Applications Grants Gov
     Then I softly see fields "TrainingCertificationComments__c" is in edit mode
     Then I softly see fields "SpecialAwardConditions__c" is in edit mode
     And I click on "Save" in the page details
-#    When I navigate to "Forms and Files" sub tab
-#    Then I can see top right button "Add Files" in flex table with id "---grantee_tableId:-:AddFilesApplicationTableID---"
-#    And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:AddFilesApplicationTableID---"
-#    And I upload attachment without random number "Attachment.pdf" of type "Other" from computer
-#    When I click modal button "Close"
-#    And I wait for "2" seconds
-#    Then I see "Other" has been added in "Application Files" flex table
-#    Then I can see row level action button "Download" against "Other" in flex table with id "---grantee_tableId:-:AddFilesApplicationTableID---"
-#    Then I can see row level action button "Delete" against "Other" in flex table with id "---grantee_tableId:-:AddFilesApplicationTableID---"
-#    Then I can see row level action button "Edit" against "Other" in flex table with id "---grantee_tableId:-:AddFilesApplicationTableID---"
-#    Then I can see row level action button "View" against "Other" in flex table with id "---grantee_tableId:-:AddFilesApplicationTableID---"
+    When I navigate to "Forms and Files" sub tab
+    Then I can see top right button "Add Files" in flex table with id "---grantee_tableId:-:AddFilesApplicationTableID---"
+    And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:AddFilesApplicationTableID---"
+    And I upload attachment without random number "Attachment.pdf" of type "Other" from computer
+    When I click modal button "Close"
+    And I wait for "2" seconds
+    Then I see "Other" has been added in "Application Files" flex table
+    Then I can see row level action button "Download" against "Other" in flex table with id "---grantee_tableId:-:AddFilesApplicationTableID---"
+    Then I can see row level action button "Delete" against "Other" in flex table with id "---grantee_tableId:-:AddFilesApplicationTableID---"
+    Then I can see row level action button "Edit" against "Other" in flex table with id "---grantee_tableId:-:AddFilesApplicationTableID---"
+    Then I can see row level action button "View" against "Other" in flex table with id "---grantee_tableId:-:AddFilesApplicationTableID---"
     Then I can see top right button "New" in flex table with id "---grantee_tableId:-:NotesApplicationTableId---"
     When I enter the following values into flex table with id "---grantee_tableId:-:NotesApplicationTableId---" by clicking "New" :
       | Title        | Description      |
@@ -2066,20 +2066,20 @@ Feature: Validate all scenarios for Applications Grants Gov
     Then I cannot see top right button "Associate Focus Area" in flex table with id "---grantee_tableId:-:BudgetPeriodDetailsFromSetup---"
     And I navigate to "Budget" sub tab
     Then I cannot see top right button "New" in flex table with id "---grantee_tableId:-:indirectRatesApplicationtableId---"
-#    When I navigate to "Forms and Files" sub tab
-#    Then I cannot see top right button "Add Files" in flex table with id "---grantee_tableId:-:AddFilesApplicationTableID---"
-#    Then I see "Other" has been added in "Application Files" flex table
-#    Then I can see row level action button "Download" against "Other" in flex table with id "---grantee_tableId:-:AddFilesApplicationTableID---"
-#    Then I cannot see row level action button "Delete" against "Other" in flex table with id "---grantee_tableId:-:AddFilesApplicationTableID---"
-#    Then I cannot see row level action button "Edit" against "Other" in flex table with id "---grantee_tableId:-:AddFilesApplicationTableID---"
-#    Then I can see row level action button "View" against "Other" in flex table with id "---grantee_tableId:-:AddFilesApplicationTableID---"
-#    Then I cannot see top right button "New" in flex table with id "---grantee_tableId:-:NotesApplicationTableId---"
-#    Then I softly see value "Notes Record for FO" for title "Title" inside table "---grantee_tableId:-:NotesApplicationTableId---"
-#    Then I softly can see row level action button "Delete" against "Notes Record for FO" in flex table with id "---grantee_tableId:-:NotesApplicationTableId---"
-#    Then I softly can see row level action button "Edit" against "Notes Record for FO" in flex table with id "---grantee_tableId:-:NotesApplicationTableId---"
-#    Then I softly cannot see row level action button "Edit" against "Project/Performance Site Location(s)" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
-#    Then I softly can see row level action button "View" against "Project/Performance Site Location(s)" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
-#    Then I softly can see row level action button "Preview" against "Project/Performance Site Location(s)" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    When I navigate to "Forms and Files" sub tab
+    Then I cannot see top right button "Add Files" in flex table with id "---grantee_tableId:-:AddFilesApplicationTableID---"
+    Then I see "Other" has been added in "Application Files" flex table
+    Then I can see row level action button "Download" against "Other" in flex table with id "---grantee_tableId:-:AddFilesApplicationTableID---"
+    Then I cannot see row level action button "Delete" against "Other" in flex table with id "---grantee_tableId:-:AddFilesApplicationTableID---"
+    Then I cannot see row level action button "Edit" against "Other" in flex table with id "---grantee_tableId:-:AddFilesApplicationTableID---"
+    Then I can see row level action button "View" against "Other" in flex table with id "---grantee_tableId:-:AddFilesApplicationTableID---"
+    Then I cannot see top right button "New" in flex table with id "---grantee_tableId:-:NotesApplicationTableId---"
+    Then I softly see value "Notes Record for FO" for title "Title" inside table "---grantee_tableId:-:NotesApplicationTableId---"
+    Then I softly can see row level action button "Delete" against "Notes Record for FO" in flex table with id "---grantee_tableId:-:NotesApplicationTableId---"
+    Then I softly can see row level action button "Edit" against "Notes Record for FO" in flex table with id "---grantee_tableId:-:NotesApplicationTableId---"
+    Then I softly cannot see row level action button "Edit" against "Project/Performance Site Location(s)" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    Then I softly can see row level action button "View" against "Project/Performance Site Location(s)" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
+    Then I softly can see row level action button "Preview" against "Project/Performance Site Location(s)" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
     When I navigate to "Responsibilities" sub tab
     Then I cannot see top right button "New" in flex table with id "---grantee_tableId:-:ApplicationPeerReview---"
     Then I cannot see top right button "New" in flex table with id "---grantee_tableId:-:ApplicationApprovers---"
