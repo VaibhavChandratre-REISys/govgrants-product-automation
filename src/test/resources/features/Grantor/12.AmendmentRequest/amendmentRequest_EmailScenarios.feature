@@ -6040,8 +6040,8 @@ Feature: Validate all Email scenarios in the Amendment Request
     Then I refresh the page
     And I see the mail subject is as follows :
       """
-      Notification: Amendment Request #{SavedValue:budgetPC&ScopeId} has been SentBack by an Approver
-      """
+     Sandbox: Notification: Amendment Request #{SavedValue:budgetPC&ScopeId} hasbeen Sent Back by an Approver
+     """
     Then I see the mail text is as follows :
       """
      Hello,

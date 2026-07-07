@@ -356,7 +356,7 @@ Feature: Validate all scenarios in the home tab
     #And I close "Edit" modal by clicking the top right x button
     Then I softly see that "Test Automation Organization" is in "Active" status
 
-  @mkk @56739 @56907 @relatedContactsCreationEdition
+  @56739 @56907 @relatedContactsCreationEdition
   Scenario Outline: The Internal Users should be able to Create and Edit Related Contacts
     Given I login to "Grantor" app as "<User>" user
     When I navigate to "Home" tab
