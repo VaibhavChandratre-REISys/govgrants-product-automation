@@ -204,6 +204,9 @@ public class UsersAndURL implements UsersController {
     private String getWashingtonEnvironmentPassword(String userLevel) {
         String password;
         switch (userLevel.toUpperCase()) {
+            case "SPI3":
+                password = "Automation@2027";
+                break;
             default:
                 password = "Automation@2026";
         }

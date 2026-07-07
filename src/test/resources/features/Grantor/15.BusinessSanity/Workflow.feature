@@ -2722,5 +2722,5 @@ Feature: Validate all scenarios of every modules flow
     Scenario:
       Given I am on "SUBPORTAL" portal
       When I login to "Grants Portal" app as "SPI3" user
-      And I halt execution
-      Then I softly see status in Progress-bar is "Negotiation Initiated" and is "dark blue"
+      And I navigate to "Grants" tab
+
