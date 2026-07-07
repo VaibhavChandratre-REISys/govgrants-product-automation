@@ -1748,7 +1748,6 @@ Feature: Risk Assessment scenarios without background
       | Name                      | Award  |
       | {SavedValue:EXE Username} | Step 1 |
     And I wait for "3" seconds
-
     And I navigate to "Management" sub tab
     When I click on top right button "New" in flex table with id "---subAwardStandAlone:-:riskAssessmentTableId---"
     And I enter "Risk Assessment Creation" values from "Award_Field_Values.xlsx"
