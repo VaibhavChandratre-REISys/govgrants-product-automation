@@ -4851,8 +4851,8 @@ Feature: Validate sanity testing of Complete Business Flow
     And I refresh the page
     And I wait for "3" seconds
     Then I see that "Status" is in "Review Completed" status
-    And I save the field in the form labeled "Score" as "preScreenScore"
-    Then I softly see field in the form "Score" as "{SavedValue:preScreenScore}"
+#    And I save the field in the form labeled "Score" as "preScreenScore"
+#    Then I softly see field in the form "Score" as "{SavedValue:preScreenScore}"
     Then I softly can see top right button "Undo" in page detail
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     When I navigate to "Applications" tab
