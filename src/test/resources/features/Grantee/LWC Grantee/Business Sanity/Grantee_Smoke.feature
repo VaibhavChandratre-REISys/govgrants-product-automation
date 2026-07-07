@@ -14061,11 +14061,15 @@ Feature: Grantee Smoke scenarios
 
   @495295 @444494 @ValidateAuditorprofileuserhavingonlyviewonlyaccess @Grantee_Smoke3 @P4_Grantee @AUDITOR_Grantee @GRegression4
   Scenario: Validate Auditor profile user having only view only access
+    When  I login to "Grantor" app as "Admin" user
+    And I halt execution
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
     And I activate the award for title "{SavedValue:Automation Runtime Award}"
     And I "Created" the "Progress Report" for title "{SavedValue:Automation Runtime Award}" with properties "default"
-    When I login to "Grantee" app as "GRANTEE AUDITOR" user
+#    When I login to "Grantee" app as "GRANTEE AUDITOR" user
+#    When I re-login to "Grantee" app as "GRANTEE AUDITOR" user on "INTERNAL" portal
+    And I halt execution
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
     And I click toggle button to select "Grants - All"
