@@ -14074,6 +14074,7 @@ Feature: Grantee Smoke scenarios
     When I navigate to "Awards" sub tab
     And I click on "View" icon for "Activated" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
     And I navigate to "Management" sub tab
+    And I halt execution
     And I click on "View" icon for "Created" inside flex table with id "---grantee_tableId:-:ProgressReportTableId---"
     And I save the field labeled "EGMS ID" as "progressEGMSID"
     Then I softly can see "Overview" sub tab at view detail page
