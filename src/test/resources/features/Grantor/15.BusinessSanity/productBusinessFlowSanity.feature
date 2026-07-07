@@ -2343,7 +2343,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click on "Accept and Close" in the page details
     Then I see status in Progress-bar is "Closed" and is "dark blue"
 
-  @72354 @deskReviewAcceptAndClose @ProdSan2 @wip
+  @72354 @deskReviewAcceptAndClose @ProdSan2
   Scenario: Validate once the Award level Desk Review is clicked on Accept and Close butted then status changes to closed
     Given I activated standalone subaward "Automation Runtime Award Desk Review" with properties "default" of type "Formula_By_Applicant"
     Given I activated standalone subaward "Automation Runtime Award Record" with properties "default" of type "Formula_By_Applicant"
@@ -2435,7 +2435,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click on "Accept And Close" in the page details
     Then I see status in Progress-bar is "Closed" and is "dark blue"
 
-  @72355 @siteVisitAcceptAndCloseOrgLevel @ProdSan2 @wip
+  @72355 @siteVisitAcceptAndCloseOrgLevel @ProdSan2
   Scenario: Validate once the Org Level Site Visit is clicked on Accept and Close butted then status changes to closed
     When I login to "Grantor" app as "PM" user
     And I navigate to "Home" tab
@@ -2517,7 +2517,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click on "Accept and Close" in the page details
     Then I see status in Progress-bar is "Closed" and is "dark blue"
 
-  @72357 @deskReviewAcceptAndCloseOrgLevel @ProdSan2 @wip
+  @72357 @deskReviewAcceptAndCloseOrgLevel @ProdSan2
   Scenario: Validate once the Org level Desk Review is clicked on Accept and Close butted then status changes to closed
     Given I login to "Grantor" app as "PM" user
     And I navigate to "Home" tab
@@ -4218,7 +4218,7 @@ Feature: Validate sanity testing of Complete Business Flow
     Then I softly see status in Progress-bar is "In Progress" and is "dark blue"
     Then I softly see field "EGMS ID" as "{SavedValue:SitevVisitId}"
 
-  @DeskReviewOpenThroughManagementTabFromAward @ProdSan4 @wip
+  @DeskReviewOpenThroughManagementTabFromAward @ProdSan4
   Scenario: Validate Desk Review Open Through Management Tab From Award
     Given I activated standalone subaward "Automation Runtime Award Desk Review" with properties "default" of type "Formula_By_Applicant"
     Given I activated standalone subaward "Automation Runtime Award Record" with properties "default" of type "Formula_By_Applicant"
