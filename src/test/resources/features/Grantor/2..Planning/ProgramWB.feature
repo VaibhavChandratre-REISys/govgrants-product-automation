@@ -7896,6 +7896,7 @@ Feature: Validate all scenarios for program
       | Name                      | Program |
       | {SavedValue:EXE Username} | Step 1  |
     And I click on "Submit For Approval" in the page details
+    And I click modal button "Continue"
     Then I softly see field "Status" as "Submitted for Approval"
     When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Home" tab
@@ -7916,6 +7917,7 @@ Feature: Validate all scenarios for program
     Then I see "No Records Found" inside flex table with id "---program:-:systemEmailsTableId---"
     #331821
     And I click on "Submit For Approval" in the page details
+    And I click modal button "Continue"
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Planning" tab
