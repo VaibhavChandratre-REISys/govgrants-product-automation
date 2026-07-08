@@ -246,3 +246,27 @@ Feature: Validate all scenarios for Auditor Profile in Planning Module
     Examples:
       | User    |
       | AUDITOR |
+
+  @CheckEditDeleteWithAuditor
+  Scenario: to check button visibility with Auditor user
+    When I login to "Grantor" app as "PM" user
+    And I navigate to "Planning" tab
+    When I navigate to "Internal Programs" content inside "Programs" subheader on left panel
+    And I click toggle button to select "Internal Programs - Draft"
+    And I click on top right button "New" in flex table with id "---program:-:programsTableId---"
+    When I enter in modal "Creation" values from "Program_Field_Values.xlsx"
+    And I click modal button "Save and Continue"
+    And I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "ProgramEGMSID"
+    When I enter "Edition" values from "Program_Field_Values.xlsx"
+    And I click on "Save" in the page details
+    Then I softly see status in Progress-bar is "Created" and is "dark blue"
+    When I re-login to "Grantor" app as "AUDITOR" user on "INTERNAL" portal
+    And I navigate to "Planning" tab
+    When I navigate to "Internal Programs" content inside "Programs" subheader on left panel
+    And I click toggle button to select "Internal Programs - Draft"
+    And I wait for "2" seconds
+    Then I softly do not see top right button "New" inside flex table "---program:-:programsTableId---"
+    When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:programsTableId---" panel
+    Then I softly cannot see row level action button "Edit" against "{SavedValue:ProgramEGMSID}" in flex table with id "---program:-:programsTableId---"
+    Then I softly cannot see row level action button "Delete" against "{SavedValue:ProgramEGMSID}" in flex table with id "---program:-:programsTableId---"
