@@ -42,11 +42,13 @@ public class ApprovalSteps {
 
     @When("I {string} in the approval decision")
     public void completeApproval(String approvalType) {
+        govgrants.perform().approvals().ifToastActionIsDisplayed();
         govgrants.perform().approvals().selectRadioButton(approvalType);
         if (govgrants.perform().approvals().isCommentBoxVisible()) {
             govgrants.perform().approvals().enterComment("Automation Testing");
         }
         govgrants.perform().approvals().submitApproval(true);
+        I.amPerforming().waitFor().makeThreadSleep(5000);
     }
 
     @When("I {string} to user {string} in the approval decision")
