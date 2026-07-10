@@ -113,7 +113,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I wait for "2" seconds
     Then I softly see value "New" for title "Status" inside table "---home:-:subrecipientContactTableId---"
 
-  @72341 @programActivation @ProdSan1
+  @mk @72341 @programActivation @ProdSan1
   Scenario: Validate the activation of Internal Program and the status changes to Active
     When I login to "Grantor" app as "dynamicUser" user
     And I navigate to "Planning" tab
@@ -127,7 +127,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I get the "EGMS ID"
     When I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---program:-:contactsTableId---"
-    When I click "Associate" after selection of "{SavedValue:EXE Username}" in the table "---program:-:associateContactsTableId---"
+    When I click "Associate" after selection of "{SavedValue:PM1 Username}" in the table "---program:-:associateContactsTableId---"
     When I click modal button "Close"
     When I navigate to "Setup" sub tab
     And I click on top right button "Associate" in flex table with id "---program:-:focusAreaTableId---"
@@ -167,6 +167,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I upload attachment without random number "Attachment.pdf" of type "Program Artifacts" from computer
     When I click modal button "Close"
     And I click on "Submit For Approval" in the page details
+    And I halt execution
     And I wait for "3" seconds
     Then I see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
