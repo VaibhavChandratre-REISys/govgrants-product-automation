@@ -1,8 +1,8 @@
 @workflow @regression
 Feature: Validate all scenarios of every modules flow
 
-  @programFlow @ValidateFullProgramFlow
-  Scenario: Validate Full Program Flow
+  @programFlow @ValidateFullProgramFlow @ValidateInternalProgramActivation
+  Scenario: Validate Activation of Internal Program
     Given I am on "INTERNAL" portal
     And I login as "EXE" user
     And I navigate to "Planning" tab
@@ -52,6 +52,58 @@ Feature: Validate all scenarios of every modules flow
     And I click on "Start" icon for "{SavedValue:ProgramEGMSID}" inside flex table with id "---program:-:pendingTaskTableId---" without waiting for record
     And I click on "Activate" in the page details
     Then I softly see field "Status" as "Active"
+
+  @programFlow @ValidateFullProgramFlow @ValidateExternalProgramActivation @ValidateNGOProgramActivation
+  Scenario Outline: Validate Activation of External/NGO Program
+    When I login to "Grantor" app as "dynamicUser" user
+    And I navigate to "Planning" tab
+    When I navigate to "External Programs" content inside "Programs" subheader on left panel
+    And I click on top right button "New" in flex table with id "---program:-:ExternalNGOProgramTableId---"
+    When I enter "NGOCreation" values from "Program_Field_Values.xlsx"
+    And I click modal button "Save and Continue"
+    And I pause execution for "2" seconds
+    And I enter "NGOEdit" values from "Program_Field_Values.xlsx"
+    When I click on "Save" in the page details
+    And I pause execution for "5" seconds
+    And I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "ProgramEGMSID"
+    When I navigate to "Responsibilities" sub tab
+    When I enter the following values into flex table with id "---program:-:extapproverTableId---" by clicking "New" :
+      | Name                     | Program |
+      | {SavedValue:PM Username} | NA      |
+    When I enter the following values into flex table with id "---program:-:extapproverTableId---" by clicking "New" :
+      | Name                     | Program |
+      | {SavedValue:PM Username} | Step 1  |
+    When I enter the following values into flex table with id "---program:-:extapproverTableId---" by clicking "New" :
+      | Name                      | Program |
+      | {SavedValue:EXE Username} | Step 2  |
+    When I navigate to "Overview" sub tab
+    And I click on top right button "Associate" in flex table with id "---program:-:ExternalNGOProgramContactTableId---"
+    When I click "Associate" after selection of "NGO Contact" by showing entries "All" in flex table with id "---program:-:associateContactsTableId---"
+    And I pause execution for "3" seconds
+    And I click on "Submit For Approval" in the page details
+    Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
+    When I "Approve" in the approval decision
+    When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
+    And I navigate to "Planning" tab
+    And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    When I perform quick search for "Record Id" in "---program:-:pendingTaskTableId---" panel
+    And I click on "Start" icon for "Record Id" inside flex table with id "---program:-:pendingTaskTableId---" without waiting for record
+    When I "Approve" in the approval decision
+    And I wait for "2" seconds
+    Then I softly see field "Status" as "Approved"
+    When I re-login to "Grantor" app as "dynamicUser" user on "INTERNAL" portal
+    And I navigate to "Planning" tab
+    When I navigate to "External Programs" content inside "Programs" subheader on left panel
+    And I click toggle button to select "NGO Programs - All"
+    When I perform quick search for "<Program Name>" in "---program:-:ExternalNGOProgramTableId---" panel
+    And I click on "View" icon for "<Program Name>" inside flex table with id "---program:-:ExternalNGOProgramTableId---" without waiting for record
+    And I click on "Activate" in the page details
+    Then I softly see status in Progress-bar is "Active" and is "dark blue"
+
+    Examples:
+      | Program Name                                     |
+      | {SavedValue:Automation Runtime External Program} |
 
   @FocusArea_KPI_Objective_WorkFlow
   Scenario: WorkFlow For Focus Area KPI & Objectives
@@ -2531,9 +2583,9 @@ Feature: Validate all scenarios of every modules flow
 
   @testgranteesf
   Scenario:
-    And I create program records with status "Active" using "default" properties
+    Given I create program records with status "Active" using "default" properties
       | Title                               | RecordType       |
-      | Automation Runtime Program          | Internal Program |
+      | Automation Runtime Internal Program | Internal Program |
       | Automation Runtime External Program | NGO Program      |
     And I halt execution
 #    And I create program records with status "Approved" using "default" properties

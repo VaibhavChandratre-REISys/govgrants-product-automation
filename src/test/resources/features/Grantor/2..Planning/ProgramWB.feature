@@ -1,19 +1,23 @@
 @programWB @grantor-regression @grantor-parallel-regression @planning @regression
 Feature: Validate all scenarios for program
 
-  @109448 @VerifySelectionOfChildOrganization
+  @109448 @VerifySelectionOfChildOrganization @programWBAPI @programWBAPI
   Scenario: Verifying if the user is able to change or add child organization to created program
+    Given I create program records with status "Created" using "default" properties
+      | Title                               | RecordType       |
+      | Automation Runtime Internal Program | Internal Program |
     Given I login to "Grantor" app as "PM" user
-    And I navigate to "Planning" tab
-    When I navigate to "Internal Programs" content inside "Programs" subheader on left panel
-    And I click toggle button to select "Internal Programs - Draft"
-    And I click on top right button "New" in flex table with id "---program:-:programsTableId---"
-    When I enter in modal "Creation" values from "Program_Field_Values.xlsx"
-    And I click modal button "Save and Continue"
-    And I get the "EGMS ID"
-    And I save the field labeled "EGMS ID" as "ProgramEGMSID"
-    And I click on "Save" in the page details
-    And I pause execution for "3" seconds
+#    And I navigate to "Planning" tab
+#    When I navigate to "Internal Programs" content inside "Programs" subheader on left panel
+#    And I click toggle button to select "Internal Programs - Draft"
+#    And I click on top right button "New" in flex table with id "---program:-:programsTableId---"
+#    When I enter in modal "Creation" values from "Program_Field_Values.xlsx"
+#    And I click modal button "Save and Continue"
+#    And I get the "EGMS ID"
+#    And I save the field labeled "EGMS ID" as "ProgramEGMSID"
+#    And I click on "Save" in the page details
+#    And I pause execution for "3" seconds
+
     When I navigate to "Planning" tab
     And I navigate to "Internal Programs" content inside "Programs" subheader on left panel
     And I click toggle button to select "Internal Programs - Draft"
@@ -32,48 +36,57 @@ Feature: Validate all scenarios for program
     When I navigate to "Strategic Plans" content inside "Setup" subheader on left panel
     Then I softly cannot see top right button "New" in flex table with id "---strategicplan:-:StrategicPlansTableId---"
 
-  @111272 @111182 @111191 @VerifyActivationOfNGOProgram  @buglogged138933
+  @111272 @111182 @111191 @VerifyActivationOfNGOProgram  @buglogged138933 @programWBAPI
   Scenario Outline: Verifying record owner is able to activate NGO program
-    When I login to "Grantor" app as "dynamicUser" user
+    Given I create program records with status "Submitted For Approval" using "default" properties
+      | Title                               | RecordType  |
+      | Automation Runtime External Program | NGO Program |
+    When I login to "Grantor" app as "PM" user
+#    And I navigate to "Planning" tab
+#    When I navigate to "External Programs" content inside "Programs" subheader on left panel
+#    And I click on top right button "New" in flex table with id "---program:-:ExternalNGOProgramTableId---"
+#    When I enter "NGOCreation" values from "Program_Field_Values.xlsx"
+#    And I click modal button "Save and Continue"
+#    And I pause execution for "2" seconds
+#    And I enter "NGOEdit" values from "Program_Field_Values.xlsx"
+#    When I click on "Save" in the page details
+#    And I pause execution for "5" seconds
+#    And I get the "EGMS ID"
+#    And I save the field labeled "EGMS ID" as "ProgramEGMSID"
+#    When I navigate to "Responsibilities" sub tab
+#    When I enter the following values into flex table with id "---program:-:extapproverTableId---" by clicking "New" :
+#      | Name                     | Program |
+#      | {SavedValue:PM Username} | NA      |
+#    When I enter the following values into flex table with id "---program:-:extapproverTableId---" by clicking "New" :
+#      | Name                     | Program |
+#      | {SavedValue:PM Username} | Step 1  |
+#    When I enter the following values into flex table with id "---program:-:extapproverTableId---" by clicking "New" :
+#      | Name                      | Program |
+#      | {SavedValue:EXE Username} | Step 2  |
+#    When I navigate to "Overview" sub tab
+#    And I click on top right button "Associate" in flex table with id "---program:-:ExternalNGOProgramContactTableId---"
+#    When I click "Associate" after selection of "NGO Contact" by showing entries "All" in flex table with id "---program:-:associateContactsTableId---"
+#    And I pause execution for "3" seconds
+#    And I click on "Submit For Approval" in the page details
     And I navigate to "Planning" tab
-    When I navigate to "External Programs" content inside "Programs" subheader on left panel
-    And I click on top right button "New" in flex table with id "---program:-:ExternalNGOProgramTableId---"
-    When I enter "NGOCreation" values from "Program_Field_Values.xlsx"
-    And I click modal button "Save and Continue"
-    And I pause execution for "2" seconds
-    And I enter "NGOEdit" values from "Program_Field_Values.xlsx"
-    When I click on "Save" in the page details
-    And I pause execution for "5" seconds
-    And I get the "EGMS ID"
-    And I save the field labeled "EGMS ID" as "ProgramEGMSID"
-    When I navigate to "Responsibilities" sub tab
-    When I enter the following values into flex table with id "---program:-:extapproverTableId---" by clicking "New" :
-      | Name                     | Program |
-      | {SavedValue:PM Username} | NA      |
-    When I enter the following values into flex table with id "---program:-:extapproverTableId---" by clicking "New" :
-      | Name                     | Program |
-      | {SavedValue:PM Username} | Step 1  |
-    When I enter the following values into flex table with id "---program:-:extapproverTableId---" by clicking "New" :
-      | Name                      | Program |
-      | {SavedValue:EXE Username} | Step 2  |
-    When I navigate to "Overview" sub tab
-    And I click on top right button "Associate" in flex table with id "---program:-:ExternalNGOProgramContactTableId---"
-    When I click "Associate" after selection of "NGO Contact" by showing entries "All" in flex table with id "---program:-:associateContactsTableId---"
-    And I pause execution for "3" seconds
-    And I click on "Submit For Approval" in the page details
+    And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    When I perform quick search for "<Program Name>" in "---program:-:pendingTaskTableId---" panel
+    And I click on "Start" icon for "<Program Name>" inside flex table with id "---program:-:pendingTaskTableId---" without waiting for record
     #111182 #monu
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     When I "Approve" in the approval decision
     When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Planning" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    When I perform quick search for "Record Id" in "---program:-:pendingTaskTableId---" panel
-    And I click on "Start" icon for "Record Id" inside flex table with id "---program:-:pendingTaskTableId---" without waiting for record
+    When I perform quick search for "<Program Name>" in "---program:-:pendingTaskTableId---" panel
+    And I click on "Start" icon for "<Program Name>" inside flex table with id "---program:-:pendingTaskTableId---" without waiting for record
+    Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     When I "Approve" in the approval decision
     And I wait for "2" seconds
+    Then I softly see status in Progress-bar is "Approved" and is "dark blue"
     #111191 #monu
     Then I softly see field "Status" as "Approved"
-    When I re-login to "Grantor" app as "dynamicUser" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Planning" tab
     When I navigate to "External Programs" content inside "Programs" subheader on left panel
     And I click toggle button to select "NGO Programs - All"
@@ -84,21 +97,24 @@ Feature: Validate all scenarios for program
 
     Examples:
       | Program Name                                     |
-      | {SavedValue:Automation Runtime Internal Program} |
+      | {SavedValue:Automation Runtime External Program} |
 
-  @110502 @110501 @VerifyEditOfCreatedNGOProgram
+  @110502 @110501 @VerifyEditOfCreatedNGOProgram @programWBAPI
   Scenario Outline: Verifying record owner is able to activate NGO program
-    Given I login to "Grantor" app as "dynamicUser" user
-    And I navigate to "Planning" tab
-    When I navigate to "External Programs" content inside "Programs" subheader on left panel
-    And I click on top right button "New" in flex table with id "---program:-:ExternalNGOProgramTableId---"
-    When I enter "NGOCreation" values from "Program_Field_Values.xlsx"
-    And I click modal button "Save and Continue"
-    And I enter "NGOEdit" values from "Program_Field_Values.xlsx"
-    When I click on "Save" in the page details
-    And I get the "EGMS ID"
-    And I save the field labeled "EGMS ID" as "ProgramEGMSID"
-    And I pause execution for "3" seconds
+    Given I create program records with status "Created" using "default" properties
+      | Title                               | RecordType  |
+      | Automation Runtime External Program | NGO Program |
+    Given I login to "Grantor" app as "PM" user
+#    And I navigate to "Planning" tab
+#    When I navigate to "External Programs" content inside "Programs" subheader on left panel
+#    And I click on top right button "New" in flex table with id "---program:-:ExternalNGOProgramTableId---"
+#    When I enter "NGOCreation" values from "Program_Field_Values.xlsx"
+#    And I click modal button "Save and Continue"
+#    And I enter "NGOEdit" values from "Program_Field_Values.xlsx"
+#    When I click on "Save" in the page details
+#    And I get the "EGMS ID"
+#    And I save the field labeled "EGMS ID" as "ProgramEGMSID"
+#    And I pause execution for "3" seconds
     And I navigate to "Planning" tab
     When I navigate to "External Programs" content inside "Programs" subheader on left panel
     And I click toggle button to select "NGO Programs - All"
@@ -118,7 +134,7 @@ Feature: Validate all scenarios for program
 
     Examples:
       | Program Name                                     |
-      | {SavedValue:Automation Runtime Internal Program} |
+      | {SavedValue:Automation Runtime External Program} |
 
   @110352 @VerifyAccessOfNGOProgramCreationForFOUser
   Scenario: Verifying FO user do not have access to create NGO program
@@ -127,20 +143,28 @@ Feature: Validate all scenarios for program
     When I navigate to "External Programs" content inside "Programs" subheader on left panel
     Then I cannot see top right button "New" in flex table with id "---program:-:ExternalNGOProgramTableId---"
 
-  @111167 @VerifyDeletionOfAssociatedContactAtNGOProgram  @buglogged138933
+  @111167 @VerifyDeletionOfAssociatedContactAtNGOProgram  @buglogged138933 @programWBAPI
   Scenario: Verifying user is able to delete associated contacts from NGO program
-    When I login to "Grantor" app as "dynamicUser" user
+    Given I create program records with status "Active" using "default" properties
+      | Title                               | RecordType  |
+      | Automation Runtime External Program | NGO Program |
+    When I login to "Grantor" app as "PM" user
+#    And I navigate to "Planning" tab
+#    When I navigate to "External Programs" content inside "Programs" subheader on left panel
+#    And I click on top right button "New" in flex table with id "---program:-:ExternalNGOProgramTableId---"
+#    When I enter "NGOCreation" values from "Program_Field_Values.xlsx"
+#    And I click modal button "Save and Continue"
+#    And I get the "EGMS ID"
+#    And I save the field labeled "EGMS ID" as "ProgramEGMSID"
+#    And I click on "Save" in the page details
+#    And I click on "Edit" in the page details
+#    And I enter "NGOEdit" values from "Program_Field_Values.xlsx"
+#    When I click on "Save" in the page details
     And I navigate to "Planning" tab
     When I navigate to "External Programs" content inside "Programs" subheader on left panel
-    And I click on top right button "New" in flex table with id "---program:-:ExternalNGOProgramTableId---"
-    When I enter "NGOCreation" values from "Program_Field_Values.xlsx"
-    And I click modal button "Save and Continue"
-    And I get the "EGMS ID"
-    And I save the field labeled "EGMS ID" as "ProgramEGMSID"
-    And I click on "Save" in the page details
-    And I click on "Edit" in the page details
-    And I enter "NGOEdit" values from "Program_Field_Values.xlsx"
-    When I click on "Save" in the page details
+    And I click toggle button to select "NGO Programs - All"
+    When I perform quick search for "{SavedValue:Automation Runtime External Program}" in "---program:-:ExternalNGOProgramTableId---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime External Program}" inside flex table with id "---program:-:ExternalNGOProgramTableId---"
     When I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---program:-:ExternalNGOProgramContactTableId---"
     When I click "Associate" after selection of "NGO Contact" by showing entries "All" in flex table with id "---program:-:associateContactsTableId---"
@@ -148,167 +172,198 @@ Feature: Validate all scenarios for program
     And I click on "Remove" icon for "NGO Contact" inside flex table with id "---program:-:ExternalNGOProgramContactTableId---"
     Then I softly see "Record removed successfully." inside flex table with id "---program:-:ExternalNGOProgramContactTableId---"
 
-  @111264 @111183 @VerifyTaskCreationForNGOProgramActivation  @buglogged138933
+  @111264 @111183 @VerifyTaskCreationForNGOProgramActivation  @buglogged138933 @programWBAPI
   Scenario: Verifying record owner should receive generated task inside pending for Program activation after approval of program
-    When I login to "Grantor" app as "dynamicUser" user
+    Given I create program records with status "Submitted For Approval" using "default" properties
+      | Title                               | RecordType  |
+      | Automation Runtime External Program | NGO Program |
+    When I login to "Grantor" app as "PM" user
+#    And I navigate to "Planning" tab
+#    When I navigate to "External Programs" content inside "Programs" subheader on left panel
+#    And I click on top right button "New" in flex table with id "---program:-:ExternalNGOProgramTableId---"
+#    When I enter "NGOCreation" values from "Program_Field_Values.xlsx"
+#    And I click modal button "Save and Continue"
+#    And I get the "EGMS ID"
+#    And I save the field labeled "EGMS ID" as "ProgramEGMSID"
+#    And I click on "Save" in the page details
+#    And I click on "Edit" in the page details
+#    And I pause execution for "4" seconds
+#    And I enter "NGOEdit" values from "Program_Field_Values.xlsx"
+#    When I click on "Save" in the page details
+#    When I navigate to "Overview" sub tab
+#    And I click on top right button "Associate" in flex table with id "---program:-:ExternalNGOProgramContactTableId---"
+#    When I click "Associate" after selection of "NGO Contact" by showing entries "All" in flex table with id "---program:-:associateContactsTableId---"
+#    And I click modal button "Close"
+#    When I navigate to "Responsibilities" sub tab
+#    When I enter the following values into flex table with id "---program:-:extapproverTableId---" by clicking "New" :
+#      | Name                     | Program |
+#      | {SavedValue:PM Username} | NA      |
+#    When I enter the following values into flex table with id "---program:-:extapproverTableId---" by clicking "New" :
+#      | Name                     | Program |
+#      | {SavedValue:PM Username} | Step 1  |
+#    When I enter the following values into flex table with id "---program:-:extapproverTableId---" by clicking "New" :
+#      | Name                      | Program |
+#      | {SavedValue:EXE Username} | Step 2  |
+#    And I pause execution for "3" seconds
+#    And I click on "Submit For Approval" in the page details
+#    And I pause execution for "3" seconds
+#    When I "Approve" in the approval decision
     And I navigate to "Planning" tab
-    When I navigate to "External Programs" content inside "Programs" subheader on left panel
-    And I click on top right button "New" in flex table with id "---program:-:ExternalNGOProgramTableId---"
-    When I enter "NGOCreation" values from "Program_Field_Values.xlsx"
-    And I click modal button "Save and Continue"
-    And I get the "EGMS ID"
-    And I save the field labeled "EGMS ID" as "ProgramEGMSID"
-    And I click on "Save" in the page details
-    And I click on "Edit" in the page details
-    And I pause execution for "4" seconds
-    And I enter "NGOEdit" values from "Program_Field_Values.xlsx"
-    When I click on "Save" in the page details
-    When I navigate to "Overview" sub tab
-    And I click on top right button "Associate" in flex table with id "---program:-:ExternalNGOProgramContactTableId---"
-    When I click "Associate" after selection of "NGO Contact" by showing entries "All" in flex table with id "---program:-:associateContactsTableId---"
-    And I click modal button "Close"
-    When I navigate to "Responsibilities" sub tab
-    When I enter the following values into flex table with id "---program:-:extapproverTableId---" by clicking "New" :
-      | Name                     | Program |
-      | {SavedValue:PM Username} | NA      |
-    When I enter the following values into flex table with id "---program:-:extapproverTableId---" by clicking "New" :
-      | Name                     | Program |
-      | {SavedValue:PM Username} | Step 1  |
-    When I enter the following values into flex table with id "---program:-:extapproverTableId---" by clicking "New" :
-      | Name                      | Program |
-      | {SavedValue:EXE Username} | Step 2  |
-    And I pause execution for "3" seconds
-    And I click on "Submit For Approval" in the page details
-    And I pause execution for "3" seconds
-    #111183 #monu
+    And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    When I perform quick search for "{SavedValue:Automation Runtime External Program}" in "---program:-:pendingTaskTableId---" panel
+    And I click on "Start" icon for "{SavedValue:Automation Runtime External Program}" inside flex table with id "---program:-:pendingTaskTableId---" without waiting for record
+    Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     When I "Approve" in the approval decision
+    #111183 #monu
     When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Planning" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    When I perform quick search for "Record Id" in "---program:-:pendingTaskTableId---" panel
-    And I click on "Start" icon for "Record Id" inside flex table with id "---program:-:pendingTaskTableId---" without waiting for record
+    When I perform quick search for "{SavedValue:Automation Runtime External Program}" in "---program:-:pendingTaskTableId---" panel
+    And I click on "Start" icon for "{SavedValue:Automation Runtime External Program}" inside flex table with id "---program:-:pendingTaskTableId---" without waiting for record
+    Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     When I "Approve" in the approval decision
-    When I re-login to "Grantor" app as "dynamicUser" user on "INTERNAL" portal
+    Then I softly see status in Progress-bar is "Approved" and is "dark blue"
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Planning" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:pendingTaskTableId---" panel
     Then I softly see value "Activate NGO Program {SavedValue:ProgramEGMSID}" for title "Subject" inside table "---program:-:pendingTaskTableId---"
 
-  @111226 @VerifyProgramNotEditableAfterSubmission  @buglogged138933
+  @111226 @VerifyProgramNotEditableAfterSubmission  @buglogged138933 @programWBAPI
   Scenario Outline: Verifying NGO Program record is not editable once program is submitted for approval
-    When I login to "Grantor" app as "dynamicUser" user
-    And I navigate to "Planning" tab
-    When I navigate to "External Programs" content inside "Programs" subheader on left panel
-    And I click on top right button "New" in flex table with id "---program:-:ExternalNGOProgramTableId---"
-    When I enter "NGOCreation" values from "Program_Field_Values.xlsx"
-    And I click modal button "Save and Continue"
-    And I get the "EGMS ID"
-    And I save the field labeled "EGMS ID" as "ProgramEGMSID"
-    And I pause execution for "3" seconds
-    And I enter "NGOEdit" values from "Program_Field_Values.xlsx"
-    When I click on "Save" in the page details
-    When I navigate to "Responsibilities" sub tab
-    When I enter the following values into flex table with id "---program:-:extapproverTableId---" by clicking "New" :
-      | Name                     | Program |
-      | {SavedValue:PM Username} | NA      |
-    When I enter the following values into flex table with id "---program:-:extapproverTableId---" by clicking "New" :
-      | Name                     | Program |
-      | {SavedValue:PM Username} | Step 1  |
-    When I enter the following values into flex table with id "---program:-:extapproverTableId---" by clicking "New" :
-      | Name                      | Program |
-      | {SavedValue:EXE Username} | Step 2  |
-    When I navigate to "Overview" sub tab
-    And I click on top right button "Associate" in flex table with id "---program:-:ExternalNGOProgramContactTableId---"
-    When I click "Associate" after selection of "NGO Contact" by showing entries "All" in flex table with id "---program:-:associateContactsTableId---"
-    And I click modal button "Close"
-    And I click on "Submit For Approval" in the page details
-    And I pause execution for "3" seconds
-    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
+    Given I create program records with status "Submitted For Approval" using "default" properties
+      | Title                               | RecordType  |
+      | Automation Runtime External Program | NGO Program |
+    When I login to "Grantor" app as "PM" user
+#    And I navigate to "Planning" tab
+#    When I navigate to "External Programs" content inside "Programs" subheader on left panel
+#    And I click on top right button "New" in flex table with id "---program:-:ExternalNGOProgramTableId---"
+#    When I enter "NGOCreation" values from "Program_Field_Values.xlsx"
+#    And I click modal button "Save and Continue"
+#    And I get the "EGMS ID"
+#    And I save the field labeled "EGMS ID" as "ProgramEGMSID"
+#    And I pause execution for "3" seconds
+#    And I enter "NGOEdit" values from "Program_Field_Values.xlsx"
+#    When I click on "Save" in the page details
+#    When I navigate to "Responsibilities" sub tab
+#    When I enter the following values into flex table with id "---program:-:extapproverTableId---" by clicking "New" :
+#      | Name                     | Program |
+#      | {SavedValue:PM Username} | NA      |
+#    When I enter the following values into flex table with id "---program:-:extapproverTableId---" by clicking "New" :
+#      | Name                     | Program |
+#      | {SavedValue:PM Username} | Step 1  |
+#    When I enter the following values into flex table with id "---program:-:extapproverTableId---" by clicking "New" :
+#      | Name                      | Program |
+#      | {SavedValue:EXE Username} | Step 2  |
+#    When I navigate to "Overview" sub tab
+#    And I click on top right button "Associate" in flex table with id "---program:-:ExternalNGOProgramContactTableId---"
+#    When I click "Associate" after selection of "NGO Contact" by showing entries "All" in flex table with id "---program:-:associateContactsTableId---"
+#    And I click modal button "Close"
+#    And I click on "Submit For Approval" in the page details
+#    And I pause execution for "3" seconds
+#    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Planning" tab
     When I navigate to "External Programs" content inside "Programs" subheader on left panel
     And I click toggle button to select "NGO Programs - All"
     When I perform quick search for "<Program Name>" in "---program:-:ExternalNGOProgramTableId---" panel
     And I click on "View" icon for "<Program Name>" inside flex table with id "---program:-:ExternalNGOProgramTableId---" without waiting for record
+    Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     Then I softly cannot see top right button "Edit" in page detail
 
     Examples:
       | Program Name                                     |
-      | {SavedValue:Automation Runtime Internal Program} |
+      | {SavedValue:Automation Runtime External Program} |
 
-  @111416 @VerifyRejectionOfNGOProgram  @buglogged138933
+  @111416 @VerifyRejectionOfNGOProgram  @buglogged138933 @programWBAPI
   Scenario: Verifying Executive approver is able to reject NGO Program
-    When I login to "Grantor" app as "dynamicUser" user
+    Given I create program records with status "Submitted For Approval" using "default" properties
+      | Title                               | RecordType  |
+      | Automation Runtime External Program | NGO Program |
+    When I login to "Grantor" app as "PM" user
+#    And I navigate to "Planning" tab
+#    When I navigate to "External Programs" content inside "Programs" subheader on left panel
+#    And I click on top right button "New" in flex table with id "---program:-:ExternalNGOProgramTableId---"
+#    When I enter "NGOCreation" values from "Program_Field_Values.xlsx"
+#    And I click modal button "Save and Continue"
+#    And I pause execution for "2" seconds
+#    And I enter "NGOEdit" values from "Program_Field_Values.xlsx"
+#    When I click on "Save" in the page details
+#    And I pause execution for "5" seconds
+#    And I get the "EGMS ID"
+#    And I save the field labeled "EGMS ID" as "ProgramEGMSID"
+#    When I navigate to "Responsibilities" sub tab
+#    When I enter the following values into flex table with id "---program:-:extapproverTableId---" by clicking "New" :
+#      | Name                     | Program |
+#      | {SavedValue:PM Username} | NA      |
+#    When I enter the following values into flex table with id "---program:-:extapproverTableId---" by clicking "New" :
+#      | Name                     | Program |
+#      | {SavedValue:PM Username} | Step 1  |
+#    When I enter the following values into flex table with id "---program:-:extapproverTableId---" by clicking "New" :
+#      | Name                      | Program |
+#      | {SavedValue:EXE Username} | Step 2  |
+#    When I navigate to "Overview" sub tab
+#    And I click on top right button "Associate" in flex table with id "---program:-:ExternalNGOProgramContactTableId---"
+#    When I click "Associate" after selection of "NGO Contact" by showing entries "All" in flex table with id "---program:-:associateContactsTableId---"
+#    And I click modal button "Close"
+#    And I wait for "2" seconds
+#    And I click on "Submit For Approval" in the page details
+#    And I wait for "2" seconds
     And I navigate to "Planning" tab
-    When I navigate to "External Programs" content inside "Programs" subheader on left panel
-    And I click on top right button "New" in flex table with id "---program:-:ExternalNGOProgramTableId---"
-    When I enter "NGOCreation" values from "Program_Field_Values.xlsx"
-    And I click modal button "Save and Continue"
-    And I pause execution for "2" seconds
-    And I enter "NGOEdit" values from "Program_Field_Values.xlsx"
-    When I click on "Save" in the page details
-    And I pause execution for "5" seconds
-    And I get the "EGMS ID"
-    And I save the field labeled "EGMS ID" as "ProgramEGMSID"
-    When I navigate to "Responsibilities" sub tab
-    When I enter the following values into flex table with id "---program:-:extapproverTableId---" by clicking "New" :
-      | Name                     | Program |
-      | {SavedValue:PM Username} | NA      |
-    When I enter the following values into flex table with id "---program:-:extapproverTableId---" by clicking "New" :
-      | Name                     | Program |
-      | {SavedValue:PM Username} | Step 1  |
-    When I enter the following values into flex table with id "---program:-:extapproverTableId---" by clicking "New" :
-      | Name                      | Program |
-      | {SavedValue:EXE Username} | Step 2  |
-    When I navigate to "Overview" sub tab
-    And I click on top right button "Associate" in flex table with id "---program:-:ExternalNGOProgramContactTableId---"
-    When I click "Associate" after selection of "NGO Contact" by showing entries "All" in flex table with id "---program:-:associateContactsTableId---"
-    And I click modal button "Close"
-    And I wait for "2" seconds
-    And I click on "Submit For Approval" in the page details
-    And I wait for "2" seconds
+    And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    When I perform quick search for "{SavedValue:Automation Runtime External Program}" in "---program:-:pendingTaskTableId---" panel
+    And I click on "Start" icon for "{SavedValue:Automation Runtime External Program}" inside flex table with id "---program:-:pendingTaskTableId---" without waiting for record
+    Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     When I "Approve" in the approval decision
+    Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Planning" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    When I perform quick search for "Record Id" in "---program:-:pendingTaskTableId---" panel
-    And I click on "Start" icon for "Record Id" inside flex table with id "---program:-:pendingTaskTableId---" without waiting for record
+    When I perform quick search for "{SavedValue:Automation Runtime External Program}" in "---program:-:pendingTaskTableId---" panel
+    And I click on "Start" icon for "{SavedValue:Automation Runtime External Program}" inside flex table with id "---program:-:pendingTaskTableId---" without waiting for record
+    Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     And I "Disapprove" in the approval decision
     Then I softly see the following messages in the page details contains:
-      | Successfully Disapproved
+      | Successfully Disapproved |
     And I wait for "3" seconds
     Then I softly see field "Status" as "Rejected"
     Then I softly see status in Progress-bar is "Rejected" and is "Red"
 
-  @111514 @VerifyForwardOfNGOProgram
+  @111514 @VerifyForwardOfNGOProgram @programWBAPI
   Scenario: Verifying user is able to forward NGO Program to another user during Approval process
-    When I login to "Grantor" app as "dynamicUser" user
+    Given I create program records with status "Submitted For Approval" using "default" properties
+      | Title                               | RecordType  |
+      | Automation Runtime External Program | NGO Program |
+    When I login to "Grantor" app as "PM" user
     And I navigate to "Planning" tab
-    When I navigate to "External Programs" content inside "Programs" subheader on left panel
-    And I click on top right button "New" in flex table with id "---program:-:ExternalNGOProgramTableId---"
-    When I enter "NGOCreation" values from "Program_Field_Values.xlsx"
-    And I click modal button "Save and Continue"
-    And I pause execution for "2" seconds
-    And I enter "NGOEdit" values from "Program_Field_Values.xlsx"
-    When I click on "Save" in the page details
-    And I pause execution for "5" seconds
-    And I get the "EGMS ID"
-    And I save the field labeled "EGMS ID" as "ProgramEGMSID"
-    When I navigate to "Responsibilities" sub tab
-    When I enter the following values into flex table with id "---program:-:extapproverTableId---" by clicking "New" :
-      | Name                     | Program |
-      | {SavedValue:PM Username} | NA      |
-    When I enter the following values into flex table with id "---program:-:extapproverTableId---" by clicking "New" :
-      | Name                     | Program |
-      | {SavedValue:PM Username} | Step 1  |
-    When I enter the following values into flex table with id "---program:-:extapproverTableId---" by clicking "New" :
-      | Name                      | Program |
-      | {SavedValue:EXE Username} | Step 2  |
-    When I navigate to "Overview" sub tab
-    And I click on top right button "Associate" in flex table with id "---program:-:ExternalNGOProgramContactTableId---"
-    When I click "Associate" after selection of "NGO Contact" by showing entries "All" in flex table with id "---program:-:associateContactsTableId---"
-    And I click modal button "Close"
-    And I pause execution for "3" seconds
-    And I click on "Submit For Approval" in the page details
+#    When I navigate to "External Programs" content inside "Programs" subheader on left panel
+#    And I click on top right button "New" in flex table with id "---program:-:ExternalNGOProgramTableId---"
+#    When I enter "NGOCreation" values from "Program_Field_Values.xlsx"
+#    And I click modal button "Save and Continue"
+#    And I pause execution for "2" seconds
+#    And I enter "NGOEdit" values from "Program_Field_Values.xlsx"
+#    When I click on "Save" in the page details
+#    And I pause execution for "5" seconds
+#    And I get the "EGMS ID"
+#    And I save the field labeled "EGMS ID" as "ProgramEGMSID"
+#    When I navigate to "Responsibilities" sub tab
+#    When I enter the following values into flex table with id "---program:-:extapproverTableId---" by clicking "New" :
+#      | Name                     | Program |
+#      | {SavedValue:PM Username} | NA      |
+#    When I enter the following values into flex table with id "---program:-:extapproverTableId---" by clicking "New" :
+#      | Name                     | Program |
+#      | {SavedValue:PM Username} | Step 1  |
+#    When I enter the following values into flex table with id "---program:-:extapproverTableId---" by clicking "New" :
+#      | Name                      | Program |
+#      | {SavedValue:EXE Username} | Step 2  |
+#    When I navigate to "Overview" sub tab
+#    And I click on top right button "Associate" in flex table with id "---program:-:ExternalNGOProgramContactTableId---"
+#    When I click "Associate" after selection of "NGO Contact" by showing entries "All" in flex table with id "---program:-:associateContactsTableId---"
+#    And I click modal button "Close"
+#    And I pause execution for "3" seconds
+#    And I click on "Submit For Approval" in the page details
+    And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    When I perform quick search for "{SavedValue:Automation Runtime External Program}" in "---program:-:pendingTaskTableId---" panel
+    And I click on "Start" icon for "{SavedValue:Automation Runtime External Program}" inside flex table with id "---program:-:pendingTaskTableId---" without waiting for record
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     When I select radio button "Forward" in the approval decision
     And I select user "{SavedValue:EXE Username}" in the approval decision
@@ -317,44 +372,53 @@ Feature: Validate all scenarios for program
     Then I softly see the following messages in the page details contains:
       | Successfully Re-Assigned |
 
-  @111515 @VerifySendBackFunctionalityForNGOProgram  @buglogged138933
+  @111515 @VerifySendBackFunctionalityForNGOProgram  @buglogged138933 @programWBAPI
   Scenario: Verifying user is able to send back NGO Program to owner
-    When I login to "Grantor" app as "dynamicUser" user
+    Given I create program records with status "Submitted For Approval" using "default" properties
+      | Title                               | RecordType  |
+      | Automation Runtime External Program | NGO Program |
+    When I login to "Grantor" app as "PM" user
     And I navigate to "Planning" tab
-    When I navigate to "External Programs" content inside "Programs" subheader on left panel
-    And I click on top right button "New" in flex table with id "---program:-:ExternalNGOProgramTableId---"
-    When I enter "NGOCreation" values from "Program_Field_Values.xlsx"
-    And I click modal button "Save and Continue"
-    And I pause execution for "2" seconds
-    And I enter "NGOEdit" values from "Program_Field_Values.xlsx"
-    When I click on "Save" in the page details
-    And I pause execution for "5" seconds
-    And I get the "EGMS ID"
-    And I save the field labeled "EGMS ID" as "ProgramEGMSID"
-    When I navigate to "Responsibilities" sub tab
-    When I enter the following values into flex table with id "---program:-:extapproverTableId---" by clicking "New" :
-      | Name                     | Program |
-      | {SavedValue:PM Username} | NA      |
-    When I enter the following values into flex table with id "---program:-:extapproverTableId---" by clicking "New" :
-      | Name                     | Program |
-      | {SavedValue:PM Username} | Step 1  |
-    When I enter the following values into flex table with id "---program:-:extapproverTableId---" by clicking "New" :
-      | Name                      | Program |
-      | {SavedValue:EXE Username} | Step 2  |
-    When I navigate to "Overview" sub tab
-    And I click on top right button "Associate" in flex table with id "---program:-:ExternalNGOProgramContactTableId---"
-    When I click "Associate" after selection of "NGO Contact" by showing entries "All" in flex table with id "---program:-:associateContactsTableId---"
-    And I click modal button "Close"
-    And I pause execution for "3" seconds
-    And I click on "Submit For Approval" in the page details
+#    When I navigate to "External Programs" content inside "Programs" subheader on left panel
+#    And I click on top right button "New" in flex table with id "---program:-:ExternalNGOProgramTableId---"
+#    When I enter "NGOCreation" values from "Program_Field_Values.xlsx"
+#    And I click modal button "Save and Continue"
+#    And I pause execution for "2" seconds
+#    And I enter "NGOEdit" values from "Program_Field_Values.xlsx"
+#    When I click on "Save" in the page details
+#    And I pause execution for "5" seconds
+#    And I get the "EGMS ID"
+#    And I save the field labeled "EGMS ID" as "ProgramEGMSID"
+#    When I navigate to "Responsibilities" sub tab
+#    When I enter the following values into flex table with id "---program:-:extapproverTableId---" by clicking "New" :
+#      | Name                     | Program |
+#      | {SavedValue:PM Username} | NA      |
+#    When I enter the following values into flex table with id "---program:-:extapproverTableId---" by clicking "New" :
+#      | Name                     | Program |
+#      | {SavedValue:PM Username} | Step 1  |
+#    When I enter the following values into flex table with id "---program:-:extapproverTableId---" by clicking "New" :
+#      | Name                      | Program |
+#      | {SavedValue:EXE Username} | Step 2  |
+#    When I navigate to "Overview" sub tab
+#    And I click on top right button "Associate" in flex table with id "---program:-:ExternalNGOProgramContactTableId---"
+#    When I click "Associate" after selection of "NGO Contact" by showing entries "All" in flex table with id "---program:-:associateContactsTableId---"
+#    And I click modal button "Close"
+#    And I pause execution for "3" seconds
+#    And I click on "Submit For Approval" in the page details
+    And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    When I perform quick search for "{SavedValue:Automation Runtime External Program}" in "---program:-:pendingTaskTableId---" panel
+    And I click on "Start" icon for "{SavedValue:Automation Runtime External Program}" inside flex table with id "---program:-:pendingTaskTableId---" without waiting for record
+    Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
     When I "Send to Owner" in the approval decision
     Then I softly see field "Status" as "Created"
 #    And I softly see the following messages in the page details contains:
 #      | Successfully sent to Owner. It may take few minutes to process record. |
 
   @140943 @Verify1StepApprovalAtNGOProgram-RnRFunctionality
+  @140941 @Verify2StepApprovalForNGOProgram-RnRFunctionality
   Scenario: Validate user can add step1 as an approver for created NGO Program
-    When I login to "Grantor" app as "dynamicUser" user
+  | Validate user can add two step approval for NGO program and complete the approval |
+    When I login to "Grantor" app as "PM" user
     And I navigate to "Planning" tab
     When I navigate to "External Programs" content inside "Programs" subheader on left panel
     And I click on top right button "New" in flex table with id "---program:-:ExternalNGOProgramTableId---"
@@ -369,32 +433,9 @@ Feature: Validate all scenarios for program
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---program:-:extapproverTableId---" by clicking "New" :
       | Name                     | Program |
-      | {SavedValue:PM Username} | NA      |
-    When I enter the following values into flex table with id "---program:-:extapproverTableId---" by clicking "New" :
-      | Name                     | Program |
       | {SavedValue:PM Username} | Step 1  |
     Then I softly see "Saved Successfully!" inside flex table with id "---program:-:extapproverTableId---"
-
-  @140941 @Verify2StepApprovalForNGOProgram-RnRFunctionality
-  Scenario: Validate user can two step approval for NGO program and complete the approval
-    When I login to "Grantor" app as "dynamicUser" user
-    And I navigate to "Planning" tab
-    When I navigate to "External Programs" content inside "Programs" subheader on left panel
-    And I click on top right button "New" in flex table with id "---program:-:ExternalNGOProgramTableId---"
-    When I enter "NGOCreation" values from "Program_Field_Values.xlsx"
-    And I click modal button "Save and Continue"
-    And I wait for "2" seconds
-    And I enter "NGOEdit" values from "Program_Field_Values.xlsx"
-    When I click on "Save" in the page details
-    And I pause execution for "5" seconds
-    And I save the field labeled "EGMS ID" as "ProgramEGMSID"
-    When I navigate to "Responsibilities" sub tab
-    When I enter the following values into flex table with id "---program:-:extapproverTableId---" by clicking "New" :
-      | Name                     | Program |
-      | {SavedValue:PM Username} | NA      |
-    When I enter the following values into flex table with id "---program:-:extapproverTableId---" by clicking "New" :
-      | Name                     | Program |
-      | {SavedValue:PM Username} | Step 1  |
+    #140941
     When I enter the following values into flex table with id "---program:-:extapproverTableId---" by clicking "New" :
       | Name                      | Program |
       | {SavedValue:EXE Username} | Step 2  |
@@ -412,7 +453,7 @@ Feature: Validate all scenarios for program
 
   @140332 @VerifyErrorMessageAtApproverSectionWhileSkippingAtNGOProgram-RnRFunctionality  @bugonAutoorg @needtoCheckafterorgrefresh
   Scenario: Validate user cannot skip approver step on NGO program
-    When I login to "Grantor" app as "dynamicUser" user
+    When I login to "Grantor" app as "PM" user
     And I navigate to "Planning" tab
     When I navigate to "External Programs" content inside "Programs" subheader on left panel
     And I click on top right button "New" in flex table with id "---program:-:ExternalNGOProgramTableId---"
@@ -425,26 +466,28 @@ Feature: Validate all scenarios for program
     And I softly see the following messages in the page details contains:
       | Responsibilities - At least one approver is required |
 
-  @141801 @VerifyErrorMessageWhileSkippingStepsForNGOProgram-RnRFunctionality
+  @141801 @VerifyErrorMessageWhileSkippingStepsForNGOProgram-RnRFunctionality @programWBAPI
   Scenario: Verify the validation message is displayed when user skip the approval steps on NGO program
-    When I login to "Grantor" app as "dynamicUser" user
+    Given I create program records with status "Active" using "default" properties
+      | Title                               | RecordType  |
+      | Automation Runtime External Program | NGO Program |
+    When I login to "Grantor" app as "PM" user
     And I navigate to "Planning" tab
     When I navigate to "External Programs" content inside "Programs" subheader on left panel
-    And I click on top right button "New" in flex table with id "---program:-:ExternalNGOProgramTableId---"
-    When I enter "NGOCreation" values from "Program_Field_Values.xlsx"
-    And I click modal button "Save and Continue"
-    And I wait for "5" seconds
-    And I enter "NGOEdit" values from "Program_Field_Values.xlsx"
-    When I click on "Save" in the page details
-    And I get the "EGMS ID"
-    And I save the field labeled "EGMS ID" as "ProgramEGMSID"
+    And I click toggle button to select "NGO Programs - All"
+    When I perform quick search for "{SavedValue:Automation Runtime External Program}" in "---program:-:ExternalNGOProgramTableId---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime External Program}" inside flex table with id "---program:-:ExternalNGOProgramTableId---"
+
+#    And I click on top right button "New" in flex table with id "---program:-:ExternalNGOProgramTableId---"
+#    When I enter "NGOCreation" values from "Program_Field_Values.xlsx"
+#    And I click modal button "Save and Continue"
+#    And I wait for "5" seconds
+#    And I enter "NGOEdit" values from "Program_Field_Values.xlsx"
+#    When I click on "Save" in the page details
+#    And I get the "EGMS ID"
+#    And I save the field labeled "EGMS ID" as "ProgramEGMSID"
+
     When I navigate to "Responsibilities" sub tab
-    When I enter the following values into flex table with id "---program:-:extapproverTableId---" by clicking "New" :
-      | Name                     | Program |
-      | {SavedValue:PM Username} | NA      |
-    When I enter the following values into flex table with id "---program:-:extapproverTableId---" by clicking "New" :
-      | Name                     | Program |
-      | {SavedValue:PM Username} | Step 1  |
     When I enter the following values into flex table with id "---program:-:extapproverTableId---" by clicking "New" :
       | Name                      | Program |
       | {SavedValue:EXE Username} | Step 4  |
@@ -452,24 +495,17 @@ Feature: Validate all scenarios for program
     Then I softly see the following messages in the page details contains:
       | Responsibilities - You cannot skip an Approval Step. |
 
-  @169882 @169884 @169886 @169897 @169896 @169898 @ValidateusershouldabletoseenewGrantorPreapplicationformunderthesetuptabinInternalPrograms @sprint-7
+  @169882 @169884 @169886 @169897 @169896 @169898 @ValidateusershouldabletoseenewGrantorPreapplicationformunderthesetuptabinInternalPrograms @sprint-7 @programWBAPI
   Scenario Outline: Validate user should able to see new Grantor Pre application form under the setup tab in Internal Programs
-    When I login to "Grantor" app as "<User>" user
-    And I navigate to "Planning" tab
-    When I navigate to "Internal Programs" content inside "Programs" subheader on left panel
-    And I click toggle button to select "Internal Programs - Draft"
-    And I click on top right button "New" in flex table with id "---program:-:programsTableId---"
-    When I enter in modal "Creation2" values from "Program_Field_Values.xlsx"
-    And I click modal button "Save and Continue"
-    And I get the "EGMS ID"
-    And I save the field labeled "EGMS ID" as "ProgramEGMSID"
-    And I click on "Save" in the page details
-    When I re-login to "Grantor" app as "<User>" user on "INTERNAL" portal
+    Given I create program records with status "Created" using "Owner-Automation <User>" properties
+      | Title                               | RecordType       |
+      | Automation Runtime Internal Program | Internal Program |
+    Given I login to "Grantor" app as "<User>" user
     When I navigate to "Planning" tab
     And I navigate to "Internal Programs" content inside "Programs" subheader on left panel
     And I click toggle button to select "Internal Programs - Draft"
-    When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:programsTableId---" panel
-    And I click on "Edit" icon for "{SavedValue:ProgramEGMSID}" inside flex table with id "---program:-:programsTableId---" without waiting for record
+    When I perform quick search for "{SavedValue:Automation Runtime Internal Program}" in "---program:-:programsTableId---" panel
+    And I click on "Edit" icon for "{SavedValue:Automation Runtime Internal Program}" inside flex table with id "---program:-:programsTableId---" without waiting for record
     And I navigate to "Setup" sub tab
     Then I softly see value "Grantor Pre-application Form" for title "Package Name" inside table "---program:-:businessFormTableId---"
      #169884
@@ -487,14 +523,15 @@ Feature: Validate all scenarios for program
     And I click on "Preview" icon for "Standard Pre-Application form" inside flex table with id "---program:-:previewPackageTableId---" without waiting for record
     And I wait for "2" seconds
     Then I softly see new tab is opened
+
     Examples:
       | User | new_helpText                                                 |
-      | PM   | Section Displays List of Forms Associated with this Package. |
       | EXE  | Section Displays List of Forms Associated with this Package. |
+      | PM   | Section Displays List of Forms Associated with this Package. |
 
   @174411 @ValidateusershouldabletoseeGrantorPreApplicationforminPackages @sprint-7
   Scenario: Validate user should able to see Grantor Pre Application form in Packages
-    When I login to "Grantor" app as "dynamicUser" user
+    When I login to "Grantor" app as "PM" user
     And I navigate to "Planning" tab
     When I navigate to "Forms and Packages" content inside "Setup" subheader on left panel
     When I perform quick search for "Grantor Pre-application Form" in "---program:-:packagesTableId---" panel
@@ -502,55 +539,66 @@ Feature: Validate all scenarios for program
     And I expand nested table containing column value "Grantor Pre-application Form"
     Then I softly see value "Standard Pre-Application form" for title "Form Name" inside table "---program:-:packagesTableId---"
 
-  @197300 @ValidatePMuserisabletotransferhisowntaskofthetasktypeActivatetheProgramstatusasInprogresstoanotherPMuserforinternalprogram @sprint-4  @reassignment @ownvai
+  #Task/Owenership Re-assignment Scenarios
+  @197300 @ValidatePMuserisabletotransferhisowntaskofthetasktypeActivatetheProgramstatusasInprogresstoanotherPMuserforinternalprogram @sprint-4  @reassignment @ownvai @programWBAPI
   Scenario: Validate PM user is able to transfer his own task of the task type Activate the Program status as In progress to another PM user for internal program
-    When I login to "Grantor" app as "dynamicUser" user
-    And I navigate to "Planning" tab
-    When I navigate to "Internal Programs" content inside "Programs" subheader on left panel
+    Given I create program records with status "Approved" using "default" properties
+      | Title                               | RecordType       |
+      | Automation Runtime Internal Program | Internal Program |
+    Given I login to "Grantor" app as "PM" user
+#    And I navigate to "Planning" tab
+#    When I navigate to "Internal Programs" content inside "Programs" subheader on left panel
+#    And I click toggle button to select "Internal Programs - Draft"
+#    And I click on top right button "New" in flex table with id "---program:-:programsTableId---"
+#    When I enter in modal "Creation" values from "Program_Field_Values.xlsx"
+#    And I click modal button "Save and Continue"
+#    And I get the "EGMS ID"
+#    And I save the field labeled "EGMS ID" as "ProgramEGMSID"
+#    And I click on "Save" in the page details
+#    And I click on "Edit" in the page details
+#    When I enter "Edition" values from "Program_Field_Values.xlsx"
+#    And I click on "Save" in the page details
+#    When I navigate to "Overview" sub tab
+#    And I click on top right button "Associate" in flex table with id "---program:-:contactsTableId---"
+#    When I click "Associate" after selection of "{SavedValue:EXE Username}" by showing entries "All" in flex table with id "---program:-:associateContactsTableId---"
+#    When I navigate to "Setup" sub tab
+#    And I click on top right button "Associate" in flex table with id "---program:-:focusAreaTableId---"
+#    When I click "Associate" after selection of "Automation Permanent Focus Area" by showing entries "All" in flex table with id "---program:-:associateFocusAreaTableId---"
+#    And I click on top right button "Associate" in flex table with id "---program:-:objectivesTableId---"
+#    When I click "Associate" after selection of "Automation Permanent Objective" by showing entries "All" in flex table with id "---program:-:associateObjectivesTableId---"
+#    And I click on top right button "Associate" in flex table with id "---program:-:kpiTableId---"
+#    When I click "Associate" after selection of "Automation Permanent KPI" by showing entries "All" in flex table with id "---program:-:associateKPITableId---"
+#    When I navigate to "Responsibilities" sub tab
+#    When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
+#      | Name                     | Program |
+#      | {SavedValue:PM Username} | NA      |
+#    When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
+#      | Name                     | Program |
+#      | {SavedValue:FO Username} | Step 1  |
+#    Then I softly see value "{SavedValue:FO Username}" for title "Name" inside table "---program:-:approverTableId---"
+#    And I save the value from row "1" for column name "Name" as "OwnerName" from flex table "---program:-:programOwnerTableId---"
+#    Then I softly see value "{SavedValue:OwnerName}" for title "Name" inside table "---program:-:programOwnerTableId---"
+#    And I pause execution for "5" seconds
+#    And I click on "Submit For Approval" in the page details
+#    When I re-login to "Grantor" app as "FO" user on "INTERNAL" portal
+#    And I navigate to "Planning" tab
+#    And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+#    When I perform quick search for "Record Id" in "---program:-:pendingTaskTableId---" panel
+#    And I click on "Start" icon for "Record Id" inside flex table with id "---program:-:pendingTaskTableId---" without waiting for record
+#    When I "Approve" in the approval decision
+#    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
+
+    When I navigate to "Planning" tab
+    And I navigate to "Internal Programs" content inside "Programs" subheader on left panel
     And I click toggle button to select "Internal Programs - Draft"
-    And I click on top right button "New" in flex table with id "---program:-:programsTableId---"
-    When I enter in modal "Creation" values from "Program_Field_Values.xlsx"
-    And I click modal button "Save and Continue"
-    And I get the "EGMS ID"
-    And I save the field labeled "EGMS ID" as "ProgramEGMSID"
-    And I click on "Save" in the page details
-    And I click on "Edit" in the page details
-    When I enter "Edition" values from "Program_Field_Values.xlsx"
-    And I click on "Save" in the page details
-    When I navigate to "Overview" sub tab
-    And I click on top right button "Associate" in flex table with id "---program:-:contactsTableId---"
-    When I click "Associate" after selection of "{SavedValue:EXE Username}" by showing entries "All" in flex table with id "---program:-:associateContactsTableId---"
-    When I navigate to "Setup" sub tab
-    And I click on top right button "Associate" in flex table with id "---program:-:focusAreaTableId---"
-    When I click "Associate" after selection of "Automation Permanent Focus Area" by showing entries "All" in flex table with id "---program:-:associateFocusAreaTableId---"
-    And I click on top right button "Associate" in flex table with id "---program:-:objectivesTableId---"
-    When I click "Associate" after selection of "Automation Permanent Objective" by showing entries "All" in flex table with id "---program:-:associateObjectivesTableId---"
-    And I click on top right button "Associate" in flex table with id "---program:-:kpiTableId---"
-    When I click "Associate" after selection of "Automation Permanent KPI" by showing entries "All" in flex table with id "---program:-:associateKPITableId---"
-    When I navigate to "Responsibilities" sub tab
-    When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
-      | Name                     | Program |
-      | {SavedValue:PM Username} | NA      |
-    When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
-      | Name                     | Program |
-      | {SavedValue:FO Username} | Step 1  |
-    Then I softly see value "{SavedValue:FO Username}" for title "Name" inside table "---program:-:approverTableId---"
-    And I save the value from row "1" for column name "Name" as "OwnerName" from flex table "---program:-:programOwnerTableId---"
-    Then I softly see value "{SavedValue:OwnerName}" for title "Name" inside table "---program:-:programOwnerTableId---"
-    And I pause execution for "5" seconds
-    And I click on "Submit For Approval" in the page details
-    When I re-login to "Grantor" app as "FO" user on "INTERNAL" portal
-    And I navigate to "Planning" tab
+    When I perform quick search for "{SavedValue:Automation Runtime Internal Program}" in "---program:-:programsTableId---" panel
+    And I save the value from row "1" for column name "EGMS ID" as "ProgramEGMSID" from flex table "---program:-:programsTableId---"
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    When I perform quick search for "Record Id" in "---program:-:pendingTaskTableId---" panel
-    And I click on "Start" icon for "Record Id" inside flex table with id "---program:-:pendingTaskTableId---" without waiting for record
-    When I "Approve" in the approval decision
-    When I re-login to "Grantor" app as "dynamicUser" user on "INTERNAL" portal
-    And I navigate to "Planning" tab
-    And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    When I perform quick search for "Record Id" in "---program:-:pendingTaskTableId---" panel
-    And I click on "Start" icon for "Record Id" inside flex table with id "---program:-:pendingTaskTableId---" without waiting for record
+    When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:pendingTaskTableId---" panel
+    #TODO: Vaibhav to check with Program status-- It's showing Created instead of Approved
+    And I click on "Start" icon for "{SavedValue:ProgramEGMSID}" inside flex table with id "---program:-:pendingTaskTableId---" without waiting for record
     And I pause execution for "10" seconds
+    And I save the field labeled "EGMS ID" as "ProgramEGMSID"
     And I navigate to "Home" tab
     When I navigate to "My Tasks" content inside "Reassign" subheader on left panel
     When I reassign task to "Automation PM1"
@@ -581,45 +629,53 @@ Feature: Validate all scenarios for program
     Then I softly see value "{SavedValue:OwnerName1}" for title "Name" inside table "---program:-:programOwnerTableId---"
     Then I cannot see top right button "Activate" in page detail
 
-  @197309 @ValidateEXEuserisabletotransferhisowntaskofthetasktypeActivateNGOProgramstatusaInprogresstoanotherEXEuserforexternalprogram @sprint-4  @reassignment @taskreassign
+  @197309 @ValidateEXEuserisabletotransferhisowntaskofthetasktypeActivateNGOProgramstatusaInprogresstoanotherEXEuserforexternalprogram @sprint-4  @reassignment @taskreassign @programWBAPI
   Scenario: Validate EXE user is able to transfer his own task of the task type Activate NGO Program status as In progress to another EXE user for external program
+    Given I create program records with status "Approved" using "Owner-Automation EXE" properties
+      | Title                               | RecordType  |
+      | Automation Runtime External Program | NGO Program |
     When I login to "Grantor" app as "EXE" user
+#    And I navigate to "Planning" tab
+#    When I navigate to "External Programs" content inside "Programs" subheader on left panel
+#    And I click on top right button "New" in flex table with id "---program:-:ExternalNGOProgramTableId---"
+#    When I enter "NGOCreation" values from "Program_Field_Values.xlsx"
+#    And I click modal button "Save and Continue"
+#    And I get the "EGMS ID"
+#    And I save the field labeled "EGMS ID" as "ProgramEGMSID"
+#    And I click on "Save" in the page details
+#    And I click on "Edit" in the page details
+#    And I enter "NGOEdit" values from "Program_Field_Values.xlsx"
+#    When I click on "Save" in the page details
+#    When I navigate to "Overview" sub tab
+#    And I click on top right button "Associate" in flex table with id "---program:-:ExternalNGOProgramContactTableId---"
+#    When I click "Associate" after selection of "NGO Contact" by showing entries "All" in flex table with id "---program:-:associateContactsTableId---"
+#    And I click modal button "Close"
+#    When I navigate to "Responsibilities" sub tab
+#    When I enter the following values into flex table with id "---program:-:extapproverTableId---" by clicking "New" :
+#      | Name                     | Program |
+#      | {SavedValue:PM Username} | NA      |
+#    When I enter the following values into flex table with id "---program:-:extapproverTableId---" by clicking "New" :
+#      | Name                     | Program |
+#      | {SavedValue:FO Username} | Step 1  |
+#    Then I softly see value "{SavedValue:FO Username}" for title "Name" inside table "---program:-:extapproverTableId---"
+#    And I save the value from row "1" for column name "Name" as "OwnerName" from flex table "---program:-:programOwnerTableId---"
+#    Then I softly see value "{SavedValue:OwnerName}" for title "Name" inside table "---program:-:programOwnerTableId---"
+#    And I pause execution for "5" seconds
+#    And I click on "Submit For Approval" in the page details
+#    Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
+#    When I re-login to "Grantor" app as "FO" user on "INTERNAL" portal
+#    And I navigate to "Planning" tab
+#    And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+#    When I perform quick search for "Record Id" in "---program:-:pendingTaskTableId---" panel
+#    And I click on "Start" icon for "Record Id" inside flex table with id "---program:-:pendingTaskTableId---" without waiting for record
+#    When I "Approve" in the approval decision
+#    When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
+
     And I navigate to "Planning" tab
     When I navigate to "External Programs" content inside "Programs" subheader on left panel
-    And I click on top right button "New" in flex table with id "---program:-:ExternalNGOProgramTableId---"
-    When I enter "NGOCreation" values from "Program_Field_Values.xlsx"
-    And I click modal button "Save and Continue"
-    And I get the "EGMS ID"
-    And I save the field labeled "EGMS ID" as "ProgramEGMSID"
-    And I click on "Save" in the page details
-    And I click on "Edit" in the page details
-    And I enter "NGOEdit" values from "Program_Field_Values.xlsx"
-    When I click on "Save" in the page details
-    When I navigate to "Overview" sub tab
-    And I click on top right button "Associate" in flex table with id "---program:-:ExternalNGOProgramContactTableId---"
-    When I click "Associate" after selection of "NGO Contact" by showing entries "All" in flex table with id "---program:-:associateContactsTableId---"
-    And I click modal button "Close"
-    When I navigate to "Responsibilities" sub tab
-    When I enter the following values into flex table with id "---program:-:extapproverTableId---" by clicking "New" :
-      | Name                     | Program |
-      | {SavedValue:PM Username} | NA      |
-    When I enter the following values into flex table with id "---program:-:extapproverTableId---" by clicking "New" :
-      | Name                     | Program |
-      | {SavedValue:FO Username} | Step 1  |
-    Then I softly see value "{SavedValue:FO Username}" for title "Name" inside table "---program:-:extapproverTableId---"
-    And I save the value from row "1" for column name "Name" as "OwnerName" from flex table "---program:-:programOwnerTableId---"
-    Then I softly see value "{SavedValue:OwnerName}" for title "Name" inside table "---program:-:programOwnerTableId---"
-    And I pause execution for "5" seconds
-    And I click on "Submit For Approval" in the page details
-    Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
-    When I re-login to "Grantor" app as "FO" user on "INTERNAL" portal
-    And I navigate to "Planning" tab
-    And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    When I perform quick search for "Record Id" in "---program:-:pendingTaskTableId---" panel
-    And I click on "Start" icon for "Record Id" inside flex table with id "---program:-:pendingTaskTableId---" without waiting for record
-    When I "Approve" in the approval decision
-    When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
-    And I navigate to "Planning" tab
+    And I click toggle button to select "NGO Programs - All"
+    When I perform quick search for "{SavedValue:Automation Runtime External Program}" in "---program:-:ExternalNGOProgramTableId---" panel
+    And I save the value from row "1" for column name "EGMS ID" as "ProgramEGMSID" from flex table "---program:-:ExternalNGOProgramTableId---"
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:pendingTaskTableId---" panel
     Then I softly see value "{SavedValue:ProgramEGMSID}" for title "EGMS ID" inside table "---program:-:pendingTaskTableId---"
@@ -655,52 +711,60 @@ Feature: Validate all scenarios for program
     Then I softly see value "{SavedValue:OwnerName1}" for title "Name" inside table "---program:-:programOwnerTableId---"
     Then I cannot see top right button "Activate" in page detail
 
-  @197312 @ValidatereassignedtaskownerPMuserisabletoactivatetheinternalprogramifanothePMtransferstaskofthetasktypeActivatetheProgramwhenstatusoftaskasNotstarted @sprint-4  @reassignment
+  @197312 @ValidatereassignedtaskownerPMuserisabletoactivatetheinternalprogramifanothePMtransferstaskofthetasktypeActivatetheProgramwhenstatusoftaskasNotstarted @sprint-4  @reassignment @programWBAPI
   Scenario: Validate reassigned task owner PM user is able to activate the internal program if another PM transfers task of the task type Activate the Program when status of task as Not started
-    When I login to "Grantor" app as "dynamicUser" user
-    And I navigate to "Planning" tab
-    When I navigate to "Internal Programs" content inside "Programs" subheader on left panel
+    Given I create program records with status "Approved" using "default" properties
+      | Title                               | RecordType       |
+      | Automation Runtime Internal Program | Internal Program |
+    When I login to "Grantor" app as "PM" user
+
+#    And I navigate to "Planning" tab
+#    When I navigate to "Internal Programs" content inside "Programs" subheader on left panel
+#    And I click toggle button to select "Internal Programs - Draft"
+#    And I click on top right button "New" in flex table with id "---program:-:programsTableId---"
+#    When I enter in modal "Creation" values from "Program_Field_Values.xlsx"
+#    And I click modal button "Save and Continue"
+#    And I pause execution for "3" seconds
+#    When I enter "Edition" values from "Program_Field_Values.xlsx"
+#    And I click on "Save" in the page details
+#    And I pause execution for "5" seconds
+#    And I get the "EGMS ID"
+#    And I save the field labeled "EGMS ID" as "ProgramEGMSID"
+#    When I navigate to "Overview" sub tab
+#    And I click on top right button "Associate" in flex table with id "---program:-:contactsTableId---"
+#    When I click "Associate" after selection of "{SavedValue:EXE Username}" by showing entries "All" in flex table with id "---program:-:associateContactsTableId---"
+#    When I navigate to "Setup" sub tab
+#    And I click on top right button "Associate" in flex table with id "---program:-:focusAreaTableId---"
+#    When I click "Associate" after selection of "Automation Permanent Focus Area" by showing entries "All" in flex table with id "---program:-:associateFocusAreaTableId---"
+#    And I click on top right button "Associate" in flex table with id "---program:-:objectivesTableId---"
+#    When I click "Associate" after selection of "Automation Permanent Objective" by showing entries "All" in flex table with id "---program:-:associateObjectivesTableId---"
+#    And I click on top right button "Associate" in flex table with id "---program:-:kpiTableId---"
+#    When I click "Associate" after selection of "Automation Permanent KPI" by showing entries "All" in flex table with id "---program:-:associateKPITableId---"
+#    When I navigate to "Responsibilities" sub tab
+#    When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
+#      | Name                     | Program |
+#      | {SavedValue:PM Username} | NA      |
+#    When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
+#      | Name                     | Program |
+#      | {SavedValue:FO Username} | Step 1  |
+#    Then I softly see value "{SavedValue:FO Username}" for title "Name" inside table "---program:-:approverTableId---"
+#    And I save the value from row "1" for column name "Name" as "OwnerName" from flex table "---program:-:programOwnerTableId---"
+#    Then I softly see value "{SavedValue:OwnerName}" for title "Name" inside table "---program:-:programOwnerTableId---"
+#    And I pause execution for "5" seconds
+#    And I click on "Submit For Approval" in the page details
+#    Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
+#    When I re-login to "Grantor" app as "FO" user on "INTERNAL" portal
+#    And I navigate to "Planning" tab
+#    And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+#    When I perform quick search for "Record Id" in "---program:-:pendingTaskTableId---" panel
+#    And I click on "Start" icon for "Record Id" inside flex table with id "---program:-:pendingTaskTableId---" without waiting for record
+#    When I "Approve" in the approval decision
+
+    When I navigate to "Planning" tab
+    And I navigate to "Internal Programs" content inside "Programs" subheader on left panel
     And I click toggle button to select "Internal Programs - Draft"
-    And I click on top right button "New" in flex table with id "---program:-:programsTableId---"
-    When I enter in modal "Creation" values from "Program_Field_Values.xlsx"
-    And I click modal button "Save and Continue"
-    And I pause execution for "3" seconds
-    When I enter "Edition" values from "Program_Field_Values.xlsx"
-    And I click on "Save" in the page details
-    And I pause execution for "5" seconds
-    And I get the "EGMS ID"
-    And I save the field labeled "EGMS ID" as "ProgramEGMSID"
-    When I navigate to "Overview" sub tab
-    And I click on top right button "Associate" in flex table with id "---program:-:contactsTableId---"
-    When I click "Associate" after selection of "{SavedValue:EXE Username}" by showing entries "All" in flex table with id "---program:-:associateContactsTableId---"
-    When I navigate to "Setup" sub tab
-    And I click on top right button "Associate" in flex table with id "---program:-:focusAreaTableId---"
-    When I click "Associate" after selection of "Automation Permanent Focus Area" by showing entries "All" in flex table with id "---program:-:associateFocusAreaTableId---"
-    And I click on top right button "Associate" in flex table with id "---program:-:objectivesTableId---"
-    When I click "Associate" after selection of "Automation Permanent Objective" by showing entries "All" in flex table with id "---program:-:associateObjectivesTableId---"
-    And I click on top right button "Associate" in flex table with id "---program:-:kpiTableId---"
-    When I click "Associate" after selection of "Automation Permanent KPI" by showing entries "All" in flex table with id "---program:-:associateKPITableId---"
-    When I navigate to "Responsibilities" sub tab
-    When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
-      | Name                     | Program |
-      | {SavedValue:PM Username} | NA      |
-    When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
-      | Name                     | Program |
-      | {SavedValue:FO Username} | Step 1  |
-    Then I softly see value "{SavedValue:FO Username}" for title "Name" inside table "---program:-:approverTableId---"
-    And I save the value from row "1" for column name "Name" as "OwnerName" from flex table "---program:-:programOwnerTableId---"
-    Then I softly see value "{SavedValue:OwnerName}" for title "Name" inside table "---program:-:programOwnerTableId---"
-    And I pause execution for "5" seconds
-    And I click on "Submit For Approval" in the page details
-    Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
-    When I re-login to "Grantor" app as "FO" user on "INTERNAL" portal
-    And I navigate to "Planning" tab
-    And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    When I perform quick search for "Record Id" in "---program:-:pendingTaskTableId---" panel
-    And I click on "Start" icon for "Record Id" inside flex table with id "---program:-:pendingTaskTableId---" without waiting for record
-    When I "Approve" in the approval decision
-    When I re-login to "Grantor" app as "dynamicUser" user on "INTERNAL" portal
-    And I navigate to "Planning" tab
+    When I perform quick search for "{SavedValue:Automation Runtime Internal Program}" in "---program:-:programsTableId---" panel
+    And I save the value from row "1" for column name "EGMS ID" as "ProgramEGMSID" from flex table "---program:-:programsTableId---"
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---program:-:pendingTaskTableId---" panel
     Then I softly can see row level action button "Start" against "Record Id" in flex table with id "---program:-:pendingTaskTableId---"
@@ -729,77 +793,88 @@ Feature: Validate all scenarios for program
     And I click on "Activate" in the page details
     Then I can see top right button "Amend Program" in page detail
 
-  @199391 @ValidatereassignedtaskownerEXEuserisabletoactivattheinternalprogramifadmintransferstaskofthetasktypeActivatetheProgramwhenstatusoftaskisInProgress @sprint-4  @reassignment
+  @199391 @ValidatereassignedtaskownerEXEuserisabletoactivattheinternalprogramifadmintransferstaskofthetasktypeActivatetheProgramwhenstatusoftaskisInProgress @sprint-4  @reassignment @programWBAPI
   Scenario: Validate  reassigned task owner EXE user is able to activate the internal program if admin transfers task of the task type Activate the Program when status of task is In Progress
+    Given I create program records with status "Approved" using "Owner-Automation EXE1" properties
+      | Title                               | RecordType       |
+      | Automation Runtime Internal Program | Internal Program |
     When I login to "Grantor" app as "EXE1" user
-    And I navigate to "Planning" tab
-    When I navigate to "Internal Programs" content inside "Programs" subheader on left panel
+
+#    And I navigate to "Planning" tab
+#    When I navigate to "Internal Programs" content inside "Programs" subheader on left panel
+#    And I click toggle button to select "Internal Programs - Draft"
+#    And I click on top right button "New" in flex table with id "---program:-:programsTableId---"
+#    When I enter in modal "Creation" values from "Program_Field_Values.xlsx"
+#    And I click modal button "Save and Continue"
+#    And I wait for "5" seconds
+#    When I enter "Edition" values from "Program_Field_Values.xlsx"
+#    And I click on "Save" in the page details
+#    And I get the "EGMS ID"
+#    And I save the field labeled "EGMS ID" as "ProgramEGMSID"
+#    When I navigate to "Overview" sub tab
+#    And I click on top right button "Associate" in flex table with id "---program:-:contactsTableId---"
+#    When I click "Associate" after selection of "{SavedValue:EXE Username}" by showing entries "All" in flex table with id "---program:-:associateContactsTableId---"
+#    When I navigate to "Setup" sub tab
+#    And I click on top right button "Associate" in flex table with id "---program:-:focusAreaTableId---"
+#    When I click "Associate" after selection of "Automation Permanent Focus Area" by showing entries "All" in flex table with id "---program:-:associateFocusAreaTableId---"
+#    And I click on top right button "Associate" in flex table with id "---program:-:objectivesTableId---"
+#    When I click "Associate" after selection of "Automation Permanent Objective" by showing entries "All" in flex table with id "---program:-:associateObjectivesTableId---"
+#    And I click on top right button "Associate" in flex table with id "---program:-:kpiTableId---"
+#    When I click "Associate" after selection of "Automation Permanent KPI" by showing entries "All" in flex table with id "---program:-:associateKPITableId---"
+#    When I navigate to "Responsibilities" sub tab
+#    When I enter the following values into flex table with id "---program:-:peerReviewTableId---" by clicking "New" :
+#      | Reviewer Name | Responsibility  | Description                 | Due Date |
+#      | Automation FO | Fiscal Reviewer | Automation Test Description | 10       |
+#    And I click on "Send for Review" icon for "{SavedValue:FO Username}" inside table
+#    And I wait for "2" seconds
+#    When I re-login to "Grantor" app as "FO" user on "INTERNAL" portal
+#    And I navigate to "Home" tab
+#    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+#    When I perform quick search for "Record Id" in "---program:-:homePendingTableId---" panel
+#    When I click on "Start" icon for "Record Id" inside flex table with id "---program:-:homePendingTableId---"
+#    And I navigate to "Responsibilities" sub tab
+#    When I click on "Enter Review" icon for "{SavedValue:FO Username}" inside flex table with id "---program:-:peerReviewTableId---" without waiting for record
+#    And I wait for "2" seconds
+#    When I enter in modal value "Cannot Rate" into field "Rating__c"
+#    And I enter in modal value "Passed" into field "ReviewComments__c"
+#    When I click modal button "Save"
+#    And I click on submit review
+#    When I re-login to "Grantor" app as "EXE1" user on "INTERNAL" portal
+#    And I navigate to "Planning" tab
+#    When I navigate to "Internal Programs" content inside "Programs" subheader on left panel
+#    And I click toggle button to select "Internal Programs - All"
+#    When I perform quick search for "Record Id" in "---program:-:programsTableId---" panel
+#    And I click on "View" icon for "Record Id" inside flex table with id "---program:-:programsTableId---" without waiting for record
+#    And I navigate to "Responsibilities" sub tab
+#    When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
+#      | Name                     | Program |
+#      | {SavedValue:PM Username} | NA      |
+#    When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
+#      | Name                     | Program |
+#      | {SavedValue:PM Username} | Step 1  |
+#    And I save the value from row "1" for column name "Name" as "OwnerName" from flex table "---program:-:programOwnerTableId---"
+#    Then I softly see value "{SavedValue:OwnerName}" for title "Name" inside table "---program:-:programOwnerTableId---"
+#    And I pause execution for "5" seconds
+#    And I click on "Complete Review" in the page details
+#    And I click on "Submit For Approval" in the page details
+#    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
+#    And I navigate to "Planning" tab
+#    And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+#    When I perform quick search for "Record Id" in "---program:-:pendingTaskTableId---" panel
+#    And I click on "Start" icon for "Record Id" inside flex table with id "---program:-:pendingTaskTableId---" without waiting for record
+#    When I "Approve" in the approval decision
+#    When I re-login to "Grantor" app as "EXE1" user on "INTERNAL" portal
+
+    When I navigate to "Planning" tab
+    And I navigate to "Internal Programs" content inside "Programs" subheader on left panel
     And I click toggle button to select "Internal Programs - Draft"
-    And I click on top right button "New" in flex table with id "---program:-:programsTableId---"
-    When I enter in modal "Creation" values from "Program_Field_Values.xlsx"
-    And I click modal button "Save and Continue"
-    And I wait for "5" seconds
-    When I enter "Edition" values from "Program_Field_Values.xlsx"
-    And I click on "Save" in the page details
-    And I get the "EGMS ID"
-    And I save the field labeled "EGMS ID" as "ProgramEGMSID"
-    When I navigate to "Overview" sub tab
-    And I click on top right button "Associate" in flex table with id "---program:-:contactsTableId---"
-    When I click "Associate" after selection of "{SavedValue:EXE Username}" by showing entries "All" in flex table with id "---program:-:associateContactsTableId---"
-    When I navigate to "Setup" sub tab
-    And I click on top right button "Associate" in flex table with id "---program:-:focusAreaTableId---"
-    When I click "Associate" after selection of "Automation Permanent Focus Area" by showing entries "All" in flex table with id "---program:-:associateFocusAreaTableId---"
-    And I click on top right button "Associate" in flex table with id "---program:-:objectivesTableId---"
-    When I click "Associate" after selection of "Automation Permanent Objective" by showing entries "All" in flex table with id "---program:-:associateObjectivesTableId---"
-    And I click on top right button "Associate" in flex table with id "---program:-:kpiTableId---"
-    When I click "Associate" after selection of "Automation Permanent KPI" by showing entries "All" in flex table with id "---program:-:associateKPITableId---"
-    When I navigate to "Responsibilities" sub tab
-    When I enter the following values into flex table with id "---program:-:peerReviewTableId---" by clicking "New" :
-      | Reviewer Name | Responsibility  | Description                 | Due Date |
-      | Automation FO | Fiscal Reviewer | Automation Test Description | 10       |
-    And I click on "Send for Review" icon for "{SavedValue:FO Username}" inside table
-    And I wait for "2" seconds
-    When I re-login to "Grantor" app as "FO" user on "INTERNAL" portal
-    And I navigate to "Home" tab
-    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    When I perform quick search for "Record Id" in "---program:-:homePendingTableId---" panel
-    When I click on "Start" icon for "Record Id" inside flex table with id "---program:-:homePendingTableId---"
-    And I navigate to "Responsibilities" sub tab
-    When I click on "Enter Review" icon for "{SavedValue:FO Username}" inside flex table with id "---program:-:peerReviewTableId---" without waiting for record
-    And I wait for "2" seconds
-    When I enter in modal value "Cannot Rate" into field "Rating__c"
-    And I enter in modal value "Passed" into field "ReviewComments__c"
-    When I click modal button "Save"
-    And I click on submit review
-    When I re-login to "Grantor" app as "EXE1" user on "INTERNAL" portal
-    And I navigate to "Planning" tab
-    When I navigate to "Internal Programs" content inside "Programs" subheader on left panel
-    And I click toggle button to select "Internal Programs - All"
-    When I perform quick search for "Record Id" in "---program:-:programsTableId---" panel
-    And I click on "View" icon for "Record Id" inside flex table with id "---program:-:programsTableId---" without waiting for record
-    And I navigate to "Responsibilities" sub tab
-    When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
-      | Name                     | Program |
-      | {SavedValue:PM Username} | NA      |
-    When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
-      | Name                     | Program |
-      | {SavedValue:PM Username} | Step 1  |
-    And I save the value from row "1" for column name "Name" as "OwnerName" from flex table "---program:-:programOwnerTableId---"
-    Then I softly see value "{SavedValue:OwnerName}" for title "Name" inside table "---program:-:programOwnerTableId---"
-    And I pause execution for "5" seconds
-    And I click on "Complete Review" in the page details
-    And I click on "Submit For Approval" in the page details
-    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
+    When I perform quick search for "{SavedValue:Automation Runtime Internal Program}" in "---program:-:programsTableId---" panel
+    And I save the value from row "1" for column name "EGMS ID" as "ProgramEGMSID" from flex table "---program:-:programsTableId---"
+
     And I navigate to "Planning" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    When I perform quick search for "Record Id" in "---program:-:pendingTaskTableId---" panel
-    And I click on "Start" icon for "Record Id" inside flex table with id "---program:-:pendingTaskTableId---" without waiting for record
-    When I "Approve" in the approval decision
-    When I re-login to "Grantor" app as "EXE1" user on "INTERNAL" portal
-    And I navigate to "Planning" tab
-    And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    When I perform quick search for "Record Id" in "---program:-:pendingTaskTableId---" panel
-    And I click on "Start" icon for "Record Id" inside flex table with id "---program:-:pendingTaskTableId---" without waiting for record
+    When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:pendingTaskTableId---" panel
+    And I click on "Start" icon for "{SavedValue:ProgramEGMSID}" inside flex table with id "---program:-:pendingTaskTableId---" without waiting for record
     When I re-login to "Grantor" app as "ADMIN" user on "INTERNAL" portal
     And I navigate to "Home" tab
     When I navigate to "All Tasks as Admin" content inside "Reassign" subheader on left panel
@@ -852,7 +927,7 @@ Feature: Validate all scenarios for program
 
   @195212 @Validateusershouldabletoreassigntheownershiptaskbetweensameprofileandthesameorganization @sprint-4  @reassignment @ownvai
   Scenario: Validate user should able to re-assign the ownership task between same profile and the same organization
-    When I login to "Grantor" app as "dynamicUser" user
+    When I login to "Grantor" app as "PM" user
     And I navigate to "Planning" tab
     When I navigate to "Internal Programs" content inside "Programs" subheader on left panel
     And I click toggle button to select "Internal Programs - Draft"
@@ -913,27 +988,46 @@ Feature: Validate all scenarios for program
     And I select module "Program" from reassign ownership dropdown
     Then I softly see "Programs Available for Reassignment " page block displayed
 
-  @195251 @195254 @ValidateProgramSourceusershouldshowalltheprogramsInternalProgramNGOexternalprogramsofthesourceuser @sprint-4  @reassignment
+  @195251 @195254 @ValidateProgramSourceusershouldshowalltheprogramsInternalProgramNGOexternalprogramsofthesourceuser @sprint-4  @reassignment @programWBAPI
   Scenario: Validate Program -Source user should show all the programs(Internal Program/NGO external programs of the source user
-    When I login to "Grantor" app as "dynamicUser" user
-    And I navigate to "Planning" tab
-    When I navigate to "Internal Programs" content inside "Programs" subheader on left panel
+    Given I create program records with status "Created" using "default" properties
+      | Title                               | RecordType       |
+      | Automation Runtime Internal Program | Internal Program |
+    Given I create program records with status "Created" using "default" properties
+      | Title                               | RecordType  |
+      | Automation Runtime External Program | NGO Program |
+
+#    When I login to "Grantor" app as "PM" user
+#    And I navigate to "Planning" tab
+#    When I navigate to "Internal Programs" content inside "Programs" subheader on left panel
+#    And I click toggle button to select "Internal Programs - Draft"
+#    And I click on top right button "New" in flex table with id "---program:-:programsTableId---"
+#    When I enter in modal "Creation" values from "Program_Field_Values.xlsx"
+#    And I click modal button "Save and Continue"
+#    And I get the "EGMS ID"
+#    And I save the field labeled "EGMS ID" as "ProgramEGMSID"
+#    And I click on "Save" in the page details
+#    And I navigate to "Planning" tab
+#    When I navigate to "External Programs" content inside "Programs" subheader on left panel
+#    And I click on top right button "New" in flex table with id "---program:-:ExternalNGOProgramTableId---"
+#    When I enter in modal "NGOCreation" values from "Program_Field_Values.xlsx"
+#    And I click modal button "Save and Continue"
+#    And I get the "EGMS ID"
+#    And I save the field labeled "EGMS ID" as "ProgramEGMSID1"
+#    And I click on "Save" in the page details
+#    When I re-login to "Grantor" app as "ADMIN" user on "INTERNAL" portal
+
+    When I login to "Grantor" app as "ADMIN" user
+    When I navigate to "Planning" tab
+    And I navigate to "Internal Programs" content inside "Programs" subheader on left panel
     And I click toggle button to select "Internal Programs - Draft"
-    And I click on top right button "New" in flex table with id "---program:-:programsTableId---"
-    When I enter in modal "Creation" values from "Program_Field_Values.xlsx"
-    And I click modal button "Save and Continue"
-    And I get the "EGMS ID"
-    And I save the field labeled "EGMS ID" as "ProgramEGMSID"
-    And I click on "Save" in the page details
-    And I navigate to "Planning" tab
+    When I perform quick search for "{SavedValue:Automation Runtime Internal Program}" in "---program:-:programsTableId---" panel
+    And I save the value from row "1" for column name "EGMS ID" as "ProgramEGMSID" from flex table "---program:-:programsTableId---"
     When I navigate to "External Programs" content inside "Programs" subheader on left panel
-    And I click on top right button "New" in flex table with id "---program:-:ExternalNGOProgramTableId---"
-    When I enter in modal "NGOCreation" values from "Program_Field_Values.xlsx"
-    And I click modal button "Save and Continue"
-    And I get the "EGMS ID"
-    And I save the field labeled "EGMS ID" as "ProgramEGMSID1"
-    And I click on "Save" in the page details
-    When I re-login to "Grantor" app as "ADMIN" user on "INTERNAL" portal
+    And I click toggle button to select "NGO Programs - Draft"
+    When I perform quick search for "{SavedValue:Automation Runtime External Program}" in "---program:-:ExternalNGOProgramTableId---" panel
+    And I save the value from row "1" for column name "EGMS ID" as "ProgramEGMSID1" from flex table "---program:-:ExternalNGOProgramTableId---"
+
     And I navigate to "Home" tab
     Then I see "Ownership" inside "Reassign" is displayed
     When I navigate to "Ownership" content inside "Reassign" subheader on left panel
@@ -965,26 +1059,7 @@ Feature: Validate all scenarios for program
 
   @195259 @ValidateUserisenforcedtoselectonrecordbyusingcheckboxpostclickonthetransferownershipbutton  @sprint-4  @reassignment
   Scenario: Validate User is enforced to select on record by using check box post click on the transfer ownership button
-    When I login to "Grantor" app as "dynamicUser" user
-    And I navigate to "Planning" tab
-    When I navigate to "Internal Programs" content inside "Programs" subheader on left panel
-    And I click toggle button to select "Internal Programs - Draft"
-    And I click on top right button "New" in flex table with id "---program:-:programsTableId---"
-    When I enter in modal "Creation" values from "Program_Field_Values.xlsx"
-    And I click modal button "Save and Continue"
-    And I get the "EGMS ID"
-    And I save the field labeled "EGMS ID" as "ProgramEGMSID"
-    And I click on "Save" in the page details
-    And I pause execution for "5" seconds
-    And I navigate to "Planning" tab
-    When I navigate to "External Programs" content inside "Programs" subheader on left panel
-    And I click on top right button "New" in flex table with id "---program:-:ExternalNGOProgramTableId---"
-    When I enter in modal "NGOCreation" values from "Program_Field_Values.xlsx"
-    And I click modal button "Save and Continue"
-    And I get the "EGMS ID"
-    And I save the field labeled "EGMS ID" as "ProgramEGMSID1"
-    And I click on "Save" in the page details
-    When I re-login to "Grantor" app as "ADMIN" user on "INTERNAL" portal
+    When I login to "Grantor" app as "Admin" user
     And I navigate to "Home" tab
     Then I see "Ownership" inside "Reassign" is displayed
     When I navigate to "Ownership" content inside "Reassign" subheader on left panel
@@ -995,51 +1070,52 @@ Feature: Validate all scenarios for program
     Then I softly see the following messages in the page details contains:
       | You need to select at least one record |
 
-  @195268 @Validatetherecordistransferredthenusershouldabletoseethesamerecordinthetargetuserstable @sprint-4  @reassignment
+  @195268 @Validatetherecordistransferredthenusershouldabletoseethesamerecordinthetargetuserstable @sprint-4  @reassignment @programWBAPI
   Scenario: Validate the record is transferred then user should able to see the same record in the target user's table
-    When I login to "Grantor" app as "EXE" user
-    And I navigate to "Planning" tab
-    When I navigate to "Internal Programs" content inside "Programs" subheader on left panel
-    And I click toggle button to select "Internal Programs - Draft"
-    And I click on top right button "New" in flex table with id "---program:-:programsTableId---"
-    When I enter in modal "Creation" values from "Program_Field_Values.xlsx"
-    And I click modal button "Save and Continue"
-    And I get the "EGMS ID"
-    And I save the field labeled "EGMS ID" as "ProgramEGMSID"
-    When I re-login to "Grantor" app as "ADMIN" user on "INTERNAL" portal
+    Given I create program records with status "Created" using "Owner-Automation EXE" properties
+      | Title                               | RecordType       |
+      | Automation Runtime Internal Program | Internal Program |
+
+#    When I login to "Grantor" app as "EXE" user
+#    And I navigate to "Planning" tab
+#    When I navigate to "Internal Programs" content inside "Programs" subheader on left panel
+#    And I click toggle button to select "Internal Programs - Draft"
+#    And I click on top right button "New" in flex table with id "---program:-:programsTableId---"
+#    When I enter in modal "Creation" values from "Program_Field_Values.xlsx"
+#    And I click modal button "Save and Continue"
+#    And I get the "EGMS ID"
+#    And I save the field labeled "EGMS ID" as "ProgramEGMSID"
+#    When I re-login to "Grantor" app as "ADMIN" user on "INTERNAL" portal
+
+    When I login to "Grantor" app as "ADMIN" user
     And I navigate to "Home" tab
     Then I see "Ownership" inside "Reassign" is displayed
     When I navigate to "Ownership" content inside "Reassign" subheader on left panel
     And I select value "Automation EXE" into field "input-1"
     And I select value "Automation EXE1" into field "input-2"
     And I select module "Program" from reassign ownership dropdown
-    When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:adminOwnerReplaceTableId---" panel
-    When I check "{SavedValue:ProgramEGMSID}" boxes in flex table with id "---program:-:adminOwnerReplaceTableId---"
+    When I perform quick search for "{SavedValue:Automation Runtime Internal Program}" in "---program:-:adminOwnerReplaceTableId---" panel
+    When I check "{SavedValue:Automation Runtime Internal Program}" boxes in flex table with id "---program:-:adminOwnerReplaceTableId---"
     And I click on top right button "Transfer Ownership" in flex table with id "---program:-:adminOwnerReplaceTableId---"
     And I pause execution for "30" seconds
     When I navigate to "Records of Target User" sub tab
-    When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:adminTargetOwnerReplaceTableId---" panel
-    Then I see value "{SavedValue:ProgramEGMSID}" for title "Program ID" inside table "---program:-:adminTargetOwnerReplaceTableId---"
+    When I perform quick search for "{SavedValue:Automation Runtime Internal Program}" in "---program:-:adminTargetOwnerReplaceTableId---" panel
+    Then I see value "{SavedValue:Automation Runtime Internal Program}" for title "Program ID" inside table "---program:-:adminTargetOwnerReplaceTableId---"
 
-  @195273 @195278 @195277 @Validateuserclickontransferbuttonusershouldgetfollowingwarningmessage @sprint-4  @reassignment
+  @195273 @195278 @195277 @Validateuserclickontransferbuttonusershouldgetfollowingwarningmessage @sprint-4  @reassignment @programWBAPI
   Scenario: Validate user click on transfer button user should  get following warning message
-    When I login to "Grantor" app as "EXE" user
-    And I navigate to "Planning" tab
-    When I navigate to "Internal Programs" content inside "Programs" subheader on left panel
-    And I click toggle button to select "Internal Programs - Draft"
-    And I click on top right button "New" in flex table with id "---program:-:programsTableId---"
-    When I enter in modal "Creation" values from "Program_Field_Values.xlsx"
-    And I click modal button "Save and Continue"
-    And I get the "EGMS ID"
-    And I save the field labeled "EGMS ID" as "ProgramEGMSID"
-    When I re-login to "Grantor" app as "ADMIN" user on "INTERNAL" portal
+    Given I create program records with status "Created" using "Owner-Automation EXE" properties
+      | Title                               | RecordType       |
+      | Automation Runtime Internal Program | Internal Program |
+    When I login to "Grantor" app as "ADMIN" user
     And I navigate to "Home" tab
     Then I see "Ownership" inside "Reassign" is displayed
     When I navigate to "Ownership" content inside "Reassign" subheader on left panel
     And I select value "Automation EXE" into field "input-1"
     And I select value "Automation EXE1" into field "input-2"
     And I select module "Program" from reassign ownership dropdown
-    When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:adminOwnerReplaceTableId---" panel
+    When I perform quick search for "{SavedValue:Automation Runtime Internal Program}" in "---program:-:adminOwnerReplaceTableId---" panel
+    And I save the value from row "1" for column name "Program ID" as "ProgramEGMSID" from flex table "---program:-:adminOwnerReplaceTableId---"
     When I check "{SavedValue:ProgramEGMSID}" boxes in flex table with id "---program:-:adminOwnerReplaceTableId---"
     When I click table top right button "Transfer Ownership" in flex table with id "---program:-:adminOwnerReplaceTableId---"
     Then I softly see confirmation box with body "When the ownership of the record is changed, all pending tasks assigned to the owner of the record will be reassigned automatically as well. Do you wish to proceed?" is displayed
@@ -1052,25 +1128,32 @@ Feature: Validate all scenarios for program
     Then I softly see the following messages in the page details contains:
       | Transfer is in progress, Kindly wait for email confirmation (Warning: if another user has already performed this action, no further processing will take place) |
 
-  @195317 @195347 @ValidateownershipistransferredforaProgramincreatedstateValidateallthevisibilityofallthebuttonsoftheprogramisavailabletothenewowner @sprint-4  @reassignment @FieldHistoryExclude
+  @195317 @195347 @ValidateownershipistransferredforaProgramincreatedstateValidateallthevisibilityofallthebuttonsoftheprogramisavailabletothenewowner @sprint-4  @reassignment @FieldHistoryExclude @programWBAPI
   Scenario: Validate ownership is transferred for a Program in created state Validate all the visibility of all the buttons of the program is available to the new owner
-    When I login to "Grantor" app as "PM1" user
-    And I navigate to "Planning" tab
-    When I navigate to "Internal Programs" content inside "Programs" subheader on left panel
-    And I click toggle button to select "Internal Programs - Draft"
-    And I click on top right button "New" in flex table with id "---program:-:programsTableId---"
-    When I enter in modal "Creation" values from "Program_Field_Values.xlsx"
-    And I click modal button "Save and Continue"
-    And I get the "EGMS ID"
-    And I save the field labeled "EGMS ID" as "ProgramEGMSID"
-    When I re-login to "Grantor" app as "ADMIN" user on "INTERNAL" portal
+    Given I create program records with status "Created" using "Owner-Automation PM1" properties
+      | Title                               | RecordType       |
+      | Automation Runtime Internal Program | Internal Program |
+
+#    When I login to "Grantor" app as "PM1" user
+#    And I navigate to "Planning" tab
+#    When I navigate to "Internal Programs" content inside "Programs" subheader on left panel
+#    And I click toggle button to select "Internal Programs - Draft"
+#    And I click on top right button "New" in flex table with id "---program:-:programsTableId---"
+#    When I enter in modal "Creation" values from "Program_Field_Values.xlsx"
+#    And I click modal button "Save and Continue"
+#    And I get the "EGMS ID"
+#    And I save the field labeled "EGMS ID" as "ProgramEGMSID"
+#    When I re-login to "Grantor" app as "ADMIN" user on "INTERNAL" portal
+
+    When I login to "Grantor" app as "ADMIN" user
     And I navigate to "Home" tab
     Then I see "Ownership" inside "Reassign" is displayed
     When I navigate to "Ownership" content inside "Reassign" subheader on left panel
     And I select value "Automation PM1" into field "input-1"
     And I select value "Automation PM" into field "input-2"
     And I select module "Program" from reassign ownership dropdown
-    When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:adminOwnerReplaceTableId---" panel
+    When I perform quick search for "{SavedValue:Automation Runtime Internal Program}" in "---program:-:adminOwnerReplaceTableId---" panel
+    And I save the value from row "1" for column name "Program ID" as "ProgramEGMSID" from flex table "---program:-:adminOwnerReplaceTableId---"
     When I check "{SavedValue:ProgramEGMSID}" boxes in flex table with id "---program:-:adminOwnerReplaceTableId---"
     When I click table top right button "Transfer Ownership" in flex table with id "---program:-:adminOwnerReplaceTableId---"
     Then I softly see confirmation box with body "When the ownership of the record is changed, all pending tasks assigned to the owner of the record will be reassigned automatically as well. Do you wish to proceed?" is displayed
@@ -1109,15 +1192,17 @@ Feature: Validate all scenarios for program
     Then I softly see value "Automation PM" for title "New Value" inside field history table
     Then I softly see value "Automation PM1" for title "Original Value" inside field history table
 
-  @195340 @Validatenameoftheownershouldgetupdatedinresponsibilitytab @sprint-1  @reassignment
+  @195340 @Validatenameoftheownershouldgetupdatedinresponsibilitytab @sprint-1  @reassignment @programWBAPI
   Scenario: Validate name of the owner should  get updated in responsibility tab
+    Given I create program records with status "Created" using "Owner-Automation PM1" properties
+      | Title                               | RecordType       |
+      | Automation Runtime Internal Program | Internal Program |
     When I login to "Grantor" app as "PM1" user
     And I navigate to "Planning" tab
-    When I navigate to "Internal Programs" content inside "Programs" subheader on left panel
+    And I navigate to "Internal Programs" content inside "Programs" subheader on left panel
     And I click toggle button to select "Internal Programs - Draft"
-    And I click on top right button "New" in flex table with id "---program:-:programsTableId---"
-    When I enter in modal "Creation" values from "Program_Field_Values.xlsx"
-    And I click modal button "Save and Continue"
+    When I perform quick search for "{SavedValue:Automation Runtime Internal Program}" in "---program:-:programsTableId---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Internal Program}" inside flex table with id "---program:-:programsTableId---" without waiting for record
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "ProgramEGMSID"
     When I navigate to "Responsibilities" sub tab
@@ -1148,45 +1233,60 @@ Feature: Validate all scenarios for program
     When I navigate to "Responsibilities" sub tab
     Then I softly see value "Automation PM" for title "Name" inside table "---program:-:programOwnerTableId---"
 
-  @196652 @ValidateownershipistransferredforaProgramSubmittedforapprovalValidateapprovercanapprovetheprogram&newprogramownergetstheActivaterelatedtaskandhasbuttonsonUI @sprint-4  @reassignment
+  @196652 @ValidateownershipistransferredforaProgramSubmittedforapprovalValidateapprovercanapprovetheprogram&newprogramownergetstheActivaterelatedtaskandhasbuttonsonUI @sprint-4  @reassignment @programWBAPI
   Scenario: Validate ownership is transferred for a Program Submitted for approval Validate approver can approve the program  & new program owner gets the Activate related task and has buttons on UI
+    Given I create program records with status "Submitted For Approval" using "Owner-Automation PM1" properties
+      | Title                               | RecordType       |
+      | Automation Runtime Internal Program | Internal Program |
     When I login to "Grantor" app as "PM1" user
     And I navigate to "Planning" tab
-    When I navigate to "Internal Programs" content inside "Programs" subheader on left panel
-    And I click toggle button to select "Internal Programs - Draft"
-    And I click on top right button "New" in flex table with id "---program:-:programsTableId---"
-    When I enter in modal "Creation" values from "Program_Field_Values.xlsx"
-    And I click modal button "Save and Continue"
-    And I wait for "5" seconds
-    When I enter "Edition" values from "Program_Field_Values.xlsx"
-    And I click on "Save" in the page details
-    And I get the "EGMS ID"
+    And I navigate to "Internal Programs" content inside "Programs" subheader on left panel
+    And I click toggle button to select "Internal Programs - All"
+    When I perform quick search for "{SavedValue:Automation Runtime Internal Program}" in "---program:-:programsTableId---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Internal Program}" inside flex table with id "---program:-:programsTableId---" without waiting for record
     And I save the field labeled "EGMS ID" as "ProgramEGMSID"
-    When I navigate to "Overview" sub tab
-    And I click on top right button "Associate" in flex table with id "---program:-:contactsTableId---"
-    When I click "Associate" after selection of "{SavedValue:EXE Username}" by showing entries "All" in flex table with id "---program:-:associateContactsTableId---"
-    When I navigate to "Setup" sub tab
-    And I click on top right button "Associate" in flex table with id "---program:-:focusAreaTableId---"
-    When I click "Associate" after selection of "Automation Permanent Focus Area" by showing entries "All" in flex table with id "---program:-:associateFocusAreaTableId---"
-    And I click on top right button "Associate" in flex table with id "---program:-:objectivesTableId---"
-    When I click "Associate" after selection of "Automation Permanent Objective" by showing entries "All" in flex table with id "---program:-:associateObjectivesTableId---"
-    And I click on top right button "Associate" in flex table with id "---program:-:kpiTableId---"
-    When I click "Associate" after selection of "Automation Permanent KPI" by showing entries "All" in flex table with id "---program:-:associateKPITableId---"
+    And I get the "EGMS ID"
+
+#    When I login to "Grantor" app as "PM1" user
+#    And I navigate to "Planning" tab
+#    When I navigate to "Internal Programs" content inside "Programs" subheader on left panel
+#    And I click toggle button to select "Internal Programs - Draft"
+#    And I click on top right button "New" in flex table with id "---program:-:programsTableId---"
+#    When I enter in modal "Creation" values from "Program_Field_Values.xlsx"
+#    And I click modal button "Save and Continue"
+#    And I wait for "5" seconds
+#    When I enter "Edition" values from "Program_Field_Values.xlsx"
+#    And I click on "Save" in the page details
+#    And I get the "EGMS ID"
+#    And I save the field labeled "EGMS ID" as "ProgramEGMSID"
+#    When I navigate to "Overview" sub tab
+#    And I click on top right button "Associate" in flex table with id "---program:-:contactsTableId---"
+#    When I click "Associate" after selection of "{SavedValue:EXE Username}" by showing entries "All" in flex table with id "---program:-:associateContactsTableId---"
+#    When I navigate to "Setup" sub tab
+#    And I click on top right button "Associate" in flex table with id "---program:-:focusAreaTableId---"
+#    When I click "Associate" after selection of "Automation Permanent Focus Area" by showing entries "All" in flex table with id "---program:-:associateFocusAreaTableId---"
+#    And I click on top right button "Associate" in flex table with id "---program:-:objectivesTableId---"
+#    When I click "Associate" after selection of "Automation Permanent Objective" by showing entries "All" in flex table with id "---program:-:associateObjectivesTableId---"
+#    And I click on top right button "Associate" in flex table with id "---program:-:kpiTableId---"
+#    When I click "Associate" after selection of "Automation Permanent KPI" by showing entries "All" in flex table with id "---program:-:associateKPITableId---"
+#    When I navigate to "Responsibilities" sub tab
+#    When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
+#      | Name                     | Program |
+#      | {SavedValue:PM Username} | NA      |
+#    When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
+#      | Name                      | Program |
+#      | {SavedValue:EXE Username} | Step 1  |
+#    When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
+#      | Name                     | Program |
+#      | {SavedValue:FO Username} | Step 2  |
+
     When I navigate to "Responsibilities" sub tab
-    When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
-      | Name                     | Program |
-      | {SavedValue:PM Username} | NA      |
-    When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
-      | Name                      | Program |
-      | {SavedValue:EXE Username} | Step 1  |
-    When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
-      | Name                     | Program |
-      | {SavedValue:FO Username} | Step 2  |
     And I save the value from row "1" for column name "Name" as "OwnerName" from flex table "---program:-:programOwnerTableId---"
     Then I softly see value "{SavedValue:OwnerName}" for title "Name" inside table "---program:-:programOwnerTableId---"
     And I pause execution for "5" seconds
-    And I click on "Submit For Approval" in the page details
-    When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
+#    And I click on "Submit For Approval" in the page details
+#    When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Planning" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---program:-:pendingTaskTableId---" panel
@@ -1213,28 +1313,29 @@ Feature: Validate all scenarios for program
     And I navigate to "Planning" tab
     When I navigate to "Internal Programs" content inside "Programs" subheader on left panel
     And I click toggle button to select "Internal Programs - All"
-    When I perform quick search for "Record Id" in "---program:-:programsTableId---" panel
-    And I click on "View" icon for "Record Id" inside flex table with id "---program:-:programsTableId---" without waiting for record
+    When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:programsTableId---" panel
+    And I click on "View" icon for "{SavedValue:ProgramEGMSID}" inside flex table with id "---program:-:programsTableId---" without waiting for record
     And I navigate to "History" sub tab
     Then I softly see column "Overall Status" at position "3" contains text "Approved"
-    When I re-login to "Grantor" app as "FO" user on "INTERNAL" portal
+#    When I re-login to "Grantor" app as "FO" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Planning" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    When I perform quick search for "Record Id" in "---program:-:pendingTaskTableId---" panel
-    And I click on "Start" icon for "Record Id" inside flex table with id "---program:-:pendingTaskTableId---" without waiting for record
+    When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:pendingTaskTableId---" panel
+    And I click on "Start" icon for "{SavedValue:ProgramEGMSID}" inside flex table with id "---program:-:pendingTaskTableId---" without waiting for record
     When I "Approve" in the approval decision
     When I re-login to "Grantor" app as "PM1" user on "INTERNAL" portal
     And I navigate to "Planning" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    When I perform quick search for "Record Id" in "---program:-:pendingTaskTableId---" panel
-    Then I do not see value "Record Id" for title "EGMS ID" inside table "---program:-:pendingTaskTableId---"
+    When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:pendingTaskTableId---" panel
+    Then I do not see value "{SavedValue:ProgramEGMSID}" for title "EGMS ID" inside table "---program:-:pendingTaskTableId---"
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Planning" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    When I perform quick search for "Record Id" in "---program:-:pendingTaskTableId---" panel
-    Then I see value "Record Id" for title "EGMS ID" inside table "---program:-:pendingTaskTableId---"
+    When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:pendingTaskTableId---" panel
+    Then I see value "{SavedValue:ProgramEGMSID}" for title "EGMS ID" inside table "---program:-:pendingTaskTableId---"
     Then I softly see value "Activate Internal Program {SavedValue:ProgramEGMSID}" for title "Subject" inside table "---program:-:pendingTaskTableId---"
-    And I click on "Start" icon for "Record Id" inside flex table with id "---program:-:pendingTaskTableId---" without waiting for record
+    And I click on "Start" icon for "{SavedValue:ProgramEGMSID}" inside flex table with id "---program:-:pendingTaskTableId---" without waiting for record
     Then I can see top right button "Activate" in page detail
     And I click on "Activate" in the page details
     And I wait for "2" seconds
@@ -1242,43 +1343,52 @@ Feature: Validate all scenarios for program
     Then I can see top right button "Amend Program" in page detail
     And I navigate to "Planning" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    When I perform quick search for "Record Id" in "---program:-:pendingTaskTableId---" panel
-    Then I do not see value "Record Id" for title "EGMS ID" inside table "---program:-:pendingTaskTableId---"
+    When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:pendingTaskTableId---" panel
+    Then I do not see value "{SavedValue:ProgramEGMSID}" for title "EGMS ID" inside table "---program:-:pendingTaskTableId---"
     And I navigate to "Planning" tab
     When I navigate to "Completed Tasks" content inside "My Tasks" subheader on left panel
-    When I perform quick search for "Record Id" in "---program:-:completedTaskTableId---" panel
-    Then I see value "Record Id" for title "EGMS ID" inside table "---program:-:completedTaskTableId---"
+    When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:completedTaskTableId---" panel
+    Then I see value "{SavedValue:ProgramEGMSID}" for title "EGMS ID" inside table "---program:-:completedTaskTableId---"
     Then I softly see value "Activate Internal Program {SavedValue:ProgramEGMSID}" for title "Subject" inside table "---program:-:completedTaskTableId---"
 
-  @196688 @ValidateownershipistransferredforaPrograminSubmittedforReviewstateValidateallthevisibilityofallthebuttonsoftheprogramisavailabletothenewowner @sprint-4  @reassignment @ownvai
+  @196688 @ValidateownershipistransferredforaPrograminSubmittedforReviewstateValidateallthevisibilityofallthebuttonsoftheprogramisavailabletothenewowner @sprint-4  @reassignment @ownvai @programWBAPI
   Scenario: Validate ownership is transferred for a Program in Submitted for Review state Validate all the visibility of all the buttons of the program is available to the new owner
+    Given I create program records with status "Created" using "Owner-Automation PM1" properties
+      | Title                               | RecordType       |
+      | Automation Runtime Internal Program | Internal Program |
     When I login to "Grantor" app as "PM1" user
     And I navigate to "Planning" tab
-    When I navigate to "Internal Programs" content inside "Programs" subheader on left panel
-    And I click toggle button to select "Internal Programs - Draft"
-    And I click on top right button "New" in flex table with id "---program:-:programsTableId---"
-    When I enter in modal "Creation" values from "Program_Field_Values.xlsx"
-    And I click modal button "Save and Continue"
-    And I get the "EGMS ID"
+    And I navigate to "Internal Programs" content inside "Programs" subheader on left panel
+    And I click toggle button to select "Internal Programs - All"
+    When I perform quick search for "{SavedValue:Automation Runtime Internal Program}" in "---program:-:programsTableId---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Internal Program}" inside flex table with id "---program:-:programsTableId---" without waiting for record
     And I save the field labeled "EGMS ID" as "ProgramEGMSID"
-    And I click on "Save" in the page details
-    And I click on "Edit" in the page details
-    When I enter "Edition" values from "Program_Field_Values.xlsx"
-    And I click on "Save" in the page details
-    When I navigate to "Overview" sub tab
-    And I click on top right button "Associate" in flex table with id "---program:-:contactsTableId---"
-    When I click "Associate" after selection of "{SavedValue:EXE Username}" by showing entries "All" in flex table with id "---program:-:associateContactsTableId---"
-    When I navigate to "Setup" sub tab
-    And I click on top right button "Associate" in flex table with id "---program:-:focusAreaTableId---"
-    When I click "Associate" after selection of "Automation Permanent Focus Area" by showing entries "All" in flex table with id "---program:-:associateFocusAreaTableId---"
-    And I click on top right button "Associate" in flex table with id "---program:-:objectivesTableId---"
-    When I click "Associate" after selection of "Automation Permanent Objective" by showing entries "All" in flex table with id "---program:-:associateObjectivesTableId---"
-    And I click on top right button "Associate" in flex table with id "---program:-:kpiTableId---"
-    When I click "Associate" after selection of "Automation Permanent KPI" by showing entries "All" in flex table with id "---program:-:associateKPITableId---"
+
+#    And I click on top right button "New" in flex table with id "---program:-:programsTableId---"
+#    When I enter in modal "Creation" values from "Program_Field_Values.xlsx"
+#    And I click modal button "Save and Continue"
+#    And I get the "EGMS ID"
+#    And I save the field labeled "EGMS ID" as "ProgramEGMSID"
+#    And I click on "Save" in the page details
+#    And I click on "Edit" in the page details
+#    When I enter "Edition" values from "Program_Field_Values.xlsx"
+#    And I click on "Save" in the page details
+#    When I navigate to "Overview" sub tab
+#    And I click on top right button "Associate" in flex table with id "---program:-:contactsTableId---"
+#    When I click "Associate" after selection of "{SavedValue:EXE Username}" by showing entries "All" in flex table with id "---program:-:associateContactsTableId---"
+#    When I navigate to "Setup" sub tab
+#    And I click on top right button "Associate" in flex table with id "---program:-:focusAreaTableId---"
+#    When I click "Associate" after selection of "Automation Permanent Focus Area" by showing entries "All" in flex table with id "---program:-:associateFocusAreaTableId---"
+#    And I click on top right button "Associate" in flex table with id "---program:-:objectivesTableId---"
+#    When I click "Associate" after selection of "Automation Permanent Objective" by showing entries "All" in flex table with id "---program:-:associateObjectivesTableId---"
+#    And I click on top right button "Associate" in flex table with id "---program:-:kpiTableId---"
+#    When I click "Associate" after selection of "Automation Permanent KPI" by showing entries "All" in flex table with id "---program:-:associateKPITableId---"
+#    When I navigate to "Responsibilities" sub tab
+#    When I enter the following values into flex table with id "---program:-:peerReviewTableId---" by clicking "New" :
+#      | Reviewer Name | Responsibility  | Description                 | Due Date |
+#      | Automation FO | Fiscal Reviewer | Automation Test Description | 10       |
+
     When I navigate to "Responsibilities" sub tab
-    When I enter the following values into flex table with id "---program:-:peerReviewTableId---" by clicking "New" :
-      | Reviewer Name | Responsibility  | Description                 | Due Date |
-      | Automation FO | Fiscal Reviewer | Automation Test Description | 10       |
     And I pause execution for "3" seconds
     And I click on "Send for Review" icon for "{SavedValue:FO Username}" inside table
     And I pause execution for "3" seconds
@@ -1342,35 +1452,48 @@ Feature: Validate all scenarios for program
     And I click on Menu icon present on top right corner of the page
     Then I softly can see top right button "Submit For Approval" in page detail
 
-  @196706 @Validatepeerreviewtasksnotstartedremainwithassignedreviewer&arenotautomaticallyassignedtonewownerofprogramwhenownershipofsuchinternalsprogramistransferred @sprint-4  @reassignment
+  @196706 @Validatepeerreviewtasksnotstartedremainwithassignedreviewer&arenotautomaticallyassignedtonewownerofprogramwhenownershipofsuchinternalsprogramistransferred @sprint-4  @reassignment @programWBAPI
   Scenario: Validate peer review tasks (not started) remain with assigned reviewer & are not automatically assigned to new owner of program when ownership of such internals program is transferred
+    Given I create program records with status "Created" using "Owner-Automation PM1" properties
+      | Title                               | RecordType       |
+      | Automation Runtime Internal Program | Internal Program |
     When I login to "Grantor" app as "PM1" user
     And I navigate to "Planning" tab
-    When I navigate to "Internal Programs" content inside "Programs" subheader on left panel
-    And I click toggle button to select "Internal Programs - Draft"
-    And I click on top right button "New" in flex table with id "---program:-:programsTableId---"
-    When I enter in modal "Creation" values from "Program_Field_Values.xlsx"
-    And I click modal button "Save and Continue"
+    And I navigate to "Internal Programs" content inside "Programs" subheader on left panel
+    And I click toggle button to select "Internal Programs - All"
+    When I perform quick search for "{SavedValue:Automation Runtime Internal Program}" in "---program:-:programsTableId---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Internal Program}" inside flex table with id "---program:-:programsTableId---" without waiting for record
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "ProgramEGMSID"
-    And I click on "Save" in the page details
-    And I click on "Edit" in the page details
-    When I enter "Edition" values from "Program_Field_Values.xlsx"
-    And I click on "Save" in the page details
-    When I navigate to "Overview" sub tab
-    And I click on top right button "Associate" in flex table with id "---program:-:contactsTableId---"
-    When I click "Associate" after selection of "{SavedValue:EXE Username}" by showing entries "All" in flex table with id "---program:-:associateContactsTableId---"
-    When I navigate to "Setup" sub tab
-    And I click on top right button "Associate" in flex table with id "---program:-:focusAreaTableId---"
-    When I click "Associate" after selection of "Automation Permanent Focus Area" by showing entries "All" in flex table with id "---program:-:associateFocusAreaTableId---"
-    And I click on top right button "Associate" in flex table with id "---program:-:objectivesTableId---"
-    When I click "Associate" after selection of "Automation Permanent Objective" by showing entries "All" in flex table with id "---program:-:associateObjectivesTableId---"
-    And I click on top right button "Associate" in flex table with id "---program:-:kpiTableId---"
-    When I click "Associate" after selection of "Automation Permanent KPI" by showing entries "All" in flex table with id "---program:-:associateKPITableId---"
+
+#    And I click on top right button "New" in flex table with id "---program:-:programsTableId---"
+#    When I enter in modal "Creation" values from "Program_Field_Values.xlsx"
+#    And I click modal button "Save and Continue"
+#    And I get the "EGMS ID"
+#    And I save the field labeled "EGMS ID" as "ProgramEGMSID"
+#    And I click on "Save" in the page details
+#    And I click on "Edit" in the page details
+#    When I enter "Edition" values from "Program_Field_Values.xlsx"
+#    And I click on "Save" in the page details
+#    When I navigate to "Overview" sub tab
+#    And I click on top right button "Associate" in flex table with id "---program:-:contactsTableId---"
+#    When I click "Associate" after selection of "{SavedValue:EXE Username}" by showing entries "All" in flex table with id "---program:-:associateContactsTableId---"
+#    When I navigate to "Setup" sub tab
+#    And I click on top right button "Associate" in flex table with id "---program:-:focusAreaTableId---"
+#    When I click "Associate" after selection of "Automation Permanent Focus Area" by showing entries "All" in flex table with id "---program:-:associateFocusAreaTableId---"
+#    And I click on top right button "Associate" in flex table with id "---program:-:objectivesTableId---"
+#    When I click "Associate" after selection of "Automation Permanent Objective" by showing entries "All" in flex table with id "---program:-:associateObjectivesTableId---"
+#    And I click on top right button "Associate" in flex table with id "---program:-:kpiTableId---"
+#    When I click "Associate" after selection of "Automation Permanent KPI" by showing entries "All" in flex table with id "---program:-:associateKPITableId---"
+#    When I navigate to "Responsibilities" sub tab
+#    When I enter the following values into flex table with id "---program:-:peerReviewTableId---" by clicking "New" :
+#      | Reviewer Name  | Responsibility   | Description                 | Due Date |
+#      | Automation EXE | Program Reviewer | Automation Test Description | 10       |
+
     When I navigate to "Responsibilities" sub tab
-    When I enter the following values into flex table with id "---program:-:peerReviewTableId---" by clicking "New" :
-      | Reviewer Name  | Responsibility   | Description                 | Due Date |
-      | Automation EXE | Program Reviewer | Automation Test Description | 10       |
+    And I edit the following rows inline in flex table with id "---program:-:peerReviewTableId---" by clicking "Edit" :
+      | Status  | Reviewer Name  | Allow Record Editing |
+      | Created | Automation EXE | Yes                  |
     And I click on "Send for Review" icon for "{SavedValue:EXE Username}" inside table
     When I re-login to "Grantor" app as "ADMIN" user on "INTERNAL" portal
     And I navigate to "Home" tab
@@ -1406,35 +1529,49 @@ Feature: Validate all scenarios for program
     Then I see value "Record Id" for title "EGMS ID" inside table "---program:-:pendingTaskTableId---"
     Then I see value "Review Program {SavedValue:ProgramEGMSID}" for title "Subject" inside table "---program:-:pendingTaskTableId---"
 
-  @196764 @ValidatethevisibilityofallthebuttonsoftheprogramisnotavailablefortheinitialownerwhenownershipistransferredtonewuserforaPrograminSubmittedforReviewstate @sprint-4  @reassignment
+  @196764 @ValidatethevisibilityofallthebuttonsoftheprogramisnotavailablefortheinitialownerwhenownershipistransferredtonewuserforaPrograminSubmittedforReviewstate @sprint-4  @reassignment @programWBAPI
   Scenario: Validate the visibility of all the buttons of the program is not available for the initial owner when ownership is transferred to a new user for a Program in Submitted for Review state
+    Given I create program records with status "Created" using "Owner-Automation PM1" properties
+      | Title                               | RecordType       |
+      | Automation Runtime Internal Program | Internal Program |
     When I login to "Grantor" app as "PM1" user
     And I navigate to "Planning" tab
-    When I navigate to "Internal Programs" content inside "Programs" subheader on left panel
-    And I click toggle button to select "Internal Programs - Draft"
-    And I click on top right button "New" in flex table with id "---program:-:programsTableId---"
-    When I enter in modal "Creation" values from "Program_Field_Values.xlsx"
-    And I click modal button "Save and Continue"
-    And I wait for "10" seconds
-    When I enter "Edition" values from "Program_Field_Values.xlsx"
-    And I click on "Save" in the page details
+    And I navigate to "Internal Programs" content inside "Programs" subheader on left panel
+    And I click toggle button to select "Internal Programs - All"
+    When I perform quick search for "{SavedValue:Automation Runtime Internal Program}" in "---program:-:programsTableId---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Internal Program}" inside flex table with id "---program:-:programsTableId---" without waiting for record
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "ProgramEGMSID"
-    When I navigate to "Overview" sub tab
-    And I click on top right button "Associate" in flex table with id "---program:-:contactsTableId---"
-    When I click "Associate" after selection of "{SavedValue:EXE Username}" by showing entries "All" in flex table with id "---program:-:associateContactsTableId---"
-    When I navigate to "Setup" sub tab
-    And I click on top right button "Associate" in flex table with id "---program:-:focusAreaTableId---"
-    When I click "Associate" after selection of "Automation Permanent Focus Area" by showing entries "All" in flex table with id "---program:-:associateFocusAreaTableId---"
-    And I click on top right button "Associate" in flex table with id "---program:-:objectivesTableId---"
-    When I click "Associate" after selection of "Automation Permanent Objective" by showing entries "All" in flex table with id "---program:-:associateObjectivesTableId---"
-    And I click on top right button "Associate" in flex table with id "---program:-:kpiTableId---"
-    When I click "Associate" after selection of "Automation Permanent KPI" by showing entries "All" in flex table with id "---program:-:associateKPITableId---"
+
+#    And I click on top right button "New" in flex table with id "---program:-:programsTableId---"
+#    When I enter in modal "Creation" values from "Program_Field_Values.xlsx"
+#    And I click modal button "Save and Continue"
+#    And I wait for "10" seconds
+#    When I enter "Edition" values from "Program_Field_Values.xlsx"
+#    And I click on "Save" in the page details
+#    And I get the "EGMS ID"
+#    And I save the field labeled "EGMS ID" as "ProgramEGMSID"
+#    When I navigate to "Overview" sub tab
+#    And I click on top right button "Associate" in flex table with id "---program:-:contactsTableId---"
+#    When I click "Associate" after selection of "{SavedValue:EXE Username}" by showing entries "All" in flex table with id "---program:-:associateContactsTableId---"
+#    When I navigate to "Setup" sub tab
+#    And I click on top right button "Associate" in flex table with id "---program:-:focusAreaTableId---"
+#    When I click "Associate" after selection of "Automation Permanent Focus Area" by showing entries "All" in flex table with id "---program:-:associateFocusAreaTableId---"
+#    And I click on top right button "Associate" in flex table with id "---program:-:objectivesTableId---"
+#    When I click "Associate" after selection of "Automation Permanent Objective" by showing entries "All" in flex table with id "---program:-:associateObjectivesTableId---"
+#    And I click on top right button "Associate" in flex table with id "---program:-:kpiTableId---"
+#    When I click "Associate" after selection of "Automation Permanent KPI" by showing entries "All" in flex table with id "---program:-:associateKPITableId---"
+#    When I navigate to "Responsibilities" sub tab
+#    When I enter the following values into flex table with id "---program:-:peerReviewTableId---" by clicking "New" :
+#      | Reviewer Name  | Responsibility   | Description                 | Due Date |
+#      | Automation EXE | Program Reviewer | Automation Test Description | 10       |
+
     When I navigate to "Responsibilities" sub tab
-    When I enter the following values into flex table with id "---program:-:peerReviewTableId---" by clicking "New" :
-      | Reviewer Name  | Responsibility   | Description                 | Due Date |
-      | Automation EXE | Program Reviewer | Automation Test Description | 10       |
+    And I edit the following rows inline in flex table with id "---program:-:peerReviewTableId---" by clicking "Edit" :
+      | Status  | Reviewer Name  | Allow Record Editing |
+      | Created | Automation EXE | Yes                  |
     And I click on "Send for Review" icon for "{SavedValue:EXE Username}" inside table
+    Then I softly see that "Sent for Review" has been added in flextable with Id "---program:-:peerReviewTableId---"
     When I re-login to "Grantor" app as "ADMIN" user on "INTERNAL" portal
     And I navigate to "Home" tab
     Then I see "Ownership" inside "Reassign" is displayed
@@ -1462,56 +1599,62 @@ Feature: Validate all scenarios for program
     When I navigate to "Responsibilities" sub tab
     Then  I cannot see top right button "New" in flex table with id "---program:-:peerReviewTableId---"
 
-  @196693 @Validatetasksareremovedforoldowner&newprogramownergetstheActivaterelatedtaskandhasbuttonsonUIwhenownershipistransferredforaProgramofapprovedstatus @sprint-4  @reassignment
+  @196693 @Validatetasksareremovedforoldowner&newprogramownergetstheActivaterelatedtaskandhasbuttonsonUIwhenownershipistransferredforaProgramofapprovedstatus @sprint-4  @reassignment @programWBAPI
   Scenario: Validate tasks are removed for old owner & new program owner gets the Activate related task and has buttons on UI when ownership is transferred for a Program of approved status
-    When I login to "Grantor" app as "EXE" user
-    And I navigate to "Planning" tab
-    When I navigate to "Internal Programs" content inside "Programs" subheader on left panel
-    And I click toggle button to select "Internal Programs - Draft"
-    And I click on top right button "New" in flex table with id "---program:-:programsTableId---"
-    When I enter in modal "Creation" values from "Program_Field_Values.xlsx"
-    And I click modal button "Save and Continue"
-    And I pause execution for "4" seconds
-    When I enter "Edition" values from "Program_Field_Values.xlsx"
-    And I click on "Save" in the page details
-    And I get the "EGMS ID"
-    And I save the field labeled "EGMS ID" as "ProgramEGMSID"
-    When I navigate to "Overview" sub tab
-    And I click on top right button "Associate" in flex table with id "---program:-:contactsTableId---"
-    When I click "Associate" after selection of "{SavedValue:EXE Username}" by showing entries "All" in flex table with id "---program:-:associateContactsTableId---"
-    When I navigate to "Setup" sub tab
-    And I click on top right button "Associate" in flex table with id "---program:-:focusAreaTableId---"
-    When I click "Associate" after selection of "Automation Permanent Focus Area" by showing entries "All" in flex table with id "---program:-:associateFocusAreaTableId---"
-    And I click on top right button "Associate" in flex table with id "---program:-:objectivesTableId---"
-    When I click "Associate" after selection of "Automation Permanent Objective" by showing entries "All" in flex table with id "---program:-:associateObjectivesTableId---"
-    And I click on top right button "Associate" in flex table with id "---program:-:kpiTableId---"
-    When I click "Associate" after selection of "Automation Permanent KPI" by showing entries "All" in flex table with id "---program:-:associateKPITableId---"
-    When I navigate to "Responsibilities" sub tab
-    When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
-      | Name                     | Program |
-      | {SavedValue:PM Username} | NA      |
-    When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
-      | Name                     | Program |
-      | {SavedValue:FO Username} | Step 1  |
-    Then I softly see value "{SavedValue:FO Username}" for title "Name" inside table "---program:-:approverTableId---"
-    And I save the value from row "1" for column name "Name" as "OwnerName" from flex table "---program:-:programOwnerTableId---"
-    Then I softly see value "{SavedValue:OwnerName}" for title "Name" inside table "---program:-:programOwnerTableId---"
-    And I pause execution for "5" seconds
-    And I click on "Submit For Approval" in the page details
-    When I re-login to "Grantor" app as "FO" user on "INTERNAL" portal
-    And I navigate to "Planning" tab
-    And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    When I perform quick search for "Record Id" in "---program:-:pendingTaskTableId---" panel
-    And I click on "Start" icon for "Record Id" inside flex table with id "---program:-:pendingTaskTableId---" without waiting for record
-    When I "Approve" in the approval decision
-    When I re-login to "Grantor" app as "ADMIN" user on "INTERNAL" portal
+    Given I create program records with status "Approved" using "Owner-Automation EXE" properties
+      | Title                               | RecordType       |
+      | Automation Runtime Internal Program | Internal Program |
+#    When I login to "Grantor" app as "EXE" user
+#    And I navigate to "Planning" tab
+#    And I navigate to "Internal Programs" content inside "Programs" subheader on left panel
+#    And I click toggle button to select "Internal Programs - Draft"
+#    And I click on top right button "New" in flex table with id "---program:-:programsTableId---"
+#    When I enter in modal "Creation" values from "Program_Field_Values.xlsx"
+#    And I click modal button "Save and Continue"
+#    And I pause execution for "4" seconds
+#    When I enter "Edition" values from "Program_Field_Values.xlsx"
+#    And I click on "Save" in the page details
+#    And I get the "EGMS ID"
+#    And I save the field labeled "EGMS ID" as "ProgramEGMSID"
+#    When I navigate to "Overview" sub tab
+#    And I click on top right button "Associate" in flex table with id "---program:-:contactsTableId---"
+#    When I click "Associate" after selection of "{SavedValue:EXE Username}" by showing entries "All" in flex table with id "---program:-:associateContactsTableId---"
+#    When I navigate to "Setup" sub tab
+#    And I click on top right button "Associate" in flex table with id "---program:-:focusAreaTableId---"
+#    When I click "Associate" after selection of "Automation Permanent Focus Area" by showing entries "All" in flex table with id "---program:-:associateFocusAreaTableId---"
+#    And I click on top right button "Associate" in flex table with id "---program:-:objectivesTableId---"
+#    When I click "Associate" after selection of "Automation Permanent Objective" by showing entries "All" in flex table with id "---program:-:associateObjectivesTableId---"
+#    And I click on top right button "Associate" in flex table with id "---program:-:kpiTableId---"
+#    When I click "Associate" after selection of "Automation Permanent KPI" by showing entries "All" in flex table with id "---program:-:associateKPITableId---"
+#    When I navigate to "Responsibilities" sub tab
+#    When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
+#      | Name                     | Program |
+#      | {SavedValue:PM Username} | NA      |
+#    When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
+#      | Name                     | Program |
+#      | {SavedValue:FO Username} | Step 1  |
+#    Then I softly see value "{SavedValue:FO Username}" for title "Name" inside table "---program:-:approverTableId---"
+#    And I save the value from row "1" for column name "Name" as "OwnerName" from flex table "---program:-:programOwnerTableId---"
+#    Then I softly see value "{SavedValue:OwnerName}" for title "Name" inside table "---program:-:programOwnerTableId---"
+#    And I pause execution for "5" seconds
+#    And I click on "Submit For Approval" in the page details
+#    When I re-login to "Grantor" app as "FO" user on "INTERNAL" portal
+#    And I navigate to "Planning" tab
+#    And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+#    When I perform quick search for "Record Id" in "---program:-:pendingTaskTableId---" panel
+#    And I click on "Start" icon for "Record Id" inside flex table with id "---program:-:pendingTaskTableId---" without waiting for record
+#    When I "Approve" in the approval decision
+#    When I re-login to "Grantor" app as "ADMIN" user on "INTERNAL" portal
+
+    When I login to "Grantor" app as "ADMIN" user
     And I navigate to "Home" tab
     Then I see "Ownership" inside "Reassign" is displayed
     When I navigate to "Ownership" content inside "Reassign" subheader on left panel
     And I select value "Automation EXE" into field "input-1"
     And I select value "Automation EXE1" into field "input-2"
     And I select module "Program" from reassign ownership dropdown
-    When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:adminOwnerReplaceTableId---" panel
+    When I perform quick search for "{SavedValue:Automation Runtime Internal Program}" in "---program:-:adminOwnerReplaceTableId---" panel
+    And I save the value from row "1" for column name "Program ID" as "ProgramEGMSID" from flex table "---program:-:adminOwnerReplaceTableId---"
     When I check "{SavedValue:ProgramEGMSID}" boxes in flex table with id "---program:-:adminOwnerReplaceTableId---"
     When I click table top right button "Transfer Ownership" in flex table with id "---program:-:adminOwnerReplaceTableId---"
     Then I softly see confirmation box with body "When the ownership of the record is changed, all pending tasks assigned to the owner of the record will be reassigned automatically as well. Do you wish to proceed?" is displayed
@@ -1524,60 +1667,70 @@ Feature: Validate all scenarios for program
     And I navigate to "Planning" tab
     When I navigate to "Internal Programs" content inside "Programs" subheader on left panel
     And I click toggle button to select "Internal Programs - All"
-    When I perform quick search for "Record Id" in "---program:-:programsTableId---" panel
-    And I click on "View" icon for "Record Id" inside flex table with id "---program:-:programsTableId---" without waiting for record
+    When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:programsTableId---" panel
+    And I click on "View" icon for "{SavedValue:ProgramEGMSID}" inside flex table with id "---program:-:programsTableId---" without waiting for record
     And I navigate to "History" sub tab
     Then I softly see column "Overall Status" at position "1" contains text "Approved"
     When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Planning" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    When I perform quick search for "Record Id" in "---program:-:pendingTaskTableId---" panel
-    Then I do not see value "Record Id" for title "EGMS ID" inside table "---program:-:pendingTaskTableId---"
+    When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:pendingTaskTableId---" panel
+    Then I do not see value "{SavedValue:ProgramEGMSID}" for title "EGMS ID" inside table "---program:-:pendingTaskTableId---"
     When I navigate to "Completed Tasks" content inside "My Tasks" subheader on left panel
-    When I perform quick search for "Record Id" in "---program:-:completedTaskTableId---" panel
-    Then I do not see value "Record Id" for title "EGMS ID" inside table "---program:-:completedTaskTableId---"
+    When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:completedTaskTableId---" panel
+    Then I do not see value "{SavedValue:ProgramEGMSID}" for title "EGMS ID" inside table "---program:-:completedTaskTableId---"
     When I re-login to "Grantor" app as "EXE1" user on "INTERNAL" portal
     And I navigate to "Planning" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    When I perform quick search for "Record Id" in "---program:-:pendingTaskTableId---" panel
-    Then I see value "Record Id" for title "EGMS ID" inside table "---program:-:pendingTaskTableId---"
-    And I click on "Start" icon for "Record Id" inside flex table with id "---program:-:pendingTaskTableId---" without waiting for record
+    When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:pendingTaskTableId---" panel
+    Then I see value "{SavedValue:ProgramEGMSID}" for title "EGMS ID" inside table "---program:-:pendingTaskTableId---"
+    And I click on "Start" icon for "{SavedValue:ProgramEGMSID}" inside flex table with id "---program:-:pendingTaskTableId---" without waiting for record
     Then I can see top right button "Activate" in page detail
 
-  @196699 @Validateapprovercanapprovetheexternalprogram&newownergetstheActivaterelatedtasksandhasbuttonsonUIwhenownershipistransferredforaExternalProgramSubmittedforapproval  @sprint-4  @reassignment
+  @196699 @Validateapprovercanapprovetheexternalprogram&newownergetstheActivaterelatedtasksandhasbuttonsonUIwhenownershipistransferredforaExternalProgramSubmittedforapproval  @sprint-4  @reassignment @programWBAPI
   Scenario: Validate  approver can approve the external program & new owner gets the Activate related tasks and has buttons on UI when ownership is transferred for a External Program Submitted for approval
+    Given I create program records with status "Submitted for Approval" using "Owner-Automation PM1" properties
+      | Title                               | RecordType  |
+      | Automation Runtime External Program | NGO Program |
     When I login to "Grantor" app as "PM1" user
     And I navigate to "Planning" tab
     When I navigate to "External Programs" content inside "Programs" subheader on left panel
-    And I click on top right button "New" in flex table with id "---program:-:ExternalNGOProgramTableId---"
-    When I enter "NGOCreation" values from "Program_Field_Values.xlsx"
-    And I click modal button "Save and Continue"
+    And I click toggle button to select "NGO Programs - All"
+    When I perform quick search for "{SavedValue:Automation Runtime External Program}" in "---program:-:ExternalNGOProgramTableId---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime External Program}" inside flex table with id "---program:-:ExternalNGOProgramTableId---"
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "ProgramEGMSID"
-    And I click on "Save" in the page details
-    And I click on "Edit" in the page details
-    And I enter "NGOEdit" values from "Program_Field_Values.xlsx"
-    When I click on "Save" in the page details
-    When I navigate to "Overview" sub tab
-    And I click on top right button "Associate" in flex table with id "---program:-:ExternalNGOProgramContactTableId---"
-    When I click "Associate" after selection of "NGO Contact" by showing entries "All" in flex table with id "---program:-:associateContactsTableId---"
-    And I click modal button "Close"
-    When I navigate to "Responsibilities" sub tab
-    When I enter the following values into flex table with id "---program:-:extapproverTableId---" by clicking "New" :
-      | Name                     | Program |
-      | {SavedValue:PM Username} | NA      |
-    When I enter the following values into flex table with id "---program:-:extapproverTableId---" by clicking "New" :
-      | Name                      | Program |
-      | {SavedValue:EXE Username} | Step 1  |
-    When I enter the following values into flex table with id "---program:-:extapproverTableId---" by clicking "New" :
-      | Name                     | Program |
-      | {SavedValue:FO Username} | Step 2  |
-    And I save the value from row "1" for column name "Name" as "OwnerName" from flex table "---program:-:programOwnerTableId---"
-    Then I softly see value "{SavedValue:OwnerName}" for title "Name" inside table "---program:-:programOwnerTableId---"
-    And I pause execution for "5" seconds
-    And I click on "Submit For Approval" in the page details
-    Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
-    When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
+
+#    And I click on top right button "New" in flex table with id "---program:-:ExternalNGOProgramTableId---"
+#    When I enter "NGOCreation" values from "Program_Field_Values.xlsx"
+#    And I click modal button "Save and Continue"
+#    And I get the "EGMS ID"
+#    And I save the field labeled "EGMS ID" as "ProgramEGMSID"
+#    And I click on "Save" in the page details
+#    And I click on "Edit" in the page details
+#    And I enter "NGOEdit" values from "Program_Field_Values.xlsx"
+#    When I click on "Save" in the page details
+#    When I navigate to "Overview" sub tab
+#    And I click on top right button "Associate" in flex table with id "---program:-:ExternalNGOProgramContactTableId---"
+#    When I click "Associate" after selection of "NGO Contact" by showing entries "All" in flex table with id "---program:-:associateContactsTableId---"
+#    And I click modal button "Close"
+#    When I navigate to "Responsibilities" sub tab
+#    When I enter the following values into flex table with id "---program:-:extapproverTableId---" by clicking "New" :
+#      | Name                     | Program |
+#      | {SavedValue:PM Username} | NA      |
+#    When I enter the following values into flex table with id "---program:-:extapproverTableId---" by clicking "New" :
+#      | Name                      | Program |
+#      | {SavedValue:EXE Username} | Step 1  |
+#    When I enter the following values into flex table with id "---program:-:extapproverTableId---" by clicking "New" :
+#      | Name                     | Program |
+#      | {SavedValue:FO Username} | Step 2  |
+#    And I save the value from row "1" for column name "Name" as "OwnerName" from flex table "---program:-:programOwnerTableId---"
+#    Then I softly see value "{SavedValue:OwnerName}" for title "Name" inside table "---program:-:programOwnerTableId---"
+#    And I pause execution for "5" seconds
+#    And I click on "Submit For Approval" in the page details
+#    Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
+#    When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
+
     And I navigate to "Planning" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---program:-:pendingTaskTableId---" panel
@@ -1610,7 +1763,8 @@ Feature: Validate all scenarios for program
     And I navigate to "History" sub tab
     And I wait for "3" seconds
     Then I softly see column "Overall Status" at position "3" contains text "Approved"
-    When I re-login to "Grantor" app as "FO" user on "INTERNAL" portal
+#    When I re-login to "Grantor" app as "FO" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Planning" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---program:-:pendingTaskTableId---" panel
@@ -1641,149 +1795,210 @@ Feature: Validate all scenarios for program
     Then I see value "Record Id" for title "EGMS ID" inside table "---program:-:completedTaskTableId---"
     Then I softly see value "Activate NGO Program {SavedValue:ProgramEGMSID}" for title "Subject" inside table "---program:-:completedTaskTableId---"
 
-  @197125 @Validateownershiptasksareroutedtoappropriateuserwhentransferofownershipisdonesimultaneouslyfor4internalprogramsindifferentstateshasrelatedtasksonthem @sprint-4  @reassignment
+  @197125 @Validateownershiptasksareroutedtoappropriateuserwhentransferofownershipisdonesimultaneouslyfor4internalprogramsindifferentstateshasrelatedtasksonthem @sprint-4  @reassignment @programWBAPI
   Scenario: Validate ownership & tasks are routed to appropriate user when transfer of ownership is done simultaneously for 4 internal programs in different states & has related tasks on them
+    Given I create program records with status "Created" using "Owner-Automation PM1" properties
+      | Title                               | RecordType       |
+      | Automation Runtime Internal Program | Internal Program |
     When I login to "Grantor" app as "PM1" user
     And I navigate to "Planning" tab
-    When I navigate to "Internal Programs" content inside "Programs" subheader on left panel
-    And I click toggle button to select "Internal Programs - Draft"
-    And I click on top right button "New" in flex table with id "---program:-:programsTableId---"
-    When I enter in modal "Creation" values from "Program_Field_Values.xlsx"
-    And I click modal button "Save and Continue"
-    And I wait for "10" seconds
-    When I enter "Edition" values from "Program_Field_Values.xlsx"
-    And I click on "Save" in the page details
+    And I navigate to "Internal Programs" content inside "Programs" subheader on left panel
+    And I click toggle button to select "Internal Programs - All"
+    When I perform quick search for "{SavedValue:Automation Runtime Internal Program}" in "---program:-:programsTableId---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Internal Program}" inside flex table with id "---program:-:programsTableId---" without waiting for record
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "ProgramEGMSID1"
-    When I navigate to "Overview" sub tab
-    And I click on top right button "Associate" in flex table with id "---program:-:contactsTableId---"
-    When I click "Associate" after selection of "{SavedValue:EXE Username}" by showing entries "All" in flex table with id "---program:-:associateContactsTableId---"
-    When I navigate to "Setup" sub tab
-    And I click on top right button "Associate" in flex table with id "---program:-:focusAreaTableId---"
-    When I click "Associate" after selection of "Automation Permanent Focus Area" by showing entries "All" in flex table with id "---program:-:associateFocusAreaTableId---"
-    And I click on top right button "Associate" in flex table with id "---program:-:objectivesTableId---"
-    When I click "Associate" after selection of "Automation Permanent Objective" by showing entries "All" in flex table with id "---program:-:associateObjectivesTableId---"
-    And I click on top right button "Associate" in flex table with id "---program:-:kpiTableId---"
-    When I click "Associate" after selection of "Automation Permanent KPI" by showing entries "All" in flex table with id "---program:-:associateKPITableId---"
+
     When I navigate to "Responsibilities" sub tab
-    When I enter the following values into flex table with id "---program:-:peerReviewTableId---" by clicking "New" :
-      | Reviewer Name  | Responsibility   | Description                 | Due Date |
-      | Automation EXE | Program Reviewer | Automation Test Description | 10       |
-    And I pause execution for "2" seconds
+    And I edit the following rows inline in flex table with id "---program:-:peerReviewTableId---" by clicking "Edit" :
+      | Status  | Reviewer Name  | Allow Record Editing |
+      | Created | Automation EXE | Yes                  |
     And I click on "Send for Review" icon for "{SavedValue:EXE Username}" inside table
-    And I pause execution for "5" seconds
+    Then I softly see field "Status" as "Submitted for Review"
+
+#    And I click on top right button "New" in flex table with id "---program:-:programsTableId---"
+#    When I enter in modal "Creation" values from "Program_Field_Values.xlsx"
+#    And I click modal button "Save and Continue"
+#    And I wait for "10" seconds
+#    When I enter "Edition" values from "Program_Field_Values.xlsx"
+#    And I click on "Save" in the page details
+#    And I get the "EGMS ID"
+#    And I save the field labeled "EGMS ID" as "ProgramEGMSID1"
+#    When I navigate to "Overview" sub tab
+#    And I click on top right button "Associate" in flex table with id "---program:-:contactsTableId---"
+#    When I click "Associate" after selection of "{SavedValue:EXE Username}" by showing entries "All" in flex table with id "---program:-:associateContactsTableId---"
+#    When I navigate to "Setup" sub tab
+#    And I click on top right button "Associate" in flex table with id "---program:-:focusAreaTableId---"
+#    When I click "Associate" after selection of "Automation Permanent Focus Area" by showing entries "All" in flex table with id "---program:-:associateFocusAreaTableId---"
+#    And I click on top right button "Associate" in flex table with id "---program:-:objectivesTableId---"
+#    When I click "Associate" after selection of "Automation Permanent Objective" by showing entries "All" in flex table with id "---program:-:associateObjectivesTableId---"
+#    And I click on top right button "Associate" in flex table with id "---program:-:kpiTableId---"
+#    When I click "Associate" after selection of "Automation Permanent KPI" by showing entries "All" in flex table with id "---program:-:associateKPITableId---"
+#    When I navigate to "Responsibilities" sub tab
+#    When I enter the following values into flex table with id "---program:-:peerReviewTableId---" by clicking "New" :
+#      | Reviewer Name  | Responsibility   | Description                 | Due Date |
+#      | Automation EXE | Program Reviewer | Automation Test Description | 10       |
+#    And I pause execution for "2" seconds
+#    And I click on "Send for Review" icon for "{SavedValue:EXE Username}" inside table
+#    And I pause execution for "5" seconds
+
+    #Program2
+    Given I create program records with status "Created" using "Owner-{SavedValue:PM1 Username},approver1-{SavedValue:FO Username},approver2-NA" properties
+      | Title                               | RecordType       |
+      | Automation Runtime Internal Program | Internal Program |
     And I navigate to "Planning" tab
-    When I navigate to "Internal Programs" content inside "Programs" subheader on left panel
-    And I click toggle button to select "Internal Programs - Draft"
-    And I click on top right button "New" in flex table with id "---program:-:programsTableId---"
-    When I enter in modal "Creation" values from "Program_Field_Values.xlsx"
-    And I click modal button "Save and Continue"
-    And I wait for "5" seconds
-    When I enter "Edition" values from "Program_Field_Values.xlsx"
-    And I click on "Save" in the page details
+    And I navigate to "Internal Programs" content inside "Programs" subheader on left panel
+    And I click toggle button to select "Internal Programs - All"
+    When I perform quick search for "{SavedValue:Automation Runtime Internal Program}" in "---program:-:programsTableId---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Internal Program}" inside flex table with id "---program:-:programsTableId---" without waiting for record
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "ProgramEGMSID2"
-    When I navigate to "Overview" sub tab
-    And I click on top right button "Associate" in flex table with id "---program:-:contactsTableId---"
-    When I click "Associate" after selection of "{SavedValue:EXE Username}" by showing entries "All" in flex table with id "---program:-:associateContactsTableId---"
-    When I navigate to "Setup" sub tab
-    And I click on top right button "Associate" in flex table with id "---program:-:focusAreaTableId---"
-    When I click "Associate" after selection of "Automation Permanent Focus Area" by showing entries "All" in flex table with id "---program:-:associateFocusAreaTableId---"
-    And I click on top right button "Associate" in flex table with id "---program:-:objectivesTableId---"
-    When I click "Associate" after selection of "Automation Permanent Objective" by showing entries "All" in flex table with id "---program:-:associateObjectivesTableId---"
-    And I click on top right button "Associate" in flex table with id "---program:-:kpiTableId---"
-    When I click "Associate" after selection of "Automation Permanent KPI" by showing entries "All" in flex table with id "---program:-:associateKPITableId---"
     When I navigate to "Responsibilities" sub tab
-    When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
-      | Name                     | Program |
-      | {SavedValue:PM Username} | NA      |
-    When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
-      | Name                     | Program |
-      | {SavedValue:FO Username} | Step 1  |
+    And I edit the following rows inline in flex table with id "---program:-:approverTableId---" by clicking "Edit" :
+      | Name                      | Program |
+      | {SavedValue:FO Username}  | Step 1  |
+      | {SavedValue:EXE Username} | NA      |
     And I save the value from row "1" for column name "Name" as "OwnerName" from flex table "---program:-:programOwnerTableId---"
     Then I softly see value "{SavedValue:OwnerName}" for title "Name" inside table "---program:-:programOwnerTableId---"
     And I pause execution for "5" seconds
     And I click on "Submit For Approval" in the page details
     And I pause execution for "10" seconds
+
+#    And I navigate to "Planning" tab
+#    When I navigate to "Internal Programs" content inside "Programs" subheader on left panel
+#    And I click toggle button to select "Internal Programs - Draft"
+#    And I click on top right button "New" in flex table with id "---program:-:programsTableId---"
+#    When I enter in modal "Creation" values from "Program_Field_Values.xlsx"
+#    And I click modal button "Save and Continue"
+#    And I wait for "5" seconds
+#    When I enter "Edition" values from "Program_Field_Values.xlsx"
+#    And I click on "Save" in the page details
+#    And I get the "EGMS ID"
+#    And I save the field labeled "EGMS ID" as "ProgramEGMSID2"
+#    When I navigate to "Overview" sub tab
+#    And I click on top right button "Associate" in flex table with id "---program:-:contactsTableId---"
+#    When I click "Associate" after selection of "{SavedValue:EXE Username}" by showing entries "All" in flex table with id "---program:-:associateContactsTableId---"
+#    When I navigate to "Setup" sub tab
+#    And I click on top right button "Associate" in flex table with id "---program:-:focusAreaTableId---"
+#    When I click "Associate" after selection of "Automation Permanent Focus Area" by showing entries "All" in flex table with id "---program:-:associateFocusAreaTableId---"
+#    And I click on top right button "Associate" in flex table with id "---program:-:objectivesTableId---"
+#    When I click "Associate" after selection of "Automation Permanent Objective" by showing entries "All" in flex table with id "---program:-:associateObjectivesTableId---"
+#    And I click on top right button "Associate" in flex table with id "---program:-:kpiTableId---"
+#    When I click "Associate" after selection of "Automation Permanent KPI" by showing entries "All" in flex table with id "---program:-:associateKPITableId---"
+#    When I navigate to "Responsibilities" sub tab
+#    When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
+#      | Name                     | Program |
+#      | {SavedValue:PM Username} | NA      |
+#    When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
+#      | Name                     | Program |
+#      | {SavedValue:FO Username} | Step 1  |
+
+    #Program3
+    Given I create program records with status "Approved" using "Owner-{SavedValue:PM1 Username},approver1-{SavedValue:EXE Username},approver2-NA" properties
+      | Title                               | RecordType       |
+      | Automation Runtime Internal Program | Internal Program |
     And I navigate to "Planning" tab
-    When I navigate to "Internal Programs" content inside "Programs" subheader on left panel
-    And I click toggle button to select "Internal Programs - Draft"
-    And I click on top right button "New" in flex table with id "---program:-:programsTableId---"
-    When I enter in modal "Creation" values from "Program_Field_Values.xlsx"
-    And I click modal button "Save and Continue"
-    And I wait for "5" seconds
-    When I enter "Edition" values from "Program_Field_Values.xlsx"
-    And I click on "Save" in the page details
+    And I navigate to "Internal Programs" content inside "Programs" subheader on left panel
+    And I click toggle button to select "Internal Programs - All"
+    When I perform quick search for "{SavedValue:Automation Runtime Internal Program}" in "---program:-:programsTableId---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Internal Program}" inside flex table with id "---program:-:programsTableId---" without waiting for record
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "ProgramEGMSID3"
-    When I navigate to "Overview" sub tab
-    And I click on top right button "Associate" in flex table with id "---program:-:contactsTableId---"
-    When I click "Associate" after selection of "{SavedValue:EXE Username}" by showing entries "All" in flex table with id "---program:-:associateContactsTableId---"
-    When I navigate to "Setup" sub tab
-    And I click on top right button "Associate" in flex table with id "---program:-:focusAreaTableId---"
-    When I click "Associate" after selection of "Automation Permanent Focus Area" by showing entries "All" in flex table with id "---program:-:associateFocusAreaTableId---"
-    And I click on top right button "Associate" in flex table with id "---program:-:objectivesTableId---"
-    When I click "Associate" after selection of "Automation Permanent Objective" by showing entries "All" in flex table with id "---program:-:associateObjectivesTableId---"
-    And I click on top right button "Associate" in flex table with id "---program:-:kpiTableId---"
-    When I click "Associate" after selection of "Automation Permanent KPI" by showing entries "All" in flex table with id "---program:-:associateKPITableId---"
-    When I navigate to "Responsibilities" sub tab
-    When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
-      | Name                     | Program |
-      | {SavedValue:PM Username} | NA      |
-    When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
-      | Name                      | Program |
-      | {SavedValue:EXE Username} | Step 1  |
-    And I save the value from row "1" for column name "Name" as "OwnerName" from flex table "---program:-:programOwnerTableId---"
-    Then I softly see value "{SavedValue:OwnerName}" for title "Name" inside table "---program:-:programOwnerTableId---"
-    And I pause execution for "5" seconds
-    And I click on "Submit For Approval" in the page details
-    Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
-    When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
+
+#    And I navigate to "Planning" tab
+#    When I navigate to "Internal Programs" content inside "Programs" subheader on left panel
+#    And I click toggle button to select "Internal Programs - Draft"
+#    And I click on top right button "New" in flex table with id "---program:-:programsTableId---"
+#    When I enter in modal "Creation" values from "Program_Field_Values.xlsx"
+#    And I click modal button "Save and Continue"
+#    And I wait for "5" seconds
+#    When I enter "Edition" values from "Program_Field_Values.xlsx"
+#    And I click on "Save" in the page details
+#    And I get the "EGMS ID"
+#    And I save the field labeled "EGMS ID" as "ProgramEGMSID3"
+#    When I navigate to "Overview" sub tab
+#    And I click on top right button "Associate" in flex table with id "---program:-:contactsTableId---"
+#    When I click "Associate" after selection of "{SavedValue:EXE Username}" by showing entries "All" in flex table with id "---program:-:associateContactsTableId---"
+#    When I navigate to "Setup" sub tab
+#    And I click on top right button "Associate" in flex table with id "---program:-:focusAreaTableId---"
+#    When I click "Associate" after selection of "Automation Permanent Focus Area" by showing entries "All" in flex table with id "---program:-:associateFocusAreaTableId---"
+#    And I click on top right button "Associate" in flex table with id "---program:-:objectivesTableId---"
+#    When I click "Associate" after selection of "Automation Permanent Objective" by showing entries "All" in flex table with id "---program:-:associateObjectivesTableId---"
+#    And I click on top right button "Associate" in flex table with id "---program:-:kpiTableId---"
+#    When I click "Associate" after selection of "Automation Permanent KPI" by showing entries "All" in flex table with id "---program:-:associateKPITableId---"
+#    When I navigate to "Responsibilities" sub tab
+#    When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
+#      | Name                     | Program |
+#      | {SavedValue:PM Username} | NA      |
+#    When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
+#      | Name                      | Program |
+#      | {SavedValue:EXE Username} | Step 1  |
+#    And I save the value from row "1" for column name "Name" as "OwnerName" from flex table "---program:-:programOwnerTableId---"
+#    Then I softly see value "{SavedValue:OwnerName}" for title "Name" inside table "---program:-:programOwnerTableId---"
+#    And I pause execution for "5" seconds
+#    And I click on "Submit For Approval" in the page details
+#    Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
+#    When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
+#    And I navigate to "Planning" tab
+#    And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+#    When I perform quick search for "Record Id" in "---program:-:pendingTaskTableId---" panel
+#    And I click on "Start" icon for "Record Id" inside flex table with id "---program:-:pendingTaskTableId---" without waiting for record
+#    When I "Approve" in the approval decision
+
+    #Program4
+    Given I create program records with status "Approved" using "Owner-{SavedValue:PM1 Username},approver1-{SavedValue:EXE Username},approver2-NA" properties
+      | Title                               | RecordType       |
+      | Automation Runtime Internal Program | Internal Program |
     And I navigate to "Planning" tab
-    And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    When I perform quick search for "Record Id" in "---program:-:pendingTaskTableId---" panel
-    And I click on "Start" icon for "Record Id" inside flex table with id "---program:-:pendingTaskTableId---" without waiting for record
-    When I "Approve" in the approval decision
-    When I re-login to "Grantor" app as "PM1" user on "INTERNAL" portal
-    And I navigate to "Planning" tab
-    When I navigate to "Internal Programs" content inside "Programs" subheader on left panel
-    And I click toggle button to select "Internal Programs - Draft"
-    And I click on top right button "New" in flex table with id "---program:-:programsTableId---"
-    When I enter in modal "Creation" values from "Program_Field_Values.xlsx"
-    And I click modal button "Save and Continue"
-    And I wait for "5" seconds
-    When I enter "Edition" values from "Program_Field_Values.xlsx"
-    And I click on "Save" in the page details
+    And I navigate to "Internal Programs" content inside "Programs" subheader on left panel
+    And I click toggle button to select "Internal Programs - All"
+    When I perform quick search for "{SavedValue:Automation Runtime Internal Program}" in "---program:-:programsTableId---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Internal Program}" inside flex table with id "---program:-:programsTableId---" without waiting for record
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "ProgramEGMSID4"
-    When I navigate to "Overview" sub tab
-    And I click on top right button "Associate" in flex table with id "---program:-:contactsTableId---"
-    When I click "Associate" after selection of "{SavedValue:EXE Username}" by showing entries "All" in flex table with id "---program:-:associateContactsTableId---"
-    When I navigate to "Setup" sub tab
-    And I click on top right button "Associate" in flex table with id "---program:-:focusAreaTableId---"
-    When I click "Associate" after selection of "Automation Permanent Focus Area" by showing entries "All" in flex table with id "---program:-:associateFocusAreaTableId---"
-    And I click on top right button "Associate" in flex table with id "---program:-:objectivesTableId---"
-    When I click "Associate" after selection of "Automation Permanent Objective" by showing entries "All" in flex table with id "---program:-:associateObjectivesTableId---"
-    And I click on top right button "Associate" in flex table with id "---program:-:kpiTableId---"
-    When I click "Associate" after selection of "Automation Permanent KPI" by showing entries "All" in flex table with id "---program:-:associateKPITableId---"
-    When I navigate to "Responsibilities" sub tab
-    When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
-      | Name                     | Program |
-      | {SavedValue:PM Username} | NA      |
-    When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
-      | Name                      | Program |
-      | {SavedValue:EXE Username} | Step 1  |
-    And I save the value from row "1" for column name "Name" as "OwnerName" from flex table "---program:-:programOwnerTableId---"
-    Then I softly see value "{SavedValue:OwnerName}" for title "Name" inside table "---program:-:programOwnerTableId---"
-    And I pause execution for "5" seconds
-    And I click on "Submit For Approval" in the page details
-    Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
-    When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
-    And I navigate to "Planning" tab
-    And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    When I perform quick search for "{SavedValue:ProgramEGMSID4}" in "---program:-:pendingTaskTableId---" panel
-    And I click on "Start" icon for "{SavedValue:ProgramEGMSID4}" inside flex table with id "---program:-:pendingTaskTableId---" without waiting for record
-    When I "Approve" in the approval decision
+
+#    When I re-login to "Grantor" app as "PM1" user on "INTERNAL" portal
+#    And I navigate to "Planning" tab
+#    When I navigate to "Internal Programs" content inside "Programs" subheader on left panel
+#    And I click toggle button to select "Internal Programs - Draft"
+#    And I click on top right button "New" in flex table with id "---program:-:programsTableId---"
+#    When I enter in modal "Creation" values from "Program_Field_Values.xlsx"
+#    And I click modal button "Save and Continue"
+#    And I wait for "5" seconds
+#    When I enter "Edition" values from "Program_Field_Values.xlsx"
+#    And I click on "Save" in the page details
+#    And I get the "EGMS ID"
+#    And I save the field labeled "EGMS ID" as "ProgramEGMSID4"
+#    When I navigate to "Overview" sub tab
+#    And I click on top right button "Associate" in flex table with id "---program:-:contactsTableId---"
+#    When I click "Associate" after selection of "{SavedValue:EXE Username}" by showing entries "All" in flex table with id "---program:-:associateContactsTableId---"
+#    When I navigate to "Setup" sub tab
+#    And I click on top right button "Associate" in flex table with id "---program:-:focusAreaTableId---"
+#    When I click "Associate" after selection of "Automation Permanent Focus Area" by showing entries "All" in flex table with id "---program:-:associateFocusAreaTableId---"
+#    And I click on top right button "Associate" in flex table with id "---program:-:objectivesTableId---"
+#    When I click "Associate" after selection of "Automation Permanent Objective" by showing entries "All" in flex table with id "---program:-:associateObjectivesTableId---"
+#    And I click on top right button "Associate" in flex table with id "---program:-:kpiTableId---"
+#    When I click "Associate" after selection of "Automation Permanent KPI" by showing entries "All" in flex table with id "---program:-:associateKPITableId---"
+#    When I navigate to "Responsibilities" sub tab
+#    When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
+#      | Name                     | Program |
+#      | {SavedValue:PM Username} | NA      |
+#    When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
+#      | Name                      | Program |
+#      | {SavedValue:EXE Username} | Step 1  |
+#    And I save the value from row "1" for column name "Name" as "OwnerName" from flex table "---program:-:programOwnerTableId---"
+#    Then I softly see value "{SavedValue:OwnerName}" for title "Name" inside table "---program:-:programOwnerTableId---"
+#    And I pause execution for "5" seconds
+#    And I click on "Submit For Approval" in the page details
+#    Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
+#    When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
+#    And I navigate to "Planning" tab
+#    And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+#    When I perform quick search for "{SavedValue:ProgramEGMSID4}" in "---program:-:pendingTaskTableId---" panel
+#    And I click on "Start" icon for "{SavedValue:ProgramEGMSID4}" inside flex table with id "---program:-:pendingTaskTableId---" without waiting for record
+#    When I "Approve" in the approval decision
+#    When I re-login to "Grantor" app as "ADMIN" user on "INTERNAL" portal
+
     When I re-login to "Grantor" app as "ADMIN" user on "INTERNAL" portal
     And I navigate to "Home" tab
     Then I see "Ownership" inside "Reassign" is displayed
@@ -1865,115 +2080,128 @@ Feature: Validate all scenarios for program
     Then I see value "{SavedValue:ProgramEGMSID1}" for title "EGMS ID" inside table "---program:-:pendingTaskTableId---"
     Then I softly see value "Review Program {SavedValue:ProgramEGMSID1}" for title "Subject" inside table "---program:-:pendingTaskTableId---"
 
-  @197246 @Validateuserselectprogramthenreassignmenthistoryshouldtrackedinthefieldhistorytableinhistorytabforexternalprogram @sprint-4  @reassignment @FieldHistoryExclude
+  @197246 @Validateuserselectprogramthenreassignmenthistoryshouldtrackedinthefieldhistorytableinhistorytabforexternalprogram @sprint-4  @reassignment @FieldHistoryExclude @programWBAPI
   Scenario: Validate user select program then reassignment history should tracked in the field history table in history tab for external program
-    When I login to "Grantor" app as "PM1" user
-    And I navigate to "Planning" tab
-    When I navigate to "External Programs" content inside "Programs" subheader on left panel
-    And I click on top right button "New" in flex table with id "---program:-:ExternalNGOProgramTableId---"
-    When I enter "NGOCreation" values from "Program_Field_Values.xlsx"
-    And I click modal button "Save and Continue"
-    And I get the "EGMS ID"
-    And I save the field labeled "EGMS ID" as "ProgramEGMSID"
-    And I click on "Save" in the page details
-    And I click on "Edit" in the page details
-    And I enter "NGOEdit" values from "Program_Field_Values.xlsx"
-    When I click on "Save" in the page details
-    When I navigate to "Overview" sub tab
-    And I click on top right button "Associate" in flex table with id "---program:-:ExternalNGOProgramContactTableId---"
-    When I click "Associate" after selection of "NGO Contact" by showing entries "All" in flex table with id "---program:-:associateContactsTableId---"
-    And I click modal button "Close"
-    When I navigate to "Responsibilities" sub tab
-    When I enter the following values into flex table with id "---program:-:extapproverTableId---" by clicking "New" :
-      | Name                     | Program |
-      | {SavedValue:PM Username} | NA      |
-    When I enter the following values into flex table with id "---program:-:extapproverTableId---" by clicking "New" :
-      | Name                      | Program |
-      | {SavedValue:EXE Username} | Step 1  |
-    And I save the value from row "1" for column name "Name" as "OwnerName" from flex table "---program:-:programOwnerTableId---"
-    Then I softly see value "{SavedValue:OwnerName}" for title "Name" inside table "---program:-:programOwnerTableId---"
-    And I pause execution for "5" seconds
-    And I click on "Submit For Approval" in the page details
-    Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
-    When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
-    And I navigate to "Planning" tab
-    And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    When I perform quick search for "Record Id" in "---program:-:pendingTaskTableId---" panel
-    And I click on "Start" icon for "Record Id" inside flex table with id "---program:-:pendingTaskTableId---" without waiting for record
-    When I "Approve" in the approval decision
-    When I re-login to "Grantor" app as "PM1" user on "INTERNAL" portal
-    And I navigate to "Planning" tab
-    When I navigate to "External Programs" content inside "Programs" subheader on left panel
-    And I click toggle button to select "NGO Programs - All"
-    When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:ExternalNGOProgramTableId---" panel
-    And I click on "View" icon for "{SavedValue:ProgramEGMSID}" inside flex table with id "---program:-:ExternalNGOProgramTableId---" without waiting for record
-    And I click on "Activate" in the page details
-    Then I softly see status in Progress-bar is "Active" and is "dark blue"
-    When I re-login to "Grantor" app as "ADMIN" user on "INTERNAL" portal
+    Given I create program records with status "Active" using "Owner-Automation PM1" properties
+      | Title                               | RecordType  |
+      | Automation Runtime External Program | NGO Program |
+
+#    When I login to "Grantor" app as "PM1" user
+#    And I navigate to "Planning" tab
+#    When I navigate to "External Programs" content inside "Programs" subheader on left panel
+#    And I click on top right button "New" in flex table with id "---program:-:ExternalNGOProgramTableId---"
+#    When I enter "NGOCreation" values from "Program_Field_Values.xlsx"
+#    And I click modal button "Save and Continue"
+#    And I get the "EGMS ID"
+#    And I save the field labeled "EGMS ID" as "ProgramEGMSID"
+#    And I click on "Save" in the page details
+#    And I click on "Edit" in the page details
+#    And I enter "NGOEdit" values from "Program_Field_Values.xlsx"
+#    When I click on "Save" in the page details
+#    When I navigate to "Overview" sub tab
+#    And I click on top right button "Associate" in flex table with id "---program:-:ExternalNGOProgramContactTableId---"
+#    When I click "Associate" after selection of "NGO Contact" by showing entries "All" in flex table with id "---program:-:associateContactsTableId---"
+#    And I click modal button "Close"
+#    When I navigate to "Responsibilities" sub tab
+#    When I enter the following values into flex table with id "---program:-:extapproverTableId---" by clicking "New" :
+#      | Name                     | Program |
+#      | {SavedValue:PM Username} | NA      |
+#    When I enter the following values into flex table with id "---program:-:extapproverTableId---" by clicking "New" :
+#      | Name                      | Program |
+#      | {SavedValue:EXE Username} | Step 1  |
+#    And I save the value from row "1" for column name "Name" as "OwnerName" from flex table "---program:-:programOwnerTableId---"
+#    Then I softly see value "{SavedValue:OwnerName}" for title "Name" inside table "---program:-:programOwnerTableId---"
+#    And I pause execution for "5" seconds
+#    And I click on "Submit For Approval" in the page details
+#    Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
+#    When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
+#    And I navigate to "Planning" tab
+#    And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+#    When I perform quick search for "Record Id" in "---program:-:pendingTaskTableId---" panel
+#    And I click on "Start" icon for "Record Id" inside flex table with id "---program:-:pendingTaskTableId---" without waiting for record
+#    When I "Approve" in the approval decision
+#    When I re-login to "Grantor" app as "PM1" user on "INTERNAL" portal
+#    And I navigate to "Planning" tab
+#    When I navigate to "External Programs" content inside "Programs" subheader on left panel
+#    And I click toggle button to select "NGO Programs - All"
+#    When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:ExternalNGOProgramTableId---" panel
+#    And I click on "View" icon for "{SavedValue:ProgramEGMSID}" inside flex table with id "---program:-:ExternalNGOProgramTableId---" without waiting for record
+#    And I click on "Activate" in the page details
+#    Then I softly see status in Progress-bar is "Active" and is "dark blue"
+#    When I re-login to "Grantor" app as "ADMIN" user on "INTERNAL" portal
+
+    When I login to "Grantor" app as "ADMIN" user
     And I navigate to "Home" tab
     Then I see "Ownership" inside "Reassign" is displayed
     When I navigate to "Ownership" content inside "Reassign" subheader on left panel
     And I select value "Automation PM1" into field "input-1"
     And I select value "Automation PM" into field "input-2"
     And I select module "Program" from reassign ownership dropdown
-    When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:adminOwnerReplaceTableId---" panel
-    When I check "{SavedValue:ProgramEGMSID}" boxes in flex table with id "---program:-:adminOwnerReplaceTableId---"
+    When I perform quick search for "{SavedValue:Automation Runtime External Program}" in "---program:-:adminOwnerReplaceTableId---" panel
+    When I check "{SavedValue:Automation Runtime External Program}" boxes in flex table with id "---program:-:adminOwnerReplaceTableId---"
     When I click table top right button "Transfer Ownership" in flex table with id "---program:-:adminOwnerReplaceTableId---"
     Then I softly see confirmation box with body "When the ownership of the record is changed, all pending tasks assigned to the owner of the record will be reassigned automatically as well. Do you wish to proceed?" is displayed
     And I click "OK" on modal confirmation box
     And I pause execution for "30" seconds
     When I navigate to "Records of Target User" sub tab
-    When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:adminTargetOwnerReplaceTableId---" panel
-    Then I see value "{SavedValue:ProgramEGMSID}" for title "Program ID" inside table "---program:-:adminTargetOwnerReplaceTableId---"
+    When I perform quick search for "{SavedValue:Automation Runtime External Program}" in "---program:-:adminTargetOwnerReplaceTableId---" panel
+    Then I see value "{SavedValue:Automation Runtime External Program}" for title "Program ID" inside table "---program:-:adminTargetOwnerReplaceTableId---"
     And I pause execution for "5" seconds
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Planning" tab
     When I navigate to "External Programs" content inside "Programs" subheader on left panel
     And I click toggle button to select "NGO Programs - All"
-    When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:ExternalNGOProgramTableId---" panel
-    And I click on "View" icon for "{SavedValue:ProgramEGMSID}" inside flex table with id "---program:-:ExternalNGOProgramTableId---" without waiting for record
+    When I perform quick search for "{SavedValue:Automation Runtime External Program}" in "---program:-:ExternalNGOProgramTableId---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime External Program}" inside flex table with id "---program:-:ExternalNGOProgramTableId---" without waiting for record
     And I navigate to "History" sub tab
     And I navigate to "Field Audit" sub tab in split screen
     And I click on hyperlink containing value "View All"
     Then I softly see value "Automation PM" for title "New Value" inside field history table
     Then I softly see value "Automation PM1" for title "Original Value" inside field history table
 
-  @198789 @ValidateapprovaltaskassignedtoinitialownerofprogramEXEisnottransferredtonewownerwhenaexternalprograminsubmitforapprovalstatusistransferredtonewownerEXE&emailissenttocorrectowneruponrejecting @sprint-4  @reassignment
+  @198789 @ValidateapprovaltaskassignedtoinitialownerofprogramEXEisnottransferredtonewownerwhenaexternalprograminsubmitforapprovalstatusistransferredtonewownerEXE&emailissenttocorrectowneruponrejecting @sprint-4  @reassignment @programWBAPI
   Scenario: Validate approval task assigned to initial owner of program <EXE> is not transferred to new owner when a external program in submit for approval status is transferred to new owner (EXE) & email is sent to correct owner upon rejecting
-    When I login to "Grantor" app as "EXE" user
-    And I navigate to "Planning" tab
-    When I navigate to "External Programs" content inside "Programs" subheader on left panel
-    And I click on top right button "New" in flex table with id "---program:-:ExternalNGOProgramTableId---"
-    When I enter "NGOCreation" values from "Program_Field_Values.xlsx"
-    And I click modal button "Save and Continue"
-    And I pause execution for "3" seconds
-    And I enter "NGOEdit" values from "Program_Field_Values.xlsx"
-    When I click on "Save" in the page details
-    And I get the "EGMS ID"
-    And I save the field labeled "EGMS ID" as "ProgramEGMSID"
-    When I navigate to "Overview" sub tab
-    And I click on top right button "Associate" in flex table with id "---program:-:ExternalNGOProgramContactTableId---"
-    When I click "Associate" after selection of "NGO Contact" by showing entries "All" in flex table with id "---program:-:associateContactsTableId---"
-    And I click modal button "Close"
-    When I navigate to "Responsibilities" sub tab
-    When I enter the following values into flex table with id "---program:-:extapproverTableId---" by clicking "New" :
-      | Name                     | Program |
-      | {SavedValue:PM Username} | NA      |
-    When I enter the following values into flex table with id "---program:-:extapproverTableId---" by clicking "New" :
-      | Name                      | Program |
-      | {SavedValue:EXE Username} | Step 1  |
-    And I save the value from row "1" for column name "Name" as "OwnerName" from flex table "---program:-:programOwnerTableId---"
-    Then I softly see value "{SavedValue:OwnerName}" for title "Name" inside table "---program:-:programOwnerTableId---"
-    And I pause execution for "5" seconds
-    And I click on "Submit For Approval" in the page details
-    When I re-login to "Grantor" app as "ADMIN" user on "INTERNAL" portal
+    Given I create program records with status "Submitted For Approval" using "Owner-{SavedValue:EXE Username},approver1-{SavedValue:EXE Username},approver2-NA" properties
+      | Title                               | RecordType  |
+      | Automation Runtime External Program | NGO Program |
+
+#    When I login to "Grantor" app as "EXE" user
+#    And I navigate to "Planning" tab
+#    When I navigate to "External Programs" content inside "Programs" subheader on left panel
+#    And I click on top right button "New" in flex table with id "---program:-:ExternalNGOProgramTableId---"
+#    When I enter "NGOCreation" values from "Program_Field_Values.xlsx"
+#    And I click modal button "Save and Continue"
+#    And I pause execution for "3" seconds
+#    And I enter "NGOEdit" values from "Program_Field_Values.xlsx"
+#    When I click on "Save" in the page details
+#    And I get the "EGMS ID"
+#    And I save the field labeled "EGMS ID" as "ProgramEGMSID"
+#    When I navigate to "Overview" sub tab
+#    And I click on top right button "Associate" in flex table with id "---program:-:ExternalNGOProgramContactTableId---"
+#    When I click "Associate" after selection of "NGO Contact" by showing entries "All" in flex table with id "---program:-:associateContactsTableId---"
+#    And I click modal button "Close"
+#    When I navigate to "Responsibilities" sub tab
+#    When I enter the following values into flex table with id "---program:-:extapproverTableId---" by clicking "New" :
+#      | Name                     | Program |
+#      | {SavedValue:PM Username} | NA      |
+#    When I enter the following values into flex table with id "---program:-:extapproverTableId---" by clicking "New" :
+#      | Name                      | Program |
+#      | {SavedValue:EXE Username} | Step 1  |
+#    And I save the value from row "1" for column name "Name" as "OwnerName" from flex table "---program:-:programOwnerTableId---"
+#    Then I softly see value "{SavedValue:OwnerName}" for title "Name" inside table "---program:-:programOwnerTableId---"
+#    And I pause execution for "5" seconds
+#    And I click on "Submit For Approval" in the page details
+#    When I re-login to "Grantor" app as "ADMIN" user on "INTERNAL" portal
+
+    When I login to "Grantor" app as "ADMIN" user
     And I navigate to "Home" tab
     Then I see "Ownership" inside "Reassign" is displayed
     When I navigate to "Ownership" content inside "Reassign" subheader on left panel
     And I select value "Automation EXE" into field "input-1"
     And I select value "Automation EXE1" into field "input-2"
     And I select module "Program" from reassign ownership dropdown
-    When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:adminOwnerReplaceTableId---" panel
+    When I perform quick search for "{SavedValue:Automation Runtime External Program}" in "---program:-:adminOwnerReplaceTableId---" panel
+    And I save the value from row "1" for column name "Program ID" as "ProgramEGMSID" from flex table "---program:-:adminOwnerReplaceTableId---"
     When I check "{SavedValue:ProgramEGMSID}" boxes in flex table with id "---program:-:adminOwnerReplaceTableId---"
     When I click table top right button "Transfer Ownership" in flex table with id "---program:-:adminOwnerReplaceTableId---"
     Then I softly see confirmation box with body "When the ownership of the record is changed, all pending tasks assigned to the owner of the record will be reassigned automatically as well. Do you wish to proceed?" is displayed
@@ -2182,55 +2410,62 @@ Feature: Validate all scenarios for program
     Then  I can see top right button "Add Files" in flex table with id "---program:-:GrantorInternalProgramFilesTableId---"
     Then  I can see top right button "New" in flex table with id "---program:-:internalProgramNotesTableId---"
 
-  @199612 @validateownershipreassignmentissuccessfulforainternalprogramonRejectedstatus @sprint-4  @reassignment
+  @199612 @validateownershipreassignmentissuccessfulforainternalprogramonRejectedstatus @sprint-4  @reassignment @programWBAPI
   Scenario: Validate ownership reassignment is successful for a internal program on Rejected status
-    When I login to "Grantor" app as "PM1" user
-    And I navigate to "Planning" tab
-    When I navigate to "Internal Programs" content inside "Programs" subheader on left panel
-    And I click toggle button to select "Internal Programs - Draft"
-    And I click on top right button "New" in flex table with id "---program:-:programsTableId---"
-    When I enter in modal "Creation" values from "Program_Field_Values.xlsx"
-    And I click modal button "Save and Continue"
-    And I wait for "10" seconds
-    When I enter "Edition" values from "Program_Field_Values.xlsx"
-    And I click on "Save" in the page details
-    And I get the "EGMS ID"
-    And I save the field labeled "EGMS ID" as "ProgramEGMSID"
-    When I navigate to "Overview" sub tab
-    And I click on top right button "Associate" in flex table with id "---program:-:contactsTableId---"
-    When I click "Associate" after selection of "{SavedValue:EXE Username}" by showing entries "All" in flex table with id "---program:-:associateContactsTableId---"
-    When I navigate to "Setup" sub tab
-    And I click on top right button "Associate" in flex table with id "---program:-:focusAreaTableId---"
-    When I click "Associate" after selection of "Automation Permanent Focus Area" by showing entries "All" in flex table with id "---program:-:associateFocusAreaTableId---"
-    And I click on top right button "Associate" in flex table with id "---program:-:objectivesTableId---"
-    When I click "Associate" after selection of "Automation Permanent Objective" by showing entries "All" in flex table with id "---program:-:associateObjectivesTableId---"
-    And I click on top right button "Associate" in flex table with id "---program:-:kpiTableId---"
-    When I click "Associate" after selection of "Automation Permanent KPI" by showing entries "All" in flex table with id "---program:-:associateKPITableId---"
-    When I navigate to "Responsibilities" sub tab
-    When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
-      | Name                     | Program |
-      | {SavedValue:PM Username} | NA      |
-    When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
-      | Name                      | Program |
-      | {SavedValue:EXE Username} | Step 1  |
-    And I save the value from row "1" for column name "Name" as "OwnerName" from flex table "---program:-:programOwnerTableId---"
-    Then I softly see value "{SavedValue:OwnerName}" for title "Name" inside table "---program:-:programOwnerTableId---"
-    And I pause execution for "5" seconds
-    And I click on "Submit For Approval" in the page details
-    When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
-    And I navigate to "Planning" tab
-    And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    When I perform quick search for "Record Id" in "---program:-:pendingTaskTableId---" panel
-    And I click on "Start" icon for "Record Id" inside flex table with id "---program:-:pendingTaskTableId---" without waiting for record
-    When I "Reject" in the approval decision
-    When I re-login to "Grantor" app as "ADMIN" user on "INTERNAL" portal
+    Given I create program records with status "Rejected" using "Owner-{SavedValue:PM1 Username}" properties
+      | Title                               | RecordType       |
+      | Automation Runtime Internal Program | Internal Program |
+
+#    When I login to "Grantor" app as "PM1" user
+#    And I navigate to "Planning" tab
+#    When I navigate to "Internal Programs" content inside "Programs" subheader on left panel
+#    And I click toggle button to select "Internal Programs - Draft"
+#    And I click on top right button "New" in flex table with id "---program:-:programsTableId---"
+#    When I enter in modal "Creation" values from "Program_Field_Values.xlsx"
+#    And I click modal button "Save and Continue"
+#    And I wait for "10" seconds
+#    When I enter "Edition" values from "Program_Field_Values.xlsx"
+#    And I click on "Save" in the page details
+#    And I get the "EGMS ID"
+#    And I save the field labeled "EGMS ID" as "ProgramEGMSID"
+#    When I navigate to "Overview" sub tab
+#    And I click on top right button "Associate" in flex table with id "---program:-:contactsTableId---"
+#    When I click "Associate" after selection of "{SavedValue:EXE Username}" by showing entries "All" in flex table with id "---program:-:associateContactsTableId---"
+#    When I navigate to "Setup" sub tab
+#    And I click on top right button "Associate" in flex table with id "---program:-:focusAreaTableId---"
+#    When I click "Associate" after selection of "Automation Permanent Focus Area" by showing entries "All" in flex table with id "---program:-:associateFocusAreaTableId---"
+#    And I click on top right button "Associate" in flex table with id "---program:-:objectivesTableId---"
+#    When I click "Associate" after selection of "Automation Permanent Objective" by showing entries "All" in flex table with id "---program:-:associateObjectivesTableId---"
+#    And I click on top right button "Associate" in flex table with id "---program:-:kpiTableId---"
+#    When I click "Associate" after selection of "Automation Permanent KPI" by showing entries "All" in flex table with id "---program:-:associateKPITableId---"
+#    When I navigate to "Responsibilities" sub tab
+#    When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
+#      | Name                     | Program |
+#      | {SavedValue:PM Username} | NA      |
+#    When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
+#      | Name                      | Program |
+#      | {SavedValue:EXE Username} | Step 1  |
+#    And I save the value from row "1" for column name "Name" as "OwnerName" from flex table "---program:-:programOwnerTableId---"
+#    Then I softly see value "{SavedValue:OwnerName}" for title "Name" inside table "---program:-:programOwnerTableId---"
+#    And I pause execution for "5" seconds
+#    And I click on "Submit For Approval" in the page details
+#    When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
+#    And I navigate to "Planning" tab
+#    And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+#    When I perform quick search for "Record Id" in "---program:-:pendingTaskTableId---" panel
+#    And I click on "Start" icon for "Record Id" inside flex table with id "---program:-:pendingTaskTableId---" without waiting for record
+#    When I "Reject" in the approval decision
+#    When I re-login to "Grantor" app as "ADMIN" user on "INTERNAL" portal
+
+    When I login to "Grantor" app as "ADMIN" user
     And I navigate to "Home" tab
     Then I see "Ownership" inside "Reassign" is displayed
     When I navigate to "Ownership" content inside "Reassign" subheader on left panel
     And I select value "Automation PM1" into field "input-1"
     And I select value "Automation PM" into field "input-2"
     And I select module "Program" from reassign ownership dropdown
-    When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:adminOwnerReplaceTableId---" panel
+    When I perform quick search for "{SavedValue:Automation Runtime Internal Program}" in "---program:-:adminOwnerReplaceTableId---" panel
+    And I save the value from row "1" for column name "Program ID" as "ProgramEGMSID" from flex table "---program:-:adminOwnerReplaceTableId---"
     When I check "{SavedValue:ProgramEGMSID}" boxes in flex table with id "---program:-:adminOwnerReplaceTableId---"
     When I click table top right button "Transfer Ownership" in flex table with id "---program:-:adminOwnerReplaceTableId---"
     Then I softly see confirmation box with body "When the ownership of the record is changed, all pending tasks assigned to the owner of the record will be reassigned automatically as well. Do you wish to proceed?" is displayed
@@ -2244,54 +2479,67 @@ Feature: Validate all scenarios for program
     And I navigate to "Planning" tab
     When I navigate to "Internal Programs" content inside "Programs" subheader on left panel
     And I click toggle button to select "Internal Programs - All"
-    When I perform quick search for "Record Id" in "---program:-:programsTableId---" panel
-    And I click on "View" icon for "Record Id" inside flex table with id "---program:-:programsTableId---" without waiting for record
+    When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:programsTableId---" panel
+    And I click on "View" icon for "{SavedValue:ProgramEGMSID}" inside flex table with id "---program:-:programsTableId---" without waiting for record
     Then I softly see field "Status" as "Rejected"
     When I navigate to "Responsibilities" sub tab
     Then I softly see value "Automation PM" for title "Name" inside table "---program:-:programOwnerTableId---"
     And I navigate to "History" sub tab
     Then I softly see column "Overall Status" at position "1" contains text "Rejected"
 
-  @197314  @sprint-4  @reassignment @ownvai
+  @197314  @sprint-4  @reassignment @ownvai @programWBAPI
   Scenario: Validate reassigned task owner EXE user is able to activate the external program if another EXE transfers task of the task type Activate NGO Program when status of task as Not started
+    Given I create program records with status "Approved" using "Owner-{SavedValue:EXE Username}" properties
+      | Title                               | RecordType  |
+      | Automation Runtime External Program | NGO Program |
     When I login to "Grantor" app as "EXE" user
     And I navigate to "Planning" tab
     When I navigate to "External Programs" content inside "Programs" subheader on left panel
-    And I click on top right button "New" in flex table with id "---program:-:ExternalNGOProgramTableId---"
-    When I enter "NGOCreation" values from "Program_Field_Values.xlsx"
-    And I click modal button "Save and Continue"
-    And I wait for "5" seconds
-    And I enter "NGOEdit" values from "Program_Field_Values.xlsx"
-    When I click on "Save" in the page details
+    And I click toggle button to select "NGO Programs - All"
+    When I perform quick search for "{SavedValue:Automation Runtime External Program}" in "---program:-:ExternalNGOProgramTableId---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime External Program}" inside flex table with id "---program:-:ExternalNGOProgramTableId---"
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "ProgramEGMSID"
-    When I navigate to "Overview" sub tab
-    And I click on top right button "Associate" in flex table with id "---program:-:ExternalNGOProgramContactTableId---"
-    When I click "Associate" after selection of "NGO Contact" by showing entries "All" in flex table with id "---program:-:associateContactsTableId---"
-    And I click modal button "Close"
-    When I navigate to "Responsibilities" sub tab
-    When I enter the following values into flex table with id "---program:-:extapproverTableId---" by clicking "New" :
-      | Name                     | Program |
-      | {SavedValue:PM Username} | NA      |
-    When I enter the following values into flex table with id "---program:-:extapproverTableId---" by clicking "New" :
-      | Name                     | Program |
-      | {SavedValue:FO Username} | Step 1  |
-    Then I softly see value "{SavedValue:FO Username}" for title "Name" inside table "---program:-:extapproverTableId---"
-    And I save the value from row "1" for column name "Name" as "OwnerName" from flex table "---program:-:programOwnerTableId---"
-    Then I softly see value "{SavedValue:OwnerName}" for title "Name" inside table "---program:-:programOwnerTableId---"
-    And I pause execution for "5" seconds
-    And I click on "Submit For Approval" in the page details
-    Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
-    When I re-login to "Grantor" app as "FO" user on "INTERNAL" portal
+
+#    When I login to "Grantor" app as "EXE" user
+#    And I navigate to "Planning" tab
+#    When I navigate to "External Programs" content inside "Programs" subheader on left panel
+#    And I click on top right button "New" in flex table with id "---program:-:ExternalNGOProgramTableId---"
+#    When I enter "NGOCreation" values from "Program_Field_Values.xlsx"
+#    And I click modal button "Save and Continue"
+#    And I wait for "5" seconds
+#    And I enter "NGOEdit" values from "Program_Field_Values.xlsx"
+#    When I click on "Save" in the page details
+#    And I get the "EGMS ID"
+#    And I save the field labeled "EGMS ID" as "ProgramEGMSID"
+#    When I navigate to "Overview" sub tab
+#    And I click on top right button "Associate" in flex table with id "---program:-:ExternalNGOProgramContactTableId---"
+#    When I click "Associate" after selection of "NGO Contact" by showing entries "All" in flex table with id "---program:-:associateContactsTableId---"
+#    And I click modal button "Close"
+#    When I navigate to "Responsibilities" sub tab
+#    When I enter the following values into flex table with id "---program:-:extapproverTableId---" by clicking "New" :
+#      | Name                     | Program |
+#      | {SavedValue:PM Username} | NA      |
+#    When I enter the following values into flex table with id "---program:-:extapproverTableId---" by clicking "New" :
+#      | Name                     | Program |
+#      | {SavedValue:FO Username} | Step 1  |
+#    Then I softly see value "{SavedValue:FO Username}" for title "Name" inside table "---program:-:extapproverTableId---"
+#    And I save the value from row "1" for column name "Name" as "OwnerName" from flex table "---program:-:programOwnerTableId---"
+#    Then I softly see value "{SavedValue:OwnerName}" for title "Name" inside table "---program:-:programOwnerTableId---"
+#    And I pause execution for "5" seconds
+#    And I click on "Submit For Approval" in the page details
+#    Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
+#    When I re-login to "Grantor" app as "FO" user on "INTERNAL" portal
+#    And I navigate to "Planning" tab
+#    And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+#    When I perform quick search for "Record Id" in "---program:-:pendingTaskTableId---" panel
+#    And I click on "Start" icon for "Record Id" inside flex table with id "---program:-:pendingTaskTableId---" without waiting for record
+#    When I "Approve" in the approval decision
+#    When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
+
     And I navigate to "Planning" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    When I perform quick search for "Record Id" in "---program:-:pendingTaskTableId---" panel
-    And I click on "Start" icon for "Record Id" inside flex table with id "---program:-:pendingTaskTableId---" without waiting for record
-    When I "Approve" in the approval decision
-    When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
-    And I navigate to "Planning" tab
-    And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    When I perform quick search for "Record Id" in "---program:-:pendingTaskTableId---" panel
+    When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:pendingTaskTableId---" panel
     And I navigate to "Home" tab
     When I navigate to "My Tasks" content inside "Reassign" subheader on left panel
     When I reassign task to "Automation EXE1"
@@ -2316,90 +2564,132 @@ Feature: Validate all scenarios for program
     And I click on "Activate" in the page details
     Then I softly see field "Status" as "Active"
 
-  @197549 @ValidateownershiptasksareroutedtoretainedbyappropriateuserwhentaskshavingdifferentpurposearereassignedsimultaneouslytoanotherPMuserfor3differentexternalprograms @sprint-4  @reassignment
+  @197549 @ValidateownershiptasksareroutedtoretainedbyappropriateuserwhentaskshavingdifferentpurposearereassignedsimultaneouslytoanotherPMuserfor3differentexternalprograms @sprint-4  @reassignment @programWBAPI
   Scenario: Validate ownership & tasks are routed to retained by appropriate user when tasks having different purpose are reassigned simultaneously to another PM user for 3 different external programs
+    #Program1
+    Given I create program records with status "Submited For Approval" using "approver1-{SavedValue:PM1 Username},approver2-NA" properties
+      | Title                               | RecordType  |
+      | Automation Runtime External Program | NGO Program |
     When I login to "Grantor" app as "PM" user
     And I navigate to "Planning" tab
     When I navigate to "External Programs" content inside "Programs" subheader on left panel
-    And I click on top right button "New" in flex table with id "---program:-:ExternalNGOProgramTableId---"
-    When I enter "NGOCreation" values from "Program_Field_Values.xlsx"
-    And I click modal button "Save and Continue"
-    And I wait for "4" seconds
-    And I enter "NGOEdit" values from "Program_Field_Values.xlsx"
-    When I click on "Save" in the page details
+    And I click toggle button to select "NGO Programs - All"
+    When I perform quick search for "{SavedValue:Automation Runtime External Program}" in "---program:-:ExternalNGOProgramTableId---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime External Program}" inside flex table with id "---program:-:ExternalNGOProgramTableId---"
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "ProgramEGMSID"
-    When I navigate to "Overview" sub tab
-    And I click on top right button "Associate" in flex table with id "---program:-:ExternalNGOProgramContactTableId---"
-    When I click "Associate" after selection of "NGO Contact" by showing entries "All" in flex table with id "---program:-:associateContactsTableId---"
-    And I click modal button "Close"
-    When I navigate to "Responsibilities" sub tab
-    When I enter the following values into flex table with id "---program:-:extapproverTableId---" by clicking "New" :
-      | Name          | Program |
-      | Automation PM | NA      |
-    When I enter the following values into flex table with id "---program:-:extapproverTableId---" by clicking "New" :
-      | Name           | Program |
-      | Automation PM1 | Step 1  |
-    Then I softly see value "Automation PM1" for title "Name" inside table "---program:-:extapproverTableId---"
-    And I save the value from row "1" for column name "Name" as "OwnerName" from flex table "---program:-:programOwnerTableId---"
-    Then I softly see value "{SavedValue:OwnerName}" for title "Name" inside table "---program:-:programOwnerTableId---"
-    And I pause execution for "5" seconds
-    And I click on "Submit For Approval" in the page details
+
+#    When I login to "Grantor" app as "PM" user
+#    And I navigate to "Planning" tab
+#    When I navigate to "External Programs" content inside "Programs" subheader on left panel
+#    And I click on top right button "New" in flex table with id "---program:-:ExternalNGOProgramTableId---"
+#    When I enter "NGOCreation" values from "Program_Field_Values.xlsx"
+#    And I click modal button "Save and Continue"
+#    And I wait for "4" seconds
+#    And I enter "NGOEdit" values from "Program_Field_Values.xlsx"
+#    When I click on "Save" in the page details
+#    And I get the "EGMS ID"
+#    And I save the field labeled "EGMS ID" as "ProgramEGMSID"
+#    When I navigate to "Overview" sub tab
+#    And I click on top right button "Associate" in flex table with id "---program:-:ExternalNGOProgramContactTableId---"
+#    When I click "Associate" after selection of "NGO Contact" by showing entries "All" in flex table with id "---program:-:associateContactsTableId---"
+#    And I click modal button "Close"
+#    When I navigate to "Responsibilities" sub tab
+#    When I enter the following values into flex table with id "---program:-:extapproverTableId---" by clicking "New" :
+#      | Name          | Program |
+#      | Automation PM | NA      |
+#    When I enter the following values into flex table with id "---program:-:extapproverTableId---" by clicking "New" :
+#      | Name           | Program |
+#      | Automation PM1 | Step 1  |
+#    Then I softly see value "Automation PM1" for title "Name" inside table "---program:-:extapproverTableId---"
+#    And I save the value from row "1" for column name "Name" as "OwnerName" from flex table "---program:-:programOwnerTableId---"
+#    Then I softly see value "{SavedValue:OwnerName}" for title "Name" inside table "---program:-:programOwnerTableId---"
+#    And I pause execution for "5" seconds
+#    And I click on "Submit For Approval" in the page details
+
+    #Program2
+    Given I create program records with status "Submited For Approval" using "Owner-{SavedValue:EXE Username},approver1-{SavedValue:PM1 Username},approver2-NA" properties
+      | Title                               | RecordType  |
+      | Automation Runtime External Program | NGO Program |
     When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Planning" tab
     When I navigate to "External Programs" content inside "Programs" subheader on left panel
-    And I click on top right button "New" in flex table with id "---program:-:ExternalNGOProgramTableId---"
-    When I enter "NGOCreation" values from "Program_Field_Values.xlsx"
-    And I click modal button "Save and Continue"
-    And I wait for "4" seconds
-    And I enter "NGOEdit" values from "Program_Field_Values.xlsx"
-    When I click on "Save" in the page details
+    And I click toggle button to select "NGO Programs - All"
+    When I perform quick search for "{SavedValue:Automation Runtime External Program}" in "---program:-:ExternalNGOProgramTableId---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime External Program}" inside flex table with id "---program:-:ExternalNGOProgramTableId---"
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "ProgramEGMSID1"
-    When I navigate to "Overview" sub tab
-    And I click on top right button "Associate" in flex table with id "---program:-:ExternalNGOProgramContactTableId---"
-    When I click "Associate" after selection of "NGO Contact" by showing entries "All" in flex table with id "---program:-:associateContactsTableId---"
-    And I click modal button "Close"
-    When I navigate to "Responsibilities" sub tab
-    When I enter the following values into flex table with id "---program:-:extapproverTableId---" by clicking "New" :
-      | Name          | Program |
-      | Automation PM | NA      |
-    When I enter the following values into flex table with id "---program:-:extapproverTableId---" by clicking "New" :
-      | Name           | Program |
-      | Automation PM1 | Step 1  |
-    Then I softly see value "Automation PM1" for title "Name" inside table "---program:-:extapproverTableId---"
-    And I save the value from row "1" for column name "Name" as "OwnerName" from flex table "---program:-:programOwnerTableId---"
-    Then I softly see value "{SavedValue:OwnerName}" for title "Name" inside table "---program:-:programOwnerTableId---"
-    And I pause execution for "5" seconds
-    And I click on "Submit For Approval" in the page details
+
+#    When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
+#    And I navigate to "Planning" tab
+#    When I navigate to "External Programs" content inside "Programs" subheader on left panel
+#    And I click on top right button "New" in flex table with id "---program:-:ExternalNGOProgramTableId---"
+#    When I enter "NGOCreation" values from "Program_Field_Values.xlsx"
+#    And I click modal button "Save and Continue"
+#    And I wait for "4" seconds
+#    And I enter "NGOEdit" values from "Program_Field_Values.xlsx"
+#    When I click on "Save" in the page details
+#    And I get the "EGMS ID"
+#    And I save the field labeled "EGMS ID" as "ProgramEGMSID1"
+#    When I navigate to "Overview" sub tab
+#    And I click on top right button "Associate" in flex table with id "---program:-:ExternalNGOProgramContactTableId---"
+#    When I click "Associate" after selection of "NGO Contact" by showing entries "All" in flex table with id "---program:-:associateContactsTableId---"
+#    And I click modal button "Close"
+#    When I navigate to "Responsibilities" sub tab
+#    When I enter the following values into flex table with id "---program:-:extapproverTableId---" by clicking "New" :
+#      | Name          | Program |
+#      | Automation PM | NA      |
+#    When I enter the following values into flex table with id "---program:-:extapproverTableId---" by clicking "New" :
+#      | Name           | Program |
+#      | Automation PM1 | Step 1  |
+#    Then I softly see value "Automation PM1" for title "Name" inside table "---program:-:extapproverTableId---"
+#    And I save the value from row "1" for column name "Name" as "OwnerName" from flex table "---program:-:programOwnerTableId---"
+#    Then I softly see value "{SavedValue:OwnerName}" for title "Name" inside table "---program:-:programOwnerTableId---"
+#    And I pause execution for "5" seconds
+#    And I click on "Submit For Approval" in the page details
+
+    #Program3
+    Given I create program records with status "Approved" using "Owner-{SavedValue:PM1 Username},approver1-{SavedValue:PM1 Username},approver2-NA" properties
+      | Title                               | RecordType  |
+      | Automation Runtime External Program | NGO Program |
     When I re-login to "Grantor" app as "PM1" user on "INTERNAL" portal
     And I navigate to "Planning" tab
     When I navigate to "External Programs" content inside "Programs" subheader on left panel
-    And I click on top right button "New" in flex table with id "---program:-:ExternalNGOProgramTableId---"
-    When I enter "NGOCreation" values from "Program_Field_Values.xlsx"
-    And I click modal button "Save and Continue"
-    And I wait for "4" seconds
-    And I enter "NGOEdit" values from "Program_Field_Values.xlsx"
-    When I click on "Save" in the page details
+    And I click toggle button to select "NGO Programs - All"
+    When I perform quick search for "{SavedValue:Automation Runtime External Program}" in "---program:-:ExternalNGOProgramTableId---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime External Program}" inside flex table with id "---program:-:ExternalNGOProgramTableId---"
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "ProgramEGMSID2"
-    When I navigate to "Overview" sub tab
-    And I click on top right button "Associate" in flex table with id "---program:-:ExternalNGOProgramContactTableId---"
-    When I click "Associate" after selection of "NGO Contact" by showing entries "All" in flex table with id "---program:-:associateContactsTableId---"
-    And I click modal button "Close"
-    When I navigate to "Responsibilities" sub tab
-    When I enter the following values into flex table with id "---program:-:extapproverTableId---" by clicking "New" :
-      | Name          | Program |
-      | Automation PM | NA      |
-    When I enter the following values into flex table with id "---program:-:extapproverTableId---" by clicking "New" :
-      | Name           | Program |
-      | Automation PM1 | Step 1  |
-    Then I softly see value "Automation PM1" for title "Name" inside table "---program:-:extapproverTableId---"
-    And I save the value from row "1" for column name "Name" as "OwnerName" from flex table "---program:-:programOwnerTableId---"
-    Then I softly see value "{SavedValue:OwnerName}" for title "Name" inside table "---program:-:programOwnerTableId---"
-    And I pause execution for "5" seconds
-    And I click on "Submit For Approval" in the page details
-    When I "Approve" in the approval decision
+
+#    When I re-login to "Grantor" app as "PM1" user on "INTERNAL" portal
+#    And I navigate to "Planning" tab
+#    When I navigate to "External Programs" content inside "Programs" subheader on left panel
+#    And I click on top right button "New" in flex table with id "---program:-:ExternalNGOProgramTableId---"
+#    When I enter "NGOCreation" values from "Program_Field_Values.xlsx"
+#    And I click modal button "Save and Continue"
+#    And I wait for "4" seconds
+#    And I enter "NGOEdit" values from "Program_Field_Values.xlsx"
+#    When I click on "Save" in the page details
+#    And I get the "EGMS ID"
+#    And I save the field labeled "EGMS ID" as "ProgramEGMSID2"
+#    When I navigate to "Overview" sub tab
+#    And I click on top right button "Associate" in flex table with id "---program:-:ExternalNGOProgramContactTableId---"
+#    When I click "Associate" after selection of "NGO Contact" by showing entries "All" in flex table with id "---program:-:associateContactsTableId---"
+#    And I click modal button "Close"
+#    When I navigate to "Responsibilities" sub tab
+#    When I enter the following values into flex table with id "---program:-:extapproverTableId---" by clicking "New" :
+#      | Name          | Program |
+#      | Automation PM | NA      |
+#    When I enter the following values into flex table with id "---program:-:extapproverTableId---" by clicking "New" :
+#      | Name           | Program |
+#      | Automation PM1 | Step 1  |
+#    Then I softly see value "Automation PM1" for title "Name" inside table "---program:-:extapproverTableId---"
+#    And I save the value from row "1" for column name "Name" as "OwnerName" from flex table "---program:-:programOwnerTableId---"
+#    Then I softly see value "{SavedValue:OwnerName}" for title "Name" inside table "---program:-:programOwnerTableId---"
+#    And I pause execution for "5" seconds
+#    And I click on "Submit For Approval" in the page details
+#    When I "Approve" in the approval decision
+
     When I re-login to "Grantor" app as "PM1" user on "INTERNAL" portal
     And I navigate to "Home" tab
     When I navigate to "My Tasks" content inside "Reassign" subheader on left panel
@@ -2477,44 +2767,57 @@ Feature: Validate all scenarios for program
     And I click on "Activate" in the page details
     Then I softly see status in Progress-bar is "Active" and is "dark blue"
 
-  @199388 @ValidatereassignedtaskownerPMuserisabletoactivatetheexternalprogramifadmintransferstaskofthetasktypeActivateNGOProgramwhenstatusoftaskisNotStarted @sprint-4  @reassignment
+  @199388 @ValidatereassignedtaskownerPMuserisabletoactivatetheexternalprogramifadmintransferstaskofthetasktypeActivateNGOProgramwhenstatusoftaskisNotStarted @sprint-4  @reassignment @programWBAPI
   Scenario: Validate reassigned task owner PM user is able to activate the external program if admin transfers task of the task type Activate NGO Program when status of task is Not Started
+    Given I create program records with status "Approved" using "Owner-{SavedValue:PM1 Username},approver1-{SavedValue:FO Username},approver2-NA" properties
+      | Title                               | RecordType  |
+      | Automation Runtime External Program | NGO Program |
     When I login to "Grantor" app as "PM1" user
     And I navigate to "Planning" tab
     When I navigate to "External Programs" content inside "Programs" subheader on left panel
-    And I click on top right button "New" in flex table with id "---program:-:ExternalNGOProgramTableId---"
-    When I enter "NGOCreation" values from "Program_Field_Values.xlsx"
-    And I click modal button "Save and Continue"
-    And I pause execution for "2" seconds
-    And I enter "NGOEdit" values from "Program_Field_Values.xlsx"
-    When I click on "Save" in the page details
-    And I pause execution for "5" seconds
+    And I click toggle button to select "NGO Programs - All"
+    When I perform quick search for "{SavedValue:Automation Runtime External Program}" in "---program:-:ExternalNGOProgramTableId---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime External Program}" inside flex table with id "---program:-:ExternalNGOProgramTableId---"
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "ProgramEGMSID"
-    When I navigate to "Overview" sub tab
-    And I click on top right button "Associate" in flex table with id "---program:-:ExternalNGOProgramContactTableId---"
-    When I click "Associate" after selection of "NGO Contact" by showing entries "All" in flex table with id "---program:-:associateContactsTableId---"
-    And I click modal button "Close"
-    When I navigate to "Responsibilities" sub tab
-    When I enter the following values into flex table with id "---program:-:extapproverTableId---" by clicking "New" :
-      | Name                     | Program |
-      | {SavedValue:PM Username} | NA      |
-    When I enter the following values into flex table with id "---program:-:extapproverTableId---" by clicking "New" :
-      | Name                     | Program |
-      | {SavedValue:FO Username} | Step 1  |
-    Then I softly see value "{SavedValue:FO Username}" for title "Name" inside table "---program:-:extapproverTableId---"
-    And I save the value from row "1" for column name "Name" as "OwnerName" from flex table "---program:-:programOwnerTableId---"
-    Then I softly see value "{SavedValue:OwnerName}" for title "Name" inside table "---program:-:programOwnerTableId---"
-    And I pause execution for "5" seconds
-    And I click on "Submit For Approval" in the page details
-    Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
-    When I re-login to "Grantor" app as "FO" user on "INTERNAL" portal
-    And I navigate to "Planning" tab
-    And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    When I perform quick search for "Record Id" in "---program:-:pendingTaskTableId---" panel
-    And I click on "Start" icon for "Record Id" inside flex table with id "---program:-:pendingTaskTableId---" without waiting for record
-    When I "Approve" in the approval decision
-    When I re-login to "Grantor" app as "PM1" user on "INTERNAL" portal
+
+#    When I login to "Grantor" app as "PM1" user
+#    And I navigate to "Planning" tab
+#    When I navigate to "External Programs" content inside "Programs" subheader on left panel
+#    And I click on top right button "New" in flex table with id "---program:-:ExternalNGOProgramTableId---"
+#    When I enter "NGOCreation" values from "Program_Field_Values.xlsx"
+#    And I click modal button "Save and Continue"
+#    And I pause execution for "2" seconds
+#    And I enter "NGOEdit" values from "Program_Field_Values.xlsx"
+#    When I click on "Save" in the page details
+#    And I pause execution for "5" seconds
+#    And I get the "EGMS ID"
+#    And I save the field labeled "EGMS ID" as "ProgramEGMSID"
+#    When I navigate to "Overview" sub tab
+#    And I click on top right button "Associate" in flex table with id "---program:-:ExternalNGOProgramContactTableId---"
+#    When I click "Associate" after selection of "NGO Contact" by showing entries "All" in flex table with id "---program:-:associateContactsTableId---"
+#    And I click modal button "Close"
+#    When I navigate to "Responsibilities" sub tab
+#    When I enter the following values into flex table with id "---program:-:extapproverTableId---" by clicking "New" :
+#      | Name                     | Program |
+#      | {SavedValue:PM Username} | NA      |
+#    When I enter the following values into flex table with id "---program:-:extapproverTableId---" by clicking "New" :
+#      | Name                     | Program |
+#      | {SavedValue:FO Username} | Step 1  |
+#    Then I softly see value "{SavedValue:FO Username}" for title "Name" inside table "---program:-:extapproverTableId---"
+#    And I save the value from row "1" for column name "Name" as "OwnerName" from flex table "---program:-:programOwnerTableId---"
+#    Then I softly see value "{SavedValue:OwnerName}" for title "Name" inside table "---program:-:programOwnerTableId---"
+#    And I pause execution for "5" seconds
+#    And I click on "Submit For Approval" in the page details
+#    Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
+#    When I re-login to "Grantor" app as "FO" user on "INTERNAL" portal
+#    And I navigate to "Planning" tab
+#    And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+#    When I perform quick search for "Record Id" in "---program:-:pendingTaskTableId---" panel
+#    And I click on "Start" icon for "Record Id" inside flex table with id "---program:-:pendingTaskTableId---" without waiting for record
+#    When I "Approve" in the approval decision
+#    When I re-login to "Grantor" app as "PM1" user on "INTERNAL" portal
+
     And I navigate to "Planning" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---program:-:pendingTaskTableId---" panel
@@ -2541,40 +2844,53 @@ Feature: Validate all scenarios for program
     And I click on "Activate" in the page details
     Then I softly see field "Status" as "Active"
 
-  @199398  @sprint-4  @reassignment
+  @199398  @sprint-4  @reassignment @programWBAPI
   Scenario: Validate reassigned task owner ADMIN user is able to activate the external program when he she transfers task of the task type Activate NGO Program to another user having profile as ADMIN
-    When I login to "Grantor" app as "ADMIN" user
+    Given I create program records with status "Approved" using "Owner-{SavedValue:ADMIN Username},approver1-{SavedValue:ADMIN1 Username},approver2-NA" properties
+      | Title                               | RecordType  |
+      | Automation Runtime External Program | NGO Program |
+    When I login to "Grantor" app as "PM1" user
     And I navigate to "Planning" tab
     When I navigate to "External Programs" content inside "Programs" subheader on left panel
-    And I click on top right button "New" in flex table with id "---program:-:ExternalNGOProgramTableId---"
-    When I enter "NGOCreation" values from "Program_Field_Values.xlsx"
-    And I click modal button "Save and Continue"
-    And I wait for "10" seconds
-    And I enter "NGOEdit" values from "Program_Field_Values.xlsx"
-    When I click on "Save" in the page details
+    And I click toggle button to select "NGO Programs - All"
+    When I perform quick search for "{SavedValue:Automation Runtime External Program}" in "---program:-:ExternalNGOProgramTableId---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime External Program}" inside flex table with id "---program:-:ExternalNGOProgramTableId---"
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "ProgramEGMSID"
-    When I navigate to "Overview" sub tab
-    And I click on top right button "Associate" in flex table with id "---program:-:ExternalNGOProgramContactTableId---"
-    When I click "Associate" after selection of "NGO Contact" by showing entries "All" in flex table with id "---program:-:associateContactsTableId---"
-    And I click modal button "Close"
-    When I navigate to "Responsibilities" sub tab
-    When I enter the following values into flex table with id "---program:-:extapproverTableId---" by clicking "New" :
-      | Name              | Program |
-      | Automation ADMIN1 | Step 1  |
-    Then I softly see value "Automation ADMIN1" for title "Name" inside table "---program:-:extapproverTableId---"
-    And I save the value from row "1" for column name "Name" as "OwnerName" from flex table "---program:-:programOwnerTableId---"
-    Then I softly see value "{SavedValue:OwnerName}" for title "Name" inside table "---program:-:programOwnerTableId---"
-    And I pause execution for "5" seconds
-    And I click on "Submit For Approval" in the page details
-    Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
-    When I re-login to "Grantor" app as "ADMIN1" user on "INTERNAL" portal
-    And I navigate to "Planning" tab
-    And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:pendingTaskTableId---" panel
-    And I click on "Start" icon for "{SavedValue:ProgramEGMSID}" inside flex table with id "---program:-:pendingTaskTableId---" without waiting for record
-    When I "Approve" in the approval decision
-    When I re-login to "Grantor" app as "ADMIN" user on "INTERNAL" portal
+
+#    When I login to "Grantor" app as "ADMIN" user
+#    And I navigate to "Planning" tab
+#    When I navigate to "External Programs" content inside "Programs" subheader on left panel
+#    And I click on top right button "New" in flex table with id "---program:-:ExternalNGOProgramTableId---"
+#    When I enter "NGOCreation" values from "Program_Field_Values.xlsx"
+#    And I click modal button "Save and Continue"
+#    And I wait for "10" seconds
+#    And I enter "NGOEdit" values from "Program_Field_Values.xlsx"
+#    When I click on "Save" in the page details
+#    And I get the "EGMS ID"
+#    And I save the field labeled "EGMS ID" as "ProgramEGMSID"
+#    When I navigate to "Overview" sub tab
+#    And I click on top right button "Associate" in flex table with id "---program:-:ExternalNGOProgramContactTableId---"
+#    When I click "Associate" after selection of "NGO Contact" by showing entries "All" in flex table with id "---program:-:associateContactsTableId---"
+#    And I click modal button "Close"
+#    When I navigate to "Responsibilities" sub tab
+#    When I enter the following values into flex table with id "---program:-:extapproverTableId---" by clicking "New" :
+#      | Name              | Program |
+#      | Automation ADMIN1 | Step 1  |
+#    Then I softly see value "Automation ADMIN1" for title "Name" inside table "---program:-:extapproverTableId---"
+#    And I save the value from row "1" for column name "Name" as "OwnerName" from flex table "---program:-:programOwnerTableId---"
+#    Then I softly see value "{SavedValue:OwnerName}" for title "Name" inside table "---program:-:programOwnerTableId---"
+#    And I pause execution for "5" seconds
+#    And I click on "Submit For Approval" in the page details
+#    Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
+#    When I re-login to "Grantor" app as "ADMIN1" user on "INTERNAL" portal
+#    And I navigate to "Planning" tab
+#    And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+#    When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:pendingTaskTableId---" panel
+#    And I click on "Start" icon for "{SavedValue:ProgramEGMSID}" inside flex table with id "---program:-:pendingTaskTableId---" without waiting for record
+#    When I "Approve" in the approval decision
+#    When I re-login to "Grantor" app as "ADMIN" user on "INTERNAL" portal
+
     And I navigate to "Planning" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:pendingTaskTableId---" panel
@@ -2600,54 +2916,63 @@ Feature: Validate all scenarios for program
     And I click on "Activate" in the page details
     Then I softly see field "Status" as "Active"
 
-  @199405 @ValidatereassignedtaskownerADMINuserisabletoactivatetheinternalprogramifanotherADMINtransferstaskofthetasktypeActivatetheProgramwhenstatusoftaskasNotstarted @sprint-4  @reassignment
+  @199405 @ValidatereassignedtaskownerADMINuserisabletoactivatetheinternalprogramifanotherADMINtransferstaskofthetasktypeActivatetheProgramwhenstatusoftaskasNotstarted @sprint-4  @reassignment @programWBAPI
   Scenario: Validate reassigned task owner ADMIN user is able to activate the internal program if another ADMIN transfers task of the task type Activate the Program when status of task as Not started
+    Given I create program records with status "Approved" using "Owner-{SavedValue:ADMIN Username},approver1-{SavedValue:ADMIN1 Username},approver2-NA" properties
+      | Title                               | RecordType       |
+      | Automation Runtime Internal Program | Internal Program |
     When I login to "Grantor" app as "ADMIN" user
-    And I navigate to "Planning" tab
-    When I navigate to "Internal Programs" content inside "Programs" subheader on left panel
+    When I navigate to "Planning" tab
+    And I navigate to "Internal Programs" content inside "Programs" subheader on left panel
     And I click toggle button to select "Internal Programs - Draft"
-    And I click on top right button "New" in flex table with id "---program:-:programsTableId---"
-    When I enter in modal "Creation" values from "Program_Field_Values.xlsx"
-    And I click modal button "Save and Continue"
+    When I perform quick search for "{SavedValue:Automation Runtime Internal Program}" in "---program:-:programsTableId---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Internal Program}" inside flex table with id "---program:-:programsTableId---" without waiting for record
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "ProgramEGMSID"
-    And I click on "Save" in the page details
-    And I click on "Edit" in the page details
-    When I enter "Edition" values from "Program_Field_Values.xlsx"
-    And I click on "Save" in the page details
-    When I navigate to "Overview" sub tab
-    And I click on top right button "Associate" in flex table with id "---program:-:contactsTableId---"
-    When I perform quick search for "Automation ADMIN" in "---program:-:associateContactsTableId---" panel
-    When I click "Associate" after selection of "Automation ADMIN" by showing entries "All" in flex table with id "---program:-:associateContactsTableId---"
-    When I navigate to "Setup" sub tab
-    And I click on top right button "Associate" in flex table with id "---program:-:focusAreaTableId---"
-    When I click "Associate" after selection of "Automation Permanent Focus Area" by showing entries "All" in flex table with id "---program:-:associateFocusAreaTableId---"
-    And I click modal button "Close"
-    And I click on top right button "Associate" in flex table with id "---program:-:objectivesTableId---"
-    When I click "Associate" after selection of "Automation Strategic Objectives Admin" by showing entries "All" in flex table with id "---program:-:associateObjectivesTableId---"
-    And I click modal button "Close"
-    And I click on top right button "Associate" in flex table with id "---program:-:kpiTableId---"
-    When I perform quick search for "Automation Permanent KPI For Admin" in "---program:-:associateKPITableId---" panel
-    When I click "Associate" after selection of "Automation Permanent KPI For Admin" by showing entries "All" in flex table with id "---program:-:associateKPITableId---"
-    And I click modal button "Close"
-    And I navigate to "Responsibilities" sub tab
-    When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
-      | Name              | Program |
-      | Automation ADMIN1 | NA      |
-    When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
-      | Name              | Program |
-      | Automation ADMIN1 | Step 1  |
-    And I save the value from row "1" for column name "Name" as "OwnerName" from flex table "---program:-:programOwnerTableId---"
-    Then I softly see value "{SavedValue:OwnerName}" for title "Name" inside table "---program:-:programOwnerTableId---"
-    And I pause execution for "5" seconds
-    And I click on "Submit For Approval" in the page details
-    When I re-login to "Grantor" app as "ADMIN1" user on "INTERNAL" portal
-    And I navigate to "Planning" tab
-    And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    When I perform quick search for "Record Id" in "---program:-:pendingTaskTableId---" panel
-    And I click on "Start" icon for "Record Id" inside flex table with id "---program:-:pendingTaskTableId---" without waiting for record
-    When I "Approve" in the approval decision
-    When I re-login to "Grantor" app as "ADMIN" user on "INTERNAL" portal
+
+#    And I click on top right button "New" in flex table with id "---program:-:programsTableId---"
+#    When I enter in modal "Creation" values from "Program_Field_Values.xlsx"
+#    And I click modal button "Save and Continue"
+#    And I get the "EGMS ID"
+#    And I save the field labeled "EGMS ID" as "ProgramEGMSID"
+#    And I click on "Save" in the page details
+#    And I click on "Edit" in the page details
+#    When I enter "Edition" values from "Program_Field_Values.xlsx"
+#    And I click on "Save" in the page details
+#    When I navigate to "Overview" sub tab
+#    And I click on top right button "Associate" in flex table with id "---program:-:contactsTableId---"
+#    When I perform quick search for "Automation ADMIN" in "---program:-:associateContactsTableId---" panel
+#    When I click "Associate" after selection of "Automation ADMIN" by showing entries "All" in flex table with id "---program:-:associateContactsTableId---"
+#    When I navigate to "Setup" sub tab
+#    And I click on top right button "Associate" in flex table with id "---program:-:focusAreaTableId---"
+#    When I click "Associate" after selection of "Automation Permanent Focus Area" by showing entries "All" in flex table with id "---program:-:associateFocusAreaTableId---"
+#    And I click modal button "Close"
+#    And I click on top right button "Associate" in flex table with id "---program:-:objectivesTableId---"
+#    When I click "Associate" after selection of "Automation Strategic Objectives Admin" by showing entries "All" in flex table with id "---program:-:associateObjectivesTableId---"
+#    And I click modal button "Close"
+#    And I click on top right button "Associate" in flex table with id "---program:-:kpiTableId---"
+#    When I perform quick search for "Automation Permanent KPI For Admin" in "---program:-:associateKPITableId---" panel
+#    When I click "Associate" after selection of "Automation Permanent KPI For Admin" by showing entries "All" in flex table with id "---program:-:associateKPITableId---"
+#    And I click modal button "Close"
+#    And I navigate to "Responsibilities" sub tab
+#    When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
+#      | Name              | Program |
+#      | Automation ADMIN1 | NA      |
+#    When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
+#      | Name              | Program |
+#      | Automation ADMIN1 | Step 1  |
+#    And I save the value from row "1" for column name "Name" as "OwnerName" from flex table "---program:-:programOwnerTableId---"
+#    Then I softly see value "{SavedValue:OwnerName}" for title "Name" inside table "---program:-:programOwnerTableId---"
+#    And I pause execution for "5" seconds
+#    And I click on "Submit For Approval" in the page details
+#    When I re-login to "Grantor" app as "ADMIN1" user on "INTERNAL" portal
+#    And I navigate to "Planning" tab
+#    And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+#    When I perform quick search for "Record Id" in "---program:-:pendingTaskTableId---" panel
+#    And I click on "Start" icon for "Record Id" inside flex table with id "---program:-:pendingTaskTableId---" without waiting for record
+#    When I "Approve" in the approval decision
+#    When I re-login to "Grantor" app as "ADMIN" user on "INTERNAL" portal
+
     And I navigate to "Planning" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---program:-:pendingTaskTableId---" panel
@@ -2673,44 +2998,57 @@ Feature: Validate all scenarios for program
     Then I softly see field "Status" as "Active"
     Then I can see top right button "Amend Program" in page detail
 
-  @199393 @ValidatereassignedtaskownerPOuserisabletoactivatetheexternalprogramwhentransferstaskofthetasktypeActivateNGOProgramtoanotheruserhavingprofileasPO @sprint-4  @reassignment
+  @199393 @ValidatereassignedtaskownerPOuserisabletoactivatetheexternalprogramwhentransferstaskofthetasktypeActivateNGOProgramtoanotheruserhavingprofileasPO @sprint-4  @reassignment @programWBAPI
   Scenario: Validate reassigned task owner PO user is able to activate the external program when transfers task of the task type Activate NGO Program to another user having profile as PO
+    Given I create program records with status "Approved" using "Owner-{SavedValue:PO Username},approver1-{SavedValue:FO Username},approver2-NA" properties
+      | Title                               | RecordType  |
+      | Automation Runtime External Program | NGO Program |
     When I login to "Grantor" app as "PO" user
     And I navigate to "Planning" tab
     When I navigate to "External Programs" content inside "Programs" subheader on left panel
-    And I click on top right button "New" in flex table with id "---program:-:ExternalNGOProgramTableId---"
-    When I enter "NGOCreation" values from "Program_Field_Values.xlsx"
-    And I click modal button "Save and Continue"
-    And I pause execution for "2" seconds
-    And I enter "NGOEdit" values from "Program_Field_Values.xlsx"
-    When I click on "Save" in the page details
-    And I pause execution for "3" seconds
+    And I click toggle button to select "NGO Programs - All"
+    When I perform quick search for "{SavedValue:Automation Runtime External Program}" in "---program:-:ExternalNGOProgramTableId---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime External Program}" inside flex table with id "---program:-:ExternalNGOProgramTableId---"
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "ProgramEGMSID"
-    When I navigate to "Overview" sub tab
-    And I click on top right button "Associate" in flex table with id "---program:-:ExternalNGOProgramContactTableId---"
-    When I click "Associate" after selection of "NGO Contact" by showing entries "All" in flex table with id "---program:-:associateContactsTableId---"
-    And I click modal button "Close"
-    When I navigate to "Responsibilities" sub tab
-    When I enter the following values into flex table with id "---program:-:extapproverTableId---" by clicking "New" :
-      | Name                     | Program |
-      | {SavedValue:PM Username} | NA      |
-    When I enter the following values into flex table with id "---program:-:extapproverTableId---" by clicking "New" :
-      | Name                     | Program |
-      | {SavedValue:FO Username} | Step 1  |
-    Then I softly see value "{SavedValue:FO Username}" for title "Name" inside table "---program:-:extapproverTableId---"
-    And I save the value from row "1" for column name "Name" as "OwnerName" from flex table "---program:-:programOwnerTableId---"
-    Then I softly see value "{SavedValue:OwnerName}" for title "Name" inside table "---program:-:programOwnerTableId---"
-    And I pause execution for "5" seconds
-    And I click on "Submit For Approval" in the page details
-    Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
-    When I re-login to "Grantor" app as "FO" user on "INTERNAL" portal
-    And I navigate to "Planning" tab
-    And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:pendingTaskTableId---" panel
-    And I click on "Start" icon for "{SavedValue:ProgramEGMSID}" inside flex table with id "---program:-:pendingTaskTableId---" without waiting for record
-    When I "Approve" in the approval decision
-    When I re-login to "Grantor" app as "PO" user on "INTERNAL" portal
+
+#    When I login to "Grantor" app as "PO" user
+#    And I navigate to "Planning" tab
+#    When I navigate to "External Programs" content inside "Programs" subheader on left panel
+#    And I click on top right button "New" in flex table with id "---program:-:ExternalNGOProgramTableId---"
+#    When I enter "NGOCreation" values from "Program_Field_Values.xlsx"
+#    And I click modal button "Save and Continue"
+#    And I pause execution for "2" seconds
+#    And I enter "NGOEdit" values from "Program_Field_Values.xlsx"
+#    When I click on "Save" in the page details
+#    And I pause execution for "3" seconds
+#    And I get the "EGMS ID"
+#    And I save the field labeled "EGMS ID" as "ProgramEGMSID"
+#    When I navigate to "Overview" sub tab
+#    And I click on top right button "Associate" in flex table with id "---program:-:ExternalNGOProgramContactTableId---"
+#    When I click "Associate" after selection of "NGO Contact" by showing entries "All" in flex table with id "---program:-:associateContactsTableId---"
+#    And I click modal button "Close"
+#    When I navigate to "Responsibilities" sub tab
+#    When I enter the following values into flex table with id "---program:-:extapproverTableId---" by clicking "New" :
+#      | Name                     | Program |
+#      | {SavedValue:PM Username} | NA      |
+#    When I enter the following values into flex table with id "---program:-:extapproverTableId---" by clicking "New" :
+#      | Name                     | Program |
+#      | {SavedValue:FO Username} | Step 1  |
+#    Then I softly see value "{SavedValue:FO Username}" for title "Name" inside table "---program:-:extapproverTableId---"
+#    And I save the value from row "1" for column name "Name" as "OwnerName" from flex table "---program:-:programOwnerTableId---"
+#    Then I softly see value "{SavedValue:OwnerName}" for title "Name" inside table "---program:-:programOwnerTableId---"
+#    And I pause execution for "5" seconds
+#    And I click on "Submit For Approval" in the page details
+#    Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
+#    When I re-login to "Grantor" app as "FO" user on "INTERNAL" portal
+#    And I navigate to "Planning" tab
+#    And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+#    When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:pendingTaskTableId---" panel
+#    And I click on "Start" icon for "{SavedValue:ProgramEGMSID}" inside flex table with id "---program:-:pendingTaskTableId---" without waiting for record
+#    When I "Approve" in the approval decision
+#    When I re-login to "Grantor" app as "PO" user on "INTERNAL" portal
+
     And I navigate to "Planning" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:pendingTaskTableId---" panel
@@ -2747,18 +3085,30 @@ Feature: Validate all scenarios for program
     Then I softly see value "Activate NGO Program {SavedValue:ProgramEGMSID}" for title "Subject" inside table "---program:-:completedTaskTableId---"
     Then I softly see value "Completed" for title "Status" inside table "---program:-:completedTaskTableId---"
 
-  @204027 @ValidateTheinternaluserPMcanadddescriptionandotherdetailsinSupportingDocumentChecklist @sprint-7-US-202724
+  #Supporting Document Checklist
+  @204027 @ValidateTheinternaluserPMcanadddescriptionandotherdetailsinSupportingDocumentChecklist @sprint-7-US-202724 @programWBAPI
   Scenario: Validate The internal user<PM> can add description and other details in Supporting Document Checklist
-    When I login to "Grantor" app as "dynamicUser" user
-    And I navigate to "Planning" tab
-    When I navigate to "Internal Programs" content inside "Programs" subheader on left panel
-    And I click toggle button to select "Internal Programs - Draft"
-    And I click on top right button "New" in flex table with id "---program:-:programsTableId---"
-    When I enter in modal "Creation" values from "Program_Field_Values.xlsx"
-    And I click modal button "Save and Continue"
-    And I get the "EGMS ID"
-    And I save the field labeled "EGMS ID" as "ProgramEGMSID"
-    And I click on "Save" in the page details
+    Given I create program records with status "Created" using "default" properties
+      | Title                               | RecordType       |
+      | Automation Runtime Internal Program | Internal Program |
+    Given I login to "Grantor" app as "PM" user
+    When I navigate to "Planning" tab
+    And I navigate to "Internal Programs" content inside "Programs" subheader on left panel
+    And I click toggle button to select "Internal Programs - All"
+    When I perform quick search for "{SavedValue:Automation Runtime Internal Program}" in "---program:-:programsTableId---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Internal Program}" inside flex table with id "---program:-:programsTableId---"
+
+#    When I login to "Grantor" app as "PM" user
+#    And I navigate to "Planning" tab
+#    When I navigate to "Internal Programs" content inside "Programs" subheader on left panel
+#    And I click toggle button to select "Internal Programs - Draft"
+#    And I click on top right button "New" in flex table with id "---program:-:programsTableId---"
+#    When I enter in modal "Creation" values from "Program_Field_Values.xlsx"
+#    And I click modal button "Save and Continue"
+#    And I get the "EGMS ID"
+#    And I save the field labeled "EGMS ID" as "ProgramEGMSID"
+#    And I click on "Save" in the page details
+
     Then I softly see field "Status" as "Created"
     And I navigate to "Setup" sub tab
     When I enter the following values into flex table with id "---program:-:checklistTableId---" by clicking "Add" :
@@ -2769,18 +3119,29 @@ Feature: Validate all scenarios for program
     Then I softly see value "Application" for title "Applies To" inside table "---program:-:checklistTableId---"
     Then I softly see value "Active" for title "Status" inside table "---program:-:checklistTableId---"
 
-  @204031 @ValidateUserAdminclickonUploadTemplateiconamodalwillopenanditwillbereplacedbynewmodalnamedasAddFile @sprint-7-US-202724
+  @204031 @ValidateUserAdminclickonUploadTemplateiconamodalwillopenanditwillbereplacedbynewmodalnamedasAddFile @sprint-7-US-202724 @programWBAPI
   Scenario: Validate  User <Admin> click on "Upload Template" icon  a modal will open and it will be replaced by new modal named as Add File
-    When I login to "Grantor" app as "ADMIN" user
-    And I navigate to "Planning" tab
-    When I navigate to "Internal Programs" content inside "Programs" subheader on left panel
-    And I click toggle button to select "Internal Programs - Draft"
-    And I click on top right button "New" in flex table with id "---program:-:programsTableId---"
-    When I enter in modal "Creation" values from "Program_Field_Values.xlsx"
-    And I click modal button "Save and Continue"
-    And I get the "EGMS ID"
-    And I save the field labeled "EGMS ID" as "ProgramEGMSID"
-    And I click on "Save" in the page details
+    Given I create program records with status "Created" using "Owner-{SavedValue:ADMIN Username}" properties
+      | Title                               | RecordType       |
+      | Automation Runtime Internal Program | Internal Program |
+    Given I login to "Grantor" app as "ADMIN" user
+    When I navigate to "Planning" tab
+    And I navigate to "Internal Programs" content inside "Programs" subheader on left panel
+    And I click toggle button to select "Internal Programs - All"
+    When I perform quick search for "{SavedValue:Automation Runtime Internal Program}" in "---program:-:programsTableId---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Internal Program}" inside flex table with id "---program:-:programsTableId---" without waiting for record
+
+#    When I login to "Grantor" app as "ADMIN" user
+#    And I navigate to "Planning" tab
+#    When I navigate to "Internal Programs" content inside "Programs" subheader on left panel
+#    And I click toggle button to select "Internal Programs - Draft"
+#    And I click on top right button "New" in flex table with id "---program:-:programsTableId---"
+#    When I enter in modal "Creation" values from "Program_Field_Values.xlsx"
+#    And I click modal button "Save and Continue"
+#    And I get the "EGMS ID"
+#    And I save the field labeled "EGMS ID" as "ProgramEGMSID"
+#    And I click on "Save" in the page details
+
     Then I softly see field "Status" as "Created"
     And I navigate to "Setup" sub tab
     When I enter the following values into flex table with id "---program:-:checklistTableId---" by clicking "Add" :
@@ -2789,18 +3150,29 @@ Feature: Validate all scenarios for program
     When I click on "Upload Template" icon for "Not Applicable" inside flex table with id "---program:-:checklistTableId---" without waiting for record
     Then I softly see "Upload Document" opens in overLay window
 
-  @204033 @ValidatenewmodalofaddfilesopenitwillhaveoneoptionUploadFilefromComputer @sprint-7-US-202724
+  @204033 @ValidatenewmodalofaddfilesopenitwillhaveoneoptionUploadFilefromComputer @sprint-7-US-202724 @programWBAPI
   Scenario: Validate new modal of add files open it will have one option Upload File from Computer
-    When I login to "Grantor" app as "EXE" user
-    And I navigate to "Planning" tab
-    When I navigate to "Internal Programs" content inside "Programs" subheader on left panel
-    And I click toggle button to select "Internal Programs - Draft"
-    And I click on top right button "New" in flex table with id "---program:-:programsTableId---"
-    When I enter in modal "Creation" values from "Program_Field_Values.xlsx"
-    And I click modal button "Save and Continue"
-    And I get the "EGMS ID"
-    And I save the field labeled "EGMS ID" as "ProgramEGMSID"
-    And I click on "Save" in the page details
+    Given I create program records with status "Created" using "Owner-{SavedValue:EXE Username}" properties
+      | Title                               | RecordType       |
+      | Automation Runtime Internal Program | Internal Program |
+    Given I login to "Grantor" app as "EXE" user
+    When I navigate to "Planning" tab
+    And I navigate to "Internal Programs" content inside "Programs" subheader on left panel
+    And I click toggle button to select "Internal Programs - All"
+    When I perform quick search for "{SavedValue:Automation Runtime Internal Program}" in "---program:-:programsTableId---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Internal Program}" inside flex table with id "---program:-:programsTableId---" without waiting for record
+
+#    When I login to "Grantor" app as "EXE" user
+#    And I navigate to "Planning" tab
+#    When I navigate to "Internal Programs" content inside "Programs" subheader on left panel
+#    And I click toggle button to select "Internal Programs - Draft"
+#    And I click on top right button "New" in flex table with id "---program:-:programsTableId---"
+#    When I enter in modal "Creation" values from "Program_Field_Values.xlsx"
+#    And I click modal button "Save and Continue"
+#    And I get the "EGMS ID"
+#    And I save the field labeled "EGMS ID" as "ProgramEGMSID"
+#    And I click on "Save" in the page details
+
     Then I softly see field "Status" as "Created"
     And I navigate to "Setup" sub tab
     When I enter the following values into flex table with id "---program:-:checklistTableId---" by clicking "Add" :
@@ -2809,16 +3181,27 @@ Feature: Validate all scenarios for program
     When I click on "Upload Template" icon for "Not Applicable" inside flex table with id "---program:-:checklistTableId---" without waiting for record
     Then I see "Upload File from Computer" page block displayed
 
-  @204034 @ValidateUploadFIlesfromComputerwillhavesectionslikeClassificationUploadFileChooseaFileORDragithereDescription @sprint-7-US-202724
+  @204034 @ValidateUploadFIlesfromComputerwillhavesectionslikeClassificationUploadFileChooseaFileORDragithereDescription @sprint-7-US-202724 @programWBAPI
   Scenario: Validate Upload FIles from Computer will have sections like: Classification, Upload File (Choose a File OR Drag it here), Description
-    When I login to "Grantor" app as "EXE" user
-    And I navigate to "Planning" tab
-    When I navigate to "Internal Programs" content inside "Programs" subheader on left panel
-    And I click toggle button to select "Internal Programs - Draft"
-    And I click on top right button "New" in flex table with id "---program:-:programsTableId---"
-    When I enter in modal "Creation" values from "Program_Field_Values.xlsx"
-    And I click modal button "Save and Continue"
-    And I pause execution for "5" seconds
+    Given I create program records with status "Created" using "Owner-{SavedValue:EXE Username}" properties
+      | Title                               | RecordType       |
+      | Automation Runtime Internal Program | Internal Program |
+    Given I login to "Grantor" app as "EXE" user
+    When I navigate to "Planning" tab
+    And I navigate to "Internal Programs" content inside "Programs" subheader on left panel
+    And I click toggle button to select "Internal Programs - All"
+    When I perform quick search for "{SavedValue:Automation Runtime Internal Program}" in "---program:-:programsTableId---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Internal Program}" inside flex table with id "---program:-:programsTableId---" without waiting for record
+
+#    When I login to "Grantor" app as "EXE" user
+#    And I navigate to "Planning" tab
+#    When I navigate to "Internal Programs" content inside "Programs" subheader on left panel
+#    And I click toggle button to select "Internal Programs - Draft"
+#    And I click on top right button "New" in flex table with id "---program:-:programsTableId---"
+#    When I enter in modal "Creation" values from "Program_Field_Values.xlsx"
+#    And I click modal button "Save and Continue"
+#    And I pause execution for "5" seconds
+
     And I navigate to "Setup" sub tab
     When I enter the following values into flex table with id "---program:-:checklistTableId---" by clicking "Add" :
       | Description                 | Required  | Applies To  | Status |
@@ -2828,18 +3211,29 @@ Feature: Validate all scenarios for program
     Then I see field "Upload File" as "Choose a File OR Drag it here" on modal
     Then I softly see field on modal "Description" inside page block
 
-  @204037 @ValidateUserPMcanseetwobuttonsatthebottomofUploadFilesfromComputerUploadItwillenableonlyafterwechooseafiletouploadelseitwillbedisabled @sprint-7-US-202724
+  @204037 @ValidateUserPMcanseetwobuttonsatthebottomofUploadFilesfromComputerUploadItwillenableonlyafterwechooseafiletouploadelseitwillbedisabled @sprint-7-US-202724 @programWBAPI
   Scenario: Validate User PM can see two buttons at the bottom of Upload Files from Computer Upload It will enable only after we choose a file to upload else it will be disabled
-    When I login to "Grantor" app as "EXE" user
-    And I navigate to "Planning" tab
-    When I navigate to "Internal Programs" content inside "Programs" subheader on left panel
-    And I click toggle button to select "Internal Programs - Draft"
-    And I click on top right button "New" in flex table with id "---program:-:programsTableId---"
-    When I enter in modal "Creation" values from "Program_Field_Values.xlsx"
-    And I click modal button "Save and Continue"
-    And I get the "EGMS ID"
-    And I save the field labeled "EGMS ID" as "ProgramEGMSID"
-    And I click on "Save" in the page details
+    Given I create program records with status "Created" using "Owner-{SavedValue:EXE Username}" properties
+      | Title                               | RecordType       |
+      | Automation Runtime Internal Program | Internal Program |
+    Given I login to "Grantor" app as "EXE" user
+    When I navigate to "Planning" tab
+    And I navigate to "Internal Programs" content inside "Programs" subheader on left panel
+    And I click toggle button to select "Internal Programs - All"
+    When I perform quick search for "{SavedValue:Automation Runtime Internal Program}" in "---program:-:programsTableId---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Internal Program}" inside flex table with id "---program:-:programsTableId---" without waiting for record
+
+#    When I login to "Grantor" app as "EXE" user
+#    And I navigate to "Planning" tab
+#    When I navigate to "Internal Programs" content inside "Programs" subheader on left panel
+#    And I click toggle button to select "Internal Programs - Draft"
+#    And I click on top right button "New" in flex table with id "---program:-:programsTableId---"
+#    When I enter in modal "Creation" values from "Program_Field_Values.xlsx"
+#    And I click modal button "Save and Continue"
+#    And I get the "EGMS ID"
+#    And I save the field labeled "EGMS ID" as "ProgramEGMSID"
+#    And I click on "Save" in the page details
+
     Then I softly see field "Status" as "Created"
     And I navigate to "Setup" sub tab
     When I enter the following values into flex table with id "---program:-:checklistTableId---" by clicking "Add" :
@@ -2851,18 +3245,29 @@ Feature: Validate all scenarios for program
     When I upload file "AttachmentTesting.pdf" into library
     Then I do not see "Upload" button is disabled at modal under library
 
-  @204036 @ValidateUserPMcanseetwobuttonsatthebottomofUploadFilesfromComputerupload&Cancel @sprint-7-US-202724
+  @204036 @ValidateUserPMcanseetwobuttonsatthebottomofUploadFilesfromComputerupload&Cancel @sprint-7-US-202724 @programWBAPI
   Scenario: Validate User PM can see two buttons at the bottom of Upload Files from Computer upload & Cancel
-    When I login to "Grantor" app as "EXE" user
-    And I navigate to "Planning" tab
-    When I navigate to "Internal Programs" content inside "Programs" subheader on left panel
-    And I click toggle button to select "Internal Programs - Draft"
-    And I click on top right button "New" in flex table with id "---program:-:programsTableId---"
-    When I enter in modal "Creation" values from "Program_Field_Values.xlsx"
-    And I click modal button "Save and Continue"
-    And I get the "EGMS ID"
-    And I save the field labeled "EGMS ID" as "ProgramEGMSID"
-    And I click on "Save" in the page details
+    Given I create program records with status "Created" using "Owner-{SavedValue:EXE Username}" properties
+      | Title                               | RecordType       |
+      | Automation Runtime Internal Program | Internal Program |
+    Given I login to "Grantor" app as "EXE" user
+    When I navigate to "Planning" tab
+    And I navigate to "Internal Programs" content inside "Programs" subheader on left panel
+    And I click toggle button to select "Internal Programs - All"
+    When I perform quick search for "{SavedValue:Automation Runtime Internal Program}" in "---program:-:programsTableId---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Internal Program}" inside flex table with id "---program:-:programsTableId---" without waiting for record
+
+#    When I login to "Grantor" app as "EXE" user
+#    And I navigate to "Planning" tab
+#    When I navigate to "Internal Programs" content inside "Programs" subheader on left panel
+#    And I click toggle button to select "Internal Programs - Draft"
+#    And I click on top right button "New" in flex table with id "---program:-:programsTableId---"
+#    When I enter in modal "Creation" values from "Program_Field_Values.xlsx"
+#    And I click modal button "Save and Continue"
+#    And I get the "EGMS ID"
+#    And I save the field labeled "EGMS ID" as "ProgramEGMSID"
+#    And I click on "Save" in the page details
+
     Then I softly see field "Status" as "Created"
     And I navigate to "Setup" sub tab
     When I enter the following values into flex table with id "---program:-:checklistTableId---" by clicking "Add" :
@@ -2872,18 +3277,29 @@ Feature: Validate all scenarios for program
     Then I see "Upload" button is disabled at modal under library
     Then I see "Cancel" button is displayed On Modal
 
-  @204038 @ValidateCancelbuttonIfclickonCancelthanthemodalwillcloseanddetailsfilledwillbelost @sprint-7-US-202724
+  @204038 @ValidateCancelbuttonIfclickonCancelthanthemodalwillcloseanddetailsfilledwillbelost @sprint-7-US-202724 @programWBAPI
   Scenario: Validate Cancel button If click on Cancel than the modal will close and details filled will be lost
-    When I login to "Grantor" app as "ADMIN" user
-    And I navigate to "Planning" tab
-    When I navigate to "Internal Programs" content inside "Programs" subheader on left panel
-    And I click toggle button to select "Internal Programs - Draft"
-    And I click on top right button "New" in flex table with id "---program:-:programsTableId---"
-    When I enter in modal "Creation" values from "Program_Field_Values.xlsx"
-    And I click modal button "Save and Continue"
-    And I get the "EGMS ID"
-    And I save the field labeled "EGMS ID" as "ProgramEGMSID"
-    And I click on "Save" in the page details
+    Given I create program records with status "Created" using "Owner-{SavedValue:ADMIN Username}" properties
+      | Title                               | RecordType       |
+      | Automation Runtime Internal Program | Internal Program |
+    Given I login to "Grantor" app as "ADMIN" user
+    When I navigate to "Planning" tab
+    And I navigate to "Internal Programs" content inside "Programs" subheader on left panel
+    And I click toggle button to select "Internal Programs - All"
+    When I perform quick search for "{SavedValue:Automation Runtime Internal Program}" in "---program:-:programsTableId---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Internal Program}" inside flex table with id "---program:-:programsTableId---" without waiting for record
+
+#    When I login to "Grantor" app as "ADMIN" user
+#    And I navigate to "Planning" tab
+#    When I navigate to "Internal Programs" content inside "Programs" subheader on left panel
+#    And I click toggle button to select "Internal Programs - Draft"
+#    And I click on top right button "New" in flex table with id "---program:-:programsTableId---"
+#    When I enter in modal "Creation" values from "Program_Field_Values.xlsx"
+#    And I click modal button "Save and Continue"
+#    And I get the "EGMS ID"
+#    And I save the field labeled "EGMS ID" as "ProgramEGMSID"
+#    And I click on "Save" in the page details
+
     Then I softly see field "Status" as "Created"
     And I navigate to "Setup" sub tab
     When I enter the following values into flex table with id "---program:-:checklistTableId---" by clicking "Add" :
@@ -2893,18 +3309,29 @@ Feature: Validate all scenarios for program
     And I click modal button "Close"
     Then I see value "Not Applicable" for title "Template Link" against the value "Active" inside table "---program:-:checklistTableId---"
 
-  @204046 @ValidateCancelbuttonwillalwaysbeenabled @sprint-7-US-202724
+  @204046 @ValidateCancelbuttonwillalwaysbeenabled @sprint-7-US-202724 @programWBAPI
   Scenario: Validate Cancel button will always be enabled
-    When I login to "Grantor" app as "EXE" user
-    And I navigate to "Planning" tab
-    When I navigate to "Internal Programs" content inside "Programs" subheader on left panel
-    And I click toggle button to select "Internal Programs - Draft"
-    And I click on top right button "New" in flex table with id "---program:-:programsTableId---"
-    When I enter in modal "Creation" values from "Program_Field_Values.xlsx"
-    And I click modal button "Save and Continue"
-    And I get the "EGMS ID"
-    And I save the field labeled "EGMS ID" as "ProgramEGMSID"
-    And I click on "Save" in the page details
+    Given I create program records with status "Created" using "Owner-{SavedValue:EXE Username}" properties
+      | Title                               | RecordType       |
+      | Automation Runtime Internal Program | Internal Program |
+    Given I login to "Grantor" app as "EXE" user
+    When I navigate to "Planning" tab
+    And I navigate to "Internal Programs" content inside "Programs" subheader on left panel
+    And I click toggle button to select "Internal Programs - All"
+    When I perform quick search for "{SavedValue:Automation Runtime Internal Program}" in "---program:-:programsTableId---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Internal Program}" inside flex table with id "---program:-:programsTableId---" without waiting for record
+
+#    When I login to "Grantor" app as "EXE" user
+#    And I navigate to "Planning" tab
+#    When I navigate to "Internal Programs" content inside "Programs" subheader on left panel
+#    And I click toggle button to select "Internal Programs - Draft"
+#    And I click on top right button "New" in flex table with id "---program:-:programsTableId---"
+#    When I enter in modal "Creation" values from "Program_Field_Values.xlsx"
+#    And I click modal button "Save and Continue"
+#    And I get the "EGMS ID"
+#    And I save the field labeled "EGMS ID" as "ProgramEGMSID"
+#    And I click on "Save" in the page details
+
     Then I softly see field "Status" as "Created"
     And I navigate to "Setup" sub tab
     When I enter the following values into flex table with id "---program:-:checklistTableId---" by clicking "Add" :
@@ -2913,35 +3340,49 @@ Feature: Validate all scenarios for program
     When I click on "Upload Template" icon for "Not Applicable" inside flex table with id "---program:-:checklistTableId---" without waiting for record
     Then I do not see "Cancel" button is disabled at modal under library
 
+
   @198791 @ValidateemailnotificationregardingReviewcompletionoftheinternalprogramissenttothenewowneruponreviewcompletionwhenownershipistransferredforPrograminSubmittedforReviewstate @sprint-5-US-195182  @reassignment @buglogged-199105
   Scenario: Validate email notification regarding Review completion of the internal program is sent to the new owner upon review completion when ownership is transferred for a Program in Submitted for Review state
-    When I login to "Grantor" app as "PM1" user
-    And I navigate to "Planning" tab
-    When I navigate to "Internal Programs" content inside "Programs" subheader on left panel
-    And I click toggle button to select "Internal Programs - Draft"
-    And I click on top right button "New" in flex table with id "---program:-:programsTableId---"
-    When I enter in modal "Creation" values from "Program_Field_Values.xlsx"
-    And I click modal button "Save and Continue"
-    And I wait for "10" seconds
-    When I enter "Edition" values from "Program_Field_Values.xlsx"
-    And I click on "Save" in the page details
+    Given I create program records with status "Created" using "Owner-{SavedValue:PM1 Username}" properties
+      | Title                               | RecordType       |
+      | Automation Runtime Internal Program | Internal Program |
+    When I navigate to "Planning" tab
+    And I navigate to "Internal Programs" content inside "Programs" subheader on left panel
+    And I click toggle button to select "Internal Programs - All"
+    When I perform quick search for "{SavedValue:Automation Runtime Internal Program}" in "---program:-:programsTableId---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Internal Program}" inside flex table with id "---program:-:programsTableId---" without waiting for record
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "ProgramEGMSID"
-    When I navigate to "Overview" sub tab
-    And I click on top right button "Associate" in flex table with id "---program:-:contactsTableId---"
-    When I click "Associate" after selection of "{SavedValue:EXE Username}" by showing entries "All" in flex table with id "---program:-:associateContactsTableId---"
-    When I navigate to "Setup" sub tab
-    And I click on top right button "Associate" in flex table with id "---program:-:focusAreaTableId---"
-    When I click "Associate" after selection of "Automation Permanent Focus Area" by showing entries "All" in flex table with id "---program:-:associateFocusAreaTableId---"
-    And I click on top right button "Associate" in flex table with id "---program:-:objectivesTableId---"
-    When I click "Associate" after selection of "Automation Permanent Objective" by showing entries "All" in flex table with id "---program:-:associateObjectivesTableId---"
-    And I click on top right button "Associate" in flex table with id "---program:-:kpiTableId---"
-    When I click "Associate" after selection of "Automation Permanent KPI" by showing entries "All" in flex table with id "---program:-:associateKPITableId---"
     When I navigate to "Responsibilities" sub tab
-    When I enter the following values into flex table with id "---program:-:peerReviewTableId---" by clicking "New" :
-      | Reviewer Name | Responsibility  | Description                 | Due Date |
-      | Automation FO | Fiscal Reviewer | Automation Test Description | 10       |
     And I click on "Send for Review" icon for "{SavedValue:FO Username}" inside table
+
+#    When I login to "Grantor" app as "PM1" user
+#    And I navigate to "Planning" tab
+#    When I navigate to "Internal Programs" content inside "Programs" subheader on left panel
+#    And I click toggle button to select "Internal Programs - Draft"
+#    And I click on top right button "New" in flex table with id "---program:-:programsTableId---"
+#    When I enter in modal "Creation" values from "Program_Field_Values.xlsx"
+#    And I click modal button "Save and Continue"
+#    And I wait for "10" seconds
+#    When I enter "Edition" values from "Program_Field_Values.xlsx"
+#    And I click on "Save" in the page details
+#    And I get the "EGMS ID"
+#    And I save the field labeled "EGMS ID" as "ProgramEGMSID"
+#    When I navigate to "Overview" sub tab
+#    And I click on top right button "Associate" in flex table with id "---program:-:contactsTableId---"
+#    When I click "Associate" after selection of "{SavedValue:EXE Username}" by showing entries "All" in flex table with id "---program:-:associateContactsTableId---"
+#    When I navigate to "Setup" sub tab
+#    And I click on top right button "Associate" in flex table with id "---program:-:focusAreaTableId---"
+#    When I click "Associate" after selection of "Automation Permanent Focus Area" by showing entries "All" in flex table with id "---program:-:associateFocusAreaTableId---"
+#    And I click on top right button "Associate" in flex table with id "---program:-:objectivesTableId---"
+#    When I click "Associate" after selection of "Automation Permanent Objective" by showing entries "All" in flex table with id "---program:-:associateObjectivesTableId---"
+#    And I click on top right button "Associate" in flex table with id "---program:-:kpiTableId---"
+#    When I click "Associate" after selection of "Automation Permanent KPI" by showing entries "All" in flex table with id "---program:-:associateKPITableId---"
+#    When I navigate to "Responsibilities" sub tab
+#    When I enter the following values into flex table with id "---program:-:peerReviewTableId---" by clicking "New" :
+#      | Reviewer Name | Responsibility  | Description                 | Due Date |
+#      | Automation FO | Fiscal Reviewer | Automation Test Description | 10       |
+
     When I re-login to "Grantor" app as "ADMIN" user on "INTERNAL" portal
     And I navigate to "Home" tab
     Then I see "Ownership" inside "Reassign" is displayed
@@ -3026,41 +3467,54 @@ Feature: Validate all scenarios for program
 
   @197527 @ValidatereassignedtaskownerPMuserisabletoactivatetheexternalprogramifadmintransferstaskofthetasktypeActivateNGOProgramwhenstatusoftaskisNotStarted @sprint-12-US-226646  @reassignment @
   Scenario: Validate reassigned task owner PM user is able to activate the external program if admin transfers task of the task type Activate NGO Program when status of task is Not Started
-    When I login to "Grantor" app as "PM" user
-    And I navigate to "Planning" tab
-    When I navigate to "External Programs" content inside "Programs" subheader on left panel
-    And I click on top right button "New" in flex table with id "---program:-:ExternalNGOProgramTableId---"
-    When I enter "NGOCreation" values from "Program_Field_Values.xlsx"
-    And I click modal button "Save and Continue"
-    And I wait for "5" seconds
-    And I enter "NGOEdit" values from "Program_Field_Values.xlsx"
-    When I click on "Save" in the page details
+    Given I create program records with status "Approved" using "approver1-{SavedValue:FO Username},approver2-NA" properties
+      | Title                               | RecordType       |
+      | Automation Runtime Internal Program | Internal Program |
+    Given I login to "Grantor" app as "PM" user
+    When I navigate to "Planning" tab
+    And I navigate to "Internal Programs" content inside "Programs" subheader on left panel
+    And I click toggle button to select "Internal Programs - All"
+    When I perform quick search for "{SavedValue:Automation Runtime Internal Program}" in "---program:-:programsTableId---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Internal Program}" inside flex table with id "---program:-:programsTableId---" without waiting for record
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "ProgramEGMSID"
-    When I navigate to "Overview" sub tab
-    And I click on top right button "Associate" in flex table with id "---program:-:ExternalNGOProgramContactTableId---"
-    When I click "Associate" after selection of "NGO Contact" by showing entries "All" in flex table with id "---program:-:associateContactsTableId---"
-    And I click modal button "Close"
-    When I navigate to "Responsibilities" sub tab
-    When I enter the following values into flex table with id "---program:-:extapproverTableId---" by clicking "New" :
-      | Name                     | Program |
-      | {SavedValue:PM Username} | NA      |
-    When I enter the following values into flex table with id "---program:-:extapproverTableId---" by clicking "New" :
-      | Name                     | Program |
-      | {SavedValue:FO Username} | Step 1  |
-    Then I softly see value "{SavedValue:FO Username}" for title "Name" inside table "---program:-:extapproverTableId---"
-    And I save the value from row "1" for column name "Name" as "OwnerName" from flex table "---program:-:programOwnerTableId---"
-    Then I softly see value "{SavedValue:OwnerName}" for title "Name" inside table "---program:-:programOwnerTableId---"
-    And I pause execution for "5" seconds
-    And I click on "Submit For Approval" in the page details
-    Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
-    When I re-login to "Grantor" app as "FO" user on "INTERNAL" portal
-    And I navigate to "Planning" tab
-    And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:pendingTaskTableId---" panel
-    And I click on "Start" icon for "{SavedValue:ProgramEGMSID}" inside flex table with id "---program:-:pendingTaskTableId---" without waiting for record
-    When I "Approve" in the approval decision
-    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
+
+#    When I login to "Grantor" app as "PM" user
+#    And I navigate to "Planning" tab
+#    When I navigate to "External Programs" content inside "Programs" subheader on left panel
+#    And I click on top right button "New" in flex table with id "---program:-:ExternalNGOProgramTableId---"
+#    When I enter "NGOCreation" values from "Program_Field_Values.xlsx"
+#    And I click modal button "Save and Continue"
+#    And I wait for "5" seconds
+#    And I enter "NGOEdit" values from "Program_Field_Values.xlsx"
+#    When I click on "Save" in the page details
+#    And I get the "EGMS ID"
+#    And I save the field labeled "EGMS ID" as "ProgramEGMSID"
+#    When I navigate to "Overview" sub tab
+#    And I click on top right button "Associate" in flex table with id "---program:-:ExternalNGOProgramContactTableId---"
+#    When I click "Associate" after selection of "NGO Contact" by showing entries "All" in flex table with id "---program:-:associateContactsTableId---"
+#    And I click modal button "Close"
+#    When I navigate to "Responsibilities" sub tab
+#    When I enter the following values into flex table with id "---program:-:extapproverTableId---" by clicking "New" :
+#      | Name                     | Program |
+#      | {SavedValue:PM Username} | NA      |
+#    When I enter the following values into flex table with id "---program:-:extapproverTableId---" by clicking "New" :
+#      | Name                     | Program |
+#      | {SavedValue:FO Username} | Step 1  |
+#    Then I softly see value "{SavedValue:FO Username}" for title "Name" inside table "---program:-:extapproverTableId---"
+#    And I save the value from row "1" for column name "Name" as "OwnerName" from flex table "---program:-:programOwnerTableId---"
+#    Then I softly see value "{SavedValue:OwnerName}" for title "Name" inside table "---program:-:programOwnerTableId---"
+#    And I pause execution for "5" seconds
+#    And I click on "Submit For Approval" in the page details
+#    Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
+#    When I re-login to "Grantor" app as "FO" user on "INTERNAL" portal
+#    And I navigate to "Planning" tab
+#    And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+#    When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:pendingTaskTableId---" panel
+#    And I click on "Start" icon for "{SavedValue:ProgramEGMSID}" inside flex table with id "---program:-:pendingTaskTableId---" without waiting for record
+#    When I "Approve" in the approval decision
+#    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
+
     And I navigate to "Planning" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:ProgramEGMSID}" in "---program:-:pendingTaskTableId---" panel
@@ -3094,48 +3548,61 @@ Feature: Validate all scenarios for program
 
   @197530 @ValidatereassignedtaskownerEXEuserisabletocompletetheworkflowoninternalprogramifanotherEXEtransferstaskoftypeActivatetheProgramwhenprogramisamendedafteractivation @sprint-12-US-226646  @reassignment
   Scenario: Validate reassigned task owner EXE user is able to complete the workflow on internal program if another EXE transfers task of type Activate the Program when program is amended after activation
-    When I login to "Grantor" app as "EXE" user
-    And I navigate to "Planning" tab
-    When I navigate to "Internal Programs" content inside "Programs" subheader on left panel
-    And I click toggle button to select "Internal Programs - Draft"
-    And I click on top right button "New" in flex table with id "---program:-:programsTableId---"
-    When I enter in modal "Creation" values from "Program_Field_Values.xlsx"
-    And I click modal button "Save and Continue"
-    And I pause execution for "2" seconds
-    When I enter "Edition" values from "Program_Field_Values.xlsx"
-    And I click on "Save" in the page details
-    And I pause execution for "5" seconds
+    Given I create program records with status "Approved" using "Owner-{SavedValue:EXE Username},approver1-{SavedValue:FO Username},approver2-NA" properties
+      | Title                               | RecordType       |
+      | Automation Runtime Internal Program | Internal Program |
+    Given I login to "Grantor" app as "EXE" user
+    When I navigate to "Planning" tab
+    And I navigate to "Internal Programs" content inside "Programs" subheader on left panel
+    And I click toggle button to select "Internal Programs - All"
+    When I perform quick search for "{SavedValue:Automation Runtime Internal Program}" in "---program:-:programsTableId---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Internal Program}" inside flex table with id "---program:-:programsTableId---" without waiting for record
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "ProgramEGMSID"
-    When I navigate to "Overview" sub tab
-    And I click on top right button "Associate" in flex table with id "---program:-:contactsTableId---"
-    When I click "Associate" after selection of "{SavedValue:EXE Username}" by showing entries "All" in flex table with id "---program:-:associateContactsTableId---"
-    When I navigate to "Setup" sub tab
-    And I click on top right button "Associate" in flex table with id "---program:-:focusAreaTableId---"
-    When I click "Associate" after selection of "Automation Permanent Focus Area" by showing entries "All" in flex table with id "---program:-:associateFocusAreaTableId---"
-    And I click on top right button "Associate" in flex table with id "---program:-:objectivesTableId---"
-    When I click "Associate" after selection of "Automation Permanent Objective" by showing entries "All" in flex table with id "---program:-:associateObjectivesTableId---"
-    And I click on top right button "Associate" in flex table with id "---program:-:kpiTableId---"
-    When I click "Associate" after selection of "Automation Permanent KPI" by showing entries "All" in flex table with id "---program:-:associateKPITableId---"
-    When I navigate to "Responsibilities" sub tab
-    When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
-      | Name                     | Program |
-      | {SavedValue:PM Username} | NA      |
-    When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
-      | Name                     | Program |
-      | {SavedValue:FO Username} | Step 1  |
-    Then I softly see value "{SavedValue:FO Username}" for title "Name" inside table "---program:-:approverTableId---"
-    And I save the value from row "1" for column name "Name" as "OwnerName" from flex table "---program:-:programOwnerTableId---"
-    Then I softly see value "{SavedValue:OwnerName}" for title "Name" inside table "---program:-:programOwnerTableId---"
-    And I pause execution for "5" seconds
-    And I click on "Submit For Approval" in the page details
-    When I re-login to "Grantor" app as "FO" user on "INTERNAL" portal
-    And I navigate to "Planning" tab
-    And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    When I perform quick search for "Record Id" in "---program:-:pendingTaskTableId---" panel
-    And I click on "Start" icon for "Record Id" inside flex table with id "---program:-:pendingTaskTableId---" without waiting for record
-    When I "Approve" in the approval decision
-    When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
+
+#    When I login to "Grantor" app as "EXE" user
+#    And I navigate to "Planning" tab
+#    When I navigate to "Internal Programs" content inside "Programs" subheader on left panel
+#    And I click toggle button to select "Internal Programs - Draft"
+#    And I click on top right button "New" in flex table with id "---program:-:programsTableId---"
+#    When I enter in modal "Creation" values from "Program_Field_Values.xlsx"
+#    And I click modal button "Save and Continue"
+#    And I pause execution for "2" seconds
+#    When I enter "Edition" values from "Program_Field_Values.xlsx"
+#    And I click on "Save" in the page details
+#    And I pause execution for "5" seconds
+#    And I get the "EGMS ID"
+#    And I save the field labeled "EGMS ID" as "ProgramEGMSID"
+#    When I navigate to "Overview" sub tab
+#    And I click on top right button "Associate" in flex table with id "---program:-:contactsTableId---"
+#    When I click "Associate" after selection of "{SavedValue:EXE Username}" by showing entries "All" in flex table with id "---program:-:associateContactsTableId---"
+#    When I navigate to "Setup" sub tab
+#    And I click on top right button "Associate" in flex table with id "---program:-:focusAreaTableId---"
+#    When I click "Associate" after selection of "Automation Permanent Focus Area" by showing entries "All" in flex table with id "---program:-:associateFocusAreaTableId---"
+#    And I click on top right button "Associate" in flex table with id "---program:-:objectivesTableId---"
+#    When I click "Associate" after selection of "Automation Permanent Objective" by showing entries "All" in flex table with id "---program:-:associateObjectivesTableId---"
+#    And I click on top right button "Associate" in flex table with id "---program:-:kpiTableId---"
+#    When I click "Associate" after selection of "Automation Permanent KPI" by showing entries "All" in flex table with id "---program:-:associateKPITableId---"
+#    When I navigate to "Responsibilities" sub tab
+#    When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
+#      | Name                     | Program |
+#      | {SavedValue:PM Username} | NA      |
+#    When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
+#      | Name                     | Program |
+#      | {SavedValue:FO Username} | Step 1  |
+#    Then I softly see value "{SavedValue:FO Username}" for title "Name" inside table "---program:-:approverTableId---"
+#    And I save the value from row "1" for column name "Name" as "OwnerName" from flex table "---program:-:programOwnerTableId---"
+#    Then I softly see value "{SavedValue:OwnerName}" for title "Name" inside table "---program:-:programOwnerTableId---"
+#    And I pause execution for "5" seconds
+#    And I click on "Submit For Approval" in the page details
+#    When I re-login to "Grantor" app as "FO" user on "INTERNAL" portal
+#    And I navigate to "Planning" tab
+#    And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+#    When I perform quick search for "Record Id" in "---program:-:pendingTaskTableId---" panel
+#    And I click on "Start" icon for "Record Id" inside flex table with id "---program:-:pendingTaskTableId---" without waiting for record
+#    When I "Approve" in the approval decision
+#    When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
+
     And I navigate to "Planning" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---program:-:pendingTaskTableId---" panel
@@ -3166,6 +3633,22 @@ Feature: Validate all scenarios for program
 
   @162651 @ValidateSystemAdminSAuserscannotreassignpendingtasksforAuditorprofileuser @sprint-12-US-226646  @reassignment
   Scenario: Validate System Admin SA users cannot reassign pending tasks for Auditor profile user
+    Given I create program records with status "Created" using "Owner-{SavedValue:PM1 Username},approver1-{SavedValue:FO Username},approver2-NA" properties
+      | Title                               | RecordType       |
+      | Automation Runtime Internal Program | Internal Program |
+
+    Given I create program records with status "Created" using "default" properties
+      | Title                               | RecordType       |
+      | Automation Runtime Internal Program | Internal Program |
+    Given I login to "Grantor" app as "PM" user
+    When I navigate to "Planning" tab
+    And I navigate to "Internal Programs" content inside "Programs" subheader on left panel
+    And I click toggle button to select "Internal Programs - All"
+    When I perform quick search for "{SavedValue:Automation Runtime Internal Program}" in "---program:-:programsTableId---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Internal Program}" inside flex table with id "---program:-:programsTableId---" without waiting for record
+    And I get the "EGMS ID"
+    And I save the field labeled "EGMS ID" as "ProgramEGMSID"
+
     When I login to "Grantor" app as "ADMIN" user
     And I navigate to "Planning" tab
     When I navigate to "Internal Programs" content inside "Programs" subheader on left panel
@@ -4050,7 +4533,7 @@ Feature: Validate all scenarios for program
 
   @195279 @ValidateProgramwhentheownershipofrecordischangedthenemailnotificationshouldsenttotheSAuserpreviousowner @sprint-11-US-224734  @reassignment
   Scenario: Validate Program when the ownership of a record is changed then email notification should sent to the SA user(previous owner)
-    When I login to "Grantor" app as "dynamicUser" user
+    When I login to "Grantor" app as "PM" user
     And I navigate to "Planning" tab
     When I navigate to "Internal Programs" content inside "Programs" subheader on left panel
     And I click toggle button to select "Internal Programs - Draft"
@@ -4102,7 +4585,7 @@ Feature: Validate all scenarios for program
 
   @195280 @ValidateProgramwhentheownershipofrecordischangedthenemailnotificationshouldsenttothenewuser @sprint-11-US-224734  @reassignment
   Scenario: Validate Program when the ownership of a record is changed then email notification should sent to the new user
-    When I login to "Grantor" app as "dynamicUser" user
+    When I login to "Grantor" app as "PM" user
     And I navigate to "Planning" tab
     When I navigate to "External Programs" content inside "Programs" subheader on left panel
     And I click on top right button "New" in flex table with id "---program:-:ExternalNGOProgramTableId---"
@@ -8286,7 +8769,7 @@ Feature: Validate all scenarios for program
 
   @Notags @ValidateNewButtonForContactSection
   Scenario: Validate New Button functio ality on contact section
-    When I login to "Grantor" app as "dynamicUser" user
+    When I login to "Grantor" app as "PM" user
     And I navigate to "Planning" tab
     When I navigate to "Internal Programs" content inside "Programs" subheader on left panel
     And I click toggle button to select "Internal Programs - Draft"
@@ -8343,7 +8826,7 @@ Feature: Validate all scenarios for program
 
   @527118 @527250 @validatethatrecordssharingforInternalProgramwithPO/FO/FD/auditor/Admin/EXEfromsameOrginallstatesofInternalProgram @GrantorFlexP1
   Scenario Outline: Validate that records sharing for Internal Program with PO/FO/FD/auditor/Admin/EXE from same Org in all states of Internal Program
-    When I login to "Grantor" app as "dynamicUser" user
+    When I login to "Grantor" app as "PM" user
     And I navigate to "Planning" tab
     When I navigate to "Internal Programs" content inside "Programs" subheader on left panel
     And I click toggle button to select "Internal Programs - Draft"
@@ -8400,19 +8883,20 @@ Feature: Validate all scenarios for program
     When I navigate to "Files" sub tab
     Then I cannot see top right button "Add Files" in flex table with id "---program:-:GrantorInternalProgramFilesTableId---"
     Then I <Validation> top right button "New" in flex table with id "---program:-:internalProgramNotesTableId---"
+
     Examples:
-      | NonOwner | Validation  |
-      | PO       |  can see    |
-      | EXE      |  can see    |
-      | FO       |  can see    |
-      | FD       |  can see    |
-      | AUDITOR  |  cannot see |
+      | NonOwner | Validation |
+      | PO       | can see    |
+      | EXE      | can see    |
+      | FO       | can see    |
+      | FD       | can see    |
+      | AUDITOR  | cannot see |
 
   @535723 @535719 @535715 @ValidateExternal/NGOorg1users(PM/PO/EXE)cancreateExternal/NGOProgramthenallusersshouldhaveviewaccesstoitirrespectiveofparticularorganization. @GrantorFlexP1
   Scenario Outline: Validate External/NGO org 1 users (PM/PO/EXE)can create External/NGO Program then all users should have view access to it irrespective of particular organization.
   / Validate that Approver section can visible to all internal users once NGO program is created
   /Validate External/ NGO program when submit  External/ NGO program is Activated
-    When I login to "Grantor" app as "dynamicUser" user
+    When I login to "Grantor" app as "PM" user
     And I navigate to "Planning" tab
     When I navigate to "External Programs" content inside "Programs" subheader on left panel
     And I click on top right button "New" in flex table with id "---program:-:ExternalNGOProgramTableId---"
@@ -8531,12 +9015,12 @@ Feature: Validate all scenarios for program
     Then I <Validation> top right button "New" in flex table with id "---program:-:externalProgramNotesTableId---"
     Then I softly see value "Notes Record" for title "Title" inside table "---program:-:externalProgramNotesTableId---"
     Examples:
-      | NonOwner | Validation  |
-      | PO       |  can see    |
-      | EXE      |  can see    |
-      | FO       |  can see    |
-      | FD       |  can see    |
-      | AUDITOR  |  cannot see |
+      | NonOwner | Validation |
+      | PO       | can see    |
+      | EXE      | can see    |
+      | FO       | can see    |
+      | FD       | can see    |
+      | AUDITOR  | cannot see |
 
   @535717 @ValidatethatInternal/ExternalusersseeContactstablewithallthedetails @GrantorFlexP1
   Scenario Outline: Validate that Internal/ External users see Contacts table with all the details
@@ -8610,9 +9094,9 @@ Feature: Validate all scenarios for program
     Then I <Validation> top right button "New" in flex table with id "---program:-:externalProgramNotesTableId---"
     Then I softly see value "Notes Record" for title "Title" inside table "---program:-:externalProgramNotesTableId---"
     Examples:
-      | NonOwner | Validation  |
-      | PO       |  can see    |
-      | EXE      |  can see    |
-      | FO       |  can see    |
-      | FD       |  can see    |
-      | AUDITOR  |  cannot see |
+      | NonOwner | Validation |
+      | PO       | can see    |
+      | EXE      | can see    |
+      | FO       | can see    |
+      | FD       | can see    |
+      | AUDITOR  | cannot see |
