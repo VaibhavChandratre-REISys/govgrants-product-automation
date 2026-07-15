@@ -48,12 +48,12 @@ public final class SideBar {
      * @author nauman.shahid
      */
     public void clickSideBarContent(String subHeaderName, String contentName) {
-           handleSideBarContentExpanded(subHeaderName);
-          try {
-                  I.amPerforming().click().on(getSideBarContentLocator(subHeaderName, contentName));
-          } catch(Exception e) {
-                  I.amPerforming().click().withJavaScript(getSideBarContentLocator(subHeaderName, contentName));
-          }
+        handleSideBarContentExpanded(subHeaderName);
+        try {
+            I.amPerforming().click().on(getSideBarContentLocator(subHeaderName, contentName));
+        } catch (Exception e) {
+            I.amPerforming().click().withJavaScript(getSideBarContentLocator(subHeaderName, contentName));
+        }
     }
 
     /**
@@ -151,8 +151,8 @@ public final class SideBar {
      * @modified john.phillips - 02/19/2019 - Added check to skip expansion if in San Diego
      */
     public void handleSideBarContentExpanded(String subHeader) {
-        By sideBarHeader = By.xpath("//gnt-side-bar-lwc//section//button[@title='" + subHeader + "']/ancestor::ul//div[contains(@class,'summary1')]//button[@aria-expanded='false']");
-        By sideBarSubHeader = By.xpath("//gnt-side-bar-lwc//section//button[@title='" + subHeader + "' and @aria-expanded='false']");
+        By sideBarHeader = By.xpath("//div[contains(@class,'active lafPageHost')]//button[@title='" + subHeader + "' and @aria-expanded='false']/ancestor::ul//div[contains(@class,'summary1')]//button[@aria-expanded='false'] | //nav[contains(@class,'sidebar')]//button[@title='" + subHeader + "' and @aria-expanded='false']/ancestor::ul//div[contains(@class,'summary1')]//button[@aria-expanded='false']");
+        By sideBarSubHeader = By.xpath("//div[contains(@class,'active lafPageHost')]//button[@title='" + subHeader + "' and @aria-expanded='false'] | //nav[contains(@class,'sidebar')]//button[@title='" + subHeader + "' and @aria-expanded='false']");
         I.amPerforming().waitFor().ElementToBePresent(By.xpath("//gnt-side-bar-lwc//section"));
         if (I.amPerforming().checkToSee().IsElementPresentQuick(sideBarHeader)) {
             I.amPerforming().click().on(sideBarHeader);
@@ -198,11 +198,10 @@ public final class SideBar {
      * @param subHeaderContent
      * @return
      * @author nauman.shahid
-     * @modifier komal.mukhekar (03-07-2026) Updated the locator to handle the new sidebar structure in the application (Grantor and Subrecipient)
-     *
+     * @modifier komal.mukhekar - 25/06/2020 - Updated the Xpath for subHeader header and subHeaderContent to handle the new side bar structure
      */
     public By getSideBarContentLocator(String subHeader, String subHeaderContent) {
-        return By.xpath("//gnt-side-bar-lwc//section//button[@title='" + subHeader + "']/parent::h2/parent::div/parent::section//span[text()='" + subHeaderContent + "']");
+        return By.xpath("//div[contains(@class,'active lafPageHost')]//button[@title='" + subHeader + "']//ancestor::div[contains(@class,'slds-accordion__summary')]//following-sibling::div//button[@title='" + subHeaderContent + "'] | //nav[contains(@class,'sidebar')]//button[@title='" + subHeader + "']//ancestor::div[contains(@class,'slds-accordion__summary')]//following-sibling::div//button[@title='" + subHeaderContent + "']");
     }
 
     /**

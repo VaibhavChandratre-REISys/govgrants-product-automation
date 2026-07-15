@@ -3,7 +3,7 @@ Feature: Validate sanity testing of Complete Business Flow
 
   @72335  @72335@activationOfFocusArea @ProdSan1
   Scenario: Validate the activation of Focus Area by User - Admin/EXE/PM and the status is Active
-    Given I login to "Grantor" app as "dynamicUser" user
+    Given I login to "Grantor" app as "PM" user
     When I navigate to "Planning" tab
     When I navigate to "Focus Areas" content inside "Setup" subheader on left panel
     And I click on top right button "New" in flex table with id "---focusarea:-:focusAreaTableId---"
