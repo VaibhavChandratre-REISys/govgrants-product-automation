@@ -1,9 +1,9 @@
 @GovGrantsSanityPreCheck @regression
 Feature: Validate Pre-requisiste check for Sanity/Regression
 
-  @mk @checkUserLoginsGrantor
+  @checkUserLoginsGrantor
   Scenario: Check GovGrants user logins - Grantor
-    When I login to "Grantor" app as "ADMIN" user
+    When I login to "Grantor" app as "PM" user
     And I navigate to "Home" tab
     When I re-login to "Grantor" app as "ADMIN1" user on "INTERNAL" portal
     And I navigate to "Home" tab
