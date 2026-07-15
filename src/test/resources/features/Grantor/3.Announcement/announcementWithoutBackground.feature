@@ -6366,7 +6366,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     Then I softly see value "Notification: Announcement {SavedValue:AnnEGMSID} awaiting peer review" for title "Subject" inside table "---announcement:-:systemEmailsTableId---"
 #    When I click on advance filter "#advfRecordSystemEmailHistory" of table id "---announcement:-:systemEmailsTableId---"
 #    When I enter advance filter values inside id "advfRecordSystemEmailHistory"
-#      | From Address | contains | pm.automation.qa2@yopmail.com |
+#      | From Address | contains | pm.automation.merge@yopmail.com|
 #    And I wait for "3" seconds
 #    Then I softly see value "pm.automation.qa2@yopmail.com" for title "From Address" inside table "---announcement:-:systemEmailsTableId---"
 #    And I select "Reset Table" from parallel lines dropdown of "System Emails"
@@ -6597,7 +6597,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     Then I softly see value "automation.fd.qa2@yopmail.com" for title "To Address" inside table "---announcement:-:systemEmailsTableId---"
     And I click on "View" icon for "automation.fd.qa2@yopmail.com" inside flex table with id "---announcement:-:systemEmailsTableId---" without waiting for record
     Then I softly see following details for email sent under collab:
-      | pm.automation.qa2@yopmail.com                                          |
+      | pm.automation.merge@yopmail.com                                         |
       | automation.fd.qa2@yopmail.com                                          |
       | Notification: Announcement {SavedValue:AnnEGMSID} Awaiting Peer Review |
     When I close "System Email" modal by clicking the top right x button
@@ -6617,7 +6617,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I click on "View" icon for "automation.fd.qa2@yopmail.com" inside flex table with id "---announcement:-:systemEmailsTableId---" without waiting for record
     And I pause execution for "4" seconds
     Then I softly see following details for email sent under collab:
-      | pm.automation.qa2@yopmail.com                                          |
+      | pm.automation.merge@yopmail.com                                         |
       | automation.fd.qa2@yopmail.com                                          |
       | Notification: Announcement {SavedValue:AnnEGMSID} Awaiting Peer Review |
     When I close "System Email" modal by clicking the top right x button
@@ -6638,7 +6638,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I click on "View" icon for "Notification: Announcement {SavedValue:AnnEGMSID} has been Peer Reviewed" inside flex table with id "---announcement:-:systemEmailsTableId---" without waiting for record
     And I wait for "5" seconds
     Then I softly see following details for email sent under collab:
-      | pm.automation.qa2@yopmail.com                                            |
+      | pm.automation.merge@yopmail.com                                           |
       | automation.fd.qa2@yopmail.com                                            |
       | Notification: Announcement {SavedValue:AnnEGMSID} has been Peer Reviewed |
     When I close "System Email" modal by clicking the top right x button
@@ -6663,7 +6663,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I click on "View" icon for "Notification: Announcement {SavedValue:AnnEGMSID} has been Peer Reviewed" inside flex table with id "---announcement:-:systemEmailsTableId---" without waiting for record
     And I wait for "5" seconds
     Then I softly see following details for email sent under collab:
-      | pm.automation.qa2@yopmail.com                                            |
+      | pm.automation.merge@yopmail.com                                           |
       | automation.fd.qa2@yopmail.com                                            |
       | Notification: Announcement {SavedValue:AnnEGMSID} has been Peer Reviewed |
     When I close "System Email" modal by clicking the top right x button
@@ -6680,7 +6680,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I click on "View" icon for "Notification: Announcement {SavedValue:AnnEGMSID} has been Peer Reviewed" inside flex table with id "---announcement:-:systemEmailsTableId---" without waiting for record
     And I wait for "5" seconds
     Then I softly see following details for email sent under collab:
-      | pm.automation.qa2@yopmail.com                                            |
+      | pm.automation.merge@yopmail.com                                           |
       | automation.fd.qa2@yopmail.com                                            |
       | Notification: Announcement {SavedValue:AnnEGMSID} has been Peer Reviewed |
 
@@ -6707,14 +6707,14 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I pause execution for "5" seconds
     And I send the email under collab tab with following details:
       | To                            | Subject         | Body                       |
-      | pm.automation.qa2@yopmail.com | Automation Test | Automation Test Email Body |
+      | pm.automation.merge@yopmail.com| Automation Test | Automation Test Email Body |
     And I wait for "2" seconds
     Then I see the text "Email Sent Successfully." in modal
     And I close "Send Email" modal by clicking the top right x button
     Then I softly see value "" for title "Attention To" inside table "---announcement:-:collabMessages---"
     Then I see the following rows under the following headers in table with id "---announcement:-:collabMessages---" :
       | Actions     | Subject         | From Address                   | To Address                    | CC Address | Attention To | Email Subject   | Preview                    |
-      | Action menu | Automation Test | exe.automation.qa2@yopmail.com | pm.automation.qa2@yopmail.com |            |              | Automation Test | Automation Test Email Body |
+      | Action menu | Automation Test | exe.automation.qa2@yopmail.com | pm.automation.merge@yopmail.com|            |              | Automation Test | Automation Test Email Body |
     And I refresh the page
     And I wait for "3" seconds
     Then I see "No Records Found" inside flex table with id "---program:-:systemEmailsTableId---"
@@ -6930,7 +6930,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I pause execution for "5" seconds
     Then I softly see following details for email sent under collab:
       | automation.po.qa2@yopmail.com                                                        |
-      | pm.automation.qa2@yopmail.com                                                        |
+      | pm.automation.merge@yopmail.com                                                       |
       | Notification: Approver initiated undo action on Announcement {SavedValue:AnnEGMSID}. |
     When I close "System Email" modal by clicking the top right x button
     #336739
@@ -6975,7 +6975,7 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     Then I softly see value "" for title "Attention To" inside table "---announcement:-:collabMessages---"
     Then I see the following rows under the following headers in table with id "---announcement:-:collabMessages---" :
       | Actions     | Subject         | From Address                  | To Address                     | CC Address | Attention To | Email Subject   | Preview                    |
-      | Action menu | Automation Test | pm.automation.qa2@yopmail.com | exe.automation.qa2@yopmail.com |            |              | Automation Test | Automation Test Email Body |
+      | Action menu | Automation Test | pm.automation.merge@yopmail.com| exe.automation.qa2@yopmail.com |            |              | Automation Test | Automation Test Email Body |
     #329981
     When I re-login to "Grantor" app as "PO" user on "INTERNAL" portal
     And I navigate to "Announcements" tab
@@ -7097,10 +7097,10 @@ Feature: Validate all common scenarios in the  Announcement tab (Announcement wi
     And I click on top right button "Send Email" in flex table with id "---announcement:-:collabMessages---"
     And I send the email under collab tab with following details:
       | To                            | Subject         | Body                       |
-      | pm.automation.qa2@yopmail.com | Automation Test | Automation Test Email Body |
+      | pm.automation.merge@yopmail.com| Automation Test | Automation Test Email Body |
     Then I see the text "Email Sent Successfully." in modal
     And I close "Send Email" modal by clicking the top right x button
     Then I softly see value "" for title "Attention To" inside table "---announcement:-:collabMessages---"
     Then I see the following rows under the following headers in table with id "---announcement:-:collabMessages---" :
       | Actions     | Subject         | From Address                   | CC Address | To Address                    | Attention To | Email Subject   |
-      | Action menu | Automation Test | exe.automation.qa2@yopmail.com |            | pm.automation.qa2@yopmail.com |              | Automation Test |
+      | Action menu | Automation Test | exe.automation.qa2@yopmail.com |            | pm.automation.merge@yopmail.com|              | Automation Test |

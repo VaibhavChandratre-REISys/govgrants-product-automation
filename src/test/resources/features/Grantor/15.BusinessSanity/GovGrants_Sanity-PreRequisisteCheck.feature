@@ -1,7 +1,7 @@
 @GovGrantsSanityPreCheck @regression
 Feature: Validate Pre-requisiste check for Sanity/Regression
 
-  @checkUserLoginsGrantor
+  @mk @checkUserLoginsGrantor
   Scenario: Check GovGrants user logins - Grantor
     When I login to "Grantor" app as "ADMIN" user
     And I navigate to "Home" tab
@@ -27,8 +27,6 @@ Feature: Validate Pre-requisiste check for Sanity/Regression
     And I navigate to "Home" tab
     When I re-login to "Grantor" app as "FD1" user on "INTERNAL" portal
     And I navigate to "Home" tab
-    When I re-login to "Grantor" app as "AUDITOR" user on "INTERNAL" portal
-    And I navigate to "Home" tab
     When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
     And I navigate to "Home" tab
     When I re-login to "Grants Portal" app as "SA" user on "SUBPORTAL" portal
@@ -36,6 +34,8 @@ Feature: Validate Pre-requisiste check for Sanity/Regression
     When I re-login to "Grants Portal" app as "SME" user on "SUBPORTAL" portal
     And I navigate to "Home" tab
     #RegressionUser
+    When I re-login to "Grantor" app as "AUDITOR" user on "INTERNAL" portal
+    And I navigate to "Home" tab
     When I re-login to "Grants Portal" app as "SPA" user on "SUBPORTAL" portal
     And I navigate to "Home" tab
     When I re-login to "Grants Portal" app as "IND" user on "SUBPORTAL" portal
