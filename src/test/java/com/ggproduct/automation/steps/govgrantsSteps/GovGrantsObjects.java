@@ -374,7 +374,7 @@ public final class GovGrantsObjects {
     public void uploadAttachmentInFlexTableFromComputer(Boolean withoutRandomNumber, String fileName, String fileType) {
         By classificationType = By.xpath("//select[@title='Classification' or @name='Classification']");
         By options = By.xpath("//select//option[text()='" + fileType + "']");
-        By filePath = By.xpath("//label[contains(@id,'file')]/../input");
+        By filePath = By.xpath("//label[contains(@id,'file')]/../input|//input[contains(@id,'file')]");
         String defaultFilePath = System.getProperty("user.dir") + "/src/main/resources/";
         String[] splitFileName = fileName.split("\\.");
         String newFileName = withoutRandomNumber ? fileName : splitFileName[0] + I.amPerforming().addOnsTo().getStringRandomNumber() + "." + splitFileName[1];
@@ -383,8 +383,8 @@ public final class GovGrantsObjects {
             if (!withoutRandomNumber) {
                 renameFile(defaultFilePath, fileName, newFileName);
             }
-            I.amPerforming().waitFor().ElementToBeClickable(classificationType);
-            I.amPerforming().waitFor().ElementToBeClickable(options);
+            I.amPerforming().waitFor().ElementToBePresent(classificationType,10);
+            I.amPerforming().waitFor().ElementToBeClickable(options,10);
             I.amPerforming().dropDownSelection().from(classificationType).selectByValue(fileType);
             I.amPerforming().waitFor().makeThreadSleep(5000);
             I.amPerforming().textInput().in(filePath, defaultFilePath + newFileName);
