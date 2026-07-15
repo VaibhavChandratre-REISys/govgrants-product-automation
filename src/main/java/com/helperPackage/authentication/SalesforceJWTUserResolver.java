@@ -44,7 +44,7 @@ public final class SalesforceJWTUserResolver {
 
         users.put(
                 "PM",
-                "pm.automation@yopmail.com.ggmergeqa2"
+                "pm.automation.merge@yopmail.com"
         );
 
         users.put(

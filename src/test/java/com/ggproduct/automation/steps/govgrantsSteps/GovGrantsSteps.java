@@ -360,7 +360,7 @@ public final class GovGrantsSteps {
                  * SELECT SALESFORCE APPLICATION
                  * =========================================================
                  */
-                if (appName.equalsIgnoreCase("SBIR/STTR Portal") || appName.equalsIgnoreCase("Grantor") || appName.equalsIgnoreCase("Grantee")) {
+                if (appName.equalsIgnoreCase("SBIR/STTR Portal") || appName.equalsIgnoreCase("Grantor") || appName.equalsIgnoreCase("Grantee")|| appName.equalsIgnoreCase("Grants Portal")) {
                     try {
                         System.out.println("[Re-Login] Setting Salesforce app: " + appName);
                         govgrants.perform().mainPage().setUpCustomAppDropDown(appName);

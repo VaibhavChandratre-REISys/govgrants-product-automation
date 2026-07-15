@@ -16,7 +16,7 @@ public final class SalesforceJWTConfiguration {
      * Do NOT use Consumer Secret.
      */
     private static final String CLIENT_ID =
-            "3MVG99nUjAVk2edw2O_zJkCPVa4Ni1KjRSF8K6OkdJsKX4i1s9u7p2DFX_XUCuolJcDvQGuFcnII9uznOjwmz";
+            "3MVG9nN49A55.GBH4brW2vRP9B1WnCZ0MMIwIJXm_b2c5JyiKYkT1nx4QGelRn6yHCJie8G0Q3k3j6heku92g";
 
     /*
      * PKCS#8 private key used for JWT signing.
@@ -28,7 +28,7 @@ public final class SalesforceJWTConfiguration {
      * Package Org is a Salesforce Sandbox.
      */
     private static final String LOGIN_URL =
-            "https://test.salesforce.com";
+            "https://test8-internal--ggmergeqa2.sandbox.my.salesforce.com";
 
 
     private SalesforceJWTConfiguration() {

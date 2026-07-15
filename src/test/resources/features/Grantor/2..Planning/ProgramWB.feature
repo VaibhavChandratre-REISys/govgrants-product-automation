@@ -7955,7 +7955,7 @@ Feature: Validate all scenarios for program
     Then I softly see value "" for title "Attention To" inside table "---program:-:programCollabMessagesTableId---"
     Then I see the following rows under the following headers in table with id "---program:-:programCollabMessagesTableId---" :
       | Subject         | From Address                  | CC Address | To Address                    | Attention To | Email Subject   |
-      | Automation Test | pm.automation.qa2@yopmail.com |            | fo.automation.qa2@yopmail.com |              | Automation Test |
+      | Automation Test | pm.automation.merge@yopmail.com|            | fo.automation.qa2@yopmail.com |              | Automation Test |
     #330580
     And I click on "Reply" icon for "Automation Test" inside flex table with id "---program:-:programCollabMessagesTableId---" without waiting for record
     And I send the email under collab tab with following details:
@@ -7976,7 +7976,7 @@ Feature: Validate all scenarios for program
     And I navigate to "Messages" sub tab
     Then I see the following rows under the following headers in table with id "---program:-:programCollabMessagesTableId---" :
       | Subject         | From Address                  | CC Address | To Address                    | Attention To | Email Subject   |
-      | Automation Test | pm.automation.qa2@yopmail.com |            | fo.automation.qa2@yopmail.com |              | Automation Test |
+      | Automation Test | pm.automation.merge@yopmail.com|            | fo.automation.qa2@yopmail.com |              | Automation Test |
     #330615
     And I click on "Reply" icon for "Automation Test" inside flex table with id "---program:-:programCollabMessagesTableId---" without waiting for record
     And I send the email under collab tab with following details:
@@ -8027,7 +8027,7 @@ Feature: Validate all scenarios for program
     Then I softly see value "exe.automation.qa2@yopmail.com" for title "To Address" inside table "---program:-:systemEmailsTableId---"
     And I click on "View" icon for "exe.automation.qa2@yopmail.com" inside flex table with id "---program:-:systemEmailsTableId---" without waiting for record
     Then I softly see following details for email sent under collab:
-      | pm.automation.qa2@yopmail.com                                         |
+      | pm.automation.merge@yopmail.com                                        |
       | exe.automation.qa2@yopmail.com                                        |
       | Notification: Program {SavedValue:ProgramEGMSID} awaiting Peer Review |
     When I close "System Email" modal by clicking the top right x button
@@ -8042,7 +8042,7 @@ Feature: Validate all scenarios for program
     Then I softly see value "exe.automation.qa2@yopmail.com" for title "To Address" inside table "---program:-:systemEmailsTableId---"
     And I click on "View" icon for "exe.automation.qa2@yopmail.com" inside flex table with id "---program:-:systemEmailsTableId---" without waiting for record
     Then I softly see following details for email sent under collab:
-      | pm.automation.qa2@yopmail.com                                         |
+      | pm.automation.merge@yopmail.com                                        |
       | exe.automation.qa2@yopmail.com                                        |
       | Notification: Program {SavedValue:ProgramEGMSID} awaiting Peer Review |
     When I close "System Email" modal by clicking the top right x button
@@ -8064,7 +8064,7 @@ Feature: Validate all scenarios for program
     And I click on "View" icon for "Notification: Program {SavedValue:ProgramEGMSID} has been Peer Reviewed" inside flex table with id "---program:-:systemEmailsTableId---" without waiting for record
     Then I softly see following details for email sent under collab:
       | exe.automation.qa2@yopmail.com                                          |
-      | pm.automation.qa2@yopmail.com                                           |
+      | pm.automation.merge@yopmail.com                                          |
       | Notification: Program {SavedValue:ProgramEGMSID} has been Peer Reviewed |
     When I close "System Email" modal by clicking the top right x button
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
@@ -8080,7 +8080,7 @@ Feature: Validate all scenarios for program
     And I click on "View" icon for "Notification: Program {SavedValue:ProgramEGMSID} has been Peer Reviewed" inside flex table with id "---program:-:systemEmailsTableId---" without waiting for record
     Then I softly see following details for email sent under collab:
       | exe.automation.qa2@yopmail.com                                          |
-      | pm.automation.qa2@yopmail.com                                           |
+      | pm.automation.merge@yopmail.com                                          |
       | Notification: Program {SavedValue:ProgramEGMSID} has been Peer Reviewed |
     When I close "System Email" modal by clicking the top right x button
     #331477
@@ -8194,7 +8194,7 @@ Feature: Validate all scenarios for program
     And I click on "View" icon for "pm.automation.qa2@yopmail.com" inside flex table with id "---program:-:systemEmailsTableId---" without waiting for record
     Then I softly see following details for email sent under collab:
       | automation.po.qa2@yopmail.com                                                            |
-      | pm.automation.qa2@yopmail.com                                                            |
+      | pm.automation.merge@yopmail.com                                                           |
       | Notification: Approver has initiated Undo Action on Program #{SavedValue:ProgramEGMSID}. |
 
   @331862 @331869 @ValidatethatEmailwillnotgenerateSystemEmailmessagestabwhenOwnerofprogramclicksonActivatebuttononInternalProgram @Sprint-11-US-327737 @SystemEmail
@@ -8286,13 +8286,13 @@ Feature: Validate all scenarios for program
     And I click on top right button "Send Email" in flex table with id "---program:-:programCollabMessagesTableId---"
     And I send the email under collab tab with following details:
       | To                            | Subject         | Body                       |
-      | pm.automation.qa2@yopmail.com | Automation Test | Automation Test Email Body |
+      | pm.automation.merge@yopmail.com| Automation Test | Automation Test Email Body |
     Then I see the text "Email Sent Successfully." in modal
     And I close "Send Email" modal by clicking the top right x button
     Then I softly see value "" for title "Attention To" inside table "---program:-:programCollabMessagesTableId---"
     Then I see the following rows under the following headers in table with id "---program:-:programCollabMessagesTableId---" :
       | Subject         | From Address                  | CC Address | To Address                    | Attention To | Email Subject   |
-      | Automation Test | automation.fd.qa2@yopmail.com |            | pm.automation.qa2@yopmail.com |              | Automation Test |
+      | Automation Test | automation.fd.qa2@yopmail.com |            | pm.automation.merge@yopmail.com|              | Automation Test |
     And I refresh the page
     Then I see "No Records Found" inside flex table with id "---program:-:systemEmailsTableId---"
     #331480
