@@ -1,4 +1,4 @@
-@GovSBIRSanity @regression
+@GovGrantsSanityPreCheck @regression
 Feature: Validate Pre-requisiste check for Sanity/Regression
 
   @checkUserLoginsGrantor
