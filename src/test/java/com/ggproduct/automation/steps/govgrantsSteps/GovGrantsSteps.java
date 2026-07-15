@@ -110,31 +110,105 @@ public final class GovGrantsSteps {
         }
     }
 
+    @Description("Login to the app as any user")
     @Given("^I login to \"([^\"]*)\" app as \"([^\"]*)\" user$")
-    public void loginToggleToApp(String appName, String userType) {
+    public void loginToggleToApp(
+            String appName,
+            String userType) {
         if (appName.equalsIgnoreCase("Grants Portal")) {
-            govgrants.perform().mainPage().loginWithUserType(userType);
-        } else {
-            System.out.println("[Login] Starting login for user type: " + userType);
-            WebDriver driver = InstanceRecording.getInstance(DeviceBucket.class).getDriver();
-            if (driver == null) {
-                throw new IllegalStateException("WebDriver is not initialized.");
-            }
-            if (SalesforceJWTConfiguration.isEnabled()) {
-                System.out.println("[Login] Salesforce JWT authentication enabled.");
-                System.out.println("[Login] Requested user type: " + userType);
-                SalesforceJWTLoginManager jwtLoginManager = new SalesforceJWTLoginManager(driver);
-                jwtLoginManager.login(userType);
-                System.out.println("[Login] Salesforce JWT login completed.");
-            } else {
-                System.out.println("[Login] Salesforce JWT authentication disabled.");
-                System.out.println("[Login] Using existing UI login.");
                 govgrants.perform().mainPage().loginWithUserType(userType);
+
+        } else {
+
+            System.out.println(
+                    "[Login] Starting login for user type: "
+                            + userType
+            );
+
+
+            WebDriver driver =
+                    InstanceRecording
+                            .getInstance(DeviceBucket.class)
+                            .getDriver();
+
+
+            if (driver == null) {
+
+                throw new IllegalStateException(
+                        "WebDriver is not initialized."
+                );
             }
-            validateSalesforceSession(driver);
-            if (appName.equalsIgnoreCase("Grantor") || appName.equalsIgnoreCase("Grantee") || appName.equalsIgnoreCase("SBIR/STTR Portal")) {
-                System.out.println("[Login] Setting Salesforce app: " + appName);
-                govgrants.perform().mainPage().setUpCustomAppDropDown(appName);
+
+
+            if (SalesforceJWTConfiguration.isEnabled()) {
+
+                System.out.println(
+                        "[Login] Salesforce JWT authentication enabled."
+                );
+
+
+                System.out.println(
+                        "[Login] Requested user type: "
+                                + userType
+                );
+
+
+                SalesforceJWTLoginManager jwtLoginManager =
+                        new SalesforceJWTLoginManager(
+                                driver
+                        );
+
+
+                jwtLoginManager.login(
+                        userType
+                );
+
+
+                System.out.println(
+                        "[Login] Salesforce JWT login completed."
+                );
+
+
+            } else {
+
+                System.out.println(
+                        "[Login] Salesforce JWT authentication disabled."
+                );
+
+
+                System.out.println(
+                        "[Login] Using existing UI login."
+                );
+
+
+                govgrants.perform()
+                        .mainPage()
+                        .loginWithUserType(
+                                userType
+                        );
+            }
+
+
+            validateSalesforceSession(
+                    driver
+            );
+
+
+            if (appName.equalsIgnoreCase("Grantor")
+                    || appName.equalsIgnoreCase("Grantee")
+                    || appName.equalsIgnoreCase("SBIR/STTR Portal")) {
+
+                System.out.println(
+                        "[Login] Setting Salesforce app: "
+                                + appName
+                );
+
+
+                govgrants.perform()
+                        .mainPage()
+                        .setUpCustomAppDropDown(
+                                appName
+                        );
             }
         }
     }
