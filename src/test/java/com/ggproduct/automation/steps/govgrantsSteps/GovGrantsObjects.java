@@ -383,8 +383,8 @@ public final class GovGrantsObjects {
             if (!withoutRandomNumber) {
                 renameFile(defaultFilePath, fileName, newFileName);
             }
-            I.amPerforming().waitFor().ElementToBeClickable(classificationType,10);
-            I.amPerforming().waitFor().ElementToBeClickable(options,10);
+            I.amPerforming().waitFor().ElementToBeClickable(classificationType);
+            I.amPerforming().waitFor().ElementToBeClickable(options);
             I.amPerforming().dropDownSelection().from(classificationType).selectByValue(fileType);
             I.amPerforming().waitFor().makeThreadSleep(5000);
             I.amPerforming().textInput().in(filePath, defaultFilePath + newFileName);

@@ -5,6 +5,7 @@ import com.helperPackage.register.I;
 import com.helperPackage.report.LogLevel;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.TimeoutException;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -18,6 +19,7 @@ public final class Approvals {
             commentBoxLocator = By.xpath("//c-approval-decision//textarea"),
             submitButtonLocator = By.xpath("//c-approval-decision//button[@title='Submit' and text()='Submit']"),
             submitConfirmationLocator = By.xpath("//div[@class='confirm-modal']//button[contains(text(),'Continue')]"),
+            toastActionLocator = By.xpath("//button[@aria-label='View approval request details']"),
             approvalMessagesLocator = By.xpath("//div[contains(@id,'toastDescription')]//span");
 
     private By radioButtonLocator(String buttonName) {
@@ -29,6 +31,13 @@ public final class Approvals {
         return By.xpath("//div[@class='slds-combobox_container']//div//ul//li//div[" + I.amPerforming().sanityOfXpathTo().contains(".", userName) + "] | //div[@class='slds-combobox_container']//div//ul//li//div[@data-label='" + userName +"']");
     }
 
+    public void ifToastActionIsDisplayed() {
+        try {
+            I.amPerforming().waitFor().ElementToBeClickable(toastActionLocator);
+            I.amPerforming().click().on(toastActionLocator);
+        } catch (TimeoutException e) {
+        }
+    }
 
     // Action Methods
 
