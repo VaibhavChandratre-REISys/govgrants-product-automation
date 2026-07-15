@@ -48,6 +48,11 @@ public final class SalesforceJWTUserResolver {
         );
 
         users.put(
+                "dynamicUser",
+                "pm.automation.merge@yopmail.com"
+        );
+
+        users.put(
                 "FO",
                 "fo.automation.ggmergeqa2@yopmail.com"
         );
