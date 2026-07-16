@@ -3913,7 +3913,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I get the "EGMS ID"
     When I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---program:-:contactsTableId---"
-    When I click "Associate" after selection of "{SavedValue:EXE Username}" in the table "---program:-:associateContactsTableId---"
+    When I click "Associate" after selection of "{SavedValue:PM1 Username}" in the table "---program:-:associateContactsTableId---"
     When I click modal button "Close"
     When I navigate to "Setup" sub tab
     And I click on top right button "Associate" in flex table with id "---program:-:focusAreaTableId---"

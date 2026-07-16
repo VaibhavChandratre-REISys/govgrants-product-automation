@@ -1,4 +1,4 @@
-@GovGrantsSanityPreCheck @regression
+@GovGrantsSanityPreRequisiteCheck @regression
 Feature: Validate Pre-requisiste check for Sanity/Regression
 
   @checkUserLoginsGrantor
@@ -81,7 +81,7 @@ Feature: Validate Pre-requisiste check for Sanity/Regression
     When I create a post award record "ProgressReport" for the Award "{SavedValue:Automation Runtime Announcement}" having object api name as "ProgressReports__c"
     When I create a post award record "Closeout" for the Award "{SavedValue:Automation Runtime Announcement}" having object api name as "Closeout"
 
-  @WorkPlanActivationAPI @PaymentOrProgresOrCloseoutRequestBatchJob @APISanity
+  @mk @WorkPlanActivationAPI @PaymentOrProgresOrCloseoutRequestBatchJob @APISanity
   Scenario: Workplan Award Activation API and PaymentRequest / ProgressReport / Closeout batch jobs
     Given I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     When I create a post award record "PaymentRequest" for the Award "{SavedValue:Automation Runtime Award}" having object api name as "PaymentRequest__c"
