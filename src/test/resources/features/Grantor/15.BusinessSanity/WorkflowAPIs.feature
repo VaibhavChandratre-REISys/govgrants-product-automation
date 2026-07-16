@@ -1,7 +1,7 @@
 @workflowAPIs @regression
 Feature: Validate all APIs of every modules flow
 
-  @testgranteesf
+  @mkk @testgranteesf
   Scenario:
     Given I create program records with status "Active" using "default" properties
       | Title                               | RecordType       |

@@ -69,3 +69,21 @@ Feature: Validate Pre-requisiste check for Sanity/Regression
     When I re-login to "Grantee" app as "GRANTEE AUDITOR" user on "SUBPORTAL" portal
     And I navigate to "Home" tab
     And I logout
+
+  @StandardAwardActivationAPI @InlineItems @FDMAward
+  Scenario: Standard Award Activation from approved FDM API
+    Given I published "Competitive" type announcement having name "Automation Runtime Announcement" and properties "default"
+    When I initiated an application review for application "{SavedValue:Automation Runtime Announcement}" on announcement "{SavedValue:Automation Runtime Announcement}" with properties "default"
+    And I created approved FDM on application "{SavedValue:Automation Runtime Announcement}"
+    And I created award from approved FDM with announcement "{SavedValue:Automation Runtime Announcement}"
+    And I activate award from FDM having application name "{SavedValue:Automation Runtime Announcement}"
+    When I create a post award record "PaymentRequest" for the Award "{SavedValue:Automation Runtime Announcement}" having object api name as "PaymentRequest__c"
+    When I create a post award record "ProgressReport" for the Award "{SavedValue:Automation Runtime Announcement}" having object api name as "ProgressReports__c"
+    When I create a post award record "Closeout" for the Award "{SavedValue:Automation Runtime Announcement}" having object api name as "Closeout"
+
+  @WorkPlanActivationAPI @PaymentOrProgresOrCloseoutRequestBatchJob @APISanity
+  Scenario: Workplan Award Activation API and PaymentRequest / ProgressReport / Closeout batch jobs
+    Given I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
+    When I create a post award record "PaymentRequest" for the Award "{SavedValue:Automation Runtime Award}" having object api name as "PaymentRequest__c"
+    When I create a post award record "ProgressReport" for the Award "{SavedValue:Automation Runtime Award}" having object api name as "ProgressReports__c"
+    When I create a post award record "Closeout" for the Award "{SavedValue:Automation Runtime Award}" having object api name as "Closeout"
