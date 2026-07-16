@@ -1645,6 +1645,8 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click modal button "Continue"
     And I enter "Grant_Edition1" values from "Award_Field_Values.xlsx"
     When I click modal button "Save and Continue"
+    Then I softly see status in Progress-bar is "Created" and is "dark blue"
+    And I wait for "5" seconds
     And I save the field labeled "EGMS ID" as "GrantEGMSID"
     And I navigate to "Subawards" sub tab
     And I click on "View" icon for "Created" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
