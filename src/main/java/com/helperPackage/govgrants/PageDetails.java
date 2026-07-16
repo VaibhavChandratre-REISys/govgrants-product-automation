@@ -485,9 +485,9 @@ public final class PageDetails {
         );
         String fieldValue;
         WebElement fieldData = I.amPerforming().getElementReference().of(fieldLabelLocator)
-                .findElement(By.xpath("./parent::div//div[not(@part='help-text')] | ./parent::slot//div[not(@part='help-text')] | ./parent::slot//lightning-formatted-text[not(@part='help-text')] | ./parent::div//li[not(@part='help-text')] | ./parent::div//span//p[not(@part='help-text')] |.//ancestor::span"));
-        if (fieldData.findElements(By.xpath(".//input[@type='checkbox'] | .//input[@type='radio']")).size() != 0) {
-            fieldValue = I.amPerforming().checkToSee().isSelected(I.amPerforming().getElementReference().ofNested(fieldData, By.xpath(".//input[@type='checkbox']|.//input[@type='radio']")))
+                .findElement(By.xpath("./parent::div//div[not(@part='help-text')] | ./parent::slot//div[not(@part='help-text')] | ./parent::slot//lightning-formatted-text[not(@part='help-text')] | ./parent::div//li[not(@part='help-text')] | ./parent::div//span//p[not(@part='help-text')] | ./parent::div//lightning-formatted-rich-text//span[not(@part='help-text')] | ./parent::div//lightning-formatted-text[not(@part='help-text')]"));
+        if (fieldData.findElements(By.xpath(".//input[@type='checkbox']")).size() != 0) {
+            fieldValue = I.amPerforming().checkToSee().isSelected(I.amPerforming().getElementReference().ofNested(fieldData, By.xpath(".//input[@type='checkbox']")))
                     ? "Checked" : "Unchecked";
         } else {
             fieldValue = StringUtils.normalizeSpace(I.amPerforming().actionToGet().text(fieldData));
