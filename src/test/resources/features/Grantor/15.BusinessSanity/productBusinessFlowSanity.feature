@@ -115,7 +115,7 @@ Feature: Validate sanity testing of Complete Business Flow
 
   @72341 @programActivation @ProdSan1
   Scenario: Validate the activation of Internal Program and the status changes to Active
-    When I login to "Grantor" app as "EXE" user
+    When I login to "Grantor" app as "PM" user
     And I navigate to "Planning" tab
     When I navigate to "Internal Programs" content inside "Programs" subheader on left panel
     And I click toggle button to select "Internal Programs - Draft"
@@ -169,7 +169,6 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click on "Submit For Approval" in the page details
     And I wait for "3" seconds
     Then I see status in Progress-bar is "Submitted for Approval" and is "dark blue"
-    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Planning" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---program:-:pendingTaskTableId---" panel
