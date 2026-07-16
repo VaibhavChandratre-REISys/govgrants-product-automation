@@ -23,8 +23,7 @@ public final class Approvals {
             approvalMessagesLocator = By.xpath("//div[contains(@id,'toastDescription')]//span");
 
     private By radioButtonLocator(String buttonName) {
-        return By.xpath("" +
-                "//c-approval-decision//div//span[text()='" + buttonName + "'] | //c-approval-decision//div//span//input[@value='" + buttonName + "']");
+        return By.xpath("//c-approval-decision//div[@data-value='" + buttonName + "'] | //c-approval-decision//div//span[text()='" + buttonName + "'] | //c-approval-decision//div//span//input[@value='" + buttonName + "']");
     }
 
     private By userLookupResultLocator(String userName) {
