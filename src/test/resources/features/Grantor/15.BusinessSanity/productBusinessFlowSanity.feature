@@ -3962,6 +3962,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I enter comment "Automation testing" in the approval decision
     And I submit the approval in the approval decision without processing
     And I wait for "2" seconds
+    And I halt execution
     Then I softly see confirmation box with body "This action cannot be undone. Do you really want to Reject?" is displayed
     And I click "Cancel" on modal confirmation box
     And I wait for "3" seconds
