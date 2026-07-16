@@ -176,25 +176,28 @@ public final class PageDetails {
      * @modifier yugandhara.chibade Added new xpath at line 122 and updated method logic for click on more tab element
      */
     public void clickSubTabsInsideTableViewForLWC(String tabName) {
-        By tab = By.xpath("//ul[@role='tablist']//a[@role='tab'][normalize-space()='" + tabName + "']");
-        By more = By.xpath("//button[@title='More Tabs' or @title='More']");
-        By dropdownTab = By.xpath("//div[contains(@class,'slds-dropdown')]//span[normalize-space()='" + tabName + "']");
-        I.amPerforming().waitFor().ElementToBeClickable(By.xpath("//ul[@role='tablist' and @aria-label='Tabs']"));
+        By desiredTab = By.xpath("//div[@class='slds-tabs_default']//ul//li[@title='" + tabName + "']");
+        By moreTabs = By.xpath("//div[@class='slds-tabs_default']//li[not(contains(@style,'hidden'))]//button[@title='More Tabs'] | //button[@title='More Tabs']");
+
         try {
-            if (I.amPerforming().checkToSee().IsElementPresentQuick(tab)) {
-                I.amPerforming().click().on(tab);
+            if (I.amPerforming().checkToSee().isDisplayed(desiredTab)) {
+                I.amPerforming().scroll().toMoveToElement(desiredTab);
+                I.amPerforming().click().withJavaScript(desiredTab);
             } else {
-                I.amPerforming().click().on(more);
-                I.amPerforming().click().on(dropdownTab);
+                I.amPerforming().scroll().toMoveToElement(moreTabs);
+                I.amPerforming().click().withJavaScript(moreTabs);
+                I.amPerforming().waitFor().ElementToBePresent(desiredTab);
+                I.amPerforming().scroll().toMoveToElement(desiredTab);
+                I.amPerforming().click().withJavaScript(desiredTab);
             }
-        } catch (Exception e) {
-            I.amPerforming().updatingOfReportWith().write(LogLevel.BUSINESS_LAYER_ERROR, "Normal click failed. Retrying with JavaScript");
-            if (I.amPerforming().checkToSee().IsElementPresentQuick(tab)) {
-                I.amPerforming().click().withJavaScript(tab);
+        } catch (Exception ex) {
+            I.amPerforming().updatingOfReportWith().write(LogLevel.BUSINESS_LAYER_ERROR, "     An exception is thrown - Retrying with javaScript");
+            if (I.amPerforming().checkToSee().isDisplayed(desiredTab)) {
+                I.amPerforming().click().withJavaScript(desiredTab, false);
             } else {
-                I.amPerforming().click().withJavaScript(more);
-                I.amPerforming().waitFor().ElementToBePresent(dropdownTab);
-                I.amPerforming().click().withJavaScript(dropdownTab);
+                I.amPerforming().click().on(moreTabs);
+                I.amPerforming().waitFor().ElementToBePresent(desiredTab);
+                I.amPerforming().click().withJavaScript(desiredTab, false);
             }
         }
     }

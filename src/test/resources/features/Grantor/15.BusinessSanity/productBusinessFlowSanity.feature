@@ -296,8 +296,8 @@ Feature: Validate sanity testing of Complete Business Flow
     When I click modal button "Save"
     And I click on submit review
     And I pause execution for "2" seconds
-    When I click modal button "Close"
-    And I wait for "2" seconds
+#    When I click modal button "Close"
+#    And I wait for "2" seconds
 #    When I close "Enter Review" modal by clicking the top right x button
     When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Announcements" tab
@@ -499,7 +499,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I wait for "5" seconds
     Then I see status in Progress-bar is "Published" and is "dark blue"
 
-  @72342 @publishingDirectedAnnouncement @ProdSan2 @TBE1
+  @mkk @72342 @publishingDirectedAnnouncement @ProdSan2 @TBE1
   Scenario: Validate the activation of Directed Announcement and the status changes to published and is green
     When I login to "Grantor" app as "PM" user
     And I navigate to "Announcements" tab
@@ -565,8 +565,8 @@ Feature: Validate sanity testing of Complete Business Flow
     When I click modal button "Save"
     And I wait for "2" seconds
     When I click on submit review
-    And I wait for "1" seconds
-    When I click modal button "Close"
+#    And I wait for "1" seconds
+#    When I click modal button "Close"
     And I wait for "2" seconds
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Announcements" tab
@@ -832,8 +832,8 @@ Feature: Validate sanity testing of Complete Business Flow
     When I click modal button "Save"
     And I wait for "2" seconds
     When I click on submit review
-    And I wait for "2" seconds
-    When I click modal button "Close"
+#    And I wait for "2" seconds
+#    When I click modal button "Close"
     And I wait for "2" seconds
     And I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     When I navigate to "Announcements" tab
@@ -1564,8 +1564,8 @@ Feature: Validate sanity testing of Complete Business Flow
     And I enter a review as "Passed"
     When I click modal button "Save"
     And I click on submit review
-    And I wait for "1" seconds
-    When I click modal button "Close"
+#    And I wait for "1" seconds
+#    When I click modal button "Close"
     And I wait for "1" seconds
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
@@ -1808,8 +1808,8 @@ Feature: Validate sanity testing of Complete Business Flow
     When I click modal button "Save"
     And I pause execution for "5" seconds
     And I click on submit review
-    When I click modal button "Close"
-    And I wait for "1" seconds
+#    When I click modal button "Close"
+#    And I wait for "1" seconds
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Risk Assessments" content inside "Monitoring Activities" subheader on left panel
