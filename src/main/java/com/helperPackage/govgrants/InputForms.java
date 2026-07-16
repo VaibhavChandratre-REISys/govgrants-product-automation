@@ -76,8 +76,8 @@ public final class InputForms {
                     }
                     // Switch to relevant tab
                     if (subTab != null && !"None".equalsIgnoreCase(subTab) && !subTab.equalsIgnoreCase(currentSubTab)) {
-                            govgrants.perform().pageDetails().clickSubTabsInsideTableViewForLWC(subTab);
-                            currentSubTab = subTab;
+                        govgrants.perform().pageDetails().clickSubTabsInsideTableViewForLWC(subTab);
+                        currentSubTab = subTab;
                     }
                     this.inputFormDataByFieldApiName(fieldApiName, fieldValue, isModal.contains("modal"));
                 }
