@@ -33,32 +33,26 @@ Feature: Validate Pre-requisiste check for Sanity/Regression
     And I navigate to "Home" tab
     When I re-login to "Grants Portal" app as "SME" user on "SUBPORTAL" portal
     And I navigate to "Home" tab
-    #RegressionUser
-    When I re-login to "Grantor" app as "AUDITOR" user on "INTERNAL" portal
-    And I navigate to "Home" tab
-    When I re-login to "Grants Portal" app as "SPA" user on "SUBPORTAL" portal
-    And I navigate to "Home" tab
-    When I re-login to "Grants Portal" app as "IND" user on "SUBPORTAL" portal
-    And I navigate to "Home" tab
-    When I re-login to "Grants Portal" app as "SPI4" user on "SUBPORTAL" portal
-    And I navigate to "Home" tab
-    When I re-login to "Grantor" app as "SARAH PM" user on "INTERNAL" portal
-    And I navigate to "Home" tab
-    And I logout
+#    #RegressionUser
+#    When I re-login to "Grantor" app as "AUDITOR" user on "INTERNAL" portal
+#    And I navigate to "Home" tab
+#    When I re-login to "Grants Portal" app as "SPA" user on "SUBPORTAL" portal
+#    And I navigate to "Home" tab
+#    When I re-login to "Grants Portal" app as "IND" user on "SUBPORTAL" portal
+#    And I navigate to "Home" tab
+#    When I re-login to "Grants Portal" app as "SPI4" user on "SUBPORTAL" portal
+#    And I navigate to "Home" tab
+#    When I re-login to "Grantor" app as "SARAH PM" user on "INTERNAL" portal
+#    And I navigate to "Home" tab
+#    And I logout
 
-  @checkUserLoginsGrantee
+  @mk @checkUserLoginsGrantee
   Scenario: Check GovGrants user logins - Grantee
     When I login to "Grantee" app as "GRANTEE ADMIN" user
-    And I navigate to "Home" tab
-    When I re-login to "Grantee" app as "GRANTEE ADMIN1" user on "SUBPORTAL" portal
-    And I navigate to "Home" tab
-    When I re-login to "Grantee" app as "GRANTEE ADMIN2" user on "SUBPORTAL" portal
     And I navigate to "Home" tab
     When I re-login to "Grantee" app as "GRANTEE PM" user on "SUBPORTAL" portal
     And I navigate to "Home" tab
     When I re-login to "Grantee" app as "GRANTEE EXE" user on "SUBPORTAL" portal
-    And I navigate to "Home" tab
-    When I re-login to "Grantee" app as "GRANTEE EXE1" user on "SUBPORTAL" portal
     And I navigate to "Home" tab
     When I re-login to "Grantee" app as "GRANTEE FO" user on "SUBPORTAL" portal
     And I navigate to "Home" tab
@@ -68,7 +62,14 @@ Feature: Validate Pre-requisiste check for Sanity/Regression
     And I navigate to "Home" tab
     When I re-login to "Grantee" app as "GRANTEE AUDITOR" user on "SUBPORTAL" portal
     And I navigate to "Home" tab
-    And I logout
+#    #RegressionUser
+#    When I re-login to "Grantee" app as "GRANTEE ADMIN1" user on "SUBPORTAL" portal
+#    And I navigate to "Home" tab
+#    When I re-login to "Grantee" app as "GRANTEE ADMIN2" user on "SUBPORTAL" portal
+#    And I navigate to "Home" tab
+#    When I re-login to "Grantee" app as "GRANTEE EXE1" user on "SUBPORTAL" portal
+#    And I navigate to "Home" tab
+#    And I logout
 
   @StandardAwardActivationAPI @InlineItems @FDMAward
   Scenario: Standard Award Activation from approved FDM API
@@ -81,7 +82,7 @@ Feature: Validate Pre-requisiste check for Sanity/Regression
     When I create a post award record "ProgressReport" for the Award "{SavedValue:Automation Runtime Announcement}" having object api name as "ProgressReports__c"
     When I create a post award record "Closeout" for the Award "{SavedValue:Automation Runtime Announcement}" having object api name as "Closeout"
 
-  @mk @WorkPlanActivationAPI @PaymentOrProgresOrCloseoutRequestBatchJob @APISanity
+  @WorkPlanActivationAPI @PaymentOrProgresOrCloseoutRequestBatchJob @APISanity
   Scenario: Workplan Award Activation API and PaymentRequest / ProgressReport / Closeout batch jobs
     Given I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     When I create a post award record "PaymentRequest" for the Award "{SavedValue:Automation Runtime Award}" having object api name as "PaymentRequest__c"

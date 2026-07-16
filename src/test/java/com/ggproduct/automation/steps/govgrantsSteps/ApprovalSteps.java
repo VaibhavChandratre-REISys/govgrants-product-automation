@@ -14,6 +14,7 @@ public class ApprovalSteps {
 
     @When("I select radio button {string} in the approval decision")
     public void selectApprovalRadioButton(String radioButtonName) {
+        govgrants.perform().approvals().ifToastActionIsDisplayed();
         govgrants.perform().approvals().selectRadioButton(radioButtonName);
     }
 
