@@ -113,9 +113,10 @@ Feature: Validate sanity testing of Complete Business Flow
     And I wait for "2" seconds
     Then I softly see value "New" for title "Status" inside table "---home:-:subrecipientContactTableId---"
 
-  @72341 @programActivation @ProdSan1
+  @mk @72341 @programActivation @ProdSan1
   Scenario: Validate the activation of Internal Program and the status changes to Active
-    When I login to "Grantor" app as "PM" user
+    When I login to "Grantor" app as "EXE" user
+    When I "Approve" in the approval decision
     And I navigate to "Planning" tab
     When I navigate to "Internal Programs" content inside "Programs" subheader on left panel
     And I click toggle button to select "Internal Programs - Draft"

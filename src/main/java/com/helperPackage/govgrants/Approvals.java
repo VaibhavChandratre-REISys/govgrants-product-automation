@@ -17,7 +17,7 @@ public final class Approvals {
             userLookupSearchLocator = By.xpath("//input[@placeholder='Search' and @type='text']"),
             userLookupResultsLocator = By.xpath("//div[@class='slds-combobox_container']//div//ul//li//div"),
             commentBoxLocator = By.xpath("//c-approval-decision//textarea"),
-            submitButtonLocator = By.xpath("//c-approval-decision//button[@title='Submit' and text()='Submit']"),
+            submitButtonLocator = By.xpath("//c-approval-decision//button[normalize-space()='Submit Decision'] | //c-approval-decision//button[@title='Submit' and text()='Submit']"),
             submitConfirmationLocator = By.xpath("//div[@class='confirm-modal']//button[contains(text(),'Continue')]"),
             toastActionLocator = By.xpath("//button[@aria-label='View approval request details']"),
             approvalMessagesLocator = By.xpath("//div[contains(@id,'toastDescription')]//span");
