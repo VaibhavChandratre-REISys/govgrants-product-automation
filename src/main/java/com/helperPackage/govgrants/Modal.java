@@ -105,14 +105,10 @@ public final class Modal {
      */
     public void acceptPopUpWithParameter(String buttonName) {
         try {
-            if (I.amPerforming().checkToSee().isDisplayed(By.xpath("//div[contains(@class,'modal__footer')] | //div[contains(@class,'modal__container')]//lightning-confirm | //div[contains(@class,'modal__container')]//header"), true)) {
-                try {
-                    I.amPerforming().click().on(By.xpath("//div[contains(@class,'modal__footer')]//button[text()='" + buttonName + "'] | //div[contains(@class,'modal__container')]//button[text()='" + buttonName + "'] | //footer[contains(@class,'modal__footer')]//button[text()='" + buttonName + "']"));
-                } catch (Exception xe) {
-                    I.amPerforming().click().withJavaScript(By.xpath("//div[contains(@class,'modal__footer')]//button[text()='" + buttonName + "'] | //div[contains(@class,'modal__container')]//button[text()='" + buttonName + "'] | //footer[contains(@class,'modal__footer')]//button[text()='" + buttonName + "']"));
-                }
+            if (I.amPerforming().checkToSee().isDisplayed(By.xpath("//footer[contains(@class,'confirm-modalfooter')] | //div[contains(@class,'modal__footer')] | //div[contains(@class,'modal__container')]//lightning-confirm | //div[contains(@class,'modal__container')]//header"), true)) {
+                I.amPerforming().click().on(By.xpath("//div[contains(@class,'modal__footer')]//button[text()='" + buttonName + "'] | //div[contains(@class,'modal__container')]//button[text()='" + buttonName + "'] | //footer[contains(@class,'modal__footer')]//button[text()='" + buttonName + "']"));
             }
-        } catch (Exception ignored) {
+        } catch (Exception e) {
         }
     }
 

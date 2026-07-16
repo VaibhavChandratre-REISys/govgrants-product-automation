@@ -12,7 +12,7 @@ import java.util.stream.Collectors;
 
 public final class Approvals {
     private final By approvalDecisionLocator = By.xpath("//div[@id='ApprovalDecisionComponent']"),
-            radioButtonsLocator = By.xpath("//c-approval-decision//label//span[contains(@class,'form-element__label')]"),
+            radioButtonsLocator = By.xpath("//c-approval-decision//label//span[contains(@class,'form-element__label')] | //c-approval-decision//div[contains(@class,'action-label')]"),
             userLookupLocator = By.xpath("//input[@placeholder='Search' and @type='text']"),
             userLookupSearchLocator = By.xpath("//input[@placeholder='Search' and @type='text']"),
             userLookupResultsLocator = By.xpath("//div[@class='slds-combobox_container']//div//ul//li//div"),
