@@ -59,7 +59,7 @@ public final class Modal {
         try {
             I.amPerforming().waitFor().makeThreadSleep(1500);
             if (I.amPerforming().checkToSee().IsElementPresentQuick(By.xpath("//div[contains(@class,'modal__container')]//lightning-confirm | //div[contains(@class,'modal__container')]//header//h2[text()='Confirm'] | //div[contains(@class,'modal__container')]//lightning-modal | //div[contains(@class,'modal__container')]//lightning-modal-header//h1[text()='Confirm']"))) {
-                    WebElement popup = I.amPerforming().getElementReference().of(By.xpath("//div[contains(@class,'modal__container')]"));
+                WebElement popup = I.amPerforming().getElementReference().of(By.xpath("//div[contains(@class,'modal__container')]"));
                 I.amPerforming().waitFor().makeThreadSleep(3000);
                 I.amPerforming().click().withJavaScript(By.xpath("//div[contains(@class,'modal__container')]//button[text()='OK' or text()='Yes' or text()='Continue']"));
             }

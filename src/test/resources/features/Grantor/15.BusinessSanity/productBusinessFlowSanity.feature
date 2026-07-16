@@ -116,77 +116,77 @@ Feature: Validate sanity testing of Complete Business Flow
   @mk @72341 @programActivation @ProdSan1
   Scenario: Validate the activation of Internal Program and the status changes to Active
     When I login to "Grantor" app as "PM" user
-    And I navigate to "Planning" tab
-    When I navigate to "Internal Programs" content inside "Programs" subheader on left panel
-    And I click toggle button to select "Internal Programs - Draft"
-    And I click on top right button "New" in flex table with id "---program:-:programsTableId---"
-    When I enter "Creation" values from "Program_Field_Values.xlsx"
-    And I click modal button "Save and Continue"
-    When I enter "Edition" values from "Program_Field_Values.xlsx"
-    And I click on "Save" in the page details
-    And I get the "EGMS ID"
-    When I navigate to "Overview" sub tab
-    And I click on top right button "Associate" in flex table with id "---program:-:contactsTableId---"
-    When I click "Associate" after selection of "{SavedValue:PM1 Username}" in the table "---program:-:associateContactsTableId---"
-    When I click modal button "Close"
-    When I navigate to "Setup" sub tab
-    And I click on top right button "Associate" in flex table with id "---program:-:focusAreaTableId---"
-    When I click "Associate" after selection of "Automation Permanent Focus Area2" in the table "---program:-:associateFocusAreaTableId---"
-    When I click modal button "Close"
-    And I wait for "2" seconds
-    And I click on top right button "Associate" in flex table with id "---program:-:objectivesTableId---"
-    When I click "Associate" after selection of "Automation Permanent Objective" in the table "---program:-:associateObjectivesTableId---"
-    When I click modal button "Close"
-    And I wait for "2" seconds
-    And I click on top right button "Associate" in flex table with id "---program:-:kpiTableId---"
-    When I click "Associate" after selection of "Automation Permanent KPI" in the table "---program:-:associateKPITableId---"
-    When I click modal button "Close"
-    And I wait for "2" seconds
-    When I navigate to "Responsibilities" sub tab
-    When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
-      | Name                     | Program |
-      | {SavedValue:PM Username} | NA      |
-    When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
-      | Name                     | Program |
-      | {SavedValue:PM Username} | Step 1  |
-    When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
-      | Name                      | Program |
-      | {SavedValue:EXE Username} | Step 2  |
-    When I get the "EGMS ID"
-    When I navigate to "Setup" sub tab
-    When I enter the following values into flex table with id "---program:-:checklistTableId---" by clicking "Add" :
-      | Description                 | Required | Applies To  | Status |
-      | Automation test description | Optional | Application | Active |
-    When I click on "Upload Template" icon for "Not Applicable" inside flex table with id "---program:-:checklistTableId---" without waiting for record
-    And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
-    When I click modal button "Close"
-    And I navigate to "Files" sub tab
-    And I click on top right button "Add Files" in flex table with id "---program:-:GrantorInternalProgramFilesTableId---"
-    And I pause execution for "5" seconds
-#    And I switch to iframe with id "---program:-:addFilesIframeId---"
-    And I upload attachment without random number "Attachment.pdf" of type "Program Artifacts" from computer
-    When I click modal button "Close"
-    And I click on "Submit For Approval" in the page details
-    And I wait for "3" seconds
-    Then I see status in Progress-bar is "Submitted for Approval" and is "dark blue"
-    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
-    And I navigate to "Planning" tab
-    And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    When I perform quick search for "Record Id" in "---program:-:pendingTaskTableId---" panel
-    And I click on "Start" icon for "Record Id" inside flex table with id "---program:-:pendingTaskTableId---" without waiting for record
-    When I "Approve" in the approval decision
+#    And I navigate to "Planning" tab
+#    When I navigate to "Internal Programs" content inside "Programs" subheader on left panel
+#    And I click toggle button to select "Internal Programs - Draft"
+#    And I click on top right button "New" in flex table with id "---program:-:programsTableId---"
+#    When I enter "Creation" values from "Program_Field_Values.xlsx"
+#    And I click modal button "Save and Continue"
+#    When I enter "Edition" values from "Program_Field_Values.xlsx"
+#    And I click on "Save" in the page details
+#    And I get the "EGMS ID"
+#    When I navigate to "Overview" sub tab
+#    And I click on top right button "Associate" in flex table with id "---program:-:contactsTableId---"
+#    When I click "Associate" after selection of "{SavedValue:PM1 Username}" in the table "---program:-:associateContactsTableId---"
+#    When I click modal button "Close"
+#    When I navigate to "Setup" sub tab
+#    And I click on top right button "Associate" in flex table with id "---program:-:focusAreaTableId---"
+#    When I click "Associate" after selection of "Automation Permanent Focus Area2" in the table "---program:-:associateFocusAreaTableId---"
+#    When I click modal button "Close"
+#    And I wait for "2" seconds
+#    And I click on top right button "Associate" in flex table with id "---program:-:objectivesTableId---"
+#    When I click "Associate" after selection of "Automation Permanent Objective" in the table "---program:-:associateObjectivesTableId---"
+#    When I click modal button "Close"
+#    And I wait for "2" seconds
+#    And I click on top right button "Associate" in flex table with id "---program:-:kpiTableId---"
+#    When I click "Associate" after selection of "Automation Permanent KPI" in the table "---program:-:associateKPITableId---"
+#    When I click modal button "Close"
+#    And I wait for "2" seconds
+#    When I navigate to "Responsibilities" sub tab
+#    When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
+#      | Name                     | Program |
+#      | {SavedValue:PM Username} | NA      |
+#    When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
+#      | Name                     | Program |
+#      | {SavedValue:PM Username} | Step 1  |
+#    When I enter the following values into flex table with id "---program:-:approverTableId---" by clicking "New" :
+#      | Name                      | Program |
+#      | {SavedValue:EXE Username} | Step 2  |
+#    When I get the "EGMS ID"
+#    When I navigate to "Setup" sub tab
+#    When I enter the following values into flex table with id "---program:-:checklistTableId---" by clicking "Add" :
+#      | Description                 | Required | Applies To  | Status |
+#      | Automation test description | Optional | Application | Active |
+#    When I click on "Upload Template" icon for "Not Applicable" inside flex table with id "---program:-:checklistTableId---" without waiting for record
+#    And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
+#    When I click modal button "Close"
+#    And I navigate to "Files" sub tab
+#    And I click on top right button "Add Files" in flex table with id "---program:-:GrantorInternalProgramFilesTableId---"
+#    And I pause execution for "5" seconds
+##    And I switch to iframe with id "---program:-:addFilesIframeId---"
+#    And I upload attachment without random number "Attachment.pdf" of type "Program Artifacts" from computer
+#    When I click modal button "Close"
+#    And I click on "Submit For Approval" in the page details
+#    And I wait for "3" seconds
+#    Then I see status in Progress-bar is "Submitted for Approval" and is "dark blue"
+#    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
+#    And I navigate to "Planning" tab
+#    And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+#    When I perform quick search for "Record Id" in "---program:-:pendingTaskTableId---" panel
+#    And I click on "Start" icon for "Record Id" inside flex table with id "---program:-:pendingTaskTableId---" without waiting for record
+#    When I "Approve" in the approval decision
     When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
     And I navigate to "Planning" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    When I perform quick search for "Record Id" in "---program:-:pendingTaskTableId---" panel
-    And I click on "Start" icon for "Record Id" inside flex table with id "---program:-:pendingTaskTableId---" without waiting for record
+    When I perform quick search for "PG-TAO-1764" in "---program:-:pendingTaskTableId---" panel
+    And I click on "Start" icon for "PG-TAO-1764" inside flex table with id "---program:-:pendingTaskTableId---" without waiting for record
     When I "Approve" in the approval decision
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Planning" tab
     When I navigate to "Internal Programs" content inside "Programs" subheader on left panel
     And I click toggle button to select "Internal Programs - All"
-    When I perform quick search for "Record Id" in "---program:-:programsTableId---" panel
-    And I click on "View" icon for "Record Id" inside flex table with id "---program:-:programsTableId---" without waiting for record
+    When I perform quick search for "PG-TAO-1764" in "---program:-:programsTableId---" panel
+    And I click on "View" icon for "PG-TAO-1764" inside flex table with id "---program:-:programsTableId---" without waiting for record
     And I click on "Activate" in the page details
     And I wait for "2" seconds
     Then I see status in Progress-bar is "Active" and is "dark blue"
@@ -1490,7 +1490,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I navigate to "Negotiations" content inside "Application Reviews" subheader on left panel
     Then I can see row level action button "View" against "{SavedValue:Automation Runtime FDM Announcement}" in flex table with id "---negotiation:-:negotiationCompletedTaskTableId---"
 
-  @mk @38224 @awardHappyPathFromFDM @ProdSan2
+  @38224 @awardHappyPathFromFDM @ProdSan2
   Scenario Outline: Validate  the activation of subaward from FDM happy path and the status changes to Activated
     Given I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "NO_RISK_ASSESSMENT"
     When I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"

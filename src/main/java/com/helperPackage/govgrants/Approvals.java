@@ -49,12 +49,18 @@ public final class Approvals {
      *
      * @param radioButtonOption the radio button to select
      */
+    /**
+     * Selects a given radio button in the approval decision
+     *
+     * @param radioButtonOption the radio button to select
+     */
     public void selectRadioButton(String radioButtonOption) {
         try {
             I.amPerforming().waitFor().ElementToBeVisible(radioButtonLocator(radioButtonOption));
             I.amPerforming().click().withJavaScript(radioButtonLocator(radioButtonOption));
         } catch (Exception e) {
             String error = e.getMessage();
+
             if (!isApprovalDecisionVisible()) {
                 error = "Approval decision was not visible on the page";
             } else if (!areRadioButtonsVisible()) {
@@ -62,8 +68,10 @@ public final class Approvals {
             } else if (!isRadioButtonVisible(radioButtonOption)) {
                 error = String.format("Matching radio button was not found in the page.%nThe following radio buttons were found: %s", getApprovalOptions());
             }
+
             I.amPerforming().updatingOfReportWith().write(LogLevel.BUSINESS_LAYER_ERROR, String.format("Could not select radio button '%s' in the approval decision.", radioButtonOption));
             I.amPerforming().updatingOfReportWith().write(LogLevel.EMPTY_LABEL, error);
+
             throw e;
         }
     }

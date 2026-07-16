@@ -888,6 +888,7 @@ public final class GovGrantsSteps {
         }
         govgrants.perform().mainPage().waitForNavigationLogoToDisappear();
     }
+
     @Description("click top right button after reaching to page detail inside Split screen")
     @When("^I click on \"([^\"]*)\" in the split screen (page details|page details without processing)$")
     public void clickPageButtonInsideSplitScreen(String buttonName, String buttonLocation) {
