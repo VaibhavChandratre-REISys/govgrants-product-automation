@@ -300,4 +300,19 @@ public class ProjectManager extends ProjectWebServices {
     public void clickOnHyperlinkForTheFieldContainingValue(String fieldAPIName, String value) {
         I.amPerforming().click().on(By.xpath("//c-fieldlwc[@data-fieldapiname='" + fieldAPIName + "']//a[text()='" + value + "']"));
     }
+
+    /**
+     * Metgod to choose record for association from flex table and click on button in page layout
+     * @param buttonName
+     * @param flexTableId
+     * @param recordUniqueValues
+     */
+    public void chooseRecordForAssociation(String buttonName, String flexTableId, String... recordUniqueValues) {
+        for (String recordUniqueValue : recordUniqueValues) {
+            govgrants.perform().quickSearch().performModalSpecificQuickSearchForLWC(flexTableId, recordUniqueValue);
+            I.amPerforming().waitFor().makeThreadSleep(1000);
+            govgrants.perform().flexTable().selectCheckBoxes(flexTableId, recordUniqueValue);
+        }
+        govgrants.perform().phasePanel().clickAnyRightPannelButton(flexTableId, buttonName);
+    }
 }
