@@ -68,7 +68,7 @@ public final class Modal {
 
         //Comment box handler
         try {
-            I.amPerforming().waitFor().makeThreadSleep(1500);
+            I.amPerforming().waitFor().makeThreadSleep(5000);
             if (I.amPerforming().checkToSee().IsElementPresentQuick(By.xpath("//div[contains(@class,'modalSectionContainer')]//h2[normalize-space()='Add Comment']"))) {
                 if (I.amPerforming().checkToSee().IsElementPresentQuick(By.xpath("//div[contains(@class,'modalSectionContainer')]//input"))) {
                     I.amPerforming().textInput().in(By.xpath("//div[contains(@class,'modalSectionContainer')]//input"), "Automated Test");

@@ -501,7 +501,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I wait for "5" seconds
     Then I see status in Progress-bar is "Published" and is "dark blue"
 
-  @72342 @publishingDirectedAnnouncement @ProdSan2 @TBE1
+  @mkk @72342 @publishingDirectedAnnouncement @ProdSan2 @TBE1
   Scenario: Validate the activation of Directed Announcement and the status changes to published and is green
     When I login to "Grantor" app as "PM" user
     And I navigate to "Announcements" tab
@@ -1490,7 +1490,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I navigate to "Negotiations" content inside "Application Reviews" subheader on left panel
     Then I can see row level action button "View" against "{SavedValue:Automation Runtime FDM Announcement}" in flex table with id "---negotiation:-:negotiationCompletedTaskTableId---"
 
-  @mk @38224 @awardHappyPathFromFDM @ProdSan2
+  @38224 @awardHappyPathFromFDM @ProdSan2
   Scenario Outline: Validate  the activation of subaward from FDM happy path and the status changes to Activated
     Given I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "NO_RISK_ASSESSMENT"
     When I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -1503,6 +1503,13 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click on "View" icon for "{SavedValue:Automation Runtime FDM Announcement}" inside flex table with id "---subAwardFromFDM:-:fdmTableId---" without waiting for record
     And I wait for "3" seconds
     When I select "{SavedValue:Automation Runtime FDM Announcement}" in the table "---subAwardFromFDM:-:recommendedAppTableId---" and click the top-right button "Create Award"
+    And I wait for "60" seconds
+    And I navigate to "Grants" tab
+    And I click toggle button to select "Grants - All"
+    When I perform quick search for "{SavedValue:Automation Runtime FDM Announcement}" in "---subAwardFromFDM:-:grantsTableId1---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime FDM Announcement}" inside flex table with id "---subAwardFromFDM:-:grantsTableId1---"
+    When I navigate to "Subawards" sub tab
+    And I click on "Edit" icon for "Created" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---"
     And I enter "Edition" values from "Award_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I get the "EGMS ID"
@@ -1582,7 +1589,6 @@ Feature: Validate sanity testing of Complete Business Flow
     And I wait for "3" seconds
     And I click on "Submit for Approval" in the page details
     And I wait for "2" seconds
-    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     When I navigate to "Grants" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---subAwardFromFDM:-:pendingTaskTableId---" panel
@@ -1630,6 +1636,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click on "View" icon for "<Award Name>" inside flex table with id "---subAwardFromFDM:-:subawardsTableId---" without waiting for record
     And I click on "Activate" in the page details
     Then I see status in Progress-bar is "Activated" and is "dark blue"
+
     Examples:
       | Award Name                                       | Grant Name                                       |
       | {SavedValue:Automation Runtime FDM Announcement} | {SavedValue:Automation Runtime FDM Announcement} |
