@@ -34,7 +34,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I click on "Activate" in the page details
     Then I see status in Progress-bar is "Active" and is "dark blue"
 
-  @72337 @activationOFFundingSource @ProdSan1 
+  @72337 @activationOFFundingSource @ProdSan1
   Scenario: Validate the activation of Funding Source HappyPath and the status is Active
     When I login to "Grantor" app as "EXE" user
     And I navigate to "Planning" tab
@@ -53,7 +53,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click on "Activate" in the page details
     Then I see status in Progress-bar is "Active" and is "dark blue"
 
-  @StrategicPlanCreation @ProdSan2 
+  @StrategicPlanCreation @ProdSan2
   Scenario: Creation of Strategic plan
     When I login to "Grantor" app as "EXE" user
     And I navigate to "Planning" tab
@@ -87,7 +87,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I click on "Back To Strategic Plan" in the page details
     Then I softly see status in Progress-bar is "Created" and is "dark blue"
 
-  @SubrecipientContactCreation @ProdSan2 
+  @SubrecipientContactCreation @ProdSan2
   Scenario: Subrecipient Contact Creation
     Given I login to "Grantor" app as "PM" user
     When I navigate to "Home" tab
@@ -191,7 +191,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I wait for "2" seconds
     Then I see status in Progress-bar is "Active" and is "dark blue"
 
-  @ExternalProgramActivation @ProdSan2 
+  @ExternalProgramActivation @ProdSan2
   Scenario: Validate External Program Activation
     When I login to "Grantor" app as "PM" user
     And I navigate to "Planning" tab
@@ -232,7 +232,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click on "Activate" in the page details
     Then I softly see status in Progress-bar is "Active" and is "dark blue"
 
-  @65077 @publishingCompetitiveAnnouncementCA @ProdSan2 
+  @65077 @publishingCompetitiveAnnouncementCA @ProdSan2
   Scenario: Validate the activation of Competitive Announcement
     When I login to "Grantor" app as "EXE" user
     And I navigate to "Announcements" tab
@@ -775,7 +775,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click on "Publish" in the page details
     Then I softly see status in Progress-bar is "Published" and is "dark blue"
 
-  @72343_1 @publishingFormulaAnnouncementByApplicantFocusArea @ProdSan2 
+  @72343_1 @publishingFormulaAnnouncementByApplicantFocusArea @ProdSan2
   Scenario: Validate the activation of Formula By Applicant Focus Area Announcement and the status changes to published and is green
     When I login to "Grantor" app as "PM" user
     And I navigate to "Announcements" tab
@@ -1060,7 +1060,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I wait for "5" seconds
     Then I softly see field "Status" as "Published"
 
-  @72343 @publishingFormulaAnnouncementByApplicant @ProdSan2 
+  @72343 @publishingFormulaAnnouncementByApplicant @ProdSan2
   Scenario: Validate the activation of Formula By Applicant Announcement and the status changes to published and is green
     When I login to "Grantor" app as "ADMIN" user
     And I navigate to "Announcements" tab
@@ -1093,7 +1093,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I click "Associate" after selection of "Automation ADMIN" in the table "---announcement:-:annoucementContactTableId---"
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---announcement:-:approversTableId---" by clicking "New" :
-      | Name              | Announcement |
+      | Name             | Announcement |
       | Automation ADMIN | Step 1       |
     And I click on "Edit" in the page details
     When I navigate to "Financials" sub tab
@@ -1267,7 +1267,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I click "Associate" after selection of "Automation EXE" in the table "---announcement:-:annoucementContactTableId---"
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---announcement:-:approversTableId---" by clicking "New" :
-      | Name              | Announcement |
+      | Name          | Announcement |
       | Automation PM | Step 1       |
     And I click on "Edit" in the page details
     When I navigate to "Financials" sub tab
@@ -1562,7 +1562,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I wait for "3" seconds
     Then I see status in Progress-bar is "Submitted" and is "dark blue"
 
-  @72346 @applicationReviewHappyPath @ProdSan2 
+  @72346 @applicationReviewHappyPath @ProdSan2
   Scenario Outline: Validate the complete review process for an application
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement Application Review" and properties "default"
     And I initiated an application review for application "{SavedValue:Automation Runtime Announcement Application Review}" on announcement "{SavedValue:Automation Runtime Announcement Application Review}" with properties "default"
@@ -1775,7 +1775,7 @@ Feature: Validate sanity testing of Complete Business Flow
       | Announcement Name                                               | Application Name                                                |
       | {SavedValue:Automation Runtime Announcement Application Review} | {SavedValue:Automation Runtime Announcement Application Review} |
 
-  @72347 @negotiationComplete @ProdSan1 
+  @72347 @negotiationComplete @ProdSan1
   Scenario: Validate once the Negotiation Request is completed then the record owner can view the record under Completed Negotiations
     Given I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "NEGOTIATION"
     And I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
@@ -2087,7 +2087,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I wait for "3" seconds
     Then I see that "Subaward" is in "Activated" status
 
-  @72360 @activeRiskAssessment @ProdSan2 
+  @72360 @activeRiskAssessment @ProdSan2
   Scenario: Validate the Activation of Risk Assessment and the status changes to Active
     Given I login to "Grantor" app as "dynamicUser" user
     And I navigate to "Grants" tab
@@ -2170,7 +2170,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I click on "View" icon for "Record Id" inside flex table with id "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---" without waiting for record
     Then I see status in Progress-bar is "Active" and is "dark blue"
 
-  @72361 @activeOrgRiskAssessment @ProdSan2 
+  @72361 @activeOrgRiskAssessment @ProdSan2
   Scenario: Validate the Activation of Org Risk Assessment and the status changes to Active
     Given I delete the record "Automation Permanent Organization for Risk Assessment" from the object "ORGANIZATION RISKASSESSMENT"
     Given I am on "SUBPORTAL" portal
@@ -2240,7 +2240,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I click on "View" icon for "Active" inside flex table with id "---orgRiskAssessment:-:orgRiskAssessmentTableId---" without waiting for record
     Then I softly see field "Status" as "Active"
 
-  @72349 @adhocReimbursementHappyPath @ProdSan1 
+  @72349 @adhocReimbursementHappyPath @ProdSan1
   Scenario: Validate the Reimbursement Payment Request happy path and the status changes to 'Paid'
     Given I activated standalone subaward "Automation Runtime Award" with properties "default" of type "Competitive"
     And I am on "SUBPORTAL" portal
@@ -3464,7 +3464,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I wait for "3" seconds
     Then I softly see that "Subaward" is in "Activated" status
 
-  @ValidatedDetailBudgetYesScenarioInAward @ProdSan2 
+  @ValidatedDetailBudgetYesScenarioInAward @ProdSan2
   Scenario: Validate Detail Budget Yes Scenario In Award
     When I login to "Grantor" app as "PM" user
     And I navigate to "Grants" tab
@@ -4308,7 +4308,7 @@ Feature: Validate sanity testing of Complete Business Flow
     Then I see only the following ordered radio buttons in the approval decision :
       | Approve | Reject | Forward | Send back |
 
-  @OwnershipReasignment @ProdSan4 
+  @OwnershipReasignment @ProdSan4
   Scenario: Validate Grants Ownership Reassignment
     When I login to "Grantor" app as "PM" user
     And I navigate to "Grants" tab
@@ -4701,7 +4701,7 @@ Feature: Validate sanity testing of Complete Business Flow
       | Adding file is required in "Files section" with classification "Environmental Compliance Requirements", if "Yes" option in "14h" is checked. |
       | Adding file is required in "Files section" with classification "NHPA", if "Yes" option in "14i" is checked.                                  |
 
-  @AwardWithFocusNo @ProdSan4 
+  @AwardWithFocusNo @ProdSan4
   Scenario: Award with focus area no
     When I login to "Grantor" app as "PM" user
     And I navigate to "Grants" tab
@@ -4811,7 +4811,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click on "Activate" in the page details
     Then I softly see that "Subaward" is in "Activated" status
 
-  @userRegistrationSanity @ProdSan4 
+  @userRegistrationSanity @ProdSan4
   Scenario: Scenario for user registration
     Given I begin "Organization" registration as "Register As Organization"
     When I click on "Agree" in the page details
@@ -4877,7 +4877,7 @@ Feature: Validate sanity testing of Complete Business Flow
     Then I see the header is "Subrecipient Organization" in the page details
     Then I see the sub-header is "{SavedValue:Automation Runtime Organization}" in the page details
 
-  @IndividualRegistration @ProdSan4 
+  @IndividualRegistration @ProdSan4
   Scenario: Scenario for Individual registration
     Given I begin "Individual" registration as "Register As Individual"
     When I click on "Agree" in the page details
@@ -4909,7 +4909,7 @@ Feature: Validate sanity testing of Complete Business Flow
     Then I see the header is "Individual Subrecipient" in the page details
     Then I see the sub-header is "{SavedValue:Automation Runtime} User" in the page details
 
-  @SMEreviewerFlowSanity @ProdSan4 
+  @SMEreviewerFlowSanity @ProdSan4
   Scenario: Scenario for SME reviewer
     Given I login to "Grantor" app as "EXE" user
     When I navigate to "Home" tab
@@ -4944,7 +4944,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I select "Profile" from user dropdown
     Then I see the header is "{SavedValue:Automation Runtime} Contact" in the page details
 
-  @227725 @VerifythenewreadonlyfieldforTotalAllocationFundingthisshouldbetotalofAllAllocationAmountfromrecommendedapplicationsectionforformulaannouncement @ProdSan4 
+  @227725 @VerifythenewreadonlyfieldforTotalAllocationFundingthisshouldbetotalofAllAllocationAmountfromrecommendedapplicationsectionforformulaannouncement @ProdSan4
   Scenario Outline: Verify the new readonly field for "Total Allocation Funding", this should be total of All Allocation Amount, from recommended application section for formula announcement .
   | FDM - Verify Subaward floor and Subaward Ceiling fields are hidden for formula announcement |
     Given I published "Formula" type announcement having name "Automation Runtime Formula Announcement" and properties "BY_APPLICANT"
@@ -5108,7 +5108,7 @@ Feature: Validate sanity testing of Complete Business Flow
       | Announcement Name                                    |
       | {SavedValue:Automation Runtime Formula Announcement} |
 
-  @announcementToCheckSessionStorageScenario @ProdSan4 
+  @announcementToCheckSessionStorageScenario @ProdSan4
   Scenario: Validate announcement To Check Session Storage Scenario
     When I login to "Grantor" app as "PO" user
     And I navigate to "Announcements" tab

@@ -2720,7 +2720,6 @@ Feature: Validate all scenarios of every modules flow
 
     @testworkarounf @debug
     Scenario:
-      Given I am on "SUBPORTAL" portal
-      When I login to "Grants Portal" app as "SPI3" user
+      When I login to "Grantor" app as "ADMIN" user
       And I navigate to "Grants" tab
 
