@@ -4559,6 +4559,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I pause execution for "5" seconds
     And I am on "INTERNAL" portal
     And I login to "Grantor" app as "PM" user
+    And I navigate to "Home" tab
     When I navigate to "Pending Subrecipient Registrations" content inside "Organization" subheader on left panel
     When I perform quick search for "{SavedValue:uniqueEmailID}" in "{grantor_tableId:SubrecipientIndRegistration}" panel
     When I click on "Start" icon for "{SavedValue:uniqueEmailID}" inside flex table with id "{grantor_tableId:SubrecipientIndRegistration}"
@@ -4572,7 +4573,7 @@ Feature: Validate sanity testing of Complete Business Flow
     Then I see the header is "Individual Subrecipient" in the page details
     Then I see the sub-header is "{SavedValue:Automation Runtime} User" in the page details
 
-  @SMEreviewerFlowSanity @ProdSan4
+  @mk @SMEreviewerFlowSanity @ProdSan4
   Scenario: Scenario for SME reviewer
     Given I login to "Grantor" app as "EXE" user
     When I navigate to "Home" tab
