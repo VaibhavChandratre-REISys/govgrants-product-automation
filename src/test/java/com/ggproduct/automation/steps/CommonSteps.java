@@ -195,7 +195,7 @@ public class CommonSteps {
     /******** PageLayout **********/
     @Description("After selecting the checkbox for the value passed clicks on the button")
     @When("^I select \"([^\"]*)\" in the table \"([^\"]*)\" and click the top-right button \"([^\"]*)\"$")
-    public void chooseRecordForProgramAssociation(String buttonName, String recordUniqueValues, String tableId) throws TestingBlazeCustomException {
+    public void chooseRecordForProgramAssociation(String recordUniqueValues, String tableId, String buttonName) throws TestingBlazeCustomException {
         projectManager.chooseRecordForAssociation(
                 buttonName,
                 tableId,
