@@ -48,12 +48,12 @@ public final class SideBar {
      * @author nauman.shahid
      */
     public void clickSideBarContent(String subHeaderName, String contentName) {
-           handleSideBarContentExpanded(subHeaderName);
-          try {
-                  I.amPerforming().click().on(getSideBarContentLocator(subHeaderName, contentName));
-          } catch(Exception e) {
-                  I.amPerforming().click().withJavaScript(getSideBarContentLocator(subHeaderName, contentName));
-          }
+        handleSideBarContentExpanded(subHeaderName);
+        try {
+            I.amPerforming().click().on(getSideBarContentLocator(subHeaderName, contentName));
+        } catch (Exception e) {
+            I.amPerforming().click().withJavaScript(getSideBarContentLocator(subHeaderName, contentName));
+        }
     }
 
     /**
@@ -198,6 +198,7 @@ public final class SideBar {
      * @param subHeaderContent
      * @return
      * @author nauman.shahid
+     * @modifier komal.mukhekar - 25/06/2020 - Updated the Xpath for subHeader header and subHeaderContent to handle the new side bar structure
      */
     public By getSideBarContentLocator(String subHeader, String subHeaderContent) {
         return By.xpath("//gnt-side-bar-lwc//section//h2//button[@title='" + subHeader + "']//ancestor::section[@data-my-type='header']//c-accordion-content//button[@title='" + subHeaderContent + "']");

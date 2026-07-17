@@ -813,8 +813,6 @@ public class GenericSteps {
     @And("I create program records with status {string} using {string} properties")
     public void iCreateProgramRecordsWithStatusUsingProperties(String status, String filter, DataTable table) {
         List<Map<String, String>> rows = table.asMaps();
-        int index = 1;
-
         for (Map<String, String> row : rows) {
 
             String title = row.get("Title");
@@ -826,7 +824,6 @@ public class GenericSteps {
                 title = newTitle;
             }
             grantorWebServices.createProgramRecordsWithStatusUsingProperties(title, recordType, status, filter);
-            index++;
         }
     }
 

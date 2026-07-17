@@ -1,9 +1,9 @@
 @productBusinessFlowSanity @product
 Feature: Validate sanity testing of Complete Business Flow
 
-  @72335  @72335@activationOfFocusArea @ProdSan1
+  @72335 @activationOfFocusArea @ProdSan1
   Scenario: Validate the activation of Focus Area by User - Admin/EXE/PM and the status is Active
-    Given I login to "Grantor" app as "dynamicUser" user
+    Given I login to "Grantor" app as "PM" user
     When I navigate to "Planning" tab
     When I navigate to "Focus Areas" content inside "Setup" subheader on left panel
     And I click on top right button "New" in flex table with id "---focusarea:-:focusAreaTableId---"
@@ -20,7 +20,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I click on "Activate" in the page details
     Then I see status in Progress-bar is "Active" and is "dark blue"
 
-  @72340 @activateKPI @ProdSan2 
+  @72340 @activateKPI @ProdSan2
   Scenario: Validate the activation of KPI and the status changes to Active
     When I login to "Grantor" app as "EXE" user
     And I navigate to "Planning" tab
@@ -115,7 +115,7 @@ Feature: Validate sanity testing of Complete Business Flow
 
   @72341 @programActivation @ProdSan1
   Scenario: Validate the activation of Internal Program and the status changes to Active
-    When I login to "Grantor" app as "dynamicUser" user
+    When I login to "Grantor" app as "PM" user
     And I navigate to "Planning" tab
     When I navigate to "Internal Programs" content inside "Programs" subheader on left panel
     And I click toggle button to select "Internal Programs - Draft"
@@ -127,7 +127,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I get the "EGMS ID"
     When I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---program:-:contactsTableId---"
-    When I click "Associate" after selection of "{SavedValue:EXE Username}" in the table "---program:-:associateContactsTableId---"
+    When I click "Associate" after selection of "{SavedValue:PM1 Username}" in the table "---program:-:associateContactsTableId---"
     When I click modal button "Close"
     When I navigate to "Setup" sub tab
     And I click on top right button "Associate" in flex table with id "---program:-:focusAreaTableId---"
@@ -169,7 +169,6 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click on "Submit For Approval" in the page details
     And I wait for "3" seconds
     Then I see status in Progress-bar is "Submitted for Approval" and is "dark blue"
-    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Planning" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---program:-:pendingTaskTableId---" panel
@@ -181,7 +180,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I perform quick search for "Record Id" in "---program:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "Record Id" inside flex table with id "---program:-:pendingTaskTableId---" without waiting for record
     When I "Approve" in the approval decision
-    When I re-login to "Grantor" app as "dynamicUser" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Planning" tab
     When I navigate to "Internal Programs" content inside "Programs" subheader on left panel
     And I click toggle button to select "Internal Programs - All"
@@ -257,7 +256,7 @@ Feature: Validate sanity testing of Complete Business Flow
       | {SavedValue:fundingAccount} | 2000            |
     When I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---announcement:-:contactTableId---"
-    When I click "Associate" after selection of "{SavedValue:EXE Username}" in the table "---announcement:-:annoucementContactTableId---"
+    When I click "Associate" after selection of "{SavedValue:EXE1 Username}" in the table "---announcement:-:annoucementContactTableId---"
     And I click modal button "Close"
     When I navigate to "Setup" sub tab
     And I click on top right button "Associate" in flex table with id "---announcement:-:objectivesTableId---"
@@ -307,166 +306,160 @@ Feature: Validate sanity testing of Complete Business Flow
     And I perform quick search for "Record Id" in "---announcement:-:competitiveAnnouncementTableId---" panel
     And I click on "View" icon for "Record Id" inside flex table with id "---announcement:-:competitiveAnnouncementTableId---" without waiting for record
     Given I click on "Complete Review" in the page details
-#    And I navigate to "Setup" sub tab
-#    And I expand nested table containing column value "Pre-Screen Review"
-#    When I click on "Review Form" icon for "Pre-Screen" inside flex table with id "---announcement:-:preScreenReviewFormTableId---" without waiting for record
-#    And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
-#      | Section Header | Section Weight (%) |
-#      | Eligibility    | 50                 |
-#    And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
-#      | Section Header | Section Weight (%) |
-#      | Completeness   | 50                 |
-#    And I expand nested table containing column value "Eligibility"
-#    When I enter the following values into flex table with id "---announcement:-:reviewPanelQuestionsTableId---" by clicking "New" :
-#      | Question Order | Question  | Type    | Max Score |
-#      | 1              | Question1 | Written | 100       |
-#    And I pause execution for "4" seconds
-#    And I collapse nested table containing column value "Eligibility"
-#    And I expand nested table containing column value "Completeness"
-#    When I enter the following values into flex table with id "---announcement:-:reviewPanelQuestionsTableId---" by clicking "New" :
-#      | Question Order | Question  | Type    | Max Score |
-#      | 1              | Question1 | Written | 100       |
-##    And I collapse nested table containing column value "Completeness"
-#    And I pause execution for "4" seconds
-#    When I close "Review Form" modal by clicking the top right x button
-#    When I collapse nested table containing column value "Pre-Screen Review"
-#    And I wait for "2" seconds
-#    And I refresh the page
-#    And I wait for "3" seconds
-#    And I expand nested table containing column value "SME Review"
-#    And I wait for "2" seconds
-#    When I click on "Form Name" column header inside table with id "---announcement:-:annReviewFormsTableId---"
-#    When I click on "Review Form" icon for "Compliance Review" inside flex table with id "---announcement:-:annReviewFormsTableId---"
-#    And I wait for "2" seconds
-#    And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
-#      | Section Header | Section Weight (%) |
-#      | Schedule       | 30                 |
-#    And I wait for "1" seconds
-#    And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
-#      | Section Header | Section Weight (%) |
-#      | Environment    | 30                 |
-#    And I wait for "1" seconds
-#    And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
-#      | Section Header | Section Weight (%) |
-#      | Permits        | 40                 |
-#    And I pause execution for "4" seconds
-#    And I expand nested table containing column value "Schedule"
-#    When I enter the following values into flex table with id "---announcement:-:reviewPanelQuestionsTableId---" by clicking "New" :
-#      | Question Order | Question  | Type    | Max Score |
-#      | 1              | Question1 | Written | 100       |
-#    And I pause execution for "4" seconds
-#    And I collapse nested table containing column value "Schedule"
-#    And I expand nested table containing column value "Environment"
-#    When I enter the following values into flex table with id "---announcement:-:reviewPanelQuestionsTableId---" by clicking "New" :
-#      | Question Order | Question  | Type    | Max Score |
-#      | 1              | Question1 | Written | 100       |
-#    And I pause execution for "4" seconds
-#    And I collapse nested table containing column value "Environment"
-#    And I expand nested table containing column value "Permits"
-#    When I enter the following values into flex table with id "---announcement:-:reviewPanelQuestionsTableId---" by clicking "New" :
-#      | Question Order | Question  | Type    | Max Score |
-#      | 1              | Question1 | Written | 100       |
-#    And I pause execution for "4" seconds
-#    And I collapse nested table containing column value "Permits"
-#    When I close "Review Form" modal by clicking the top right x button
-#    And I wait for "2" seconds
-#    And I collapse nested table containing column value "SME Review"
-#    And I wait for "2" seconds
-#    And I expand nested table containing column value "SME Review"
-#    When I click on "Review Form" icon for "Fiscal Review" inside flex table with id "---announcement:-:preScreenReviewFormTableId---" without waiting for record
-#    And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
-#      | Section Header | Section Weight (%) |
-#      | Budget         | 30                 |
-#    And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
-#      | Section Header | Section Weight (%) |
-#      | Match          | 40                 |
-#    And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
-#      | Section Header | Section Weight (%) |
-#      | Program Income | 30                 |
-#    And I pause execution for "4" seconds
-#    And I expand nested table containing column value "Budget"
-#    When I enter the following values into flex table with id "---announcement:-:reviewPanelQuestionsTableId---" by clicking "New" :
-#      | Question Order | Question  | Type    | Max Score |
-#      | 1              | Question1 | Written | 100       |
-#    And I pause execution for "4" seconds
-#    And I collapse nested table containing column value "Budget"
-#    And I expand nested table containing column value "Match"
-#    When I enter the following values into flex table with id "---announcement:-:reviewPanelQuestionsTableId---" by clicking "New" :
-#      | Question Order | Question  | Type    | Max Score |
-#      | 1              | Question1 | Written | 100       |
-#    And I pause execution for "4" seconds
-#    And I collapse nested table containing column value "Match"
-#    And I expand nested table containing column value "Program Income"
-#    When I enter the following values into flex table with id "---announcement:-:reviewPanelQuestionsTableId---" by clicking "New" :
-#      | Question Order | Question  | Type    | Max Score |
-#      | 1              | Question1 | Written | 100       |
-#    And I pause execution for "4" seconds
-#    And I collapse nested table containing column value "Program Income"
-#    When I close "Review Form" modal by clicking the top right x button
-#    And I wait for "2" seconds
-#    When I collapse nested table containing column value "SME Review"
-#    And I wait for "2" seconds
-#    And I expand nested table containing column value "SME Review"
-#    When I click on "Form Name" column header inside table with id "---announcement:-:annReviewFormsTableId---"
-#    When I click on "Review Form" icon for "Program Review" inside flex table with id "---announcement:-:preScreenReviewFormTableId---" without waiting for record
-#    And I pause execution for "4" seconds
-#    And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
-#      | Section Header | Section Weight (%) |
-#      | Capability     | 30                 |
-#    And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
-#      | Section Header | Section Weight (%) |
-#      | Approach       | 30                 |
-#    And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
-#      | Section Header | Section Weight (%) |
-#      | Impact         | 40                 |
-#    And I pause execution for "4" seconds
-#    And I expand nested table containing column value "Capability"
-#    When I enter the following values into flex table with id "---announcement:-:reviewPanelQuestionsTableId---" by clicking "New" :
-#      | Question Order | Question  | Type    | Max Score |
-#      | 1              | Question1 | Written | 100       |
-#    And I pause execution for "4" seconds
-#    And I collapse nested table containing column value "Capability"
-#    And I expand nested table containing column value "Approach"
-#    When I enter the following values into flex table with id "---announcement:-:reviewPanelQuestionsTableId---" by clicking "New" :
-#      | Question Order | Question  | Type    | Max Score |
-#      | 1              | Question1 | Written | 100       |
-#    And I pause execution for "4" seconds
-#    And I collapse nested table containing column value "Approach"
-#    And I expand nested table containing column value "Impact"
-#    When I enter the following values into flex table with id "---announcement:-:reviewPanelQuestionsTableId---" by clicking "New" :
-#      | Question Order | Question  | Type    | Max Score |
-#      | 1              | Question1 | Written | 100       |
-#    And I pause execution for "4" seconds
-#    And I collapse nested table containing column value "Impact"
-#    When I close "Review Form" modal by clicking the top right x button
-#    And I wait for "2" seconds
-#    When I collapse nested table containing column value "SME Review"
-#    And I wait for "2" seconds
-#    And I expand nested table containing column value "Management Review"
-#    When I click on "Review Form" icon for "Management Review" inside flex table with id "---announcement:-:preScreenReviewFormTableId---" without waiting for record
-#    And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
-#      | Section Header             | Section Weight (%) |
-#      | Return on Investment (ROI) | 50                 |
-#    And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
-#      | Section Header      | Section Weight (%) |
-#      | Strategic Alignment | 50                 |
-#    And I pause execution for "4" seconds
-#    And I expand nested table containing column value "Return on Investment (ROI)"
-#    When I enter the following values into flex table with id "---announcement:-:reviewPanelQuestionsTableId---" by clicking "New" :
-#      | Question Order | Question  | Type    | Max Score |
-#      | 1              | Question1 | Written | 100       |
-#    And I pause execution for "4" seconds
-#    And I collapse nested table containing column value "Return on Investment (ROI)"
-#    And I expand nested table containing column value "Strategic Alignment"
-#    When I enter the following values into flex table with id "---announcement:-:reviewPanelQuestionsTableId---" by clicking "New" :
-#      | Question Order | Question  | Type    | Max Score |
-#      | 1              | Question1 | Written | 100       |
-#    And I pause execution for "4" seconds
-#    When I close "Review Form" modal by clicking the top right x button
-#    And I wait for "2" seconds
-#    When I collapse nested table containing column value "Management Review"
-#    And I wait for "2" seconds
-#    And I click on top right button "Validate" in flex table with id "---announcement:-:preScreenReviewFormTableId---"
+    And I navigate to "Setup" sub tab
+    And I expand nested table containing column value "Pre-Screen Review"
+    When I click on "Review Form" icon for "Pre-Screen" inside flex table with id "---announcement:-:subReviewPanelTableId---" without waiting for record
+    And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
+      | Section Header | Section Weight (%) |
+      | Eligibility    | 50                 |
+    And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
+      | Section Header | Section Weight (%) |
+      | Completeness   | 50                 |
+    And I expand nested table containing column value "Eligibility"
+    When I enter the following values into flex table with id "---announcement:-:reviewPanelQuestionsTableId---" by clicking "New" :
+      | Question Order | Question  | Type    | Max Score |
+      | 1              | Question1 | Written | 100       |
+    And I pause execution for "4" seconds
+    And I collapse nested table containing column value "Eligibility"
+    And I expand nested table containing column value "Completeness"
+    When I enter the following values into flex table with id "---announcement:-:reviewPanelQuestionsTableId---" by clicking "New" :
+      | Question Order | Question  | Type    | Max Score |
+      | 1              | Question1 | Written | 100       |
+#    And I collapse nested table containing column value "Completeness"
+    And I pause execution for "4" seconds
+    When I close "Review Form" modal by clicking the top right x button
+    When I collapse nested table containing column value "Pre-Screen Review"
+    And I wait for "2" seconds
+    And I expand nested table containing column value "SME Review"
+    When I click on "Review Form" icon for "Compliance Review" inside flex table with id "---announcement:-:preScreenReviewFormTableId---" without waiting for record
+    And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
+      | Section Header | Section Weight (%) |
+      | Schedule       | 30                 |
+    And I wait for "5" seconds
+    And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
+      | Section Header | Section Weight (%) |
+      | Environment    | 30                 |
+    And I wait for "5" seconds
+    And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
+      | Section Header | Section Weight (%) |
+      | Permits        | 40                 |
+    And I pause execution for "4" seconds
+    And I expand nested table containing column value "Schedule"
+    When I enter the following values into flex table with id "---announcement:-:reviewPanelQuestionsTableId---" by clicking "New" :
+      | Question Order | Question  | Type    | Max Score |
+      | 1              | Question1 | Written | 100       |
+    And I pause execution for "4" seconds
+    And I collapse nested table containing column value "Schedule"
+    And I expand nested table containing column value "Environment"
+    When I enter the following values into flex table with id "---announcement:-:reviewPanelQuestionsTableId---" by clicking "New" :
+      | Question Order | Question  | Type    | Max Score |
+      | 1              | Question1 | Written | 100       |
+    And I pause execution for "4" seconds
+    And I collapse nested table containing column value "Environment"
+    And I expand nested table containing column value "Permits"
+    When I enter the following values into flex table with id "---announcement:-:reviewPanelQuestionsTableId---" by clicking "New" :
+      | Question Order | Question  | Type    | Max Score |
+      | 1              | Question1 | Written | 100       |
+    And I pause execution for "4" seconds
+    And I collapse nested table containing column value "Permits"
+    When I close "Review Form" modal by clicking the top right x button
+    And I wait for "2" seconds
+    And I collapse nested table containing column value "SME Review"
+    And I wait for "2" seconds
+    And I expand nested table containing column value "SME Review"
+    When I click on "Review Form" icon for "Fiscal Review" inside flex table with id "---announcement:-:preScreenReviewFormTableId---" without waiting for record
+    And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
+      | Section Header | Section Weight (%) |
+      | Budget         | 30                 |
+    And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
+      | Section Header | Section Weight (%) |
+      | Match          | 40                 |
+    And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
+      | Section Header | Section Weight (%) |
+      | Program Income | 30                 |
+    And I pause execution for "4" seconds
+    And I expand nested table containing column value "Budget"
+    When I enter the following values into flex table with id "---announcement:-:reviewPanelQuestionsTableId---" by clicking "New" :
+      | Question Order | Question  | Type    | Max Score |
+      | 1              | Question1 | Written | 100       |
+    And I pause execution for "4" seconds
+    And I collapse nested table containing column value "Budget"
+    And I expand nested table containing column value "Match"
+    When I enter the following values into flex table with id "---announcement:-:reviewPanelQuestionsTableId---" by clicking "New" :
+      | Question Order | Question  | Type    | Max Score |
+      | 1              | Question1 | Written | 100       |
+    And I pause execution for "4" seconds
+    And I collapse nested table containing column value "Match"
+    And I expand nested table containing column value "Program Income"
+    When I enter the following values into flex table with id "---announcement:-:reviewPanelQuestionsTableId---" by clicking "New" :
+      | Question Order | Question  | Type    | Max Score |
+      | 1              | Question1 | Written | 100       |
+    And I pause execution for "4" seconds
+    And I collapse nested table containing column value "Program Income"
+    When I close "Review Form" modal by clicking the top right x button
+    And I wait for "2" seconds
+    When I collapse nested table containing column value "SME Review"
+    And I wait for "2" seconds
+    And I expand nested table containing column value "SME Review"
+    When I click on "Review Form" icon for "Program Review" inside flex table with id "---announcement:-:preScreenReviewFormTableId---" without waiting for record
+    And I pause execution for "4" seconds
+    And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
+      | Section Header | Section Weight (%) |
+      | Capability     | 30                 |
+    And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
+      | Section Header | Section Weight (%) |
+      | Approach       | 30                 |
+    And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
+      | Section Header | Section Weight (%) |
+      | Impact         | 40                 |
+    And I pause execution for "4" seconds
+    And I expand nested table containing column value "Capability"
+    When I enter the following values into flex table with id "---announcement:-:reviewPanelQuestionsTableId---" by clicking "New" :
+      | Question Order | Question  | Type    | Max Score |
+      | 1              | Question1 | Written | 100       |
+    And I pause execution for "4" seconds
+    And I collapse nested table containing column value "Capability"
+    And I expand nested table containing column value "Approach"
+    When I enter the following values into flex table with id "---announcement:-:reviewPanelQuestionsTableId---" by clicking "New" :
+      | Question Order | Question  | Type    | Max Score |
+      | 1              | Question1 | Written | 100       |
+    And I pause execution for "4" seconds
+    And I collapse nested table containing column value "Approach"
+    And I expand nested table containing column value "Impact"
+    When I enter the following values into flex table with id "---announcement:-:reviewPanelQuestionsTableId---" by clicking "New" :
+      | Question Order | Question  | Type    | Max Score |
+      | 1              | Question1 | Written | 100       |
+    And I pause execution for "4" seconds
+    And I collapse nested table containing column value "Impact"
+    When I close "Review Form" modal by clicking the top right x button
+    And I wait for "2" seconds
+    When I collapse nested table containing column value "SME Review"
+    And I wait for "2" seconds
+    And I expand nested table containing column value "Management Review"
+    When I click on "Review Form" icon for "Management Review" inside flex table with id "---announcement:-:subReviewPanelTableId---" without waiting for record
+    And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
+      | Section Header             | Section Weight (%) |
+      | Return on Investment (ROI) | 50                 |
+    And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
+      | Section Header      | Section Weight (%) |
+      | Strategic Alignment | 50                 |
+    And I pause execution for "4" seconds
+    And I expand nested table containing column value "Return on Investment (ROI)"
+    When I enter the following values into flex table with id "---announcement:-:reviewPanelQuestionsTableId---" by clicking "New" :
+      | Question Order | Question  | Type    | Max Score |
+      | 1              | Question1 | Written | 100       |
+    And I pause execution for "4" seconds
+    And I collapse nested table containing column value "Return on Investment (ROI)"
+    And I expand nested table containing column value "Strategic Alignment"
+    When I enter the following values into flex table with id "---announcement:-:reviewPanelQuestionsTableId---" by clicking "New" :
+      | Question Order | Question  | Type    | Max Score |
+      | 1              | Question1 | Written | 100       |
+    And I pause execution for "4" seconds
+    When I close "Review Form" modal by clicking the top right x button
+    And I wait for "2" seconds
+    When I collapse nested table containing column value "Management Review"
+    And I wait for "2" seconds
+    And I click on top right button "Validate" in flex table with id "---announcement:-:preScreenReviewFormTableId---"
     And I wait for "2" seconds
     And I click on "Edit" in the page details
     When I navigate to "Financials" sub tab
@@ -533,11 +526,12 @@ Feature: Validate sanity testing of Complete Business Flow
       | Funding Account             | Pre-Encumbrance |
       | {SavedValue:fundingAccount} | 100             |
     When I navigate to "Financials" sub tab
+    And I get the "EGMS ID"
     And I click on top right button "Add Budget Period" in flex table with id "---announcement:-:budgetPeriodTableId---"
     When I refresh the page
     When I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---announcement:-:contactTableId---"
-    When I click "Associate" after selection of "{SavedValue:EXE Username}" in the table "---announcement:-:annoucementContactTableId---"
+    When I click "Associate" after selection of "{SavedValue:EXE1 Username}" in the table "---announcement:-:annoucementContactTableId---"
     And I click on top right button "Add Organizations" in flex table with id "---announcement:-:directedInvitedApplicatsTableId---"
     When I click "Add" after selection of "SAN DIEGO ELECTRICAL TRAINING TRUST" in the table "---announcement:-:directedAddInviteApplicantTableId---"
     When I close "Add Organizations" modal by clicking the top right x button
@@ -560,7 +554,6 @@ Feature: Validate sanity testing of Complete Business Flow
       | {SavedValue:FO Username} | Fiscal Reviewer | Review Financial details | 10       | No                   |
     And I pause execution for "2" seconds
     And I click on "Send for Review" icon for "{SavedValue:FO Username}" inside table
-    And I get the "EGMS ID"
     And I re-login to "Grantor" app as "FO" user on "INTERNAL" portal
     When I navigate to "Announcements" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -577,166 +570,166 @@ Feature: Validate sanity testing of Complete Business Flow
 #    And I wait for "1" seconds
 #    When I click modal button "Close"
     And I wait for "2" seconds
-    When I re-login to "Grantor" app as "dynamicUser" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Announcements" tab
     When I navigate to "Directed" content inside "Announcements" subheader on left panel
     When I click toggle button to select "Draft Directed Announcements"
     And I perform quick search for "Record Id" in "---announcement:-:annoucementTableId---" panel
     And I click on "View" icon for "Record Id" inside flex table with id "---announcement:-:annoucementTableId---" without waiting for record
     Given I click on "Complete Review" in the page details
-#    And I navigate to "Setup" sub tab
-#    And I expand nested table containing column value "Pre-Screen Review"
-#    When I click on "Review Form" icon for "Pre-Screen" inside flex table with id "---announcement:-:subReviewPanelTableId---" without waiting for record
-#    And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
-#      | Section Header | Section Weight (%) |
-#      | Eligibility    | 50                 |
-#    And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
-#      | Section Header | Section Weight (%) |
-#      | Completeness   | 50                 |
-#    And I pause execution for "4" seconds
-#    And I expand nested table containing column value "Eligibility"
-#    When I enter the following values into flex table with id "---announcement:-:reviewPanelQuestionsTableId---" by clicking "New" :
-#      | Question Order | Question  | Type    | Max Score |
-#      | 1              | Question1 | Written | 100       |
-#    And I pause execution for "4" seconds
-#    And I collapse nested table containing column value "Eligibility"
-#    And I expand nested table containing column value "Completeness"
-#    When I enter the following values into flex table with id "---announcement:-:reviewPanelQuestionsTableId---" by clicking "New" :
-#      | Question Order | Question  | Type    | Max Score |
-#      | 1              | Question1 | Written | 100       |
-#    And I pause execution for "4" seconds
-#    When I close "Review Form" modal by clicking the top right x button
-#    And I wait for "2" seconds
-#    When I collapse nested table containing column value "Pre-Screen Review"
-#    And I wait for "2" seconds
-#    And I expand nested table containing column value "SME Review"
-#    When I click on "Review Form" icon for "Compliance Review" inside flex table with id "---announcement:-:preScreenReviewFormTableId---" without waiting for record
-#    And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
-#      | Section Header | Section Weight (%) |
-#      | Schedule       | 30                 |
-#    And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
-#      | Section Header | Section Weight (%) |
-#      | Environment    | 30                 |
-#    And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
-#      | Section Header | Section Weight (%) |
-#      | Permits        | 40                 |
-#    And I pause execution for "4" seconds
-#    And I expand nested table containing column value "Schedule"
-#    When I enter the following values into flex table with id "---announcement:-:reviewPanelQuestionsTableId---" by clicking "New" :
-#      | Question Order | Question  | Type    | Max Score |
-#      | 1              | Question1 | Written | 100       |
-#    And I pause execution for "4" seconds
-#    And I collapse nested table containing column value "Schedule"
-#    And I expand nested table containing column value "Environment"
-#    When I enter the following values into flex table with id "---announcement:-:reviewPanelQuestionsTableId---" by clicking "New" :
-#      | Question Order | Question  | Type    | Max Score |
-#      | 1              | Question1 | Written | 100       |
-#    And I pause execution for "4" seconds
-#    And I collapse nested table containing column value "Environment"
-#    And I expand nested table containing column value "Permits"
-#    When I enter the following values into flex table with id "---announcement:-:reviewPanelQuestionsTableId---" by clicking "New" :
-#      | Question Order | Question  | Type    | Max Score |
-#      | 1              | Question1 | Written | 100       |
-#    And I pause execution for "4" seconds
-#    And I collapse nested table containing column value "Permits"
-#    When I close "Review Form" modal by clicking the top right x button
-#    And I pause execution for "2" seconds
-#    And I collapse nested table containing column value "SME Review"
-#    And I pause execution for "2" seconds
-#    And I expand nested table containing column value "SME Review"
-#    When I click on "Review Form" icon for "Fiscal Review" inside flex table with id "---announcement:-:preScreenReviewFormTableId---" without waiting for record
-#    And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
-#      | Section Header | Section Weight (%) |
-#      | Budget         | 30                 |
-#    And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
-#      | Section Header | Section Weight (%) |
-#      | Match          | 40                 |
-#    And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
-#      | Section Header | Section Weight (%) |
-#      | Program Income | 30                 |
-#    And I pause execution for "4" seconds
-#    And I expand nested table containing column value "Budget"
-#    When I enter the following values into flex table with id "---announcement:-:reviewPanelQuestionsTableId---" by clicking "New" :
-#      | Question Order | Question  | Type    | Max Score |
-#      | 1              | Question1 | Written | 100       |
-#    And I pause execution for "4" seconds
-#    And I collapse nested table containing column value "Budget"
-#    And I expand nested table containing column value "Match"
-#    When I enter the following values into flex table with id "---announcement:-:reviewPanelQuestionsTableId---" by clicking "New" :
-#      | Question Order | Question  | Type    | Max Score |
-#      | 1              | Question1 | Written | 100       |
-#    And I pause execution for "4" seconds
-#    And I collapse nested table containing column value "Match"
-#    And I expand nested table containing column value "Program Income"
-#    When I enter the following values into flex table with id "---announcement:-:reviewPanelQuestionsTableId---" by clicking "New" :
-#      | Question Order | Question  | Type    | Max Score |
-#      | 1              | Question1 | Written | 100       |
-#    And I pause execution for "4" seconds
-#    And I collapse nested table containing column value "Program Income"
-#    When I close "Review Form" modal by clicking the top right x button
-#    And I pause execution for "2" seconds
-#    And I collapse nested table containing column value "SME Review"
-#    And I pause execution for "2" seconds
-#    And I expand nested table containing column value "SME Review"
-#    When I click on "Review Form" icon for "Program Review" inside flex table with id "---announcement:-:preScreenReviewFormTableId---" without waiting for record
-#    And I pause execution for "4" seconds
-#    And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
-#      | Section Header | Section Weight (%) |
-#      | Capability     | 30                 |
-#    And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
-#      | Section Header | Section Weight (%) |
-#      | Approach       | 30                 |
-#    And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
-#      | Section Header | Section Weight (%) |
-#      | Impact         | 40                 |
-#    And I pause execution for "4" seconds
-#    And I expand nested table containing column value "Capability"
-#    When I enter the following values into flex table with id "---announcement:-:reviewPanelQuestionsTableId---" by clicking "New" :
-#      | Question Order | Question  | Type    | Max Score |
-#      | 1              | Question1 | Written | 100       |
-#    And I pause execution for "4" seconds
-#    And I collapse nested table containing column value "Capability"
-#    And I expand nested table containing column value "Approach"
-#    When I enter the following values into flex table with id "---announcement:-:reviewPanelQuestionsTableId---" by clicking "New" :
-#      | Question Order | Question  | Type    | Max Score |
-#      | 1              | Question1 | Written | 100       |
-#    And I pause execution for "4" seconds
-#    And I collapse nested table containing column value "Approach"
-#    And I expand nested table containing column value "Impact"
-#    When I enter the following values into flex table with id "---announcement:-:reviewPanelQuestionsTableId---" by clicking "New" :
-#      | Question Order | Question  | Type    | Max Score |
-#      | 1              | Question1 | Written | 100       |
-#    And I pause execution for "4" seconds
-#    And I collapse nested table containing column value "Impact"
-#    When I close "Review Form" modal by clicking the top right x button
-#    And I pause execution for "2" seconds
-#    When I collapse nested table containing column value "SME Review"
-#    And I pause execution for "4" seconds
-#    And I expand nested table containing column value "Management Review"
-#    When I click on "Review Form" icon for "Management Review" inside flex table with id "---announcement:-:subReviewPanelTableId---" without waiting for record
-#    And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
-#      | Section Header             | Section Weight (%) |
-#      | Return on Investment (ROI) | 50                 |
-#    And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
-#      | Section Header      | Section Weight (%) |
-#      | Strategic Alignment | 50                 |
-#    And I pause execution for "4" seconds
-#    And I expand nested table containing column value "Return on Investment (ROI)"
-#    When I enter the following values into flex table with id "---announcement:-:reviewPanelQuestionsTableId---" by clicking "New" :
-#      | Question Order | Question  | Type    | Max Score |
-#      | 1              | Question1 | Written | 100       |
-#    And I pause execution for "4" seconds
-#    And I collapse nested table containing column value "Return on Investment (ROI)"
-#    And I expand nested table containing column value "Strategic Alignment"
-#    When I enter the following values into flex table with id "---announcement:-:reviewPanelQuestionsTableId---" by clicking "New" :
-#      | Question Order | Question  | Type    | Max Score |
-#      | 1              | Question1 | Written | 100       |
-#    And I pause execution for "4" seconds
-#    When I close "Review Form" modal by clicking the top right x button
-#    And I pause execution for "2" seconds
-#    When I collapse nested table containing column value "Management Review"
-#    And I pause execution for "2" seconds
-#    And I click on top right button "Validate" in flex table with id "---announcement:-:preScreenReviewFormTableId---"
+    And I navigate to "Setup" sub tab
+    And I expand nested table containing column value "Pre-Screen Review"
+    When I click on "Review Form" icon for "Pre-Screen" inside flex table with id "---announcement:-:subReviewPanelTableId---" without waiting for record
+    And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
+      | Section Header | Section Weight (%) |
+      | Eligibility    | 50                 |
+    And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
+      | Section Header | Section Weight (%) |
+      | Completeness   | 50                 |
+    And I pause execution for "4" seconds
+    And I expand nested table containing column value "Eligibility"
+    When I enter the following values into flex table with id "---announcement:-:reviewPanelQuestionsTableId---" by clicking "New" :
+      | Question Order | Question  | Type    | Max Score |
+      | 1              | Question1 | Written | 100       |
+    And I pause execution for "4" seconds
+    And I collapse nested table containing column value "Eligibility"
+    And I expand nested table containing column value "Completeness"
+    When I enter the following values into flex table with id "---announcement:-:reviewPanelQuestionsTableId---" by clicking "New" :
+      | Question Order | Question  | Type    | Max Score |
+      | 1              | Question1 | Written | 100       |
+    And I pause execution for "4" seconds
+    When I close "Review Form" modal by clicking the top right x button
+    And I wait for "2" seconds
+    When I collapse nested table containing column value "Pre-Screen Review"
+    And I wait for "2" seconds
+    And I expand nested table containing column value "SME Review"
+    When I click on "Review Form" icon for "Compliance Review" inside flex table with id "---announcement:-:preScreenReviewFormTableId---" without waiting for record
+    And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
+      | Section Header | Section Weight (%) |
+      | Schedule       | 30                 |
+    And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
+      | Section Header | Section Weight (%) |
+      | Environment    | 30                 |
+    And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
+      | Section Header | Section Weight (%) |
+      | Permits        | 40                 |
+    And I pause execution for "4" seconds
+    And I expand nested table containing column value "Schedule"
+    When I enter the following values into flex table with id "---announcement:-:reviewPanelQuestionsTableId---" by clicking "New" :
+      | Question Order | Question  | Type    | Max Score |
+      | 1              | Question1 | Written | 100       |
+    And I pause execution for "4" seconds
+    And I collapse nested table containing column value "Schedule"
+    And I expand nested table containing column value "Environment"
+    When I enter the following values into flex table with id "---announcement:-:reviewPanelQuestionsTableId---" by clicking "New" :
+      | Question Order | Question  | Type    | Max Score |
+      | 1              | Question1 | Written | 100       |
+    And I pause execution for "4" seconds
+    And I collapse nested table containing column value "Environment"
+    And I expand nested table containing column value "Permits"
+    When I enter the following values into flex table with id "---announcement:-:reviewPanelQuestionsTableId---" by clicking "New" :
+      | Question Order | Question  | Type    | Max Score |
+      | 1              | Question1 | Written | 100       |
+    And I pause execution for "4" seconds
+    And I collapse nested table containing column value "Permits"
+    When I close "Review Form" modal by clicking the top right x button
+    And I pause execution for "2" seconds
+    And I collapse nested table containing column value "SME Review"
+    And I pause execution for "2" seconds
+    And I expand nested table containing column value "SME Review"
+    When I click on "Review Form" icon for "Fiscal Review" inside flex table with id "---announcement:-:preScreenReviewFormTableId---" without waiting for record
+    And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
+      | Section Header | Section Weight (%) |
+      | Budget         | 30                 |
+    And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
+      | Section Header | Section Weight (%) |
+      | Match          | 40                 |
+    And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
+      | Section Header | Section Weight (%) |
+      | Program Income | 30                 |
+    And I pause execution for "4" seconds
+    And I expand nested table containing column value "Budget"
+    When I enter the following values into flex table with id "---announcement:-:reviewPanelQuestionsTableId---" by clicking "New" :
+      | Question Order | Question  | Type    | Max Score |
+      | 1              | Question1 | Written | 100       |
+    And I pause execution for "4" seconds
+    And I collapse nested table containing column value "Budget"
+    And I expand nested table containing column value "Match"
+    When I enter the following values into flex table with id "---announcement:-:reviewPanelQuestionsTableId---" by clicking "New" :
+      | Question Order | Question  | Type    | Max Score |
+      | 1              | Question1 | Written | 100       |
+    And I pause execution for "4" seconds
+    And I collapse nested table containing column value "Match"
+    And I expand nested table containing column value "Program Income"
+    When I enter the following values into flex table with id "---announcement:-:reviewPanelQuestionsTableId---" by clicking "New" :
+      | Question Order | Question  | Type    | Max Score |
+      | 1              | Question1 | Written | 100       |
+    And I pause execution for "4" seconds
+    And I collapse nested table containing column value "Program Income"
+    When I close "Review Form" modal by clicking the top right x button
+    And I pause execution for "2" seconds
+    And I collapse nested table containing column value "SME Review"
+    And I pause execution for "2" seconds
+    And I expand nested table containing column value "SME Review"
+    When I click on "Review Form" icon for "Program Review" inside flex table with id "---announcement:-:preScreenReviewFormTableId---" without waiting for record
+    And I pause execution for "4" seconds
+    And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
+      | Section Header | Section Weight (%) |
+      | Capability     | 30                 |
+    And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
+      | Section Header | Section Weight (%) |
+      | Approach       | 30                 |
+    And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
+      | Section Header | Section Weight (%) |
+      | Impact         | 40                 |
+    And I pause execution for "4" seconds
+    And I expand nested table containing column value "Capability"
+    When I enter the following values into flex table with id "---announcement:-:reviewPanelQuestionsTableId---" by clicking "New" :
+      | Question Order | Question  | Type    | Max Score |
+      | 1              | Question1 | Written | 100       |
+    And I pause execution for "4" seconds
+    And I collapse nested table containing column value "Capability"
+    And I expand nested table containing column value "Approach"
+    When I enter the following values into flex table with id "---announcement:-:reviewPanelQuestionsTableId---" by clicking "New" :
+      | Question Order | Question  | Type    | Max Score |
+      | 1              | Question1 | Written | 100       |
+    And I pause execution for "4" seconds
+    And I collapse nested table containing column value "Approach"
+    And I expand nested table containing column value "Impact"
+    When I enter the following values into flex table with id "---announcement:-:reviewPanelQuestionsTableId---" by clicking "New" :
+      | Question Order | Question  | Type    | Max Score |
+      | 1              | Question1 | Written | 100       |
+    And I pause execution for "4" seconds
+    And I collapse nested table containing column value "Impact"
+    When I close "Review Form" modal by clicking the top right x button
+    And I pause execution for "2" seconds
+    When I collapse nested table containing column value "SME Review"
+    And I pause execution for "4" seconds
+    And I expand nested table containing column value "Management Review"
+    When I click on "Review Form" icon for "Management Review" inside flex table with id "---announcement:-:subReviewPanelTableId---" without waiting for record
+    And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
+      | Section Header             | Section Weight (%) |
+      | Return on Investment (ROI) | 50                 |
+    And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
+      | Section Header      | Section Weight (%) |
+      | Strategic Alignment | 50                 |
+    And I pause execution for "4" seconds
+    And I expand nested table containing column value "Return on Investment (ROI)"
+    When I enter the following values into flex table with id "---announcement:-:reviewPanelQuestionsTableId---" by clicking "New" :
+      | Question Order | Question  | Type    | Max Score |
+      | 1              | Question1 | Written | 100       |
+    And I pause execution for "4" seconds
+    And I collapse nested table containing column value "Return on Investment (ROI)"
+    And I expand nested table containing column value "Strategic Alignment"
+    When I enter the following values into flex table with id "---announcement:-:reviewPanelQuestionsTableId---" by clicking "New" :
+      | Question Order | Question  | Type    | Max Score |
+      | 1              | Question1 | Written | 100       |
+    And I pause execution for "4" seconds
+    When I close "Review Form" modal by clicking the top right x button
+    And I pause execution for "2" seconds
+    When I collapse nested table containing column value "Management Review"
+    And I pause execution for "2" seconds
+    And I click on top right button "Validate" in flex table with id "---announcement:-:preScreenReviewFormTableId---"
     And I click on "Edit" in the page details
     When I navigate to "Financials" sub tab
     And I enter value "Justified" into field "Justification__c"
@@ -748,7 +741,6 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click on "Submit For Approval" in the page details
     And I pause execution for "3" seconds
     Then I softly see field "Status" as "Submitted for Approval"
-    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Announcements" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:AnnEGMSID}" in "---announcement:-:pendingTaskTableId---" panel
@@ -766,7 +758,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I perform quick search for "{SavedValue:AnnEGMSID}" in "---announcement:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "{SavedValue:AnnEGMSID}" inside flex table with id "---announcement:-:pendingTaskTableId---" without waiting for record
     And I "Approve" in the approval decision
-    When I re-login to "Grantor" app as "dynamicUser" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Announcements" tab
     When I navigate to "Directed" content inside "Announcements" subheader on left panel
     When I click toggle button to select "Draft Directed Announcements"
@@ -806,7 +798,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I refresh the page
     When I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---announcement:-:contactTableId---"
-    When I click "Associate" after selection of "{SavedValue:EXE Username}" in the table "---announcement:-:annoucementContactTableId---"
+    When I click "Associate" after selection of "{SavedValue:EXE1 Username}" in the table "---announcement:-:annoucementContactTableId---"
     When I navigate to "Setup" sub tab
     And I click on top right button "Associate" in flex table with id "---announcement:-:objectivesTableId---"
     When I click "Associate" after selection of "Automation Permanent Objective2" in the table "---announcement:-:goalsTableId---"
@@ -841,10 +833,10 @@ Feature: Validate sanity testing of Complete Business Flow
     When I click modal button "Save"
     And I wait for "2" seconds
     When I click on submit review
-    And I wait for "2" seconds
-#    When I click modal button "Close"
 #    And I wait for "2" seconds
-    And I re-login to "Grantor" app as "dynamicUser" user on "INTERNAL" portal
+#    When I click modal button "Close"
+    And I wait for "2" seconds
+    And I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     When I navigate to "Announcements" tab
     And I navigate to "Formula" content inside "Announcements" subheader on left panel
     And I click toggle button to select "Draft Formula Announcements"
@@ -852,159 +844,159 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click on "View" icon for "Record id" inside table
     Given I click on "Complete Review" in the page details
     And I wait for "3" seconds
-#    And I navigate to "Setup" sub tab
-#    And I expand nested table containing column value "Pre-Screen Review"
-#    When I click on "Review Form" icon for "Pre-Screen" inside flex table with id "---announcement:-:subReviewPanelTableId---" without waiting for record
-#    And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
-#      | Section Header | Section Weight (%) |
-#      | Eligibility    | 50                 |
-#    And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
-#      | Section Header | Section Weight (%) |
-#      | Completeness   | 50                 |
-#    And I pause execution for "4" seconds
-#    And I expand nested table containing column value "Eligibility"
-#    When I enter the following values into flex table with id "---announcement:-:reviewPanelQuestionsTableId---" by clicking "New" :
-#      | Question Order | Question  | Type    | Max Score |
-#      | 1              | Question1 | Written | 100       |
-#    And I pause execution for "4" seconds
-#    And I collapse nested table containing column value "Eligibility"
-#    And I expand nested table containing column value "Completeness"
-#    When I enter the following values into flex table with id "---announcement:-:reviewPanelQuestionsTableId---" by clicking "New" :
-#      | Question Order | Question  | Type    | Max Score |
-#      | 1              | Question1 | Written | 100       |
-#    And I pause execution for "4" seconds
-#    When I close "Review Form" modal by clicking the top right x button
-#    When I collapse nested table containing column value "Pre-Screen Review"
-#    And I wait for "2" seconds
-#    And I expand nested table containing column value "SME Review"
-#    When I click on "Review Form" icon for "Compliance Review" inside flex table with id "---announcement:-:preScreenReviewFormTableId---" without waiting for record
-#    And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
-#      | Section Header | Section Weight (%) |
-#      | Schedule       | 30                 |
-#    And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
-#      | Section Header | Section Weight (%) |
-#      | Environment    | 30                 |
-#    And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
-#      | Section Header | Section Weight (%) |
-#      | Permits        | 40                 |
-#    And I pause execution for "4" seconds
-#    And I expand nested table containing column value "Schedule"
-#    When I enter the following values into flex table with id "---announcement:-:reviewPanelQuestionsTableId---" by clicking "New" :
-#      | Question Order | Question  | Type    | Max Score |
-#      | 1              | Question1 | Written | 100       |
-#    And I pause execution for "4" seconds
-#    And I collapse nested table containing column value "Schedule"
-#    And I expand nested table containing column value "Environment"
-#    When I enter the following values into flex table with id "---announcement:-:reviewPanelQuestionsTableId---" by clicking "New" :
-#      | Question Order | Question  | Type    | Max Score |
-#      | 1              | Question1 | Written | 100       |
-#    And I pause execution for "4" seconds
-#    And I collapse nested table containing column value "Environment"
-#    And I expand nested table containing column value "Permits"
-#    When I enter the following values into flex table with id "---announcement:-:reviewPanelQuestionsTableId---" by clicking "New" :
-#      | Question Order | Question  | Type    | Max Score |
-#      | 1              | Question1 | Written | 100       |
-#    And I pause execution for "4" seconds
-#    And I collapse nested table containing column value "Permits"
-#    When I close "Review Form" modal by clicking the top right x button
-#    And I pause execution for "2" seconds
-#    And I collapse nested table containing column value "SME Review"
-#    And I pause execution for "2" seconds
-#    And I expand nested table containing column value "SME Review"
-#    When I click on "Review Form" icon for "Fiscal Review" inside flex table with id "---announcement:-:preScreenReviewFormTableId---" without waiting for record
-#    And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
-#      | Section Header | Section Weight (%) |
-#      | Budget         | 30                 |
-#    And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
-#      | Section Header | Section Weight (%) |
-#      | Match          | 40                 |
-#    And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
-#      | Section Header | Section Weight (%) |
-#      | Program Income | 30                 |
-#    And I pause execution for "4" seconds
-#    And I expand nested table containing column value "Budget"
-#    When I enter the following values into flex table with id "---announcement:-:reviewPanelQuestionsTableId---" by clicking "New" :
-#      | Question Order | Question  | Type    | Max Score |
-#      | 1              | Question1 | Written | 100       |
-#    And I pause execution for "4" seconds
-#    And I collapse nested table containing column value "Budget"
-#    And I expand nested table containing column value "Match"
-#    When I enter the following values into flex table with id "---announcement:-:reviewPanelQuestionsTableId---" by clicking "New" :
-#      | Question Order | Question  | Type    | Max Score |
-#      | 1              | Question1 | Written | 100       |
-#    And I pause execution for "4" seconds
-#    And I collapse nested table containing column value "Match"
-#    And I expand nested table containing column value "Program Income"
-#    When I enter the following values into flex table with id "---announcement:-:reviewPanelQuestionsTableId---" by clicking "New" :
-#      | Question Order | Question  | Type    | Max Score |
-#      | 1              | Question1 | Written | 100       |
-#    And I pause execution for "4" seconds
-#    And I collapse nested table containing column value "Program Income"
-#    When I close "Review Form" modal by clicking the top right x button
-#    And I pause execution for "2" seconds
-#    And I collapse nested table containing column value "SME Review"
-#    And I pause execution for "2" seconds
-#    And I expand nested table containing column value "SME Review"
-#    When I click on "Review Form" icon for "Program Review" inside flex table with id "---announcement:-:preScreenReviewFormTableId---" without waiting for record
-#    And I pause execution for "4" seconds
-#    And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
-#      | Section Header | Section Weight (%) |
-#      | Capability     | 30                 |
-#    And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
-#      | Section Header | Section Weight (%) |
-#      | Approach       | 30                 |
-#    And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
-#      | Section Header | Section Weight (%) |
-#      | Impact         | 40                 |
-#    And I pause execution for "4" seconds
-#    And I expand nested table containing column value "Capability"
-#    When I enter the following values into flex table with id "---announcement:-:reviewPanelQuestionsTableId---" by clicking "New" :
-#      | Question Order | Question  | Type    | Max Score |
-#      | 1              | Question1 | Written | 100       |
-#    And I pause execution for "4" seconds
-#    And I collapse nested table containing column value "Capability"
-#    And I expand nested table containing column value "Approach"
-#    When I enter the following values into flex table with id "---announcement:-:reviewPanelQuestionsTableId---" by clicking "New" :
-#      | Question Order | Question  | Type    | Max Score |
-#      | 1              | Question1 | Written | 100       |
-#    And I pause execution for "4" seconds
-#    And I collapse nested table containing column value "Approach"
-#    And I expand nested table containing column value "Impact"
-#    When I enter the following values into flex table with id "---announcement:-:reviewPanelQuestionsTableId---" by clicking "New" :
-#      | Question Order | Question  | Type    | Max Score |
-#      | 1              | Question1 | Written | 100       |
-#    And I pause execution for "4" seconds
-#    And I collapse nested table containing column value "Impact"
-#    When I close "Review Form" modal by clicking the top right x button
-#    And I pause execution for "2" seconds
-#    When I collapse nested table containing column value "SME Review"
-#    And I pause execution for "2" seconds
-#    And I expand nested table containing column value "Management Review"
-#    When I click on "Review Form" icon for "Management Review" inside flex table with id "---announcement:-:subReviewPanelTableId---" without waiting for record
-#    And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
-#      | Section Header             | Section Weight (%) |
-#      | Return on Investment (ROI) | 50                 |
-#    And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
-#      | Section Header      | Section Weight (%) |
-#      | Strategic Alignment | 50                 |
-#    And I pause execution for "4" seconds
-#    And I expand nested table containing column value "Return on Investment (ROI)"
-#    When I enter the following values into flex table with id "---announcement:-:reviewPanelQuestionsTableId---" by clicking "New" :
-#      | Question Order | Question  | Type    | Max Score |
-#      | 1              | Question1 | Written | 100       |
-#    And I pause execution for "4" seconds
-#    And I collapse nested table containing column value "Return on Investment (ROI)"
-#    And I expand nested table containing column value "Strategic Alignment"
-#    When I enter the following values into flex table with id "---announcement:-:reviewPanelQuestionsTableId---" by clicking "New" :
-#      | Question Order | Question  | Type    | Max Score |
-#      | 1              | Question1 | Written | 100       |
-#    And I pause execution for "4" seconds
-#    When I close "Review Form" modal by clicking the top right x button
-#    And I pause execution for "4" seconds
-#    When I collapse nested table containing column value "Management Review"
-#    And I click on top right button "Validate" in flex table with id "---announcement:-:preScreenReviewFormTableId---"
-#    Then I softly see the following messages in the page details :
-#      | There are no errors with the review step templates. |
+    And I navigate to "Setup" sub tab
+    And I expand nested table containing column value "Pre-Screen Review"
+    When I click on "Review Form" icon for "Pre-Screen" inside flex table with id "---announcement:-:subReviewPanelTableId---" without waiting for record
+    And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
+      | Section Header | Section Weight (%) |
+      | Eligibility    | 50                 |
+    And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
+      | Section Header | Section Weight (%) |
+      | Completeness   | 50                 |
+    And I pause execution for "4" seconds
+    And I expand nested table containing column value "Eligibility"
+    When I enter the following values into flex table with id "---announcement:-:reviewPanelQuestionsTableId---" by clicking "New" :
+      | Question Order | Question  | Type    | Max Score |
+      | 1              | Question1 | Written | 100       |
+    And I pause execution for "4" seconds
+    And I collapse nested table containing column value "Eligibility"
+    And I expand nested table containing column value "Completeness"
+    When I enter the following values into flex table with id "---announcement:-:reviewPanelQuestionsTableId---" by clicking "New" :
+      | Question Order | Question  | Type    | Max Score |
+      | 1              | Question1 | Written | 100       |
+    And I pause execution for "4" seconds
+    When I close "Review Form" modal by clicking the top right x button
+    When I collapse nested table containing column value "Pre-Screen Review"
+    And I wait for "2" seconds
+    And I expand nested table containing column value "SME Review"
+    When I click on "Review Form" icon for "Compliance Review" inside flex table with id "---announcement:-:preScreenReviewFormTableId---" without waiting for record
+    And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
+      | Section Header | Section Weight (%) |
+      | Schedule       | 30                 |
+    And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
+      | Section Header | Section Weight (%) |
+      | Environment    | 30                 |
+    And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
+      | Section Header | Section Weight (%) |
+      | Permits        | 40                 |
+    And I pause execution for "4" seconds
+    And I expand nested table containing column value "Schedule"
+    When I enter the following values into flex table with id "---announcement:-:reviewPanelQuestionsTableId---" by clicking "New" :
+      | Question Order | Question  | Type    | Max Score |
+      | 1              | Question1 | Written | 100       |
+    And I pause execution for "4" seconds
+    And I collapse nested table containing column value "Schedule"
+    And I expand nested table containing column value "Environment"
+    When I enter the following values into flex table with id "---announcement:-:reviewPanelQuestionsTableId---" by clicking "New" :
+      | Question Order | Question  | Type    | Max Score |
+      | 1              | Question1 | Written | 100       |
+    And I pause execution for "4" seconds
+    And I collapse nested table containing column value "Environment"
+    And I expand nested table containing column value "Permits"
+    When I enter the following values into flex table with id "---announcement:-:reviewPanelQuestionsTableId---" by clicking "New" :
+      | Question Order | Question  | Type    | Max Score |
+      | 1              | Question1 | Written | 100       |
+    And I pause execution for "4" seconds
+    And I collapse nested table containing column value "Permits"
+    When I close "Review Form" modal by clicking the top right x button
+    And I pause execution for "2" seconds
+    And I collapse nested table containing column value "SME Review"
+    And I pause execution for "2" seconds
+    And I expand nested table containing column value "SME Review"
+    When I click on "Review Form" icon for "Fiscal Review" inside flex table with id "---announcement:-:preScreenReviewFormTableId---" without waiting for record
+    And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
+      | Section Header | Section Weight (%) |
+      | Budget         | 30                 |
+    And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
+      | Section Header | Section Weight (%) |
+      | Match          | 40                 |
+    And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
+      | Section Header | Section Weight (%) |
+      | Program Income | 30                 |
+    And I pause execution for "4" seconds
+    And I expand nested table containing column value "Budget"
+    When I enter the following values into flex table with id "---announcement:-:reviewPanelQuestionsTableId---" by clicking "New" :
+      | Question Order | Question  | Type    | Max Score |
+      | 1              | Question1 | Written | 100       |
+    And I pause execution for "4" seconds
+    And I collapse nested table containing column value "Budget"
+    And I expand nested table containing column value "Match"
+    When I enter the following values into flex table with id "---announcement:-:reviewPanelQuestionsTableId---" by clicking "New" :
+      | Question Order | Question  | Type    | Max Score |
+      | 1              | Question1 | Written | 100       |
+    And I pause execution for "4" seconds
+    And I collapse nested table containing column value "Match"
+    And I expand nested table containing column value "Program Income"
+    When I enter the following values into flex table with id "---announcement:-:reviewPanelQuestionsTableId---" by clicking "New" :
+      | Question Order | Question  | Type    | Max Score |
+      | 1              | Question1 | Written | 100       |
+    And I pause execution for "4" seconds
+    And I collapse nested table containing column value "Program Income"
+    When I close "Review Form" modal by clicking the top right x button
+    And I pause execution for "2" seconds
+    And I collapse nested table containing column value "SME Review"
+    And I pause execution for "2" seconds
+    And I expand nested table containing column value "SME Review"
+    When I click on "Review Form" icon for "Program Review" inside flex table with id "---announcement:-:preScreenReviewFormTableId---" without waiting for record
+    And I pause execution for "4" seconds
+    And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
+      | Section Header | Section Weight (%) |
+      | Capability     | 30                 |
+    And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
+      | Section Header | Section Weight (%) |
+      | Approach       | 30                 |
+    And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
+      | Section Header | Section Weight (%) |
+      | Impact         | 40                 |
+    And I pause execution for "4" seconds
+    And I expand nested table containing column value "Capability"
+    When I enter the following values into flex table with id "---announcement:-:reviewPanelQuestionsTableId---" by clicking "New" :
+      | Question Order | Question  | Type    | Max Score |
+      | 1              | Question1 | Written | 100       |
+    And I pause execution for "4" seconds
+    And I collapse nested table containing column value "Capability"
+    And I expand nested table containing column value "Approach"
+    When I enter the following values into flex table with id "---announcement:-:reviewPanelQuestionsTableId---" by clicking "New" :
+      | Question Order | Question  | Type    | Max Score |
+      | 1              | Question1 | Written | 100       |
+    And I pause execution for "4" seconds
+    And I collapse nested table containing column value "Approach"
+    And I expand nested table containing column value "Impact"
+    When I enter the following values into flex table with id "---announcement:-:reviewPanelQuestionsTableId---" by clicking "New" :
+      | Question Order | Question  | Type    | Max Score |
+      | 1              | Question1 | Written | 100       |
+    And I pause execution for "4" seconds
+    And I collapse nested table containing column value "Impact"
+    When I close "Review Form" modal by clicking the top right x button
+    And I pause execution for "2" seconds
+    When I collapse nested table containing column value "SME Review"
+    And I pause execution for "2" seconds
+    And I expand nested table containing column value "Management Review"
+    When I click on "Review Form" icon for "Management Review" inside flex table with id "---announcement:-:subReviewPanelTableId---" without waiting for record
+    And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
+      | Section Header             | Section Weight (%) |
+      | Return on Investment (ROI) | 50                 |
+    And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
+      | Section Header      | Section Weight (%) |
+      | Strategic Alignment | 50                 |
+    And I pause execution for "4" seconds
+    And I expand nested table containing column value "Return on Investment (ROI)"
+    When I enter the following values into flex table with id "---announcement:-:reviewPanelQuestionsTableId---" by clicking "New" :
+      | Question Order | Question  | Type    | Max Score |
+      | 1              | Question1 | Written | 100       |
+    And I pause execution for "4" seconds
+    And I collapse nested table containing column value "Return on Investment (ROI)"
+    And I expand nested table containing column value "Strategic Alignment"
+    When I enter the following values into flex table with id "---announcement:-:reviewPanelQuestionsTableId---" by clicking "New" :
+      | Question Order | Question  | Type    | Max Score |
+      | 1              | Question1 | Written | 100       |
+    And I pause execution for "4" seconds
+    When I close "Review Form" modal by clicking the top right x button
+    And I pause execution for "4" seconds
+    When I collapse nested table containing column value "Management Review"
+    And I click on top right button "Validate" in flex table with id "---announcement:-:preScreenReviewFormTableId---"
+    Then I softly see the following messages in the page details :
+      | There are no errors with the review step templates. |
     And I click on "Edit" in the page details
     When I navigate to "Financials" sub tab
     And I enter value "Justified" into field "Justification__c"
@@ -1234,335 +1226,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I wait for "3" seconds
     Then I see status in Progress-bar is "Submitted" and is "dark blue"
 
-  @submitApplicationByApplicantFormula @ProdSan4
-  Scenario: Validate once the application is submitted to Grantor and then status changes to Submitted
-    When I login to "Grantor" app as "PM" user
-    And I navigate to "Announcements" tab
-    And I wait for "2" seconds
-    When I navigate to "Formula" content inside "Announcements" subheader on left panel
-    And I click toggle button to select "Draft Formula Announcements"
-    And I click on top right button "New" in flex table with id "---announcement:-:formulaAnnouncementTableId---"
-    And I enter "FormulaAnnouncement" values from "Announcement_Field_Values.xlsx"
-    And I click modal button "Continue"
-    When I enter "Creation_Formula_ByApplicant" values from "Announcement_Field_Values.xlsx"
-    And I click modal button "Save and Continue"
-    When I navigate to "Overview" sub tab
-    And I enter "Formula_Edition" values from "Announcement_Field_Values.xlsx"
-    And I click on "Save" in the page details
-    And I get the "EGMS ID"
-    And I save the field labeled "EGMS ID" as "AnnEGMSID"
-    When I navigate to "Financials" sub tab
-    And I click on top right button "Associate" in flex table with id "---announcement:-:fundingAccountsTableId---"
-    When I click "Associate" after selection of "{SavedValue:fundingAccount}" in the table "---announcement:-:fundingAccTableId---"
-    When I click modal button "Close"
-    And I refresh the page
-    When I navigate to "Financials" sub tab
-    Given I edit the following rows inline in flex table with id "---announcement:-:fundingAccountsTableId---" by clicking "Edit" :
-      | Funding Account             | Pre-Encumbrance |
-      | {SavedValue:fundingAccount} | 100             |
-    And I click on top right button "Add Budget Period" in flex table with id "---announcement:-:budgetPeriodTableId---"
-    When I refresh the page
-    When I navigate to "Overview" sub tab
-    And I click on top right button "Associate" in flex table with id "---announcement:-:contactTableId---"
-    When I click "Associate" after selection of "Automation EXE" in the table "---announcement:-:annoucementContactTableId---"
-    When I navigate to "Responsibilities" sub tab
-    When I enter the following values into flex table with id "---announcement:-:approversTableId---" by clicking "New" :
-      | Name          | Announcement |
-      | Automation PM | Step 1       |
-    And I click on "Edit" in the page details
-    When I navigate to "Financials" sub tab
-    And I enter value "Justified" into field "Justification__c"
-    And I click on "Save" in the page details
-    And I pause execution for "2" seconds
-    When I navigate to "Overview" sub tab
-    And I click on top right button "Add Organizations" in flex table with id "---announcement:-:formulaInvitedApplicatsTableId---"
-    And I perform quick search for "SAN DIEGO ELECTRICAL TRAINING TRUST" in "---announcement:-:formulaAddInviteApplicantTableId---" panel
-    When I click "Add" after selection of "SAN DIEGO ELECTRICAL TRAINING TRUST" in the table "---announcement:-:formulaAddInviteApplicantTableId---"
-    When I close "Add Organizations" modal by clicking the top right x button
-    When I navigate to "Overview" sub tab
-    And I pause execution for "4" seconds
-    When I refresh the page
-    When I edit the following rows inline in flex table with id "---announcement:-:formulaInvitedApplicatsTableId---" by clicking "Edit" :
-      | Applicants                          | Allocated Amount |
-      | SAN DIEGO ELECTRICAL TRAINING TRUST | 1000             |
-    When I navigate to "Financials" sub tab
-    And I edit the following rows inline in flex table with id "---announcement:-:budgetPeriodTableId---" by clicking "Edit" :
-      | Budget Period Name | Start Date | End Date |
-      | BP01               | 50         | 150      |
-    And I wait for "2" seconds
-    And I click on "Submit For Approval" in the page details
-    And I wait for "2" seconds
-    Then I see status in Progress-bar is "Submitted for Approval" and is "dark blue"
-    And I "Approve" in the approval decision
-    Then I softly see status in Progress-bar is "Approved" and is "dark blue"
-    And I click on "Publish" in the page details
-    And I wait for "5" seconds
-    Then I softly see field "Status" as "Published"
-    When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
-    And I navigate to "Opportunities" tab
-    When I navigate to "Not Yet Qualified" content inside "Opportunities" subheader on left panel
-    And I perform quick search for "{SavedValue:AnnEGMSID}" in "---applicationReview:-:reviewsTableId---" panel
-    When I click on "View" icon for "{SavedValue:AnnEGMSID}" inside flex table with id "---applicationReview:-:reviewsTableId---"
-    When I click on "Qualify" in the page details
-    When I click on "Create Application" in the page details
-    And I wait for "3" seconds
-    And I click modal button "Save and Continue"
-    And I wait for "2" seconds
-    When I enter "Edition" values from "Application_Field_Values.xlsx"
-    When I click on "Save" in the page details
-    And I wait for "3" seconds
-    And I navigate to "Budget" sub tab
-    When I expand nested table containing column value "BP01"
-    And I edit the following rows inline in flex table with id "---applicationReview:-:budgetTableId---" by clicking "Edit" :
-      | Category Name | Budget | Cash Match | Non-Cash Match |
-      | Construction  | 1000   | 100        | 100            |
-    When I navigate to "Overview" sub tab
-    And I edit the following rows inline in flex table with id "---applicationReview:-:flexGridAppContactTableId---" by clicking "Edit" :
-      | Name                       | Is Key Contact |
-      | {SavedValue:SPI3 Username} | Checked        |
-    When I navigate to "Proposal" sub tab
-    When I edit the following rows inline in flex table with id "---applicationReview:-:kpiTableId---" by clicking "Edit" :
-      | EGMS ID                  | Target |
-      | Automation Permanent KPI | 10     |
-    And I navigate to "Forms and Files" sub tab
-    And I click on "Edit" icon for "Standard Assurances Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
-    And I switch to tab number "1"
-    When I enter "Form Fields 1" values from "Application_Field_Values.xlsx"
-    And I click on "Save" in the page details
-    And I wait for "2" seconds
-    And I close the tab
-    And I wait for "2" seconds
-    And I click on "Edit" icon for "Program Application Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
-    And I switch to tab number "1"
-    And I wait for "2" seconds
-    When I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
-    And I click on "Save" in the page details
-    And I wait for "3" seconds
-    And I close the tab
-    And I wait for "2" seconds
-    And I get the "EGMS ID"
-    When I click on "Submit Application" in the page details
-    And I wait for "3" seconds
-    Then I see status in Progress-bar is "Submitted" and is "dark blue"
-
-  @submitApplicationByApplicantFocusAreaFormula @ProdSan4
-  Scenario: Validate once the application is submitted to Grantor and then status changes to Submitted
-    When I login to "Grantor" app as "PM" user
-    And I navigate to "Announcements" tab
-    When I navigate to "Formula" content inside "Announcements" subheader on left panel
-    And I click toggle button to select "Draft Formula Announcements"
-    And I click on top right button "New" in flex table with id "---announcement:-:formulaAnnouncementTableId---"
-    And I enter "FormulaAnnouncement" values from "Announcement_Field_Values.xlsx"
-    And I click modal button "Continue"
-    When I enter "Creation_Formula_ByApp_FocusYes" values from "Announcement_Field_Values.xlsx"
-    And I click modal button "Save and Continue"
-    When I navigate to "Overview" sub tab
-    And I enter "Formula_Edition" values from "Announcement_Field_Values.xlsx"
-    And I click on "Save" in the page details
-    And I get the "EGMS ID"
-    When I navigate to "Overview" sub tab
-    And I save the field labeled "EGMS ID" as "AnnEGMSID"
-    And I save the field labeled "Announcement Name" as "Automation Runtime Formula Announcement"
-    When I navigate to "Financials" sub tab
-    And I click on top right button "Associate" in flex table with id "---announcement:-:fundingAccountsTableId---"
-    When I click "Associate" after selection of "{SavedValue:fundingAccount}" in the table "---announcement:-:fundingAccTableId---"
-    When I close "Associate Funding Accounts" modal by clicking the top right x button
-    And I refresh the page
-    When I navigate to "Financials" sub tab
-    Given I edit the following rows inline in flex table with id "---announcement:-:fundingAccountsTableId---" by clicking "Edit" :
-      | Funding Account             | Pre-Encumbrance |
-      | {SavedValue:fundingAccount} | 100             |
-    And I click on top right button "Add Budget Period" in flex table with id "---announcement:-:budgetPeriodTableId---"
-    When I refresh the page
-    When I navigate to "Overview" sub tab
-    And I click on top right button "Associate" in flex table with id "---announcement:-:contactTableId---"
-    When I click "Associate" after selection of "{SavedValue:EXE Username}" in the table "---announcement:-:annoucementContactTableId---"
-    When I navigate to "Setup" sub tab
-    And I click on top right button "Associate" in flex table with id "---announcement:-:objectivesTableId---"
-    When I click "Associate" after selection of "Automation Permanent Objective2" in the table "---announcement:-:goalsTableId---"
-    When I navigate to "Responsibilities" sub tab
-    When I enter the following values into flex table with id "---announcement:-:approversTableId---" by clicking "New" :
-      | Name                     | Announcement |
-      | {SavedValue:PM Username} | Step 1       |
-    And I click on "Edit" in the page details
-    When I navigate to "Financials" sub tab
-    And I enter value "Justified" into field "Justification__c"
-    And I click on "Save" in the page details
-    And I wait for "4" seconds
-    When I navigate to "Overview" sub tab
-    And I click on top right button "Add Organization" in flex table with id "---announcement:-:addOrganizationByAppFocusAreaTableId---"
-    And I perform quick search for "SAN DIEGO ELECTRICAL TRAINING TRUST" in "---announcement:-:formulaAddInviteApplicantTableId---" panel
-    When I click "Add" after selection of "SAN DIEGO ELECTRICAL TRAINING TRUST" in the table "---announcement:-:formulaAddInviteApplicantTableId---"
-    When I close "Add Organizations" modal by clicking the top right x button
-    And I refresh the page
-    And I wait for "2" seconds
-    When I navigate to "Overview" sub tab
-    And I expand nested table containing column value "SAN DIEGO ELECTRICAL TRAINING TRUST"
-    And I wait for "2" seconds
-    And I edit the following rows inline in flex table with id "---announcement:-:formulaFocusAreaInvitedTableId---" by clicking "Edit" :
-      | Title                           | Allocation Amount |
-      | Automation Permanent Focus Area | 1000              |
-    When I navigate to "Financials" sub tab
-    And I edit the following rows inline in flex table with id "---announcement:-:budgetPeriodTableId---" by clicking "Edit" :
-      | Budget Period Name | Start Date | End Date |
-      | BP01               | 50         | 150      |
-    And I click on "Submit For Approval" in the page details
-    And I wait for "3" seconds
-    Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
-    And I "Approve" in the approval decision
-    And I click on "Publish" in the page details
-    And I wait for "5" seconds
-    Then I softly see field "Status" as "Published"
-    When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
-    And I navigate to "Opportunities" tab
-    When I navigate to "Not Yet Qualified" content inside "Opportunities" subheader on left panel
-    And I perform quick search for "{SavedValue:Automation Runtime Formula Announcement}" in "---applicationReview:-:reviewsTableId---" panel
-    When I click on "View" icon for "{SavedValue:Automation Runtime Formula Announcement}" inside flex table with id "---applicationReview:-:reviewsTableId---"
-    When I click on "Qualify" in the page details
-    When I click on "Create Application" in the page details
-    And I wait for "3" seconds
-    And I click modal button "Save and Continue"
-    And I wait for "2" seconds
-    When I enter "Edition" values from "Application_Field_Values.xlsx"
-    When I click on "Save" in the page details
-    And I wait for "3" seconds
-    And I navigate to "Budget" sub tab
-    When I expand nested table containing column value "BP01"
-    And I edit the following rows inline in flex table with id "---applicationReview:-:budgetTableId---" by clicking "Edit" :
-      | Category Name | Budget | Cash Match | Non-Cash Match |
-      | Construction  | 1000   | 100        | 100            |
-    When I navigate to "Overview" sub tab
-    And I edit the following rows inline in flex table with id "---applicationReview:-:flexGridAppContactTableId---" by clicking "Edit" :
-      | Name                       | Is Key Contact |
-      | {SavedValue:SPI3 Username} | Checked        |
-    When I navigate to "Proposal" sub tab
-    When I edit the following rows inline in flex table with id "---applicationReview:-:kpiTableId---" by clicking "Edit" :
-      | EGMS ID                  | Target |
-      | Automation Permanent KPI | 10     |
-    And I navigate to "Forms and Files" sub tab
-    And I click on "Edit" icon for "Standard Assurances Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
-    And I switch to tab number "1"
-    When I enter "Form Fields 1" values from "Application_Field_Values.xlsx"
-    And I click on "Save" in the page details
-    And I wait for "2" seconds
-    And I close the tab
-    And I wait for "2" seconds
-    And I click on "Edit" icon for "Program Application Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
-    And I switch to tab number "1"
-    And I wait for "2" seconds
-    When I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
-    And I click on "Save" in the page details
-    And I wait for "3" seconds
-    And I close the tab
-    And I wait for "2" seconds
-    And I get the "EGMS ID"
-    When I click on "Submit Application" in the page details
-    And I wait for "3" seconds
-    Then I see status in Progress-bar is "Submitted" and is "dark blue"
-
-  @submitApplicationDirected @ProdSan4
-  Scenario: Validate once the application is submitted to Grantor and then status changes to Submitted
-    When I login to "Grantor" app as "PM" user
-    And I navigate to "Announcements" tab
-    And I navigate to "Directed" content inside "Announcements" subheader on left panel
-    And I click toggle button to select "Draft Directed Announcements"
-    And I click on top right button "New" in flex table with id "---announcement:-:annoucementTableId---"
-    And I enter "DirectedAnnouncement" values from "Announcement_Field_Values.xlsx"
-    And I click modal button "Continue"
-    When I enter "Creation Second Modal" values from "Announcement_Field_Values.xlsx"
-    And I click modal button "Save and Continue"
-    And I enter "Edition" values from "Announcement_Field_Values.xlsx"
-    And I click on "Save" in the page details
-    And I get the "EGMS ID"
-    And I save the field labeled "EGMS ID" as "AnnEGMSID"
-    When I navigate to "Financials" sub tab
-    And I click on top right button "Associate" in flex table with id "---announcement:-:fundingAccountsTableId---"
-    When I click "Associate" after selection of "{SavedValue:fundingAccount}" in the table "---announcement:-:fundingAccTableId---"
-    When I close "Associate Funding Accounts" modal by clicking the top right x button
-    And I refresh the page
-    When I navigate to "Financials" sub tab
-    Given I edit the following rows inline in flex table with id "---announcement:-:fundingAccountsTableId---" by clicking "Edit" :
-      | Funding Account             | Pre-Encumbrance |
-      | {SavedValue:fundingAccount} | 100             |
-    When I navigate to "Financials" sub tab
-    And I click on top right button "Add Budget Period" in flex table with id "---announcement:-:budgetPeriodTableId---"
-    When I refresh the page
-    When I navigate to "Overview" sub tab
-    And I click on top right button "Associate" in flex table with id "---announcement:-:contactTableId---"
-    When I click "Associate" after selection of "{SavedValue:EXE Username}" in the table "---announcement:-:annoucementContactTableId---"
-    And I click on top right button "Add Organizations" in flex table with id "---announcement:-:directedInvitedApplicatsTableId---"
-    When I click "Add" after selection of "SAN DIEGO ELECTRICAL TRAINING TRUST" in the table "---announcement:-:directedAddInviteApplicantTableId---"
-    When I close "Add Organizations" modal by clicking the top right x button
-    When I navigate to "Setup" sub tab
-    And I click on top right button "Associate" in flex table with id "---announcement:-:objectivesTableId---"
-    When I click "Associate" after selection of "Automation Permanent Objective2" in the table "---announcement:-:goalsTableId---"
-    And I wait for "3" seconds
-    When I navigate to "Responsibilities" sub tab
-    When I enter the following values into flex table with id "---announcement:-:approversTableId---" by clicking "New" :
-      | Name          | Announcement |
-      | Automation PM | Step 1       |
-    And I click on "Edit" in the page details
-    When I navigate to "Financials" sub tab
-    And I enter value "Justified" into field "Justification__c"
-    And I edit the following rows inline in flex table with id "---announcement:-:budgetPeriodTableId---" by clicking "Edit" :
-      | Budget Period Name | Start Date | End Date |
-      | BP01               | 50         | 150      |
-    And I click on "Save" in the page details
-    And I pause execution for "3" seconds
-    And I click on "Submit For Approval" in the page details
-    And I pause execution for "3" seconds
-    Then I softly see field "Status" as "Submitted for Approval"
-    And I "Approve" in the approval decision
-    And I click on "Publish" in the page details
-    Then I softly see status in Progress-bar is "Published" and is "dark blue"
-    When I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
-    And I navigate to "Opportunities" tab
-    When I navigate to "Not Yet Qualified" content inside "Opportunities" subheader on left panel
-    And I perform quick search for "{SavedValue:AnnEGMSID}" in "---applicationReview:-:reviewsTableId---" panel
-    When I click on "View" icon for "{SavedValue:AnnEGMSID}" inside flex table with id "---applicationReview:-:reviewsTableId---"
-    When I click on "Qualify" in the page details
-    When I click on "Create Application" in the page details
-    And I wait for "3" seconds
-    And I click modal button "Save and Continue"
-    And I wait for "2" seconds
-    When I enter "Edition" values from "Application_Field_Values.xlsx"
-    When I click on "Save" in the page details
-    And I wait for "3" seconds
-    And I navigate to "Budget" sub tab
-    When I expand nested table containing column value "BP01"
-    And I edit the following rows inline in flex table with id "---applicationReview:-:budgetTableId---" by clicking "Edit" :
-      | Category Name | Budget | Cash Match | Non-Cash Match |
-      | Construction  | 1000   | 100        | 100            |
-    When I navigate to "Overview" sub tab
-    And I edit the following rows inline in flex table with id "---applicationReview:-:flexGridAppContactTableId---" by clicking "Edit" :
-      | Name                       | Is Key Contact |
-      | {SavedValue:SPI3 Username} | Checked        |
-    When I navigate to "Proposal" sub tab
-    When I edit the following rows inline in flex table with id "---applicationReview:-:kpiTableId---" by clicking "Edit" :
-      | EGMS ID                  | Target |
-      | Automation Permanent KPI | 10     |
-    And I navigate to "Forms and Files" sub tab
-    And I click on "Edit" icon for "Standard Assurances Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
-    And I switch to tab number "1"
-    When I enter "Form Fields 1" values from "Application_Field_Values.xlsx"
-    And I click on "Save" in the page details
-    And I wait for "2" seconds
-    And I close the tab
-    And I wait for "2" seconds
-    And I click on "Edit" icon for "Program Application Form" inside flex table with id "---applicationReview:-:allFormsTableId---"
-    And I switch to tab number "1"
-    And I wait for "2" seconds
-    When I enter "Form Fields 2" values from "Application_Field_Values.xlsx"
-    And I click on "Save" in the page details
-    And I wait for "3" seconds
-    And I close the tab
-    And I wait for "2" seconds
-    And I get the "EGMS ID"
-    When I click on "Submit Application" in the page details
-    And I wait for "3" seconds
-    Then I see status in Progress-bar is "Submitted" and is "dark blue"
-
-  @72346 @applicationReviewHappyPath @ProdSan2
+  @72346 @applicationReviewHappyPath @ProdSan2 @TBE1
   Scenario Outline: Validate the complete review process for an application
     Given I published "Competitive" type announcement having name "Automation Runtime Announcement Application Review" and properties "default"
     And I initiated an application review for application "{SavedValue:Automation Runtime Announcement Application Review}" on announcement "{SavedValue:Automation Runtime Announcement Application Review}" with properties "default"
@@ -1609,7 +1273,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I click on "Submit" in the page details without processing
     When I click alert button "OK"
     Then I see that "Status" is in "Review Completed" status
-    When I re-login to "Grantor" app as "dynamicUser" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     When I navigate to "Applications" tab
     And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
     When I click toggle button to select "Application Reviews - All"
@@ -1690,7 +1354,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I click on "Submit" in the page details without processing
     When I click alert button "OK"
     Then I see that "Status" is in "Review Completed" status
-    When I re-login to "Grantor" app as "dynamicUser" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Applications" tab
     And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
     When I click toggle button to select "Application Reviews - All"
@@ -1729,7 +1393,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I click on "Submit" in the page details without processing
     When I click alert button "OK"
     Then I see that "Status" is in "Review Completed" status
-    When I re-login to "Grantor" app as "dynamicUser" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Applications" tab
     And I wait for "1" seconds
     And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
@@ -1781,7 +1445,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
     And I created approved FDM on application "{SavedValue:Automation Runtime FDM Announcement}"
     And I delete the record "{SavedValue:Automation Runtime FDM Announcement}" from the object "FDM"
-    Given I login to "Grantor" app as "dynamicUser" user
+    Given I login to "Grantor" app as "PM" user
     And I navigate to "Applications" tab
     When I navigate to "Funding Decision Memos (FDM)" content inside "Application Reviews" subheader on left panel
     And I click toggle button to select "Approved Funding Decision Memos (FDM)"
@@ -1812,7 +1476,7 @@ Feature: Validate sanity testing of Complete Business Flow
       | Automation Negotiation Iniatiation | ApplicantResponse__c |
     When I click on "Save" in the page details
     When I click on "Submit to Grantor" in the page details
-    When I re-login to "Grantor" app as "dynamicUser" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Applications" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:EGMSID}" in "---negotiation:-:phasePendingTasksTableId---" panel
@@ -1824,20 +1488,19 @@ Feature: Validate sanity testing of Complete Business Flow
     When I navigate to "Negotiations" content inside "Application Reviews" subheader on left panel
     Then I can see row level action button "View" against "{SavedValue:Automation Runtime FDM Announcement}" in flex table with id "---negotiation:-:negotiationCompletedTaskTableId---"
 
-  @38224 @awardHappyPathFromFDM @ProdSan2
+  @mk @38224 @awardHappyPathFromFDM @ProdSan2
   Scenario Outline: Validate  the activation of subaward from FDM happy path and the status changes to Activated
     Given I published "Competitive" type announcement having name "Automation Runtime FDM Announcement" and properties "NO_RISK_ASSESSMENT"
     When I initiated an application review for application "{SavedValue:Automation Runtime FDM Announcement}" on announcement "{SavedValue:Automation Runtime FDM Announcement}" with properties "default"
     And I created approved FDM on application "{SavedValue:Automation Runtime FDM Announcement}"
-    When I login to "Grantor" app as "dynamicUser" user
+    When I login to "Grantor" app as "PM" user
     And I navigate to "Applications" tab
     When I navigate to "Funding Decision Memos (FDM)" content inside "Application Reviews" subheader on left panel
     And I click toggle button to select "Approved Funding Decision Memos (FDM)"
     When I perform quick search for "{SavedValue:Automation Runtime FDM Announcement}" in "---subAwardFromFDM:-:fdmTableId---" panel
     And I click on "View" icon for "{SavedValue:Automation Runtime FDM Announcement}" inside flex table with id "---subAwardFromFDM:-:fdmTableId---" without waiting for record
     And I wait for "3" seconds
-    And I click on "Create Subaward" icon for "{SavedValue:Automation Runtime FDM Announcement}" inside flex table with id "---subAwardFromFDM:-:recommendedAppTableId---" without waiting for record
-    And I pause execution for "5" seconds
+    When I select "{SavedValue:Automation Runtime FDM Announcement}" in the table "---subAwardFromFDM:-:recommendedAppTableId---" and click the top-right button "Create Award"
     And I enter "Edition" values from "Award_Field_Values.xlsx"
     When I click on "Save" in the page details
     And I get the "EGMS ID"
@@ -1875,7 +1538,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I click on "Start" icon for "Record Id" inside flex table with id "---subAwardFromFDM:-:subrecipientPendingTaskTableId---" without waiting for record
     And I click on "Accept" in the page details
     And I wait for "2" seconds
-    When I re-login to "Grantor" app as "dynamicUser" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - All"
@@ -1899,10 +1562,10 @@ Feature: Validate sanity testing of Complete Business Flow
     And I enter a review as "Passed"
     When I click modal button "Save"
     And I click on submit review
-    And I wait for "1" seconds
-#    When I click modal button "Close"
 #    And I wait for "1" seconds
-    When I re-login to "Grantor" app as "dynamicUser" user on "INTERNAL" portal
+#    When I click modal button "Close"
+    And I wait for "1" seconds
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - All"
@@ -1938,7 +1601,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I click on "Start" icon for "Record Id" inside flex table with id "---subAwardFromFDM:-:pendingTaskTableId---" without waiting for record
     When I "Approve" in the approval decision
     And I wait for "2" seconds
-    When I re-login to "Grantor" app as "dynamicUser" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - All"
@@ -1955,7 +1618,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I click on "Start" icon for "Record Id" inside table
     And I click on "Accept after Approval" in the page details
     And I wait for "2" seconds
-    When I re-login to "Grantor" app as "dynamicUser" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - All"
@@ -1969,7 +1632,7 @@ Feature: Validate sanity testing of Complete Business Flow
       | Award Name                                       | Grant Name                                       |
       | {SavedValue:Automation Runtime FDM Announcement} | {SavedValue:Automation Runtime FDM Announcement} |
 
-  @72348 @awardHappyPathStandAlone @ProdSan1 @TBE
+  @Bug-PROD-50820 @72348 @awardHappyPathStandAlone @ProdSan1 @TBE
   Scenario: Validate the activation of subaward Happy path stand alone and status changes to Activated | Validate subaward Happy path stand alone
     When I login to "Grantor" app as "PM" user
     And I navigate to "Grants" tab
@@ -1980,6 +1643,8 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click modal button "Continue"
     And I enter "Grant_Edition1" values from "Award_Field_Values.xlsx"
     When I click modal button "Save and Continue"
+    Then I softly see status in Progress-bar is "Created" and is "dark blue"
+    And I wait for "5" seconds
     And I save the field labeled "EGMS ID" as "GrantEGMSID"
     And I navigate to "Subawards" sub tab
     And I click on "View" icon for "Created" inside flex table with id "---subAwardStandAlone:-:subawardsTableId---" without waiting for record
@@ -2089,7 +1754,7 @@ Feature: Validate sanity testing of Complete Business Flow
 
   @72360 @activeRiskAssessment @ProdSan2
   Scenario: Validate the Activation of Risk Assessment and the status changes to Active
-    Given I login to "Grantor" app as "dynamicUser" user
+    Given I login to "Grantor" app as "PM" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click on top right button "New" in flex table with id "---subAwardStandAlone:-:activeGrantsTableId---"
@@ -2142,8 +1807,8 @@ Feature: Validate sanity testing of Complete Business Flow
     And I pause execution for "5" seconds
     And I click on submit review
 #    When I click modal button "Close"
-    And I wait for "1" seconds
-    When I re-login to "Grantor" app as "DynamicUser" user on "INTERNAL" portal
+#    And I wait for "1" seconds
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Risk Assessments" content inside "Monitoring Activities" subheader on left panel
     And I click toggle button to select "Subaward Risk Assessments - All"
@@ -2163,7 +1828,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I perform quick search for "Record Id" in "---subAwardStandAlone:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---subAwardStandAlone:-:pendingTaskTableId---" without waiting for record
     And I "Approve" in the approval decision
-    When I re-login to "Grantor" app as "dynamicUser" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Risk Assessments" content inside "Monitoring Activities" subheader on left panel
     And I perform quick search for "Record Id" in "---riskassessment:-:monitotingTableRiskAssessmentFlexTableId---" panel
@@ -2533,7 +2198,7 @@ Feature: Validate sanity testing of Complete Business Flow
 #    And I click on "Back" in the page details
     When I click on "Submit to Grantor" in the page details
     Then I softly see field "Status" as "Submitted to Grantor"
-    When I re-login to "Grantor" app as "dynamicUser" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "{SavedValue:Record Id}" in "---progressReport:-:pendingTaskTableId---" panel
@@ -2554,7 +2219,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I perform quick search for "{SavedValue:Record Id}" in "---progressReport:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "{SavedValue:Record Id}" inside table
     When I "Approve" in the approval decision
-    When I re-login to "Grantor" app as "dynamicUser" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Progress Reports" content inside "Monitoring Activities" subheader on left panel
     And I click toggle button to select "Progress Reports - Approved"
@@ -2702,7 +2367,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I get the "EGMS ID"
     Given I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---deskreview:-:participantsTableId---"
-    When I click "Associate" after selection of "{SavedValue:EXE Username}" in the table "---deskreview:-:deskReviewContactsTableId---"
+    When I click "Associate" after selection of "{SavedValue:EXE1 Username}" in the table "---deskreview:-:deskReviewContactsTableId---"
     And I click on top right button "Associate" in flex table with id "---deskreview:-:associateAwardDeskReviewTableId---"
     And I pause execution for "5" seconds
     When I click "Associate" after selection of "{SavedValue:Automation Runtime Award Record}" in the table "---deskreview:-:awardDeskReviewTableId---"
@@ -2780,8 +2445,6 @@ Feature: Validate sanity testing of Complete Business Flow
     When I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---orgLevelSiteVisits:-:associateContactsId---"
     When I click "Associate" after selection of "{SavedValue:SPI3 Username}" in the table "---orgLevelSiteVisits:-:siteVisitContactsTableId---"
-    When I click modal button "Close"
-    And I wait for "2" seconds
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "SitevVisitId"
     And I click on "Notify" in the page details
@@ -2862,8 +2525,6 @@ Feature: Validate sanity testing of Complete Business Flow
     When I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---orgLevelDeskReview:-:deskReviewContactsTableId---"
     When I click "Associate" after selection of "{SavedValue:SPI3 Username}" in the table "---orgLevelDeskReview:-:associateContactsId---"
-    When I click modal button "Close"
-    And I wait for "2" seconds
     And I get the "EGMS ID"
     And I save the field labeled "EGMS ID" as "DeskReviewID"
     Then I softly see status in Progress-bar is "Created" and is "dark blue"
@@ -2929,7 +2590,7 @@ Feature: Validate sanity testing of Complete Business Flow
   @72358 @activationOfBudgetPeriodAmendmentRequest @ProdSan2
   Scenario: Validate the Budget period amendment activation
     And I activated standalone subaward "Automation Runtime Award" with properties "AMENDMENT_REQUEST" of type "Competitive"
-    When I login to "Grantor" app as "dynamicUser" user
+    When I login to "Grantor" app as "PM" user
     And I navigate to "Grants" tab
     And I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
@@ -2969,7 +2630,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I perform quick search for "Record Id" in "---amendment:-:subrecipientPendingTask---" panel
     And I click on "Start" icon for "Record Id" inside flex table with id "---amendment:-:subrecipientPendingTask---" without waiting for record
     And I click on "Acknowledge" in the page details
-    When I re-login to "Grantor" app as "dynamicUser" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---amendment:-:pendingTaskTableId---" panel
@@ -2990,7 +2651,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I "Approve" in the approval decision
     And I wait for "3" seconds
     Then I softly see field "Status" as "Approved"
-    When I re-login to "Grantor" app as "dynamicUser" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     And I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
@@ -3078,7 +2739,7 @@ Feature: Validate sanity testing of Complete Business Flow
     Given I activated standalone subaward "Automation Runtime Award for closeout" with properties "default" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Award for closeout}" from the object "Closeout"
     When I create a post award record "Closeout" for the Award "{SavedValue:Automation Runtime Award for closeout}" having object api name as "Closeout"
-    When I login to "Grantor" app as "dynamicUser" user
+    When I login to "Grantor" app as "PM" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Grants - Active"
@@ -3557,7 +3218,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I perform quick search for "Record Id" in "---amendment:-:pendingTaskTableId---" panel
     And I click on "Start" icon for "Record Id" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
     And I click on "Acknowledge" in the page details
-    When I re-login to "Grantor" app as "dynamicUser" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     And I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     When I perform quick search for "Record Id" in "---amendment:-:pendingTaskTableId---" panel
@@ -3571,7 +3232,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I perform quick search for "Record Id" in "---amendment:-:pendingTaskTableId---" panel
     When I click on "Start" icon for "Record Id" inside flex table with id "---amendment:-:pendingTaskTableId---" without waiting for record
     And I "Approve" in the approval decision
-    When I re-login to "Grantor" app as "dynamicUser" user on "INTERNAL" portal
+    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Amendment Requests" content inside "Grants, Subawards & Amendments" subheader on left panel
     And I click toggle button to select "Amendment Requests - Approved"
@@ -4243,7 +3904,7 @@ Feature: Validate sanity testing of Complete Business Flow
 
   @programRejection @ProdSan3
   Scenario: Validate the Rejectionof Internal Program and redirecting to same page
-    When I login to "Grantor" app as "dynamicUser" user
+    When I login to "Grantor" app as "PM" user
     And I navigate to "Planning" tab
     When I navigate to "Internal Programs" content inside "Programs" subheader on left panel
     And I click toggle button to select "Internal Programs - Draft"
@@ -4255,7 +3916,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I get the "EGMS ID"
     When I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---program:-:contactsTableId---"
-    When I click "Associate" after selection of "{SavedValue:EXE Username}" in the table "---program:-:associateContactsTableId---"
+    When I click "Associate" after selection of "{SavedValue:PM1 Username}" in the table "---program:-:associateContactsTableId---"
     When I click modal button "Close"
     When I navigate to "Setup" sub tab
     And I click on top right button "Associate" in flex table with id "---program:-:focusAreaTableId---"
@@ -4334,7 +3995,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I check "{SavedValue:GrantEGMSID}" boxes in flex table with id "---subAwardStandAlone:-:grantSourceOwnerTableId---"
     When I click table top right button "Transfer Ownership" in flex table with id "---subAwardStandAlone:-:grantSourceOwnerTableId---"
     Then I softly see confirmation box with body "When the ownership of the record is changed, all pending tasks assigned to the owner of the record will be reassigned automatically as well. Do you wish to proceed?" is displayed
-    And I click "OK" on modal confirmation box
+    And I click "Continue" on modal confirmation box
     And I pause execution for "30" seconds
     When I navigate to "Records of Target User" sub tab
     When I perform quick search for "{SavedValue:GrantEGMSID}" in "---subAwardStandAlone:-:grantTargetOwnerTableId---" panel
@@ -4574,12 +4235,10 @@ Feature: Validate sanity testing of Complete Business Flow
     When I get the "EGMS ID"
     Given I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "---deskreview:-:participantsTableId---"
-    When I click "Associate" after selection of "{SavedValue:EXE Username}" in the table "---deskreview:-:deskReviewContactsTableId---"
+    When I click "Associate" after selection of "{SavedValue:EXE1 Username}" in the table "---deskreview:-:deskReviewContactsTableId---"
     And I click on top right button "Associate" in flex table with id "---deskreview:-:associateAwardDeskReviewTableId---"
     And I pause execution for "5" seconds
     When I click "Associate" after selection of "{SavedValue:Automation Runtime Award Record}" in the table "---deskreview:-:awardDeskReviewTableId---"
-    When I click modal button "Close"
-    And I wait for "2" seconds
     And I click on "Notify" in the page details
     And I click on "Conduct" in the page details
     Then I softly see status in Progress-bar is "In Progress" and is "dark blue"
@@ -4894,7 +4553,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I click on "Submit" in the page details
     And I pause execution for "5" seconds
     And I am on "INTERNAL" portal
-    And I login to "Grantor" app as "dynamicUser" user
+    And I login to "Grantor" app as "PM" user
     And I navigate to "Home" tab
     When I navigate to "Pending Subrecipient Registrations" content inside "Organization" subheader on left panel
     When I perform quick search for "{SavedValue:uniqueEmailID}" in "{grantor_tableId:SubrecipientIndRegistration}" panel

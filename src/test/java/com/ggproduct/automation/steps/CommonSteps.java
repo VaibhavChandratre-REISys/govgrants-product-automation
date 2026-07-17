@@ -2,6 +2,7 @@ package com.ggproduct.automation.steps;
 
 import com.ggproduct.automation.projectmanager.ProjectManager;
 import com.ggproduct.automation.webservices.ProjectWebServices;
+import com.helperPackage.exception.TestingBlazeCustomException;
 import com.helperPackage.handlers.govgrants;
 import com.helperPackage.register.I;
 import io.cucumber.java.After;
@@ -189,6 +190,18 @@ public class CommonSteps {
                 pageBlockName,
                 usage.contains("modal")
         );
+    }
+
+    /******** PageLayout **********/
+    @Description("After selecting the checkbox for the value passed clicks on the button")
+    @When("^I select \"([^\"]*)\" in the table \"([^\"]*)\" and click the top-right button \"([^\"]*)\"$")
+    public void chooseRecordForProgramAssociation(String recordUniqueValues, String tableId, String buttonName) throws TestingBlazeCustomException {
+        projectManager.chooseRecordForAssociation(
+                buttonName,
+                tableId,
+                recordUniqueValues.split(",")
+        );
+        govgrants.perform().modal().acceptPopUp();
     }
 }
 

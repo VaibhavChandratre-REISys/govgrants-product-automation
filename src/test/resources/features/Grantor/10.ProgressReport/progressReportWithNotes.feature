@@ -783,6 +783,7 @@ Feature: Validate scenarios in Progress Report Notes
     Then I softly see value "{SavedValue:CreatedDate}" for title "Created Date" inside table "---progressreport:-:progressNotesTableId---"
     When I click on "Submit to Grantor" in the page details
     Then I softly see field "Status" as "Submitted to Grantor"
+    And I refresh the page
     When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel

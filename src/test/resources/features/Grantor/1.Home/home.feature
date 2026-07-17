@@ -136,6 +136,7 @@ Feature: Validate all scenarios in the home tab
     When I perform quick search for "{SavedValue:Automation Runtime} Contact" in "---home:-:reviewersTableId---" panel
     Then I softly can see row level action button "View" against "{SavedValue:Automation Runtime} Contact" in flex table with id "---home:-:reviewersTableId---"
     Given I delete the record "{SavedValue:Automation Runtime Contact}" from the object "CONTACT"
+
     Examples:
       | User  |
       | ADMIN |
@@ -182,6 +183,7 @@ Feature: Validate all scenarios in the home tab
     When I perform quick search for "{SavedValue:Automation Runtime} Contact" in "---home:-:reviewersTableId---" panel
     Then I can see row level action button "View" against "{SavedValue:Automation Runtime} Contact" in flex table with id "---home:-:reviewersTableId---"
     Given I delete the record "{SavedValue:Automation Runtime} Contact" from the object "CONTACT"
+
     Examples:
       | User  |
       | ADMIN |

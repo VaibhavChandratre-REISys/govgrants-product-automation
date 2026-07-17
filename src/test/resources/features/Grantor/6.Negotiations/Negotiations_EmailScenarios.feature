@@ -1,4 +1,4 @@
-@negotiationsEmailScenarios @grantor-regression @grantor-parallel-regression @regression @NegoWithBackground
+@emailRegression @negotiationsEmailScenarios @grantor-regression @grantor-parallel-regression @regression @NegoWithBackground
 Feature: Validate all email scenarios in Negotiations
 
   #NegoWithBackground

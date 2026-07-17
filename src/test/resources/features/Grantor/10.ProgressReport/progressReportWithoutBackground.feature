@@ -3012,8 +3012,8 @@ Feature: Validate scenarios in Progress Report without background
     When I re-login to "Grantor" app as "FO" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
-    When I perform quick search for "{SavedValue:ProgressReport2}" in "---progressReport:-:pendingTaskTableId---" panel
-    When I click on "Start" icon for "{SavedValue:ProgressReport2}" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
+    When I perform quick search for "{SavedValue:ProgressReport1}" in "---progressReport:-:pendingTaskTableId---" panel
+    When I click on "Start" icon for "{SavedValue:ProgressReport1}" inside flex table with id "---progressReport:-:pendingTaskTableId---" without waiting for record
     And I "Approve" in the approval decision
     And I wait for "2" seconds
     Then I softly see the following messages in the page details contains:
@@ -6105,7 +6105,7 @@ Feature: Validate scenarios in Progress Report without background
     When I perform quick search for "{SavedValue:progID}" in "---progressreport:-:progressTargetTableId---" panel
     Then I see value "{SavedValue:progID}" for title "Progress Report ID" inside table "---progressreport:-:progressTargetTableId---"
 
-  @197270 @ValidatewhenuserclickonNobuttonofwarningmessageforPRthenflowshouldbestop @sprint-4  @reassignment
+  @Bug-PROD-48135 @197270 @ValidatewhenuserclickonNobuttonofwarningmessageforPRthenflowshouldbestop @sprint-4  @reassignment
   Scenario: Validate when user click on "No" button of warning message for PR then flow should be stop
     Given I login to "Grantor" app as "ADMIN" user
     And I navigate to "Home" tab
@@ -6617,7 +6617,7 @@ Feature: Validate scenarios in Progress Report without background
     #197909
     When I check "{SavedValue:progID}" boxes in flex table with id "---program:-:grantorTaskReassignTableId---"
     And I click on top right button "Reassign Selected" in flex table with id "---program:-:grantorTaskReassignTableId---"
-    And I pause execution for "30" seconds
+    And I pause execution for "40" seconds
     And I reset the table
     When I perform quick search for "{SavedValue:progID}" in "---program:-:grantorTaskReassignTableId---" panel
     Then I softly do not see value "{SavedValue:progID}" for title "EGMS ID" inside table "---program:-:grantorTaskReassignTableId---"
@@ -9261,9 +9261,9 @@ Feature: Validate scenarios in Progress Report without background
     Then I cannot see row level action button "Delete" against "Notes Record" in flex table with id "---progressReport:-:GrantorNotesProgressReporttableId---"
     Then I cannot see row level action button "Edit" against "Notes Record" in flex table with id "---progressReport:-:GrantorNotesProgressReporttableId---"
 
-  @mkk @532028 @531936 @validateprogressreportrecordshouldsharewithSPI/SPAuserfromsameorgincreatedstate @GrantorFlexP1
+  @532028 @531936 @validateprogressreportrecordshouldsharewithSPI/SPAuserfromsameorgincreatedstate @GrantorFlexP1
   Scenario Outline: Validate progress report record should share with SPI/SPA user from same org in created state
-#    Given I activated standalone subaward "Automation Runtime Direct Award" with properties "default" of type "Competitive"
+    Given I activated standalone subaward "Automation Runtime Direct Award" with properties "default" of type "Competitive"
     And I login to "Grantor" app as "PM" user
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
@@ -9272,12 +9272,13 @@ Feature: Validate scenarios in Progress Report without background
     And I click on "View" icon for "{SavedValue:Automation Runtime Direct Award}" inside table
     And I navigate to "Files" sub tab
     When I enter the following values into flex table with id "---progressreport:-:grantChecklistsTableId---" by clicking "Add" :
-      | Description | Required  | Applies To      | Status |
-      | Automation  | Mandatory | Progress Report | Active |
+      | Description             | Required  | Applies To      | Status |
+      | Automation Runtime Desc | Mandatory | Progress Report | Active |
     And I click on "Upload Template" icon for "Progress Report" inside flex table with id "---progressreport:-:grantChecklistsTableId---" with wait for record
     And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
     And I click modal button "Close"
     And I wait for "2" seconds
+    When I perform quick search for "{SavedValue:Automation Runtime Desc}" in "---progressReport:-:grantChecklistsTableId---" panel
     Then I softly see value "View" for title "Template Link" against the value "Progress Report" inside table "---progressreport:-:grantChecklistsTableId---"
     And I save the value from row "1" for column name "Template Link" as "TemplateLink" from flex table "---progressreport:-:grantChecklistsTableId---"
     When I navigate to "Subawards" sub tab
@@ -9345,7 +9346,7 @@ Feature: Validate scenarios in Progress Report without background
     And I softly see value "7" for title "Actual" inside table "---progressReport:-:kpiTableId---"
     When I edit the following rows inline in flex table with id "---progressReport:-:kpiTableId---" by clicking "Edit" :
       | Title                    | Reported Date | Actual |
-      | Automation Permanent KPI | 7             | 3     |
+      | Automation Permanent KPI | 7             | 3      |
     When I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "Community Initiative Progress Report" inside flex table with id "---progressReport:-:formTableId---" without waiting for record
     And I switch to tab number "1"

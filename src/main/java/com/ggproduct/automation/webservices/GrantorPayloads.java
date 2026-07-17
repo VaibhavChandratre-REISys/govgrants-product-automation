@@ -3,7 +3,6 @@ package com.ggproduct.automation.webservices;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonNull;
 import com.google.gson.JsonObject;
-import com.helperPackage.register.EnvironmentFactory;
 import com.helperPackage.register.I;
 
 import java.time.format.DateTimeFormatter;
@@ -4475,6 +4474,71 @@ public class GrantorPayloads {
         json.add("GrantAwardData", grantOwner);
     }
 
+    /**
+     * Method to update the owner of the program in the payload with the provided user.
+     *
+     * @param json
+     * @param user
+     * @Author komal.mukhekar 26/05/2026
+     */
+    private void updateProgramOwner(JsonObject json, String user) {
+        JsonArray programGraphs = json.getAsJsonArray("graphs");
+        JsonObject graphObj = programGraphs.get(0).getAsJsonObject();
+        JsonArray compositeRequest = graphObj.getAsJsonArray("compositeRequest");
+        JsonObject solicitationObj = compositeRequest.get(0).getAsJsonObject();
+        JsonObject body = solicitationObj.getAsJsonObject("body");
+        body.addProperty("OwnerId", ProjectWebServices.getIdOf("User", user));
+    }
+
+    /**
+     * Method to update the Step-1 approver of the program in the payload with the provided user.
+     *
+     * @param json
+     * @param step1Approver
+     * @Author komal.mukhekar 27/05/2026
+     */
+    private JsonObject updateStep1ApproverOfProgram(JsonObject json, String step1Approver) {
+        JsonArray programGraphs = json.getAsJsonArray("graphs");
+        JsonObject graphObj = programGraphs.get(0).getAsJsonObject();
+        JsonArray compositeRequest = graphObj.getAsJsonArray("compositeRequest");
+        JsonObject ProgramObj = compositeRequest.get(3).getAsJsonObject();
+        JsonObject body = ProgramObj.getAsJsonObject("body");
+        if (!step1Approver.equalsIgnoreCase("NA"))
+            body.addProperty("Name__c", ProjectWebServices.getIdOf("User", step1Approver));
+        else {
+            body.addProperty("Name__c", "NA");
+            body.addProperty("ProgramRole__c", "NA");
+            body.addProperty("BusinessRole__c", "NA");
+        }
+        return json;
+    }
+
+    /**
+     * Method to update the Step-2 approver of the program in the payload with the provided user.
+     *
+     * @param json
+     * @param step2Approver
+     * @Author komal.mukhekar 27/05/2026
+     */
+    private JsonObject updateStep2ApproverOfProgram(JsonObject json, String step2Approver) {
+        JsonArray programGraphs = json.getAsJsonArray("graphs");
+        JsonObject graphObj = programGraphs.get(0).getAsJsonObject();
+        JsonArray compositeRequest = graphObj.getAsJsonArray("compositeRequest");
+        JsonObject ProgramObj = compositeRequest.get(4).getAsJsonObject();
+        JsonObject body = ProgramObj.getAsJsonObject("body");
+        if (!step2Approver.equalsIgnoreCase("NA"))
+            body.addProperty("Name__c", ProjectWebServices.getIdOf("User", step2Approver));
+        else {
+            body.addProperty("Program__c", "@{ProgramRef1.id}");
+            body.addProperty("ProgramRole__c", "NA");
+            body.addProperty("BusinessRole__c", "NA");
+            body.addProperty("CustomApp__c", "Grantor");
+            body.addProperty("RecordApiName__c", "Program__c");
+            body.addProperty("RoleApiName__c", "ProgramRole__c");
+        }
+        return json;
+    }
+
     private void updateGranteeAmendmentAwardOwner(JsonObject json, String user) {
         JsonObject jsonObject = json.getAsJsonArray("GrantAwardData").get(0).getAsJsonObject();
         JsonArray grantOwner = new JsonArray();
@@ -6847,21 +6911,28 @@ public class GrantorPayloads {
     }
 
     public JsonObject payloadProgramCreationForTitle(String title, String recordType, String status, String filter) {
-        String user = "";
+        String programOwner = "", approver = "";
         JsonObject json;
         json = defaultPayloadProgramCreationForTitle(title, recordType, status);
-        if (filter.toLowerCase().contains("user")) {
-            if (filter.contains("-")) {
-                user = filter.split("-")[1].split("user")[0].trim();
-                updateGranteeDirectAwardOwner(json, user);
-                filter = filter.split("-")[0];
-            } else {
-                user = filter.replace("user", "").trim();
-                filter = "USER";
-            }
-        } else {
-            filter = filter.toUpperCase();
+        if (filter.toLowerCase().contains("owner-")) {
+            programOwner = filter.split("Owner-")[1].trim();
+            if (programOwner.contains(","))
+                programOwner = programOwner.split(",")[0].trim();
+            updateProgramOwner(json, programOwner);
         }
+        if (filter.toLowerCase().contains("approver1-")) {
+            approver = filter.split("approver1-")[1].trim();
+            if (approver.contains(","))
+                approver = approver.split(",")[0].trim();
+            updateStep1ApproverOfProgram(json, approver);
+        }
+        if (filter.toLowerCase().contains("approver2-")) {
+            approver = filter.split("approver2-")[1].trim();
+            if (approver.contains(","))
+                approver = approver.split(",")[0].trim();
+            updateStep2ApproverOfProgram(json, approver);
+        }
+
         switch (filter) {
             default:
                 return json;
@@ -6940,7 +7011,6 @@ public class GrantorPayloads {
 
         peerReview.add("body", peerBody);
         compositeRequest.add(peerReview);
-
 
         // -------- Approver Step1 --------
         JsonObject approver1 = new JsonObject();
@@ -8903,7 +8973,7 @@ public class GrantorPayloads {
 
         roleBody.addProperty("PaymentRequest__c", "@{PaymentRequest1.id}");
         roleBody.addProperty("Name__c", ProjectWebServices.getIdOf("User", I.amPerforming().propertiesFileOperationsTo().getValue("PM Username")));
-        if(paymentRequestType.equalsIgnoreCase("Advance")){
+        if (paymentRequestType.equalsIgnoreCase("Advance")) {
             roleBody.addProperty("ReimbursementRole__c", "Step1");
         } else {
             roleBody.addProperty("ReimbursementRole__c", "Step1");
@@ -9065,7 +9135,7 @@ public class GrantorPayloads {
 
         compositeRequest.add(activity);
 
-        if(status.equalsIgnoreCase("Submitted to Grantor") || status.equalsIgnoreCase("Closed")) {
+        if (status.equalsIgnoreCase("Submitted to Grantor") || status.equalsIgnoreCase("Closed")) {
             // -------- RiskItem__c --------
             JsonObject riskItem = new JsonObject();
 
@@ -9120,7 +9190,7 @@ public class GrantorPayloads {
 
         roleBody.addProperty("SiteVisit__c", "@{SiteVisitRef1.id}");
         roleBody.addProperty("Name__c", ProjectWebServices.getIdOf("User", I.amPerforming().propertiesFileOperationsTo().getValue("PM Username")));
-        if(recordType.equalsIgnoreCase("Desk Review")){
+        if (recordType.equalsIgnoreCase("Desk Review")) {
             roleBody.addProperty("DeskReviewRole__c", "Step1");
         } else {
             roleBody.addProperty("SiteVisitRole__c", "Step1");
@@ -9295,7 +9365,7 @@ public class GrantorPayloads {
 
         compositeRequest.add(activity);
 
-        if(status.equalsIgnoreCase("Submitted to Grantor") || status.equalsIgnoreCase("Closed")) {
+        if (status.equalsIgnoreCase("Submitted to Grantor") || status.equalsIgnoreCase("Closed")) {
             // -------- RiskItem__c --------
             JsonObject riskItem = new JsonObject();
 
@@ -9350,7 +9420,7 @@ public class GrantorPayloads {
 
         roleBody.addProperty("SiteVisit__c", "@{SiteVisitRef1.id}");
         roleBody.addProperty("Name__c", ProjectWebServices.getIdOf("User", I.amPerforming().propertiesFileOperationsTo().getValue("PM Username")));
-        if(recordType.equalsIgnoreCase("Desk Review")){
+        if (recordType.equalsIgnoreCase("Desk Review")) {
             roleBody.addProperty("DeskReviewRole__c", "Step1");
         } else {
             roleBody.addProperty("SiteVisitRole__c", "Step1");

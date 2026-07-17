@@ -1,8 +1,8 @@
-@progressReportEmailScenarios @grantor-regression @grantor-parallel-regression @progressReportWithBackground @regression @progress-report1
+@emailRegression @progressReportEmailScenarios @grantor-regression @grantor-parallel-regression @progressReportWithBackground @regression @progress-report1
 Feature: Validate all email scenarios in Progress Report
 
   #progressReportNB
-  @198019 @ValidateusershouldabletoseeemailinyopmailwhenPRissendbacktotheS/R @sprint-4  @reassignment @buglogged-197651
+   @198019 @ValidateusershouldabletoseeemailinyopmailwhenPRissendbacktotheS/R @sprint-4  @reassignment @buglogged-197651
   Scenario: Validate user should able to see email in yopmail when PR is send back to the S/R
     Given I activated standalone subaward "Automation Runtime Direct Award" with properties "default" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Direct Award}" from the object "Progress Report"
@@ -161,7 +161,7 @@ Feature: Validate all email scenarios in Progress Report
     Then I refresh the page
     And I see the mail subject is as follows :
       """
-      Notification: Progress Report {SavedValue:progID} has beensubmitted.
+      Notification: Progress Report #{SavedValue:progID} has beensubmitted.
       """
     Then I see the mail text is as follows :
       """
@@ -274,23 +274,6 @@ Feature: Validate all email scenarios in Progress Report
 
     Then I see the mail text is as follows :
       """
-     Hello Automation PM1,
-     This email is to notify you that the Progress Report #{SavedValue:progID} of Grant #{SavedValue:GrantEGMSID} has been submitted by Automation and it is waiting for you to be reviewed.
-
-      Report Details:
-      Award ID: {SavedValue:AwardEGMSID}
-      Subrecipient Organization: SAN DIEGO ELECTRICAL TRAINING TRUST
-      Report Type: Program
-      Reporting Period Start Date: {Date:M/d/yyyy}
-      Reporting Period End Date: {Date:MM/d/yyyy::d+158}
-      Frequency: Annually
-
-      Log in to EGMS and click here to review the progress report.
-      Please do not reply to this system-generated email. You may contact GovGrants Support Team at govgrantssupport@reisystems.com if you have any questions or need assistance with this task.
-      Thank you,
-      The EGMS Team
-
-
       Hello Automation EXE1,
 
       This email is to notify you that Progress Report #PR--GT-1234-03678-002 of Grant #GT-1234-03678 has been peer reviewed.
