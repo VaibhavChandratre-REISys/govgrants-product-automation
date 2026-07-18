@@ -298,51 +298,22 @@ Feature: Validate sanity testing of Complete Business Flow
     And I pause execution for "2" seconds
 #    When I click modal button "Close"
 #    And I wait for "2" seconds
-#    When I close "Enter Review" modal by clicking the top right x button
-    When I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
-    And I navigate to "Announcements" tab
-    When I navigate to "Competitive" content inside "Announcements" subheader on left panel
-    When I click toggle button to select "Draft Competitive Announcements"
-    And I perform quick search for "Record Id" in "---announcement:-:competitiveAnnouncementTableId---" panel
-    And I click on "View" icon for "Record Id" inside flex table with id "---announcement:-:competitiveAnnouncementTableId---" without waiting for record
-    Given I click on "Complete Review" in the page details
+
     And I navigate to "Setup" sub tab
-    And I expand nested table containing column value "Pre-Screen Review"
-    When I click on "Review Form" icon for "Pre-Screen" inside flex table with id "---announcement:-:subReviewPanelTableId---" without waiting for record
-    And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
-      | Section Header | Section Weight (%) |
-      | Eligibility    | 50                 |
-    And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
-      | Section Header | Section Weight (%) |
-      | Completeness   | 50                 |
-    And I expand nested table containing column value "Eligibility"
-    When I enter the following values into flex table with id "---announcement:-:reviewPanelQuestionsTableId---" by clicking "New" :
-      | Question Order | Question  | Type    | Max Score |
-      | 1              | Question1 | Written | 100       |
-    And I pause execution for "4" seconds
-    And I collapse nested table containing column value "Eligibility"
-    And I expand nested table containing column value "Completeness"
-    When I enter the following values into flex table with id "---announcement:-:reviewPanelQuestionsTableId---" by clicking "New" :
-      | Question Order | Question  | Type    | Max Score |
-      | 1              | Question1 | Written | 100       |
-#    And I collapse nested table containing column value "Completeness"
-    And I pause execution for "4" seconds
-    When I close "Review Form" modal by clicking the top right x button
-    When I collapse nested table containing column value "Pre-Screen Review"
-    And I wait for "2" seconds
+
     And I expand nested table containing column value "SME Review"
     When I click on "Review Form" icon for "Compliance Review" inside flex table with id "---announcement:-:preScreenReviewFormTableId---" without waiting for record
     And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
       | Section Header | Section Weight (%) |
       | Schedule       | 30                 |
-    And I wait for "5" seconds
+    And I wait for "7" seconds
+    And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
+      | Section Header | Section Weight (%) |
+      | Permits        | 40                 |
     And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
       | Section Header | Section Weight (%) |
       | Environment    | 30                 |
     And I wait for "5" seconds
-    And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
-      | Section Header | Section Weight (%) |
-      | Permits        | 40                 |
     And I pause execution for "4" seconds
     And I expand nested table containing column value "Schedule"
     When I enter the following values into flex table with id "---announcement:-:reviewPanelQuestionsTableId---" by clicking "New" :
@@ -501,7 +472,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I wait for "5" seconds
     Then I see status in Progress-bar is "Published" and is "dark blue"
 
-  @mkk @72342 @publishingDirectedAnnouncement @ProdSan2 @TBE1
+  @72342 @publishingDirectedAnnouncement @ProdSan2 @TBE1
   Scenario: Validate the activation of Directed Announcement and the status changes to published and is green
     When I login to "Grantor" app as "PM" user
     And I navigate to "Announcements" tab
@@ -607,13 +578,14 @@ Feature: Validate sanity testing of Complete Business Flow
     And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
       | Section Header | Section Weight (%) |
       | Schedule       | 30                 |
-    And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
-      | Section Header | Section Weight (%) |
-      | Environment    | 30                 |
+    And I wait for "7" seconds
     And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
       | Section Header | Section Weight (%) |
       | Permits        | 40                 |
     And I pause execution for "4" seconds
+    And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
+      | Section Header | Section Weight (%) |
+      | Environment    | 30                 |
     And I expand nested table containing column value "Schedule"
     When I enter the following values into flex table with id "---announcement:-:reviewPanelQuestionsTableId---" by clicking "New" :
       | Question Order | Question  | Type    | Max Score |
@@ -873,13 +845,14 @@ Feature: Validate sanity testing of Complete Business Flow
     And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
       | Section Header | Section Weight (%) |
       | Schedule       | 30                 |
-    And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
-      | Section Header | Section Weight (%) |
-      | Environment    | 30                 |
+    And I wait for "7" seconds
     And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
       | Section Header | Section Weight (%) |
       | Permits        | 40                 |
     And I pause execution for "4" seconds
+    And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
+      | Section Header | Section Weight (%) |
+      | Environment    | 30                 |
     And I expand nested table containing column value "Schedule"
     When I enter the following values into flex table with id "---announcement:-:reviewPanelQuestionsTableId---" by clicking "New" :
       | Question Order | Question  | Type    | Max Score |
@@ -1694,14 +1667,14 @@ Feature: Validate sanity testing of Complete Business Flow
     And I wait for "3" seconds
     And I click modal button "Save"
     Then I refresh the page
-    When I navigate to "Overview" sub tab
-    And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:associatedContactsTableId---" by clicking "Edit" :
-      | Name                       | Project Role             | Is Key Personnel |
-      | {SavedValue:SPI3 Username} | Project Director/Manager | Checked          |
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
       | Name                      | Award  |
       | {SavedValue:EXE Username} | Step 1 |
+    When I navigate to "Overview" sub tab
+    And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:associatedContactsTableId---" by clicking "Edit" :
+      | Name                       | Project Role             | Is Key Personnel |
+      | {SavedValue:SPI3 Username} | Project Director/Manager | Checked          |
     And I wait for "3" seconds
     And I click on "Send to Subrecipient" in the page details
     And I wait for "3" seconds
@@ -3975,7 +3948,7 @@ Feature: Validate sanity testing of Complete Business Flow
     Then I see only the following ordered radio buttons in the approval decision :
       | Approve | Reject | Forward | Send back |
 
-  @OwnershipReasignment @ProdSan4
+  @Bug-PROD-56137 @OwnershipReasignment @ProdSan4
   Scenario: Validate Grants Ownership Reassignment
     When I login to "Grantor" app as "PM" user
     And I navigate to "Grants" tab
@@ -4120,14 +4093,14 @@ Feature: Validate sanity testing of Complete Business Flow
     And I wait for "3" seconds
     And I click modal button "Save"
     And I wait for "2" seconds
-    When I navigate to "Overview" sub tab
-    And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:associatedContactsTableId---" by clicking "Edit" :
-      | Name                       | Project Role             | Is Key Personnel |
-      | {SavedValue:SPI3 Username} | Project Director/Manager | Checked          |
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
       | Name           | Award  |
       | Automation PM1 | Step 1 |
+    When I navigate to "Overview" sub tab
+    And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:associatedContactsTableId---" by clicking "Edit" :
+      | Name                       | Project Role             | Is Key Personnel |
+      | {SavedValue:SPI3 Username} | Project Director/Manager | Checked          |
     And I click on "Send to Subrecipient" in the page details
     And I wait for "3" seconds
     And I re-login to "Grants Portal" app as "SPI3" user on "SUBPORTAL" portal
@@ -4261,7 +4234,7 @@ Feature: Validate sanity testing of Complete Business Flow
     Then I softly see status in Progress-bar is "In Progress" and is "dark blue"
     Then I softly see field "EGMS ID" as "{SavedValue:DeskReview}"
 
-  @SF425FormsNegativeValidationCheckAndSF428ABlankvalueValidationCheckAlsoSF429Bformnegativevaluesenteredvalidationcheck @ProdSan4
+  @SF425FormsNegativeValidationCheck @SF425FormsNegativeValidationCheckAndSF428ABlankvalueValidationCheckAlsoSF429Bformnegativevaluesenteredvalidationcheck @ProdSan4
   Scenario: SF425 Forms Negative Validation Check and SF 428 A Blank value Validation Check also SF429B form negative values entered validation check
     Given I activated standalone subaward "Automation Runtime Direct Award" with properties "default" of type "Competitive"
     Given I delete the record "{SavedValue:Automation Runtime Direct Award}" from the object "Progress Report"
@@ -4300,7 +4273,7 @@ Feature: Validate sanity testing of Complete Business Flow
       | m. Program income expended in accordance with the deduction alternative | -20        |
       | n. Program income expended in accordance with the addition alternative  | -5         |
     And I wait for "2" seconds
-    Then I softly see the following messages in the page details :
+    Then I softly see the following messages in the page details contains:
       | The amount cannot be less than zero. |
     And I close the tab
     #SF-428-A Blank value validation check
@@ -4366,7 +4339,7 @@ Feature: Validate sanity testing of Complete Business Flow
       | Adding file is required in "Files section" with classification "Environmental Compliance Requirements", if "Yes" option in "14h" is checked. |
       | Adding file is required in "Files section" with classification "NHPA", if "Yes" option in "14i" is checked.                                  |
 
-  @AwardWithFocusNo @ProdSan4
+  @mk @AwardWithFocusNo @ProdSan4
   Scenario: Award with focus area no
     When I login to "Grantor" app as "PM" user
     And I navigate to "Grants" tab
@@ -4409,15 +4382,15 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click on "Edit" icon for "Progress Report" inside flex table with id "---subAwardStandAlone:-:progressReportScheduleTableId---" without waiting for record
     When I enter in modal "Progress Report Schedule" values from "Award_Field_Values.xlsx"
     And I click modal button "Save"
-    And I wait for "2" seconds
-    When I navigate to "Overview" sub tab
-    And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:associatedContactsTableId---" by clicking "Edit" :
-      | Name                       | Project Role             | Is Key Personnel |
-      | {SavedValue:SPI3 Username} | Project Director/Manager | Checked          |
+    And I wait for "5" seconds
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---subAwardStandAlone:-:awardApproversTableId---" by clicking "New" :
       | Name                      | Award  |
       | {SavedValue:EXE Username} | Step 1 |
+    When I navigate to "Overview" sub tab
+    And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:associatedContactsTableId---" by clicking "Edit" :
+      | Name                       | Project Role             | Is Key Personnel |
+      | {SavedValue:SPI3 Username} | Project Director/Manager | Checked          |
     And I click on "Send to Subrecipient" in the page details
     And I wait for "2" seconds
     Then I softly see field "Status" as "Sent to Subrecipient"
@@ -4476,7 +4449,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click on "Activate" in the page details
     Then I softly see that "Subaward" is in "Activated" status
 
-  @userRegistrationSanity @ProdSan4
+  @Bug-PROD-53018 @RegistrationSanity @ProdSan4
   Scenario: Scenario for user registration
     Given I begin "Organization" registration as "Register As Organization"
     When I click on "Agree" in the page details
@@ -4494,6 +4467,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I click on "Submit" in the page details
     And I am on "INTERNAL" portal
     And I login to "Grantor" app as "PM" user
+    And I navigate to "Home" tab
     When I navigate to "Pending Subrecipient Registrations" content inside "Organization" subheader on left panel
     When I perform quick search for "{SavedValue:Automation Runtime Organization}" in "{grantor_tableId:SubrecipientOrganization}" panel
     When I click on "Start" icon for "{SavedValue:Automation Runtime Organization}" inside flex table with id "{grantor_tableId:SubrecipientOrganization}"
@@ -4541,7 +4515,7 @@ Feature: Validate sanity testing of Complete Business Flow
     Then I see the header is "Subrecipient Organization" in the page details
     Then I see the sub-header is "{SavedValue:Automation Runtime Organization}" in the page details
 
-  @IndividualRegistration @ProdSan4
+  @Bug-PROD-53018 @IndividualRegistration @ProdSan4
   Scenario: Scenario for Individual registration
     Given I begin "Individual" registration as "Register As Individual"
     When I click on "Agree" in the page details
@@ -4573,7 +4547,7 @@ Feature: Validate sanity testing of Complete Business Flow
     Then I see the header is "Individual Subrecipient" in the page details
     Then I see the sub-header is "{SavedValue:Automation Runtime} User" in the page details
 
-  @mk @SMEreviewerFlowSanity @ProdSan4
+  @Bug-PROD-53055 @SMEreviewerFlowSanity @ProdSan4
   Scenario: Scenario for SME reviewer
     Given I login to "Grantor" app as "EXE" user
     When I navigate to "Home" tab
