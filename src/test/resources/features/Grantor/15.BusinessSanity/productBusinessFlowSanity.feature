@@ -231,7 +231,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click on "Activate" in the page details
     Then I softly see status in Progress-bar is "Active" and is "dark blue"
 
-  @mk @65077 @publishingCompetitiveAnnouncementCA @ProdSan2 @ProdSan2_2 @ProdSan2_2_1
+  @65077 @publishingCompetitiveAnnouncementCA @ProdSan2 @ProdSan2_2 @ProdSan2_2_1
   Scenario: Validate the activation of Competitive Announcement
     When I login to "Grantor" app as "EXE" user
     And I navigate to "Announcements" tab
@@ -336,7 +336,6 @@ Feature: Validate sanity testing of Complete Business Flow
       | Section Header | Section Weight (%) |
       | Schedule       | 30                 |
     And I pause execution for "5" seconds
-    And I halt execution
     And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
       | Section Header | Section Weight (%) |
       | Environment    | 30                 |
