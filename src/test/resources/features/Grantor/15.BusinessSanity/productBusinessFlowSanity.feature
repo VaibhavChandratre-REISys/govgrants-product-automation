@@ -576,6 +576,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I navigate to "Setup" sub tab
     And I expand nested table containing column value "Pre-Screen Review"
     When I click on "Review Form" icon for "Pre-Screen" inside flex table with id "---announcement:-:subReviewPanelTableId---" without waiting for record
+    And I pause execution for "10" seconds
     And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
       | Section Header | Section Weight (%) |
       | Eligibility    | 50                 |
@@ -603,14 +604,14 @@ Feature: Validate sanity testing of Complete Business Flow
     And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
       | Section Header | Section Weight (%) |
       | Schedule       | 30                 |
-    And I wait for "7" seconds
+    And I pause execution for "5" seconds
+    And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
+      | Section Header | Section Weight (%) |
+      | Environment    | 30                 |
     And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
       | Section Header | Section Weight (%) |
       | Permits        | 40                 |
     And I pause execution for "4" seconds
-    And I edit the following rows inline in flex table with id "---announcement:-:reviewPanelTableId---" by clicking "Edit" :
-      | Section Header | Section Weight (%) |
-      | Environment    | 30                 |
     And I expand nested table containing column value "Schedule"
     When I enter the following values into flex table with id "---announcement:-:reviewPanelQuestionsTableId---" by clicking "New" :
       | Question Order | Question  | Type    | Max Score |
