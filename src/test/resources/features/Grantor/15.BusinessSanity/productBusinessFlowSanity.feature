@@ -4357,6 +4357,7 @@ Feature: Validate sanity testing of Complete Business Flow
     Then I see status in Progress-bar is "Created" and is "dark blue"
     And I save the field labeled "EGMS ID" as "AwardEGMSID"
     When I navigate to "Overview" sub tab
+    Then I softly see "Contacts" page block displayed
     And I edit the following rows inline in flex table with id "---subAwardStandAlone:-:associatedContactsTableId---" by clicking "Edit" :
       | Name                       | Project Role             | Is Key Personnel |
       | {SavedValue:SPI3 Username} | Project Director/Manager | Checked          |
