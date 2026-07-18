@@ -116,7 +116,7 @@ public final class GovGrantsSteps {
             String appName,
             String userType) {
         if (appName.equalsIgnoreCase("Grants Portal")) {
-                govgrants.perform().mainPage().loginWithUserType(userType);
+            govgrants.perform().mainPage().loginWithUserType(userType);
 
         } else {
 
