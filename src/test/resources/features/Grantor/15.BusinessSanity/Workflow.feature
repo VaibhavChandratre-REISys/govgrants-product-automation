@@ -1663,12 +1663,13 @@ Feature: Validate all scenarios of every modules flow
     And I create opportunity with state "Approved" for opportunity number "{SavedValue:Automation Runtime}" with properties "default"
     And I wait for "2" seconds
     And I create Application "{SavedValue:Automation Runtime Opportunity}" with state "Created" for opportunity number "{SavedValue:Automation Runtime}" with properties "default"
-    And I halt execution
+
 #    And I "Submitted for Approval" award from application for opportunity "{SavedValue:Automation Runtime}" for title "{SavedValue:Automation Runtime Opportunity}" with properties "default"
 #    And I updated award from application for title "{SavedValue:Automation Runtime Opportunity}" with properties "default"
 #    And I activate the award for title "{SavedValue:Automation Runtime Opportunity}"
 #    Adhoc Closeout API
-#    And I halt execution
+
+
     And I "Created" standalone subaward "Automation Runtime Award" with properties "INDIRECT_COST_NO"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
 #    And I activate the award for title "{SavedValue:Automation Runtime Award}"
@@ -1722,7 +1723,7 @@ Feature: Validate all scenarios of every modules flow
 #    Then I softly see status in Progress-bar is "Activated" and is "dark blue"
 #    And I save the field labeled "EGMS ID" as "AwardEGMSID1"
 #    And I "Created" of type "Carry Forward" amendment request for title "{SavedValue:Automation Runtime Award}" with properties "CARRY_FORWARD"
-    And I halt execution
+
 
   @orgRegister
   Scenario:
@@ -1770,7 +1771,7 @@ Feature: Validate all scenarios of every modules flow
     And I save the field labeled "EGMS ID" as "opportunityEGMSID"
     And I create opportunity with state "Approved" for opportunity number "CAS-HHS0000660610" with properties "default-Grantee PO"
     And I create Application "{SavedValue:Automation Runtime Opportunity}" with state "Submitted to Grantor" for opportunity number "CAS-HHS0000660610" with properties "default"
-    And I halt execution
+
 
   @testCheck
   Scenario:
@@ -2587,7 +2588,7 @@ Feature: Validate all scenarios of every modules flow
       | Title                               | RecordType       |
       | Automation Runtime Internal Program | Internal Program |
       | Automation Runtime External Program | NGO Program      |
-    And I halt execution
+
 #    And I create program records with status "Approved" using "default" properties
 #      | Title                                            |
 #      | {SavedValue:Automation Runtime Program}          |
@@ -2611,7 +2612,7 @@ Feature: Validate all scenarios of every modules flow
     And I create amendment request records with status "Approved" using "default" properties
       | Title                                              | AmendmentType    |
       | {SavedValue:Automation Runtime Award for closeout} | Periodic Renewal |
-    And I halt execution
+
 
   @testAmendmentRequest1
   Scenario:
@@ -2619,7 +2620,7 @@ Feature: Validate all scenarios of every modules flow
     And I create subrecipient side amendment request records with status "Acknowledged" using "default" properties
       | Title                                              | AmendmentType        | RecordType        |
       | {SavedValue:Automation Runtime Award for closeout} | Budget Period Change | Formal Amendments |
-    And I halt execution
+
 
   @testCarryForward
   Scenario:
@@ -2627,7 +2628,7 @@ Feature: Validate all scenarios of every modules flow
     And I create amendment request records with status "Approved" using "default" properties
       | Title                                              | AmendmentType    | RecordType          |
       | {SavedValue:Automation Runtime Award for closeout} | Periodic Renewal | Periodic/BP Renewal |
-    And I halt execution
+
     And I save the field labeled "Subaward Title" as "Automation Runtime New award"
     And I create subrecipient side amendment request records with status "Created" using "default" properties
       | Title                                     | GrantName                                          | AmendmentType | RecordType        |
@@ -2635,7 +2636,7 @@ Feature: Validate all scenarios of every modules flow
 #    And I create subrecipient side amendment request records with status "Approved" using "default" properties
 #      | Title                             | GrantName                                  | AmendmentType | RecordType        |
 #      | Automation Runtime New Award98104 | Automation Runtime Award for closeout92657 | Carry Forward | Formal Amendments |
-    And I halt execution
+
 
   @testApplication
   Scenario:
@@ -2646,51 +2647,62 @@ Feature: Validate all scenarios of every modules flow
     And I create announcement records with status "Published" using "default" properties
       | AnnouncementName                            | ProgramName                             | AnnType  | AllocationLevel |
       | Automation Runtime Announcement Application | {SavedValue:Automation Runtime Program} | Directed | N/A             |
-#    And I halt execution
+
+
 #    And I create pre-application records with status "Created" using "default" properties
 #      | Title                              | AnnouncementName                                         |
 #      | Automation Runtime Pre-Application | {SavedValue:Automation Runtime Announcement Application} |
-#    And I halt execution
+
+
     And I create application records with status "Submitted to Grantor" using "default" properties
       | Title                          | AnnouncementName                                         | PreAppTitle |
       | Automation Runtime Application | {SavedValue:Automation Runtime Announcement Application} |             |
-#    And I halt execution
+
+
     And I Initiated application review for multiple records on announcement
       | AnnouncementName                                         |
       | {SavedValue:Automation Runtime Announcement Application} |
-#    And I halt execution
+
+
     And I initiate pre-screen review for announcements with properties "default"
       | AnnouncementName                                         | ReviewerName             |
       | {SavedValue:Automation Runtime Announcement Application} | {SavedValue:FO Username} |
-#    And I halt execution
+
+
     And I submit review for announcements with properties "default"
       | ReviewName        | AnnouncementName                                         | ApplicationName                             |
       | Pre-Screen Review | {SavedValue:Automation Runtime Announcement Application} | {SavedValue:Automation Runtime Application} |
-#    And I halt execution
+
+
     And I initiate SME review for announcements with properties "default"
       | AnnouncementName                                         | ReviewerName             | ReviewerName2             | ReviewerName3            |
       | {SavedValue:Automation Runtime Announcement Application} | {SavedValue:FO Username} | {SavedValue:EXE Username} | {SavedValue:PM Username} |
-#    And I halt execution
+
+
     And I submit review for announcements with properties "default"
       | ReviewName | AnnouncementName                                         | ApplicationName                             |
       | SME Review | {SavedValue:Automation Runtime Announcement Application} | {SavedValue:Automation Runtime Application} |
-#    And I halt execution
+
+
     And I initiate management review for announcements with properties "default"
       | AnnouncementName                                         | ReviewerName             |
       | {SavedValue:Automation Runtime Announcement Application} | {SavedValue:FO Username} |
-    And I halt execution
+
 #    And I submit review for announcements with properties "default"
 #      | ReviewName        | AnnouncementName                                         | ApplicationName                             |
 #      | Management Review | {SavedValue:Automation Runtime Announcement Application} | {SavedValue:Automation Runtime Application} |
-#    And I halt execution
+
+
 #    And I create FDM records with status "Created" using "default" properties
 #      | AnnouncementName                                         | ApplicationName                             |
 #      | {SavedValue:Automation Runtime Announcement Application} | {SavedValue:Automation Runtime Application} |
-#    And I halt execution
+
+
 #    And I initiate award for FDM records with properties "default"
 #      | AnnouncementName                                         | ApplicationName                             |
 #      | {SavedValue:Automation Runtime Announcement Application} | {SavedValue:Automation Runtime Application} |
-#    And I halt execution
+
+
 
   @testCloseout
   Scenario:
@@ -2720,7 +2732,7 @@ Feature: Validate all scenarios of every modules flow
 #    And I update schedule progress report records with status "Approved" using "default" properties
 #      | EGMSId                 | AwardName                             |
 #      | {SavedValue:Record Id} | {SavedValue:Automation Runtime award} |
-    And I halt execution
+
 
   @CheckUserLogins
   Scenario: Check User Logins
