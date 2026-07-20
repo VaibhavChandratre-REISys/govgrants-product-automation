@@ -4480,7 +4480,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click on "Activate" in the page details
     Then I softly see that "Subaward" is in "Activated" status
 
-  @mk @Bug-PROD-53018 @RegistrationSanity @ProdSan4
+  @mkk @Bug-PROD-53018 @RegistrationSanity @ProdSan4
   Scenario: Scenario for user registration
     Given I begin "Organization" registration as "Register As Organization"
     When I click on "Agree" in the page details

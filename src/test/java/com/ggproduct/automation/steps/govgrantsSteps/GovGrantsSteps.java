@@ -314,10 +314,16 @@ public final class GovGrantsSteps {
     @Description("Re-Login to the app as any user and with any URL")
     @When("^I re-login to \"([^\"]*)\" app as \"([^\"]*)\" user on \"([^\"]*)\" portal$")
     public void reloginToggleToAppInURL(String appName, String userType, String portalType) {
+        WebDriver driver = InstanceRecording.getInstance(DeviceBucket.class).getDriver();
+        SalesforceJWTLoginManager jwtLoginManager = new SalesforceJWTLoginManager(driver);
         if (appName.equalsIgnoreCase("Grants Portal")) {
             try {
                 I.amPerforming().waitFor().makeThreadSleep(3000);
-                ggObjects.clickLogOut();
+//                ggObjects.clickLogOut();
+                driver.manage().deleteAllCookies();
+                driver.navigate().to("about:blank");
+                jwtLoginManager.login(userType);
+
                 I.amPerforming().waitFor().makeThreadSleep(4000);
                 govgrants.perform().mainPage().navigateToPortal(portalType);
                 govgrants.perform().mainPage().loginWithUserType(userType);
@@ -334,7 +340,7 @@ public final class GovGrantsSteps {
             System.out.println("[Re-Login] App Name: " + appName);
             System.out.println("[Re-Login] User Type: " + userType);
             System.out.println("[Re-Login] Portal Type: " + portalType);
-            WebDriver driver = InstanceRecording.getInstance(DeviceBucket.class).getDriver();
+//            WebDriver driver = InstanceRecording.getInstance(DeviceBucket.class).getDriver();
             if (driver == null) {
                 throw new IllegalStateException("WebDriver is not initialized.");
             }
@@ -347,7 +353,10 @@ public final class GovGrantsSteps {
                  */
                 System.out.println("[Re-Login] Logging out current Salesforce session...");
                 try {
-                    ggObjects.clickLogOut();
+//                    ggObjects.clickLogOut();
+                    driver.manage().deleteAllCookies();
+                    driver.navigate().to("about:blank");
+                    jwtLoginManager.login(userType);
                     System.out.println("[Re-Login] Salesforce logout action completed.");
                 } catch (Exception logoutException) {
                     System.err.println("[Re-Login] Salesforce UI logout failed.");
@@ -393,7 +402,7 @@ public final class GovGrantsSteps {
                      * =====================================================
                      */
                     System.out.println("[Re-Login] Starting JWT login for user type: " + userType);
-                    SalesforceJWTLoginManager jwtLoginManager = new SalesforceJWTLoginManager(driver);
+//                    SalesforceJWTLoginManager jwtLoginManager = new SalesforceJWTLoginManager(driver);
                     /*
                      * SalesforceJWTLoginManager resolves:
                      *
