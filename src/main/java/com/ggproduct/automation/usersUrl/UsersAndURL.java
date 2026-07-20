@@ -191,7 +191,7 @@ public class UsersAndURL implements UsersController {
         String password;
         switch (userLevel.toUpperCase()) {
             case "GRANTEE ADMIN":
-                password = "QaTest@2026";
+                password = "QaTest@July2026";
                 break;
             case "GRANTEE ADMIN1":
                 password = "Dev@3030";
@@ -200,25 +200,28 @@ public class UsersAndURL implements UsersController {
                 password = "Auto@2020";
                 break;
             case "GRANTEE PM":
-                password = "Pm@20277";
+                password = "QaTest@July2026";
                 break;
             case "GRANTEE EXE":
-                password = "Merge@2026";
+                password = "QaTest@July2026";
                 break;
             case "GRANTEE EXE1":
                 password = "Auto@2020";
                 break;
             case "GRANTEE FO":
-                password = "Automation!1234";
+                password = "QaTest@July2026";
                 break;
             case "GRANTEE FD":
-                password = "Merge@2026";
+                password = "QaTest@July2026";
                 break;
             case "GRANTEE PO":
-                password = "Merge@2025";
+                password = "QaTest@July2026";
                 break;
             case "GRANTEE AUDITOR":
-                password = "Merge@2026";
+                password = "QaTest@July202601";
+                break;
+            case "SARAH PM":
+                password = "QaTest@July2026";
                 break;
             case "ADMIN":
                 password = "Automation@May2026";

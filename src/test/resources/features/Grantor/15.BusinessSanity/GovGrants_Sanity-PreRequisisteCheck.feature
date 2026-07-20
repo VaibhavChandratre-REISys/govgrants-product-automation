@@ -33,22 +33,22 @@ Feature: Validate Pre-requisiste check for Sanity/Regression
     And I navigate to "Home" tab
     When I re-login to "Grants Portal" app as "SME" user on "SUBPORTAL" portal
     And I navigate to "Home" tab
-#    #RegressionUser
-#    When I re-login to "Grantor" app as "AUDITOR" user on "INTERNAL" portal
-#    And I navigate to "Home" tab
-#    When I re-login to "Grants Portal" app as "SPA" user on "SUBPORTAL" portal
-#    And I navigate to "Home" tab
-#    When I re-login to "Grants Portal" app as "IND" user on "SUBPORTAL" portal
-#    And I navigate to "Home" tab
-#    When I re-login to "Grants Portal" app as "SPI4" user on "SUBPORTAL" portal
-#    And I navigate to "Home" tab
-#    When I re-login to "Grantor" app as "SARAH PM" user on "INTERNAL" portal
-#    And I navigate to "Home" tab
-#    And I logout
+    #RegressionUser
+    When I re-login to "Grantor" app as "AUDITOR" user on "INTERNAL" portal
+    And I navigate to "Home" tab
+    When I re-login to "Grants Portal" app as "SPA" user on "SUBPORTAL" portal
+    And I navigate to "Home" tab
+    When I re-login to "Grants Portal" app as "IND" user on "SUBPORTAL" portal
+    And I navigate to "Home" tab
+    When I re-login to "Grants Portal" app as "SPI4" user on "SUBPORTAL" portal
+    And I navigate to "Home" tab
+    When I re-login to "Grantor" app as "SARAH PM" user on "INTERNAL" portal
+    And I navigate to "Home" tab
+    And I logout
 
-  @mkk @checkUserLoginsGrantee
+  @mk @checkUserLoginsGrantee
   Scenario: Check GovGrants user logins - Grantee
-    When I login to "Grantee" app as "GRANTEE ADMIN" user
+    When I login to "Grantee" app as "GRANTEE AUDITOR" user
     And I navigate to "Home" tab
     When I re-login to "Grantee" app as "GRANTEE PM" user on "SUBPORTAL" portal
     And I navigate to "Home" tab
@@ -62,14 +62,14 @@ Feature: Validate Pre-requisiste check for Sanity/Regression
     And I navigate to "Home" tab
     When I re-login to "Grantee" app as "GRANTEE AUDITOR" user on "SUBPORTAL" portal
     And I navigate to "Home" tab
-#    #RegressionUser
-#    When I re-login to "Grantee" app as "GRANTEE ADMIN1" user on "SUBPORTAL" portal
-#    And I navigate to "Home" tab
-#    When I re-login to "Grantee" app as "GRANTEE ADMIN2" user on "SUBPORTAL" portal
-#    And I navigate to "Home" tab
-#    When I re-login to "Grantee" app as "GRANTEE EXE1" user on "SUBPORTAL" portal
-#    And I navigate to "Home" tab
-#    And I logout
+    #RegressionUser
+    When I re-login to "Grantee" app as "GRANTEE ADMIN1" user on "SUBPORTAL" portal
+    And I navigate to "Home" tab
+    When I re-login to "Grantee" app as "GRANTEE ADMIN2" user on "SUBPORTAL" portal
+    And I navigate to "Home" tab
+    When I re-login to "Grantee" app as "GRANTEE EXE1" user on "SUBPORTAL" portal
+    And I navigate to "Home" tab
+    And I logout
 
   @StandardAwardActivationAPI @InlineItems @FDMAward
   Scenario: Standard Award Activation from approved FDM API
