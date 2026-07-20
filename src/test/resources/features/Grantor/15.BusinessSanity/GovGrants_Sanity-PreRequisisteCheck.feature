@@ -50,24 +50,24 @@ Feature: Validate Pre-requisiste check for Sanity/Regression
   Scenario: Check GovGrants user logins - Grantee
     When I login to "Grantee" app as "GRANTEE AUDITOR" user
     And I navigate to "Home" tab
-    When I re-login to "Grantee" app as "GRANTEE PM" user on "SUBPORTAL" portal
+    When I re-login to "Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
     And I navigate to "Home" tab
-    When I re-login to "Grantee" app as "GRANTEE EXE" user on "SUBPORTAL" portal
+    When I re-login to "Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
     And I navigate to "Home" tab
-    When I re-login to "Grantee" app as "GRANTEE FO" user on "SUBPORTAL" portal
+    When I re-login to "Grantee" app as "GRANTEE FO" user on "INTERNAL" portal
     And I navigate to "Home" tab
-    When I re-login to "Grantee" app as "GRANTEE FD" user on "SUBPORTAL" portal
+    When I re-login to "Grantee" app as "GRANTEE FD" user on "INTERNAL" portal
     And I navigate to "Home" tab
-    When I re-login to "Grantee" app as "GRANTEE PO" user on "SUBPORTAL" portal
+    When I re-login to "Grantee" app as "GRANTEE PO" user on "INTERNAL" portal
     And I navigate to "Home" tab
-    When I re-login to "Grantee" app as "GRANTEE AUDITOR" user on "SUBPORTAL" portal
+    When I re-login to "Grantee" app as "GRANTEE AUDITOR" user on "INTERNAL" portal
     And I navigate to "Home" tab
     #RegressionUser
-    When I re-login to "Grantee" app as "GRANTEE ADMIN1" user on "SUBPORTAL" portal
+    When I re-login to "Grantee" app as "GRANTEE ADMIN1" user on "INTERNAL" portal
     And I navigate to "Home" tab
-    When I re-login to "Grantee" app as "GRANTEE ADMIN2" user on "SUBPORTAL" portal
+    When I re-login to "Grantee" app as "GRANTEE ADMIN2" user on "INTERNAL" portal
     And I navigate to "Home" tab
-    When I re-login to "Grantee" app as "GRANTEE EXE1" user on "SUBPORTAL" portal
+    When I re-login to "Grantee" app as "GRANTEE EXE1" user on "INTERNAL" portal
     And I navigate to "Home" tab
     And I logout
 

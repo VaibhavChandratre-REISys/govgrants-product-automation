@@ -3253,7 +3253,7 @@ Feature: Grantee Smoke scenarios
     Then I can see top right button "Delete" in page detail
     And I click on "Delete" in the page details without processing
     Then I softly see confirmation box with body "Are you sure you want to delete this subaward?" is displayed
-    And I click "OK" on modal confirmation box
+    And I click "Continue" on modal confirmation box
     Then I softly see field "Status" as "Submitted to Grantor"
     Then I softly see status in Progress-bar is "Submitted to Grantor" and is "dark blue"
     And I navigate to "Field Audit" sub tab in split screen
@@ -8460,7 +8460,7 @@ Feature: Grantee Smoke scenarios
     Then I softly see field "Submitted On" as "{SavedValue:SubmittedOn}"
     When I click on "Revise" in the page details without processing
     Then I softly see confirmation box with body "Are you sure you want to revise the report? The report will require an approval again after being revised." is displayed
-    And I click "OK" on modal confirmation box
+    And I click "Continue" on modal confirmation box
     When I enter in modal value "Automation Feedback" into field "ReviseComments__c"
     And I enter in modal value "0" into field "RevisedDate__c"
     When I click modal button "Save"
@@ -8573,7 +8573,7 @@ Feature: Grantee Smoke scenarios
     And I wait for "2" seconds
     Then I see status in Progress-bar is "Approved" and is "dark blue"
     And I click on "Submit To Grants.Gov" in the page details without processing
-    And I click "OK" on modal confirmation box
+    And I click "Continue" on modal confirmation box
     And I wait for "3" seconds
     Then I softly see field "Status" as "Submitted to Grantor"
     Then I cannot see top right button "Edit" in page detail
@@ -8735,7 +8735,7 @@ Feature: Grantee Smoke scenarios
     And I click "Cancel" on modal confirmation box
     Then I softly see status in Progress-bar is "Approved" and is "dark blue"
     And I click on "Submit To Grants.Gov" in the page details without processing
-    And I click "OK" on modal confirmation box
+    And I click "Continue" on modal confirmation box
     And I wait for "2" seconds
     Then I softly see field "Status" as "Submitted to Grantor"
     Then I cannot see top right button "Edit" in page detail
@@ -9079,7 +9079,7 @@ Feature: Grantee Smoke scenarios
     And I click "Cancel" on modal confirmation box
     Then I softly see status in Progress-bar is "Approved" and is "dark blue"
     And I click on "Submit To Grants.Gov" in the page details without processing
-    And I click "OK" on modal confirmation box
+    And I click "Continue" on modal confirmation box
     And I wait for "3" seconds
     Then I softly see field "Status" as "Submitted to Grantor"
     Then I cannot see top right button "Edit" in page detail
@@ -11494,7 +11494,7 @@ Feature: Grantee Smoke scenarios
     Then I softly see field "Submitted On" as "{SavedValue:SubmittedOn}"
     When I click on "Revise" in the page details without processing
     Then I softly see confirmation box with body "Are you sure you want to revise the report? The report will require an approval again after being revised." is displayed
-    And I click "OK" on modal confirmation box
+    And I click "Continue" on modal confirmation box
     When I enter in modal value "Automation Feedback" into field "ReviseComments__c"
     And I enter in modal value "0" into field "RevisedDate__c"
     When I click modal button "Save"
@@ -12200,7 +12200,7 @@ Feature: Grantee Smoke scenarios
     Then I softly see field "Submitted On" as "{SavedValue:SubmittedOn}"
     When I click on "Revise" in the page details without processing
     Then I softly see confirmation box with body "Are you sure you want to revise the report? The report will require an approval again after being revised." is displayed
-    And I click "OK" on modal confirmation box
+    And I click "Continue" on modal confirmation box
     When I enter in modal value "Automation Feedback" into field "ReviseComments__c"
     And I enter in modal value "0" into field "RevisedDate__c"
     When I click modal button "Save"
@@ -12842,7 +12842,7 @@ Feature: Grantee Smoke scenarios
     Then I softly see field "Submitted On" as "{SavedValue:SubmittedOn}"
     When I click on "Revise" in the page details without processing
     Then I softly see confirmation box with body "Are you sure you want to revise the report? The report will require an approval again after being revised." is displayed
-    And I click "OK" on modal confirmation box
+    And I click "Continue" on modal confirmation box
     When I enter in modal value "Automation Feedback" into field "ReviseComments__c"
     And I enter in modal value "0" into field "RevisedDate__c"
     When I click modal button "Save"
