@@ -49,7 +49,7 @@ public final class Modal {
      * Modifier - saranjit.modak Added Xpath - 17/05/2023
      */
     public void closeModalByClickingTopRightCloseButton(String titleName) {
-        By closeButton = By.xpath("//div[contains(@class,'modal')]//h2[text()='" + titleName + "']//ancestor::header//button[@title='Close'] | //div[contains(@class,'modal')]//h2[text()='" + titleName + "']/parent::header//button[@title='Close']");
+        By closeButton = By.xpath("//div[contains(@class,'modal')]//h1[text()='" + titleName + "']//ancestor::div//button[@title='Cancel and close'] | //div[contains(@class,'modal')]//h2[text()='" + titleName + "']//ancestor::header//button[@title='Close'] | //div[contains(@class,'modal')]//h2[text()='" + titleName + "']/parent::header//button[@title='Close']");
         I.amPerforming().click().on(closeButton);
         govgrants.perform().modal().acceptPopUpForEditPage();
     }
