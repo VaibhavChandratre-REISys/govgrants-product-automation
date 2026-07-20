@@ -1,7 +1,7 @@
 @GranteeSmokeTestCases @GranteeTBE
 Feature: Grantee Smoke scenarios
 
-  @470406 @ValidatetheflowofasPMuserisabletocreateandqualifythemanuallead @Grantee_Smoke1
+  @mkk @470406 @ValidatetheflowofasPMuserisabletocreateandqualifythemanuallead @Grantee_Smoke1
   Scenario Outline: Validate the flow of as PM/PO user is able to create and qualify the manual lead
     Given I login to "Grantee" app as "<User>" user
     And I navigate to "Opportunities" tab
