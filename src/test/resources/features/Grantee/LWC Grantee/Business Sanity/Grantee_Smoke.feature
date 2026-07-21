@@ -134,7 +134,7 @@ Feature: Grantee Smoke scenarios
 #    Then I see snapshot with name containing "SnapShot on" as name
     When I click on "Activate" in the page details without processing
     Then I softly see confirmation box with body "Are you sure you want to Activate the lead?" is displayed
-    When I click modal button "OK"
+    When I click modal button "Continue"
     Then I softly see field "State" as "Posted"
     Then I can see top right button "Qualify Lead" in page detail
     And I click on "Qualify Lead" in the page details
@@ -316,7 +316,7 @@ Feature: Grantee Smoke scenarios
 #    Then I see snapshot with name containing "SnapShot on" as name
     When I click on "Activate" in the page details without processing
     Then I softly see confirmation box with body "Are you sure you want to Activate the lead?" is displayed
-    When I click modal button "OK"
+    When I click modal button "Continue"
     Then I softly see field "State" as "Posted"
     Then I can see top right button "Qualify Lead" in page detail
     And I click on "Qualify Lead" in the page details
@@ -381,7 +381,7 @@ Feature: Grantee Smoke scenarios
     And I save the field labeled "EGMS ID" as "LeadsEGMSID"
     When I click on "Activate" in the page details without processing
     Then I softly see confirmation box with body "Are you sure you want to Activate the lead?" is displayed
-    When I click modal button "OK"
+    When I click modal button "Continue"
     Then I softly see field "State" as "Posted"
     Then I can see top right button "Qualify Lead" in page detail
     When I re-login to "Grantee" app as "<UserType>" user on "INTERNAL" portal
@@ -1076,7 +1076,7 @@ Feature: Grantee Smoke scenarios
 #    Then I see snapshot with name containing "SnapShot on" as name
     When I click on "Activate" in the page details without processing
     Then I softly see confirmation box with body "Are you sure you want to Activate the lead?" is displayed
-    When I click modal button "OK"
+    When I click modal button "Continue"
     Then I softly see field "State" as "Posted"
     Then I can see top right button "Qualify Lead" in page detail
     Examples:
@@ -1168,7 +1168,7 @@ Feature: Grantee Smoke scenarios
 #    Then I softly see snapshot with name containing "SnapShot on" as name
     When I click on "Activate" in the page details without processing
     Then I softly see confirmation box with body "Are you sure you want to Activate the lead?" is displayed
-    When I click modal button "OK"
+    When I click modal button "Continue"
     Then I softly see field "State" as "Posted"
     Then I can see top right button "Qualify Lead" in page detail
     And I click on "Qualify Lead" in the page details
@@ -5448,7 +5448,7 @@ Feature: Grantee Smoke scenarios
     Then I softly can see row level action button "Delete" against "Created" in flex table with id "---grantee_tableId:-:GrantsProjectPeriodCloseoutTableId---"
     When I click on "Delete" icon for "Created" inside table with table id "---grantee_tableId:-:GrantsProjectPeriodCloseoutTableId---" without processing
     Then I softly see confirmation box with body "Are you sure, you want to permanently delete the project period closeout?" is displayed
-    When I click modal button "OK"
+    When I click modal button "Continue"
     And I wait for "4" seconds
     Then I softly see top right button "New" inside flex table "---grantee_tableId:-:GrantsProjectPeriodCloseoutTableId---"
     Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:GrantsProjectPeriodCloseoutTableId---"
@@ -6042,7 +6042,7 @@ Feature: Grantee Smoke scenarios
       | User       |
       | GRANTEE PO |
 
-  @480737 @ValidatewithPOprofileonClickeditactionotherattachmentformgetopen @Grantee_Smoke1 @GranteeTest
+  @mk @480737 @ValidatewithPOprofileonClickeditactionotherattachmentformgetopen @Grantee_Smoke1 @GranteeTest
   Scenario: Validate with PO profile on Click edit action other attachment form get open
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default"
@@ -6072,14 +6072,15 @@ Feature: Grantee Smoke scenarios
     And I switch to tab number "1"
     And I click on "Edit" in the page details
     And I enter "SF424_FORM" values from "Application_Field_Values.xlsx"
-    And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
-    And I upload attachment without random number "AttachmentTesting.pdf" of type "Delinquent Federal Debt" from computer
-    When I click modal button "Close"
-    And I wait for "2" seconds
     When I click on "Save" in the page details
     When I click on "Validate" in the page details
     Then I softly see the following messages in the page details contains:
       | Form Validated Successfully. |
+    And I wait for "5" seconds
+    And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
+    And I upload attachment without random number "AttachmentTesting.pdf" of type "Delinquent Federal Debt" from computer
+    When I click modal button "Close"
+    And I wait for "5" seconds
     And I close the tab
     Then I softly see value "Other Attachments Forms" for title "Form Name" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
     When I click on "Edit" icon for "Other Attachments Forms" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
@@ -8193,7 +8194,7 @@ Feature: Grantee Smoke scenarios
     Then I softly can see row level action button "Delete" against "David FO" in flex table with id "---grantee_tableId:-:financialReportPeerReviewTableId---"
     When I click on "Delete" icon for "Sarah PM" inside table with table id "---grantee_tableId:-:financialReportPeerReviewTableId---" without processing
     Then I softly see confirmation box with body "Do you want to delete? Once it is deleted it cannot be restored." is displayed
-    When I click modal button "OK"
+    When I click modal button "Continue"
     Then I softly do not see value "Sarah PM" for title "Reviewer Name" inside table "---grantee_tableId:-:financialReportPeerReviewTableId---"
     And I click on "Send for Review" icon for "David FO" inside flex table with id "---grantee_tableId:-:financialReportPeerReviewTableId---" without waiting for record
     And I click on "Send for Review" icon for "Grantee PO" inside flex table with id "---grantee_tableId:-:financialReportPeerReviewTableId---" without waiting for record
@@ -8886,7 +8887,7 @@ Feature: Grantee Smoke scenarios
     Then I can see top right button "Cancel" in page detail
     When I click on "Cancel" in the page details without processing
     Then I softly see confirmation box with body "Are you sure you want to cancel?" is displayed
-    When I click modal button "OK"
+    When I click modal button "Continue"
     Then I can see top right button "Edit" in page detail
     And I click on "Edit" in the page details
     And I enter "Lobbying_Form" values from "Application_Field_Values.xlsx"
@@ -10206,7 +10207,7 @@ Feature: Grantee Smoke scenarios
     And I update title as "Automation.pdf" on upload file modal
     And I select Classification as "Notice of Award" at upload file modal
     When I click modal button "Save"
-    And I click modal button "Close"
+#    And I click modal button "Close"
     And I refresh the page
     And I wait for "3" seconds
     Then I softly see "Notice of Award" has been added in "Amendment Files" flex table
@@ -10579,9 +10580,9 @@ Feature: Grantee Smoke scenarios
     Then I softly see the following messages in the page details contains:
       | Please validate the Forms by clicking validate button. |
 
-  @mk @491632 @ValidatePMProfileimpactofdrawdownByAwardonFundingchangeamendmentWithdrawdownWithSpent @Grantee_Smoke1
+  @Bug-PROD-65800 @491632 @ValidatePMProfileimpactofdrawdownByAwardonFundingchangeamendmentWithdrawdownWithSpent @Grantee_Smoke1
   Scenario: Validate PM Profile impact of drawdown By Award on  Funding change amendment With drawdown With Spent
-    And I "Created" standalone subaward "Automation Runtime Award" with properties "default"
+    Given I "Created" standalone subaward "Automation Runtime Award" with properties "default"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "SECOND_FOCUS_WITH_BUDGET"
     And I activate the award for title "{SavedValue:Automation Runtime Award}"
     When I login to "Grantee" app as "GRANTEE PM" user
@@ -11182,7 +11183,7 @@ Feature: Grantee Smoke scenarios
     Then I softly can see row level action button "Delete" against "David FO" in flex table with id "---grantee_tableId:-:financialReportPeerReviewTableId---"
     When I click on "Delete" icon for "Victor EXE" inside table with table id "---grantee_tableId:-:financialReportPeerReviewTableId---" without processing
     Then I softly see confirmation box with body "Do you want to delete? Once it is deleted it cannot be restored." is displayed
-    When I click modal button "OK"
+    When I click modal button "Continue"
     And I wait for "3" seconds
     Then I softly do not see value "Victor EXE" for title "Reviewer Name" inside table "---grantee_tableId:-:financialReportPeerReviewTableId---"
     And I click on "Send for Review" icon for "David FO" inside flex table with id "---grantee_tableId:-:financialReportPeerReviewTableId---" without waiting for record
@@ -11843,7 +11844,7 @@ Feature: Grantee Smoke scenarios
     Then I softly can see row level action button "Delete" against "David FO" in flex table with id "---grantee_tableId:-:financialReportPeerReviewTableId---"
     When I click on "Delete" icon for "Sarah PM" inside table with table id "---grantee_tableId:-:financialReportPeerReviewTableId---" without processing
     Then I softly see confirmation box with body "Do you want to delete? Once it is deleted it cannot be restored." is displayed
-    When I click modal button "OK"
+    When I click modal button "Continue"
     And I wait for "3" seconds
     Then I softly do not see value "Sarah PM" for title "Reviewer Name" inside table "---grantee_tableId:-:financialReportPeerReviewTableId---"
     And I click on "Send for Review" icon for "David FO" inside flex table with id "---grantee_tableId:-:financialReportPeerReviewTableId---" without waiting for record
@@ -12487,7 +12488,7 @@ Feature: Grantee Smoke scenarios
     Then I softly can see row level action button "Delete" against "David FO" in flex table with id "---grantee_tableId:-:financialReportPeerReviewTableId---"
     When I click on "Delete" icon for "Sarah PM" inside table with table id "---grantee_tableId:-:financialReportPeerReviewTableId---" without processing
     Then I softly see confirmation box with body "Do you want to delete? Once it is deleted it cannot be restored." is displayed
-    When I click modal button "OK"
+    When I click modal button "Continue"
     And I wait for "3" seconds
     Then I softly do not see value "Sarah PM" for title "Reviewer Name" inside table "---grantee_tableId:-:financialReportPeerReviewTableId---"
     And I click on "Send for Review" icon for "David FO" inside flex table with id "---grantee_tableId:-:financialReportPeerReviewTableId---" without waiting for record

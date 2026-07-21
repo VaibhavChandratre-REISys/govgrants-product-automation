@@ -84,24 +84,25 @@ public final class PhasePanel {
         By filterAction = null;
         By dropDownSelector1 = By.xpath("//c-lwc-flex-table[@data-flextablename='" + advanceFilterId + "']//c-outer-picklist//label[contains(text(),'Column')]/..//input");
         By dropDownSelector2 = By.xpath("//c-lwc-flex-table[@data-flextablename='" + advanceFilterId + "']//c-outer-picklist//label[contains(text(),'Operator')]/..//input");
-        By dropDownSelector3 = By.xpath("//c-lwc-flex-table[@data-flextablename='" + advanceFilterId + "']//c-outer-picklist//label[contains(text(),'Value')]/..//input");
+        By dropDownSelector3 = By.xpath("//c-lwc-flex-table[@data-flextablename='" + advanceFilterId + "']//div[contains(text(),'Value')]/..//input | //c-lwc-flex-table[@data-flextablename='" + advanceFilterId + "']//div[contains(text(),'Value')]/..//textarea | //c-lwc-flex-table[@data-flextablename='" + advanceFilterId + "']//label[contains(text(),'Value')]/..//input");
         By inputField = By.xpath("//c-lwc-flex-table[@data-flextablename='" + advanceFilterId + "']//div[contains(text(),'Value')]/..//input");
         filterAction = By.xpath("//c-lwc-flex-table[@data-flextablename='" + advanceFilterId + "']//*[@title='Apply']");
-        I.amPerforming().textInput().toClear(dropDownSelector1);
+//        I.amPerforming().textInput().toClear(dropDownSelector1);
         I.amPerforming().textInput().in(dropDownSelector1, rowvalues.get(0).toString());
-        By selectDropdown1 = By.xpath("//c-outer-picklist//ul//li//span[text()='" + rowvalues.get(0).toString() +"']");
+        By selectDropdown1 = By.xpath("//c-outer-picklist//ul//li//span[text()='" + rowvalues.get(0).toString() + "']");
         I.amPerforming().click().on(selectDropdown1);
-        I.amPerforming().textInput().toClear(dropDownSelector2);
+//        I.amPerforming().textInput().toClear(dropDownSelector2);
         I.amPerforming().textInput().in(dropDownSelector2, rowvalues.get(1).toString());
-        By selectDropdown2 = By.xpath("//c-outer-picklist//ul//li//span[text()='" + rowvalues.get(1).toString() +"']");
+        By selectDropdown2 = By.xpath("//c-outer-picklist//ul//li//span[text()='" + rowvalues.get(1).toString() + "']");
         I.amPerforming().click().on(selectDropdown2);
         if (I.amPerforming().checkToSee().IsElementPresentQuick(inputField)) {
             I.amPerforming().textInput().toClear(inputField);
             I.amPerforming().textInput().in(inputField, rowvalues.get(2).toString());
         } else {
-            I.amPerforming().click().on(dropDownSelector3);
-            By selectDropdown3 = By.xpath("//c-outer-picklist//ul//li//span[text()='" + rowvalues.get(2).toString() +"']");
-            I.amPerforming().click().on(selectDropdown3);
+            I.amPerforming().textInput().toClear(dropDownSelector3);
+            I.amPerforming().textInput().in(dropDownSelector3, rowvalues.get(2).toString());
+            By selectDropdown3 = By.xpath("//c-outer-picklist//ul//li//span[text()='" + rowvalues.get(2).toString() + "']");
+            I.amPerforming().click().withJavaScript(selectDropdown3);
         }
         I.amPerforming().click().withJavaScript(filterAction);
     }
