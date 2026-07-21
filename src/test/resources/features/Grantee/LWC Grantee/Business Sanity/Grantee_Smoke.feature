@@ -1,4 +1,4 @@
-@GranteeSmokeTestCases @GranteeTBE
+@GranteeSmokeTestCases @GranteeTBE @granteeBusinessFlowSanity
 Feature: Grantee Smoke scenarios
 
   @470406 @ValidatetheflowofasPMuserisabletocreateandqualifythemanuallead @Grantee_Smoke1
@@ -31,13 +31,13 @@ Feature: Grantee Smoke scenarios
     Then I softly see asterisk mark on "Cost Sharing or Matching Requirement"
     And I click modal button "Save and Continue"
     Then I softly see the following messages in the page details contains:
-      | To Save, Opportunity Title is required in the General Information section.                  |
-      | To Save, Opportunity Number is required in the General Information section.                 |
-      | To Save, Application Due Date is required in the General Information section.               |
-      | To Save, Funding Organization is required in the General Information section.               |
-      | To Save, Eligible Applicants is required in the Eligibility section.                        |
-      | To Save, Lead Description is required in the Additional Information section.                |
-      | To Save, Cost Sharing or Matching Requirement is required in the Financial Details section. |
+      | Opportunity Title is required in the General Information section.                  |
+      | Opportunity Number is required in the General Information section.                 |
+      | Application Due Date is required in the General Information section.               |
+      | Funding Organization is required in the General Information section.               |
+      | Eligible Applicants is required in the Eligibility section.                        |
+      | Lead Description is required in the Additional Information section.                |
+      | Cost Sharing or Matching Requirement is required in the Financial Details section. |
     And I enter "Grantee_Leads_Creation" values from "Announcement_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     Then I see the header is "Lead" in the page details
@@ -213,13 +213,13 @@ Feature: Grantee Smoke scenarios
     Then I softly see asterisk mark on "Cost Sharing or Matching Requirement"
     And I click modal button "Save and Continue"
     Then I softly see the following messages in the page details contains:
-      | To Save, Opportunity Title is required in the General Information section.                  |
-      | To Save, Opportunity Number is required in the General Information section.                 |
-      | To Save, Application Due Date is required in the General Information section.               |
-      | To Save, Funding Organization is required in the General Information section.               |
-      | To Save, Eligible Applicants is required in the Eligibility section.                        |
-      | To Save, Lead Description is required in the Additional Information section.                |
-      | To Save, Cost Sharing or Matching Requirement is required in the Financial Details section. |
+      | Opportunity Title is required in the General Information section.                  |
+      | Opportunity Number is required in the General Information section.                 |
+      | Application Due Date is required in the General Information section.               |
+      | Funding Organization is required in the General Information section.               |
+      | Eligible Applicants is required in the Eligibility section.                        |
+      | Lead Description is required in the Additional Information section.                |
+      | Cost Sharing or Matching Requirement is required in the Financial Details section. |
     And I enter "Grantee_Leads_Creation" values from "Announcement_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     Then I see the header is "Lead" in the page details
@@ -973,13 +973,13 @@ Feature: Grantee Smoke scenarios
     Then I softly see asterisk mark on "Cost Sharing or Matching Requirement"
     And I click modal button "Save and Continue"
     Then I softly see the following messages in the page details contains:
-      | To Save, Opportunity Title is required in the General Information section.                  |
-      | To Save, Opportunity Number is required in the General Information section.                 |
-      | To Save, Application Due Date is required in the General Information section.               |
-      | To Save, Funding Organization is required in the General Information section.               |
-      | To Save, Eligible Applicants is required in the Eligibility section.                        |
-      | To Save, Lead Description is required in the Additional Information section.                |
-      | To Save, Cost Sharing or Matching Requirement is required in the Financial Details section. |
+      | Opportunity Title is required in the General Information section.                  |
+      | Opportunity Number is required in the General Information section.                 |
+      | Application Due Date is required in the General Information section.               |
+      | Funding Organization is required in the General Information section.               |
+      | Eligible Applicants is required in the Eligibility section.                        |
+      | Lead Description is required in the Additional Information section.                |
+      | Cost Sharing or Matching Requirement is required in the Financial Details section. |
     And I enter "Grantee_Leads_Creation" values from "Announcement_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     Then I see the header is "Lead" in the page details
@@ -1369,9 +1369,9 @@ Feature: Grantee Smoke scenarios
     And I click on top right button "New" in flex table with id "---grantee_tableId:-:AmendmentRequestTableId---"
     And I click modal button "Save and Continue"
     Then I softly see the following messages in the page details contains:
-      | To Save, Please select Amendment Request Type is required. |
-      | To Save, Initiated By is required.                         |
-      | To Save, Justification is required.                        |
+      | Please select Amendment Request Type is required. |
+      | Initiated By is required.                         |
+      | Justification is required.                        |
     And I enter "Grantee_ScopeOfWork_Creation" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     And I click on "Save" in the page details
@@ -1386,11 +1386,11 @@ Feature: Grantee Smoke scenarios
     And I clear the value from field "Country__c"
     And I click on "Save" in the page details
     Then I softly see the following messages in the page details contains:
-      | To Save, Address line 1 is required in the Overview tab under the Place of Performance section. |
-      | To Save, City is required in the Overview tab under the Place of Performance section.           |
-      | To Save, State is required in the Overview tab under the Place of Performance section.          |
-      | To Save, Zip Code is required in the Overview tab under the Place of Performance section.       |
-      | To Save, Country is required in the Overview tab under the Place of Performance section.        |
+      | Address line 1 is required in the Overview tab under the Place of Performance section. |
+      | City is required in the Overview tab under the Place of Performance section.           |
+      | State is required in the Overview tab under the Place of Performance section.          |
+      | Zip Code is required in the Overview tab under the Place of Performance section.       |
+      | Country is required in the Overview tab under the Place of Performance section.        |
     And I enter value "Automation Award" into field "GrantAwardName__c"
     And I enter value "Automation Test Description" into field "GrantAwardDescription__c"
     And I enter value "Street4" into field "Addressline1__c"
@@ -1455,10 +1455,10 @@ Feature: Grantee Smoke scenarios
     And I click on top right button "New" in flex table with id "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
     And I click on "Save" in the page details
     Then I softly see the following messages in the page details contains:
-      | To Save, Title is required in the Information section.                   |
-      | To Save, Description is required in the Information section.             |
-      | To Save, Effective From Date is required in the Effective Dates section. |
-      | To Save, Effective To Date is required in the Effective Dates section.   |
+      | Title is required in the Information section.                   |
+      | Description is required in the Information section.             |
+      | Effective From Date is required in the Effective Dates section. |
+      | Effective To Date is required in the Effective Dates section.   |
     When I enter in modal value "Terms1" into field "Title__c"
     When I enter in modal value "Terms Description" into field "Description__c"
     When I enter in modal value "1" into field "Sequence__c"
@@ -2330,8 +2330,8 @@ Feature: Grantee Smoke scenarios
     Then I softly see fields "Comments__c" is in edit mode
     And I click modal button "Save"
     Then I softly see the following messages in the page details contains:
-      | To Save, Additional Details is required. |
-      | To Save, Decision is required.           |
+      | Additional Details is required. |
+      | Decision is required.           |
     When I enter values into fields
       | Value                       | Field             |
       | Accepted                    | Decision__c       |
@@ -3382,8 +3382,8 @@ Feature: Grantee Smoke scenarios
     When I click modal button "Save"
     And I wait for "2" seconds
     Then I softly see the following messages in the page details contains:
-      | To Save, Rating is required.   |
-      | To Save, Comments is required. |
+      | Rating is required.   |
+      | Comments is required. |
     And I enter a review as "Passed"
     When I click modal button "Save"
     And I click on submit review
@@ -4643,16 +4643,16 @@ Feature: Grantee Smoke scenarios
     Then I softly see field on modal "Zip Code" inside page block
     When I click modal button "Save"
     Then I softly see the following messages in the page details contains:
-      | To Save, Project Role is required in the Contact Information section.   |
-      | To Save, First Name is required in the Contact Information section.     |
-      | To Save, Last Name is required in the Contact Information section.      |
-      | To Save, Phone is required in the Contact Information section.          |
-      | To Save, Email is required in the Contact Information section.          |
-      | To Save, Address Line 1 is required in the Address Information section. |
-      | To Save, State is required in the Address Information section.          |
-      | To Save, City is required in the Address Information section.           |
-      | To Save, Country is required in the Address Information section.        |
-      | To Save, Zip Code is required in the Address Information section.       |
+      | Project Role is required in the Contact Information section.   |
+      | First Name is required in the Contact Information section.     |
+      | Last Name is required in the Contact Information section.      |
+      | Phone is required in the Contact Information section.          |
+      | Email is required in the Contact Information section.          |
+      | Address Line 1 is required in the Address Information section. |
+      | State is required in the Address Information section.          |
+      | City is required in the Address Information section.           |
+      | Country is required in the Address Information section.        |
+      | Zip Code is required in the Address Information section.       |
     When I enter in modal value "Other" into field "Role__c"
     When I enter in modal value "Automation Runtime" into field "Title"
     When I enter in modal value "Automation" into field "FirstName"
@@ -4788,12 +4788,12 @@ Feature: Grantee Smoke scenarios
     When I enter in modal value "vegas" into field "County__c"
     And I click modal button "Save and Continue"
     Then I softly see the following messages in the page details contains:
-      | To Save, City is required.                          |
-      | To Save, State is required.                         |
-      | To Save, Country is required.                       |
-      | To Save, Zip Code is required.                      |
-      | To Save, Organization Name is required.             |
-      | To Save, Non-Federal Organization Type is required. |
+      | City is required.                          |
+      | State is required.                         |
+      | Country is required.                       |
+      | Zip Code is required.                      |
+      | Organization Name is required.             |
+      | Non-Federal Organization Type is required. |
     And I wait for "2" seconds
     When I enter in modal value "Automation Runtime Organization" into field "Name"
     When I enter in modal value "NGO" into field "NonFederalOrganizationType__c"
@@ -5055,15 +5055,15 @@ Feature: Grantee Smoke scenarios
     Then I softly see fields "MailingPostalCode" is in edit mode
     And I click modal button "Save"
     Then I softly see the following messages in the page details contains:
-      | To Save, Project Role is required in the Contact Information section.   |
-      | To Save, First Name is required in the Contact Information section.     |
-      | To Save, Last Name is required in the Contact Information section.      |
-      | To Save, Email is required in the Contact Information section.          |
-      | To Save, Address Line 1 is required in the Address Information section. |
-      | To Save, State is required in the Address Information section.          |
-      | To Save, City is required in the Address Information section.           |
-      | To Save, Country is required in the Address Information section.        |
-      | To Save, Zip Code is required in the Address Information section.       |
+      | Project Role is required in the Contact Information section.   |
+      | First Name is required in the Contact Information section.     |
+      | Last Name is required in the Contact Information section.      |
+      | Email is required in the Contact Information section.          |
+      | Address Line 1 is required in the Address Information section. |
+      | State is required in the Address Information section.          |
+      | City is required in the Address Information section.           |
+      | Country is required in the Address Information section.        |
+      | Zip Code is required in the Address Information section.       |
     When I enter in modal value "Department of Product" into field "AccountId"
     When I enter in modal value "Other" into field "Role__c"
     When I enter in modal value "Automation Runtime" into field "FirstName"
@@ -5526,8 +5526,8 @@ Feature: Grantee Smoke scenarios
     And I wait for "2" seconds
     When I click modal button "Save"
     Then I softly see the following messages in the page details contains:
-      | To Save, Rating is required.   |
-      | To Save, Comments is required. |
+      | Rating is required.   |
+      | Comments is required. |
     And I enter a review as "Passed"
     When I click modal button "Save"
     And I click on submit review
@@ -5609,7 +5609,7 @@ Feature: Grantee Smoke scenarios
     And I click modal button "Save"
     And I wait for "3" seconds
     Then I softly see the following messages in the page details contains:
-      | To Save, Submitted to Grantor On is required. |
+      | Submitted to Grantor On is required. |
     When I enter values into fields
       | Value | Field                 |
       | 0     | SubmittedToGrantor__c |
@@ -5624,7 +5624,7 @@ Feature: Grantee Smoke scenarios
     And I click modal button "Save"
     And I wait for "2" seconds
     Then I softly see the following messages in the page details contains:
-      | To Save, Grantor Closeout Date is required. |
+      | Grantor Closeout Date is required. |
     When I enter values into fields
       | Value | Field                  |
       | 0     | FederalCloseoutDate__c |
@@ -7484,11 +7484,11 @@ Feature: Grantee Smoke scenarios
     Then I see textarea field "PurposeRTA__c" is editable
     And I click modal button "Save and Continue"
     Then I softly see the following messages in the page details contains:
-      | To Save, Please select Amendment Request Type is required. |
+      | Please select Amendment Request Type is required. |
     Then I softly see the following messages in the page details contains:
-      | To Save, Initiated By is required. |
+      | Initiated By is required. |
     Then I softly see the following messages in the page details contains:
-      | To Save, Justification is required. |
+      | Justification is required. |
     And I enter "Grantee_Budget_Redirection" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     And I save the field labeled "EGMS ID" as "BDRAMENDID"
@@ -8207,8 +8207,8 @@ Feature: Grantee Smoke scenarios
     When I click on "Enter Review" icon for "Grantee PO" inside flex table with id "---grantee_tableId:-:financialReportPeerReviewTableId---" without waiting for record
     When I click modal button "Save"
     Then I softly see the following messages in the page details contains:
-      | To Save, Rating is required.   |
-      | To Save, Comments is required. |
+      | Rating is required.   |
+      | Comments is required. |
     And I enter a review as "Passed"
     When I click modal button "Save"
     And I click on submit review
@@ -8447,7 +8447,7 @@ Feature: Grantee Smoke scenarios
     And I wait for "2" seconds
     And I click modal button "Save"
     Then I softly see the following messages in the page details contains:
-      | To Save, Submitted to Grantor On is required. |
+      | Submitted to Grantor On is required. |
     And I enter in modal "Submit Details" values from "Financial_Report_Field_Values.xlsx"
     When I click modal button "Save"
     And I wait for "1" seconds
@@ -9879,7 +9879,7 @@ Feature: Grantee Smoke scenarios
     When I click on "Submit to Grantor" in the page details
     And I click modal button "Save"
     Then I softly see the following messages in the page details contains:
-      | To Save, Submitted to Grantor On is required. |
+      | Submitted to Grantor On is required. |
     When I enter values into fields
       | Value | Field                 |
       | 0     | SubmittedToGrantor__c |
@@ -10118,16 +10118,16 @@ Feature: Grantee Smoke scenarios
     When I click on top right button "New" in flex table with id "---grantee_tableId:-:amendmentContactTableId---"
     When I click modal button "Save"
     Then I softly see the following messages in the page details contains:
-      | To Save, Project Role is required in the Contact Information section.   |
-      | To Save, First Name is required in the Contact Information section.     |
-      | To Save, Last Name is required in the Contact Information section.      |
-      | To Save, Phone is required in the Contact Information section.          |
-      | To Save, Email is required in the Contact Information section.          |
-      | To Save, Address Line 1 is required in the Address Information section. |
-      | To Save, State is required in the Address Information section.          |
-      | To Save, City is required in the Address Information section.           |
-      | To Save, Country is required in the Address Information section.        |
-      | To Save, Zip Code is required in the Address Information section.       |
+      | Project Role is required in the Contact Information section.   |
+      | First Name is required in the Contact Information section.     |
+      | Last Name is required in the Contact Information section.      |
+      | Phone is required in the Contact Information section.          |
+      | Email is required in the Contact Information section.          |
+      | Address Line 1 is required in the Address Information section. |
+      | State is required in the Address Information section.          |
+      | City is required in the Address Information section.           |
+      | Country is required in the Address Information section.        |
+      | Zip Code is required in the Address Information section.       |
     And I click modal button "Close"
     And I click on "Edit" in the page details
     And I enter value "Checked" into field "GeneralConditionChanged__c"
@@ -10243,8 +10243,8 @@ Feature: Grantee Smoke scenarios
     And I wait for "2" seconds
     When I click modal button "Save"
     Then I softly see the following messages in the page details contains:
-      | To Save, Rating is required.   |
-      | To Save, Comments is required. |
+      | Rating is required.   |
+      | Comments is required. |
     And I enter a review as "Passed"
     When I click modal button "Save"
     Then I softly see "Edit" modal button
@@ -10525,11 +10525,11 @@ Feature: Grantee Smoke scenarios
     And I wait for "2" seconds
     When I click modal button "Save"
     Then I softly see the following messages in the page details contains:
-      | To Save, Street 1 is required.                                         |
-      | To Save, City is required.                                             |
-      | To Save, State is required.                                            |
-      | To Save, ZIP / Postal Code is required.                                |
-      | To Save, Project/ Performance Site Congressional District is required. |
+      | Street 1 is required.                                         |
+      | City is required.                                             |
+      | State is required.                                            |
+      | ZIP / Postal Code is required.                                |
+      | Project/ Performance Site Congressional District is required. |
     And I enter "Project_Perform_Site" values from "Application_Field_Values.xlsx"
     And I enter value "Street1" into field "AddressLine1__c"
     And I enter value "Mun123" into field "City__c"
@@ -10579,7 +10579,7 @@ Feature: Grantee Smoke scenarios
     Then I softly see the following messages in the page details contains:
       | Please validate the Forms by clicking validate button. |
 
-  @491632 @ValidatePMProfileimpactofdrawdownByAwardonFundingchangeamendmentWithdrawdownWithSpent @Grantee_Smoke1
+  @mk @491632 @ValidatePMProfileimpactofdrawdownByAwardonFundingchangeamendmentWithdrawdownWithSpent @Grantee_Smoke1
   Scenario: Validate PM Profile impact of drawdown By Award on  Funding change amendment With drawdown With Spent
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "SECOND_FOCUS_WITH_BUDGET"
@@ -11199,8 +11199,8 @@ Feature: Grantee Smoke scenarios
     And I wait for "2" seconds
     When I click modal button "Save"
     Then I softly see the following messages in the page details contains:
-      | To Save, Rating is required.   |
-      | To Save, Comments is required. |
+      | Rating is required.   |
+      | Comments is required. |
     And I enter a review as "Passed"
     When I click modal button "Save"
     And I click on submit review
@@ -11470,7 +11470,7 @@ Feature: Grantee Smoke scenarios
     And I click modal button "Save"
     And I wait for "2" seconds
     Then I softly see the following messages in the page details contains:
-      | To Save, Submitted to Grantor On is required. |
+      | Submitted to Grantor On is required. |
     And I enter in modal "Submit Details" values from "Financial_Report_Field_Values.xlsx"
     When I click modal button "Save"
     And I wait for "2" seconds
@@ -11860,8 +11860,8 @@ Feature: Grantee Smoke scenarios
     And I wait for "2" seconds
     When I click modal button "Save"
     Then I softly see the following messages in the page details contains:
-      | To Save, Rating is required.   |
-      | To Save, Comments is required. |
+      | Rating is required.   |
+      | Comments is required. |
     And I enter a review as "Passed"
     When I click modal button "Save"
     And I click on submit review
@@ -12187,7 +12187,7 @@ Feature: Grantee Smoke scenarios
     And I click modal button "Save"
     And I wait for "2" seconds
     Then I softly see the following messages in the page details contains:
-      | To Save, Submitted to Grantor On is required. |
+      | Submitted to Grantor On is required. |
     And I enter in modal "Grantee_Submit Details" values from "ProgressReport_Field_Values.xlsx"
     When I click modal button "Save"
     And I wait for "2" seconds
@@ -12504,8 +12504,8 @@ Feature: Grantee Smoke scenarios
     And I wait for "2" seconds
     When I click modal button "Save"
     Then I softly see the following messages in the page details contains:
-      | To Save, Rating is required.   |
-      | To Save, Comments is required. |
+      | Rating is required.   |
+      | Comments is required. |
     And I enter a review as "Passed"
     When I click modal button "Save"
     And I click on submit review
@@ -12829,7 +12829,7 @@ Feature: Grantee Smoke scenarios
     And I wait for "2" seconds
     And I click modal button "Save"
     Then I softly see the following messages in the page details contains:
-      | To Save, Submitted to Grantor On is required. |
+      | Submitted to Grantor On is required. |
     And I enter in modal "Grantee_Submit Details" values from "ProgressReport_Field_Values.xlsx"
     When I click modal button "Save"
     And I wait for "2" seconds
@@ -13939,9 +13939,9 @@ Feature: Grantee Smoke scenarios
     And I click on "Save" in the page details
     And I wait for "2" seconds
     Then I softly see the following messages in the page details contains:
-      | To Save, Reporting Period Start Date is required in the Overview tab under the Report Overview section. |
-      | To Save, Report Due Date is required in the Overview tab under the Report Overview section.             |
-      | To Save, Reporting Period End Date is required in the Overview tab under the Report Overview section.   |
+      | Reporting Period Start Date is required in the Overview tab under the Report Overview section. |
+      | Report Due Date is required in the Overview tab under the Report Overview section.             |
+      | Reporting Period End Date is required in the Overview tab under the Report Overview section.   |
     And I navigate to "Monitoring" tab
     When I navigate to "Progress Reports" content inside "Monitoring" subheader on left panel
     And I click toggle button to select "Progress Reports - My Records"

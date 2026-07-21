@@ -173,13 +173,13 @@ public final class SalesforceJWTUserResolver {
         );
 
         users.put(
-                "GRANTEE PO",
-                "grantee.po@yopmail.com.ggmergeqa2"
+                "GRANTEE AUDITOR",
+                "alex.auditor@yopmail.com.ggmergeqa2"
         );
 
         users.put(
-                "GRANTEE AUDITOR",
-                "alex.auditor@yopmail.com.ggmergeqa2"
+                "GRANTEE PO",
+                "grantee.po@yopmail.com.ggmergeqa2"
         );
 
 

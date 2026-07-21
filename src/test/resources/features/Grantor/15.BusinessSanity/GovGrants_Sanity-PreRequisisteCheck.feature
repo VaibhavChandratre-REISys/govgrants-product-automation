@@ -48,7 +48,7 @@ Feature: Validate Pre-requisiste check for Sanity/Regression
 
   @checkUserLoginsGrantee
   Scenario: Check GovGrants user logins - Grantee
-    When I login to "Grantee" app as "GRANTEE AUDITOR" user
+    When I login to "Grantee" app as "GRANTEE ADMIN" user
     And I navigate to "Home" tab
     When I re-login to "Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
     And I navigate to "Home" tab

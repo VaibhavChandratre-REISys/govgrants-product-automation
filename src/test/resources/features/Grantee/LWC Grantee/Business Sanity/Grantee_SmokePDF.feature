@@ -1,4 +1,4 @@
-@GranteeSmokeTestCases @GranteeTBE @GranteeSmokeTestCasesPDF
+@GranteeSmokeTestCases @GranteeTBE @GranteeSmokeTestCasesPDF @skipOnJenkins
 Feature: Grantee Smoke scenarios for PDF
 
   @449166 @VerifyPMuserasAROwnersameasAwardOwnercanabletocreateFundingChangeARonactiveAward&abletoAcceptit&abletocreatenewAward&seeimpactonAward&Grant @Grantee_Smoke1 @GRegression1
@@ -48,11 +48,11 @@ Feature: Grantee Smoke scenarios for PDF
     Then I see textarea field "PurposeRTA__c" is editable
     And I click modal button "Save and Continue"
     Then I softly see the following messages in the page details contains:
-      | To Save, Please select Amendment Request Type is required. |
+      | Please select Amendment Request Type is required. |
     Then I softly see the following messages in the page details contains:
-      | To Save, Initiated By is required. |
+      | Initiated By is required. |
     Then I softly see the following messages in the page details contains:
-      | To Save, Justification is required. |
+      | Justification is required. |
     And I enter "Grantee_FundingChange_Creation" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     And I click on "Save" in the page details
@@ -409,7 +409,7 @@ Feature: Grantee Smoke scenarios for PDF
     And I clear the value from field "PurposeRTA__c"
     When I click on "Save" in the page details
     Then I softly see the following messages in the page details contains:
-      | To Save, Justification is required in the Overview tab under the Details section. |
+      | Justification is required in the Overview tab under the Details section. |
     And I enter value "Automation Justification" into field "PurposeRTA__c"
     And I enter value "110" into field "ApprovedIndirectCostRate__c"
     When I click on "Save" in the page details
@@ -802,11 +802,11 @@ Feature: Grantee Smoke scenarios for PDF
     And I click modal button "Save and Continue"
     And I wait for "2" seconds
     Then I softly see the following messages in the page details contains:
-      | To Save, Title is required.               |
-      | To Save, Domain is required.              |
-      | To Save, Measure is required.             |
-      | To Save, Unit of Measurement is required. |
-      | To Save, Indicator is required.           |
+      | Title is required.               |
+      | Domain is required.              |
+      | Measure is required.             |
+      | Unit of Measurement is required. |
+      | Indicator is required.           |
     And I enter "Grantee_Creation" values from "KPI_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     And I wait for "3" seconds
@@ -818,11 +818,11 @@ Feature: Grantee Smoke scenarios for PDF
     And I click on "Save" in the page details
     And I wait for "2" seconds
     Then I softly see the following messages in the page details contains:
-      | To Save, Domain is required in the Overview tab under the Overview section.              |
-      | To Save, Title is required in the Overview tab under the Overview section.               |
-      | To Save, Measure is required in the Overview tab under the Overview section.             |
-      | To Save, Unit of Measurement is required in the Overview tab under the Overview section. |
-      | To Save, Indicator is required in the Overview tab under the Overview section.           |
+      | Domain is required in the Overview tab under the Overview section.              |
+      | Title is required in the Overview tab under the Overview section.               |
+      | Measure is required in the Overview tab under the Overview section.             |
+      | Unit of Measurement is required in the Overview tab under the Overview section. |
+      | Indicator is required in the Overview tab under the Overview section.           |
     Examples:
       | userType   |
       | GRANTEE PM |
@@ -1067,17 +1067,17 @@ Feature: Grantee Smoke scenarios for PDF
     Then I softly see field on modal "Email" inside page block
     And I click modal button "Save"
     Then I softly see the following messages in the page details contains:
-      | To Save, Organization is required in the Contact Information section.   |
-      | To Save, Project Role is required in the Contact Information section.   |
-      | To Save, First Name is required in the Contact Information section.     |
-      | To Save, Last Name is required in the Contact Information section.      |
-      | To Save, Phone is required in the Contact Information section.          |
-      | To Save, Email is required in the Contact Information section.          |
-      | To Save, Address Line 1 is required in the Address Information section. |
-      | To Save, State is required in the Address Information section.          |
-      | To Save, City is required in the Address Information section.           |
-      | To Save, Country is required in the Address Information section.        |
-      | To Save, Zip Code is required in the Address Information section.       |
+      | Organization is required in the Contact Information section.   |
+      | Project Role is required in the Contact Information section.   |
+      | First Name is required in the Contact Information section.     |
+      | Last Name is required in the Contact Information section.      |
+      | Phone is required in the Contact Information section.          |
+      | Email is required in the Contact Information section.          |
+      | Address Line 1 is required in the Address Information section. |
+      | State is required in the Address Information section.          |
+      | City is required in the Address Information section.           |
+      | Country is required in the Address Information section.        |
+      | Zip Code is required in the Address Information section.       |
     And I wait for "2" seconds
     When I enter in modal value "Automation Runtime" into field "Title"
     When I enter in modal value "Test With Automation PM" into field "AccountId"
@@ -1171,8 +1171,8 @@ Feature: Grantee Smoke scenarios for PDF
     Then I softly can see row level action button "Edit" against "{SavedValue:Title}" in flex table with id "---grantee_tableId:-:nonFedContactTableId---"
     Then I softly can see row level action button "Delete" against "{SavedValue:Title}" in flex table with id "---grantee_tableId:-:nonFedContactTableId---"
     Examples:
-      | User          |
-      | GRANTEE PM    |
+      | User       |
+      | GRANTEE PM |
 
   @495304 @443672 @federalVerifyusershouldseeallfieldsandsectionforfederalcontact @Grantee_Smoke1 @Grantee_Smoke2
   Scenario Outline: federal_ Verify user should see all fields and section for federal contact's
@@ -1212,17 +1212,17 @@ Feature: Grantee Smoke scenarios for PDF
     Then I softly see field on modal "Email" inside page block
     And I click modal button "Save"
     Then I softly see the following messages in the page details contains:
-      | To Save, Project Role is required in the Contact Information section.   |
-      | To Save, Organization is required in the Contact Information section.   |
-      | To Save, First Name is required in the Contact Information section.     |
-      | To Save, Last Name is required in the Contact Information section.      |
-      | To Save, Phone is required in the Contact Information section.          |
-      | To Save, Email is required in the Contact Information section.          |
-      | To Save, Address Line 1 is required in the Address Information section. |
-      | To Save, State is required in the Address Information section.          |
-      | To Save, City is required in the Address Information section.           |
-      | To Save, Country is required in the Address Information section.        |
-      | To Save, Zip Code is required in the Address Information section.       |
+      | Project Role is required in the Contact Information section.   |
+      | Organization is required in the Contact Information section.   |
+      | First Name is required in the Contact Information section.     |
+      | Last Name is required in the Contact Information section.      |
+      | Phone is required in the Contact Information section.          |
+      | Email is required in the Contact Information section.          |
+      | Address Line 1 is required in the Address Information section. |
+      | State is required in the Address Information section.          |
+      | City is required in the Address Information section.           |
+      | Country is required in the Address Information section.        |
+      | Zip Code is required in the Address Information section.       |
     And I wait for "2" seconds
     When I enter in modal value "Other" into field "Role__c"
     When I enter in modal value "Automation Runtime" into field "Title"

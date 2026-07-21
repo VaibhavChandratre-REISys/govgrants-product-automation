@@ -367,9 +367,9 @@ public final class PhasePanel {
      * @modifier komal.mukhekar added xpath (02/09/2022)
      */
     public void selectItemFromParallelMenuBars(String panelTitleName, String menuItemName) {
-        By parallelMenuItem = By.xpath("//*[text()='"+panelTitleName+"']/ancestor::c-flex-gridlwc//div[@class='dropdowntogglemenu']//lightning-button-menu//div//span[text()='"+ menuItemName+"'] | //*[text()='"+panelTitleName+"']/ancestor::c-lwc-flex-table//div[@class='dropdowntogglemenu']//lightning-button-menu//div//span[text()='"+ menuItemName+"']");
-       try {
-           I.amPerforming().click().on(parallelMenuItem);
+        By parallelMenuItem = By.xpath("//*[text()='" + panelTitleName + "']/ancestor::c-flex-gridlwc//div[contains(@class,'dropdown')]//lightning-menu-item//span[text()='" + menuItemName + "'] | //*[text()='" + panelTitleName + "']/ancestor::c-lwc-flex-table//div[contains(@class,'dropdown')]//lightning-menu-item//span[text()='" + menuItemName + "'] | //*[text()='" + panelTitleName + "']/ancestor::c-flex-gridlwc//div[@class='dropdowntogglemenu']//lightning-button-menu//div//span[text()='" + menuItemName + "'] | //*[text()='" + panelTitleName + "']/ancestor::c-lwc-flex-table//div[@class='dropdowntogglemenu']//lightning-button-menu//div//span[text()='" + menuItemName + "']");
+        try {
+            I.amPerforming().click().on(parallelMenuItem);
        } catch (Exception j) {
            I.amPerforming().click().withJavaScript(parallelMenuItem);
        }
