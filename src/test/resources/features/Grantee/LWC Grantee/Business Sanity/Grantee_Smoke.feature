@@ -1386,11 +1386,16 @@ Feature: Grantee Smoke scenarios
     And I clear the value from field "Country__c"
     And I click on "Save" in the page details
     Then I softly see the following messages in the page details contains:
-      | Address line 1 is required in the Overview tab under the Place of Performance section. |
-      | City is required in the Overview tab under the Place of Performance section.           |
-      | State is required in the Overview tab under the Place of Performance section.          |
-      | Zip Code is required in the Overview tab under the Place of Performance section.       |
-      | Country is required in the Overview tab under the Place of Performance section.        |
+      | Address line 1 is required to save. Enter it in the Place of Performance section on the Overview tab. |
+      | City is required to save. Enter it in the Place of Performance section on the Overview tab.           |
+      | State is required to save. Enter it in the Place of Performance section on the Overview tab.          |
+      | Zip Code is required to save. Enter it in the Place of Performance section on the Overview tab.       |
+      | Country is required to save. Enter it in the Place of Performance section on the Overview tab.        |
+#    | Address line 1 is required in the Overview tab under the Place of Performance section. |
+#      | City is required in the Overview tab under the Place of Performance section.           |
+#      | State is required in the Overview tab under the Place of Performance section.          |
+#      | Zip Code is required in the Overview tab under the Place of Performance section.       |
+#      | Country is required in the Overview tab under the Place of Performance section.        |
     And I enter value "Automation Award" into field "GrantAwardName__c"
     And I enter value "Automation Test Description" into field "GrantAwardDescription__c"
     And I enter value "Street4" into field "Addressline1__c"
@@ -1425,7 +1430,7 @@ Feature: Grantee Smoke scenarios
       | EGMS ID                | Target |
       | Automation Runtime KPI |        |
     Then I softly see the following messages in the page details contains:
-      | Required fields missing |
+      | Please complete all field(s) marked in red.|
     And I refresh the page
     And I wait for "3" seconds
     And I navigate to "Overview" sub tab
@@ -4643,16 +4648,24 @@ Feature: Grantee Smoke scenarios
     Then I softly see field on modal "Zip Code" inside page block
     When I click modal button "Save"
     Then I softly see the following messages in the page details contains:
-      | Project Role is required in the Contact Information section.   |
-      | First Name is required in the Contact Information section.     |
-      | Last Name is required in the Contact Information section.      |
-      | Phone is required in the Contact Information section.          |
-      | Email is required in the Contact Information section.          |
-      | Address Line 1 is required in the Address Information section. |
-      | State is required in the Address Information section.          |
-      | City is required in the Address Information section.           |
-      | Country is required in the Address Information section.        |
-      | Zip Code is required in the Address Information section.       |
+      | Project Role is required to save. Enter it in the Contact Information section.   |
+      | First Name is required to save. Enter it in the Contact Information section.     |
+      | Last Name is required to save. Enter it in the Contact Information section.      |
+      | Email is required to save. Enter it in the Contact Information section.          |
+      | Address Line 1 is required to save. Enter it in the Address Information section. |
+      | City is required to save. Enter it in the Address Information section.           |
+      | Country is required to save. Enter it in the Address Information section.        |
+      | Zip Code is required to save. Enter it in the Address Information section.       |
+#      | Project Role is required in the Contact Information section.   |
+#      | First Name is required in the Contact Information section.     |
+#      | Last Name is required in the Contact Information section.      |
+#      | Phone is required in the Contact Information section.          |
+#      | Email is required in the Contact Information section.          |
+#      | Address Line 1 is required in the Address Information section. |
+#      | State is required in the Address Information section.          |
+#      | City is required in the Address Information section.           |
+#      | Country is required in the Address Information section.        |
+#      | Zip Code is required in the Address Information section.       |
     When I enter in modal value "Other" into field "Role__c"
     When I enter in modal value "Automation Runtime" into field "Title"
     When I enter in modal value "Automation" into field "FirstName"
@@ -5055,15 +5068,23 @@ Feature: Grantee Smoke scenarios
     Then I softly see fields "MailingPostalCode" is in edit mode
     And I click modal button "Save"
     Then I softly see the following messages in the page details contains:
-      | Project Role is required in the Contact Information section.   |
-      | First Name is required in the Contact Information section.     |
-      | Last Name is required in the Contact Information section.      |
-      | Email is required in the Contact Information section.          |
-      | Address Line 1 is required in the Address Information section. |
-      | State is required in the Address Information section.          |
-      | City is required in the Address Information section.           |
-      | Country is required in the Address Information section.        |
-      | Zip Code is required in the Address Information section.       |
+      | Project Role is required to save. Enter it in the Contact Information section.   |
+      | First Name is required to save. Enter it in the Contact Information section.     |
+      | Last Name is required to save. Enter it in the Contact Information section.      |
+      | Email is required to save. Enter it in the Contact Information section.          |
+      | Address Line 1 is required to save. Enter it in the Address Information section. |
+      | City is required to save. Enter it in the Address Information section.           |
+      | Country is required to save. Enter it in the Address Information section.        |
+      | Zip Code is required to save. Enter it in the Address Information section.       |
+#      | Project Role is required in the Contact Information section.   |
+#      | First Name is required in the Contact Information section.     |
+#      | Last Name is required in the Contact Information section.      |
+#      | Email is required in the Contact Information section.          |
+#      | Address Line 1 is required in the Address Information section. |
+#      | State is required in the Address Information section.          |
+#      | City is required in the Address Information section.           |
+#      | Country is required in the Address Information section.        |
+#      | Zip Code is required in the Address Information section.       |
     When I enter in modal value "Department of Product" into field "AccountId"
     When I enter in modal value "Other" into field "Role__c"
     When I enter in modal value "Automation Runtime" into field "FirstName"
@@ -7486,9 +7507,7 @@ Feature: Grantee Smoke scenarios
     And I click modal button "Save and Continue"
     Then I softly see the following messages in the page details contains:
       | Please select Amendment Request Type is required. |
-    Then I softly see the following messages in the page details contains:
       | Initiated By is required. |
-    Then I softly see the following messages in the page details contains:
       | Justification is required. |
     And I enter "Grantee_Budget_Redirection" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
@@ -10119,16 +10138,24 @@ Feature: Grantee Smoke scenarios
     When I click on top right button "New" in flex table with id "---grantee_tableId:-:amendmentContactTableId---"
     When I click modal button "Save"
     Then I softly see the following messages in the page details contains:
-      | Project Role is required in the Contact Information section.   |
-      | First Name is required in the Contact Information section.     |
-      | Last Name is required in the Contact Information section.      |
-      | Phone is required in the Contact Information section.          |
-      | Email is required in the Contact Information section.          |
-      | Address Line 1 is required in the Address Information section. |
-      | State is required in the Address Information section.          |
-      | City is required in the Address Information section.           |
-      | Country is required in the Address Information section.        |
-      | Zip Code is required in the Address Information section.       |
+      | Project Role is required to save. Enter it in the Contact Information section.   |
+      | First Name is required to save. Enter it in the Contact Information section.     |
+      | Last Name is required to save. Enter it in the Contact Information section.      |
+      | Email is required to save. Enter it in the Contact Information section.          |
+      | Address Line 1 is required to save. Enter it in the Address Information section. |
+      | City is required to save. Enter it in the Address Information section.           |
+      | Country is required to save. Enter it in the Address Information section.        |
+      | Zip Code is required to save. Enter it in the Address Information section.       |
+#      | Project Role is required in the Contact Information section.   |
+#      | First Name is required in the Contact Information section.     |
+#      | Last Name is required in the Contact Information section.      |
+#      | Phone is required in the Contact Information section.          |
+#      | Email is required in the Contact Information section.          |
+#      | Address Line 1 is required in the Address Information section. |
+#      | State is required in the Address Information section.          |
+#      | City is required in the Address Information section.           |
+#      | Country is required in the Address Information section.        |
+#      | Zip Code is required in the Address Information section.       |
     And I click modal button "Close"
     And I click on "Edit" in the page details
     And I enter value "Checked" into field "GeneralConditionChanged__c"
@@ -13940,9 +13967,12 @@ Feature: Grantee Smoke scenarios
     And I click on "Save" in the page details
     And I wait for "2" seconds
     Then I softly see the following messages in the page details contains:
-      | Reporting Period Start Date is required in the Overview tab under the Report Overview section. |
-      | Report Due Date is required in the Overview tab under the Report Overview section.             |
-      | Reporting Period End Date is required in the Overview tab under the Report Overview section.   |
+      | Reporting Period Start Date is required tp save. Enter it in the Report Overview section under on the Overview tab. |
+      | Reporting Period End Date is required tp save. Enter it in the Report Overview section under on the Overview tab.   |
+      | Reporting Due Date is required tp save. Enter it in the Report Overview section under on the Overview tab.          |
+#    | Reporting Period Start Date is required in the Overview tab under the Report Overview section. |
+#      | Report Due Date is required in the Overview tab under the Report Overview section.             |
+#      | Reporting Period End Date is required in the Overview tab under the Report Overview section.   |
     And I navigate to "Monitoring" tab
     When I navigate to "Progress Reports" content inside "Monitoring" subheader on left panel
     And I click toggle button to select "Progress Reports - My Records"

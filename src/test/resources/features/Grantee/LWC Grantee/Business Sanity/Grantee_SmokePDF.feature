@@ -1,4 +1,4 @@
-@GranteeSmokeTestCases @GranteeTBE @GranteeSmokeTestCasesPDF @skipOnJenkins
+@GranteeSmokeTestCases @GranteeTBE @GranteeSmokeTestCasesPDF
 Feature: Grantee Smoke scenarios for PDF
 
   @449166 @VerifyPMuserasAROwnersameasAwardOwnercanabletocreateFundingChangeARonactiveAward&abletoAcceptit&abletocreatenewAward&seeimpactonAward&Grant @Grantee_Smoke1 @GRegression1
@@ -49,10 +49,8 @@ Feature: Grantee Smoke scenarios for PDF
     And I click modal button "Save and Continue"
     Then I softly see the following messages in the page details contains:
       | Please select Amendment Request Type is required. |
-    Then I softly see the following messages in the page details contains:
-      | Initiated By is required. |
-    Then I softly see the following messages in the page details contains:
-      | Justification is required. |
+      | Initiated By is required.                         |
+      | Justification is required.                        |
     And I enter "Grantee_FundingChange_Creation" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     And I click on "Save" in the page details
