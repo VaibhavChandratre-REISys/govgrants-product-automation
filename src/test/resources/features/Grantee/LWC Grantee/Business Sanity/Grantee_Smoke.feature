@@ -368,7 +368,7 @@ Feature: Grantee Smoke scenarios
       | User       |
       | GRANTEE PO |
 
-  @488703 @VerifyAsFOusershouldnotseenewbuttonfornotyetqualifyleadandeditaccessonnotyetqualifyleads @Grantee_Smoke3
+  @mk @488703 @VerifyAsFOusershouldnotseenewbuttonfornotyetqualifyleadandeditaccessonnotyetqualifyleads @Grantee_Smoke3
   Scenario: Verify As FO user should not see new button for not yet qualify lead and edit access on not yet qualify leads
     Given I login to "Grantee" app as "GRANTEE EXE" user
     And I navigate to "Opportunities" tab
@@ -10201,14 +10201,14 @@ Feature: Grantee Smoke scenarios
     Then I softly can see row level action button "Edit" against "Program Reviewer" in flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---"
     Then I softly can see row level action button "Delete" against "Program Reviewer" in flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---"
     And I click on "Edit" icon for "Fiscal Reviewer" inside flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---" without waiting for record
-    Then I softly see fields "name__r.name" is in edit mode
+    Then I softly see fields "Name__r.Name" is in edit mode
     Then I softly see fields "ReviewerRole__c" is in edit mode
     Then I softly see fields "Responsibility__c" is in edit mode
     Then I softly see fields "DueDate__c" is in edit mode
     Then I softly see fields "AllowRecordEdit__c" is in edit mode
     And I click on top right button "Save" in flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---"
     And I click on "Edit" icon for "Program Reviewer" inside flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---" without waiting for record
-    Then I softly see fields "name__r.name" is in edit mode
+    Then I softly see fields "Name__r.Name" is in edit mode
     Then I softly see fields "ReviewerRole__c" is in edit mode
     Then I softly see fields "Responsibility__c" is in edit mode
     Then I softly see fields "DueDate__c" is in edit mode

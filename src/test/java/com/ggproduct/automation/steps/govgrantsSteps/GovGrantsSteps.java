@@ -317,10 +317,10 @@ public final class GovGrantsSteps {
         if (appName.equalsIgnoreCase("Grants Portal")) {
             try {
                 I.amPerforming().waitFor().makeThreadSleep(3000);
-//                ggObjects.clickLogOut();
-                driver.manage().deleteAllCookies();
-                driver.navigate().to("about:blank");
-                jwtLoginManager.login(userType);
+                ggObjects.clickLogOut();
+//                driver.manage().deleteAllCookies();
+//                driver.navigate().to("about:blank");
+//                jwtLoginManager.login(userType);
 
                 I.amPerforming().waitFor().makeThreadSleep(4000);
                 govgrants.perform().mainPage().navigateToPortal(portalType);
@@ -351,10 +351,10 @@ public final class GovGrantsSteps {
                  */
                 System.out.println("[Re-Login] Logging out current Salesforce session...");
                 try {
-//                    ggObjects.clickLogOut();
-                    driver.manage().deleteAllCookies();
-                    I.amPerforming().waitFor().makeThreadSleep(3000);
-                    driver.navigate().to("about:blank");
+                    ggObjects.clickLogOut();
+//                    driver.manage().deleteAllCookies();
+//                    I.amPerforming().waitFor().makeThreadSleep(3000);
+//                    driver.navigate().to("about:blank");
                     I.amPerforming().waitFor().makeThreadSleep(3000);
                     jwtLoginManager.login(userType);
                     System.out.println("[Re-Login] Salesforce logout action completed.");
@@ -444,7 +444,7 @@ public final class GovGrantsSteps {
                  * SELECT SALESFORCE APPLICATION
                  * =========================================================
                  */
-                if (appName.equalsIgnoreCase("SBIR/STTR Portal") || appName.equalsIgnoreCase("Grantor") || appName.equalsIgnoreCase("Grantee") || appName.equalsIgnoreCase("Grants Portal")) {
+                if (appName.equalsIgnoreCase("SBIR/STTR Portal") || appName.equalsIgnoreCase("Grantor") || appName.equalsIgnoreCase("Grantee")) {
                     try {
                         System.out.println("[Re-Login] Setting Salesforce app: " + appName);
                         govgrants.perform().mainPage().setUpCustomAppDropDown(appName);

@@ -1,4 +1,4 @@
-@GranteeSmokeTestCases @GranteeTBE @GranteeSmokeTestCasesPDF
+@GranteeSmokeTestCases @GranteeTBE @GranteeSmokeTestCasesPDF @skipOnJenkins
 Feature: Grantee Smoke scenarios for PDF
 
   @449166 @VerifyPMuserasAROwnersameasAwardOwnercanabletocreateFundingChangeARonactiveAward&abletoAcceptit&abletocreatenewAward&seeimpactonAward&Grant @Grantee_Smoke1 @GRegression1

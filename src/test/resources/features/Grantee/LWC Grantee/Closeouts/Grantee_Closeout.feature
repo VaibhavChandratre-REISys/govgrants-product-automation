@@ -1983,7 +1983,7 @@ Feature: Validate all scenarios for closeout
     Then I softly do not see value "{SavedValue:progressEGMSID5}" for title "EGMS ID" inside table "---grantee_tableId:-:PendingProgressReprt---"
     Then I softly do not see value "Submitted to Grantor" for title "Status" inside table "---grantee_tableId:-:PendingProgressReprt---"
 
-  @446149 @ValidateGPCloseoutwithPMProfileAbletocreateProjectperiodcloseoutandabletocompletethecloseout @Grantee_Smoke1 @GranteeP_Q4
+  @446149 @ValidateGPCloseoutwithPMProfileAbletocreateProjectperiodcloseoutandabletocompletethecloseout @GranteeP_Q4
   Scenario: Validate GP Closeout with PM Profile Able to create Project period closeout and able to complete the closeout
     And I "Created" standalone subaward "Automation Runtime award" with properties "INDIRECT_COST_NO"
     And I updated direct grant award for title "{SavedValue:Automation Runtime award}" with properties "default"
