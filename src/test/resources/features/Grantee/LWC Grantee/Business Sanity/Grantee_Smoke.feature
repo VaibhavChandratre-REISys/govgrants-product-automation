@@ -31,13 +31,13 @@ Feature: Grantee Smoke scenarios
     Then I softly see asterisk mark on "Cost Sharing or Matching Requirement"
     And I click modal button "Save and Continue"
     Then I softly see the following messages in the page details contains:
-      |Opportunity Title is required to save. Enter it in the General Information section.|
-      |Opportunity Number is required to save. Enter it in the General Information section.|
-      |Application Due Date is required to save. Enter it in the General Information section.|
-      |Funding Organization is required to save. Enter it in the General Information section.|
-      |Eligible Applicants is required to save. Enter it in the Eligibility section.|
-      |Lead Description is required to save. Enter it in the Additional Information section.|
-      |Cost Sharing or Matching Requirement is required to save. Enter it in the Financial Details section.|
+      | Opportunity Title is required to save. Enter it in the General Information section.                  |
+      | Opportunity Number is required to save. Enter it in the General Information section.                 |
+      | Application Due Date is required to save. Enter it in the General Information section.               |
+      | Funding Organization is required to save. Enter it in the General Information section.               |
+      | Eligible Applicants is required to save. Enter it in the Eligibility section.                        |
+      | Lead Description is required to save. Enter it in the Additional Information section.                |
+      | Cost Sharing or Matching Requirement is required to save. Enter it in the Financial Details section. |
     And I enter "Grantee_Leads_Creation" values from "Announcement_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     Then I see the header is "Lead" in the page details
@@ -144,9 +144,11 @@ Feature: Grantee Smoke scenarios
     And I click on "Edit" in the page details
     And I enter "Grantee_Qualifiedleads_Edition" values from "Announcement_Field_Values.xlsx"
     When I click on "Save" in the page details
-    And I wait for "2" seconds
+    And I wait for "5" seconds
+    Then I softly see field "Status" as "Qualified Lead"
     Then I can see top right button "Convert to Opportunity" in page detail
     When I click on "Convert to Opportunity" in the page details
+    And I wait for "5" seconds
     Then I softly see field "Status" as "Draft"
     And I save the field labeled "EGMS ID" as "OpportunityEGMSID"
     Then I softly see field "EGMS ID" as "{SavedValue:OpportunityEGMSID}"
@@ -361,12 +363,13 @@ Feature: Grantee Smoke scenarios
     Then I softly see "Opportunity Files" page block displayed
     Then I softly see "Notes" page block displayed
     Then I softly see "Business Forms" page block displayed
+
     Examples:
       | User       |
       | GRANTEE PO |
 
-  @488703 @VerifyAsFOusershouldnotseenewbuttonfornotyetqualifyleadandeditaccessonnotyetqualifyleads @Grantee_Smoke3
-  Scenario Outline: Verify As FO user should not see new button for not yet qualify lead and edit access on not yet qualify leads
+  @mk @488703 @VerifyAsFOusershouldnotseenewbuttonfornotyetqualifyleadandeditaccessonnotyetqualifyleads @Grantee_Smoke3
+  Scenario: Verify As FO user should not see new button for not yet qualify lead and edit access on not yet qualify leads
     Given I login to "Grantee" app as "GRANTEE EXE" user
     And I navigate to "Opportunities" tab
     When I navigate to "Not Yet Qualified" content inside "Leads" subheader on left panel
@@ -5688,7 +5691,7 @@ Feature: Grantee Smoke scenarios
     And I click on "View" icon for "{SavedValue:AwardEGMSID}" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
     Then I softly see field "Status" as "Closed"
 
-  @mk @476989 @CombinationofamendmentVerifyPOusercancreatecombinationofamendmentusingfollowingcombinationsandactivatenewaward @Grantee_Smoke3 @GRegression1
+  @476989 @CombinationofamendmentVerifyPOusercancreatecombinationofamendmentusingfollowingcombinationsandactivatenewaward @Grantee_Smoke3 @GRegression1
   Scenario Outline:Combination of amendment : Verify PO user can create combination of amendment using following combinations and activate new award
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default-Grantee PO user"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
