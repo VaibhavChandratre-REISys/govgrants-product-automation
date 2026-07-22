@@ -368,7 +368,7 @@ Feature: Grantee Smoke scenarios
       | User       |
       | GRANTEE PO |
 
-  @mk @488703 @VerifyAsFOusershouldnotseenewbuttonfornotyetqualifyleadandeditaccessonnotyetqualifyleads @Grantee_Smoke3
+  @488703 @VerifyAsFOusershouldnotseenewbuttonfornotyetqualifyleadandeditaccessonnotyetqualifyleads @Grantee_Smoke3
   Scenario: Verify As FO user should not see new button for not yet qualify lead and edit access on not yet qualify leads
     Given I login to "Grantee" app as "GRANTEE EXE" user
     And I navigate to "Opportunities" tab

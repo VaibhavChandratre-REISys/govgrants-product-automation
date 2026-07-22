@@ -46,7 +46,7 @@ Feature: Validate Pre-requisiste check for Sanity/Regression
     And I navigate to "Home" tab
     And I logout
 
-  @checkUserLoginsGrantee
+  @mk @checkUserLoginsGrantee
   Scenario: Check GovGrants user logins - Grantee
     When I login to "Grantee" app as "GRANTEE ADMIN" user
     And I navigate to "Home" tab

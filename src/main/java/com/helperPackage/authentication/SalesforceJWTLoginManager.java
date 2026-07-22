@@ -63,15 +63,12 @@ public final class SalesforceJWTLoginManager {
          * STEP 2:
          * Create JWT for selected Salesforce user.
          */
-        SalesforceJWTAuthResponse authResponse = SalesforceJWTSessionCache.get();
-        if (authResponse == null) {
-            SalesforceJWTAuth jwtAuth = new SalesforceJWTAuth();
-            authResponse = jwtAuth.authenticate(username);
-            SalesforceJWTSessionCache.put(authResponse);
-            System.out.println("[JWT] New token generated.");
-        } else {
-            System.out.println("[JWT] Using cached token.");
-        }
+        SalesforceJWTAuth jwtAuth =
+                new SalesforceJWTAuth();
+
+
+        SalesforceJWTAuthResponse authResponse = jwtAuth.authenticate(username);
+
 
         if (authResponse == null) {
 
@@ -87,11 +84,16 @@ public final class SalesforceJWTLoginManager {
          * STEP 3:
          * Create Salesforce frontdoor URL.
          */
-        String frontdoorUrl = createFrontdoorUrl(authResponse);
+        String frontdoorUrl =
+                createFrontdoorUrl(
+                        authResponse
+                );
+
 
         System.out.println(
                 "[JWT Login] JWT token obtained."
         );
+
 
         System.out.println(
                 "[JWT Login] Navigating through Salesforce frontdoor..."
@@ -115,17 +117,8 @@ public final class SalesforceJWTLoginManager {
          * Wait until Salesforce Lightning session
          * is established.
          */
-        try{
-            driver.get(frontdoorUrl);
-            waitForSalesforceSession();
-        }catch(Exception ex){
-            SalesforceJWTSessionCache.clear();
-            SalesforceJWTAuthResponse response =new SalesforceJWTAuth()
-                    .authenticate(username);
-            SalesforceJWTSessionCache.put(response);
-            driver.get(createFrontdoorUrl(response));
-            waitForSalesforceSession();
-        }
+        waitForSalesforceSession();
+
 
         System.out.println(
                 "[JWT Login] Salesforce browser session established."

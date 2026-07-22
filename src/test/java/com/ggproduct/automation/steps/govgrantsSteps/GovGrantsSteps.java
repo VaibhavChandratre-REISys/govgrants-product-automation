@@ -1,5 +1,7 @@
 package com.ggproduct.automation.steps.govgrantsSteps;
 
+import com.ggproduct.automation.usersUrl.AuthenticationResolver;
+import com.ggproduct.automation.usersUrl.AuthenticationType;
 import com.helperPackage.actionsfactory.api.ByUsing;
 import com.helperPackage.authentication.SalesforceJWTConfiguration;
 import com.helperPackage.authentication.SalesforceJWTLoginManager;
@@ -112,102 +114,52 @@ public final class GovGrantsSteps {
 
     @Description("Login to the app as any user")
     @Given("^I login to \"([^\"]*)\" app as \"([^\"]*)\" user$")
-    public void loginToggleToApp(String appName, String userType) {
-        if (appName.equalsIgnoreCase("Grants Portal")) {
-            govgrants.perform().mainPage().loginWithUserType(userType);
+    public void loginToggleToApp(
+            String appName,
+            String userType) {
+        System.out.println(
+                "[Login] Starting login for user type: "
+                        + userType
+        );
 
+        WebDriver driver =
+                InstanceRecording
+                        .getInstance(DeviceBucket.class)
+                        .getDriver();
+
+        if (driver == null) {
+            throw new IllegalStateException(
+                    "WebDriver is not initialized."
+            );
+        }
+
+        AuthenticationType authType =
+                AuthenticationResolver.resolve(userType);
+        if (authType == AuthenticationType.JWT) {
+            SalesforceJWTLoginManager jwt =
+                    new SalesforceJWTLoginManager(driver);
+            jwt.login(userType);
         } else {
+            govgrants.perform()
+                    .mainPage()
+                    .loginWithUserType(userType);
+        }
 
+        validateSalesforceSession(driver);
+
+        if (appName.equalsIgnoreCase("Grantor")
+                || appName.equalsIgnoreCase("Grantee")
+                || appName.equalsIgnoreCase("SBIR/STTR Portal")) {
             System.out.println(
-                    "[Login] Starting login for user type: "
-                            + userType
+                    "[Login] Setting Salesforce app: "
+                            + appName
             );
 
-
-            WebDriver driver =
-                    InstanceRecording
-                            .getInstance(DeviceBucket.class)
-                            .getDriver();
-
-
-            if (driver == null) {
-
-                throw new IllegalStateException(
-                        "WebDriver is not initialized."
-                );
-            }
-
-
-            if (SalesforceJWTConfiguration.isEnabled()) {
-
-                System.out.println(
-                        "[Login] Salesforce JWT authentication enabled."
-                );
-
-
-                System.out.println(
-                        "[Login] Requested user type: "
-                                + userType
-                );
-
-
-                SalesforceJWTLoginManager jwtLoginManager =
-                        new SalesforceJWTLoginManager(
-                                driver
-                        );
-
-
-                jwtLoginManager.login(
-                        userType
-                );
-
-
-                System.out.println(
-                        "[Login] Salesforce JWT login completed."
-                );
-
-
-            } else {
-
-                System.out.println(
-                        "[Login] Salesforce JWT authentication disabled."
-                );
-
-
-                System.out.println(
-                        "[Login] Using existing UI login."
-                );
-
-
-                govgrants.perform()
-                        .mainPage()
-                        .loginWithUserType(
-                                userType
-                        );
-            }
-
-
-            validateSalesforceSession(
-                    driver
-            );
-
-
-            if (appName.equalsIgnoreCase("Grantor")
-                    || appName.equalsIgnoreCase("Grantee")
-                    || appName.equalsIgnoreCase("SBIR/STTR Portal")) {
-
-                System.out.println(
-                        "[Login] Setting Salesforce app: "
-                                + appName
-                );
-
-
-                govgrants.perform()
-                        .mainPage()
-                        .setUpCustomAppDropDown(
-                                appName
-                        );
-            }
+            govgrants.perform()
+                    .mainPage()
+                    .setUpCustomAppDropDown(
+                            appName
+                    );
         }
     }
 
@@ -311,168 +263,271 @@ public final class GovGrantsSteps {
 
     @Description("Re-Login to the app as any user and with any URL")
     @When("^I re-login to \"([^\"]*)\" app as \"([^\"]*)\" user on \"([^\"]*)\" portal$")
-    public void reloginToggleToAppInURL(String appName, String userType, String portalType) {
-        WebDriver driver = InstanceRecording.getInstance(DeviceBucket.class).getDriver();
-        SalesforceJWTLoginManager jwtLoginManager = new SalesforceJWTLoginManager(driver);
-        if (appName.equalsIgnoreCase("Grants Portal")) {
-            try {
-                I.amPerforming().waitFor().makeThreadSleep(3000);
-                ggObjects.clickLogOut();
-//                driver.manage().deleteAllCookies();
-//                driver.navigate().to("about:blank");
-//                jwtLoginManager.login(userType);
+    public void reloginToggleToAppInURL(
+            String appName,
+            String userType,
+            String portalType) {
+        System.out.println(
+                "[Re-Login] Starting re-login."
+        );
+        System.out.println(
+                "[Re-Login] App Name: "
+                        + appName
+        );
+        System.out.println(
+                "[Re-Login] User Type: "
+                        + userType
+        );
+        System.out.println(
+                "[Re-Login] Portal Type: "
+                        + portalType
+        );
 
-                I.amPerforming().waitFor().makeThreadSleep(4000);
-                govgrants.perform().mainPage().navigateToPortal(portalType);
-                govgrants.perform().mainPage().loginWithUserType(userType);
-            } catch (Exception e) {
-                if (I.amPerforming().checkToSee().isElementDisplayed(ByUsing.xpath("//a[@title='GovGrants Launcher Tab']"))) {
-                    I.amPerforming().waitFor().makeThreadSleep(5000);
-                    By GovtGrantLauncher = ByUsing.xpath("//a[@title='GovGrants Launcher Tab']");
-                    I.amPerforming().click().on(GovtGrantLauncher);
-                    I.amPerforming().waitFor().ElementToDisappear(GovtGrantLauncher);
-                }
-            }
-        } else {
-            System.out.println("[Re-Login] Starting re-login.");
-            System.out.println("[Re-Login] App Name: " + appName);
-            System.out.println("[Re-Login] User Type: " + userType);
-            System.out.println("[Re-Login] Portal Type: " + portalType);
-//            WebDriver driver = InstanceRecording.getInstance(DeviceBucket.class).getDriver();
-            if (driver == null) {
-                throw new IllegalStateException("WebDriver is not initialized.");
-            }
+        WebDriver driver =
+                InstanceRecording
+                        .getInstance(DeviceBucket.class)
+                        .getDriver();
+        if (driver == null) {
+            throw new IllegalStateException(
+                    "WebDriver is not initialized."
+            );
+        }
+        try {
+            /*
+             * =========================================================
+             * STEP 1
+             * LOGOUT CURRENT SALESFORCE SESSION
+             * =========================================================
+             */
+            System.out.println(
+                    "[Re-Login] Logging out current Salesforce session..."
+            );
+
             try {
+                ggObjects.clickLogOut();
+                System.out.println(
+                        "[Re-Login] Salesforce logout action completed."
+                );
+            } catch (Exception logoutException) {
+                System.err.println(
+                        "[Re-Login] Salesforce UI logout failed."
+                );
+
+                System.err.println(
+                        "[Re-Login] Logout reason: "
+                                + logoutException.getMessage()
+                );
+
                 /*
-                 * =========================================================
-                 * STEP 1
-                 * LOGOUT CURRENT SALESFORCE SESSION
-                 * =========================================================
+                 * Do not continue with the existing browser session.
+                 *
+                 * JWT login will create a completely new
+                 * Salesforce session.
                  */
-                System.out.println("[Re-Login] Logging out current Salesforce session...");
-                try {
-                    ggObjects.clickLogOut();
-//                    driver.manage().deleteAllCookies();
-//                    I.amPerforming().waitFor().makeThreadSleep(3000);
-//                    driver.navigate().to("about:blank");
-                    I.amPerforming().waitFor().makeThreadSleep(3000);
-                    jwtLoginManager.login(userType);
-                    System.out.println("[Re-Login] Salesforce logout action completed.");
-                } catch (Exception logoutException) {
-                    System.err.println("[Re-Login] Salesforce UI logout failed.");
-                    System.err.println("[Re-Login] Logout reason: " + logoutException.getMessage());
-                    /*
-                     * Do not continue with the existing browser session.
-                     *
-                     * JWT login will create a completely new
-                     * Salesforce session.
-                     */
-                }
-                /*
-                 * Wait for Salesforce logout processing.
-                 */
-                I.amPerforming().waitFor().makeThreadSleep(4000);
-                System.out.println("[Re-Login] Current URL after logout: " + sanitizeSalesforceUrl(driver.getCurrentUrl()));
-                /*
-                 * =========================================================
-                 * STEP 2
-                 * CLEAR CURRENT BROWSER SALESFORCE SESSION
-                 * =========================================================
-                 */
-                if (SalesforceJWTConfiguration.isEnabled()) {
-                    System.out.println("[Re-Login] Salesforce JWT authentication enabled.");
-                    System.out.println("[Re-Login] Clearing previous Salesforce browser session...");
-                    try {
-                        driver.manage().deleteAllCookies();
-                        System.out.println("[Re-Login] Previous Salesforce cookies cleared.");
-                    } catch (Exception cookieException) {
-                        System.err.println("[Re-Login] Unable to clear browser cookies.");
-                        System.err.println("[Re-Login] Cookie clear reason: " + cookieException.getMessage());
-                    }
-                    /*
-                     * Open blank page before establishing the
-                     * new Salesforce browser session.
-                     */
-                    driver.navigate().to("about:blank");
-                    System.out.println("[Re-Login] Previous browser session cleared.");
-                    /*
-                     * =====================================================
-                     * STEP 3
-                     * JWT LOGIN FOR REQUESTED USER
-                     * =====================================================
-                     */
-                    System.out.println("[Re-Login] Starting JWT login for user type: " + userType);
-//                    SalesforceJWTLoginManager jwtLoginManager = new SalesforceJWTLoginManager(driver);
-                    /*
-                     * SalesforceJWTLoginManager resolves:
-                     *
-                     * userType
-                     *      ↓
-                     * SalesforceJWTUserResolver
-                     *      ↓
-                     * Exact Salesforce username
-                     *      ↓
-                     * SalesforceJWTAuth.authenticate(username)
-                     */
-                    jwtLoginManager.login(userType);
-                    System.out.println("[Re-Login] Salesforce JWT re-login completed.");
-                } else {
-                    /*
-                     * =====================================================
-                     * EXISTING UI LOGIN FLOW
-                     * =====================================================
-                     */
-                    System.out.println("[Re-Login] Salesforce JWT authentication disabled.");
-                    System.out.println("[Re-Login] Using existing UI login flow.");
-                    govgrants.perform().mainPage().navigateToPortal(portalType);
-                    govgrants.perform().mainPage().loginWithUserType(userType);
-                    System.out.println("[Re-Login] UI re-login completed.");
-                }
-                /*
-                 * =========================================================
-                 * STEP 4
-                 * VALIDATE NEW SALESFORCE SESSION
-                 * =========================================================
-                 */
-                System.out.println("[Re-Login] Validating newly created Salesforce session...");
-                validateSalesforceSession(driver);
-                System.out.println("[Re-Login] New Salesforce session validation successful.");
-                System.out.println("[Re-Login] Current Salesforce URL: " + sanitizeSalesforceUrl(driver.getCurrentUrl()));
-                /*
-                 * =========================================================
-                 * STEP 5
-                 * SELECT SALESFORCE APPLICATION
-                 * =========================================================
-                 */
-                if (appName.equalsIgnoreCase("SBIR/STTR Portal") || appName.equalsIgnoreCase("Grantor") || appName.equalsIgnoreCase("Grantee")) {
-                    try {
-                        System.out.println("[Re-Login] Setting Salesforce app: " + appName);
-                        govgrants.perform().mainPage().setUpCustomAppDropDown(appName);
-                        System.out.println("[Re-Login] Salesforce app setup completed.");
-                    } catch (Exception appException) {
-                        System.err.println(
-                                "[Re-Login] Unable to set Salesforce app."
-                        );
-                        System.err.println("[Re-Login] App setup reason: " + appException.getMessage());
-                        /*
-                         * Maintain compatibility with existing framework.
-                         *
-                         * Do not fail re-login because of
-                         * Salesforce app selection.
-                         */
-                    }
-                }
-                System.out.println("[Re-Login] Re-login completed successfully.");
-                System.out.println("[Re-Login] Active user type: " + userType);
-            } catch (Exception e) {
-                System.err.println("[Re-Login] Re-login failed.");
-                System.err.println("[Re-Login] User type: " + userType);
-                System.err.println("[Re-Login] Exception class: " + e.getClass().getName());
-                System.err.println("[Re-Login] Exception message: " + e.getMessage());
-                throw new RuntimeException("Salesforce re-login failed for user type: " + userType, e);
             }
+            /*
+             * Wait for Salesforce logout processing.
+             */
+            I.amPerforming()
+                    .waitFor()
+                    .makeThreadSleep(
+                            4000
+                    );
+            System.out.println(
+                    "[Re-Login] Current URL after logout: "
+                            + sanitizeSalesforceUrl(
+                            driver.getCurrentUrl()
+                    )
+            );
+            /*
+             * =========================================================
+             * STEP 2
+             * DETERMINE LOGIN TYPE
+             * =========================================================
+             */
+            AuthenticationType authType =
+                    AuthenticationResolver.resolve(userType);
+            System.out.println(
+                    "[Re-Login] Authentication Type : " + authType
+            );
+            /*
+             * =========================================================
+             * STEP 3
+             * JWT LOGIN
+             * =========================================================
+             */
+            if (authType == AuthenticationType.JWT) {
+                System.out.println(
+                        "[Re-Login] Using Salesforce JWT Authentication."
+                );
+                try {
+                    driver.manage().deleteAllCookies();
+                } catch (Exception e) {
+                    System.err.println(
+                            "[Re-Login] Unable to clear browser cookies."
+                    );
+                }
+                driver.navigate().to("about:blank");
+                SalesforceJWTLoginManager jwtLoginManager =
+                        new SalesforceJWTLoginManager(driver);
+                jwtLoginManager.login(userType);
+                System.out.println(
+                        "[Re-Login] JWT Login Successful."
+                );
+            }
+            /*
+             * =========================================================
+             * EXISTING UI LOGIN
+             * =========================================================
+             */
+            else {
+                System.out.println(
+                        "[Re-Login] Using Existing UI Login."
+                );
+                govgrants.perform()
+                        .mainPage()
+                        .navigateToPortal(portalType);
+                govgrants.perform()
+                        .mainPage()
+                        .loginWithUserType(userType);
+                System.out.println(
+                        "[Re-Login] UI Login Successful."
+                );
+            }
+            /*
+             * =========================================================
+             * STEP 4
+             * VALIDATE NEW SALESFORCE SESSION
+             * =========================================================
+             */
+            System.out.println(
+                    "[Re-Login] Validating login..."
+            );
+            if (authType == AuthenticationType.JWT) {
+                validateSalesforceSession(driver);
+                System.out.println(
+                        "[Re-Login] Salesforce Lightning session validated."
+                );
+            } else {
+                validateRecipientPortalSession(driver);
+                System.out.println(
+                        "[Re-Login] Recipient Portal session validated."
+                );
+            }
+            System.out.println(
+                    "[Re-Login] Current Salesforce URL: "
+                            + sanitizeSalesforceUrl(
+                            driver.getCurrentUrl()
+                    )
+            );
+
+            /*
+             * =========================================================
+             * STEP 5
+             * SELECT SALESFORCE APPLICATION
+             * =========================================================
+             */
+            if (appName.equalsIgnoreCase(
+                    "SBIR/STTR Portal"
+            )
+                    || appName.equalsIgnoreCase(
+                    "Grantor"
+            )
+                    || appName.equalsIgnoreCase(
+                    "Grantee"
+            )) {
+                try {
+                    System.out.println(
+                            "[Re-Login] Setting Salesforce app: "
+                                    + appName
+                    );
+
+                    govgrants.perform()
+                            .mainPage()
+                            .setUpCustomAppDropDown(
+                                    appName
+                            );
+
+                    System.out.println(
+                            "[Re-Login] Salesforce app setup completed."
+                    );
+
+                } catch (Exception appException) {
+                    System.err.println(
+                            "[Re-Login] Unable to set Salesforce app."
+                    );
+
+                    System.err.println(
+                            "[Re-Login] App setup reason: "
+                                    + appException.getMessage()
+                    );
+
+                    /*
+                     * Maintain compatibility with existing framework.
+                     *
+                     * Do not fail re-login because of
+                     * Salesforce app selection.
+                     */
+                }
+            }
+
+            System.out.println(
+                    "[Re-Login] Re-login completed successfully."
+            );
+
+            System.out.println(
+                    "[Re-Login] Active user type: "
+                            + userType
+            );
+
+        } catch (Exception e) {
+            System.err.println(
+                    "[Re-Login] Re-login failed."
+            );
+
+            System.err.println(
+                    "[Re-Login] User type: "
+                            + userType
+            );
+
+            System.err.println(
+                    "[Re-Login] Exception class: "
+                            + e.getClass().getName()
+            );
+
+            System.err.println(
+                    "[Re-Login] Exception message: "
+                            + e.getMessage()
+            );
+
+            throw new RuntimeException(
+                    "Salesforce re-login failed for user type: "
+                            + userType,
+                    e
+            );
         }
     }
+    private void validateRecipientPortalSession(WebDriver driver) {
+        String currentUrl = driver.getCurrentUrl();
+        System.out.println(
+                "[Recipient Validation] URL : " + currentUrl
+        );
+        if (!currentUrl.contains("/recipient")) {
+            throw new IllegalStateException(
+                    "Recipient Portal session was not established. Current URL : "
+                            + currentUrl
+            );
+        }
+        if (currentUrl.contains("/s/login")) {
+            throw new IllegalStateException(
+                    "Recipient user is still on Login Page."
+            );
+        }
+        System.out.println(
+                "[Recipient Validation] Login Successful."
+        );
+    }
+
 
     @When("^I setup my app as \"([^\"]*)\"$")
     public void setUpMyAppAs(String appName) {
