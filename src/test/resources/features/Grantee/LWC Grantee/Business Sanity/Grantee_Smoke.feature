@@ -394,6 +394,7 @@ Feature: Grantee Smoke scenarios
     Then I softly do not see top right button "New" inside flex table "---grantee_tableId:-:LeadsNotYetQualified---"
     When I perform quick search for "{SavedValue:LeadsEGMSID}" in "---grantee_tableId:-:LeadsNotYetQualified---" panel
     And I click on "View" icon for "{SavedValue:LeadsEGMSID}" inside flex table with id "---grantee_tableId:-:LeadsNotYetQualified---" without waiting for record
+    And I wait for "5" seconds
     Then I cannot see top right button "Qualify Lead" in page detail
     Then I cannot see top right button "Edit" in page detail
     Then I softly cannot see top right button "Associate" in flex table with id "---grantee_tableId:-:RelatedPrograms---"
