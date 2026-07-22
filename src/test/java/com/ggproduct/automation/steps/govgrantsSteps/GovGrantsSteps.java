@@ -305,6 +305,7 @@ public final class GovGrantsSteps {
 
             try {
                 ggObjects.clickLogOut();
+                I.amPerforming().waitFor().makeThreadSleep(7000);
                 System.out.println(
                         "[Re-Login] Salesforce logout action completed."
                 );
