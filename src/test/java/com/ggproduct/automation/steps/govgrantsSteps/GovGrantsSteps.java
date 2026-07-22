@@ -112,9 +112,7 @@ public final class GovGrantsSteps {
 
     @Description("Login to the app as any user")
     @Given("^I login to \"([^\"]*)\" app as \"([^\"]*)\" user$")
-    public void loginToggleToApp(
-            String appName,
-            String userType) {
+    public void loginToggleToApp(String appName, String userType) {
         if (appName.equalsIgnoreCase("Grants Portal")) {
             govgrants.perform().mainPage().loginWithUserType(userType);
 
@@ -444,7 +442,7 @@ public final class GovGrantsSteps {
                  * SELECT SALESFORCE APPLICATION
                  * =========================================================
                  */
-                if (appName.equalsIgnoreCase("SBIR/STTR Portal") || appName.equalsIgnoreCase("Grantor") || appName.equalsIgnoreCase("Grantee")|| appName.equalsIgnoreCase("Grants Portal")) {
+                if (appName.equalsIgnoreCase("SBIR/STTR Portal") || appName.equalsIgnoreCase("Grantor") || appName.equalsIgnoreCase("Grantee") || appName.equalsIgnoreCase("Grants Portal")) {
                     try {
                         System.out.println("[Re-Login] Setting Salesforce app: " + appName);
                         govgrants.perform().mainPage().setUpCustomAppDropDown(appName);
