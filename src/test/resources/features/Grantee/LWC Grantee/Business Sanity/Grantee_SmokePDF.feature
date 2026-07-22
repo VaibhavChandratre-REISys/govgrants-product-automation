@@ -1065,10 +1065,10 @@ Feature: Grantee Smoke scenarios for PDF
     Then I softly see field on modal "Email" inside page block
     And I click modal button "Save"
     Then I softly see the following messages in the page details contains:
+      | Project Role is required to save. Enter it in the Contact Information section.   |
       | Organization is required to save. Enter it in the Contact Information section.   |
       | First Name is required to save. Enter it in the Contact Information section.     |
       | Last Name is required to save. Enter it in the Contact Information section.      |
-      | Project Role is required to save. Enter it in the Contact Information section.   |
       | Phone is required to save. Enter it in the Contact Information section.          |
       | Email is required to save. Enter it in the Contact Information section.          |
       | Address Line 1 is required to save. Enter it in the Address Information section. |
@@ -1210,17 +1210,17 @@ Feature: Grantee Smoke scenarios for PDF
     Then I softly see field on modal "Email" inside page block
     And I click modal button "Save"
     Then I softly see the following messages in the page details contains:
-      | Project Role is required in the Contact Information section.   |
-      | Organization is required in the Contact Information section.   |
-      | First Name is required in the Contact Information section.     |
-      | Last Name is required in the Contact Information section.      |
-      | Phone is required in the Contact Information section.          |
-      | Email is required in the Contact Information section.          |
-      | Address Line 1 is required in the Address Information section. |
-      | State is required in the Address Information section.          |
-      | City is required in the Address Information section.           |
-      | Country is required in the Address Information section.        |
-      | Zip Code is required in the Address Information section.       |
+      | Project Role is required to save. Enter it in the Contact Information section.   |
+      | Organization is required to save. Enter it in the Contact Information section.   |
+      | First Name is required to save. Enter it in the Contact Information section.     |
+      | Last Name is required to save. Enter it in the Contact Information section.      |
+      | Phone is required to save. Enter it in the Contact Information section.          |
+      | Email is required to save. Enter it in the Contact Information section.          |
+      | Address Line 1 is required to save. Enter it in the Address Information section. |
+      | State is required to save. Enter it in the Address Information section.          |
+      | City is required to save. Enter it in the Address Information section.           |
+      | Country is required to save. Enter it in the Address Information section.        |
+      | Zip Code is required to save. Enter it in the Address Information section.       |
     And I wait for "2" seconds
     When I enter in modal value "Other" into field "Role__c"
     When I enter in modal value "Automation Runtime" into field "Title"

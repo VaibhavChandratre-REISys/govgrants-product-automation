@@ -384,7 +384,7 @@ Feature: Grantee Smoke scenarios
     When I click modal button "Continue"
     Then I softly see field "State" as "Posted"
     Then I can see top right button "Qualify Lead" in page detail
-    When I re-login to "Grantee" app as "<UserType>" user on "INTERNAL" portal
+    When I re-login to "Grantee" app as "GRANTEE FO" user on "INTERNAL" portal
     And I navigate to "Opportunities" tab
     When I navigate to "Not Yet Qualified" content inside "Leads" subheader on left panel
     And I click toggle button to select "Leads Not Yet Qualified - All"
@@ -398,9 +398,6 @@ Feature: Grantee Smoke scenarios
     And I navigate to "Files" sub tab
     Then I softly see top right button "New" inside flex table "---grantee_tableId:-:LeadsAttachmentTableId---"
     Then I softly cannot see top right button "Add Files" in flex table with id "---grantee_tableId:-:leadsAddFileTableId---"
-    Examples:
-      | UserType   |
-      | GRANTEE FO |
 
   @487215 @ValidateNotYetConvertedOpportunityManualPMusercancreatePre-applicationfromOpportunityifPre-ApplicationRequiredisselectedasYesonOpportunityrecord @Grantee_Smoke1
   Scenario Outline: Validate Not Yet Converted Opportunity Manual PM user can create Pre-application from Opportunity if Pre-Application Required? is selected as Yes on Opportunity record
