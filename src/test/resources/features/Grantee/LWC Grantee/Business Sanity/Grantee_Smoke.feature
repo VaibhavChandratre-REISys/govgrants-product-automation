@@ -31,13 +31,13 @@ Feature: Grantee Smoke scenarios
     Then I softly see asterisk mark on "Cost Sharing or Matching Requirement"
     And I click modal button "Save and Continue"
     Then I softly see the following messages in the page details contains:
-      | Opportunity Title is required in the General Information section.                  |
-      | Opportunity Number is required in the General Information section.                 |
-      | Application Due Date is required in the General Information section.               |
-      | Funding Organization is required in the General Information section.               |
-      | Eligible Applicants is required in the Eligibility section.                        |
-      | Lead Description is required in the Additional Information section.                |
-      | Cost Sharing or Matching Requirement is required in the Financial Details section. |
+      |Opportunity Title is required to save. Enter it in the General Information section.|
+      |Opportunity Number is required to save. Enter it in the General Information section.|
+      |Application Due Date is required to save. Enter it in the General Information section.|
+      |Funding Organization is required to save. Enter it in the General Information section.|
+      |Eligible Applicants is required to save. Enter it in the Eligibility section.|
+      |Lead Description is required to save. Enter it in the Additional Information section.|
+      |Cost Sharing or Matching Requirement is required to save. Enter it in the Financial Details section.|
     And I enter "Grantee_Leads_Creation" values from "Announcement_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     Then I see the header is "Lead" in the page details
@@ -5691,7 +5691,7 @@ Feature: Grantee Smoke scenarios
     And I click on "View" icon for "{SavedValue:AwardEGMSID}" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
     Then I softly see field "Status" as "Closed"
 
-  @476989 @CombinationofamendmentVerifyPOusercancreatecombinationofamendmentusingfollowingcombinationsandactivatenewaward @Grantee_Smoke3 @GRegression1
+  @mk @476989 @CombinationofamendmentVerifyPOusercancreatecombinationofamendmentusingfollowingcombinationsandactivatenewaward @Grantee_Smoke3 @GRegression1
   Scenario Outline:Combination of amendment : Verify PO user can create combination of amendment using following combinations and activate new award
     And I "Created" standalone subaward "Automation Runtime Award" with properties "default-Grantee PO user"
     And I updated direct grant award for title "{SavedValue:Automation Runtime Award}" with properties "default"
@@ -6063,7 +6063,7 @@ Feature: Grantee Smoke scenarios
       | User       |
       | GRANTEE PO |
 
-  @mk @480737 @ValidatewithPOprofileonClickeditactionotherattachmentformgetopen @Grantee_Smoke1 @GranteeTest
+  @480737 @ValidatewithPOprofileonClickeditactionotherattachmentformgetopen @Grantee_Smoke1 @GranteeTest
   Scenario: Validate with PO profile on Click edit action other attachment form get open
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default"
