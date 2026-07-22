@@ -234,11 +234,16 @@ public final class GovGrantsAssertionSteps {
 
     @Then("^I (softly can see|softly cannot see|can see|cannot see) \"([^\"]*)\" sub tab at view detail page$")
     public void assertSubTabInsidePageDetails(String usage, String subTabName) {
-        ggAssertionObjects.getSubTabsInsideMainDetailPage(
-                subTabName,
-                ("softly can see").equalsIgnoreCase(usage) || "can see".equalsIgnoreCase(usage),
-                usage.contains("softly")
-        );
+        Boolean isSuTabPresent = ggAssertionObjects.getSubTabsInsideMainDetailPage(subTabName, ("softly can see").equalsIgnoreCase(usage) || "can see".equalsIgnoreCase(usage), usage.contains("softly"));
+        if (usage.equalsIgnoreCase("softly can see")) {
+            I.amPerforming().assertionsTo().assertThat(isSuTabPresent).isTrue();
+        } else if (usage.equalsIgnoreCase("softly cannot see")) {
+            I.amPerforming().assertionsTo().assertThat(isSuTabPresent).isFalse();
+        } else if (usage.equalsIgnoreCase("can see")) {
+            Assert.assertTrue(isSuTabPresent);
+        } else if (usage.equalsIgnoreCase("cannot see")) {
+            Assert.assertFalse(isSuTabPresent);
+        }
     }
 
     @Description("To verify field is not present inside page block")

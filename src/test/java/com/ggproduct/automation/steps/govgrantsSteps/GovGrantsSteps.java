@@ -353,7 +353,9 @@ public final class GovGrantsSteps {
                 try {
 //                    ggObjects.clickLogOut();
                     driver.manage().deleteAllCookies();
+                    I.amPerforming().waitFor().makeThreadSleep(3000);
                     driver.navigate().to("about:blank");
+                    I.amPerforming().waitFor().makeThreadSleep(3000);
                     jwtLoginManager.login(userType);
                     System.out.println("[Re-Login] Salesforce logout action completed.");
                 } catch (Exception logoutException) {

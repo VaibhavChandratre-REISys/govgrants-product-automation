@@ -368,7 +368,7 @@ Feature: Grantee Smoke scenarios
       | User       |
       | GRANTEE PO |
 
-  @mk @488703 @VerifyAsFOusershouldnotseenewbuttonfornotyetqualifyleadandeditaccessonnotyetqualifyleads @Grantee_Smoke3
+  @488703 @VerifyAsFOusershouldnotseenewbuttonfornotyetqualifyleadandeditaccessonnotyetqualifyleads @Grantee_Smoke3
   Scenario: Verify As FO user should not see new button for not yet qualify lead and edit access on not yet qualify leads
     Given I login to "Grantee" app as "GRANTEE EXE" user
     And I navigate to "Opportunities" tab
@@ -395,8 +395,8 @@ Feature: Grantee Smoke scenarios
     When I perform quick search for "{SavedValue:LeadsEGMSID}" in "---grantee_tableId:-:LeadsNotYetQualified---" panel
     And I click on "View" icon for "{SavedValue:LeadsEGMSID}" inside flex table with id "---grantee_tableId:-:LeadsNotYetQualified---" without waiting for record
     And I wait for "5" seconds
-    Then I cannot see top right button "Qualify Lead" in page detail
-    Then I cannot see top right button "Edit" in page detail
+    Then I softly cannot see top right button "Qualify Lead" in page detail
+    Then I softly cannot see top right button "Edit" in page detail
     Then I softly cannot see top right button "Associate" in flex table with id "---grantee_tableId:-:RelatedPrograms---"
     Then I softly cannot see top right button "Associate" in flex table with id "---grantee_tableId:-:AllQualificationsTable---"
     And I navigate to "Files" sub tab
@@ -1906,8 +1906,8 @@ Feature: Grantee Smoke scenarios
     Then I softly can see "Field Audit" sub tab at view detail page
     And I navigate to "Chatter" sub tab in split screen
     Then I softly see the text containing "Post"
-    Then I cannot see top right button "Edit" in page detail
-    Then I cannot see top right button "Delete" in page detail
+    Then I softly cannot see top right button "Edit" in page detail
+    Then I softly cannot see top right button "Delete" in page detail
 
     Examples:
       | User       |
@@ -4332,7 +4332,7 @@ Feature: Grantee Smoke scenarios
     Then I softly see field "Status" as "Active"
     Then I softly see status in Progress-bar is "Active" and is "dark blue"
     When I navigate to "Overview" sub tab
-    Then I cannot see top right button "Edit" in page detail
+    Then I softly cannot see top right button "Edit" in page detail
     And I save the field labeled "Funding Organization" as "FundingOrganization"
     Then I softly see link "{SavedValue:FundingOrganization}" inside Page block
     And I click on hyperlink containing value "{SavedValue:FundingOrganization}"
@@ -7111,7 +7111,7 @@ Feature: Grantee Smoke scenarios
     When I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:qualifiedLeadTableId---" panel
     And I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside flex table with id "---grantee_tableId:-:qualifiedLeadTableId---" without waiting for record
     Then I softly see field "Status" as "Converted to Opportunity"
-    Then I cannot see top right button "Convert to Opportunity" in page detail
+    Then I softly cannot see top right button "Convert to Opportunity" in page detail
 
   @480806 @ValidateBudgetInformationNonConstructionProgramthatPMuserseeCheckstatusbuttonabletosubmittograntsGov @Grantee_Smoke1
   Scenario: Validate Budget Information Non Construction Program that PM user see Check status button & able to submit to grants.Gov
@@ -8597,7 +8597,7 @@ Feature: Grantee Smoke scenarios
     And I click "Continue" on modal confirmation box
     And I wait for "3" seconds
     Then I softly see field "Status" as "Submitted to Grantor"
-    Then I cannot see top right button "Edit" in page detail
+    Then I softly cannot see top right button "Edit" in page detail
     Then I can see top right button "Check Status" in page detail
     Then I can see top right button "Revise" in page detail
     When I navigate to "History" sub tab
@@ -8759,7 +8759,7 @@ Feature: Grantee Smoke scenarios
     And I click "Continue" on modal confirmation box
     And I wait for "2" seconds
     Then I softly see field "Status" as "Submitted to Grantor"
-    Then I cannot see top right button "Edit" in page detail
+    Then I softly cannot see top right button "Edit" in page detail
     Then I can see top right button "Check Status" in page detail
     Then I can see top right button "Revise" in page detail
     When I navigate to "History" sub tab
@@ -8969,8 +8969,8 @@ Feature: Grantee Smoke scenarios
     Then I softly cannot see row level action button "Edit" against "Grants.gov Lobbying Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
     When I click on "View" icon for "Grants.gov Lobbying Form" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
     And I switch to tab number "1"
-    Then I cannot see top right button "Edit" in page detail
-    Then I cannot see top right button "Validate" in page detail
+    Then I softly cannot see top right button "Edit" in page detail
+    Then I softly cannot see top right button "Validate" in page detail
     And I close the tab
     And I wait for "1" seconds
     When I re-login to "Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
@@ -9103,7 +9103,7 @@ Feature: Grantee Smoke scenarios
     And I click "Continue" on modal confirmation box
     And I wait for "3" seconds
     Then I softly see field "Status" as "Submitted to Grantor"
-    Then I cannot see top right button "Edit" in page detail
+    Then I softly cannot see top right button "Edit" in page detail
     Then I can see top right button "Check Status" in page detail
     Then I can see top right button "Revise" in page detail
     When I navigate to "History" sub tab
@@ -9185,35 +9185,35 @@ Feature: Grantee Smoke scenarios
     Then I softly see "Project Abstract" page block displayed
     Then I softly see "Primary Place of Performance" page block displayed
     Then I softly see "System Information" page block displayed
-    Then I cannot see top right button "Associate" in flex table with id "---grantee_tableId:-:ApplicationExternalProgramsTableId---"
-    Then I cannot see top right button "New" in flex table with id "---grantee_tableId:-:ContactTableIdApplication---"
-    Then I cannot see top right button "Associate" in flex table with id "---grantee_tableId:-:ContactTableIdApplication---"
+    Then I softly cannot see top right button "Associate" in flex table with id "---grantee_tableId:-:ApplicationExternalProgramsTableId---"
+    Then I softly cannot see top right button "New" in flex table with id "---grantee_tableId:-:ContactTableIdApplication---"
+    Then I softly cannot see top right button "Associate" in flex table with id "---grantee_tableId:-:ContactTableIdApplication---"
     When I navigate to "Setup" sub tab
     Then I softly see "Project Period" page block displayed
     Then I softly see "Budget Period Details" page block displayed
-    Then I cannot see top right button "Create New Budget Period" in flex table with id "---grantee_tableId:-:BudgetPeriodDetailsFromSetup---"
-    Then I cannot see top right button "Associate Focus Area" in flex table with id "---grantee_tableId:-:BudgetPeriodDetailsFromSetup---"
+    Then I softly cannot see top right button "Create New Budget Period" in flex table with id "---grantee_tableId:-:BudgetPeriodDetailsFromSetup---"
+    Then I softly cannot see top right button "Associate Focus Area" in flex table with id "---grantee_tableId:-:BudgetPeriodDetailsFromSetup---"
     And I navigate to "Budget" sub tab
     Then I softly see "Budget Overview" page block displayed
     Then I softly see "Budget Level Information" page block displayed
     Then I softly see "Budget Details" page block displayed
     Then I softly see "Program Income" page block displayed
     Then I softly see "Indirect Rates" page block displayed
-    Then I cannot see top right button "New" in flex table with id "---grantee_tableId:-:indirectRatesApplicationtableId---"
+    Then I softly cannot see top right button "New" in flex table with id "---grantee_tableId:-:indirectRatesApplicationtableId---"
     And I navigate to "Checklist" sub tab
     Then I softly see "Checklists" page block displayed
     When I navigate to "Responsibilities" sub tab
     Then I softly see "Peer Reviewers" page block displayed
     Then I softly see "Approvers" page block displayed
     Then I softly see "Owner" page block displayed
-    Then I cannot see top right button "New" in flex table with id "---grantee_tableId:-:ApplicationPeerReview---"
-    Then I cannot see top right button "New" in flex table with id "---grantee_tableId:-:ApplicationApprovers---"
+    Then I softly cannot see top right button "New" in flex table with id "---grantee_tableId:-:ApplicationPeerReview---"
+    Then I softly cannot see top right button "New" in flex table with id "---grantee_tableId:-:ApplicationApprovers---"
     When I navigate to "Forms and Files" sub tab
     Then I softly see "Application Files" page block displayed
     Then I softly see "Notes" page block displayed
     Then I softly see "All Forms" page block displayed
-    Then I cannot see top right button "Add Files" in flex table with id "---grantee_tableId:-:AddFilesApplicationTableID---"
-    Then I can see top right button "New" in flex table with id "---grantee_tableId:-:NotesApplicationTableId---"
+    Then I softly cannot see top right button "Add Files" in flex table with id "---grantee_tableId:-:AddFilesApplicationTableID---"
+    Then I softly can see top right button "New" in flex table with id "---grantee_tableId:-:NotesApplicationTableId---"
     When I enter the following values into flex table with id "---grantee_tableId:-:NotesApplicationTableId---" by clicking "New" :
       | Title        | Description      |
       | Notes Record | Automation Notes |
@@ -9251,20 +9251,20 @@ Feature: Grantee Smoke scenarios
     Then I softly cannot see top right button "Edit" in page detail
     Then I softly cannot see top right button "Validate" in page detail
     Then I softly cannot see top right button "Submit For Approval" in page detail
-    Then I cannot see top right button "Associate" in flex table with id "---grantee_tableId:-:ApplicationExternalProgramsTableId---"
-    Then I cannot see top right button "New" in flex table with id "---grantee_tableId:-:ContactTableIdApplication---"
-    Then I cannot see top right button "Associate" in flex table with id "---grantee_tableId:-:ContactTableIdApplication---"
+    Then I softly cannot see top right button "Associate" in flex table with id "---grantee_tableId:-:ApplicationExternalProgramsTableId---"
+    Then I softly cannot see top right button "New" in flex table with id "---grantee_tableId:-:ContactTableIdApplication---"
+    Then I softly cannot see top right button "Associate" in flex table with id "---grantee_tableId:-:ContactTableIdApplication---"
     When I navigate to "Setup" sub tab
-    Then I cannot see top right button "Create New Budget Period" in flex table with id "---grantee_tableId:-:BudgetPeriodDetailsFromSetup---"
-    Then I cannot see top right button "Associate Focus Area" in flex table with id "---grantee_tableId:-:BudgetPeriodDetailsFromSetup---"
+    Then I softly cannot see top right button "Create New Budget Period" in flex table with id "---grantee_tableId:-:BudgetPeriodDetailsFromSetup---"
+    Then I softly cannot see top right button "Associate Focus Area" in flex table with id "---grantee_tableId:-:BudgetPeriodDetailsFromSetup---"
     And I navigate to "Budget" sub tab
-    Then I cannot see top right button "New" in flex table with id "---grantee_tableId:-:indirectRatesApplicationtableId---"
+    Then I softly cannot see top right button "New" in flex table with id "---grantee_tableId:-:indirectRatesApplicationtableId---"
     When I navigate to "Responsibilities" sub tab
-    Then I cannot see top right button "New" in flex table with id "---grantee_tableId:-:ApplicationPeerReview---"
-    Then I cannot see top right button "New" in flex table with id "---grantee_tableId:-:ApplicationApprovers---"
+    Then I softly cannot see top right button "New" in flex table with id "---grantee_tableId:-:ApplicationPeerReview---"
+    Then I softly cannot see top right button "New" in flex table with id "---grantee_tableId:-:ApplicationApprovers---"
     When I navigate to "Forms and Files" sub tab
-    Then I cannot see top right button "Add Files" in flex table with id "---grantee_tableId:-:AddFilesApplicationTableID---"
-    Then I can see top right button "New" in flex table with id "---grantee_tableId:-:NotesApplicationTableId---"
+    Then I softly cannot see top right button "Add Files" in flex table with id "---grantee_tableId:-:AddFilesApplicationTableID---"
+    Then I softly can see top right button "New" in flex table with id "---grantee_tableId:-:NotesApplicationTableId---"
     When I enter the following values into flex table with id "---grantee_tableId:-:NotesApplicationTableId---" by clicking "New" :
       | Title        | Description      |
       | Notes Record | Automation Notes |
@@ -9307,20 +9307,20 @@ Feature: Grantee Smoke scenarios
     Then I softly cannot see top right button "Edit" in page detail
     Then I softly cannot see top right button "Validate" in page detail
     Then I softly cannot see top right button "Submit For Approval" in page detail
-    Then I cannot see top right button "Associate" in flex table with id "---grantee_tableId:-:ApplicationExternalProgramsTableId---"
-    Then I cannot see top right button "New" in flex table with id "---grantee_tableId:-:ContactTableIdApplication---"
-    Then I cannot see top right button "Associate" in flex table with id "---grantee_tableId:-:ContactTableIdApplication---"
+    Then I softly cannot see top right button "Associate" in flex table with id "---grantee_tableId:-:ApplicationExternalProgramsTableId---"
+    Then I softly cannot see top right button "New" in flex table with id "---grantee_tableId:-:ContactTableIdApplication---"
+    Then I softly cannot see top right button "Associate" in flex table with id "---grantee_tableId:-:ContactTableIdApplication---"
     When I navigate to "Setup" sub tab
-    Then I cannot see top right button "Create New Budget Period" in flex table with id "---grantee_tableId:-:BudgetPeriodDetailsFromSetup---"
-    Then I cannot see top right button "Associate Focus Area" in flex table with id "---grantee_tableId:-:BudgetPeriodDetailsFromSetup---"
+    Then I softly cannot see top right button "Create New Budget Period" in flex table with id "---grantee_tableId:-:BudgetPeriodDetailsFromSetup---"
+    Then I softly cannot see top right button "Associate Focus Area" in flex table with id "---grantee_tableId:-:BudgetPeriodDetailsFromSetup---"
     And I navigate to "Budget" sub tab
-    Then I cannot see top right button "New" in flex table with id "---grantee_tableId:-:indirectRatesApplicationtableId---"
+    Then I softly cannot see top right button "New" in flex table with id "---grantee_tableId:-:indirectRatesApplicationtableId---"
     When I navigate to "Responsibilities" sub tab
-    Then I cannot see top right button "New" in flex table with id "---grantee_tableId:-:ApplicationPeerReview---"
-    Then I cannot see top right button "New" in flex table with id "---grantee_tableId:-:ApplicationApprovers---"
+    Then I softly cannot see top right button "New" in flex table with id "---grantee_tableId:-:ApplicationPeerReview---"
+    Then I softly cannot see top right button "New" in flex table with id "---grantee_tableId:-:ApplicationApprovers---"
     When I navigate to "Forms and Files" sub tab
-    Then I cannot see top right button "Add Files" in flex table with id "---grantee_tableId:-:AddFilesApplicationTableID---"
-    Then I can see top right button "New" in flex table with id "---grantee_tableId:-:NotesApplicationTableId---"
+    Then I softly cannot see top right button "Add Files" in flex table with id "---grantee_tableId:-:AddFilesApplicationTableID---"
+    Then I softly can see top right button "New" in flex table with id "---grantee_tableId:-:NotesApplicationTableId---"
     When I enter the following values into flex table with id "---grantee_tableId:-:NotesApplicationTableId---" by clicking "New" :
       | Title        | Description      |
       | Notes Record | Automation Notes |
@@ -9356,20 +9356,20 @@ Feature: Grantee Smoke scenarios
     Then I softly cannot see top right button "Edit" in page detail
     Then I softly cannot see top right button "Validate" in page detail
     Then I softly cannot see top right button "Submit For Approval" in page detail
-    Then I cannot see top right button "Associate" in flex table with id "---grantee_tableId:-:ApplicationExternalProgramsTableId---"
-    Then I cannot see top right button "New" in flex table with id "---grantee_tableId:-:ContactTableIdApplication---"
-    Then I cannot see top right button "Associate" in flex table with id "---grantee_tableId:-:ContactTableIdApplication---"
+    Then I softly cannot see top right button "Associate" in flex table with id "---grantee_tableId:-:ApplicationExternalProgramsTableId---"
+    Then I softly cannot see top right button "New" in flex table with id "---grantee_tableId:-:ContactTableIdApplication---"
+    Then I softly cannot see top right button "Associate" in flex table with id "---grantee_tableId:-:ContactTableIdApplication---"
     When I navigate to "Setup" sub tab
-    Then I cannot see top right button "Create New Budget Period" in flex table with id "---grantee_tableId:-:BudgetPeriodDetailsFromSetup---"
-    Then I cannot see top right button "Associate Focus Area" in flex table with id "---grantee_tableId:-:BudgetPeriodDetailsFromSetup---"
+    Then I softly cannot see top right button "Create New Budget Period" in flex table with id "---grantee_tableId:-:BudgetPeriodDetailsFromSetup---"
+    Then I softly cannot see top right button "Associate Focus Area" in flex table with id "---grantee_tableId:-:BudgetPeriodDetailsFromSetup---"
     And I navigate to "Budget" sub tab
-    Then I cannot see top right button "New" in flex table with id "---grantee_tableId:-:indirectRatesApplicationtableId---"
+    Then I softly cannot see top right button "New" in flex table with id "---grantee_tableId:-:indirectRatesApplicationtableId---"
     When I navigate to "Responsibilities" sub tab
-    Then I cannot see top right button "New" in flex table with id "---grantee_tableId:-:ApplicationPeerReview---"
-    Then I cannot see top right button "New" in flex table with id "---grantee_tableId:-:ApplicationApprovers---"
+    Then I softly cannot see top right button "New" in flex table with id "---grantee_tableId:-:ApplicationPeerReview---"
+    Then I softly cannot see top right button "New" in flex table with id "---grantee_tableId:-:ApplicationApprovers---"
     When I navigate to "Forms and Files" sub tab
-    Then I cannot see top right button "Add Files" in flex table with id "---grantee_tableId:-:AddFilesApplicationTableID---"
-    Then I cannot see top right button "New" in flex table with id "---grantee_tableId:-:NotesApplicationTableId---"
+    Then I softly cannot see top right button "Add Files" in flex table with id "---grantee_tableId:-:AddFilesApplicationTableID---"
+    Then I softly cannot see top right button "New" in flex table with id "---grantee_tableId:-:NotesApplicationTableId---"
     Then I softly see value "Notes Record" for title "Title" inside table "---grantee_tableId:-:NotesApplicationTableId---"
     Then I softly can see row level action button "Delete" against "Notes Record" in flex table with id "---grantee_tableId:-:NotesApplicationTableId---"
     Then I softly can see row level action button "Edit" against "Notes Record" in flex table with id "---grantee_tableId:-:NotesApplicationTableId---"
@@ -9390,20 +9390,20 @@ Feature: Grantee Smoke scenarios
     Then I softly cannot see top right button "Edit" in page detail
     Then I softly cannot see top right button "Submit to Grantor" in page detail
     Then I softly see field "Status" as "Approved"
-    Then I cannot see top right button "Associate" in flex table with id "---grantee_tableId:-:ApplicationExternalProgramsTableId---"
-    Then I cannot see top right button "New" in flex table with id "---grantee_tableId:-:ContactTableIdApplication---"
-    Then I cannot see top right button "Associate" in flex table with id "---grantee_tableId:-:ContactTableIdApplication---"
+    Then I softly cannot see top right button "Associate" in flex table with id "---grantee_tableId:-:ApplicationExternalProgramsTableId---"
+    Then I softly cannot see top right button "New" in flex table with id "---grantee_tableId:-:ContactTableIdApplication---"
+    Then I softly cannot see top right button "Associate" in flex table with id "---grantee_tableId:-:ContactTableIdApplication---"
     When I navigate to "Setup" sub tab
-    Then I cannot see top right button "Create New Budget Period" in flex table with id "---grantee_tableId:-:BudgetPeriodDetailsFromSetup---"
-    Then I cannot see top right button "Associate Focus Area" in flex table with id "---grantee_tableId:-:BudgetPeriodDetailsFromSetup---"
+    Then I softly cannot see top right button "Create New Budget Period" in flex table with id "---grantee_tableId:-:BudgetPeriodDetailsFromSetup---"
+    Then I softly cannot see top right button "Associate Focus Area" in flex table with id "---grantee_tableId:-:BudgetPeriodDetailsFromSetup---"
     And I navigate to "Budget" sub tab
-    Then I cannot see top right button "New" in flex table with id "---grantee_tableId:-:indirectRatesApplicationtableId---"
+    Then I softly cannot see top right button "New" in flex table with id "---grantee_tableId:-:indirectRatesApplicationtableId---"
     When I navigate to "Responsibilities" sub tab
-    Then I cannot see top right button "New" in flex table with id "---grantee_tableId:-:ApplicationPeerReview---"
-    Then I cannot see top right button "New" in flex table with id "---grantee_tableId:-:ApplicationApprovers---"
+    Then I softly cannot see top right button "New" in flex table with id "---grantee_tableId:-:ApplicationPeerReview---"
+    Then I softly cannot see top right button "New" in flex table with id "---grantee_tableId:-:ApplicationApprovers---"
     When I navigate to "Forms and Files" sub tab
-    Then I cannot see top right button "Add Files" in flex table with id "---grantee_tableId:-:AddFilesApplicationTableID---"
-    Then I cannot see top right button "New" in flex table with id "---grantee_tableId:-:NotesApplicationTableId---"
+    Then I softly cannot see top right button "Add Files" in flex table with id "---grantee_tableId:-:AddFilesApplicationTableID---"
+    Then I softly cannot see top right button "New" in flex table with id "---grantee_tableId:-:NotesApplicationTableId---"
     Then I softly see value "Notes Record" for title "Title" inside table "---grantee_tableId:-:NotesApplicationTableId---"
     Then I softly can see row level action button "Delete" against "Notes Record" in flex table with id "---grantee_tableId:-:NotesApplicationTableId---"
     Then I softly can see row level action button "Edit" against "Notes Record" in flex table with id "---grantee_tableId:-:NotesApplicationTableId---"
@@ -9432,20 +9432,20 @@ Feature: Grantee Smoke scenarios
     Then I softly cannot see top right button "Edit" in page detail
     Then I softly cannot see top right button "Validate" in page detail
     Then I softly cannot see top right button "Submit For Approval" in page detail
-    Then I cannot see top right button "Associate" in flex table with id "---grantee_tableId:-:ApplicationExternalProgramsTableId---"
-    Then I cannot see top right button "New" in flex table with id "---grantee_tableId:-:ContactTableIdApplication---"
-    Then I cannot see top right button "Associate" in flex table with id "---grantee_tableId:-:ContactTableIdApplication---"
+    Then I softly cannot see top right button "Associate" in flex table with id "---grantee_tableId:-:ApplicationExternalProgramsTableId---"
+    Then I softly cannot see top right button "New" in flex table with id "---grantee_tableId:-:ContactTableIdApplication---"
+    Then I softly cannot see top right button "Associate" in flex table with id "---grantee_tableId:-:ContactTableIdApplication---"
     When I navigate to "Setup" sub tab
-    Then I cannot see top right button "Create New Budget Period" in flex table with id "---grantee_tableId:-:BudgetPeriodDetailsFromSetup---"
-    Then I cannot see top right button "Associate Focus Area" in flex table with id "---grantee_tableId:-:BudgetPeriodDetailsFromSetup---"
+    Then I softly cannot see top right button "Create New Budget Period" in flex table with id "---grantee_tableId:-:BudgetPeriodDetailsFromSetup---"
+    Then I softly cannot see top right button "Associate Focus Area" in flex table with id "---grantee_tableId:-:BudgetPeriodDetailsFromSetup---"
     And I navigate to "Budget" sub tab
-    Then I cannot see top right button "New" in flex table with id "---grantee_tableId:-:indirectRatesApplicationtableId---"
+    Then I softly cannot see top right button "New" in flex table with id "---grantee_tableId:-:indirectRatesApplicationtableId---"
     When I navigate to "Responsibilities" sub tab
-    Then I cannot see top right button "New" in flex table with id "---grantee_tableId:-:ApplicationPeerReview---"
-    Then I cannot see top right button "New" in flex table with id "---grantee_tableId:-:ApplicationApprovers---"
+    Then I softly cannot see top right button "New" in flex table with id "---grantee_tableId:-:ApplicationPeerReview---"
+    Then I softly cannot see top right button "New" in flex table with id "---grantee_tableId:-:ApplicationApprovers---"
     When I navigate to "Forms and Files" sub tab
-    Then I cannot see top right button "Add Files" in flex table with id "---grantee_tableId:-:AddFilesApplicationTableID---"
-    Then I cannot see top right button "New" in flex table with id "---grantee_tableId:-:NotesApplicationTableId---"
+    Then I softly cannot see top right button "Add Files" in flex table with id "---grantee_tableId:-:AddFilesApplicationTableID---"
+    Then I softly cannot see top right button "New" in flex table with id "---grantee_tableId:-:NotesApplicationTableId---"
     Then I softly see value "Notes Record" for title "Title" inside table "---grantee_tableId:-:NotesApplicationTableId---"
     Then I softly can see row level action button "Delete" against "Notes Record" in flex table with id "---grantee_tableId:-:NotesApplicationTableId---"
     Then I softly can see row level action button "Edit" against "Notes Record" in flex table with id "---grantee_tableId:-:NotesApplicationTableId---"
@@ -9463,21 +9463,21 @@ Feature: Grantee Smoke scenarios
     And I perform quick search for "{SavedValue:appEGMSID}" in "---grantee_tableId:-:ApplicationTableId---" panel
     When I click on "View" icon for "{SavedValue:appEGMSID}" inside table
     Then I softly cannot see top right button "Edit" in page detail
-    Then I cannot see top right button "Record Decision" in page detail
-    Then I cannot see top right button "Associate" in flex table with id "---grantee_tableId:-:ApplicationExternalProgramsTableId---"
-    Then I cannot see top right button "New" in flex table with id "---grantee_tableId:-:ContactTableIdApplication---"
-    Then I cannot see top right button "Associate" in flex table with id "---grantee_tableId:-:ContactTableIdApplication---"
+    Then I softly cannot see top right button "Record Decision" in page detail
+    Then I softly cannot see top right button "Associate" in flex table with id "---grantee_tableId:-:ApplicationExternalProgramsTableId---"
+    Then I softly cannot see top right button "New" in flex table with id "---grantee_tableId:-:ContactTableIdApplication---"
+    Then I softly cannot see top right button "Associate" in flex table with id "---grantee_tableId:-:ContactTableIdApplication---"
     When I navigate to "Setup" sub tab
-    Then I cannot see top right button "Create New Budget Period" in flex table with id "---grantee_tableId:-:BudgetPeriodDetailsFromSetup---"
-    Then I cannot see top right button "Associate Focus Area" in flex table with id "---grantee_tableId:-:BudgetPeriodDetailsFromSetup---"
+    Then I softly cannot see top right button "Create New Budget Period" in flex table with id "---grantee_tableId:-:BudgetPeriodDetailsFromSetup---"
+    Then I softly cannot see top right button "Associate Focus Area" in flex table with id "---grantee_tableId:-:BudgetPeriodDetailsFromSetup---"
     And I navigate to "Budget" sub tab
-    Then I cannot see top right button "New" in flex table with id "---grantee_tableId:-:indirectRatesApplicationtableId---"
+    Then I softly cannot see top right button "New" in flex table with id "---grantee_tableId:-:indirectRatesApplicationtableId---"
     When I navigate to "Responsibilities" sub tab
-    Then I cannot see top right button "New" in flex table with id "---grantee_tableId:-:ApplicationPeerReview---"
-    Then I cannot see top right button "New" in flex table with id "---grantee_tableId:-:ApplicationApprovers---"
+    Then I softly cannot see top right button "New" in flex table with id "---grantee_tableId:-:ApplicationPeerReview---"
+    Then I softly cannot see top right button "New" in flex table with id "---grantee_tableId:-:ApplicationApprovers---"
     When I navigate to "Forms and Files" sub tab
-    Then I cannot see top right button "Add Files" in flex table with id "---grantee_tableId:-:AddFilesApplicationTableID---"
-    Then I cannot see top right button "New" in flex table with id "---grantee_tableId:-:NotesApplicationTableId---"
+    Then I softly cannot see top right button "Add Files" in flex table with id "---grantee_tableId:-:AddFilesApplicationTableID---"
+    Then I softly cannot see top right button "New" in flex table with id "---grantee_tableId:-:NotesApplicationTableId---"
     Then I softly see value "Notes Record" for title "Title" inside table "---grantee_tableId:-:NotesApplicationTableId---"
     Then I softly can see row level action button "Delete" against "Notes Record" in flex table with id "---grantee_tableId:-:NotesApplicationTableId---"
     Then I softly can see row level action button "Edit" against "Notes Record" in flex table with id "---grantee_tableId:-:NotesApplicationTableId---"
@@ -9499,19 +9499,19 @@ Feature: Grantee Smoke scenarios
     Then I softly cannot see top right button "Edit" in page detail
     Then I softly cannot see top right button "Validate" in page detail
     Then I softly cannot see top right button "Submit For Approval" in page detail
-    Then I cannot see top right button "Associate" in flex table with id "---grantee_tableId:-:ApplicationExternalProgramsTableId---"
-    Then I cannot see top right button "New" in flex table with id "---grantee_tableId:-:ContactTableIdApplication---"
-    Then I cannot see top right button "Associate" in flex table with id "---grantee_tableId:-:ContactTableIdApplication---"
+    Then I softly cannot see top right button "Associate" in flex table with id "---grantee_tableId:-:ApplicationExternalProgramsTableId---"
+    Then I softly cannot see top right button "New" in flex table with id "---grantee_tableId:-:ContactTableIdApplication---"
+    Then I softly cannot see top right button "Associate" in flex table with id "---grantee_tableId:-:ContactTableIdApplication---"
     When I navigate to "Setup" sub tab
-    Then I cannot see top right button "Create New Budget Period" in flex table with id "---grantee_tableId:-:BudgetPeriodDetailsFromSetup---"
-    Then I cannot see top right button "Associate Focus Area" in flex table with id "---grantee_tableId:-:BudgetPeriodDetailsFromSetup---"
+    Then I softly cannot see top right button "Create New Budget Period" in flex table with id "---grantee_tableId:-:BudgetPeriodDetailsFromSetup---"
+    Then I softly cannot see top right button "Associate Focus Area" in flex table with id "---grantee_tableId:-:BudgetPeriodDetailsFromSetup---"
     And I navigate to "Budget" sub tab
-    Then I cannot see top right button "New" in flex table with id "---grantee_tableId:-:indirectRatesApplicationtableId---"
+    Then I softly cannot see top right button "New" in flex table with id "---grantee_tableId:-:indirectRatesApplicationtableId---"
     When I navigate to "Responsibilities" sub tab
-    Then I cannot see top right button "New" in flex table with id "---grantee_tableId:-:ApplicationPeerReview---"
-    Then I cannot see top right button "New" in flex table with id "---grantee_tableId:-:ApplicationApprovers---"
+    Then I softly cannot see top right button "New" in flex table with id "---grantee_tableId:-:ApplicationPeerReview---"
+    Then I softly cannot see top right button "New" in flex table with id "---grantee_tableId:-:ApplicationApprovers---"
     When I navigate to "Forms and Files" sub tab
-    Then I cannot see top right button "Add Files" in flex table with id "---grantee_tableId:-:AddFilesApplicationTableID---"
+    Then I softly cannot see top right button "Add Files" in flex table with id "---grantee_tableId:-:AddFilesApplicationTableID---"
     Then I can see top right button "New" in flex table with id "---grantee_tableId:-:NotesApplicationTableId---"
     When I enter the following values into flex table with id "---grantee_tableId:-:NotesApplicationTableId---" by clicking "New" :
       | Title        | Description      |
@@ -9895,7 +9895,7 @@ Feature: Grantee Smoke scenarios
     And I click toggle button to select "Amendment Requests - All"
     When I perform quick search for "Record Id" in "---grantee_tableId:-:AmendmentTableId---" panel
     And I click on "View" icon for "Record Id" inside flex table with id "---grantee_tableId:-:AmendmentTableId---" without waiting for record
-    Then I cannot see top right button "Edit" in page detail
+    Then I softly cannot see top right button "Edit" in page detail
     Then I can see top right button "Submit to Grantor" in page detail
     When I click on "Submit to Grantor" in the page details
     And I click modal button "Save"
@@ -11006,7 +11006,7 @@ Feature: Grantee Smoke scenarios
     And I re-login to "Grantee" app as "GRANTEE PO" user on "INTERNAL" portal
     When I navigate to "Home" tab
     And I navigate to "External" content inside "Organizations" subheader on left panel
-    Then I cannot see top right button "New" in flex table with id "---grantee_tableId:-:nonFedOrgTableId---"
+    Then I softly cannot see top right button "New" in flex table with id "---grantee_tableId:-:nonFedOrgTableId---"
     When I perform quick search for "{SavedValue:OrganizationName}" in "---grantee_tableId:-:nonFedOrgTableId---" panel
     Then I softly see value "{SavedValue:OrganizationName}" for title "Organization Name" inside table "---grantee_tableId:-:nonFedOrgTableId---"
     Then I can see row level action button "View" against "{SavedValue:OrganizationName}" in flex table with id "---grantee_tableId:-:nonFedOrgTableId---"
@@ -11015,7 +11015,7 @@ Feature: Grantee Smoke scenarios
     And I re-login to "Grantee" app as "GRANTEE FO" user on "INTERNAL" portal
     When I navigate to "Home" tab
     And I navigate to "External" content inside "Organizations" subheader on left panel
-    Then I cannot see top right button "New" in flex table with id "---grantee_tableId:-:nonFedOrgTableId---"
+    Then I softly cannot see top right button "New" in flex table with id "---grantee_tableId:-:nonFedOrgTableId---"
     When I perform quick search for "{SavedValue:OrganizationName}" in "---grantee_tableId:-:nonFedOrgTableId---" panel
     Then I softly see value "{SavedValue:OrganizationName}" for title "Organization Name" inside table "---grantee_tableId:-:nonFedOrgTableId---"
     Then I can see row level action button "View" against "{SavedValue:OrganizationName}" in flex table with id "---grantee_tableId:-:nonFedOrgTableId---"
@@ -11024,7 +11024,7 @@ Feature: Grantee Smoke scenarios
     And I re-login to "Grantee" app as "GRANTEE EXE" user on "INTERNAL" portal
     When I navigate to "Home" tab
     And I navigate to "External" content inside "Organizations" subheader on left panel
-    Then I cannot see top right button "New" in flex table with id "---grantee_tableId:-:nonFedOrgTableId---"
+    Then I softly cannot see top right button "New" in flex table with id "---grantee_tableId:-:nonFedOrgTableId---"
     When I perform quick search for "{SavedValue:OrganizationName}" in "---grantee_tableId:-:nonFedOrgTableId---" panel
     Then I softly see value "{SavedValue:OrganizationName}" for title "Organization Name" inside table "---grantee_tableId:-:nonFedOrgTableId---"
     Then I can see row level action button "View" against "{SavedValue:OrganizationName}" in flex table with id "---grantee_tableId:-:nonFedOrgTableId---"
@@ -11033,7 +11033,7 @@ Feature: Grantee Smoke scenarios
     And I re-login to "Grantee" app as "GRANTEE FD" user on "INTERNAL" portal
     When I navigate to "Home" tab
     And I navigate to "External" content inside "Organizations" subheader on left panel
-    Then I cannot see top right button "New" in flex table with id "---grantee_tableId:-:nonFedOrgTableId---"
+    Then I softly cannot see top right button "New" in flex table with id "---grantee_tableId:-:nonFedOrgTableId---"
     When I perform quick search for "{SavedValue:OrganizationName}" in "---grantee_tableId:-:nonFedOrgTableId---" panel
     Then I softly see value "{SavedValue:OrganizationName}" for title "Organization Name" inside table "---grantee_tableId:-:nonFedOrgTableId---"
     Then I can see row level action button "View" against "{SavedValue:OrganizationName}" in flex table with id "---grantee_tableId:-:nonFedOrgTableId---"
@@ -11042,7 +11042,7 @@ Feature: Grantee Smoke scenarios
     And I re-login to "Grantee" app as "GRANTEE AUDITOR" user on "INTERNAL" portal
     When I navigate to "Home" tab
     And I navigate to "External" content inside "Organizations" subheader on left panel
-    Then I cannot see top right button "New" in flex table with id "---grantee_tableId:-:nonFedOrgTableId---"
+    Then I softly cannot see top right button "New" in flex table with id "---grantee_tableId:-:nonFedOrgTableId---"
     When I perform quick search for "{SavedValue:OrganizationName}" in "---grantee_tableId:-:nonFedOrgTableId---" panel
     Then I softly see value "{SavedValue:OrganizationName}" for title "Organization Name" inside table "---grantee_tableId:-:nonFedOrgTableId---"
     Then I can see row level action button "View" against "{SavedValue:OrganizationName}" in flex table with id "---grantee_tableId:-:nonFedOrgTableId---"

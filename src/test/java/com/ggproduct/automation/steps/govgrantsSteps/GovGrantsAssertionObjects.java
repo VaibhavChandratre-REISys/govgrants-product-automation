@@ -941,8 +941,32 @@ public final class GovGrantsAssertionObjects {
      *
      * @param desiredSubTab
      * @modifier pooja.gundle -- added xpath
+     * Updated the method implementation to verify tabs under the More dropdown and return a boolean value instead of void, enabling its reuse in other methods for validation.
      */
-    public void getSubTabsInsideMainDetailPage(String desiredSubTab, boolean assertCan, boolean isSoftly) {
+    public boolean getSubTabsInsideMainDetailPage(String desiredSubTab, boolean assertCan, boolean isSoftly) {
+        By tab = By.xpath("//ul[@role='tablist']//a[@role='tab'][normalize-space()='" + desiredSubTab + "']");
+        By more = By.xpath("//button[@title='More Tabs' or @title='More']");
+        By dropdownTab = By.xpath("//div[contains(@class,'slds-dropdown')]//span[normalize-space()='" + desiredSubTab + "']");
+        boolean subtabPresent = false;
+        I.amPerforming().waitFor().ElementToBeClickable(By.xpath("//ul[@role='tablist' and @aria-label='Tabs']"));
+        if (I.amPerforming().checkToSee().IsElementPresentQuick(tab)) {
+            subtabPresent = true;
+        } else {
+            I.amPerforming().click().on(more);
+            I.amPerforming().waitFor().makeThreadSleep(2000);
+            I.amPerforming().checkToSee().IsElementPresentQuick(dropdownTab);
+            subtabPresent = true;
+        }
+        return subtabPresent;
+    }
+
+    /**
+     * get sub tab inside detail each main detail page like overview etc.
+     *
+     * @param desiredSubTab
+     * @modifier pooja.gundle -- added xpath
+     */
+    /*public void getSubTabsInsideMainDetailPage(String desiredSubTab, boolean assertCan, boolean isSoftly) {
         By allSubTabsLocator = By.xpath("//div[@class='layout']//ul//li//a[@data-label] | //div[@class='slds-tabs_default']//ul//li//a[@data-label] | //div[contains(@class,'slds-tabs_default')]//ul//li//a[@data-label]");
         List<String> allSubTabNames;
         try {
@@ -964,7 +988,7 @@ public final class GovGrantsAssertionObjects {
         if (!isSoftly) {
             I.amPerforming().assertionsTo().assertAll();
         }
-    }
+    }*/
 
 
     /**
