@@ -581,7 +581,7 @@ Feature: Grantee Smoke scenarios
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:awardReportSchedulesTableId---" by clicking "Edit" :
       | EGMS ID               | Reporting Period Start Date | Reporting Period End Date | Report Due Date |
       | {SavedValue:EGMS ID1} | 17                          | 47                        | 48              |
-    Then I softly see value "{Date:MM/dd/yyyy::d+17}" for title "Reporting Period Start Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
+    Then I softly see value "{Date:M/d/yyyy::d+17}" for title "Reporting Period Start Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
     And I navigate to "Monitoring" tab
     When I navigate to "Schedules" content inside "Monitoring" subheader on left panel
     And I click toggle button to select "Scheduled Activities - All"
@@ -590,8 +590,8 @@ Feature: Grantee Smoke scenarios
     And I save the total records from the flex table id "---grantee_tableId:-:ScheduledListPage---" as "totalRecords"
     Then I softly see total records count "{SavedValue:totalRecords}" in flex table "---grantee_tableId:-:ScheduledListPage---"
     And I select value inside table "---grantee_tableId:-:ScheduledListPage---" is "All"
-    Then I softly see value "{Date:MM/dd/yyyy::d+17}" for title "Reporting Period Start Date" inside table "---grantee_tableId:-:ScheduledListPage---"
-    Then I softly see value "{Date:MM/dd/yyyy::d+47}" for title "Reporting Period End Date" inside table "---grantee_tableId:-:ScheduledListPage---"
+    Then I softly see value "{Date:M/d/yyyy::d+17}" for title "Reporting Period Start Date" inside table "---grantee_tableId:-:ScheduledListPage---"
+    Then I softly see value "{Date:M/d/yyyy::d+47}" for title "Reporting Period End Date" inside table "---grantee_tableId:-:ScheduledListPage---"
     Then I softly see value "{SavedValue:EGMS ID1}" for title "EGMS ID" against the value "Progress Report" inside table "---grantee_tableId:-:ScheduledListPage---"
     Then I softly see value "{SavedValue:EGMS ID2}" for title "EGMS ID" against the value "Progress Report" inside table "---grantee_tableId:-:ScheduledListPage---"
     Then I softly see value "{SavedValue:EGMS ID3}" for title "EGMS ID" against the value "Progress Report" inside table "---grantee_tableId:-:ScheduledListPage---"
@@ -701,8 +701,8 @@ Feature: Grantee Smoke scenarios
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:awardReportSchedulesTableId---" by clicking "Edit" :
       | EGMS ID               | Reporting Period Start Date | Reporting Period End Date | Report Due Date |
       | {SavedValue:EGMS ID1} | 17                          | 47                        | 48              |
-    Then I softly see value "{Date:MM/dd/yyyy::d+17}" for title "Reporting Period Start Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
-    Then I softly see value "{Date:MM/dd/yyyy::d+47}" for title "Reporting Period End Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
+    Then I softly see value "{Date:M/d/yyyy::d+17}" for title "Reporting Period Start Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
+    Then I softly see value "{Date:M/d/yyyy::d+47}" for title "Reporting Period End Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
     And I navigate to "Monitoring" tab
     When I navigate to "Schedules" content inside "Monitoring" subheader on left panel
     And I click toggle button to select "Scheduled Activities - All"
@@ -711,8 +711,8 @@ Feature: Grantee Smoke scenarios
     And I save the total records from the flex table id "---grantee_tableId:-:ScheduledListPage---" as "totalRecords"
     Then I softly see total records count "{SavedValue:totalRecords}" in flex table "---grantee_tableId:-:ScheduledListPage---"
     And I select value inside table "---grantee_tableId:-:ScheduledListPage---" is "All"
-    Then I softly see value "{Date:MM/dd/yyyy::d+17}" for title "Reporting Period Start Date" inside table "---grantee_tableId:-:ScheduledListPage---"
-    Then I softly see value "{Date:MM/dd/yyyy::d+47}" for title "Reporting Period End Date" inside table "---grantee_tableId:-:ScheduledListPage---"
+    Then I softly see value "{Date:M/d/yyyy::d+17}" for title "Reporting Period Start Date" inside table "---grantee_tableId:-:ScheduledListPage---"
+    Then I softly see value "{Date:M/d/yyyy::d+47}" for title "Reporting Period End Date" inside table "---grantee_tableId:-:ScheduledListPage---"
     Then I softly see value "{SavedValue:EGMS ID1}" for title "EGMS ID" against the value "Progress Report" inside table "---grantee_tableId:-:ScheduledListPage---"
     Then I softly see value "{SavedValue:EGMS ID2}" for title "EGMS ID" against the value "Progress Report" inside table "---grantee_tableId:-:ScheduledListPage---"
     Then I softly see value "{SavedValue:EGMS ID3}" for title "EGMS ID" against the value "Progress Report" inside table "---grantee_tableId:-:ScheduledListPage---"
@@ -773,8 +773,8 @@ Feature: Grantee Smoke scenarios
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:awardReportSchedulesTableId---" by clicking "Edit" :
       | EGMS ID               | Reporting Period Start Date | Reporting Period End Date | Report Due Date |
       | {SavedValue:EGMS ID1} | 17                          | 47                        | 48              |
-    Then I softly see value "{Date:MM/dd/yyyy::d+17}" for title "Reporting Period Start Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
-    Then I softly see value "{Date:MM/dd/yyyy::d+47}" for title "Reporting Period End Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
+    Then I softly see value "{Date:M/d/yyyy::d+17}" for title "Reporting Period Start Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
+    Then I softly see value "{Date:M/d/yyyy::d+47}" for title "Reporting Period End Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
     And I navigate to "Monitoring" tab
     When I navigate to "Schedules" content inside "Monitoring" subheader on left panel
     And I click toggle button to select "Scheduled Activities - All"
@@ -783,8 +783,8 @@ Feature: Grantee Smoke scenarios
     And I save the total records from the flex table id "---grantee_tableId:-:ScheduledListPage---" as "totalRecords"
     Then I softly see total records count "{SavedValue:totalRecords}" in flex table "---grantee_tableId:-:ScheduledListPage---"
     And I select value inside table "---grantee_tableId:-:ScheduledListPage---" is "All"
-    Then I softly see value "{Date:MM/dd/yyyy::d+17}" for title "Reporting Period Start Date" inside table "---grantee_tableId:-:ScheduledListPage---"
-    Then I softly see value "{Date:MM/dd/yyyy::d+47}" for title "Reporting Period End Date" inside table "---grantee_tableId:-:ScheduledListPage---"
+    Then I softly see value "{Date:M/d/yyyy::d+17}" for title "Reporting Period Start Date" inside table "---grantee_tableId:-:ScheduledListPage---"
+    Then I softly see value "{Date:M/d/yyyy::d+47}" for title "Reporting Period End Date" inside table "---grantee_tableId:-:ScheduledListPage---"
     Then I softly see value "{SavedValue:EGMS ID1}" for title "EGMS ID" against the value "Progress Report" inside table "---grantee_tableId:-:ScheduledListPage---"
     Then I softly see value "{SavedValue:EGMS ID2}" for title "EGMS ID" against the value "Progress Report" inside table "---grantee_tableId:-:ScheduledListPage---"
     Then I softly see value "{SavedValue:EGMS ID3}" for title "EGMS ID" against the value "Progress Report" inside table "---grantee_tableId:-:ScheduledListPage---"
@@ -915,8 +915,8 @@ Feature: Grantee Smoke scenarios
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:awardReportSchedulesTableId---" by clicking "Edit" :
       | EGMS ID               | Reporting Period Start Date | Reporting Period End Date | Report Due Date |
       | {SavedValue:EGMS ID1} | 17                          | 47                        | 48              |
-    Then I softly see value "{Date:MM/dd/yyyy::d+17}" for title "Reporting Period Start Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
-    Then I softly see value "{Date:MM/dd/yyyy::d+47}" for title "Reporting Period End Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
+    Then I softly see value "{Date:M/d/yyyy::d+17}" for title "Reporting Period Start Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
+    Then I softly see value "{Date:M/d/yyyy::d+47}" for title "Reporting Period End Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
     And I navigate to "Monitoring" tab
     When I navigate to "Schedules" content inside "Monitoring" subheader on left panel
     And I click toggle button to select "Scheduled Activities - All"
@@ -925,8 +925,8 @@ Feature: Grantee Smoke scenarios
     And I save the total records from the flex table id "---grantee_tableId:-:ScheduledListPage---" as "totalRecords"
     Then I softly see total records count "{SavedValue:totalRecords}" in flex table "---grantee_tableId:-:ScheduledListPage---"
     And I select value inside table "---grantee_tableId:-:ScheduledListPage---" is "All"
-    Then I softly see value "{Date:MM/dd/yyyy::d+17}" for title "Reporting Period Start Date" inside table "---grantee_tableId:-:ScheduledListPage---"
-    Then I softly see value "{Date:MM/dd/yyyy::d+47}" for title "Reporting Period End Date" inside table "---grantee_tableId:-:ScheduledListPage---"
+    Then I softly see value "{Date:M/d/yyyy::d+17}" for title "Reporting Period Start Date" inside table "---grantee_tableId:-:ScheduledListPage---"
+    Then I softly see value "{Date:M/d/yyyy::d+47}" for title "Reporting Period End Date" inside table "---grantee_tableId:-:ScheduledListPage---"
     Then I softly see value "{SavedValue:EGMS ID1}" for title "EGMS ID" against the value "Progress Report" inside table "---grantee_tableId:-:ScheduledListPage---"
     Then I softly see value "{SavedValue:EGMS ID2}" for title "EGMS ID" against the value "Progress Report" inside table "---grantee_tableId:-:ScheduledListPage---"
     Then I softly see value "{SavedValue:EGMS ID3}" for title "EGMS ID" against the value "Progress Report" inside table "---grantee_tableId:-:ScheduledListPage---"
