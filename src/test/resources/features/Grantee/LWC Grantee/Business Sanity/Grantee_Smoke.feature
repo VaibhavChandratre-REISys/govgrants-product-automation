@@ -215,13 +215,13 @@ Feature: Grantee Smoke scenarios
     Then I softly see asterisk mark on "Cost Sharing or Matching Requirement"
     And I click modal button "Save and Continue"
     Then I softly see the following messages in the page details contains:
-      | Opportunity Title is required in the General Information section.                  |
-      | Opportunity Number is required in the General Information section.                 |
-      | Application Due Date is required in the General Information section.               |
-      | Funding Organization is required in the General Information section.               |
-      | Eligible Applicants is required in the Eligibility section.                        |
-      | Lead Description is required in the Additional Information section.                |
-      | Cost Sharing or Matching Requirement is required in the Financial Details section. |
+      | Opportunity Title is required to save. Enter it in the General Information section.                  |
+      | Opportunity Number is required to save. Enter it in the General Information section.                 |
+      | Application Due Date is required to save. Enter it in the General Information section.               |
+      | Funding Organization is required to save. Enter it in the General Information section.               |
+      | Eligible Applicants is required to save. Enter it in the Eligibility section.                        |
+      | Lead Description is required to save. Enter it in the Additional Information section.                |
+      | Cost Sharing or Matching Requirement is required to save. Enter it in the Financial Details section. |
     And I enter "Grantee_Leads_Creation" values from "Announcement_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     Then I see the header is "Lead" in the page details
@@ -1310,15 +1310,17 @@ Feature: Grantee Smoke scenarios
     Then I softly can see top right button "Cancel" in page detail
     Then I softly can see top right button "Save" in page detail
     And I enter "SF424_FORM" values from "Application_Field_Values.xlsx"
-    And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
-    And I upload attachment without random number "AttachmentTesting.pdf" of type "Delinquent Federal Debt" from computer
-    When I click modal button "Close"
-    And I wait for "2" seconds
     When I click on "Save" in the page details
     When I click on "Validate" in the page details
     Then I softly see the following messages in the page details contains:
       | Form Validated Successfully. |
+    And I wait for "5" seconds
+    And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
+    And I upload attachment without random number "AttachmentTesting.pdf" of type "Delinquent Federal Debt" from computer
+    When I click modal button "Close"
+    And I wait for "5" seconds
     And I close the tab
+    And I wait for "5" seconds
     When I click on "View" icon for "Budget Narrative Attachment Form" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
     And I switch to tab number "1"
     Then I softly can see top right button "Validate" in page detail
@@ -1431,7 +1433,7 @@ Feature: Grantee Smoke scenarios
       | EGMS ID                | Target |
       | Automation Runtime KPI |        |
     Then I softly see the following messages in the page details contains:
-      | Please complete all field(s) marked in red.|
+      | Please complete all field(s) marked in red. |
     And I refresh the page
     And I wait for "3" seconds
     And I navigate to "Overview" sub tab
@@ -1461,10 +1463,14 @@ Feature: Grantee Smoke scenarios
     And I click on top right button "New" in flex table with id "---grantee_tableId:-:amendmentSpecialConditionsTableId---"
     And I click on "Save" in the page details
     Then I softly see the following messages in the page details contains:
-      | Title is required in the Information section.                   |
-      | Description is required in the Information section.             |
-      | Effective From Date is required in the Effective Dates section. |
-      | Effective To Date is required in the Effective Dates section.   |
+      | Title is required to save. Enter it in the Information section.                   |
+      | Description is required to save. Enter it in the Information section.             |
+      | Effective From Date is required to save. Enter it in the Effective Dates section. |
+      | Effective To Date is required to save. Enter it in the Effective Dates section.   |
+#      | Title is required in the Information section.                               |
+#      | Description is required in the Information section.                               |
+#      | Effective From Date is required in the Effective Dates section.                   |
+#      | Effective To Date is required in the Effective Dates section.                     |
     When I enter in modal value "Terms1" into field "Title__c"
     When I enter in modal value "Terms Description" into field "Description__c"
     When I enter in modal value "1" into field "Sequence__c"
@@ -3353,7 +3359,7 @@ Feature: Grantee Smoke scenarios
     And I navigate to "Monitoring" sub tab
     Then I softly do not see value "{SavedValue:AmendTermsId}" for title "Title" inside table "---grantee_tableId:-:SpecialConditionTableId---"
 
-  @mk @463431 @PreAppVerifyWithPOprofileAbletoaddpeerreviewerwithAllowrecordEditingYes @Grantee_Smoke1 @GRegression1
+  @463431 @PreAppVerifyWithPOprofileAbletoaddpeerreviewerwithAllowrecordEditingYes @Grantee_Smoke1 @GRegression1
   Scenario:PreApp - Verify With PO profile , Able to add peer reviewer with Allow record Editing - Yes.
     And I create "Manual" qualified lead for title "Automation Runtime Opportunity" and opportunity number "Automation Runtime" with properties "default-Grantee PO user"
     Given I login to "Grantee" app as "GRANTEE PO" user
@@ -6212,14 +6218,15 @@ Feature: Grantee Smoke scenarios
     Then I softly can see top right button "Cancel" in page detail
     Then I softly can see top right button "Save" in page detail
     And I enter "SF424_FORM" values from "Application_Field_Values.xlsx"
-    And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
-    And I upload attachment without random number "AttachmentTesting.pdf" of type "Delinquent Federal Debt" from computer
-    When I click modal button "Close"
-    And I wait for "2" seconds
     When I click on "Save" in the page details
     When I click on "Validate" in the page details
     Then I softly see the following messages in the page details contains:
       | Form Validated Successfully. |
+    And I wait for "5" seconds
+    And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
+    And I upload attachment without random number "AttachmentTesting.pdf" of type "Delinquent Federal Debt" from computer
+    When I click modal button "Close"
+    And I wait for "5" seconds
     And I close the tab
     When I click on "View" icon for "Budget Narrative Attachment Form" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
     And I switch to tab number "1"
@@ -6294,14 +6301,15 @@ Feature: Grantee Smoke scenarios
     Then I softly can see top right button "Cancel" in page detail
     Then I softly can see top right button "Save" in page detail
     And I enter "SF424_FORM" values from "Application_Field_Values.xlsx"
-    And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
-    And I upload attachment without random number "AttachmentTesting.pdf" of type "Delinquent Federal Debt" from computer
-    When I click modal button "Close"
-    And I wait for "2" seconds
     When I click on "Save" in the page details
     When I click on "Validate" in the page details
     Then I softly see the following messages in the page details contains:
       | Form Validated Successfully. |
+    And I wait for "5" seconds
+    And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
+    And I upload attachment without random number "AttachmentTesting.pdf" of type "Delinquent Federal Debt" from computer
+    When I click modal button "Close"
+    And I wait for "5" seconds
     And I close the tab
     Then I softly see value "Project/Performance Site Location(s)" for title "Form Name" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
     Then I softly see "cross" symbol against the value "Project/Performance Site Location(s)" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
@@ -6388,14 +6396,15 @@ Feature: Grantee Smoke scenarios
     Then I softly can see top right button "Cancel" in page detail
     Then I softly can see top right button "Save" in page detail
     And I enter "SF424_FORM" values from "Application_Field_Values.xlsx"
-    And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
-    And I upload attachment without random number "AttachmentTesting.pdf" of type "Delinquent Federal Debt" from computer
-    When I click modal button "Close"
-    And I wait for "2" seconds
     When I click on "Save" in the page details
     When I click on "Validate" in the page details
     Then I softly see the following messages in the page details contains:
       | Form Validated Successfully. |
+    And I wait for "5" seconds
+    And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
+    And I upload attachment without random number "AttachmentTesting.pdf" of type "Delinquent Federal Debt" from computer
+    When I click modal button "Close"
+    And I wait for "5" seconds
     And I close the tab
     Then I softly see value "Project/Performance Site Location(s)" for title "Form Name" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
     Then I softly see "check" symbol against the value "Project/Performance Site Location(s)" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
@@ -6560,14 +6569,15 @@ Feature: Grantee Smoke scenarios
     And I switch to tab number "1"
     And I click on "Edit" in the page details
     And I enter "SF424_FORM" values from "Application_Field_Values.xlsx"
-    And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
-    And I upload attachment without random number "AttachmentTesting.pdf" of type "Delinquent Federal Debt" from computer
-    When I click modal button "Close"
-    And I wait for "2" seconds
     When I click on "Save" in the page details
     When I click on "Validate" in the page details
     Then I softly see the following messages in the page details contains:
       | Form Validated Successfully. |
+    And I wait for "5" seconds
+    And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
+    And I upload attachment without random number "AttachmentTesting.pdf" of type "Delinquent Federal Debt" from computer
+    When I click modal button "Close"
+    And I wait for "5" seconds
     And I close the tab
     When I navigate to "Forms and Files" sub tab
     Then I softly see value "Project Abstract Summary" for title "Form Name" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
@@ -6650,14 +6660,15 @@ Feature: Grantee Smoke scenarios
     Then I softly can see top right button "Cancel" in page detail
     Then I softly can see top right button "Save" in page detail
     And I enter "SF424_FORM" values from "Application_Field_Values.xlsx"
-    And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
-    And I upload attachment without random number "AttachmentTesting.pdf" of type "Delinquent Federal Debt" from computer
-    When I click modal button "Close"
-    And I wait for "2" seconds
     When I click on "Save" in the page details
     When I click on "Validate" in the page details
     Then I softly see the following messages in the page details contains:
       | Form Validated Successfully. |
+    And I wait for "5" seconds
+    And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
+    And I upload attachment without random number "AttachmentTesting.pdf" of type "Delinquent Federal Debt" from computer
+    When I click modal button "Close"
+    And I wait for "5" seconds
     And I close the tab
     Then I softly see value "Project Narrative Attachment Form" for title "Form Name" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
     Then I softly see "cross" symbol against the value "Project Narrative Attachment Form" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
@@ -6865,7 +6876,7 @@ Feature: Grantee Smoke scenarios
     And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:internalOrgFilesTableId---"
     And I wait for "2" seconds
     Then I see only the following ordered options in dropdown field "Classification" :
-      | Select file classification | Indirect Cost Rate Letter | Supporting Documents | Others |
+      | Select classification | Indirect Cost Rate Letter | Supporting Documents | Others |
     And I upload attachment without random number "AttachmentTesting.pdf" of type "Indirect Cost Rate Letter" from computer
     When I click modal button "Close"
     And I wait for "2" seconds
@@ -7147,14 +7158,15 @@ Feature: Grantee Smoke scenarios
     And I switch to tab number "1"
     And I click on "Edit" in the page details
     And I enter "SF424_FORM" values from "Application_Field_Values.xlsx"
-    And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
-    And I upload attachment without random number "AttachmentTesting.pdf" of type "Delinquent Federal Debt" from computer
-    When I click modal button "Close"
-    And I wait for "2" seconds
     When I click on "Save" in the page details
     When I click on "Validate" in the page details
     Then I softly see the following messages in the page details contains:
       | Form Validated Successfully. |
+    And I wait for "5" seconds
+    And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
+    And I upload attachment without random number "AttachmentTesting.pdf" of type "Delinquent Federal Debt" from computer
+    When I click modal button "Close"
+    And I wait for "5" seconds
     And I close the tab
     Then I softly see value "Budget Information for Non-Construction Programs (SF-424A)" for title "Form Name" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
     Then I softly see "check" symbol against the value "Budget Information for Non-Construction Programs (SF-424A)" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
@@ -7169,16 +7181,16 @@ Feature: Grantee Smoke scenarios
     Then I softly can see "Form" sub tab at view detail page
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:sf424ABudgetSummaryTableId---" by clicking "Edit" :
       | Grant Program Function or Activity (a) | Catalog of Federal Domestic Assistance Number (b) | Estimated Unobligated Federal Funds (c) | Estimated Unobligated Non-Federal Funds (d) | New or Revised Federal Budget (e) | New or Revised Non-Federal Budget (f) |
-      | Automation Permanent Focus Area - BP01        | Automation Test                                   | 1000                                    | 1000                                        | 1000                              | 1000                                  |
+      | Automation Permanent Focus Area - BP01 | Automation Test                                   | 1000                                    | 1000                                        | 1000                              | 1000                                  |
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:sf424ANonFedResourceTableId---" by clicking "Edit" :
-      | (a) Grant Program               | (b) Applicant | (c) State | (d) Other Sources |
+      | (a) Grant Program                      | (b) Applicant | (c) State | (d) Other Sources |
       | Automation Permanent Focus Area - BP01 | 1000          | 1000      | 1000              |
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:sf424ANonConstructionGridDTableId---" by clicking "Edit" :
       | Type        | 1st Quarter | 2nd Quarter | 3rd Quarter | 4th Quarter |
       | Federal     | 1000        | 1000        | 1000        | 1000        |
       | Non-Federal | 1000        | 1000        | 1000        | 1000        |
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:sf424ANonConstructionGridETableId---" by clicking "Edit" :
-      | (a) Grant Program               | (b) First Future Funding Period | (c) Second Future Funding Period | (d) Third Future Funding Period | (e) Fourth Future Funding Period |
+      | (a) Grant Program                      | (b) First Future Funding Period | (c) Second Future Funding Period | (d) Third Future Funding Period | (e) Fourth Future Funding Period |
       | Automation Permanent Focus Area - BP01 | 1000                            | 1000                             | 1000                            | 1000                             |
     And I wait for "1" seconds
     When I click on "Validate" in the page details
@@ -7263,14 +7275,15 @@ Feature: Grantee Smoke scenarios
     Then I softly can see top right button "Cancel" in page detail
     Then I softly can see top right button "Save" in page detail
     And I enter "SF424_FORM" values from "Application_Field_Values.xlsx"
-    And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
-    And I upload attachment without random number "AttachmentTesting.pdf" of type "Delinquent Federal Debt" from computer
-    When I click modal button "Close"
-    And I wait for "2" seconds
     When I click on "Save" in the page details
     When I click on "Validate" in the page details
     Then I softly see the following messages in the page details contains:
       | Form Validated Successfully. |
+    And I wait for "5" seconds
+    And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
+    And I upload attachment without random number "AttachmentTesting.pdf" of type "Delinquent Federal Debt" from computer
+    When I click modal button "Close"
+    And I wait for "5" seconds
     And I close the tab
     And I click on "Submit For Approval" in the page details
     Then I softly see status in Progress-bar is "Submitted For Approval" and is "dark blue"
@@ -7513,8 +7526,8 @@ Feature: Grantee Smoke scenarios
     And I click modal button "Save and Continue"
     Then I softly see the following messages in the page details contains:
       | Please select Amendment Request Type is required. |
-      | Initiated By is required. |
-      | Justification is required. |
+      | Initiated By is required.                         |
+      | Justification is required.                        |
     And I enter "Grantee_Budget_Redirection" values from "AmendmentRequest_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     And I save the field labeled "EGMS ID" as "BDRAMENDID"
@@ -7522,7 +7535,14 @@ Feature: Grantee Smoke scenarios
     Then I softly can see top right button "Cancel" in page detail
     And I click on "Save" in the page details
     When I navigate to "Overview" sub tab
-    And I click on hyperlink containing value "{SavedValue:AwardEGMSID1}"
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+    And I click toggle button to select "Grants - All"
+    When I perform quick search for "{SavedValue:Automation Runtime Award}" in "---grantee_tableId:-:GrantsTable---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Award}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
+    When I navigate to "Awards" sub tab
+    And I click on "View" icon for "{SavedValue:AwardEGMSID1}" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
+#    And I click on hyperlink containing value "{SavedValue:AwardEGMSID1}"
     When I navigate to "Amendments" sub tab
     Then I softly see top right button "New" inside flex table "---grantee_tableId:-:AmendmentRequestTableId---"
     Then I see value "Record Id" for title "{SavedValue:BDRAMENDID}" inside table "---grantee_tableId:-:AmendmentRequestTableId---"
@@ -8540,14 +8560,15 @@ Feature: Grantee Smoke scenarios
     And I click on "Edit" icon for "Application for Federal Assistance (SF-424)" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
     And I switch to tab number "1"
     And I enter "SF424_FORM" values from "Application_Field_Values.xlsx"
+    When I click on "Save" in the page details
+    When I click on "Validate" in the page details
+    Then I softly see the following messages in the page details contains:
+      | Form Validated Successfully. |
+    And I wait for "5" seconds
     And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
     And I upload attachment without random number "Attachment.pdf" of type "Delinquent Federal Debt" from computer
     When I click modal button "Close"
-    And I wait for "2" seconds
-    And I click on "Save" in the page details
-    When I click on "Validate" in the page details
-    Then I softly see the following messages in the page details :
-      | Form validated successfully. |
+    And I wait for "5" seconds
     And I close the tab
     And I click on "Edit" icon for "Key Contacts" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
     And I switch to tab number "1"
@@ -8703,14 +8724,15 @@ Feature: Grantee Smoke scenarios
     Then I softly can see top right button "Cancel" in page detail
     Then I softly can see top right button "Save" in page detail
     And I enter "SF424_FORM" values from "Application_Field_Values.xlsx"
-    And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
-    And I upload attachment without random number "AttachmentTesting.pdf" of type "Delinquent Federal Debt" from computer
-    When I click modal button "Close"
-    And I wait for "2" seconds
     When I click on "Save" in the page details
     When I click on "Validate" in the page details
     Then I softly see the following messages in the page details contains:
       | Form Validated Successfully. |
+    And I wait for "5" seconds
+    And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
+    And I upload attachment without random number "AttachmentTesting.pdf" of type "Delinquent Federal Debt" from computer
+    When I click modal button "Close"
+    And I wait for "5" seconds
     And I close the tab
     Then I softly see value "Assurances for Non-Construction Programs (SF-424B)" for title "Form Name" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
     Then I softly see "check" symbol against the value "Assurances for Non-Construction Programs (SF-424B)" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
@@ -8821,14 +8843,15 @@ Feature: Grantee Smoke scenarios
     Then I softly can see top right button "Cancel" in page detail
     Then I softly can see top right button "Save" in page detail
     And I enter "SF424_FORM" values from "Application_Field_Values.xlsx"
-    And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
-    And I upload attachment without random number "AttachmentTesting.pdf" of type "Delinquent Federal Debt" from computer
-    When I click modal button "Close"
-    And I wait for "2" seconds
     When I click on "Save" in the page details
     When I click on "Validate" in the page details
     Then I softly see the following messages in the page details contains:
       | Form Validated Successfully. |
+    And I wait for "5" seconds
+    And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
+    And I upload attachment without random number "AttachmentTesting.pdf" of type "Delinquent Federal Debt" from computer
+    When I click modal button "Close"
+    And I wait for "5" seconds
     And I close the tab
     And I wait for "2" seconds
     Then I softly see value "Grants.gov Lobbying Form" for title "Form Name" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
@@ -9048,15 +9071,15 @@ Feature: Grantee Smoke scenarios
     And I click on "Edit" icon for "Application for Federal Assistance (SF-424)" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
     And I switch to tab number "1"
     And I enter "SF424_FORM" values from "Application_Field_Values.xlsx"
+    When I click on "Save" in the page details
+    When I click on "Validate" in the page details
+    Then I softly see the following messages in the page details contains:
+      | Form Validated Successfully. |
+    And I wait for "5" seconds
     And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
-    And I wait for "2" seconds
     And I upload attachment without random number "Attachment.pdf" of type "Delinquent Federal Debt" from computer
     When I click modal button "Close"
-    And I wait for "2" seconds
-    And I click on "Save" in the page details
-    When I click on "Validate" in the page details
-    Then I softly see the following messages in the page details :
-      | Form validated successfully. |
+    And I wait for "5" seconds
     And I close the tab
     Then I softly see value "Disclosure of Lobbying Activities (SF-LLL)" for title "Form Name" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
     And I click on "Edit" icon for "Disclosure of Lobbying Activities (SF-LLL)" inside flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
@@ -10543,14 +10566,15 @@ Feature: Grantee Smoke scenarios
     Then I softly can see top right button "Cancel" in page detail
     Then I softly can see top right button "Save" in page detail
     And I enter "SF424_FORM" values from "Application_Field_Values.xlsx"
-    And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
-    And I upload attachment without random number "AttachmentTesting.pdf" of type "Delinquent Federal Debt" from computer
-    When I click modal button "Close"
-    And I wait for "2" seconds
     When I click on "Save" in the page details
     When I click on "Validate" in the page details
     Then I softly see the following messages in the page details contains:
       | Form Validated Successfully. |
+    And I wait for "5" seconds
+    And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
+    And I upload attachment without random number "AttachmentTesting.pdf" of type "Delinquent Federal Debt" from computer
+    When I click modal button "Close"
+    And I wait for "5" seconds
     And I close the tab
     Then I softly see value "Project/Performance Site Location(s)" for title "Form Name" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
     Then I softly see "check" symbol against the value "Project/Performance Site Location(s)" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
@@ -13707,14 +13731,15 @@ Feature: Grantee Smoke scenarios
     And I switch to tab number "1"
     And I click on "Edit" in the page details
     And I enter "SF424_FORM" values from "Application_Field_Values.xlsx"
-    And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
-    And I upload attachment without random number "AttachmentTesting.pdf" of type "Delinquent Federal Debt" from computer
-    When I click modal button "Close"
-    And I wait for "2" seconds
     When I click on "Save" in the page details
     When I click on "Validate" in the page details
     Then I softly see the following messages in the page details contains:
       | Form Validated Successfully. |
+    And I wait for "5" seconds
+    And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:applicationFormAddFileTableId---"
+    And I upload attachment without random number "AttachmentTesting.pdf" of type "Delinquent Federal Debt" from computer
+    When I click modal button "Close"
+    And I wait for "5" seconds
     And I close the tab
     Then I softly see value "Attachments" for title "Form Name" inside table "---grantee_tableId:-:applicationBusinessFormTableId---"
     Then I can see row level action button "Edit" against "Attachments" in flex table with id "---grantee_tableId:-:applicationBusinessFormTableId---"
