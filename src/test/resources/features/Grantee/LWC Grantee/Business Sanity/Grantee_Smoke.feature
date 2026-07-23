@@ -5213,9 +5213,11 @@ Feature: Grantee Smoke scenarios
     And I send the email under collab tab with following details:
       | To          | Subject            | Body            |
       | <emailIdTo> | Automation Subject | Automation Body |
+    And I wait for "5" seconds
     When I click modal button "Close"
     And I refresh the page
     And I wait for "5" seconds
+    And I navigate to "Messages" sub tab
     Then I softly see value "Automation Subject" for title "Subject" inside table "CommunicationHistory"
     Then I softly see value "<emailIdFrom>" for title "From Address" inside table "CommunicationHistory"
     Then I softly see value "<emailIdTo>" for title "To Address" inside table "CommunicationHistory"
