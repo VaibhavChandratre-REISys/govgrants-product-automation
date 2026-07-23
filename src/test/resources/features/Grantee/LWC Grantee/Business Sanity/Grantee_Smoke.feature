@@ -3501,7 +3501,7 @@ Feature: Grantee Smoke scenarios
     And I wait for "2" seconds
     Then I softly see field "Status" as "Created"
 
-  @445639 @ValidateprogressreportscheduleusercaneditprogressreportscheduleonCreatedSubmittedforreviewReviewedActivatedaward @Grantee_Smoke1
+  @mk @445639 @ValidateprogressreportscheduleusercaneditprogressreportscheduleonCreatedSubmittedforreviewReviewedActivatedaward @Grantee_Smoke1
   Scenario Outline: Validate progress report schedule user can edit progress report schedule on Created , Submitted for review, Reviewed, Activated award
     When I login to "Grantee" app as "<userType>" user
     And I navigate to "Grants" tab
@@ -3826,6 +3826,7 @@ Feature: Grantee Smoke scenarios
     And I wait for "5" seconds
     Then I softly see the following messages in the page details contains:
       | The award has been validated successfully. |
+    And I wait for "5" seconds
     And I click on "Submit For Approval" in the page details
     Then I softly see field "Status" as "Submitted for Approval"
     Then I softly see status in Progress-bar is "Submitted for Approval" and is "dark blue"
@@ -4050,6 +4051,7 @@ Feature: Grantee Smoke scenarios
     When I click "Associate" after selection of "<userName>" in the table "---grantee_tableId:-:awardAssociateContactTableId---"
     And I wait for "3" seconds
     And I click modal button "Close"
+    And I navigate to "Overview" sub tab
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:awardContactTableId---" by clicking "Edit" :
       | Name       | Project Role    | Is Key Contact |
       | <userName> | Project Officer | Checked        |
@@ -4230,6 +4232,7 @@ Feature: Grantee Smoke scenarios
     And I upload attachment without random number "Attachment.pdf" of type "Interim Award Document" from computer
     When I click modal button "Close"
     When I click on "Validate" in the page details
+    And I wait for "3" seconds
     Then I softly see the following messages in the page details contains:
       | The award has been validated successfully. |
     And I click on "Submit For Approval" in the page details
@@ -13922,7 +13925,7 @@ Feature: Grantee Smoke scenarios
     Then I softly see value "Validated" for title "Grants.Gov Status" against the value "{SavedValue:TrackingNumber}" inside table "---grantee_tableId:-:submissionHistoryTableId---"
     Then I softly see value "SUCCESS" for title "Status" against the value "{SavedValue:TrackingNumber}" inside table "---grantee_tableId:-:submissionHistoryTableId---"
 
-  @mkk @444516 @ValidateEXEuserprogressreportrecordownercanseeAdhocprogressreportscanbecreatedonlyforactiveawardsseerequiredtoSavevalidationsondetailspagelayoutwhenRequiredfieldskeptblankothervalidationsonValidatebuttondeletePR @Grantee_Smoke1 @GRegression1
+  @Bug-PROD-71163 @444516 @ValidateEXEuserprogressreportrecordownercanseeAdhocprogressreportscanbecreatedonlyforactiveawardsseerequiredtoSavevalidationsondetailspagelayoutwhenRequiredfieldskeptblankothervalidationsonValidatebuttondeletePR @Grantee_Smoke1 @GRegression1
   Scenario: Validate EXE user (progress report record owner)can see Ad hoc progress reports can be created only for active awards & see required to Save validations on details page layout when Required fields kept blank & other validations on Validate button& delete PR
     And I "Created" standalone subaward "Automation Runtime award" with properties "default-Victor EXE user"
     And I updated direct grant award for title "{SavedValue:Automation Runtime award}" with properties "default"
