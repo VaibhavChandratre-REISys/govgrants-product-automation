@@ -3353,7 +3353,7 @@ Feature: Grantee Smoke scenarios
     And I navigate to "Monitoring" sub tab
     Then I softly do not see value "{SavedValue:AmendTermsId}" for title "Title" inside table "---grantee_tableId:-:SpecialConditionTableId---"
 
-  @463431 @PreAppVerifyWithPOprofileAbletoaddpeerreviewerwithAllowrecordEditingYes @Grantee_Smoke1 @GRegression1
+  @mk @463431 @PreAppVerifyWithPOprofileAbletoaddpeerreviewerwithAllowrecordEditingYes @Grantee_Smoke1 @GRegression1
   Scenario:PreApp - Verify With PO profile , Able to add peer reviewer with Allow record Editing - Yes.
     And I create "Manual" qualified lead for title "Automation Runtime Opportunity" and opportunity number "Automation Runtime" with properties "default-Grantee PO user"
     Given I login to "Grantee" app as "GRANTEE PO" user
@@ -3501,7 +3501,7 @@ Feature: Grantee Smoke scenarios
     And I wait for "2" seconds
     Then I softly see field "Status" as "Created"
 
-  @mk @445639 @ValidateprogressreportscheduleusercaneditprogressreportscheduleonCreatedSubmittedforreviewReviewedActivatedaward @Grantee_Smoke1
+  @445639 @ValidateprogressreportscheduleusercaneditprogressreportscheduleonCreatedSubmittedforreviewReviewedActivatedaward @Grantee_Smoke1
   Scenario Outline: Validate progress report schedule user can edit progress report schedule on Created , Submitted for review, Reviewed, Activated award
     When I login to "Grantee" app as "<userType>" user
     And I navigate to "Grants" tab
@@ -7676,7 +7676,7 @@ Feature: Grantee Smoke scenarios
     When I enter the following values into flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---" by clicking "New" :
       | Reviewer Name | Role            | Description            | Due Date | Allow Record Editing |
       | David FO      | Fiscal Reviewer | Automation Description | 5        | Yes                  |
-    Then I softly see value "David FO" for title "Role" inside table "---grantee_tableId:-:amendmentPeerReviewerTableId---"
+    Then I softly see value "David FO" for title "Reviewer Name" inside table "---grantee_tableId:-:amendmentPeerReviewerTableId---"
     When I enter the following values into flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---" by clicking "New" :
       | Reviewer Name | Role            | Description            | Due Date | Allow Record Editing |
       | David FO      | Fiscal Reviewer | Automation Description | 5        | Yes                  |
@@ -10133,6 +10133,8 @@ Feature: Grantee Smoke scenarios
     And I wait for "3" seconds
     Then I softly see the following messages in the page details contains:
       | Overview Tab - Specify at least one Key Personnel for Key Personnel Change request. |
+    And I refresh the page
+    And I wait for "5" seconds
     When I click on "Delete" icon for "Victor EXE" inside flex table with id "---grantee_tableId:-:amendmentContactTableId---"
     Then I softly see "No Records Found" inside flex table with id "---grantee_tableId:-:amendmentContactTableId---"
     When I click on top right button "Associate" in flex table with id "---grantee_tableId:-:amendmentContactTableId---"
@@ -10198,7 +10200,7 @@ Feature: Grantee Smoke scenarios
     When I enter the following values into flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---" by clicking "New" :
       | Reviewer Name | Role             | Description            | Due Date | Allow Record Editing |
       | Automation FD | Program Reviewer | Automation Description | 5        | No                   |
-    Then I softly see value "Automation FD" for title "Role" inside table "---grantee_tableId:-:amendmentPeerReviewerTableId---"
+    Then I softly see value "Automation FD" for title "Reviewer Name" inside table "---grantee_tableId:-:amendmentPeerReviewerTableId---"
     Then I softly can see row level action button "Send for Review" against "Fiscal Reviewer" in flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---"
     Then I softly can see row level action button "Edit" against "Fiscal Reviewer" in flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---"
     Then I softly can see row level action button "Delete" against "Fiscal Reviewer" in flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---"
@@ -13645,23 +13647,17 @@ Feature: Grantee Smoke scenarios
     And I click on "Delete" icon for "sample.pdf" inside flex table with id "---grantee_tableId:-:KPIFilesTableId---"
     Then I softly do not see value "sample.pdf" for title "Title" inside table "---grantee_tableId:-:KPIFilesTableId---"
     When I enter the following values into flex table with id "---grantee_tableId:-:KPINotesTableId---" by clicking "New" :
-      | Title        | Description      |
-      | Notes Record | Automation Notes |
+      | Title         | Description       |
+      | Notes Record  | Automation Notes  |
+      | Notes Record1 | Automation Notes1 |
+      | Notes Record2 | Automation Notes2 |
+      | Notes Record3 | Automation Notes3 |
     Then I softly can see row level action button "Delete" against "Notes Record" in flex table with id "---grantee_tableId:-:KPINotesTableId---"
     Then I softly can see row level action button "Edit" against "Notes Record" in flex table with id "---grantee_tableId:-:KPINotesTableId---"
-    When I enter the following values into flex table with id "---grantee_tableId:-:KPINotesTableId---" by clicking "New" :
-      | Title         | Description       |
-      | Notes Record1 | Automation Notes1 |
     Then I softly can see row level action button "Delete" against "Notes Record1" in flex table with id "---grantee_tableId:-:KPINotesTableId---"
     Then I softly can see row level action button "Edit" against "Notes Record1" in flex table with id "---grantee_tableId:-:KPINotesTableId---"
-    When I enter the following values into flex table with id "---grantee_tableId:-:KPINotesTableId---" by clicking "New" :
-      | Title         | Description       |
-      | Notes Record2 | Automation Notes2 |
     Then I softly can see row level action button "Delete" against "Notes Record2" in flex table with id "---grantee_tableId:-:KPINotesTableId---"
     Then I softly can see row level action button "Edit" against "Notes Record2" in flex table with id "---grantee_tableId:-:KPINotesTableId---"
-    When I enter the following values into flex table with id "---grantee_tableId:-:KPINotesTableId---" by clicking "New" :
-      | Title         | Description       |
-      | Notes Record3 | Automation Notes3 |
     Then I softly can see row level action button "Delete" against "Notes Record3" in flex table with id "---grantee_tableId:-:KPINotesTableId---"
     Then I softly can see row level action button "Edit" against "Notes Record3" in flex table with id "---grantee_tableId:-:KPINotesTableId---"
     Then I softly see value "Notes Record" for title "Title" inside table "---grantee_tableId:-:KPINotesTableId---"
