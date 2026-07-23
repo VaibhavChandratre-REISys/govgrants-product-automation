@@ -63,12 +63,12 @@ public class UsersAndURL implements UsersController {
             userName = getQAEnvironmentUser(setUpUserLevel(userLevel));
         } else if ((EnvironmentFactory.getEnvironmentName() != null) && (EnvironmentFactory.getEnvironmentName().contains("TEST8"))) {
             userName = getTest8EnvironmentUser(setUpUserLevel(userLevel));
-        } else if ((EnvironmentFactory.getEnvironmentName() != null) && (EnvironmentFactory.getEnvironmentName().contains("PROLWC"))) {
+        } else if ((EnvironmentFactory.getEnvironmentName() != null) && (EnvironmentFactory.getEnvironmentName().contains("AFSAUTO"))) {
             userName = getProLwcEnvironmentUser(setUpUserLevel(userLevel));
         } else if ((EnvironmentFactory.getEnvironmentName() != null) && (EnvironmentFactory.getEnvironmentName().contains("NYLWC"))) {
             userName = getNYLwcEnvironmentUser(setUpUserLevel(userLevel));
-        } else if ((EnvironmentFactory.getEnvironmentName() != null) && (EnvironmentFactory.getEnvironmentName().contains("WASHINGTON"))) {
-            userName = getWashingtonEnvironmentUser(setUpUserLevel(userLevel));
+        } else if ((EnvironmentFactory.getEnvironmentName() != null) && (EnvironmentFactory.getEnvironmentName().contains("AFSPATCH-GRANTOR"))) {
+            userName = getAFSLWCPatchEnvironmentUser(setUpUserLevel(userLevel));
         } else if ((EnvironmentFactory.getEnvironmentName() != null) && (EnvironmentFactory.getEnvironmentName().contains("FWLWC"))) {
             userName = getFwLwcEnvironmentUser(setUpUserLevel(userLevel));
         } else if ((EnvironmentFactory.getEnvironmentName() != null) && (EnvironmentFactory.getEnvironmentName().contains("AFSPATCH-GRANTOR"))) {
@@ -88,12 +88,12 @@ public class UsersAndURL implements UsersController {
             password = getQAEnvironmentPassword(setUpUserLevel(userLevel));
         } else if (EnvironmentFactory.getEnvironmentName().contains("TEST8")) {
             password = getTest8EnvironmentPassword(setUpUserLevel(userLevel));
-        } else if (EnvironmentFactory.getEnvironmentName().contains("PROLWC")) {
+        } else if (EnvironmentFactory.getEnvironmentName().contains("AFSAUTO")) {
             password = getProLwcEnvironmentPassword(setUpUserLevel(userLevel));
         } else if (EnvironmentFactory.getEnvironmentName().contains("NYLWC")) {
             password = getNYLwcEnvironmentPassword(setUpUserLevel(userLevel));
-        } else if (EnvironmentFactory.getEnvironmentName().contains("WASHINGTON")) {
-            password = getWashingtonEnvironmentPassword(setUpUserLevel(userLevel));
+        } else if (EnvironmentFactory.getEnvironmentName().contains("AFSPATCH-GRANTOR")) {
+            password = getAFSLWCPatchEnvironmentPassword(setUpUserLevel(userLevel));
         } else if (EnvironmentFactory.getEnvironmentName().contains("FWLWC")) {
             password = getFwLwcEnvironmentPassword(setUpUserLevel(userLevel));
         }else if (EnvironmentFactory.getEnvironmentName().contains("AFSPATCH-GRANTOR")) {
@@ -132,6 +132,9 @@ public class UsersAndURL implements UsersController {
                 break;
             case "ADMIN1":
                 password = "Support@3033";
+                break;
+            case "IND":
+                password = "Support@3035";
                 break;
             default:
                 password = "Support@3033";
@@ -315,7 +318,7 @@ public class UsersAndURL implements UsersController {
         username.put("SPI3", "aspi3@grants.gov.afsautoqa");
         username.put("SPA", "spaautomation12@yopmail.com.afsautoqa");
         username.put("SA", "asa@grants.gov.afsautoqa");
-        username.put("IND", "ind12.automation@yopmail.com");
+        username.put("IND", "ind12.automation@yopmail.com.afsautoqa");
         username.put("AUDITOR", "automationauditor@yopmail.com.afsautoqa");
         username.put("SME", "sme11@yopmail.com");
         username.put("SPI4", "spi4@yopmail.com.afsautoqa");

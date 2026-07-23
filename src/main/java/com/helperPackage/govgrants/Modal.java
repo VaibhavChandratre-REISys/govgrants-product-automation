@@ -1,5 +1,6 @@
 package com.helperPackage.govgrants;
 
+import com.helperPackage.actionsfactory.api.ByUsing;
 import com.helperPackage.handlers.govgrants;
 import com.helperPackage.register.I;
 import org.openqa.selenium.By;
@@ -48,8 +49,9 @@ public final class Modal {
      * Modifier - saranjit.modak Added Xpath - 17/05/2023
      */
     public void closeModalByClickingTopRightCloseButton(String titleName) {
-        By closeButton = By.xpath("//div[contains(@class,'modal')]//h2[text()='" + titleName + "']/parent::header//button[@title='Close']");
+        By closeButton = By.xpath("//div[contains(@class,'modal')]//h2[text()='" + titleName + "']//ancestor::header//button[@title='Close'] | //div[contains(@class,'modal')]//h2[text()='" + titleName + "']/parent::header//button[@title='Close']");
         I.amPerforming().click().on(closeButton);
+        govgrants.perform().modal().acceptPopUpForEditPage();
     }
 
     /**
@@ -57,7 +59,8 @@ public final class Modal {
      */
     public void acceptPopUp() {
         try {
-            if (I.amPerforming().checkToSee().isDisplayed(By.xpath("//div[contains(@class,'modal__container')]//lightning-confirm | //div[contains(@class,'modal__container')]//header//h2[text()='Confirm'] | //div[contains(@class,'modal__container')]//*[text()='Confirm']"))) {
+            I.amPerforming().waitFor().makeThreadSleep(1500);
+            if (I.amPerforming().checkToSee().IsElementPresentQuick(By.xpath("//div[contains(@class,'modal__container')]//lightning-confirm | //div[contains(@class,'modal__container')]//header//h2[text()='Confirm'] | //div[contains(@class,'modal__container')]//h2[text()='Confirm Action'] | //div[contains(@class,'modal__container')]//*[text()='Confirm']"))) {
                 WebElement popup = I.amPerforming().getElementReference().of(By.xpath("//div[contains(@class,'modal__container')]"));
                 I.amPerforming().click().on(I.amPerforming().getElementReference().ofNested(popup, By.xpath("//div[contains(@class,'modal__container')]//button[text()='OK' or text()='Yes' or text()='Continue']")));
             }
@@ -66,22 +69,58 @@ public final class Modal {
 
         //Comment box handler
         try {
+<<<<<<< HEAD
             if (I.amPerforming().checkToSee().isDisplayed(By.xpath("//div[contains(@class,'modal__container')]//lightning-prompt//input | //div[contains(@class,'modal__container')]//div[@class='confirm-modal']//input | //button[text()='Edit']"))) {
                 I.amPerforming().textInput().in(By.xpath("//div[contains(@class,'modal__container')]//lightning-prompt//input | //div[contains(@class,'modal__container')]//div[@class='confirm-modal']//input"), "Automated Test");
+=======
+            I.amPerforming().waitFor().makeThreadSleep(1500);
+            if (I.amPerforming().checkToSee().IsElementPresentQuick(By.xpath("//div[contains(@class,'modalSectionContainer')]//h2[normalize-space()='Add Comment']"))) {
+                if (I.amPerforming().checkToSee().IsElementPresentQuick(By.xpath("//div[contains(@class,'modalSectionContainer')]//input"))) {
+                    I.amPerforming().textInput().in(By.xpath("//div[contains(@class,'modalSectionContainer')]//input"), "Automated Test");
+                }
+                I.amPerforming().click().withJavaScript(ByUsing.xpath("//div[contains(@class,'modalSectionContainer')][.//h2[text()='Add Comment']]//button[text()='Continue' or text()='OK']"));
+            }
+            if (I.amPerforming().checkToSee().IsElementPresentQuick(By.xpath("//div[contains(@class,'modalContent confirm-modal-body')]//input | //div[contains(@class,'modal__container')]//lightning-prompt//input | //div[contains(@class,'modal__container')]//div[@class='confirm-modal']//input | //div[contains(@class,'modal__container')]//div[@class='confirm-modal']//lightning-modal-footer[contains(@class,'confirm-modalfooter')]"))) {
+                I.amPerforming().textInput().in(By.xpath("//div[contains(@class,'modalContent confirm-modal-body')]//input | //div[contains(@class,'modal__container')]//lightning-prompt//input | //div[contains(@class,'modal__container')]//div[@class='confirm-modal']//input"), "Automated Test");
+>>>>>>> cbb0cf5383354292a0b5e7544cb0840e35ec662f
                 I.amPerforming().click().on(By.xpath("//div[contains(@class,'modal__container')]//button[text()='OK' or text()='Yes' or text()='Continue']"));
             }
         } catch (Exception e) {
-
+            System.out.println("Modal handling skipped: " + e.getMessage());
         }
     }
 
+<<<<<<< HEAD
+=======
+//    public void acceptPopUp() {
+//        try {
+//            if (I.amPerforming().checkToSee().IsElementPresentQuick(By.xpath("//div[contains(@class,'modal__container')]//lightning-confirm | //div[contains(@class,'modal__container')]//header//h2[text()='Confirm']"))) {
+//                WebElement popup = I.amPerforming().getElementReference().of(By.xpath("//div[contains(@class,'modal__container')]"));
+//                I.amPerforming().click().on(I.amPerforming().getElementReference().ofNested(popup, By.xpath("//div[contains(@class,'modal__container')]//button[text()='OK' or text()='Yes' or text()='Continue']")));
+//            }
+//        } catch (Exception e) {
+//
+//        }
+//
+//        //Comment box handler
+//        try {
+//            I.amPerforming().waitFor().makeThreadSleep(1500);
+//            if (I.amPerforming().checkToSee().IsElementPresentQuick(By.xpath("//div[contains(@class,'modal__container')]//lightning-prompt//input | //div[contains(@class,'modal__container')]//div[@class='confirm-modal']//input"))) {
+//                I.amPerforming().textInput().in(By.xpath("//div[contains(@class,'modal__container')]//lightning-prompt//input | //div[contains(@class,'modal__container')]//div[@class='confirm-modal']//input"), "Automated Test");
+//                I.amPerforming().click().on(By.xpath("//div[contains(@class,'modal__container')]//button[text()='OK' or text()='Yes' or text()='Continue']"));
+//            }
+//        } catch (Exception e) {
+//
+//        }
+//    }
+>>>>>>> cbb0cf5383354292a0b5e7544cb0840e35ec662f
 
     /**
      * Accept/reject modal based pop up with passed parameter
      */
     public void acceptPopUpWithParameter(String buttonName) {
         try {
-            if (I.amPerforming().checkToSee().isDisplayed(By.xpath("//div[contains(@class,'modal__footer')] | //div[contains(@class,'modal__container')]//lightning-confirm | //div[contains(@class,'modal__container')]//header"), true)) {
+            if (I.amPerforming().checkToSee().isDisplayed(By.xpath("//footer[contains(@class,'confirm-modalfooter')] | //div[contains(@class,'modal__footer')] | //div[contains(@class,'modal__container')]//lightning-confirm | //div[contains(@class,'modal__container')]//header"), true)) {
                 I.amPerforming().click().on(By.xpath("//div[contains(@class,'modal__footer')]//button[text()='" + buttonName + "'] | //div[contains(@class,'modal__container')]//button[text()='" + buttonName + "'] | //footer[contains(@class,'modal__footer')]//button[text()='" + buttonName + "']"));
             }
         } catch (Exception e) {

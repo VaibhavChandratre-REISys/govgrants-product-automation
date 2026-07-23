@@ -142,7 +142,7 @@ public final class FlexTable implements FlexTableComponent {
     public void clickTableActionIcon(String flexTableId, String iconName, String... anyUniqueColumnValues) {
         getTableActionDropDownButtonIcon(flexTableId, anyUniqueColumnValues);
         try {
-            I.amPerforming().scroll().withMouseToElement(getTableActionIcon(flexTableId, iconName, anyUniqueColumnValues));
+//            I.amPerforming().scroll().withMouseToElement(getTableActionIcon(flexTableId, iconName, anyUniqueColumnValues));
             I.amPerforming().click().on(getTableActionIcon(flexTableId, iconName, anyUniqueColumnValues));
         } catch (Exception e) {
             I.amPerforming().click().withJavaScript(getTableActionIcon(flexTableId, iconName, anyUniqueColumnValues));
@@ -869,7 +869,11 @@ public final class FlexTable implements FlexTableComponent {
             } else if (I.amPerforming().getElementReference().forListOfElements().ofNested(fieldWrapper, By.xpath(".//input[@type='checkbox']")).size() > 0) {
                 handleCheckBoxInput(fieldWrapper, fieldValue);
                 break;
+<<<<<<< HEAD
             } else if (I.amPerforming().getElementReference().forListOfElements().ofNested(fieldWrapper, By.xpath("//div[@class='wrap_text']//lightning-icon[@icon-name='utility:add'] | //div[@class='wrap_text']//lightning-icon[@icon-name='utility:edit']|//c-fieldlwc[@class='fields']//*[@class='empty-placeholder clickable-text']//*[@class='edit-text']")).size() > 0) {
+=======
+            } else if (I.amPerforming().getElementReference().forListOfElements().ofNested(fieldWrapper, By.xpath("//span[@part='formatted-rich-text' and not(normalize-space())]/parent::lightning-formatted-rich-text//following-sibling::lightning-icon[@icon-name='utility:new_window'] | //div[@class='wrap_text']//lightning-icon[@icon-name='utility:add'] | //div[@class='wrap_text']//lightning-icon[@icon-name='utility:edit'] | //c-fieldlwc[@class='fields']//*[@class='empty-placeholder clickable-text']//*[@class='edit-text']")).size() > 0) {
+>>>>>>> cbb0cf5383354292a0b5e7544cb0840e35ec662f
                 HandleTextArea(fieldWrapper, fieldValue);
                 break;
             }
@@ -883,9 +887,15 @@ public final class FlexTable implements FlexTableComponent {
      * @author Dilip.Hatagale
      */
     private void HandleTextArea(WebElement fieldWrapper, String fieldValue) {
+<<<<<<< HEAD
         By editForMoreButton = By.xpath("//div[@class='wrap_text']//lightning-icon[@icon-name='utility:add'] | //div[@class='wrap_text']//lightning-icon[@icon-name='utility:edit'] | //c-fieldlwc[@class='fields']//*[@class='empty-placeholder clickable-text']//*[@class='edit-text'] | //span[@part='formatted-rich-text' and not(normalize-space())]/parent::lightning-formatted-rich-text//following-sibling::lightning-icon[@icon-name='utility:new_window']");
         By richTextArea = By.xpath("//div[@part='modal-body']//textarea[@part='textarea'] |//div[@part='rich-text-editor']//div[contains(@class,'rich-text-area')]");
         By saveButtonOnModal = By.xpath("//div[@class='confirm-modal']//button[@title='Save' or text()='Save']");
+=======
+        By editForMoreButton = By.xpath("//span[@part='formatted-rich-text' and not(normalize-space())]/parent::lightning-formatted-rich-text//following-sibling::lightning-icon[@icon-name='utility:new_window'] | //div[@class='wrap_text']//lightning-icon[@icon-name='utility:add'] | //div[@class='wrap_text']//lightning-icon[@icon-name='utility:edit'] | //c-fieldlwc[@class='fields']//*[@class='empty-placeholder clickable-text']//*[@class='edit-text']");
+        By richTextArea = By.xpath("//div[contains(@class,'slds-modal__content')]//textarea[@part='textarea'] | //div[@part='modal-body']//textarea[@part='textarea'] |//div[@part='rich-text-editor']//div[contains(@class,'rich-text-area')]");
+        By saveButtonOnModal = By.xpath("//div[contains(@class,'slds-modal__container')]//footer//button[@title='Save' or text()='Save'] | //div[@class='confirm-modal']//button[@title='Save' or text()='Save']");
+>>>>>>> cbb0cf5383354292a0b5e7544cb0840e35ec662f
         I.amPerforming().click().withJavaScript(editForMoreButton);
         I.amPerforming().click().withJavaScript(richTextArea);
         I.amPerforming().textInput().toClear(richTextArea);

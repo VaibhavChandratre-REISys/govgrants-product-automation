@@ -79,7 +79,7 @@ Feature: Validate sanity testing of Complete Business Flow
     When I navigate to "Related Log" sub tab
     And I click on top right button "Associate" in flex table with id "---strategicplan:-:ObjectivesKPITableId---"
     When I click "Add" after selection of "Automation Permanent KPI" in the table "---strategicplan:-:ListOfActiveKPITableId---"
-#    And I close "Associate KPIs" modal by clicking the top right x button
+    And I close "Associate KPIs" modal by clicking the top right x button
     Then I see that "Automation Permanent KPI" has been added in flextable with Id "---strategicplan:-:ObjectivesKPITableId---"
     Then I softly see field "Status" as "Draft"
     And I click on "Back To Strategic Goal" in the page details
@@ -832,7 +832,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I wait for "2" seconds
     When I click on submit review
     #To do - Remove comment for package execution
-#    When I close "Enter Review" modal by clicking the top right x button
+    When I close "Enter Review" modal by clicking the top right x button
     And I wait for "2" seconds
     And I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     When I navigate to "Announcements" tab
@@ -1243,7 +1243,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I perform quick search for "<Announcement Name>" in "---applicationIntake:-:applicantGrantorApplicationsTableId---" panel
     And I click on "View" icon for "<Announcement Name>" inside flex table with id "---applicationIntake:-:applicantGrantorApplicationsTableId---"
     And I get the "EGMS ID"
-    And I wait for "3" seconds
+    And I wait for "4" seconds
     When I navigate to "Applications" tab
     And I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
     When I click toggle button to select "Application Reviews - All"
@@ -1339,7 +1339,6 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click on "Edit" in the page details
     When I complete filling in the Review form with recommendation "Recommended"
    #if needed acces issue
-    And I click on "Save" in the page details
     And I wait for "5" seconds
     And I click on "Save" in the page details
     When I click on "Submit" in the page details without processing
@@ -1366,7 +1365,6 @@ Feature: Validate sanity testing of Complete Business Flow
       #if needed acces issue
     And I click on "Save" in the page details
     And I wait for "2" seconds
-    And I click on "Save" in the page details
     When I click on "Submit" in the page details without processing
     When I click alert button "OK"
     Then I see that "Status" is in "Review Completed" status
@@ -1581,7 +1579,7 @@ Feature: Validate sanity testing of Complete Business Flow
     And I click on submit review
     And I wait for "1" seconds
     #To do - Remove comment for package execution
-#    When I close "Enter Review" modal by clicking the top right x button
+    When I close "Enter Review" modal by clicking the top right x button
     When I re-login to "As a Grantor" app as "dynamicUser" user on "INTERNAL" portal
     And I navigate to "Grants" tab
     When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
@@ -4011,7 +4009,7 @@ Feature: Validate sanity testing of Complete Business Flow
     Then I see only the following ordered radio buttons in the approval decision :
       | Approve | Reject | Forward | Send back |
 
-  @OwnershipReasignment @ProdSan4
+  @OwnershipReasignment @ProdSan4 @ProdSan4_1
   Scenario: Validate Grants Ownership Reassignment
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Grants" tab

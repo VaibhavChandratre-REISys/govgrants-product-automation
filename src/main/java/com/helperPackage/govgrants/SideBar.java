@@ -48,12 +48,12 @@ public final class SideBar {
      * @author nauman.shahid
      */
     public void clickSideBarContent(String subHeaderName, String contentName) {
-           handleSideBarContentExpanded(subHeaderName);
-          try {
-                  I.amPerforming().click().on(getSideBarContentLocator(subHeaderName, contentName));
-          } catch(Exception e) {
-                  I.amPerforming().click().withJavaScript(getSideBarContentLocator(subHeaderName, contentName));
-          }
+        handleSideBarContentExpanded(subHeaderName);
+        try {
+            I.amPerforming().click().on(getSideBarContentLocator(subHeaderName, contentName));
+        } catch (Exception e) {
+            I.amPerforming().click().withJavaScript(getSideBarContentLocator(subHeaderName, contentName));
+        }
     }
 
     /**
@@ -200,7 +200,7 @@ public final class SideBar {
      * @author nauman.shahid
      */
     public By getSideBarContentLocator(String subHeader, String subHeaderContent) {
-        return By.xpath("//div[contains(@class,'sidebar slds-split-view_container slds-is-open open-panel')]//section//button[@title='" + subHeader +"']/parent::h2/parent::div/parent::section//a[text()='" + subHeaderContent +"']");
+        return By.xpath("//nav[contains(@class,'sidebar')]//button[@title='" + subHeader + "']/ancestor::section[1]//button[@title='" + subHeaderContent + "'] | //div[contains(@class,'sidebar slds-split-view_container slds-is-open open-panel')]//section//button[@title='" + subHeader + "']/parent::h2/parent::div/parent::section//a[text()='" + subHeaderContent + "']");
     }
 
     /**
