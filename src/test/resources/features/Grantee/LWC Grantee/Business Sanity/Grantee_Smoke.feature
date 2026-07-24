@@ -3934,6 +3934,7 @@ Feature: Grantee Smoke scenarios
     And I click on top right button "New" in flex table with id "---grantee_tableId:-:GrantsTable---"
     And I enter "Grantee_Creation_Schedules" values from "Award_Field_Values.xlsx"
     When I click modal button "Save and Continue"
+    And I wait for "5" seconds
     And I save the field labeled "EGMS ID" as "GrantEGMSID"
     And I navigate to "Overview" sub tab
     When I enter value "<UEI>" into field "DUNS__c"
@@ -7713,6 +7714,7 @@ Feature: Grantee Smoke scenarios
       | Danielle FD Garcia | Program Reviewer | Automation Description | 5        | No                   |
     And I click on "Send for Review" icon for "Danielle FD Garcia" inside flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---" without waiting for record
     And I click on "Send for Review" icon for "David FO" inside flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---" without waiting for record
+    And I wait for "5" seconds
     Then I softly see that "Sent for Review" has been added in flextable with Id "---grantee_tableId:-:amendmentPeerReviewerTableId---"
     When I get the "EGMS ID"
     When I re-login to "Grantee" app as "GRANTEE FO" user on "INTERNAL" portal
@@ -10723,6 +10725,8 @@ Feature: Grantee Smoke scenarios
     When I click on "Activate Award" in the page details
     Then I softly see field "Status" as "Activated"
     Then I softly see status in Progress-bar is "Activated" and is "dark blue"
+    And I refresh the page
+    And I wait for "7" seconds
     When I navigate to "Actuals" sub tab
     Then I softly see field "Drawn to Date" as "$3,500.00"
     Then I softly see field "Current Balance" as "$3,500.00"
@@ -10754,7 +10758,12 @@ Feature: Grantee Smoke scenarios
     Then I softly see value "$3,500.00" for title "Amount Drawn to Date" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
     Then I softly see value "$1,000.00" for title "Amount Drawn to Date" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
     When I navigate to "Overview" sub tab
-    And I click on hyperlink containing value "{SavedValue:GrantEGMSID}"
+#    And I click on hyperlink containing value "{SavedValue:GrantEGMSID}"
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Subawards & Amendments" subheader on left panel
+    And I click toggle button to select "Grants - All"
+    When I perform quick search for "{SavedValue:GrantEGMSID}" in "---grantee_tableId:-:GrantsTable---" panel
+    And I click on "View" icon for "{SavedValue:GrantEGMSID}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
     When I navigate to "Awards" sub tab
     And I click on "View" icon for "{SavedValue:AwardEGMSID}" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
     Then I softly see field "Status" as "Amended"
