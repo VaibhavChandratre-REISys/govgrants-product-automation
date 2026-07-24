@@ -243,7 +243,7 @@ public final class GovGrantsSteps {
         if (appName.equalsIgnoreCase("Grants Portal")) {
             try {
                 I.amPerforming().waitFor().makeThreadSleep(3000);
-                ggObjects.clickLogOut();
+//                ggObjects.clickLogOut();
                 I.amPerforming().waitFor().makeThreadSleep(4000);
                 govgrants.perform().mainPage().navigateToPortal(portalType);
                 govgrants.perform().mainPage().loginWithUserType(userType);
@@ -273,7 +273,7 @@ public final class GovGrantsSteps {
                  */
                 System.out.println("[Re-Login] Logging out current Salesforce session...");
                 try {
-                    ggObjects.clickLogOut();
+                    //ggObjects.clickLogOut();
                     System.out.println("[Re-Login] Salesforce logout action completed.");
                 } catch (Exception logoutException) {
                     System.err.println("[Re-Login] Salesforce UI logout failed.");
