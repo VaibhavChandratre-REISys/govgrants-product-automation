@@ -7795,12 +7795,13 @@ Feature: Grantee Smoke scenarios
     And I select Classification as "Notice of Award" at upload file modal
     When I click modal button "Save"
 #    And I click modal button "Close"
-    And I wait for "2" seconds
+    And I refresh the page
+    And I wait for "5" seconds
     Then I softly see "Notice of Award" has been added in "Amendment Files" flex table
     And I click on "Delete" icon for "Notice of Award" inside flex table with id "---grantee_tableId:-:amendmentRequestAddFile---" without waiting for record
     Then I softly do not see value "Notice of Award" for title "Title" inside table "---grantee_tableId:-:amendmentRequestAddFile---"
     And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
-    And I upload attachment without random number "AttachmentTesting.pdf" of type "Terms and Conditions" from computer
+    And I upload attachment without random number "Attachment.pdf" of type "Terms and Conditions" from computer
     When I click modal button "Close"
     And I wait for "2" seconds
     Then I see "Terms and Conditions" has been added in "Amendment Files" flex table
