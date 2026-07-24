@@ -1529,7 +1529,7 @@ Feature: Grantee Smoke scenarios
       | User       |
       | GRANTEE PM |
 
-  @476067 @EXEusercannavigatetoOpportunitydetailspageafterclickingonviewactionfortheOpportunitywhichisconvertedtoPre-application @Grantee_Smoke1
+  @mk @476067 @EXEusercannavigatetoOpportunitydetailspageafterclickingonviewactionfortheOpportunitywhichisconvertedtoPre-application @Grantee_Smoke1
   Scenario Outline: Opportunities converted to Pre-Application (Grants.gov) - Verify PM user can navigate to Opportunity details page after clicking on view action for the Opportunity which is converted to Pre-application
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default"
@@ -6086,6 +6086,7 @@ Feature: Grantee Smoke scenarios
     When I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:qualifiedLeadTableId---" panel
     And I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside flex table with id "---grantee_tableId:-:qualifiedLeadTableId---" without waiting for record
     When I click on "Convert to Opportunity" in the page details
+    And I wait for "5" seconds
     And I save the field labeled "EGMS ID" as "opportunityEGMSID"
     And I create opportunity with state "Approved" for opportunity number "CAS-HHS0000660610" with properties "default"
     And I create Application "{SavedValue:Automation Runtime Opportunity}" with state "Created" for opportunity number "CAS-HHS0000660610" with properties "default"
@@ -10842,6 +10843,8 @@ Feature: Grantee Smoke scenarios
     When I click on "Activate Award" in the page details
     Then I softly see field "Status" as "Activated"
     Then I softly see status in Progress-bar is "Activated" and is "dark blue"
+    And I wait for "10" seconds
+    And I refresh the page
     When I navigate to "Actuals" sub tab
     Then I softly see field "Drawn to Date" as "$3,500.00"
     Then I softly see field "Current Balance" as "$3,500.00"

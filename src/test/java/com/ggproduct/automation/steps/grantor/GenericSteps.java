@@ -745,6 +745,7 @@ public class GenericSteps {
 
     @And("^I create (Pre-application|Application) \"([^\"]*)\" with state \"([^\"]*)\" for opportunity number \"([^\"]*)\" with properties \"([^\"]*)\"$")
     public void iCreatePreApplicationWithStateForOpportunityNumberWithProperties(String module, String preAppTitle, String state, String oppoNo, String filter) {
+        I.amPerforming().waitFor().makeThreadSleep(10000); //Wait for opportinity record to be available
         if (module.equalsIgnoreCase("Pre-application")) {
             grantorWebServices.CreatePreApplicationWithStateForOpportunityNumberWithProperties(module, preAppTitle, state, oppoNo, filter);
         } else {
