@@ -1572,14 +1572,14 @@ Feature: Grantee Smoke scenarios
     Then I softly see "Opportunity Information" page block displayed
     Then I softly see field "Funding Opportunity Title" inside page block
     Then I softly see field "Opportunity Number" inside page block
-    When I hovering mouse on help text icon inside page block detail "Opportunity Number"
+    When I hovering mouse on help text icon inside page block detail for invisible element "Opportunity Number"
     Then I softly see "Text and number both are allowed. Must not exceed 255 characters" shown as help text
     Then I softly see field "Internal Organization" inside page block
     Then I softly see field "Funding Instrument Type" inside page block
     Then I softly see field "Category Of Funding Activity" inside page block
     Then I softly see field "Opportunity Category" inside page block
     Then I softly see field "Expected Number of Awards" inside page block
-    When I hovering mouse on help text icon inside page block detail "Expected Number of Awards"
+    When I hovering mouse on help text icon inside page block detail for invisible element "Expected Number of Awards"
     Then I softly see "The maximum number excepted is 999." shown as help text
     Then I softly see field "Source" inside page block
     Then I softly see field "Lead Version" inside page block
@@ -6889,7 +6889,8 @@ Feature: Grantee Smoke scenarios
     Then I softly see value "AttachmentTesting.pdf" for title "Title" inside table "---grantee_tableId:-:internalOrgFilesTableId---"
     Then I softly see value "Indirect Cost Rate Letter" for title "Classification" inside table "---grantee_tableId:-:internalOrgFilesTableId---"
     Then I softly see "Created Date" in flex table header "---grantee_tableId:-:internalOrgFilesTableId---"
-    And I click on "Delete" icon for "AttachmentTesting.pdf" inside flex table with id "---grantee_tableId:-:internalOrgFilesTableId---" without waiting for record
+    And I click on "Delete" icon for "AttachmentTesting.pdf" inside flex table with id "---grantee_tableId:-:internalOrgFilesTableId---"
+    And I wait for "7" seconds
     Then I softly do not see value "AttachmentTesting.pdf" for title "Title" inside table "---grantee_tableId:-:internalOrgFilesTableId---"
     When I click on parallel lines menu bar with data target value "Organization Files"
     Then I see option "Refresh" present in parallel dropdown
@@ -6997,7 +6998,7 @@ Feature: Grantee Smoke scenarios
     Then I softly can see top right button "Associate" in flex table with id "---grantee_tableId:-:awardContactTableId---"
     Then I softly can see top right button "New" in flex table with id "---grantee_tableId:-:awardContactTableId---"
     Then I can see row level action button "View" against "Victor EXE" in flex table with id "---grantee_tableId:-:awardContactTableId---"
-    Then I can see row level action button "Edit" against "Victor EXE" in flex table with id "---grantee_tableId:-:awardContactTableId---"
+    Then I cannot see row level action button "Edit" against "Victor EXE" in flex table with id "---grantee_tableId:-:awardContactTableId---"
     Then I cannot see row level action button "Remove" against "Victor EXE" in flex table with id "---grantee_tableId:-:awardContactTableId---"
     And I navigate to "Projections" sub tab
     Then I cannot see row level action button "View" against "Automation Permanent Focus Area" in flex table with id "---grantee_tableId:-:ProjectTableId---"
@@ -10877,7 +10878,12 @@ Feature: Grantee Smoke scenarios
     Then I softly see value "$3,500.00" for title "Amount Drawn to Date" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
     Then I softly see value "$1,000.00" for title "Amount Drawn to Date" inside table "---grantee_tableId:-:actualsTabDrawDownTableId---"
     When I navigate to "Overview" sub tab
-    And I click on hyperlink containing value "{SavedValue:GrantEGMSID}"
+#    And I click on hyperlink containing value "{SavedValue:GrantEGMSID}"
+    And I navigate to "Grants" tab
+    When I navigate to "Grants" content inside "Grants, Awards & Amendment Requests" subheader on left panel
+    And I click toggle button to select "Grants - All"
+    When I perform quick search for "{SavedValue:GrantEGMSID}" in "---grantee_tableId:-:GrantsTable---" panel
+    And I click on "View" icon for "{SavedValue:GrantEGMSID}" inside flex table with id "---grantee_tableId:-:GrantsTable---" without waiting for record
     When I navigate to "Awards" sub tab
     And I click on "View" icon for "Amended" inside flex table with id "---grantee_tableId:-:GrantsAwardsRevisionTableId---" without waiting for record
     Then I softly see field "Status" as "Amended"
@@ -13675,6 +13681,7 @@ Feature: Grantee Smoke scenarios
     And I click on "Delete" icon for "sample.pdf" inside flex table with id "---grantee_tableId:-:KPIFilesTableId---"
     And I wait for "5" seconds
     Then I softly do not see value "sample.pdf" for title "Title" inside table "---grantee_tableId:-:KPIFilesTableId---"
+    And I wait for "5" seconds
     When I enter the following values into flex table with id "---grantee_tableId:-:KPINotesTableId---" by clicking "New" :
       | Title         | Description       |
       | Notes Record  | Automation Notes  |
