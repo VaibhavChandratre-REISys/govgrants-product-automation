@@ -6630,7 +6630,7 @@ Feature: Grantee Smoke scenarios
     Then I softly see value "{SavedValue:TrackingNumber}" for title "Tracking Number" against the value "S2SReceived" inside table "---grantee_tableId:-:submissionHistoryTableId---"
     Then I can see top right button "Record Decision" in page detail
 
-  @478407 @ValidateProjectNarrativeAttachmentformPMusershouldtosubmittheapplicationtograntsgovwhenifusernotfilledtheoptionalform @Grantee_Smoke1 @GranteeP_Q4
+  @mk @478407 @ValidateProjectNarrativeAttachmentformPMusershouldtosubmittheapplicationtograntsgovwhenifusernotfilledtheoptionalform @Grantee_Smoke1 @GranteeP_Q4
   Scenario: Project Narrative Attachment form -Verify PM user should to submit the application to grants.gov when if user not filled the optional form
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default"
@@ -6663,6 +6663,7 @@ Feature: Grantee Smoke scenarios
     Then I softly can see top right button "Save" in page detail
     And I enter "SF424_FORM" values from "Application_Field_Values.xlsx"
     When I click on "Save" in the page details
+    And I wait for "5" seconds
     When I click on "Validate" in the page details
     Then I softly see the following messages in the page details contains:
       | Form Validated Successfully. |
@@ -14007,8 +14008,10 @@ Feature: Grantee Smoke scenarios
     And I click modal button "Save and Continue"
     Then I softly see the following messages in the page details contains:
       | The Reporting Due Date cannot be before the Reporting Period End Date |
+    And I wait for "4" seconds
     And I enter "Grantee_Creation" values from "ProgressReport_Field_Values.xlsx"
     And I click modal button "Save and Continue"
+    And I wait for "2" seconds
     And I click on "Save" in the page details
     And I wait for "2" seconds
     When I click on "Validate" in the page details
