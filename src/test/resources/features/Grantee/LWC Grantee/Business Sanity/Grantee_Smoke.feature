@@ -974,13 +974,13 @@ Feature: Grantee Smoke scenarios
     Then I softly see asterisk mark on "Cost Sharing or Matching Requirement"
     And I click modal button "Save and Continue"
     Then I softly see the following messages in the page details contains:
-      | Opportunity Title is required in the General Information section.                  |
-      | Opportunity Number is required in the General Information section.                 |
-      | Application Due Date is required in the General Information section.               |
-      | Funding Organization is required in the General Information section.               |
-      | Eligible Applicants is required in the Eligibility section.                        |
-      | Lead Description is required in the Additional Information section.                |
-      | Cost Sharing or Matching Requirement is required in the Financial Details section. |
+      | Opportunity Title is required to save. Enter it in the General Information section.                  |
+      | Opportunity Number is required to save. Enter it in the General Information section.                 |
+      | Application Due Date is required to save. Enter it in the General Information section.               |
+      | Funding Organization is required to save. Enter it in the General Information section.               |
+      | Eligible Applicants is required to save. Enter it in the Eligibility section.                        |
+      | Lead Description is required to save. Enter it in the Additional Information section.                |
+      | Cost Sharing or Matching Requirement is required to save. Enter it in the Financial Details section. |
     And I enter "Grantee_Leads_Creation" values from "Announcement_Field_Values.xlsx"
     And I click modal button "Save and Continue"
     Then I see the header is "Lead" in the page details
@@ -6916,6 +6916,7 @@ Feature: Grantee Smoke scenarios
     Then I can see row level action button "Delete" against "<NotesRecord1>" in flex table with id "---grantee_tableId:-:internalOrgNotesTableId---"
     Then I can see row level action button "Edit" against "<NotesRecord1>" in flex table with id "---grantee_tableId:-:internalOrgNotesTableId---"
     And I click on "Delete" icon for "<NotesRecord1>" inside flex table with id "---grantee_tableId:-:internalOrgNotesTableId---" without waiting for record
+    And I wait for "5" seconds
     Then I softly do not see value "<NotesRecord1>" for title "Title" inside table "---grantee_tableId:-:internalOrgNotesTableId---"
     When I click on parallel lines menu bar with data target value "Notes"
     Then I see option "Refresh" present in parallel dropdown
@@ -13672,6 +13673,7 @@ Feature: Grantee Smoke scenarios
     Then I softly can see row level action button "Edit" against "sample.pdf" in flex table with id "---grantee_tableId:-:KPIFilesTableId---"
     Then I softly can see row level action button "Download" against "sample.pdf" in flex table with id "---grantee_tableId:-:KPIFilesTableId---"
     And I click on "Delete" icon for "sample.pdf" inside flex table with id "---grantee_tableId:-:KPIFilesTableId---"
+    And I wait for "5" seconds
     Then I softly do not see value "sample.pdf" for title "Title" inside table "---grantee_tableId:-:KPIFilesTableId---"
     When I enter the following values into flex table with id "---grantee_tableId:-:KPINotesTableId---" by clicking "New" :
       | Title         | Description       |
