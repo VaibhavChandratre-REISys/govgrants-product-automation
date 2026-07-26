@@ -4045,12 +4045,14 @@ Feature: Grantee Smoke scenarios
       | EGMS ID               | Reporting Period Start Date | Reporting Period End Date           |
       | {SavedValue:EGMS ID1} | 17                          | 27                                  |
       | {SavedValue:EGMS ID2} | 27                          | {SavedValue:ReportingPeriodEndDate} |
+    And I wait for "5" seconds
     Then I softly see value "{Date:M/d/yyyy::d+17}" for title "Reporting Period Start Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
     Then I softly see value "{Date:M/d/yyyy::d+27}" for title "Reporting Period End Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:awardReportSchedulesTableId---" by clicking "Edit" :
       | EGMS ID               | Reporting Period Start Date | Reporting Period End Date           |
       | {SavedValue:EGMS ID1} | 15                          | 25                                  |
       | {SavedValue:EGMS ID2} | 25                          | {SavedValue:ReportingPeriodEndDate} |
+    And I wait for "5" seconds
     Then I softly see value "{Date:M/d/yyyy::d+15}" for title "Reporting Period Start Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
     Then I softly see value "{Date:M/d/yyyy::d+25}" for title "Reporting Period End Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
     And I navigate to "Overview" sub tab
@@ -8312,6 +8314,7 @@ Feature: Grantee Smoke scenarios
     And I click on hyperlink containing value "{SavedValue:LastModifiedBy}"
     Then I softly see the text containing "sarah.pm.ggmergeqa2@yopmail.com"
     And I click on back arrow
+    And I wait for "5" seconds
     Then I softly can see row level action button "View" against "Federal Financial Report (SF-425)" in flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
     Then I softly can see row level action button "Splitview" against "Federal Financial Report (SF-425)" in flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
     Then I softly can see row level action button "Preview" against "Federal Financial Report (SF-425)" in flex table with id "---grantee_tableId:-:financialReportFormsTableId---"
@@ -14031,12 +14034,9 @@ Feature: Grantee Smoke scenarios
     And I click on "Save" in the page details
     And I wait for "2" seconds
     Then I softly see the following messages in the page details contains:
-      | Reporting Period Start Date is required tp save. Enter it in the Report Overview section under on the Overview tab. |
-      | Reporting Period End Date is required tp save. Enter it in the Report Overview section under on the Overview tab.   |
-      | Reporting Due Date is required tp save. Enter it in the Report Overview section under on the Overview tab.          |
-#    | Reporting Period Start Date is required in the Overview tab under the Report Overview section. |
-#      | Report Due Date is required in the Overview tab under the Report Overview section.             |
-#      | Reporting Period End Date is required in the Overview tab under the Report Overview section.   |
+      | Reporting Period Start Date is required to save. Enter it in the Report Overview section on the Overview tab. |
+      | Reporting Period End Date is required to save. Enter it in the Report Overview section on the Overview tab.   |
+      | Report Due Date is required to save. Enter it in the Report Overview section on the Overview tab.             |
     And I navigate to "Monitoring" tab
     When I navigate to "Progress Reports" content inside "Monitoring" subheader on left panel
     And I click toggle button to select "Progress Reports - My Records"
