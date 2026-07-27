@@ -11511,6 +11511,7 @@ Feature: Grantee Smoke scenarios
     And I perform quick search for "{SavedValue:financialEGMSID}" in "---grantee_tableId:-:PendingTask---" panel
     When I click on "Start" icon for "{SavedValue:financialEGMSID}" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
     When I "Approve" in the approval decision
+    And I wait for "5" seconds
     And I navigate to "Monitoring" tab
     When I navigate to "Completed Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:financialEGMSID}" in "---grantee_tableId:-:monitoringCompletedTaskTableId---" panel
@@ -11521,6 +11522,7 @@ Feature: Grantee Smoke scenarios
     And I perform quick search for "{SavedValue:financialEGMSID}" in "---grantee_tableId:-:PendingTask---" panel
     When I click on "Start" icon for "{SavedValue:financialEGMSID}" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
     When I "Approve" in the approval decision
+    And I wait for "5" seconds
     And I navigate to "Monitoring" tab
     When I navigate to "Completed Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:financialEGMSID}" in "---grantee_tableId:-:monitoringCompletedTaskTableId---" panel
@@ -11531,6 +11533,7 @@ Feature: Grantee Smoke scenarios
     And I perform quick search for "{SavedValue:financialEGMSID}" in "---grantee_tableId:-:PendingTask---" panel
     When I click on "Start" icon for "{SavedValue:financialEGMSID}" inside flex table with id "---grantee_tableId:-:PendingTask---" without waiting for record
     When I "Approve" in the approval decision
+    And I wait for "5" seconds
     And I navigate to "Monitoring" tab
     When I navigate to "Completed Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:financialEGMSID}" in "---grantee_tableId:-:monitoringCompletedTaskTableId---" panel
