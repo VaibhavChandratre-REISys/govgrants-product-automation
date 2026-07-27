@@ -4997,7 +4997,7 @@ Feature: Grantee Smoke scenarios
       | userType   | attachment     | Notes        | userName | Title |
       | GRANTEE PM | Attachment.pdf | Notes Record | Sarah PM | Test  |
 
-  @442181 @ValidatePMusershouldabletosaveandcreateinternalcontact @Grantee_Smoke1
+  @Bug-PROD-78827 @442181 @ValidatePMusershouldabletosaveandcreateinternalcontact @Grantee_Smoke1
   Scenario Outline: Validate PM user should able to save and create internal contact
     When I login to "Grantee" app as "<userType>" user
     When I navigate to "Home" tab
@@ -5089,16 +5089,6 @@ Feature: Grantee Smoke scenarios
       | City is required to save. Enter it in the Address Information section.           |
       | Country is required to save. Enter it in the Address Information section.        |
       | Zip Code is required to save. Enter it in the Address Information section.       |
-#      | Project Role is required in the Contact Information section.   |
-#      | First Name is required in the Contact Information section.     |
-#      | Last Name is required in the Contact Information section.      |
-#      | Email is required in the Contact Information section.          |
-#      | Address Line 1 is required in the Address Information section. |
-#      | State is required in the Address Information section.          |
-#      | City is required in the Address Information section.           |
-#      | Country is required in the Address Information section.        |
-#      | Zip Code is required in the Address Information section.       |
-    When I enter in modal value "Department of Product" into field "AccountId"
     When I enter in modal value "Other" into field "Role__c"
     When I enter in modal value "Automation Runtime" into field "FirstName"
     And I enter in modal value "Contact" into field "LastName"
@@ -5114,6 +5104,7 @@ Feature: Grantee Smoke scenarios
     And I enter in modal value "California" into field "County__c"
     And I enter in modal value "1234" into field "X4DigitZipCodeExtension__c"
     And I enter in modal value "12354" into field "MailingPostalCode"
+    When I enter in modal value "Department of Product" into field "AccountId"
     And I click modal button "Save"
     Then I softly see the following messages in the page details contains:
       | Email: invalid email address: Automation Test |
@@ -5152,7 +5143,7 @@ Feature: Grantee Smoke scenarios
     Then I see the sub-header is "Department of Product" in the page details
     And I click on back arrow
     Then I softly see field on modal "Type" inside page block
-    Then I see field "Type" as "Grantee" on modal
+    Then I softly see field "Type" as "Grantee" on modal
     Then I softly see field on modal "Created By" inside page block
     And I save the field labeled "Created By" as "CreatedBy" on modal
     Then I softly see link "{SavedValue:CreatedBy}" inside Page block
@@ -5173,6 +5164,7 @@ Feature: Grantee Smoke scenarios
     Then I softly can see row level action button "View" against "{SavedValue:Automation Runtime} Contact" in flex table with id "---grantee_tableId:-:InternalContacts---"
     Then I softly can see row level action button "Edit" against "{SavedValue:Automation Runtime} Contact" in flex table with id "---grantee_tableId:-:InternalContacts---"
     Then I softly can see row level action button "Delete" against "{SavedValue:Automation Runtime} Contact" in flex table with id "---grantee_tableId:-:InternalContacts---"
+
     Examples:
       | userType   |
       | GRANTEE PM |
@@ -6632,7 +6624,7 @@ Feature: Grantee Smoke scenarios
     Then I softly see value "{SavedValue:TrackingNumber}" for title "Tracking Number" against the value "S2SReceived" inside table "---grantee_tableId:-:submissionHistoryTableId---"
     Then I can see top right button "Record Decision" in page detail
 
-  @mk @478407 @ValidateProjectNarrativeAttachmentformPMusershouldtosubmittheapplicationtograntsgovwhenifusernotfilledtheoptionalform @Grantee_Smoke1 @GranteeP_Q4
+  @mkk @478407 @ValidateProjectNarrativeAttachmentformPMusershouldtosubmittheapplicationtograntsgovwhenifusernotfilledtheoptionalform @Grantee_Smoke1 @GranteeP_Q4
   Scenario: Project Narrative Attachment form -Verify PM user should to submit the application to grants.gov when if user not filled the optional form
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default"
