@@ -10180,16 +10180,6 @@ Feature: Grantee Smoke scenarios
       | City is required to save. Enter it in the Address Information section.           |
       | Country is required to save. Enter it in the Address Information section.        |
       | Zip Code is required to save. Enter it in the Address Information section.       |
-#      | Project Role is required in the Contact Information section.   |
-#      | First Name is required in the Contact Information section.     |
-#      | Last Name is required in the Contact Information section.      |
-#      | Phone is required in the Contact Information section.          |
-#      | Email is required in the Contact Information section.          |
-#      | Address Line 1 is required in the Address Information section. |
-#      | State is required in the Address Information section.          |
-#      | City is required in the Address Information section.           |
-#      | Country is required in the Address Information section.        |
-#      | Zip Code is required in the Address Information section.       |
     And I click modal button "Close"
     And I click on "Edit" in the page details
     And I enter value "Checked" into field "GeneralConditionChanged__c"
@@ -10222,7 +10212,8 @@ Feature: Grantee Smoke scenarios
     When I enter the following values into flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---" by clicking "New" :
       | Reviewer Name | Role            | Description            | Due Date | Allow Record Editing |
       | David FO      | Fiscal Reviewer | Automation Description | 5        | Yes                  |
-    Then I softly see value "David FO" for title "Role" inside table "---grantee_tableId:-:amendmentPeerReviewerTableId---"
+    And I wait for "5" seconds
+    Then I softly see value "David FO" for title "Reviewer Name" inside table "---grantee_tableId:-:amendmentPeerReviewerTableId---"
     When I enter the following values into flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---" by clicking "New" :
       | Reviewer Name | Role             | Description            | Due Date | Allow Record Editing |
       | Automation FD | Program Reviewer | Automation Description | 5        | No                   |
@@ -10428,7 +10419,7 @@ Feature: Grantee Smoke scenarios
       | victor.exeqagrantee@yopmail.com | Automation Subject | Automation Body |
     When I click modal button "Close"
     And I refresh the page
-    And I wait for "3" seconds
+    And I wait for "7" seconds
     Then I softly see value "Automation Subject" for title "Subject" inside table "CommunicationHistory"
     Then I softly see value "sarah.pm.ggmergeqa2@yopmail.com" for title "From Address" inside table "CommunicationHistory"
     Then I softly see value "victor.exe.ggmergeqa2@yopmail.com" for title "To Address" inside table "CommunicationHistory"
