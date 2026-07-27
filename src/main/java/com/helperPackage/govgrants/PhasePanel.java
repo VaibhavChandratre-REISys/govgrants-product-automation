@@ -79,6 +79,7 @@ public final class PhasePanel {
      * @param advanceFilterId
      * @param rowvalues
      * @author Vaibhav.chandratre - added for LWC
+     * @modified komal.mukhekar(27/07/2026) - Updated method to handle input field for value in advance filter for LWC
      */
     public void handleDropdownInputForAdvanceFilterForLWC(String advanceFilterId, List rowvalues) {
         By filterAction = null;

@@ -10244,6 +10244,7 @@ Feature: Grantee Smoke scenarios
       | Record deleted successfully. |
     Then I softly do not see value "Automation FD" for title "Role" inside table "---grantee_tableId:-:amendmentPeerReviewerTableId---"
     And I click on "Send for Review" icon for "David FO" inside flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---" without waiting for record
+    And I wait for "5" seconds
     Then I softly see that "Sent for Review" has been added in flextable with Id "---grantee_tableId:-:amendmentPeerReviewerTableId---"
     And I navigate to "Files" sub tab
     And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
@@ -13649,6 +13650,31 @@ Feature: Grantee Smoke scenarios
     Then I see status in Progress-bar is "Active" and is "dark blue"
     #443900
     When I navigate to "Files" sub tab
+    When I enter the following values into flex table with id "---grantee_tableId:-:KPINotesTableId---" by clicking "New" :
+      | Title         | Description       |
+      | Notes Record  | Automation Notes  |
+      | Notes Record1 | Automation Notes1 |
+      | Notes Record2 | Automation Notes2 |
+      | Notes Record3 | Automation Notes3 |
+    Then I softly can see row level action button "Delete" against "Notes Record" in flex table with id "---grantee_tableId:-:KPINotesTableId---"
+    Then I softly can see row level action button "Edit" against "Notes Record" in flex table with id "---grantee_tableId:-:KPINotesTableId---"
+    Then I softly can see row level action button "Delete" against "Notes Record1" in flex table with id "---grantee_tableId:-:KPINotesTableId---"
+    Then I softly can see row level action button "Edit" against "Notes Record1" in flex table with id "---grantee_tableId:-:KPINotesTableId---"
+    Then I softly can see row level action button "Delete" against "Notes Record2" in flex table with id "---grantee_tableId:-:KPINotesTableId---"
+    Then I softly can see row level action button "Edit" against "Notes Record2" in flex table with id "---grantee_tableId:-:KPINotesTableId---"
+    Then I softly can see row level action button "Delete" against "Notes Record3" in flex table with id "---grantee_tableId:-:KPINotesTableId---"
+    Then I softly can see row level action button "Edit" against "Notes Record3" in flex table with id "---grantee_tableId:-:KPINotesTableId---"
+    Then I softly see value "Notes Record" for title "Title" inside table "---grantee_tableId:-:KPINotesTableId---"
+    Then I softly see value "Notes Record1" for title "Title" inside table "---grantee_tableId:-:KPINotesTableId---"
+    Then I softly see value "Notes Record2" for title "Title" inside table "---grantee_tableId:-:KPINotesTableId---"
+    Then I softly see value "Notes Record3" for title "Title" inside table "---grantee_tableId:-:KPINotesTableId---"
+    And I click on "Delete" icon for "Notes Record3" inside flex table with id "---grantee_tableId:-:KPINotesTableId---"
+    Then I softly do not see value "Notes Record3" for title "Title" inside table "---grantee_tableId:-:KPINotesTableId---"
+    And I edit the following rows inline in flex table with id "---grantee_tableId:-:KPINotesTableId---" by clicking "Edit" :
+      | Created By  | Title           | Description         |
+      | <notesUser> | Notes Record PM | Automation Notes PM |
+    Then I softly see value "Notes Record PM" for title "Title" inside table "---grantee_tableId:-:KPINotesTableId---"
+    When I navigate to "Files" sub tab
     And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:KPIFilesTableId---"
     And I upload attachment without random number "AttachmentTesting.pdf" of type "Other" from computer
     When I click modal button "Close"
@@ -13697,31 +13723,6 @@ Feature: Grantee Smoke scenarios
     And I wait for "5" seconds
     Then I softly do not see value "sample.pdf" for title "Title" inside table "---grantee_tableId:-:KPIFilesTableId---"
     And I wait for "5" seconds
-    When I navigate to "Files" sub tab
-    When I enter the following values into flex table with id "---grantee_tableId:-:KPINotesTableId---" by clicking "New" :
-      | Title         | Description       |
-      | Notes Record  | Automation Notes  |
-      | Notes Record1 | Automation Notes1 |
-      | Notes Record2 | Automation Notes2 |
-      | Notes Record3 | Automation Notes3 |
-    Then I softly can see row level action button "Delete" against "Notes Record" in flex table with id "---grantee_tableId:-:KPINotesTableId---"
-    Then I softly can see row level action button "Edit" against "Notes Record" in flex table with id "---grantee_tableId:-:KPINotesTableId---"
-    Then I softly can see row level action button "Delete" against "Notes Record1" in flex table with id "---grantee_tableId:-:KPINotesTableId---"
-    Then I softly can see row level action button "Edit" against "Notes Record1" in flex table with id "---grantee_tableId:-:KPINotesTableId---"
-    Then I softly can see row level action button "Delete" against "Notes Record2" in flex table with id "---grantee_tableId:-:KPINotesTableId---"
-    Then I softly can see row level action button "Edit" against "Notes Record2" in flex table with id "---grantee_tableId:-:KPINotesTableId---"
-    Then I softly can see row level action button "Delete" against "Notes Record3" in flex table with id "---grantee_tableId:-:KPINotesTableId---"
-    Then I softly can see row level action button "Edit" against "Notes Record3" in flex table with id "---grantee_tableId:-:KPINotesTableId---"
-    Then I softly see value "Notes Record" for title "Title" inside table "---grantee_tableId:-:KPINotesTableId---"
-    Then I softly see value "Notes Record1" for title "Title" inside table "---grantee_tableId:-:KPINotesTableId---"
-    Then I softly see value "Notes Record2" for title "Title" inside table "---grantee_tableId:-:KPINotesTableId---"
-    Then I softly see value "Notes Record3" for title "Title" inside table "---grantee_tableId:-:KPINotesTableId---"
-    And I click on "Delete" icon for "Notes Record3" inside flex table with id "---grantee_tableId:-:KPINotesTableId---"
-    Then I softly do not see value "Notes Record3" for title "Title" inside table "---grantee_tableId:-:KPINotesTableId---"
-    And I edit the following rows inline in flex table with id "---grantee_tableId:-:KPINotesTableId---" by clicking "Edit" :
-      | Created By  | Title           | Description         |
-      | <notesUser> | Notes Record PM | Automation Notes PM |
-    Then I softly see value "Notes Record PM" for title "Title" inside table "---grantee_tableId:-:KPINotesTableId---"
 
     Examples:
       | userName      | notesUser  |
