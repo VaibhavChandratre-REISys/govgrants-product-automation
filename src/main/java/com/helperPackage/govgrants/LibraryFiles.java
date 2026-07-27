@@ -96,9 +96,11 @@ public final class LibraryFiles {
      * select classification at upload file modal window - Library files Home phase/record level
      *
      * @param classification
+     * @modified komal.mukhekar(27/07/2026) - Added the XPath to select classification from dropdown in upload file modal window
+     *
      */
     public void selectClassificationAtUploadFileModalUnderLibrary(String classification) {
-        I.amPerforming().dropDownSelection().from(By.xpath("//div[@id='WorkspaceFileEdit']//select | //div[@id='WorkspaceFilesUpload']//select")).selectByValue(classification);
+        I.amPerforming().dropDownSelection().from(By.xpath("//*[@id='WorkspaceFiles']//select | //div[@id='WorkspaceFileEdit']//select | //div[@id='WorkspaceFilesUpload']//select")).selectByValue(classification);
     }
 
     /**

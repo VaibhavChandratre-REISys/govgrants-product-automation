@@ -1740,6 +1740,7 @@ Feature: Grantee Smoke scenarios
     And I create opportunity with state "Approved" for opportunity number "CAS-HHS0000660610" with properties "PRE_APPLICATION_YES"
     And I create Pre-application "{SavedValue:Automation Runtime Opportunity}" with state "Created" for opportunity number "CAS-HHS0000660610" with properties "default"
     When I re-login to "Grantee" app as "<User>" user on "INTERNAL" portal
+    And I wait for "5" seconds
     And I navigate to "Opportunities" tab
     And I click toggle button to select "Opportunities - All"
     When I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:opportunitysGranteeTableId---" panel
@@ -11269,8 +11270,9 @@ Feature: Grantee Smoke scenarios
     And I wait for "3" seconds
     Then I softly do not see value "Victor EXE" for title "Reviewer Name" inside table "---grantee_tableId:-:financialReportPeerReviewTableId---"
     And I click on "Send for Review" icon for "David FO" inside flex table with id "---grantee_tableId:-:financialReportPeerReviewTableId---" without waiting for record
+    And I pause execution for "5" seconds
     And I click on "Send for Review" icon for "Sarah PM" inside flex table with id "---grantee_tableId:-:financialReportPeerReviewTableId---" without waiting for record
-    And I pause execution for "3" seconds
+    And I pause execution for "5" seconds
     When I re-login to "Grantee" app as "GRANTEE PM" user on "INTERNAL" portal
     And I navigate to "Monitoring" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -14023,6 +14025,7 @@ Feature: Grantee Smoke scenarios
     And I clear the value from field "ReportingPeriodStartDate__c"
     And I clear the value from field "ReportingPeriodEndDate__c"
     And I clear the value from field "ReportDueDate__c"
+    And I wait for "5" seconds
     And I click on "Save" in the page details
     And I wait for "2" seconds
     Then I softly see the following messages in the page details contains:
