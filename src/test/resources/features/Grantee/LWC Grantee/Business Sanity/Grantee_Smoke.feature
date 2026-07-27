@@ -13632,7 +13632,7 @@ Feature: Grantee Smoke scenarios
     And I wait for "2" seconds
     Then I softly see notification "Review Opportunity #{SavedValue:opportunityEGMSID} Created for Lead #{SavedValue:FOALead}"
 
-  @495297 @443859 @443900 @ValidateonlyadminEXEandPMusershouldseenewbuttontocreateKPI @Grantee_Smoke2
+  @mk @495297 @443859 @443900 @ValidateonlyadminEXEandPMusershouldseenewbuttontocreateKPI @Grantee_Smoke2
   Scenario Outline:Validate only admin, EXE and PM user should see new button to create KPI
     When I login to "Grantee" app as "<userName>" user
     And I navigate to "Planning" tab
@@ -13697,6 +13697,7 @@ Feature: Grantee Smoke scenarios
     And I wait for "5" seconds
     Then I softly do not see value "sample.pdf" for title "Title" inside table "---grantee_tableId:-:KPIFilesTableId---"
     And I wait for "5" seconds
+    When I navigate to "Files" sub tab
     When I enter the following values into flex table with id "---grantee_tableId:-:KPINotesTableId---" by clicking "New" :
       | Title         | Description       |
       | Notes Record  | Automation Notes  |
