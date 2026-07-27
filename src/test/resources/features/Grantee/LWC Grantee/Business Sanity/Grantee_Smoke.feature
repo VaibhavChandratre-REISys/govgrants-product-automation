@@ -10189,6 +10189,7 @@ Feature: Grantee Smoke scenarios
     Then I softly see the following messages in the page details contains:
       | Files Tab- Provide attachment in Files section with classification "Terms and Conditions" if 'Separate Attachment for Terms and Conditions' in Overview tab is selected. |
     When I navigate to "Files" sub tab
+    And I wait for "5" seconds
     And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
     And I upload attachment without random number "AttachmentTesting.pdf" of type "Terms and Conditions" from computer
     When I click modal button "Close"
@@ -11413,7 +11414,7 @@ Feature: Grantee Smoke scenarios
       | Description      |
       | Automation Notes |
     Then I softly see the following messages in the page details :
-      | Required Fields Missing |
+      | Please complete all field(s) marked in red. |
     And I refresh the page
     And I wait for "3" seconds
     When I enter the following values into flex table with id "---grantee_tableId:-:financialReportNotesTableId---" by clicking "New" :
