@@ -1247,16 +1247,10 @@ Feature: Grantee Smoke scenarios
       | Notes Record1 | Automation Notes1 |
       | Notes Record2 | Automation Notes2 |
       | Notes Record3 | Automation Notes3 |
-    Then I see the following rows under the following headers in table with id "---grantee_tableId:-:KPINotesTableId---" :
-      | Title         |
-      | Notes Record  |
-      | Notes Record1 |
-      | Notes Record2 |
-      | Notes Record3 |
-#    Then I softly see value "Notes Record" for title "Title" inside table "---grantee_tableId:-:KPINotesTableId---"
-#    Then I softly see value "Notes Record1" for title "Title" inside table "---grantee_tableId:-:KPINotesTableId---"
-#    Then I softly see value "Notes Record2" for title "Title" inside table "---grantee_tableId:-:KPINotesTableId---"
-#    Then I softly see value "Notes Record3" for title "Title" inside table "---grantee_tableId:-:KPINotesTableId---"
+    Then I softly see value "Notes Record" for title "Title" inside table "---grantee_tableId:-:KPINotesTableId---"
+    Then I softly see value "Notes Record1" for title "Title" inside table "---grantee_tableId:-:KPINotesTableId---"
+    Then I softly see value "Notes Record2" for title "Title" inside table "---grantee_tableId:-:KPINotesTableId---"
+    Then I softly see value "Notes Record3" for title "Title" inside table "---grantee_tableId:-:KPINotesTableId---"
     And I navigate to "Messages" sub tab
     And I click on top right button "Send Email" in flex table with id "CommunicationHistory"
     And I send the email under collab tab with following details:
@@ -7809,6 +7803,7 @@ Feature: Grantee Smoke scenarios
     And I click on "Delete" icon for "Notice of Award" inside flex table with id "---grantee_tableId:-:amendmentRequestAddFile---" without waiting for record
     Then I softly do not see value "Notice of Award" for title "Title" inside table "---grantee_tableId:-:amendmentRequestAddFile---"
     And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:amendmentRequestAddFile---"
+    And I wait for "5" seconds
     And I upload attachment without random number "Attachment.pdf" of type "Terms and Conditions" from computer
     When I click modal button "Close"
     And I wait for "2" seconds
