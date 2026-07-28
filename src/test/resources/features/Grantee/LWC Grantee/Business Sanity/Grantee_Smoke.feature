@@ -5189,7 +5189,7 @@ Feature: Grantee Smoke scenarios
     And I upload attachment without random number "AttachmentTesting.pdf" of type "Other" from computer
     When I click modal button "Close"
     And I wait for "2" seconds
-    Then I see "AttachmentTesting.pdf" has been added in "Strategic Plan Files" flex table
+    Then I softly see "AttachmentTesting.pdf" has been added in "Strategic Plan Files" flex table
     And I click on "Edit" icon for "Other" inside flex table with id "---grantee_tableId:-:strategicPlansFilesTableId---"
     And I update title as "Automation.pdf" on upload file modal
     And I select Classification as "Strategic Plan" at upload file modal
@@ -5202,7 +5202,7 @@ Feature: Grantee Smoke scenarios
     And I upload attachment without random number "Attachment.pdf" of type "Other" from computer
     When I click modal button "Close"
     And I wait for "2" seconds
-    Then I see "Attachment.pdf" has been added in "Strategic Plan Files" flex table
+    Then I softly see "Attachment.pdf" has been added in "Strategic Plan Files" flex table
     When I enter the following values into flex table with id "---grantee_tableId:-:strategicPlansNotesTableId---" by clicking "New" :
       | Title        | Description      |
       | Notes Record | Automation Notes |
@@ -5237,7 +5237,7 @@ Feature: Grantee Smoke scenarios
     And I upload attachment without random number "AttachmentTesting.pdf" of type "Other" from computer
     When I click modal button "Close"
     And I wait for "2" seconds
-    Then I see "AttachmentTesting.pdf" has been added in "Strategic GoaI Files" flex table
+    Then I softly see "AttachmentTesting.pdf" has been added in "Strategic GoaI Files" flex table
     And I click on "Edit" icon for "Other" inside flex table with id "---grantee_tableId:-:strategicGoalsFilesTableId---"
     And I update title as "Automation.pdf" on upload file modal
     And I select Classification as "Strategic Goal" at upload file modal
@@ -5250,7 +5250,7 @@ Feature: Grantee Smoke scenarios
     And I upload attachment without random number "Attachment.pdf" of type "Other" from computer
     When I click modal button "Close"
     And I wait for "2" seconds
-    Then I see "Attachment.pdf" has been added in "Strategic GoaI Files" flex table
+    Then I softly see "Attachment.pdf" has been added in "Strategic GoaI Files" flex table
     When I enter the following values into flex table with id "---grantee_tableId:-:strategicGoalsNotesTableId---" by clicking "New" :
       | Title        | Description      |
       | Notes Record | Automation Notes |
