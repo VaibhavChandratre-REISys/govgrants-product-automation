@@ -757,12 +757,16 @@ public final class GovGrantsAssertionSteps {
         ggAssertionObjects.assertToggleOptionDisplayed(toggleOptions, flexTableId, usage);
     }
 
-    @Then("^I (see|do not see) the text \"([^\"]*)\" in modal$")
+    @Then("^I (see|softly see|do not see|softly do not see) the text \"([^\"]*)\" in modal$")
     public void validateTextInModal(String usage, String text) {
         govgrants.perform().mainPage().waitForNavigationLogoToDisappear();
         if (usage.equalsIgnoreCase("see")) {
+            Assert.assertTrue(ggAssertionObjects.AssertTextinModal(text));
+        } else if (usage.equalsIgnoreCase("softly see")) {
             I.amPerforming().assertionsTo().assertThat(ggAssertionObjects.AssertTextinModal(text)).isTrue();
-        } else if (usage.equalsIgnoreCase("do not see")) {
+        }else if (usage.equalsIgnoreCase("do not see")) {
+            Assert.assertFalse(ggAssertionObjects.AssertTextinModal(text));
+        } else if (usage.equalsIgnoreCase("softly do not see")) {
             I.amPerforming().assertionsTo().assertThat(ggAssertionObjects.AssertTextinModal(text)).isFalse();
         }
     }

@@ -1742,6 +1742,7 @@ Feature: Grantee Smoke scenarios
     When I re-login to "Grantee" app as "<User>" user on "INTERNAL" portal
     And I wait for "5" seconds
     And I navigate to "Opportunities" tab
+    When I navigate to "Converted to Application" content inside "Opportunities" subheader on left panel
     And I click toggle button to select "Opportunities - All"
     When I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:opportunitysGranteeTableId---" panel
     And I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside flex table with id "---grantee_tableId:-:opportunitysGranteeTableId---" without waiting for record
@@ -5170,7 +5171,7 @@ Feature: Grantee Smoke scenarios
       | userType   |
       | GRANTEE PM |
 
-  @440386 @ValidatePMusercancreateandActivateStrategicplan @Grantee_Smoke1
+  @mk @440386 @ValidatePMusercancreateandActivateStrategicplan @Grantee_Smoke1
   Scenario Outline: Validate PM user can create and Activate Strategic plan
     When I login to "Grantee" app as "<userType>" user
     And I navigate to "Planning" tab
@@ -5215,7 +5216,7 @@ Feature: Grantee Smoke scenarios
     And I send the email under collab tab with following details:
       | To          | Subject            | Body            |
       | <emailIdTo> | Automation Subject | Automation Body |
-    And I wait for "5" seconds
+    And I wait for "7" seconds
     When I click modal button "Close"
     And I refresh the page
     And I wait for "5" seconds
@@ -5263,9 +5264,12 @@ Feature: Grantee Smoke scenarios
     And I send the email under collab tab with following details:
       | To          | Subject            | Body            |
       | <emailIdTo> | Automation Subject | Automation Body |
+    And I wait for "5" seconds
+    Then I softly see the text "Email Sent Successfully." in modal
     When I click modal button "Close"
     And I refresh the page
-    And I wait for "3" seconds
+    And I halt execution
+    And I navigate to "Messages" sub tab
     Then I softly see value "Automation Subject" for title "Subject" inside table "CommunicationHistory"
     Then I softly see value "<emailIdFrom>" for title "From Address" inside table "CommunicationHistory"
     Then I softly see value "<emailIdTo>" for title "To Address" inside table "CommunicationHistory"
@@ -5303,7 +5307,8 @@ Feature: Grantee Smoke scenarios
     And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
     When I click modal button "Close"
     And I wait for "2" seconds
-    Then I see "Attachment.pdf" has been added in "Objective Files" flex table
+    And I halt execution
+    Then I softly see "Attachment.pdf" has been added in "Objective Files" flex table
     When I enter the following values into flex table with id "---grantee_tableId:-:objectivesNotesTableId---" by clicking "New" :
       | Title        | Description      |
       | Notes Record | Automation Notes |
@@ -5317,9 +5322,13 @@ Feature: Grantee Smoke scenarios
     And I send the email under collab tab with following details:
       | To          | Subject            | Body            |
       | <emailIdTo> | Automation Subject | Automation Body |
+    Then I softly see the text "Email Sent Successfully." in modal
+    And I wait for "3" seconds
     When I click modal button "Close"
     And I refresh the page
     And I wait for "3" seconds
+    And I halt execution
+    And I navigate to "Messages" sub tab
     Then I softly see value "Automation Subject" for title "Subject" inside table "CommunicationHistory"
     Then I softly see value "<emailIdFrom>" for title "From Address" inside table "CommunicationHistory"
     Then I softly see value "<emailIdTo>" for title "To Address" inside table "CommunicationHistory"

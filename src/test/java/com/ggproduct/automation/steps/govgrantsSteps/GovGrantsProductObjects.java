@@ -610,7 +610,7 @@ public final class GovGrantsProductObjects {
             I.amPerforming().textInput().toClear(By.xpath("//gnt-email-component//div[contains(@class,'text-area')]"));
             I.amPerforming().textInput().in(By.xpath("//gnt-email-component//div[contains(@class,'text-area')]"), ll.get(2));
             I.amPerforming().click().withJavaScript(By.xpath("//c-modal-flex-layout//button[contains(text(),'Send')] | //gnt-email-component//button[@title='Send']"));
-            I.amPerforming().waitFor().makeThreadSleep(3000);
+            I.amPerforming().waitFor().makeThreadSleep(7000);
         }
     }
 
