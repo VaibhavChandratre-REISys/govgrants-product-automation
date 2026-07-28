@@ -814,12 +814,12 @@ Feature: Grantee Smoke scenarios
     And I click modal button "Close"
     And I wait for "3" seconds
     And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:KeyPerformanceIndicatorTableId---"
-    When I click "Associate" after selection of "Automation Runtime KPI" in the table "---grantee_tableId:-:selectAwardKPITableId---"
+    When I click "Associate" after selection of "{SavedValue:Automation Runtime KPI}" in the table "---grantee_tableId:-:selectAwardKPITableId---"
     And I click modal button "Close"
     And I wait for "2" seconds
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:KeyPerformanceIndicatorTableId---" by clicking "Edit" :
-      | Title                  | Target | Current Value | Current Value As Of |
-      | Automation Runtime KPI | 10     | 10            | 0                   |
+      | Title                               | Target | Current Value | Current Value As Of |
+      | {SavedValue:Automation Runtime KPI} | 10     | 10            | 0                   |
     And I click on top right button "New" in flex table with id "---grantee_tableId:-:SpecialConditionTableId---"
     When I enter in modal value "Terms" into field "Title__c"
     When I enter in modal value "Terms Description" into field "Description__c"
@@ -1216,7 +1216,6 @@ Feature: Grantee Smoke scenarios
     And I upload attachment without random number "AttachmentTesting.pdf" of type "Other" from computer
     When I click modal button "Close"
     And I wait for "2" seconds
-    Then I see "AttachmentTesting.pdf" has been added in "KPI Files" flex table
     And I click on "Edit" icon for "Other" inside flex table with id "---grantee_tableId:-:KPIFilesTableId---"
     And I update title as "Automation.pdf" on upload file modal
     And I select Classification as "Supporting Documents" at upload file modal
@@ -1229,33 +1228,35 @@ Feature: Grantee Smoke scenarios
     And I upload attachment without random number "Attachment.pdf" of type "Other" from computer
     When I click modal button "Close"
     And I wait for "2" seconds
-    Then I see "Attachment.pdf" has been added in "KPI Files" flex table
     And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:KPIFilesTableId---"
     And I upload attachment without random number "Attachment1.pdf" of type "Other" from computer
     When I click modal button "Close"
     And I wait for "2" seconds
-    Then I see "Attachment1.pdf" has been added in "KPI Files" flex table
     And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:KPIFilesTableId---"
     And I upload attachment without random number "sample.pdf" of type "Other" from computer
     When I click modal button "Close"
-    And I wait for "2" seconds
-    Then I see "sample.pdf" has been added in "KPI Files" flex table
-    When I enter the following values into flex table with id "---grantee_tableId:-:KPINotesTableId---" by clicking "New" :
-      | Title        | Description      |
-      | Notes Record | Automation Notes |
+    And I refresh the page
+    And I wait for "5" seconds
+    Then I softly see "AttachmentTesting.pdf" has been added in "KPI Files" flex table
+    Then I softly see "Attachment.pdf" has been added in "KPI Files" flex table
+    Then I softly see "Attachment1.pdf" has been added in "KPI Files" flex table
+    Then I softly see "sample.pdf" has been added in "KPI Files" flex table
     When I enter the following values into flex table with id "---grantee_tableId:-:KPINotesTableId---" by clicking "New" :
       | Title         | Description       |
+      | Notes Record  | Automation Notes  |
       | Notes Record1 | Automation Notes1 |
-    When I enter the following values into flex table with id "---grantee_tableId:-:KPINotesTableId---" by clicking "New" :
-      | Title         | Description       |
       | Notes Record2 | Automation Notes2 |
-    When I enter the following values into flex table with id "---grantee_tableId:-:KPINotesTableId---" by clicking "New" :
-      | Title         | Description       |
       | Notes Record3 | Automation Notes3 |
-    Then I softly see value "Notes Record" for title "Title" inside table "---grantee_tableId:-:KPINotesTableId---"
-    Then I softly see value "Notes Record1" for title "Title" inside table "---grantee_tableId:-:KPINotesTableId---"
-    Then I softly see value "Notes Record2" for title "Title" inside table "---grantee_tableId:-:KPINotesTableId---"
-    Then I softly see value "Notes Record3" for title "Title" inside table "---grantee_tableId:-:KPINotesTableId---"
+    Then I see the following rows under the following headers in table with id "---grantee_tableId:-:KPINotesTableId---" :
+      | Title         |
+      | Notes Record  |
+      | Notes Record1 |
+      | Notes Record2 |
+      | Notes Record3 |
+#    Then I softly see value "Notes Record" for title "Title" inside table "---grantee_tableId:-:KPINotesTableId---"
+#    Then I softly see value "Notes Record1" for title "Title" inside table "---grantee_tableId:-:KPINotesTableId---"
+#    Then I softly see value "Notes Record2" for title "Title" inside table "---grantee_tableId:-:KPINotesTableId---"
+#    Then I softly see value "Notes Record3" for title "Title" inside table "---grantee_tableId:-:KPINotesTableId---"
     And I navigate to "Messages" sub tab
     And I click on top right button "Send Email" in flex table with id "CommunicationHistory"
     And I send the email under collab tab with following details:
@@ -1430,16 +1431,16 @@ Feature: Grantee Smoke scenarios
     And I save the field labeled "4-Digit Zip Code Extension" as "ZipCodeExtension"
     Then I softly see field "4-Digit Zip Code Extension" as "{SavedValue:ZipCodeExtension}"
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:amendmentKPITableId---" by clicking "Edit" :
-      | EGMS ID                | Target |
-      | Automation Runtime KPI |        |
+      | EGMS ID                             | Target |
+      | {SavedValue:Automation Runtime KPI} |        |
     Then I softly see the following messages in the page details contains:
       | Please complete all field(s) marked in red. |
     And I refresh the page
     And I wait for "3" seconds
     And I navigate to "Overview" sub tab
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:amendmentKPITableId---" by clicking "Edit" :
-      | EGMS ID                | Target |
-      | Automation Runtime KPI | 0      |
+      | EGMS ID                             | Target |
+      | {SavedValue:Automation Runtime KPI} | 0      |
     When I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---grantee_tableId:-:AmendmentApproverRolesTableId---" by clicking "New" :
       | Name     | Amendment Request |
@@ -3813,12 +3814,12 @@ Feature: Grantee Smoke scenarios
     And I click modal button "Close"
     And I wait for "3" seconds
     And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:KeyPerformanceIndicatorTableId---"
-    When I click "Associate" after selection of "Automation Runtime KPI" in the table "---grantee_tableId:-:selectAwardKPITableId---"
+    When I click "Associate" after selection of "{SavedValue:Automation Runtime KPI}" in the table "---grantee_tableId:-:selectAwardKPITableId---"
     And I click modal button "Close"
     And I wait for "3" seconds
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:KeyPerformanceIndicatorTableId---" by clicking "Edit" :
-      | Title                  | Target | Current Value | Current Value As Of |
-      | Automation Runtime KPI | 10     | 10            | 0                   |
+      | Title                               | Target | Current Value | Current Value As Of |
+      | {SavedValue:Automation Runtime KPI} | 10     | 10            | 0                   |
     And I click on top right button "New" in flex table with id "---grantee_tableId:-:SpecialConditionTableId---"
     When I enter in modal value "Terms" into field "Title__c"
     When I enter in modal value "Terms Description" into field "Description__c"
@@ -4227,12 +4228,12 @@ Feature: Grantee Smoke scenarios
     When I click "Associate" after selection of "Automation Permanent Objective" in the table "---grantee_tableId:-:awardAssociateObjectiveTableId---"
     And I click modal button "Close"
     And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:KeyPerformanceIndicatorTableId---"
-    When I click "Associate" after selection of "Automation Runtime KPI" in the table "---grantee_tableId:-:selectAwardKPITableId---"
+    When I click "Associate" after selection of "{SavedValue:Automation Runtime KPI}" in the table "---grantee_tableId:-:selectAwardKPITableId---"
     And I click modal button "Close"
     And I wait for "2" seconds
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:KeyPerformanceIndicatorTableId---" by clicking "Edit" :
-      | Title                  | Target | Current Value | Current Value As Of |
-      | Automation Runtime KPI | 10     | 10            | 0                   |
+      | Title                               | Target | Current Value | Current Value As Of |
+      | {SavedValue:Automation Runtime KPI} | 10     | 10            | 0                   |
     And I click on top right button "New" in flex table with id "---grantee_tableId:-:SpecialConditionTableId---"
     When I enter in modal value "Terms" into field "Title__c"
     When I enter in modal value "Terms Description" into field "Description__c"
@@ -5216,7 +5217,8 @@ Feature: Grantee Smoke scenarios
     And I send the email under collab tab with following details:
       | To          | Subject            | Body            |
       | <emailIdTo> | Automation Subject | Automation Body |
-    And I wait for "7" seconds
+    And I wait for "5" seconds
+    Then I softly see the text "Email Sent Successfully." in modal
     When I click modal button "Close"
     And I refresh the page
     And I wait for "5" seconds
@@ -5268,7 +5270,6 @@ Feature: Grantee Smoke scenarios
     Then I softly see the text "Email Sent Successfully." in modal
     When I click modal button "Close"
     And I refresh the page
-    And I halt execution
     And I navigate to "Messages" sub tab
     Then I softly see value "Automation Subject" for title "Subject" inside table "CommunicationHistory"
     Then I softly see value "<emailIdFrom>" for title "From Address" inside table "CommunicationHistory"
@@ -5283,11 +5284,11 @@ Feature: Grantee Smoke scenarios
     Then I softly see field "Activities" as "Automation Test Description"
     When I navigate to "Related Log" sub tab
     And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:strategicObjectivesKPITableId---"
-    When I click "Associate" after selection of "Automation Runtime KPI" in the table "---grantee_tableId:-:objectivesSelectKPITableId---"
+    When I click "Associate" after selection of "{SavedValue:Automation Runtime KPI}" in the table "---grantee_tableId:-:objectivesSelectKPITableId---"
     When I click modal button "Close"
     And I refresh the page
     And I wait for "3" seconds
-    Then I softly see that "Automation Runtime KPI" has been added in flextable with Id "---grantee_tableId:-:strategicObjectivesKPITableId---"
+    Then I softly see that "{SavedValue:Automation Runtime KPI}" has been added in flextable with Id "---grantee_tableId:-:strategicObjectivesKPITableId---"
     Then I softly see field "Status" as "Draft"
     When I navigate to "Files" sub tab
     And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:objectivesAddFilesTableId---"
@@ -5307,7 +5308,6 @@ Feature: Grantee Smoke scenarios
     And I upload attachment without random number "Attachment.pdf" of type "Others" from computer
     When I click modal button "Close"
     And I wait for "2" seconds
-    And I halt execution
     Then I softly see "Attachment.pdf" has been added in "Objective Files" flex table
     When I enter the following values into flex table with id "---grantee_tableId:-:objectivesNotesTableId---" by clicking "New" :
       | Title        | Description      |
@@ -5327,7 +5327,6 @@ Feature: Grantee Smoke scenarios
     When I click modal button "Close"
     And I refresh the page
     And I wait for "3" seconds
-    And I halt execution
     And I navigate to "Messages" sub tab
     Then I softly see value "Automation Subject" for title "Subject" inside table "CommunicationHistory"
     Then I softly see value "<emailIdFrom>" for title "From Address" inside table "CommunicationHistory"
@@ -5335,7 +5334,7 @@ Feature: Grantee Smoke scenarios
     And I save the field labeled "Strategic Plan" as "StrategicPlan"
     And I click on hyperlink containing value "{SavedValue:StrategicPlan}"
     When I navigate to "Related Log" sub tab
-    Then I softly see that "Automation Runtime KPI" has been added in flextable with Id "---grantee_tableId:-:strategicPlanKPITableId---"
+    Then I softly see that "{SavedValue:Automation Runtime KPI}" has been added in flextable with Id "---grantee_tableId:-:strategicPlanKPITableId---"
     Then I softly see field "Status" as "Draft"
     Then I softly see status in Progress-bar is "Created" and is "dark blue"
     And I navigate to "Planning" tab
@@ -5394,6 +5393,8 @@ Feature: Grantee Smoke scenarios
     And I send the email under collab tab with following details:
       | To                        | Subject            | Body            |
       | pm.automation@yopmail.com | Automation Subject | Automation Body |
+    And I wait for "5" seconds
+    Then I softly see the text "Email Sent Successfully." in modal
     When I click modal button "Close"
     And I refresh the page
     And I wait for "3" seconds
@@ -7017,8 +7018,8 @@ Feature: Grantee Smoke scenarios
     Then I softly see top right button "New" inside flex table "---grantee_tableId:-:ProgressReportTableId---"
     Then I softly see top right button "New" inside flex table "---grantee_tableId:-:FinancialsReportTableId---"
     And I navigate to "Monitoring" sub tab
-    Then I can see row level action button "View" against "Automation Runtime KPI" in flex table with id "---grantee_tableId:-:KeyPerformanceIndicatorTableId---"
-    Then I cannot see row level action button "Edit" against "Automation Runtime KPI" in flex table with id "---grantee_tableId:-:KeyPerformanceIndicatorTableId---"
+    Then I can see row level action button "View" against "{SavedValue:Automation Runtime KPI}" in flex table with id "---grantee_tableId:-:KeyPerformanceIndicatorTableId---"
+    Then I cannot see row level action button "Edit" against "{SavedValue:Automation Runtime KPI}" in flex table with id "---grantee_tableId:-:KeyPerformanceIndicatorTableId---"
     Then I can see row level action button "View" against "{SavedValue:TermsId}" in flex table with id "---grantee_tableId:-:SpecialConditionTableId---"
     Then I cannot see row level action button "Edit" against "{SavedValue:TermsId}" in flex table with id "---grantee_tableId:-:SpecialConditionTableId---"
     Then I cannot see row level action button "View" against "Automation Permanent Objective" in flex table with id "---grantee_tableId:-:awardObjectiveTableId---"
@@ -7932,6 +7933,8 @@ Feature: Grantee Smoke scenarios
     And I send the email under collab tab with following details:
       | To          | Subject            | Body            |
       | <emailIdTo> | Automation Subject | Automation Body |
+    And I wait for "5" seconds
+    Then I softly see the text "Email Sent Successfully." in modal
     When I click modal button "Close"
     And I refresh the page
     And I wait for "3" seconds
@@ -8103,7 +8106,7 @@ Feature: Grantee Smoke scenarios
       | OwnerType     | UserType   | emailIdTo                       | CreatedBy |
       | Sarah PM user | GRANTEE PM | victor.exeqagrantee@yopmail.com | Sarah PM  |
 
-  @485463 @ValidatePMuserFinancialreportOwnercanabletocreateAdhocFinancialReportabletosubmitFinancialReporttoGrantor @Grantee_Smoke2
+  @PROD-81248 @PROD-81256 @485463 @ValidatePMuserFinancialreportOwnercanabletocreateAdhocFinancialReportabletosubmitFinancialReporttoGrantor @Grantee_Smoke2
   Scenario: Validate PM user Financial report Owner can able to create Adhoc Financial Report  able to submit Financial Report to Grantor
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default"
@@ -8426,6 +8429,8 @@ Feature: Grantee Smoke scenarios
     And I send the email under collab tab with following details:
       | To                        | Subject            | Body            |
       | pm.automation@yopmail.com | Automation Subject | Automation Body |
+    And I wait for "5" seconds
+    Then I softly see the text "Email Sent Successfully." in modal
     When I click modal button "Close"
     And I refresh the page
     And I wait for "3" seconds
@@ -10432,6 +10437,8 @@ Feature: Grantee Smoke scenarios
     And I send the email under collab tab with following details:
       | To                              | Subject            | Body            |
       | victor.exeqagrantee@yopmail.com | Automation Subject | Automation Body |
+    And I wait for "5" seconds
+    Then I softly see the text "Email Sent Successfully." in modal
     When I click modal button "Close"
     And I refresh the page
     And I wait for "7" seconds
@@ -11462,6 +11469,8 @@ Feature: Grantee Smoke scenarios
     And I send the email under collab tab with following details:
       | To                        | Subject            | Body            |
       | pm.automation@yopmail.com | Automation Subject | Automation Body |
+    And I wait for "5" seconds
+    Then I softly see the text "Email Sent Successfully." in modal
     When I click modal button "Close"
     And I refresh the page
     And I wait for "3" seconds
@@ -11884,7 +11893,7 @@ Feature: Grantee Smoke scenarios
     Then I softly see "Previous Value As Of" in flex table header "---grantee_tableId:-:KPIOnProgressReport---"
     Then I softly see "Reported Value" in flex table header "---grantee_tableId:-:KPIOnProgressReport---"
     Then I softly see "Reported Value As Of" in flex table header "---grantee_tableId:-:KPIOnProgressReport---"
-    And I click on "Edit" icon for "Automation Runtime KPI" inside flex table with id "---grantee_tableId:-:KPIOnProgressReport---"
+    And I click on "Edit" icon for "{SavedValue:Automation Runtime KPI}" inside flex table with id "---grantee_tableId:-:KPIOnProgressReport---"
     Then I softly see field inside table "masterkpi__r.name" not in edit mode
     Then I softly see field inside table "MasterKPI__r.Title__c" not in edit mode
     Then I softly see field inside table "MasterKPI__r.Domain__c" not in edit mode
@@ -11899,8 +11908,8 @@ Feature: Grantee Smoke scenarios
     And I refresh the page
     And I wait for "2" seconds
     When I edit the following rows inline in flex table with id "---grantee_tableId:-:KPIOnProgressReport---" by clicking "Edit" :
-      | EGMS ID                | Reported Value | Reported Value As Of |
-      | Automation Runtime KPI | 10             | 1                    |
+      | EGMS ID                             | Reported Value | Reported Value As Of |
+      | {SavedValue:Automation Runtime KPI} | 10             | 1                    |
     And I click on "Edit" in the page details
     Then I see textarea field "KeyAccomplishments__c" is editable
     Then I see textarea field "Obstacles__c" is editable
@@ -12172,6 +12181,8 @@ Feature: Grantee Smoke scenarios
     And I send the email under collab tab with following details:
       | To                        | Subject            | Body            |
       | pm.automation@yopmail.com | Automation Subject | Automation Body |
+    And I wait for "5" seconds
+    Then I softly see the text "Email Sent Successfully." in modal
     When I click modal button "Close"
     And I refresh the page
     And I wait for "3" seconds
@@ -12201,8 +12212,8 @@ Feature: Grantee Smoke scenarios
     Then I softly cannot see row level action button "Edit" against "Victor EXE" in flex table with id "---grantee_tableId:-:OtherKeyContactsForFinancialReport---"
     Then I softly can see row level action button "View" against "Victor EXE" in flex table with id "---grantee_tableId:-:OtherKeyContactsForFinancialReport---"
     And I navigate to "Performance" sub tab
-    Then I softly cannot see row level action button "Edit" against "Automation Runtime KPI" in flex table with id "---grantee_tableId:-:KPIOnProgressReport---"
-    Then I softly cannot see row level action button "View" against "Automation Runtime KPI" in flex table with id "---grantee_tableId:-:KPIOnProgressReport---"
+    Then I softly cannot see row level action button "Edit" against "{SavedValue:Automation Runtime KPI}" in flex table with id "---grantee_tableId:-:KPIOnProgressReport---"
+    Then I softly cannot see row level action button "View" against "{SavedValue:Automation Runtime KPI}" in flex table with id "---grantee_tableId:-:KPIOnProgressReport---"
     When I navigate to "Responsibilities" sub tab
     Then I softly do not see top right button "New" inside flex table "---grantee_tableId:-:financialReportPeerReviewTableId---"
     Then I softly do not see top right button "New" inside flex table "---grantee_tableId:-:progressReportApprovers---"
@@ -12526,7 +12537,7 @@ Feature: Grantee Smoke scenarios
     Then I softly see "Previous Value As Of" in flex table header "---grantee_tableId:-:KPIOnProgressReport---"
     Then I softly see "Reported Value" in flex table header "---grantee_tableId:-:KPIOnProgressReport---"
     Then I softly see "Reported Value As Of" in flex table header "---grantee_tableId:-:KPIOnProgressReport---"
-    And I click on "Edit" icon for "Automation Runtime KPI" inside flex table with id "---grantee_tableId:-:KPIOnProgressReport---"
+    And I click on "Edit" icon for "{SavedValue:Automation Runtime KPI}" inside flex table with id "---grantee_tableId:-:KPIOnProgressReport---"
     Then I softly see field inside table "masterkpi__r.name" not in edit mode
     Then I softly see field inside table "MasterKPI__r.Title__c" not in edit mode
     Then I softly see field inside table "MasterKPI__r.Domain__c" not in edit mode
@@ -12541,8 +12552,8 @@ Feature: Grantee Smoke scenarios
     And I refresh the page
     And I wait for "2" seconds
     When I edit the following rows inline in flex table with id "---grantee_tableId:-:KPIOnProgressReport---" by clicking "Edit" :
-      | EGMS ID                | Reported Value | Reported Value As Of |
-      | Automation Runtime KPI | 10             | 1                    |
+      | EGMS ID                             | Reported Value | Reported Value As Of |
+      | {SavedValue:Automation Runtime KPI} | 10             | 1                    |
     And I click on "Edit" in the page details
     Then I see textarea field "KeyAccomplishments__c" is editable
     Then I see textarea field "Obstacles__c" is editable
@@ -12814,6 +12825,8 @@ Feature: Grantee Smoke scenarios
     And I send the email under collab tab with following details:
       | To                        | Subject            | Body            |
       | pm.automation@yopmail.com | Automation Subject | Automation Body |
+    And I wait for "5" seconds
+    Then I softly see the text "Email Sent Successfully." in modal
     When I click modal button "Close"
     And I refresh the page
     And I wait for "3" seconds
@@ -12843,8 +12856,8 @@ Feature: Grantee Smoke scenarios
     Then I softly cannot see row level action button "Edit" against "Victor EXE" in flex table with id "---grantee_tableId:-:OtherKeyContactsForFinancialReport---"
     Then I softly can see row level action button "View" against "Victor EXE" in flex table with id "---grantee_tableId:-:OtherKeyContactsForFinancialReport---"
     And I navigate to "Performance" sub tab
-    Then I softly cannot see row level action button "Edit" against "Automation Runtime KPI" in flex table with id "---grantee_tableId:-:KPIOnProgressReport---"
-    Then I softly cannot see row level action button "View" against "Automation Runtime KPI" in flex table with id "---grantee_tableId:-:KPIOnProgressReport---"
+    Then I softly cannot see row level action button "Edit" against "{SavedValue:Automation Runtime KPI}" in flex table with id "---grantee_tableId:-:KPIOnProgressReport---"
+    Then I softly cannot see row level action button "View" against "{SavedValue:Automation Runtime KPI}" in flex table with id "---grantee_tableId:-:KPIOnProgressReport---"
     When I navigate to "Responsibilities" sub tab
     Then I softly do not see top right button "New" inside flex table "---grantee_tableId:-:financialReportPeerReviewTableId---"
     Then I softly do not see top right button "New" inside flex table "---grantee_tableId:-:progressReportApprovers---"
@@ -13461,9 +13474,9 @@ Feature: Grantee Smoke scenarios
     When I click on parallel lines menu bar with data target value "Key Performance Indicators (KPIs)"
     Then I see option "Refresh" present in parallel dropdown
     Then I see option "Download as PDF" present in parallel dropdown
-    Then I can see row level action button "View" against "Automation Runtime KPI" in flex table with id "---grantee_tableId:-:KeyPerformanceIndicatorTableId---"
-    Then I can see row level action button "Edit" against "Automation Runtime KPI" in flex table with id "---grantee_tableId:-:KeyPerformanceIndicatorTableId---"
-    Then I can see row level action button "Remove" against "Automation Runtime KPI" in flex table with id "---grantee_tableId:-:KeyPerformanceIndicatorTableId---"
+    Then I can see row level action button "View" against "{SavedValue:Automation Runtime KPI}" in flex table with id "---grantee_tableId:-:KeyPerformanceIndicatorTableId---"
+    Then I can see row level action button "Edit" against "{SavedValue:Automation Runtime KPI}" in flex table with id "---grantee_tableId:-:KeyPerformanceIndicatorTableId---"
+    Then I can see row level action button "Remove" against "{SavedValue:Automation Runtime KPI}" in flex table with id "---grantee_tableId:-:KeyPerformanceIndicatorTableId---"
     Then I softly see "Special Conditions" page block displayed
     Then I softly see top right button "New" inside flex table "---grantee_tableId:-:SpecialConditionTableId---"
     Then I softly see "EGMS ID" in flex table header "---grantee_tableId:-:SpecialConditionTableId---"
@@ -13555,6 +13568,8 @@ Feature: Grantee Smoke scenarios
     And I send the email under collab tab with following details:
       | To                        | Subject            | Body            |
       | pm.automation@yopmail.com | Automation Subject | Automation Body |
+    And I wait for "5" seconds
+    Then I softly see the text "Email Sent Successfully." in modal
     When I click modal button "Close"
     And I refresh the page
     And I wait for "3" seconds
@@ -13692,7 +13707,7 @@ Feature: Grantee Smoke scenarios
     And I upload attachment without random number "AttachmentTesting.pdf" of type "Other" from computer
     When I click modal button "Close"
     And I wait for "2" seconds
-    Then I see "AttachmentTesting.pdf" has been added in "KPI Files" flex table
+    Then I softly see "AttachmentTesting.pdf" has been added in "KPI Files" flex table
     And I click on "Edit" icon for "Other" inside flex table with id "---grantee_tableId:-:KPIFilesTableId---"
     And I update title as "Automation.pdf" on upload file modal
     And I select Classification as "Supporting Documents" at upload file modal
@@ -13705,17 +13720,17 @@ Feature: Grantee Smoke scenarios
     And I upload attachment without random number "Attachment.pdf" of type "Other" from computer
     When I click modal button "Close"
     And I wait for "2" seconds
-    Then I see "Attachment.pdf" has been added in "KPI Files" flex table
+    Then I softly see "Attachment.pdf" has been added in "KPI Files" flex table
     And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:KPIFilesTableId---"
     And I upload attachment without random number "Attachment1.pdf" of type "Other" from computer
     When I click modal button "Close"
     And I wait for "2" seconds
-    Then I see "Attachment1.pdf" has been added in "KPI Files" flex table
+    Then I softly see "Attachment1.pdf" has been added in "KPI Files" flex table
     And I click on top right button "Add Files" in flex table with id "---grantee_tableId:-:KPIFilesTableId---"
     And I upload attachment without random number "sample.pdf" of type "Other" from computer
     When I click modal button "Close"
     And I wait for "2" seconds
-    Then I see "sample.pdf" has been added in "KPI Files" flex table
+    Then I softly see "sample.pdf" has been added in "KPI Files" flex table
     Then I softly can see row level action button "View" against "Automation.pdf" in flex table with id "---grantee_tableId:-:KPIFilesTableId---"
     Then I softly can see row level action button "Delete" against "Automation.pdf" in flex table with id "---grantee_tableId:-:KPIFilesTableId---"
     Then I softly can see row level action button "Edit" against "Automation.pdf" in flex table with id "---grantee_tableId:-:KPIFilesTableId---"
@@ -14154,8 +14169,8 @@ Feature: Grantee Smoke scenarios
     And I wait for "2" seconds
     When I navigate to "Performance" sub tab
     When I edit the following rows inline in flex table with id "---grantee_tableId:-:KPIOnProgressReport---" by clicking "Edit" :
-      | EGMS ID                | Reported Value | Reported Value As Of |
-      | Automation Runtime KPI | 10             | 1                    |
+      | EGMS ID                             | Reported Value | Reported Value As Of |
+      | {SavedValue:Automation Runtime KPI} | 10             | 1                    |
     And I click on "Submit for Approval" in the page details
     Then I softly see field "Status" as "Submitted for Approval"
 
