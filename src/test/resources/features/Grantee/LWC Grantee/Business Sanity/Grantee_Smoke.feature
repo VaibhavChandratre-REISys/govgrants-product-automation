@@ -1744,8 +1744,8 @@ Feature: Grantee Smoke scenarios
     And I navigate to "Opportunities" tab
     When I navigate to "Converted to Application" content inside "Opportunities" subheader on left panel
     And I click toggle button to select "Opportunities - All"
-    When I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:opportunitysGranteeTableId---" panel
-    And I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside flex table with id "---grantee_tableId:-:opportunitysGranteeTableId---" without waiting for record
+    When I perform quick search for "{SavedValue:Automation Runtime Opportunity}" in "---grantee_tableId:-:OpportunityConvertedToApplicationTableId---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Opportunity}" inside flex table with id "---grantee_tableId:-:OpportunityConvertedToApplicationTableId---"
     Then I softly see field "Status" as "Converted to Pre-Application"
     Then I softly can see "Overview" sub tab at view detail page
     Then I softly can see "Evaluation" sub tab at view detail page
@@ -5171,7 +5171,7 @@ Feature: Grantee Smoke scenarios
       | userType   |
       | GRANTEE PM |
 
-  @mk @440386 @ValidatePMusercancreateandActivateStrategicplan @Grantee_Smoke1
+  @440386 @ValidatePMusercancreateandActivateStrategicplan @Grantee_Smoke1
   Scenario Outline: Validate PM user can create and Activate Strategic plan
     When I login to "Grantee" app as "<userType>" user
     And I navigate to "Planning" tab
@@ -10062,7 +10062,7 @@ Feature: Grantee Smoke scenarios
       | GRANTEE ADMIN |
       | GRANTEE EXE   |
 
-  @486598 @ValidateKeyPersonalChangeARPMusershouldabletoapprovedtheARshouldabletocreateverifyactivatenewaward @Grantee_Smoke2
+  @mk @486598 @ValidateKeyPersonalChangeARPMusershouldabletoapprovedtheARshouldabletocreateverifyactivatenewaward @Grantee_Smoke2
   Scenario: Validate Key Personal Change AR PM user should able to approved the AR & should able to create verify activate new award
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default"
@@ -10134,6 +10134,7 @@ Feature: Grantee Smoke scenarios
     And I click toggle button to select "Amendment Requests - Rejected"
     When I perform quick search for "{SavedValue:KPCEGMSID}" in "---grantee_tableId:-:AmendmentTableId---" panel
     Then I softly do not see value "Created" for title "Status" inside table "---grantee_tableId:-:AmendmentTableId---"
+    And I click toggle button to select "Amendment Requests - My Records"
     And I click on "View" icon for "{SavedValue:KPCEGMSID}" inside table
     Then I see the header is "Amendment Request" in the page details
     Then I see the sub-header is "{SavedValue:Automation Runtime Opportunity}" in the page details
@@ -10190,10 +10191,13 @@ Feature: Grantee Smoke scenarios
       | Country is required to save. Enter it in the Address Information section.        |
       | Zip Code is required to save. Enter it in the Address Information section.       |
     And I click modal button "Close"
+    And I refresh the page
+    When I navigate to "Overview" sub tab
     And I click on "Edit" in the page details
     And I enter value "Checked" into field "GeneralConditionChanged__c"
     And I enter value "Checked" into field "AreTCspartofNGAAttachments__c"
     And I click on "Save" in the page details
+    And I wait for "5" seconds
     And I click on "Submit for Approval" in the page details
     Then I softly see the following messages in the page details contains:
       | Files Tab- Provide attachment in Files section with classification "Terms and Conditions" if 'Separate Attachment for Terms and Conditions' in Overview tab is selected. |
@@ -10248,11 +10252,11 @@ Feature: Grantee Smoke scenarios
     Then I softly see fields "DueDate__c" is in edit mode
     Then I softly see fields "AllowRecordEdit__c" is in edit mode
     And I click on top right button "Save" in flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---"
-    And I click on "Delete" icon for "Automation FD" inside flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---" without waiting for record
+    And I click on "Delete" icon for "Automation FD" inside flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---"
     Then I softly see the following messages in the page details contains:
       | Record deleted successfully. |
     Then I softly do not see value "Automation FD" for title "Role" inside table "---grantee_tableId:-:amendmentPeerReviewerTableId---"
-    And I click on "Send for Review" icon for "David FO" inside flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---" without waiting for record
+    And I click on "Send for Review" icon for "David FO" inside flex table with id "---grantee_tableId:-:amendmentPeerReviewerTableId---"
     And I wait for "5" seconds
     Then I softly see that "Sent for Review" has been added in flextable with Id "---grantee_tableId:-:amendmentPeerReviewerTableId---"
     And I navigate to "Files" sub tab
@@ -13642,7 +13646,7 @@ Feature: Grantee Smoke scenarios
     And I wait for "2" seconds
     Then I softly see notification "Review Opportunity #{SavedValue:opportunityEGMSID} Created for Lead #{SavedValue:FOALead}"
 
-  @mk @495297 @443859 @443900 @ValidateonlyadminEXEandPMusershouldseenewbuttontocreateKPI @Grantee_Smoke2
+  @495297 @443859 @443900 @ValidateonlyadminEXEandPMusershouldseenewbuttontocreateKPI @Grantee_Smoke2
   Scenario Outline:Validate only admin, EXE and PM user should see new button to create KPI
     When I login to "Grantee" app as "<userName>" user
     And I navigate to "Planning" tab
