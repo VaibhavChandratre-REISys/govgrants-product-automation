@@ -3504,7 +3504,7 @@ Feature: Grantee Smoke scenarios
     And I wait for "2" seconds
     Then I softly see field "Status" as "Created"
 
-  @445639 @ValidateprogressreportscheduleusercaneditprogressreportscheduleonCreatedSubmittedforreviewReviewedActivatedaward @Grantee_Smoke1
+  @mk @445639 @ValidateprogressreportscheduleusercaneditprogressreportscheduleonCreatedSubmittedforreviewReviewedActivatedaward @Grantee_Smoke1
   Scenario Outline: Validate progress report schedule user can edit progress report schedule on Created , Submitted for review, Reviewed, Activated award
     When I login to "Grantee" app as "<userType>" user
     And I navigate to "Grants" tab
@@ -3621,6 +3621,7 @@ Feature: Grantee Smoke scenarios
     Then I softly can see row level action button "Edit" against "{SavedValue:EGMS ID12}" in flex table with id "---grantee_tableId:-:financialReportProgressReportSchedules---"
     Then I softly can see row level action button "Edit" against "{SavedValue:EGMS ID13}" in flex table with id "---grantee_tableId:-:financialReportProgressReportSchedules---"
     And I save the value from row "2" for column name "Reporting Period End Date" as "ReportingPeriodEndDate" from flex table "---grantee_tableId:-:financialReportProgressReportSchedules---"
+    And I pause execution for "5" seconds
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:awardReportSchedulesTableId---" by clicking "Edit" :
       | EGMS ID               | Reporting Period Start Date | Reporting Period End Date           |
       | {SavedValue:EGMS ID1} | 17                          | 27                                  |
@@ -3630,6 +3631,7 @@ Feature: Grantee Smoke scenarios
     And I edit the following rows inline in flex table with id "---grantee_tableId:-:awardReportSchedulesTableId---" by clicking "Edit" :
       | EGMS ID               | Reporting Period Start Date | Reporting Period End Date           |
       | {SavedValue:EGMS ID1} | 15                          | 25                                  |
+    And I edit the following rows inline in flex table with id "---grantee_tableId:-:awardReportSchedulesTableId---" by clicking "Edit" :
       | {SavedValue:EGMS ID2} | 25                          | {SavedValue:ReportingPeriodEndDate} |
     Then I softly see value "{Date:M/d/yyyy::d+15}" for title "Reporting Period Start Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
     Then I softly see value "{Date:M/d/yyyy::d+25}" for title "Reporting Period End Date" inside table "---grantee_tableId:-:financialReportProgressReportSchedules---"
@@ -6629,7 +6631,7 @@ Feature: Grantee Smoke scenarios
     Then I softly see value "{SavedValue:TrackingNumber}" for title "Tracking Number" against the value "S2SReceived" inside table "---grantee_tableId:-:submissionHistoryTableId---"
     Then I can see top right button "Record Decision" in page detail
 
-  @mkk @478407 @ValidateProjectNarrativeAttachmentformPMusershouldtosubmittheapplicationtograntsgovwhenifusernotfilledtheoptionalform @Grantee_Smoke1 @GranteeP_Q4
+  @478407 @ValidateProjectNarrativeAttachmentformPMusershouldtosubmittheapplicationtograntsgovwhenifusernotfilledtheoptionalform @Grantee_Smoke1 @GranteeP_Q4
   Scenario: Project Narrative Attachment form -Verify PM user should to submit the application to grants.gov when if user not filled the optional form
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default"
@@ -7770,9 +7772,9 @@ Feature: Grantee Smoke scenarios
     Then I softly see link "Sarah PM" inside Page block
     And I click on hyperlink containing value "Victor EXE"
     Then I softly see the text containing "victor.exe@ggp.test8.ggmergeqa2"
-    And I wait for "2" seconds
+    And I wait for "5" seconds
     And I click on back arrow
-    And I wait for "2" seconds
+    And I wait for "5" seconds
     And I navigate to "Files" sub tab
     Then I softly see "Amendment Files" page block displayed
     Then I softly see "Notes" page block displayed
@@ -7806,8 +7808,10 @@ Feature: Grantee Smoke scenarios
     And I wait for "5" seconds
     And I upload attachment without random number "Attachment.pdf" of type "Terms and Conditions" from computer
     When I click modal button "Close"
+    And I refresh the page
+    And I navigate to "Files" sub tab
     And I wait for "2" seconds
-    Then I see "Terms and Conditions" has been added in "Amendment Files" flex table
+    Then I softly see "Terms and Conditions" has been added in "Amendment Files" flex table
     When I click on parallel lines menu bar with data target value "Amendment Files"
     And I wait for "2" seconds
     Then I see option "Refresh" present in parallel dropdown
@@ -7873,7 +7877,7 @@ Feature: Grantee Smoke scenarios
     Then I softly see value "Submitted for Approval" for title "New Value" inside field history table
     Then I softly see value "Reviewed" for title "Original Value" inside field history table
     And I click on back arrow
-    And I wait for "3" seconds
+    And I wait for "5" seconds
     And I refresh the page
     And I wait for "2" seconds
     When I navigate to "History" sub tab
@@ -10062,7 +10066,7 @@ Feature: Grantee Smoke scenarios
       | GRANTEE ADMIN |
       | GRANTEE EXE   |
 
-  @mk @486598 @ValidateKeyPersonalChangeARPMusershouldabletoapprovedtheARshouldabletocreateverifyactivatenewaward @Grantee_Smoke2
+  @486598 @ValidateKeyPersonalChangeARPMusershouldabletoapprovedtheARshouldabletocreateverifyactivatenewaward @Grantee_Smoke2
   Scenario: Validate Key Personal Change AR PM user should able to approved the AR & should able to create verify activate new award
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default"
