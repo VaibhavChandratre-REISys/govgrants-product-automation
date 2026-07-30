@@ -10081,7 +10081,7 @@ Feature: Grantee Smoke scenarios
       | GRANTEE ADMIN |
       | GRANTEE EXE   |
 
-  @mk @486598 @ValidateKeyPersonalChangeARPMusershouldabletoapprovedtheARshouldabletocreateverifyactivatenewaward @Grantee_Smoke2
+  @486598 @ValidateKeyPersonalChangeARPMusershouldabletoapprovedtheARshouldabletocreateverifyactivatenewaward @Grantee_Smoke2
   Scenario: Validate Key Personal Change AR PM user should able to approved the AR & should able to create verify activate new award
     Given I delete the grantee record "{grantee_testData:GrantsgovOpportunityNumberUser}"
     And I create "Grants.Gov" qualified lead for title "Automation Runtime Opportunity" and opportunity number "CAS-HHS0000660610" with properties "default"
