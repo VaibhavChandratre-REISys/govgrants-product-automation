@@ -113,7 +113,7 @@ Feature: Grantee Smoke scenarios
     Then I softly see field "Activities" as "Automation Test Description"
     When I navigate to "Related Log" sub tab
     And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:strategicObjectivesKPITableId---"
-    When I perform quick search for "Automation Runtime KPI" in "---program:-:programsTableId---" panel
+    When I perform quick search for "Automation Runtime KPI" in "---grantee_tableId:-:strategicObjectivesKPITableId---" panel
     And I save the value from row "1" for column name "Title" as "Automation Runtime KPI" from flex table "---grantee_tableId:-:strategicObjectivesKPITableId---"
     When I click "Associate" after selection of "{SavedValue:Automation Runtime KPI}" in the table "---grantee_tableId:-:objectivesSelectKPITableId---"
     When I click modal button "Close"
