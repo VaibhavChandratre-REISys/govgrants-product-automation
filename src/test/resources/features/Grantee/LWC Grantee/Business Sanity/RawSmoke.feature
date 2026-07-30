@@ -1,4 +1,4 @@
-@GranteeSmokeTestCases @GranteeTBE @granteeBusinessFlowSanity
+@GranteeSmokeTestCases_raw @GranteeTBE @granteeBusinessFlowSanity
 Feature: Grantee Smoke scenarios
 
   @440386 @ValidatePMusercancreateandActivateStrategicplan @Grantee_Smoke1
