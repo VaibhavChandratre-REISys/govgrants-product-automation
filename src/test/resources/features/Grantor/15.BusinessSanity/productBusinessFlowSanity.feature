@@ -4606,6 +4606,8 @@ Feature: Validate sanity testing of Complete Business Flow
     Then I see the following messages in the page details contains:
       | Confirmation Message |
     And I checkout to maildrop with mailid "{SavedValue:uniqueEmailID}"
+    And I wait for "190" seconds
+    And I refresh the page
     And I click on mail with subject "Sandbox: Welcome to GovGrants 3.0 Recipient Portal"
     And I navigate to reset password link
     Then I set password for the user

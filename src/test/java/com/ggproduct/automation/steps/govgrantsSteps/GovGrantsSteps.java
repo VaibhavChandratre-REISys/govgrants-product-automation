@@ -687,10 +687,10 @@ public final class GovGrantsSteps {
     @When("^I edit the following rows inline in flex table with id \"([^\"]*)\" by clicking \"([^\"]*)\" :$")
     public void editFlexTableRowsInline(String flexTableId, String editButtonName, List<List<String>> rowValues) {
         try {
-            govgrants.perform().flexTable().editFlexTableRowsInline(
-                    flexTableId,
-                    editButtonName,
-                    I.amPerforming().conversionOf().listOfListsToMapOfMaps(rowValues)
+           govgrants.perform().flexTable().editFlexTableRowsInline(
+                            flexTableId,
+                            editButtonName,
+                            I.amPerforming().conversionOf().listOfListsToMapOfMaps(rowValues)
             );
         } catch (StaleElementReferenceException stale) {
             govgrants.perform().flexTable().editFlexTableRowsInline(
