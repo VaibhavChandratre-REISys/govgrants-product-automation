@@ -68,7 +68,7 @@ Feature: Grantee Smoke scenarios
     And I upload attachment without random number "AttachmentTesting.pdf" of type "Other" from computer
     When I click modal button "Close"
     And I wait for "2" seconds
-    Then I softly see "AttachmentTesting.pdf" has been added in "Strategic GoaI Files" flex table
+    Then I see "AttachmentTesting.pdf" has been added in "Strategic GoaI Files" flex table
     And I click on "Edit" icon for "Other" inside flex table with id "---grantee_tableId:-:strategicGoalsFilesTableId---"
     And I update title as "Automation.pdf" on upload file modal
     And I select Classification as "Strategic Goal" at upload file modal
@@ -113,6 +113,8 @@ Feature: Grantee Smoke scenarios
     Then I softly see field "Activities" as "Automation Test Description"
     When I navigate to "Related Log" sub tab
     And I click on top right button "Associate" in flex table with id "---grantee_tableId:-:strategicObjectivesKPITableId---"
+    When I perform quick search for "Automation Runtime KPI" in "---program:-:programsTableId---" panel
+    And I save the value from row "1" for column name "Title" as "Automation Runtime KPI" from flex table "---grantee_tableId:-:strategicObjectivesKPITableId---"
     When I click "Associate" after selection of "{SavedValue:Automation Runtime KPI}" in the table "---grantee_tableId:-:objectivesSelectKPITableId---"
     When I click modal button "Close"
     And I refresh the page
