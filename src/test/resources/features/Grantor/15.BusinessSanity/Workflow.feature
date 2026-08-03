@@ -100,6 +100,7 @@ Feature: Validate all scenarios of every modules flow
     And I click on "View" icon for "<Program Name>" inside flex table with id "---program:-:ExternalNGOProgramTableId---" without waiting for record
     And I click on "Activate" in the page details
     Then I softly see status in Progress-bar is "Active" and is "dark blue"
+    And I halt execution
 
     Examples:
       | Program Name                                     |
@@ -2726,8 +2727,6 @@ Feature: Validate all scenarios of every modules flow
   Scenario: Check User Logins
     Given I login to "Grantor" app as "PM1" user
     And I navigate to "Planning" tab
-    And I halt execution
-    Then I softly see status in Progress-bar is "Created" and is "dark blue"
 #    When I re-login to "As a Grantor" app as "ADMIN1" user on "INTERNAL" portal
 #    And I navigate to "Planning" tab
 #    When I re-login to "Grantor" app as "PM" user on "INTERNAL" portal
@@ -2740,7 +2739,6 @@ Feature: Validate all scenarios of every modules flow
 #    And I navigate to "Planning" tab
 #    And I re-login to "Grantor" app as "FO" user on "INTERNAL" portal
 #    And I navigate to "Planning" tab
-#    And I halt execution
 #    And I re-login to "As a Grantor" app as "FO1" user on "INTERNAL" portal
 #    And I navigate to "Planning" tab
 #    And I re-login to "As a Grantor" app as "FD" user on "INTERNAL" portal
@@ -2749,7 +2747,6 @@ Feature: Validate all scenarios of every modules flow
 #    And I navigate to "Planning" tab
 #    And I re-login to "Grantor" app as "EXE" user on "INTERNAL" portal
 #    And I navigate to "Planning" tab
-#    And I halt execution
 #    And I re-login to "As a Grantor" app as "EXE1" user on "INTERNAL" portal
 #    And I navigate to "Planning" tab
 #    And I re-login to "As a Grantor" app as "AUDITOR" user on "INTERNAL" portal
@@ -2760,15 +2757,15 @@ Feature: Validate all scenarios of every modules flow
 #    And I navigate to "Grants" tab
 #    And I re-login to "Grants Portal" app as "SPA" user on "SUBPORTAL" portal
 #    And I navigate to "Grants" tab
-#    And I re-login to "Grants Portal" app as "SA" user on "SUBPORTAL" portal
-#    And I navigate to "Grants" tab
+    And I re-login to "Grants Portal" app as "SA" user on "SUBPORTAL" portal
+    And I navigate to "Grants" tab
 #    And I re-login to "Grants Portal" app as "IND" user on "SUBPORTAL" portal
 #    And I navigate to "Grants" tab
 #    And I re-login to "Grants Portal" app as "SME" user on "SUBPORTAL" portal
 #    And I navigate to "Grants" tab
 #    And I re-login to "Grants Portal" app as "SPI4" user on "SUBPORTAL" portal
 #    And I navigate to "Grants" tab
-    And I logout
+#    And I logout
 
     @testworkarounf @debug
     Scenario:

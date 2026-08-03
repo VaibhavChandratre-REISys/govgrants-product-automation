@@ -235,6 +235,9 @@ public class UsersAndURL implements UsersController {
             case "SME":
                 password = "Automation@July26";
                 break;
+            case "SPI3":
+                password = "Automation@July2026";
+                break;
             default:
                 password = "Automation!123";
         }
