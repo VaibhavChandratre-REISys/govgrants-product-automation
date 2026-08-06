@@ -1696,11 +1696,17 @@ Feature: Validate Pre-requisiste check for Sanity/Regression
 
  ##################################################################
 
+#  @mk @BulkApplicationInd @ApprovedFDMBulkRecordCreation_IND_500
+#  Scenario: Bulk Award -> Competitive Type Announcement -> Automation IND User -- Application/FDM Creation
+#    And I create application records with status "Submitted to Grantor" using "KEY_POC-Automation IND" properties for bulk records
+#      | Title          | AnnouncementName                                      | PreAppTitle |
+#      | Bulk IND App_1 | Automation Permanent Announcement for Bulk Award_Comp |             |
+
   @BulkApplicationInd @ApprovedFDMBulkRecordCreation_IND_500
   Scenario Outline: Bulk Award -> Competitive Type Announcement -> Automation IND User -- Application/FDM Creation
     And I create application records with status "Submitted to Grantor" using "KEY_POC-Automation IND" properties for bulk records
       | Title            | AnnouncementName   | PreAppTitle |
-      | Bulk IND App_1   | <AnnouncementName> |             |
+#      | Bulk IND App_1   | <AnnouncementName> |             |
       | Bulk IND App_2   | <AnnouncementName> |             |
       | Bulk IND App_3   | <AnnouncementName> |             |
       | Bulk IND App_4   | <AnnouncementName> |             |
