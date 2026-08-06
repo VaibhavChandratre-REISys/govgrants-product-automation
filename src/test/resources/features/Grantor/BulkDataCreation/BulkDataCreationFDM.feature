@@ -1,4 +1,4 @@
-@GovGrantsSanityPreRequisiteCheck @regression
+@GovGrantsSanityPreRequisiteCheck
 Feature: Validate Pre-requisiste check for Sanity/Regression
 
   @TestBulkApp
