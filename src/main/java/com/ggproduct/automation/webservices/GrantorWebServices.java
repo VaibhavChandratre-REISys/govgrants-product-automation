@@ -170,12 +170,22 @@ public class GrantorWebServices extends ProjectWebServices {
         initiateApplicationReview(projectApis.applicationReview(applicationTitle, announcementTitle, filter));
     }
 
+    public void initateApplicationReviewOnAnnouncementForBulkRecords(String applicationTitle, String announcementTitle, String filter) {
+        initiateApplicationReview(projectApis.applicationReviewForBulkRecords(applicationTitle, announcementTitle, filter));
+    }
 
     /**
      * @param applicationName name of application
      */
     public void approveDFM(String applicationName) {
         approveDFMPostCall(projectApis.defaultRequestPayroleForApprovedDFM(), applicationName);
+    }
+
+    /**
+     * @param applicationName name of application
+     */
+    public void approveDFMForBulkRecords(String applicationName) {
+        approveDFMPostCall(projectApis.defaultRequestPayroleForApprovedDFMForBulkRecords(), applicationName);
     }
 
     /**
@@ -695,5 +705,19 @@ public class GrantorWebServices extends ProjectWebServices {
 
     public void updateScheduleProgressReportRecordsWithStatusUsingProperties(String egmsId, String awardName, String status, String filter) {
         createApplicationPostCall(projectApis.payloadScheduleProgressReportUpdateForTitle(egmsId, awardName, status, filter));
+    }
+
+
+//    #Bulk
+    public void createAnnouncementRecordsWithStatusUsingPropertiesForBulkRecords(String announcementName, String programName, String type, String allocationlevel, String status, String filter) {
+        createApplicationPostCall(projectApis.payloadAnnouncementCreationForTitleForBulkRecords(announcementName, programName, type, allocationlevel,  status, filter));
+    }
+
+    public void createApplicationRecordsWithStatusUsingPropertiesForBulkRecords(String title, String announcement, String preAppTitle, String status, String filter) {
+        createApplicationPostCall(projectApis.payloadApplicationCreationForTitleForBulkRecords(title, announcement, preAppTitle, status, filter));
+    }
+
+    public void createFDMRecordsWithStatusUsingPropertiesforbulkrecords(String status, String announcementName, String applicationName, String filter) {
+        initiatePreScreenReviewPostCall(projectApis.payloadForFDMCreationForAnnouncementforbulkrecords(status, announcementName, applicationName, filter));
     }
 }

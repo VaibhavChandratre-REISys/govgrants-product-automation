@@ -480,14 +480,26 @@ public class GenericSteps {
 
     @Given("I initiated an application review for application {string} on announcement {string} with properties {string}")
     public void iInitiatedAnApplicationReviewOnAnnouncement(String applicationTitle, String announcmentTitle, String filter) {
-                I.amPerforming().waitFor().makeThreadSleep(20000); //ToDO- This API gets failed as It needs Announcement Record, So added wait time as of now
+        I.amPerforming().waitFor().makeThreadSleep(20000); //ToDO- This API gets failed as It needs Announcement Record, So added wait time as of now
         grantorWebServices.initateApplicationReviewOnAnnouncement(applicationTitle, announcmentTitle, filter);
+    }
+
+    @Given("I initiated an application review for application {string} on announcement {string} with properties {string} for bulk records")
+    public void iInitiatedAnApplicationReviewOnAnnouncementForBulkRecords(String applicationTitle, String announcmentTitle, String filter) {
+        I.amPerforming().waitFor().makeThreadSleep(20000); //ToDO- This API gets failed as It needs Announcement Record, So added wait time as of now
+        grantorWebServices.initateApplicationReviewOnAnnouncementForBulkRecords(applicationTitle, announcmentTitle, filter);
     }
 
     @Given("I created approved FDM on application {string}")
     public void iCreatedApprovedFDMWithProperties(String applicationName) {
         I.amPerforming().waitFor().makeThreadSleep(40000); //ToDO- This API gets failed as It needs Application Record, So added wait time as of now
         grantorWebServices.approveDFM(applicationName);
+    }
+
+    @Given("I created approved FDM on application {string} for bulk records")
+    public void iCreatedApprovedFDMWithPropertiesForBulkRecords(String applicationName) {
+        I.amPerforming().waitFor().makeThreadSleep(40000); //ToDO- This API gets failed as It needs Application Record, So added wait time as of now
+        grantorWebServices.approveDFMForBulkRecords(applicationName);
     }
 
 
@@ -1062,4 +1074,63 @@ public class GenericSteps {
             grantorWebServices.updateScheduleProgressReportRecordsWithStatusUsingProperties(EGMSId, awardName, status, filter);
         }
     }
+
+
+
+//    BulkRecords
+    @And("I create announcement records with status {string} using {string} properties for bulk records")
+    public void iCreateAnnouncementRecordsWithStatusUsingPropertiesForBulkRecords(String status, String filter, DataTable table) {
+        List<Map<String, String>> rows = table.asMaps();
+        for (Map<String, String> row : rows) {
+            String announcementName = row.get("AnnouncementName");
+            String programName = row.get("ProgramName");
+            String type = row.get("AnnType");
+            String allocationlevel = row.get("AllocationLevel");
+            if (announcementName.startsWith("Automation Runtime")) {
+                String newTitle = announcementName + I.amPerforming().addOnsTo().getRandomNumber();
+                I.amPerforming().propertiesFileOperationsTo().saveValue(announcementName, newTitle);
+                announcementName = newTitle;
+            }
+            grantorWebServices.createAnnouncementRecordsWithStatusUsingPropertiesForBulkRecords(announcementName, programName, type, allocationlevel, status, filter);
+        }
+    }
+
+    @And("I create application records with status {string} using {string} properties for bulk records")
+    public void iCreateApplicationRecordsWithStatusUsingPropertiesForBulkRecords(String status, String filter, DataTable table) {
+        List<Map<String, String>> rows = table.asMaps();
+        for (Map<String, String> row : rows) {
+            String title = row.get("Title");
+            String announcement = row.get("AnnouncementName");
+            String preAppTitle = row.get("PreAppTitle");
+            if (title.startsWith("Automation Runtime")) {
+                String newTitle = title + I.amPerforming().addOnsTo().getRandomNumber();
+                I.amPerforming().propertiesFileOperationsTo().saveValue(title, newTitle);
+                title = newTitle;
+            }
+            grantorWebServices.createApplicationRecordsWithStatusUsingPropertiesForBulkRecords(title, announcement, preAppTitle, status, filter);
+        }
+    }
+
+    @And("I submit review for announcements with properties {string} for bulk records")
+    public void iSubmitPreScreenReviewForAnnouncementsWithPropertiesforbulkrecords(String filter, DataTable table) {
+        List<Map<String, String>> rows = table.asMaps();
+        for (Map<String, String> row : rows) {
+            String reviewName = row.get("ReviewName");
+            String announcementName = row.get("AnnouncementName");
+            String applicationName = row.get("ApplicationName");
+            grantorWebServices.submitPreScreenReviewForAnnouncementsWithProperties(reviewName, announcementName, applicationName, filter);
+        }
+    }
+
+    @And("I create FDM records with status {string} using {string} properties for bulk records")
+    public void iCreateFDMRecordsWithStatusUsingPropertiesforbulkrecords(String status, String filter, DataTable table) {
+        List<Map<String, String>> rows = table.asMaps();
+        for (Map<String, String> row : rows) {
+            String announcementName = row.get("AnnouncementName");
+            String applicationName = row.get("ApplicationName");
+            grantorWebServices.createFDMRecordsWithStatusUsingPropertiesforbulkrecords(status, announcementName, applicationName, filter);
+        }
+    }
+
 }
+

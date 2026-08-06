@@ -2683,24 +2683,23 @@ Feature: Validate all scenarios of every modules flow
       | ReviewName | AnnouncementName                                         | ApplicationName                             |
       | SME Review | {SavedValue:Automation Runtime Announcement Application} | {SavedValue:Automation Runtime Application} |
 
-
     And I initiate management review for announcements with properties "default"
       | AnnouncementName                                         | ReviewerName             |
       | {SavedValue:Automation Runtime Announcement Application} | {SavedValue:FO Username} |
 
-#    And I submit review for announcements with properties "default"
-#      | ReviewName        | AnnouncementName                                         | ApplicationName                             |
-#      | Management Review | {SavedValue:Automation Runtime Announcement Application} | {SavedValue:Automation Runtime Application} |
+    And I submit review for announcements with properties "default"
+      | ReviewName        | AnnouncementName                                         | ApplicationName                             |
+      | Management Review | {SavedValue:Automation Runtime Announcement Application} | {SavedValue:Automation Runtime Application} |
 
 
-#    And I create FDM records with status "Created" using "default" properties
-#      | AnnouncementName                                         | ApplicationName                             |
-#      | {SavedValue:Automation Runtime Announcement Application} | {SavedValue:Automation Runtime Application} |
+    And I create FDM records with status "Created" using "default" properties
+      | AnnouncementName                                         | ApplicationName                             |
+      | {SavedValue:Automation Runtime Announcement Application} | {SavedValue:Automation Runtime Application} |
 
 
-#    And I initiate award for FDM records with properties "default"
-#      | AnnouncementName                                         | ApplicationName                             |
-#      | {SavedValue:Automation Runtime Announcement Application} | {SavedValue:Automation Runtime Application} |
+    And I initiate award for FDM records with properties "default"
+      | AnnouncementName                                         | ApplicationName                             |
+      | {SavedValue:Automation Runtime Announcement Application} | {SavedValue:Automation Runtime Application} |
 
 
 
