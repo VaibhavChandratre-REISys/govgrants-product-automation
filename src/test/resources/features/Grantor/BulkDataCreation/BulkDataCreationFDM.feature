@@ -1,15 +1,17 @@
 @GovGrantsSanityPreRequisiteCheck @regression
 Feature: Validate Pre-requisiste check for Sanity/Regression
 
-################# Competitive ################
+  @TestBulkApp
+  Scenario: Test Ann
+    And I create announcement records with status "Published" using "default" properties
+      | AnnouncementName                                      | ProgramName                                            | AnnType     | AllocationLevel |
+      | Automation Permanent Announcement for Bulk Award_Comp | Automation Permanent Internal Program for Bulk Records | Competitive | N/A             |
 
   @ApprovedFDMBulkRecordCreation_SPI_1500_Ann
   Scenario: Bulk Award -> Competitive Type Announcement -> Automation SPI3 User -- Ann Creation
     And I create announcement records with status "Published" using "default" properties for bulk records
       | AnnouncementName                                      | ProgramName                                            | AnnType     | AllocationLevel |
       | Automation Permanent Announcement for Bulk Award_Comp | Automation Permanent Internal Program for Bulk Records | Competitive | N/A             |
-
-
 
   @BulkApplication @ApprovedFDMBulkRecordCreation_SPI_1500
   Scenario Outline: Bulk Award -> Competitive Type Announcement -> Automation SPI3 User -- Application/FDM Records Creation
