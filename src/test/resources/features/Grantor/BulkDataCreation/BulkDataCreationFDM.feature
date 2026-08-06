@@ -11,7 +11,7 @@ Feature: Validate Pre-requisiste check for Sanity/Regression
 
 
 
-  @Bulk@ApprovedFDMBulkRecordCreation_SPI_1500
+  @BulkApplication @ApprovedFDMBulkRecordCreation_SPI_1500
   Scenario Outline: Bulk Award -> Competitive Type Announcement -> Automation SPI3 User -- Application/FDM Records Creation
     And I create application records with status "Submitted to Grantor" using "default" properties for bulk records
       | Title            | AnnouncementName   | PreAppTitle |
