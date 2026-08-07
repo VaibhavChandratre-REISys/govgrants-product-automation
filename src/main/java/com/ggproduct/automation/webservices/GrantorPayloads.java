@@ -10289,7 +10289,7 @@ public class GrantorPayloads {
 //        budget2.add("body", budgetBody2);
 //        compositeRequest.add(budget2);
 
-       /* // -------- buildUpItems --------
+        // -------- buildUpItems --------
         JsonArray buildUpItems = new JsonArray();
 
         // -------- buildUpItem1 --------
@@ -10322,7 +10322,7 @@ public class GrantorPayloads {
 
         buildUpItems.add(buildUpItem2);
 
-        graph.add("buildUpItems", buildUpItems);*/
+        graph.add("buildUpItems", buildUpItems);
 
         // -------- KeyOutcome__c --------
         JsonObject keyOutcome = new JsonObject();

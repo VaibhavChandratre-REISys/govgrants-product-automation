@@ -1795,7 +1795,7 @@ Feature: Validate Pre-requisiste check for Sanity/Regression
       | Automation Permanent Announcement for Bulk Award_Comp |
 
 
-  @mk @SubmitApp @ApprovedFDMBulkRecordCreation_SPI_1500
+  @SubmitApp @ApprovedFDMBulkRecordCreation_SPI_1500
   Scenario Outline: Bulk Award -> Competitive Type Announcement -> Automation SPI3 User -- Application/FDM Records Creation
     And I create application records with status "Submitted to Grantor" using "default" properties for bulk records
       | Title             | AnnouncementName   | PreAppTitle |
@@ -3808,12 +3808,16 @@ Feature: Validate Pre-requisiste check for Sanity/Regression
 
   @mk @PrescreenReview @ApprovedFDMBulkRecordCreation_SPI_1500
   Scenario Outline: Bulk Award -> Competitive Type Announcement -> PrescreenReview
-    And I Initiated application review for multiple records on announcement
-      | AnnouncementName   |
-      | <AnnouncementName> |
-    And I initiate pre-screen review for announcements with properties "default"
-      | AnnouncementName   | ReviewerName             |
-      | <AnnouncementName> | {SavedValue:FO Username} |
+#    And I Initiated application review for multiple records on announcement
+#      | AnnouncementName   |
+#      | <AnnouncementName> |
+#    And I initiate pre-screen review for announcements with properties "default"
+#      | AnnouncementName   | ReviewerName             |
+#      | <AnnouncementName> | {SavedValue:FO Username} |
+
+    And I submit review for announcements with properties "default" for bulk records
+      | ReviewName        | AnnouncementName   | ApplicationName   |
+      | Pre-Screen Review | <AnnouncementName> | Bulk SPI App_1    |
 
     And I submit review for announcements with properties "default" for bulk records
       | ReviewName        | AnnouncementName   | ApplicationName   |
