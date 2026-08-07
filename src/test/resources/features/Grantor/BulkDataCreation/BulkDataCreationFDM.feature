@@ -1723,71 +1723,71 @@ Feature: Validate Pre-requisiste check for Sanity/Regression
 #      | Bulk SPI App_199 | <AnnouncementName> |             |
 #      | Bulk SPI App_200 | <AnnouncementName> |             |
 
-    And I Initiated application review for multiple records on announcement
-      | AnnouncementName   |
-      | <AnnouncementName> |
-    And I initiate pre-screen review for announcements with properties "default"
-      | AnnouncementName   | ReviewerName             |
-      | <AnnouncementName> | {SavedValue:FO Username} |
-
-    And I submit review for announcements with properties "default" for bulk records
-      | ReviewName        | AnnouncementName   | ApplicationName  |
-      | Pre-Screen Review | <AnnouncementName> | Bulk SPI App_101 |
-      | Pre-Screen Review | <AnnouncementName> | Bulk SPI App_102 |
-      | Pre-Screen Review | <AnnouncementName> | Bulk SPI App_103 |
-      | Pre-Screen Review | <AnnouncementName> | Bulk SPI App_104 |
-      | Pre-Screen Review | <AnnouncementName> | Bulk SPI App_105 |
-      | Pre-Screen Review | <AnnouncementName> | Bulk SPI App_106 |
-      | Pre-Screen Review | <AnnouncementName> | Bulk SPI App_107 |
-      | Pre-Screen Review | <AnnouncementName> | Bulk SPI App_108 |
-      | Pre-Screen Review | <AnnouncementName> | Bulk SPI App_109 |
-      | Pre-Screen Review | <AnnouncementName> | Bulk SPI App_110 |
-
-    And I initiate SME review for announcements with properties "default"
-      | AnnouncementName   | ReviewerName             | ReviewerName2             | ReviewerName3            |
-      | <AnnouncementName> | {SavedValue:FO Username} | {SavedValue:EXE Username} | {SavedValue:PM Username} |
-
-    And I submit review for announcements with properties "default" for bulk records
-      | ReviewName | AnnouncementName   | ApplicationName  |
-      | SME Review | <AnnouncementName> | Bulk SPI App_101 |
-      | SME Review | <AnnouncementName> | Bulk SPI App_102 |
-      | SME Review | <AnnouncementName> | Bulk SPI App_103 |
-      | SME Review | <AnnouncementName> | Bulk SPI App_104 |
-      | SME Review | <AnnouncementName> | Bulk SPI App_105 |
-      | SME Review | <AnnouncementName> | Bulk SPI App_106 |
-      | SME Review | <AnnouncementName> | Bulk SPI App_107 |
-      | SME Review | <AnnouncementName> | Bulk SPI App_108 |
-      | SME Review | <AnnouncementName> | Bulk SPI App_109 |
-      | SME Review | <AnnouncementName> | Bulk SPI App_110 |
-
-    And I initiate management review for announcements with properties "default"
-      | AnnouncementName   | ReviewerName             |
-      | <AnnouncementName> | {SavedValue:FO Username} |
-    And I submit review for announcements with properties "default" for bulk records
-      | ReviewName        | AnnouncementName   | ApplicationName  |
-      | Management Review | <AnnouncementName> | Bulk SPI App_101 |
-      | Management Review | <AnnouncementName> | Bulk SPI App_102 |
-      | Management Review | <AnnouncementName> | Bulk SPI App_103 |
-      | Management Review | <AnnouncementName> | Bulk SPI App_104 |
-      | Management Review | <AnnouncementName> | Bulk SPI App_105 |
-      | Management Review | <AnnouncementName> | Bulk SPI App_106 |
-      | Management Review | <AnnouncementName> | Bulk SPI App_107 |
-      | Management Review | <AnnouncementName> | Bulk SPI App_108 |
-      | Management Review | <AnnouncementName> | Bulk SPI App_109 |
-      | Management Review | <AnnouncementName> | Bulk SPI App_110 |
-
-    And I create FDM records with status "Created" using "default" properties for bulk records
-      | AnnouncementName   | ApplicationName  |
-      | <AnnouncementName> | Bulk SPI App_101 |
-      | <AnnouncementName> | Bulk SPI App_102 |
-      | <AnnouncementName> | Bulk SPI App_103 |
-      | <AnnouncementName> | Bulk SPI App_104 |
-      | <AnnouncementName> | Bulk SPI App_105 |
-      | <AnnouncementName> | Bulk SPI App_106 |
-      | <AnnouncementName> | Bulk SPI App_107 |
-      | <AnnouncementName> | Bulk SPI App_108 |
-      | <AnnouncementName> | Bulk SPI App_109 |
-      | <AnnouncementName> | Bulk SPI App_110 |
+#    And I Initiated application review for multiple records on announcement
+#      | AnnouncementName   |
+#      | <AnnouncementName> |
+#    And I initiate pre-screen review for announcements with properties "default"
+#      | AnnouncementName   | ReviewerName             |
+#      | <AnnouncementName> | {SavedValue:FO Username} |
+#
+#    And I submit review for announcements with properties "default" for bulk records
+#      | ReviewName        | AnnouncementName   | ApplicationName  |
+#      | Pre-Screen Review | <AnnouncementName> | Bulk SPI App_101 |
+#      | Pre-Screen Review | <AnnouncementName> | Bulk SPI App_102 |
+#      | Pre-Screen Review | <AnnouncementName> | Bulk SPI App_103 |
+#      | Pre-Screen Review | <AnnouncementName> | Bulk SPI App_104 |
+#      | Pre-Screen Review | <AnnouncementName> | Bulk SPI App_105 |
+#      | Pre-Screen Review | <AnnouncementName> | Bulk SPI App_106 |
+#      | Pre-Screen Review | <AnnouncementName> | Bulk SPI App_107 |
+#      | Pre-Screen Review | <AnnouncementName> | Bulk SPI App_108 |
+#      | Pre-Screen Review | <AnnouncementName> | Bulk SPI App_109 |
+#      | Pre-Screen Review | <AnnouncementName> | Bulk SPI App_110 |
+#
+#    And I initiate SME review for announcements with properties "default"
+#      | AnnouncementName   | ReviewerName             | ReviewerName2             | ReviewerName3            |
+#      | <AnnouncementName> | {SavedValue:FO Username} | {SavedValue:EXE Username} | {SavedValue:PM Username} |
+#
+#    And I submit review for announcements with properties "default" for bulk records
+#      | ReviewName | AnnouncementName   | ApplicationName  |
+#      | SME Review | <AnnouncementName> | Bulk SPI App_101 |
+#      | SME Review | <AnnouncementName> | Bulk SPI App_102 |
+#      | SME Review | <AnnouncementName> | Bulk SPI App_103 |
+#      | SME Review | <AnnouncementName> | Bulk SPI App_104 |
+#      | SME Review | <AnnouncementName> | Bulk SPI App_105 |
+#      | SME Review | <AnnouncementName> | Bulk SPI App_106 |
+#      | SME Review | <AnnouncementName> | Bulk SPI App_107 |
+#      | SME Review | <AnnouncementName> | Bulk SPI App_108 |
+#      | SME Review | <AnnouncementName> | Bulk SPI App_109 |
+#      | SME Review | <AnnouncementName> | Bulk SPI App_110 |
+#
+#    And I initiate management review for announcements with properties "default"
+#      | AnnouncementName   | ReviewerName             |
+#      | <AnnouncementName> | {SavedValue:FO Username} |
+#    And I submit review for announcements with properties "default" for bulk records
+#      | ReviewName        | AnnouncementName   | ApplicationName  |
+#      | Management Review | <AnnouncementName> | Bulk SPI App_101 |
+#      | Management Review | <AnnouncementName> | Bulk SPI App_102 |
+#      | Management Review | <AnnouncementName> | Bulk SPI App_103 |
+#      | Management Review | <AnnouncementName> | Bulk SPI App_104 |
+#      | Management Review | <AnnouncementName> | Bulk SPI App_105 |
+#      | Management Review | <AnnouncementName> | Bulk SPI App_106 |
+#      | Management Review | <AnnouncementName> | Bulk SPI App_107 |
+#      | Management Review | <AnnouncementName> | Bulk SPI App_108 |
+#      | Management Review | <AnnouncementName> | Bulk SPI App_109 |
+#      | Management Review | <AnnouncementName> | Bulk SPI App_110 |
+#
+#    And I create FDM records with status "Created" using "default" properties for bulk records
+#      | AnnouncementName   | ApplicationName  |
+#      | <AnnouncementName> | Bulk SPI App_101 |
+#      | <AnnouncementName> | Bulk SPI App_102 |
+#      | <AnnouncementName> | Bulk SPI App_103 |
+#      | <AnnouncementName> | Bulk SPI App_104 |
+#      | <AnnouncementName> | Bulk SPI App_105 |
+#      | <AnnouncementName> | Bulk SPI App_106 |
+#      | <AnnouncementName> | Bulk SPI App_107 |
+#      | <AnnouncementName> | Bulk SPI App_108 |
+#      | <AnnouncementName> | Bulk SPI App_109 |
+#      | <AnnouncementName> | Bulk SPI App_110 |
 
 
     Examples:
