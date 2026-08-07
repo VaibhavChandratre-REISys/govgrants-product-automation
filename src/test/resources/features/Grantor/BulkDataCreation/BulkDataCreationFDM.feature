@@ -1590,37 +1590,39 @@ Feature: Validate Pre-requisiste check for Sanity/Regression
       | Bulk SPI App_67  | <AnnouncementName> |             |
       | Bulk SPI App_68  | <AnnouncementName> |             |
       | Bulk SPI App_69  | <AnnouncementName> |             |
-      | Bulk SPI App_70  | <AnnouncementName> |             |
-      | Bulk SPI App_71  | <AnnouncementName> |             |
-      | Bulk SPI App_72  | <AnnouncementName> |             |
-      | Bulk SPI App_73  | <AnnouncementName> |             |
-      | Bulk SPI App_74  | <AnnouncementName> |             |
-      | Bulk SPI App_75  | <AnnouncementName> |             |
-      | Bulk SPI App_76  | <AnnouncementName> |             |
-      | Bulk SPI App_77  | <AnnouncementName> |             |
-      | Bulk SPI App_78  | <AnnouncementName> |             |
-      | Bulk SPI App_79  | <AnnouncementName> |             |
-      | Bulk SPI App_80  | <AnnouncementName> |             |
-      | Bulk SPI App_81  | <AnnouncementName> |             |
-      | Bulk SPI App_82  | <AnnouncementName> |             |
-      | Bulk SPI App_83  | <AnnouncementName> |             |
-      | Bulk SPI App_84  | <AnnouncementName> |             |
-      | Bulk SPI App_85  | <AnnouncementName> |             |
-      | Bulk SPI App_86  | <AnnouncementName> |             |
-      | Bulk SPI App_87  | <AnnouncementName> |             |
-      | Bulk SPI App_88  | <AnnouncementName> |             |
-      | Bulk SPI App_89  | <AnnouncementName> |             |
-      | Bulk SPI App_90  | <AnnouncementName> |             |
-      | Bulk SPI App_91  | <AnnouncementName> |             |
-      | Bulk SPI App_92  | <AnnouncementName> |             |
-      | Bulk SPI App_93  | <AnnouncementName> |             |
-      | Bulk SPI App_94  | <AnnouncementName> |             |
-      | Bulk SPI App_95  | <AnnouncementName> |             |
-      | Bulk SPI App_96  | <AnnouncementName> |             |
-      | Bulk SPI App_97  | <AnnouncementName> |             |
-      | Bulk SPI App_98  | <AnnouncementName> |             |
-      | Bulk SPI App_99  | <AnnouncementName> |             |
-      | Bulk SPI App_100 | <AnnouncementName> |             |
+
+
+#      | Bulk SPI App_70  | <AnnouncementName> |             |
+#      | Bulk SPI App_71  | <AnnouncementName> |             |
+#      | Bulk SPI App_72  | <AnnouncementName> |             |
+#      | Bulk SPI App_73  | <AnnouncementName> |             |
+#      | Bulk SPI App_74  | <AnnouncementName> |             |
+#      | Bulk SPI App_75  | <AnnouncementName> |             |
+#      | Bulk SPI App_76  | <AnnouncementName> |             |
+#      | Bulk SPI App_77  | <AnnouncementName> |             |
+#      | Bulk SPI App_78  | <AnnouncementName> |             |
+#      | Bulk SPI App_79  | <AnnouncementName> |             |
+#      | Bulk SPI App_80  | <AnnouncementName> |             |
+#      | Bulk SPI App_81  | <AnnouncementName> |             |
+#      | Bulk SPI App_82  | <AnnouncementName> |             |
+#      | Bulk SPI App_83  | <AnnouncementName> |             |
+#      | Bulk SPI App_84  | <AnnouncementName> |             |
+#      | Bulk SPI App_85  | <AnnouncementName> |             |
+#      | Bulk SPI App_86  | <AnnouncementName> |             |
+#      | Bulk SPI App_87  | <AnnouncementName> |             |
+#      | Bulk SPI App_88  | <AnnouncementName> |             |
+#      | Bulk SPI App_89  | <AnnouncementName> |             |
+#      | Bulk SPI App_90  | <AnnouncementName> |             |
+#      | Bulk SPI App_91  | <AnnouncementName> |             |
+#      | Bulk SPI App_92  | <AnnouncementName> |             |
+#      | Bulk SPI App_93  | <AnnouncementName> |             |
+#      | Bulk SPI App_94  | <AnnouncementName> |             |
+#      | Bulk SPI App_95  | <AnnouncementName> |             |
+#      | Bulk SPI App_96  | <AnnouncementName> |             |
+#      | Bulk SPI App_97  | <AnnouncementName> |             |
+#      | Bulk SPI App_98  | <AnnouncementName> |             |
+#      | Bulk SPI App_99  | <AnnouncementName> |             |
+#      | Bulk SPI App_100 | <AnnouncementName> |             |
 
 #      | Bulk SPI App_101 | <AnnouncementName> |             |
 #      | Bulk SPI App_102 | <AnnouncementName> |             |
