@@ -1517,82 +1517,84 @@ Feature: Validate Pre-requisiste check for Sanity/Regression
       | Automation Permanent Announcement for Bulk Award_Comp |
 
 
-  @SubmitApp @ApprovedFDMBulkRecordCreation_SPI_1500
+  @mk @SubmitApp @ApprovedFDMBulkRecordCreation_SPI_1500
   Scenario Outline: Bulk Award -> Competitive Type Announcement -> Automation SPI3 User -- Application/FDM Records Creation
     And I create application records with status "Submitted to Grantor" using "default" properties for bulk records
       | Title            | AnnouncementName   | PreAppTitle |
-      | Bulk SPI App_1   | <AnnouncementName> |             |
-      | Bulk SPI App_2   | <AnnouncementName> |             |
-      | Bulk SPI App_3   | <AnnouncementName> |             |
-      | Bulk SPI App_4   | <AnnouncementName> |             |
-      | Bulk SPI App_5   | <AnnouncementName> |             |
-      | Bulk SPI App_6   | <AnnouncementName> |             |
-      | Bulk SPI App_7   | <AnnouncementName> |             |
-#      | Bulk SPI App_8   | <AnnouncementName> |             |
-      | Bulk SPI App_9   | <AnnouncementName> |             |
-      | Bulk SPI App_10  | <AnnouncementName> |             |
-      | Bulk SPI App_11  | <AnnouncementName> |             |
-      | Bulk SPI App_12  | <AnnouncementName> |             |
-      | Bulk SPI App_13  | <AnnouncementName> |             |
-      | Bulk SPI App_14  | <AnnouncementName> |             |
-      | Bulk SPI App_15  | <AnnouncementName> |             |
-      | Bulk SPI App_16  | <AnnouncementName> |             |
-      | Bulk SPI App_17  | <AnnouncementName> |             |
-      | Bulk SPI App_18  | <AnnouncementName> |             |
-      | Bulk SPI App_19  | <AnnouncementName> |             |
-      | Bulk SPI App_20  | <AnnouncementName> |             |
-      | Bulk SPI App_21  | <AnnouncementName> |             |
-      | Bulk SPI App_22  | <AnnouncementName> |             |
-      | Bulk SPI App_23  | <AnnouncementName> |             |
-      | Bulk SPI App_24  | <AnnouncementName> |             |
-      | Bulk SPI App_25  | <AnnouncementName> |             |
-      | Bulk SPI App_26  | <AnnouncementName> |             |
-      | Bulk SPI App_27  | <AnnouncementName> |             |
-      | Bulk SPI App_28  | <AnnouncementName> |             |
-      | Bulk SPI App_29  | <AnnouncementName> |             |
-      | Bulk SPI App_30  | <AnnouncementName> |             |
-      | Bulk SPI App_31  | <AnnouncementName> |             |
-      | Bulk SPI App_32  | <AnnouncementName> |             |
-      | Bulk SPI App_33  | <AnnouncementName> |             |
-      | Bulk SPI App_34  | <AnnouncementName> |             |
-      | Bulk SPI App_35  | <AnnouncementName> |             |
-      | Bulk SPI App_36  | <AnnouncementName> |             |
-      | Bulk SPI App_37  | <AnnouncementName> |             |
-      | Bulk SPI App_38  | <AnnouncementName> |             |
-      | Bulk SPI App_39  | <AnnouncementName> |             |
-      | Bulk SPI App_40  | <AnnouncementName> |             |
-      | Bulk SPI App_41  | <AnnouncementName> |             |
-      | Bulk SPI App_42  | <AnnouncementName> |             |
-      | Bulk SPI App_43  | <AnnouncementName> |             |
-      | Bulk SPI App_44  | <AnnouncementName> |             |
-      | Bulk SPI App_45  | <AnnouncementName> |             |
-      | Bulk SPI App_46  | <AnnouncementName> |             |
-      | Bulk SPI App_47  | <AnnouncementName> |             |
-      | Bulk SPI App_48  | <AnnouncementName> |             |
-      | Bulk SPI App_49  | <AnnouncementName> |             |
-      | Bulk SPI App_50  | <AnnouncementName> |             |
-      | Bulk SPI App_51  | <AnnouncementName> |             |
-      | Bulk SPI App_52  | <AnnouncementName> |             |
-      | Bulk SPI App_53  | <AnnouncementName> |             |
-      | Bulk SPI App_54  | <AnnouncementName> |             |
-      | Bulk SPI App_55  | <AnnouncementName> |             |
-      | Bulk SPI App_56  | <AnnouncementName> |             |
-      | Bulk SPI App_57  | <AnnouncementName> |             |
-      | Bulk SPI App_58  | <AnnouncementName> |             |
-      | Bulk SPI App_59  | <AnnouncementName> |             |
-      | Bulk SPI App_60  | <AnnouncementName> |             |
-      | Bulk SPI App_61  | <AnnouncementName> |             |
-      | Bulk SPI App_62  | <AnnouncementName> |             |
-      | Bulk SPI App_63  | <AnnouncementName> |             |
-      | Bulk SPI App_64  | <AnnouncementName> |             |
-      | Bulk SPI App_65  | <AnnouncementName> |             |
-      | Bulk SPI App_66  | <AnnouncementName> |             |
-      | Bulk SPI App_67  | <AnnouncementName> |             |
-      | Bulk SPI App_68  | <AnnouncementName> |             |
-      | Bulk SPI App_69  | <AnnouncementName> |             |
+#      | Bulk SPI App_1   | <AnnouncementName> |             |
+#      | Bulk SPI App_2   | <AnnouncementName> |             |
+#      | Bulk SPI App_3   | <AnnouncementName> |             |
+#      | Bulk SPI App_4   | <AnnouncementName> |             |
+#      | Bulk SPI App_5   | <AnnouncementName> |             |
+#      | Bulk SPI App_6   | <AnnouncementName> |             |
+#      | Bulk SPI App_7   | <AnnouncementName> |             |
+##      | Bulk SPI App_8   | <AnnouncementName> |             |
+#      | Bulk SPI App_9   | <AnnouncementName> |             |
+#      | Bulk SPI App_10  | <AnnouncementName> |             |
+#      | Bulk SPI App_11  | <AnnouncementName> |             |
+#      | Bulk SPI App_12  | <AnnouncementName> |             |
+#      | Bulk SPI App_13  | <AnnouncementName> |             |
+#      | Bulk SPI App_14  | <AnnouncementName> |             |
+#      | Bulk SPI App_15  | <AnnouncementName> |             |
+#      | Bulk SPI App_16  | <AnnouncementName> |             |
+#      | Bulk SPI App_17  | <AnnouncementName> |             |
+#      | Bulk SPI App_18  | <AnnouncementName> |             |
+#      | Bulk SPI App_19  | <AnnouncementName> |             |
+#      | Bulk SPI App_20  | <AnnouncementName> |             |
+#      | Bulk SPI App_21  | <AnnouncementName> |             |
+#      | Bulk SPI App_22  | <AnnouncementName> |             |
+#      | Bulk SPI App_23  | <AnnouncementName> |             |
+#      | Bulk SPI App_24  | <AnnouncementName> |             |
+#      | Bulk SPI App_25  | <AnnouncementName> |             |
+#      | Bulk SPI App_26  | <AnnouncementName> |             |
+#      | Bulk SPI App_27  | <AnnouncementName> |             |
+#      | Bulk SPI App_28  | <AnnouncementName> |             |
+#      | Bulk SPI App_29  | <AnnouncementName> |             |
+#      | Bulk SPI App_30  | <AnnouncementName> |             |
+#      | Bulk SPI App_31  | <AnnouncementName> |             |
+#      | Bulk SPI App_32  | <AnnouncementName> |             |
+#      | Bulk SPI App_33  | <AnnouncementName> |             |
+#      | Bulk SPI App_34  | <AnnouncementName> |             |
+#      | Bulk SPI App_35  | <AnnouncementName> |             |
+#      | Bulk SPI App_36  | <AnnouncementName> |             |
+#      | Bulk SPI App_37  | <AnnouncementName> |             |
+#      | Bulk SPI App_38  | <AnnouncementName> |             |
+#      | Bulk SPI App_39  | <AnnouncementName> |             |
+#      | Bulk SPI App_40  | <AnnouncementName> |             |
+#      | Bulk SPI App_41  | <AnnouncementName> |             |
+#      | Bulk SPI App_42  | <AnnouncementName> |             |
+#      | Bulk SPI App_43  | <AnnouncementName> |             |
+#      | Bulk SPI App_44  | <AnnouncementName> |             |
+#      | Bulk SPI App_45  | <AnnouncementName> |             |
+#      | Bulk SPI App_46  | <AnnouncementName> |             |
+#      | Bulk SPI App_47  | <AnnouncementName> |             |
+#      | Bulk SPI App_48  | <AnnouncementName> |             |
+#      | Bulk SPI App_49  | <AnnouncementName> |             |
+#      | Bulk SPI App_50  | <AnnouncementName> |             |
+#      | Bulk SPI App_51  | <AnnouncementName> |             |
+#      | Bulk SPI App_52  | <AnnouncementName> |             |
+#      | Bulk SPI App_53  | <AnnouncementName> |             |
+#      | Bulk SPI App_54  | <AnnouncementName> |             |
+#      | Bulk SPI App_55  | <AnnouncementName> |             |
+#      | Bulk SPI App_56  | <AnnouncementName> |             |
+#      | Bulk SPI App_57  | <AnnouncementName> |             |
+#      | Bulk SPI App_58  | <AnnouncementName> |             |
+#      | Bulk SPI App_59  | <AnnouncementName> |             |
+#      | Bulk SPI App_60  | <AnnouncementName> |             |
+#      | Bulk SPI App_61  | <AnnouncementName> |             |
+#      | Bulk SPI App_62  | <AnnouncementName> |             |
+#      | Bulk SPI App_63  | <AnnouncementName> |             |
+#      | Bulk SPI App_64  | <AnnouncementName> |             |
+#      | Bulk SPI App_65  | <AnnouncementName> |             |
+#      | Bulk SPI App_66  | <AnnouncementName> |             |
+#      | Bulk SPI App_67  | <AnnouncementName> |             |
+#      | Bulk SPI App_68  | <AnnouncementName> |             |
+#      | Bulk SPI App_69  | <AnnouncementName> |             |
 
 
-#      | Bulk SPI App_70  | <AnnouncementName> |             |
+      | Bulk SPI App_70  | <AnnouncementName> |             |
+
+
 #      | Bulk SPI App_71  | <AnnouncementName> |             |
 #      | Bulk SPI App_72  | <AnnouncementName> |             |
 #      | Bulk SPI App_73  | <AnnouncementName> |             |
@@ -1797,7 +1799,7 @@ Feature: Validate Pre-requisiste check for Sanity/Regression
       | Automation Permanent Announcement for Bulk Award_Comp |
 
 
-  @mk @PrescreenReview @ApprovedFDMBulkRecordCreation_SPI_1500
+  @mkk @PrescreenReview @ApprovedFDMBulkRecordCreation_SPI_1500
   Scenario Outline: Bulk Award -> Competitive Type Announcement -> PrescreenReview
     And I Initiated application review for multiple records on announcement
       | AnnouncementName   |
