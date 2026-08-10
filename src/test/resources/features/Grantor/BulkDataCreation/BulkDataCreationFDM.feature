@@ -3806,7 +3806,7 @@ Feature: Validate Pre-requisiste check for Sanity/Regression
       | Automation Permanent Announcement for Bulk Award_Comp |
 
 
-  @mk @PrescreenReview @ApprovedFDMBulkRecordCreation_SPI_1500
+  @PrescreenReview @ApprovedFDMBulkRecordCreation_SPI_1500
   Scenario Outline: Bulk Award -> Competitive Type Announcement -> PrescreenReview
 #    And I Initiated application review for multiple records on announcement
 #      | AnnouncementName   |
@@ -12921,22 +12921,22 @@ Feature: Validate Pre-requisiste check for Sanity/Regression
       | AnnouncementName                                      |
       | Automation Permanent Announcement for Bulk Award_Comp |
 
-################################################################
+############################### Directed #################################
 
 
-  @mkk @TestBulkApp
+  @mk @TestBulkApp
   Scenario Outline: Test Ann
-#    And I create announcement records with status "Published" using "default" properties for bulk records
-#      | AnnouncementName                                | ProgramName                                            | AnnType     | AllocationLevel |
-#      | Automation Runtime Announcement for Bulk Record | Automation Permanent Internal Program for Bulk Records | Competitive | N/A             |
+    And I create announcement records with status "Published" using "default" properties for bulk records
+      | AnnouncementName                                | ProgramName                                            | AnnType     | AllocationLevel |
+      | Automation Runtime Announcement for Bulk Record | Automation Permanent Internal Program for Bulk Records | Directed | N/A             |
 
     And I create application records with status "Submitted to Grantor" using "default" properties for bulk records
       | Title       | AnnouncementName   | PreAppTitle |
-#      | Bulk App_1 | <AnnouncementName> |             |
-#      | Bulk App_2 | <AnnouncementName> |             |
-#      | Bulk App_3 | <AnnouncementName> |             |
-#      | Bulk App_4 | <AnnouncementName> |             |
-#      | Bulk App_5 | <AnnouncementName> |             |
+      | Bulk App_1 | <AnnouncementName> |             |
+      | Bulk App_2 | <AnnouncementName> |             |
+      | Bulk App_3 | <AnnouncementName> |             |
+      | Bulk App_4 | <AnnouncementName> |             |
+      | Bulk App_5 | <AnnouncementName> |             |
       | Bulk App_6  | <AnnouncementName> |             |
       | Bulk App_7  | <AnnouncementName> |             |
       | Bulk App_8  | <AnnouncementName> |             |
