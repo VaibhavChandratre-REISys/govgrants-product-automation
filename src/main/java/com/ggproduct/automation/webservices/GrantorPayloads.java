@@ -9901,7 +9901,7 @@ public class GrantorPayloads {
         announcementBody.addProperty("KPIsRequired__c", "Yes");
         announcementBody.addProperty("IsMatchRequired__c", "Yes");
         announcementBody.addProperty("LaverageAllowed__c", "No");
-        announcementBody.addProperty("RiskAssessment_Required__c", "Yes");
+        announcementBody.addProperty("RiskAssessment_Required__c", "No");
         announcementBody.addProperty("IsProgramIncomeAnticipated__c", "No");
         announcementBody.addProperty("Allocationlevel__c", allocationlevel);
         announcementBody.addProperty("PublishToGrantsGov__c", "No");
